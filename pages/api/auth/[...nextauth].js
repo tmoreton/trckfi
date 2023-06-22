@@ -19,6 +19,9 @@ const authOptions = {
       from: process.env.EMAIL_ADDRESS
     })
   ],
+  theme: {
+    colorScheme: "light",
+  },
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
 }
