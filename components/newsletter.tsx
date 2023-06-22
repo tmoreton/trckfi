@@ -8,10 +8,11 @@ const Newsletter = () => {
 
   const subscribe = async (e) => {
     e.preventDefault()
+    const email = inputEl.current.value
 
-    const res = await fetch(`/api/nodemailer`, {
+    const res = await fetch(`/api/create_user`, {
       body: JSON.stringify({
-        email: inputEl.current.value,
+        email: email,
       }),
       headers: {
         'Content-Type': 'application/json',

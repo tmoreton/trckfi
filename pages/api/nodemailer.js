@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer')
+import prisma from '../../lib/prisma';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
@@ -15,8 +16,8 @@ export default async (req, res) => {
   const message = {
     from: process.env.EMAIL_ADDRESS,
     to: 'tmoreton89@gmail.com',
-    subject: `Trcki Newsletter Signup: ${req.body.email}`,
-    html: `<p>${req.body.email} signed up for the trckfi newsletter</p>`,
+    subject: `Trcki Newsletter Signup: ${email}`,
+    html: `<p>${email} signed up for the trckfi newsletter</p>`,
   }
 
   let transporter = nodemailer.createTransport({
