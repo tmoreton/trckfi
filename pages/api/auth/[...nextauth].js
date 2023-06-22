@@ -16,7 +16,7 @@ const authOptions = {
           pass: process.env.EMAIL_PASSWORD
         }
       },
-      from: process.env.EMAIL_ADDRESS
+      from: 'noreply@trckfi.com'
     })
   ],
   theme: {

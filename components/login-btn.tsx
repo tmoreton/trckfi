@@ -5,8 +5,9 @@ export default function Login() {
   const { data: session } = useSession()
   if (session) {
     return (
-      <div className="hidden lg:flex lg:gap-x-12">
+      <div>
         <b>{session.user.email}</b>
+        <br/>
         <button onClick={() => signOut()}>Sign out</button>
       </div>
     )
