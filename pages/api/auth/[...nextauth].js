@@ -9,14 +9,14 @@ const authOptions = {
   providers: [
     EmailProvider({
       server: {
-        host: process.env.EMAIL_SERVER_HOST,
+        host: process.env.EMAIL_HOST,
         port: 587,
         auth: {
           user: process.env.EMAIL_ADDRESS,
           pass: process.env.EMAIL_PASSWORD
         }
       },
-      from: 'noreply@trckfi.com'
+      from: 'tim@mycodingschool.com'
     })
   ],
   adapter: PrismaAdapter(prisma),

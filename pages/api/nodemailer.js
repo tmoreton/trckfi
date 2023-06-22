@@ -21,7 +21,7 @@ export default async (req, res) => {
   }
 
   let transporter = nodemailer.createTransport({
-    host: 'mail.privateemail.com',
+    host: process.env.EMAIL_HOST,
     secure: false,
     auth: {
       user: process.env.EMAIL_ADDRESS,
