@@ -1,5 +1,37 @@
+import { useRef, useState } from 'react'
 
 const Newsletter = () => {
+  const inputEl = useRef(null)
+  const [error, setError] = useState(false)
+  const [message, setMessage] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
+
+  const subscribe = async (e) => {
+    e.preventDefault()
+
+    const res = await fetch(`/api/nodemailer`, {
+      body: JSON.stringify({
+        email: inputEl.current.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+
+    const { error } = await res.json()
+    if (error) {
+      setError(true)
+      setMessage(error)
+      return
+    }
+
+    inputEl.current.value = ''
+    setError(false)
+    setSubscribed(true)
+    setMessage('Successfully! 🎉 You are now subscribed.')
+  }
+
   return (
     <div className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -7,18 +39,20 @@ const Newsletter = () => {
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Get notified when we’re launching.
           </h2>
-          <form className="mx-auto mt-10 flex max-w-md gap-x-4">
+          <form className="mx-auto mt-10 flex max-w-md gap-x-4" onSubmit={subscribe}>
             <label htmlFor="email-address" className="sr-only">
               Email address
             </label>
             <input
-              id="email-address"
-              name="email"
-              type="email"
               autoComplete="email"
+              id="email-input"
+              name="email"
+              placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
+              ref={inputEl}
               required
-              className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-              placeholder="Enter your email"
+              type="email"
+              disabled={subscribed}
+              className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
             />
             <button
               type="submit"

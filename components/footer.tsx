@@ -1,5 +1,3 @@
-import Container from './container'
-import { EXAMPLE_PATH } from '../lib/constants'
 import Newsletter from './newsletter'
 
 const Footer = () => {
