@@ -16,7 +16,7 @@ const authOptions = {
           pass: process.env.EMAIL_PASSWORD
         }
       },
-      from: 'tim@mycodingschool.com'
+      from: 'noreply@trckfi.com'
     })
   ],
   adapter: PrismaAdapter(prisma),
