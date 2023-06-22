@@ -16,10 +16,11 @@ const authOptions = {
           pass: process.env.EMAIL_PASSWORD
         }
       },
-      from: 'tim@mycodingschool.com'
+      from: process.env.EMAIL_ADDRESS
     })
   ],
   adapter: PrismaAdapter(prisma),
+  secret: process.env.JWT_SECRET,
 }
 
 export default NextAuth(authOptions)
