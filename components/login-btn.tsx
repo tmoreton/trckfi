@@ -8,13 +8,13 @@ export default function Login() {
       <div>
         <b>{session.user.email}</b>
         <br/>
-        <button onClick={() => signOut()}>Sign out</button>
+        <button onClick={() => signOut()}>Sign Out <span aria-hidden="true">&rarr;</span></button>
       </div>
     )
   }
   return (
     <>
-      <button onClick={() => signIn()}>Sign in</button>
+      <button onClick={() => signIn()}>Sign In <span aria-hidden="true">&rarr;</span></button>
     </>
   )
 }
