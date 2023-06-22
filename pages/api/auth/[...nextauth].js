@@ -10,7 +10,13 @@ const authOptions = {
     EmailProvider({
       server: {
         host: process.env.EMAIL_HOST,
-        port: 587,
+        port: 465,
+        secure: true,
+        dkim: {
+          domainName: "trckfi.com",
+          keySelector: "rsa",
+          privateKey: process.env.EMAIL_KEY
+        },
         auth: {
           user: process.env.EMAIL_ADDRESS,
           pass: process.env.EMAIL_PASSWORD

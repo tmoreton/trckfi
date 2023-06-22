@@ -10,7 +10,7 @@ const Newsletter = () => {
     e.preventDefault()
     const email = inputEl.current.value
 
-    const res = await fetch(`/api/create_user`, {
+    const res = await fetch(`/api/nodemailer`, {
       body: JSON.stringify({
         email: email,
       }),
