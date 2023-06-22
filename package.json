@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "prisma generate next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "typecheck": "tsc",
     "postinstall": "prisma generate"
