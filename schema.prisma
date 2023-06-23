@@ -1,13 +1,13 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_URL_NON_POOLING")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Account {
@@ -25,34 +25,34 @@ model Account {
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
-
-  user User @relation(fields:[userId], references:[id], onDelete: Cascade)
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map(name: "accounts")
 }
 
 model Session {
   id           String   @id @default(cuid())
-  sessionToken String   @unique@map("session_token")
+  sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
-  user         User     @relation(fields:[userId], references:[id], onDelete: Cascade)
-  @@map(name: "sessions")
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
 }
 
 model User {
   id            String    @id @default(cuid())
   name          String?
-  stripeId      String?
-  phone         String?
-  isActive      Boolean   @default(false)
-  email         String?@unique
+  email         String?   @unique
   emailVerified DateTime?
   image         String?
+  isActive      Boolean   @default(false)
+  stripeId      String?
+  phone         String?
   accounts      Account[]
   sessions      Session[]
-  @@map(name: "users")
+
+  @@map("users")
 }
 
 model VerificationToken {
@@ -60,6 +60,16 @@ model VerificationToken {
   identifier String
   token      String   @unique
   expires    DateTime
+
   @@unique([identifier, token])
-  @@map(name: "tokens")
+  @@map("tokens")
+}
+
+model Plaid {
+  id           Int    @id @default(autoincrement())
+  access_token String @unique
+  item_id      String @unique
+  user_id      String @map("user_id")
+
+  @@map("plaid")
 }
