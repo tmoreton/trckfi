@@ -16,5 +16,5 @@
     "incremental": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/checkout-session.js", "pages/api/create-account.js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/checkout-session.js", "pages/api/create-account.js", "pages/success.jsx"]
 }
