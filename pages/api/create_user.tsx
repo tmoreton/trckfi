@@ -12,6 +12,6 @@ export default async (req, res) => {
     update: {},
     create: { email: email.toLowerCase() },
   })
-  
+
   return res.status(200).json({ status: 'OK' })
 }

@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
+import Pricing from '../components/pricing'
 
 type Props = {
   allPosts: Post[]
@@ -21,6 +22,7 @@ export default function Index({ allPosts }: Props) {
         <Container>
           <Hero />
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <Pricing />
         </Container>
       </Layout>
     </>

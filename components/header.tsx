@@ -4,6 +4,7 @@ import LoginBtn from './login-btn'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/' },
+  { name: 'My Dashboard', href: '/dashboard' },
 ]
 
 const Header = () => {
