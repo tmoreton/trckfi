@@ -10,7 +10,7 @@ const Newsletter = () => {
     e.preventDefault()
     const email = inputEl.current.value
 
-    const res = await fetch(`/api/set_access_token`, {
+    const res = await fetch(`/api/get_transactions`, {
       body: JSON.stringify({
         email: email,
       }),
