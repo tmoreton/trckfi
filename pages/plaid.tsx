@@ -17,11 +17,7 @@ const App = () => {
 };
 
 
-interface LinkProps {
-  linkToken: string | null;
-}
-
-const Link: React.FC<LinkProps> = (props: LinkProps) => {
+const Link = (props) => {
   const onSuccess = React.useCallback((public_token, metadata) => {
     // send public_token to server
     const response = fetch('/api/set_access_token', {
@@ -29,10 +25,8 @@ const Link: React.FC<LinkProps> = (props: LinkProps) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ public_token }),
+      body: JSON.stringify({ public_token, metadata }),
     });
-    
-    // Handle response ...
   }, []);
 
   const config: Parameters<typeof usePlaidLink>[0] = {
