@@ -1,5 +1,6 @@
 import Transactions from "../components/transactions"
 import Container from "../components/container"
+import Preview from "../components/dashboard-preview"
 import Plaid from "../components/plaid"
 import prisma from '../lib/prisma';
 import { getSession, useSession } from "next-auth/react"
@@ -20,13 +21,8 @@ export default function ({ data, user_id }) {
     })
   }
 
-  if (!session) {
-    return (
-      <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-        Login
-      </button>
-    )
-  }
+  if (!session) return <Preview />
+
   return (
     <Container>
       <div className="sm:flex sm:items-center">
@@ -50,12 +46,13 @@ export default function ({ data, user_id }) {
       </div>
       <Transactions transactions={data} />
     </Container>
-
   )
 }
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
+
+  if(!session?.user?.id) return { props: { data: [], user_id: null } }
 
   const user = await prisma.user.findUnique({
     where: { id: session?.user?.id },
