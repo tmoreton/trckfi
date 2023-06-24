@@ -23,7 +23,8 @@ export const authOptions = {
     colorScheme: "light",
   },
   pages: {
-    signIn: '/auth/email-signin'
+    signIn: '/auth/email-signin',
+    verifyRequest: '/auth/verify-request'
   },
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
