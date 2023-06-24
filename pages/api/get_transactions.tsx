@@ -7,18 +7,14 @@ export default async (req, res) => {
   const { user_id } = req.body
   if (!user_id) return res.status(500)
 
-  const now = DateTime.now().toFormat('yyyy-MM-dd');
-  const yearAgo = DateTime.now().minus({ years: 1 }).toFormat('yyyy-MM-dd')
-  const monthAgo = DateTime.now().minus({ months: 1 }).toFormat('yyyy-MM-dd')
-
   const plaidAccount = await prisma.plaid.findMany({
     where: { user_id: user_id },
   })
 
   const request = {
     access_token: plaidAccount[0].access_token,
-    start_date: monthAgo,
-    end_date: now,
+    start_date: DateTime.now().minus({ year: 1 }).toFormat('yyyy-MM-dd'),
+    end_date: DateTime.now().toFormat('yyyy-MM-dd'),
     options: {
       include_personal_finance_category: true
     }

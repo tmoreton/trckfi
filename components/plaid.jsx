@@ -20,17 +20,17 @@ const Plaid = () => {
 const Link = (props) => {
   const { data: session } = useSession()
   const onSuccess = React.useCallback((public_token, metadata) => {
-    const response = fetch('/api/set_access_token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ public_token, metadata, user_id: session?.user?.id }),
-    });
-  }, []);
+  const response = fetch('/api/set_access_token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ public_token, metadata, user_id: session?.user.id }),
+  });
+}, []);
 
-  const config: Parameters<typeof usePlaidLink>[0] = {
-    token: props.linkToken!,
+  const config = {
+    token: props.linkToken,
     onSuccess,
   };
   const { open, ready } = usePlaidLink(config);
