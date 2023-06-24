@@ -6,6 +6,7 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
 import Pricing from '../components/pricing'
+import Header from '../components/header'
 
 type Props = {
   allPosts: Post[]
@@ -20,6 +21,7 @@ export default function Index({ allPosts }: Props) {
           <title>Trckfi - Newsletter</title>
         </Head>
         <Container>
+          <Header />
           <Hero />
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           <Pricing />

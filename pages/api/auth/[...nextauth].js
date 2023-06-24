@@ -22,6 +22,9 @@ export const authOptions = {
   theme: {
     colorScheme: "light",
   },
+  pages: {
+    signIn: '/auth/email-signin'
+  },
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
   callbacks: {

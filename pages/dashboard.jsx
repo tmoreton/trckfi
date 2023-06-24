@@ -5,6 +5,7 @@ import Snapshot from "../components/snapshot"
 import Plaid from "../components/plaid"
 import prisma from '../lib/prisma';
 import { getSession, useSession } from "next-auth/react"
+import Header from '../components/header'
 
 export default function ({ data, user_id }) {
   const { data: session } = useSession()
@@ -22,10 +23,16 @@ export default function ({ data, user_id }) {
     })
   }
 
-  if (!session) return <Preview />
+  if (!session) return (
+    <Container>
+      <Header/>
+      <Preview />
+    </Container>
+  )
 
   return (
     <Container>
+      <Header/>
       <Snapshot />
       <div className="sm:flex sm:items-center items-center justify-between">
         <div className="sm:flex-auto">
