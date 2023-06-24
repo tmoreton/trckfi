@@ -1,29 +1,14 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
-import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
-
-const configuration = new Configuration({
-  basePath: PlaidEnvironments.development,
-  baseOptions: {
-    headers: {
-      'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,
-      'PLAID-SECRET': process.env.PLAID_SECRET,
-    },
-  },
-});
-
-const client = new PlaidApi(configuration);
+import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  const { publicToken, metadata } = req.body
-  console.log(metadata)
+  const { public_token, metadata } = req.body
   try {
-    const response = await client.itemPublicTokenExchange({
-      public_token: publicToken
+    const response = await plaidClient.itemPublicTokenExchange({
+      public_token: public_token
     });
-    // accounts: metadata.accounts,
-    // institution: metadata.institution,
-    // linkSessionId: metadata.linkSessionId,
+
     const user = await prisma.user.findUnique({
       where: {
         email: 'tmoreton89@gmail.com',

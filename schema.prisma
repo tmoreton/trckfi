@@ -73,3 +73,35 @@ model Plaid {
 
   @@map("plaid")
 }
+
+model Accounts {
+  id            Int     @id @default(autoincrement())
+  account_id    String? @unique
+  balances      Json?
+  name          String?
+  official_name String?
+  subtype       String?
+  type          String?
+
+  @@map("accounts")
+}
+
+model Transactions {
+  id                Int      @id @default(autoincrement())
+  account_id        String?
+  account_owner     String?
+  authorized_date   String?
+  name              String?
+  merchant_name     String?
+  payment_channel   String?
+  transaction_id    String   @unique
+  transaction_type  String?
+  date              String?
+  detailed_category String?
+  location          Json?
+  pending           Boolean? @default(false)
+  primary_category  String?
+  amount            String?
+
+  @@map("transactions")
+}
