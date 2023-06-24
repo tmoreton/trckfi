@@ -1,4 +1,4 @@
-export default function ({ transactions, getTransactions }) {
+export default function ({ transactions }) {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="mt-8 flow-root">
