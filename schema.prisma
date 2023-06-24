@@ -82,12 +82,13 @@ model Accounts {
   official_name String?
   subtype       String?
   type          String?
+  user_id       String  @map("user_id")
 
   @@map("accounts")
 }
 
 model Transactions {
-  id                Int      @id @default(autoincrement())
+  id                String   @id @default(cuid())
   account_id        String?
   account_owner     String?
   authorized_date   String?
@@ -102,6 +103,7 @@ model Transactions {
   pending           Boolean? @default(false)
   primary_category  String?
   amount            String?
+  user_id           String   @map("user_id")
 
   @@map("transactions")
 }

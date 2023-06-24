@@ -3,31 +3,25 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  const { public_token, metadata } = req.body
+  const { public_token, metadata, user_id } = req.body
   try {
-    const response = await plaidClient.itemPublicTokenExchange({
-      public_token: public_token
-    });
+    if(user_id){
+      const response = await plaidClient.itemPublicTokenExchange({
+        public_token: public_token
+      });
 
-    const user = await prisma.user.findUnique({
-      where: {
-        email: 'tmoreton89@gmail.com',
-      },
-    })
-
-    if(user){
       const token = await prisma.plaid.create({
         data: {
-          user_id: user.id,
+          user_id: user_id,
           item_id: response.data.item_id,
           access_token: response.data.access_token
         },
       })
+      return res.status(200).json({ access_token: response.data.access_token })
     }
 
-    return res.status(200).json({ access_token: response.data.access_token })
+    return res.status(500)
   } catch (error) {
-    console.log(error)
-    // handle error
+    return res.status(500).json({ error: error.message || error.toString() })
   }
 }
