@@ -1,6 +1,7 @@
 import Transactions from "../components/transactions"
 import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
+import Snapshot from "../components/snapshot"
 import Plaid from "../components/plaid"
 import prisma from '../lib/prisma';
 import { getSession, useSession } from "next-auth/react"
@@ -25,24 +26,27 @@ export default function ({ data, user_id }) {
 
   return (
     <Container>
-      <div className="sm:flex sm:items-center">
+      <Snapshot />
+      <div className="sm:flex sm:items-center items-center justify-between">
         <div className="sm:flex-auto">
           <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Transactions</h1>
         </div>
-        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button
-            type="button"
-            className="block rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-          >
-            Export
-          </button>
+        <div className="sm:flex sm:items-center items-center justify-between">
+          <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <button
+              type="button"
+              className="block rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+            >
+              Export
+            </button>
+          </div>
+          <form onSubmit={getTransactions}>
+            <button className="block mx-4 rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+              Update Transactions
+            </button>
+          </form>
+          <Plaid />
         </div>
-        <form onSubmit={getTransactions}>
-          <button className="block mx-4 rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-            Update Transactions
-          </button>
-        </form>
-        <Plaid />
       </div>
       <Transactions transactions={data} />
     </Container>
