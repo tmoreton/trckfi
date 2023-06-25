@@ -2,7 +2,7 @@ import NextAuth from "next-auth"
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
-
+const nodemailer = require('nodemailer')
 const prisma = new PrismaClient()
 
 export const authOptions = {
@@ -16,7 +16,21 @@ export const authOptions = {
           pass: process.env.EMAIL_PASSWORD
         }
       },
-      from: process.env.EMAIL_ADDRESS
+      from: process.env.EMAIL_ADDRESS,
+      async sendVerificationRequest({
+        identifier: email,
+        url,
+        provider: { server, from },
+      }) {
+        const { host } = new URL(url);
+        const transport = nodemailer.createTransport(server);
+        await transport.sendMail({
+          to: email,
+          from,
+          subject: `Sign in to ${host}`,
+          html: `<a href="${url}">signed up for the trckfi newsletter</p>`,
+        });
+      },
     })
   ],
   theme: {
