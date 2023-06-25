@@ -18,7 +18,7 @@ export default function Index({ allPosts }: Props) {
     <>
       <Layout>
         <Head>
-          <title>Trckfi - Newsletter</title>
+          <title>Trckfi</title>
         </Head>
         <Container>
           <Header />
