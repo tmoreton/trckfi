@@ -31,6 +31,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-plaid-link": "^3.4.0",
+    "recharts": "^2.7.2",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "stripe": "^12.10.0",

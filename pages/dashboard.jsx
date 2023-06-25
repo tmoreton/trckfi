@@ -7,6 +7,8 @@ import prisma from '../lib/prisma';
 import { getSession, useSession } from "next-auth/react"
 import Header from '../components/header'
 import Cards from '../components/cards'
+import Chart from '../components/chart'
+import { DateTime } from "luxon";
 
 export default function ({ transactions, accounts, user_id }) {
   const { data: session } = useSession()
@@ -42,6 +44,7 @@ export default function ({ transactions, accounts, user_id }) {
         <Cards accounts={accounts} />
       </div>
       <Snapshot />
+      <Chart />
       {/* <div className="sm:flex sm:items-center items-center justify-between">
         <div className="sm:flex sm:items-center items-center justify-between">
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -70,8 +73,18 @@ export async function getServerSideProps(context) {
   })
 
   if(user){
-    const transactions = await prisma.transactions.findMany({
+    const plaid = await prisma.plaid.findMany({
       where: { user_id: user.id },
+    })
+    console.log(plaid)
+    const transactions = await prisma.transactions.findMany({
+      where: { 
+        user_id: user.id,
+        // date: {
+        //   lte: DateTime.now().minus({ months: 1 }).toFormat('yyyy-MM-dd'),
+        //   gte: DateTime.now().toFormat('yyyy-MM-dd'),
+        // },
+      },
     })
     const accounts = await prisma.accounts.findMany({
       where: { user_id: user.id },

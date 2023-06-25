@@ -49,7 +49,6 @@ export default async (req, res) => {
       let transaction = {
         transaction_id: transactions[i].transaction_id,
         account_id: transactions[i].account_id,
-        account_owner: transactions[i].account_owner,
         amount: transactions[i].amount.toString(),
         authorized_date: transactions[i].authorized_date,
         date: transactions[i].date,
