@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
 import { useSession } from "next-auth/react"
+import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
 const Plaid = () => {
   const [linkToken, setLinkToken] = useState(null);
@@ -35,8 +36,8 @@ const Link = (props) => {
   };
   const { open, ready } = usePlaidLink(config);
   return (
-    <button onClick={() => open()} disabled={!ready} className="block rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-      Link Account
+    <button onClick={() => open()} disabled={!ready} className="rounded-md bg-pink-600 p-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+      <PlusCircleIcon className="h-10 w-10" aria-hidden="true" />
     </button>
   );
 };

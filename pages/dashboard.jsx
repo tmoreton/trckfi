@@ -10,7 +10,7 @@ import Cards from '../components/cards'
 
 export default function ({ transactions, accounts, user_id }) {
   const { data: session } = useSession()
-  console.log(accounts)
+
   const getTransactions = async (e) => {
     e.preventDefault()
     const res = await fetch(`/api/get_transactions`, {
@@ -37,27 +37,25 @@ export default function ({ transactions, accounts, user_id }) {
       <div className="sm:flex-auto py-10">
         <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Dashboard</h1>
       </div>
-      <Cards accounts={accounts} />
+      <div className="sm:flex sm:items-center justify-items-start">
+        <Plaid />
+        <Cards accounts={accounts} />
+      </div>
       <Snapshot />
-      <div className="sm:flex sm:items-center items-center justify-between">
+      {/* <div className="sm:flex sm:items-center items-center justify-between">
         <div className="sm:flex sm:items-center items-center justify-between">
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <button
               type="button"
-              className="block rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+              className="block rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
             >
               Export
             </button>
           </div>
-          <form onSubmit={getTransactions}>
-            <button className="block mx-4 rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-              Update Transactions
-            </button>
-          </form>
-          <Plaid />
+          
         </div>
-      </div>
-      <Transactions transactions={transactions} />
+      </div> */}
+      <Transactions transactions={transactions} getTransactions={getTransactions} />
     </Container>
   )
 }
@@ -78,8 +76,8 @@ export async function getServerSideProps(context) {
     const accounts = await prisma.accounts.findMany({
       where: { user_id: user.id },
     })
-  
     return { props: { transactions, accounts, user_id: user.id } }
   }
+
   return { props: { transactions: [], user_id: user.id } }
 }
