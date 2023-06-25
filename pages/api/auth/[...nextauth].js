@@ -4,10 +4,8 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 const nodemailer = require('nodemailer')
 const prisma = new PrismaClient()
-import { Button } from "@react-email/button";
-import { Html } from "@react-email/html";
 import { render } from '@react-email/render';
-import EmailTemplate from "../../../react-email-starter/emails/vercel-invite-user";
+import SignInEmail from "../../../emails/signin";
 
 export const authOptions = {
   providers: [
@@ -26,13 +24,12 @@ export const authOptions = {
         url,
         provider: { server, from },
       }) {
-        const { host } = new URL(url);
         const transport = nodemailer.createTransport(server)
-        const emailHtml = render(<EmailTemplate url={url}/>)
+        const emailHtml = render(<SignInEmail url={url}/>)
         await transport.sendMail({
           to: email,
           from,
-          subject: `Sign in to ${host}`,
+          subject: `Sign in to Trckfi`,
           html: emailHtml,
         });
       },
@@ -56,15 +53,5 @@ export const authOptions = {
     },
   },
 }
-
-const Email = ({url}) => {
-  return (
-    <Html lang="en">
-      <Button href={url} style={{ color: "#61dafb" }}>
-        Login
-      </Button>
-    </Html>
-  );
-};
 
 export default NextAuth(authOptions)
