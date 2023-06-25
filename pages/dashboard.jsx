@@ -6,10 +6,11 @@ import Plaid from "../components/plaid"
 import prisma from '../lib/prisma';
 import { getSession, useSession } from "next-auth/react"
 import Header from '../components/header'
+import Cards from '../components/cards'
 
-export default function ({ data, user_id }) {
+export default function ({ transactions, accounts, user_id }) {
   const { data: session } = useSession()
-
+  console.log(accounts)
   const getTransactions = async (e) => {
     e.preventDefault()
     const res = await fetch(`/api/get_transactions`, {
@@ -33,11 +34,12 @@ export default function ({ data, user_id }) {
   return (
     <Container>
       <Header/>
+      <div className="sm:flex-auto py-10">
+        <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Dashboard</h1>
+      </div>
+      <Cards accounts={accounts} />
       <Snapshot />
       <div className="sm:flex sm:items-center items-center justify-between">
-        <div className="sm:flex-auto">
-          <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Transactions</h1>
-        </div>
         <div className="sm:flex sm:items-center items-center justify-between">
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <button
@@ -55,7 +57,7 @@ export default function ({ data, user_id }) {
           <Plaid />
         </div>
       </div>
-      <Transactions transactions={data} />
+      <Transactions transactions={transactions} />
     </Container>
   )
 }
@@ -73,8 +75,11 @@ export async function getServerSideProps(context) {
     const transactions = await prisma.transactions.findMany({
       where: { user_id: user.id },
     })
+    const accounts = await prisma.accounts.findMany({
+      where: { user_id: user.id },
+    })
   
-    return { props: { data: transactions, user_id: user.id } }
+    return { props: { transactions, accounts, user_id: user.id } }
   }
-  return { props: { data: [], user_id: user.id } }
+  return { props: { transactions: [], user_id: user.id } }
 }

@@ -12,8 +12,8 @@ type Props = {
 const PostHeader = ({ title, coverImage, date, author }: Props) => {
   return (
     <>
-      <PostTitle>{title}</PostTitle>
-      <div className="mb-8 md:mb-16 sm:mx-0">
+      <div className="max-w-2xl mx-auto">
+        <PostTitle>{title}</PostTitle>
         <CoverImage title={title} src={coverImage} />
       </div>
     </>
