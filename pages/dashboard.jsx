@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Transactions from "../components/transactions"
 import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
@@ -7,17 +8,34 @@ import prisma from '../lib/prisma';
 import { getSession, useSession } from "next-auth/react"
 import Header from '../components/header'
 import Cards from '../components/cards'
-import Chart from '../components/chart'
+import Tokens from '../components/tokens'
+import PieChart from '../components/pie-chart'
+import BarChart from '../components/bar-chart'
 import { DateTime } from "luxon";
 
-export default function ({ transactions, accounts, user_id }) {
+export default function ({ transactions, accounts, user_id, plaid }) {
   const { data: session } = useSession()
+  const [t, updateTransactions] = useState(transactions);
+  const [a, updateAccounts] = useState(accounts);
 
-  const getTransactions = async (e) => {
-    e.preventDefault()
+  const getTransactions = async (access_token) => {
     const res = await fetch(`/api/get_transactions`, {
       body: JSON.stringify({
         user_id: user_id,
+        access_token: access_token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+  }
+
+  const removeToken = async (access_token) => {
+    console.log(access_token)
+    const res = await fetch(`/api/remove_access_token`, {
+      body: JSON.stringify({
+        access_token: access_token
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -39,26 +57,33 @@ export default function ({ transactions, accounts, user_id }) {
       <div className="sm:flex-auto py-10">
         <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Dashboard</h1>
       </div>
-      <div className="sm:flex sm:items-center justify-items-start">
-        <Plaid />
-        <Cards accounts={accounts} />
+      <div className="py-4">
+        <h3 className="text-base font-semibold leading-6 text-gray-900 mb-4">Accounts</h3>
+        <div className="sm:flex sm:items-center justify-items-start">
+          <Plaid />
+          <Tokens getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} />
+        </div>
+      </div>
+      <div className="py-4">
+        <h3 className="text-base font-semibold leading-6 text-gray-900 mb-4">Cards</h3>
+        <div className="sm:flex sm:items-center justify-items-start">
+          <Cards accounts={a}/>
+        </div>
       </div>
       <Snapshot />
-      <Chart />
-      {/* <div className="sm:flex sm:items-center items-center justify-between">
-        <div className="sm:flex sm:items-center items-center justify-between">
-          <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-            <button
-              type="button"
-              className="block rounded-md bg-pink-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-            >
-              Export
-            </button>
+      <div className="grid grid-cols-1 sm:grid-cols-2">
+        <div className="relative flex items-center space-x-3 px-6 py-5">
+          <div className="min-w-0 flex-1">
+            <PieChart />
           </div>
-          
         </div>
-      </div> */}
-      <Transactions transactions={transactions} getTransactions={getTransactions} />
+        <div className="relative flex items-center space-x-3 px-6 py-5">
+          <div className="min-w-0 flex-1">
+            <BarChart />
+          </div>
+        </div>
+      </div>
+      <Transactions transactions={t} />
     </Container>
   )
 }
@@ -76,20 +101,21 @@ export async function getServerSideProps(context) {
     const plaid = await prisma.plaid.findMany({
       where: { user_id: user.id },
     })
-    console.log(plaid)
+
     const transactions = await prisma.transactions.findMany({
       where: { 
         user_id: user.id,
-        // date: {
-        //   lte: DateTime.now().minus({ months: 1 }).toFormat('yyyy-MM-dd'),
-        //   gte: DateTime.now().toFormat('yyyy-MM-dd'),
-        // },
+        date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ months: 1 }).toISO(),
+        },
       },
     })
     const accounts = await prisma.accounts.findMany({
       where: { user_id: user.id },
     })
-    return { props: { transactions, accounts, user_id: user.id } }
+
+    return { props: { transactions, accounts: accounts, user_id: user.id, plaid } }
   }
 
   return { props: { transactions: [], user_id: user.id } }

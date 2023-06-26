@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 export default function ({ transactions }) {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -38,7 +40,7 @@ export default function ({ transactions }) {
                   <tr key={transaction.id}>
                     <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-900">{transaction.merchant_name || transaction.name}</td>
                     <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{transaction.primary_category}</td>
-                    <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{transaction.date}</td>
+                    <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{transaction.authorized_date}</td>
                     <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">${Number(transaction.amount).toFixed(2)}</td>
                     <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                       <a href="#" className="text-pink-600 hover:text-pink-900">

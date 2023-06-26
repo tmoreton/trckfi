@@ -49,6 +49,8 @@ model User {
   isActive      Boolean   @default(false)
   stripeId      String?
   phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
 
@@ -75,14 +77,18 @@ model Plaid {
 }
 
 model Accounts {
-  id            Int     @id @default(autoincrement())
-  account_id    String? @unique
+  id            Int      @id @default(autoincrement())
+  account_id    String?  @unique
   balances      Json?
   name          String?
   official_name String?
   subtype       String?
   type          String?
-  user_id       String  @map("user_id")
+  user_id       String   @map("user_id")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  access_token  String?
+  item_id       String?
 
   @@map("accounts")
 }
@@ -90,21 +96,23 @@ model Accounts {
 model Transactions {
   id                String    @id @default(cuid())
   account_id        String?
-  authorized_date   String?
+  account_name      String?
   name              String?
   merchant_name     String?
   payment_channel   String?
   transaction_id    String    @unique
   transaction_type  String?
-  date              DateTime?
   detailed_category String?
   location          Json?
   pending           Boolean?  @default(false)
   primary_category  String?
   amount            String?
   user_id           String    @map("user_id")
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
+  createdAt         DateTime? @default(now())
+  updatedAt         DateTime? @updatedAt
+  authorized_date   String?
+  item_id           String?
+  date              DateTime?
 
   @@map("transactions")
 }

@@ -9,7 +9,7 @@ const stats = [
 
 export default function () {
   return (
-    <div className="py-16">
+    <div className="py-4">
       <h3 className="text-base font-semibold leading-6 text-gray-900">Last 30 days</h3>
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {stats.map((item) => (
