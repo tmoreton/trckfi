@@ -1,52 +1,63 @@
-import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
-import { CursorArrowRaysIcon, EnvelopeOpenIcon, UsersIcon } from '@heroicons/react/24/outline'
+import { ArrowDownIcon, ArrowUpIcon, CalculatorIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon } from '@heroicons/react/20/solid'
+import { DateTime } from "luxon";
 
-const stats = [
-  { id: 1, name: 'Total Subscribers', stat: '71,897', icon: UsersIcon, change: '122', changeType: 'increase' },
-  { id: 2, name: 'Avg. Open Rate', stat: '58.16%', icon: EnvelopeOpenIcon, change: '5.4%', changeType: 'increase' },
-  { id: 3, name: 'Avg. Click Rate', stat: '24.57%', icon: CursorArrowRaysIcon, change: '3.2%', changeType: 'decrease' },
-]
+export default function ({ transactions, accounts }) {
+  const monthlySum = transactions.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)  
+  const balance = accounts.reduce((accumulator, currentValue) => accumulator + Number(currentValue.balances.current), 0) 
+  const startWeek = DateTime.local().setLocale('fr-CA').startOf('week').toISO()
+  const startMonth = DateTime.local().setLocale('fr-CA').startOf('month').toISO()
+  console.log(startMonth);
 
-export default function () {
   return (
     <div className="py-4">
-      <h3 className="text-base font-semibold leading-6 text-gray-900">Last 30 days</h3>
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {stats.map((item) => (
-          <div
-            key={item.id}
-            className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6"
-          >
-            <dt>
-              <div className="absolute rounded-md bg-pink-600 p-3">
-                <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
-              </div>
-              <p className="ml-16 truncate text-sm font-medium text-gray-500">{item.name}</p>
-            </dt>
-            <dd className="ml-16 flex items-baseline pb-6 sm:pb-7">
-              <p className="text-2xl font-semibold text-gray-900">{item.stat}</p>
-              <p
-                className={'text-green-600 ml-2 flex items-baseline text-sm font-semibold'}
-              >
-                {item.changeType === 'increase' ? (
-                  <ArrowUpIcon className="h-5 w-5 flex-shrink-0 self-center text-green-500" aria-hidden="true" />
-                ) : (
-                  <ArrowDownIcon className="h-5 w-5 flex-shrink-0 self-center text-red-500" aria-hidden="true" />
-                )}
-
-                <span className="sr-only"> {item.changeType === 'increase' ? 'Increased' : 'Decreased'} by </span>
-                {item.change}
-              </p>
-              <div className="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
-                <div className="text-sm">
-                  <a href="#" className="font-medium text-pink-600 hover:text-pink-500">
-                    View all<span className="sr-only"> {item.name} stats</span>
-                  </a>
-                </div>
-              </div>
-            </dd>
-          </div>
-        ))}
+        <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6">
+          <dt>
+            <div className="absolute rounded-md bg-pink-600 p-3">
+              <CreditCardIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            </div>
+            <p className="ml-16 truncate text-sm font-medium text-gray-500">Current Balance</p>
+          </dt>
+          <dd className="ml-16 flex items-baseline">
+            <p className={balance < 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>${Number(balance).toFixed(2)}</p>
+          </dd>
+        </div>
+        <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6">
+          <dt>
+            <div className="absolute rounded-md bg-pink-600 p-3">
+              <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            </div>
+            <p className="ml-16 truncate text-sm font-medium text-gray-500">This Month's Total</p>
+          </dt>
+          <dd className="ml-16 flex items-baseline">
+            <p className="text-2xl font-semibold text-gray-900">${Number(monthlySum).toFixed(2)}</p>
+            <p
+              className={'text-green-600 ml-2 flex items-baseline text-sm font-semibold'}
+            >
+                <ArrowUpIcon className="h-5 w-5 flex-shrink-0 self-center text-green-500" aria-hidden="true" />
+              <span className="sr-only"> Increased by </span>
+              5.4%
+            </p>
+          </dd>
+        </div>
+        <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6">
+          <dt>
+            <div className="absolute rounded-md bg-pink-600 p-3">
+              <CalendarIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            </div>
+            <p className="ml-16 truncate text-sm font-medium text-gray-500">This Week's Total</p>
+          </dt>
+          <dd className="ml-16 flex items-baseline">
+            <p className="text-2xl font-semibold text-gray-900">${Number(monthlySum).toFixed(2)}</p>
+            <p
+              className={'text-green-600 ml-2 flex items-baseline text-sm font-semibold'}
+            >
+                <ArrowUpIcon className="h-5 w-5 flex-shrink-0 self-center text-green-500" aria-hidden="true" />
+              <span className="sr-only"> Increased by </span>
+              5.4%
+            </p>
+          </dd>
+        </div>
       </dl>
     </div>
   )

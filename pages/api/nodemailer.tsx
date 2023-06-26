@@ -1,7 +1,6 @@
-const nodemailer = require('nodemailer')
-import prisma from '../../lib/prisma';
-
 // eslint-disable-next-line import/no-anonymous-default-export
+const nodemailer = require('nodemailer')
+
 export default async (req, res) => {
   const { email } = req.body
   if (!email) {

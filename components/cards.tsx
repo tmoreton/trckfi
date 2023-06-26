@@ -12,7 +12,7 @@ export default function ({ accounts }) {
             <div className="flex flex-1 items-center justify-between truncate rounded-md border-b border border-gray-200 bg-white">
               <div className="flex-1 truncate px-4 py-2 text-sm">
                 <p className="font-medium text-gray-900 hover:text-gray-600">
-                  {account.official_name}
+                  {account.official_name.length > 30 ? `${account.official_name.substring(0, 46)}...` : account.official_name}
                 </p>
                 <p className={balanceClass}><b>Balance:</b> ${account.balances.current}</p>
               </div>

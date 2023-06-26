@@ -75,7 +75,7 @@ export default function ({ transactions, accounts, user_id, plaid }) {
           <Cards accounts={a}/>
         </div>
       </div>
-      <Snapshot />
+      <Snapshot transactions={t} accounts={accounts} />
       {/* <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="relative flex items-center space-x-3 px-6 py-5">
