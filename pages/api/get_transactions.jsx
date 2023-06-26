@@ -15,7 +15,7 @@ export default async (req, res) => {
 
   const request = {
     access_token: plaidAccount.access_token,
-    start_date: DateTime.now().minus({ year: 1 }).toFormat('yyyy-MM-dd'),
+    start_date: DateTime.now().minus({ month: 1 }).toFormat('yyyy-MM-dd'),
     end_date: DateTime.now().toFormat('yyyy-MM-dd'),
     options: {
       include_personal_finance_category: true
@@ -50,7 +50,6 @@ export default async (req, res) => {
     }
 
     for (var i in transactions) {
-      console.log(transactions[i].transaction_id)
       await prisma.transactions.upsert({
         where: { 
           transaction_id: transactions[i].transaction_id 
@@ -76,7 +75,7 @@ export default async (req, res) => {
       })
     }
 
-    return res.status(200)
+    return res.status(200).json({ status: 'OK' })
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() })
   }

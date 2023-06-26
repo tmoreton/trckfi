@@ -17,9 +17,11 @@ export default function ({ transactions, accounts, user_id, plaid }) {
   const { data: session } = useSession()
   const [t, updateTransactions] = useState(transactions);
   const [a, updateAccounts] = useState(accounts);
+  const [loading, setLoading] = useState({access_token: null, loading: false});
 
   const getTransactions = async (access_token) => {
-    const res = await fetch(`/api/get_transactions`, {
+    setLoading({access_token: access_token, loading: true})
+    await fetch(`/api/get_transactions`, {
       body: JSON.stringify({
         user_id: user_id,
         access_token: access_token
@@ -29,10 +31,11 @@ export default function ({ transactions, accounts, user_id, plaid }) {
       },
       method: 'POST',
     })
+    setLoading({access_token: null, loading: false})
   }
 
   const removeToken = async (access_token) => {
-    console.log(access_token)
+    setLoading(true)
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
         access_token: access_token
@@ -42,6 +45,7 @@ export default function ({ transactions, accounts, user_id, plaid }) {
       },
       method: 'POST',
     })
+    setLoading(false)
   }
 
   if (!session) return (
@@ -54,14 +58,15 @@ export default function ({ transactions, accounts, user_id, plaid }) {
   return (
     <Container>
       <Header/>
-      <div className="sm:flex-auto py-10">
+      {/* <div className="sm:flex-auto py-10">
         <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Dashboard</h1>
       </div>
+       */}
       <div className="py-4">
         <h3 className="text-base font-semibold leading-6 text-gray-900 mb-4">Accounts</h3>
         <div className="sm:flex sm:items-center justify-items-start">
           <Plaid />
-          <Tokens getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} />
+          <Tokens getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} loading={loading}/>
         </div>
       </div>
       <div className="py-4">
@@ -71,19 +76,20 @@ export default function ({ transactions, accounts, user_id, plaid }) {
         </div>
       </div>
       <Snapshot />
-      <div className="grid grid-cols-1 sm:grid-cols-2">
-        <div className="relative flex items-center space-x-3 px-6 py-5">
-          <div className="min-w-0 flex-1">
-            <PieChart />
+      {/* <div className="grid min-h-full place-items-center py-4">
+        <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="relative flex items-center space-x-3 px-6 py-5">
+              <PieChart />
           </div>
-        </div>
-        <div className="relative flex items-center space-x-3 px-6 py-5">
-          <div className="min-w-0 flex-1">
+          <div className="relative flex items-center space-x-3 px-6 py-5">
             <BarChart />
           </div>
         </div>
+      </div> */}
+      <div className="py-4">
+        <h3 className="text-3xl text-base font-semibold leading-6 text-gray-900 mb-4">Transactions</h3>
+        <Transactions transactions={t} />
       </div>
-      <Transactions transactions={t} />
     </Container>
   )
 }

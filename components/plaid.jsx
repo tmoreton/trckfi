@@ -49,11 +49,11 @@ const Link = (props) => {
   };
   const { open, ready } = usePlaidLink(config);
   return (
-    <>
+    <div>
       <button onClick={() => open()} disabled={!ready} className="rounded-md bg-pink-600 p-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
         <PlusCircleIcon className="h-5 w-5" aria-hidden="true" />
       </button>
-    </>
+    </div>
   );
 };
 

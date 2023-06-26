@@ -1,6 +1,6 @@
 import { ArrowPathIcon, TrashIcon } from '@heroicons/react/20/solid'
 
-export default function ({ getTransactions, tokens, removeToken }) {
+export default function ({ getTransactions, tokens, removeToken, loading }) {
   return (
     <div>
       <ul role="list" className="ml-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
@@ -13,20 +13,22 @@ export default function ({ getTransactions, tokens, removeToken }) {
                 </p>
               </div>
               <div className="flex-shrink-0 pr-2">
-                <button
-                  onClick={() => getTransactions(t.access_token)}
-                  type="button"
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Refresh</span>
-                  <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
+                <div className={loading.access_token === t.access_token && loading.loading && "animate-spin"}>
+                  <button
+                    onClick={() => getTransactions(t.access_token)}
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+                  >
+                    <span className="sr-only">Refresh</span>
+                    <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
               </div>
               <div className="flex-shrink-0 pr-2">
                 <button
                   onClick={() => removeToken(t.access_token)}
                   type="button"
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">Remove</span>
                   <TrashIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
