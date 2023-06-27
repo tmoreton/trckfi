@@ -14,7 +14,7 @@ export default function ({ accounts }) {
                 <p className="font-medium text-gray-900 hover:text-gray-600">
                   {account.official_name.length > 30 ? `${account.official_name.substring(0, 46)}...` : account.official_name}
                 </p>
-                <p className={balanceClass}><b>Balance:</b> ${account.balances.current}</p>
+                <p className={balanceClass}><b>Balance:</b> ${Math.abs(account.balances.current)}</p>
               </div>
             </div>
           </li>

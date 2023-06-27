@@ -13,10 +13,8 @@ import PieChart from '../components/pie-chart'
 import BarChart from '../components/bar-chart'
 import { DateTime } from "luxon";
 
-export default function ({ transactions, accounts, user_id, plaid }) {
+export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts, user_id, plaid }) {
   const { data: session } = useSession()
-  const [t, updateTransactions] = useState(transactions);
-  const [a, updateAccounts] = useState(accounts);
   const [loading, setLoading] = useState({access_token: null, loading: false});
 
   const getTransactions = async (access_token) => {
@@ -58,24 +56,21 @@ export default function ({ transactions, accounts, user_id, plaid }) {
   return (
     <Container>
       <Header/>
-      {/* <div className="sm:flex-auto py-10">
-        <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 ">Dashboard</h1>
-      </div>
-       */}
-      <div className="py-4">
+      <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 text-center">My Dashboard</h1>
+      
+      {/* <div className="py-4">
         <h3 className="text-base font-semibold leading-6 text-gray-900 mb-4">Accounts</h3>
         <div className="sm:flex sm:items-center justify-items-start">
           <Plaid />
           <Tokens getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} loading={loading}/>
         </div>
+      </div> */}
+      <div className="py-10">
+        <Cards accounts={accounts}/>
       </div>
-      <div className="py-4">
-        <h3 className="text-base font-semibold leading-6 text-gray-900 mb-4">Cards</h3>
-        <div className="sm:flex sm:items-center justify-items-start">
-          <Cards accounts={a}/>
-        </div>
+      <div className="py-10">
+        <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
       </div>
-      <Snapshot transactions={t} accounts={accounts} />
       {/* <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="relative flex items-center space-x-3 px-6 py-5">
@@ -87,8 +82,7 @@ export default function ({ transactions, accounts, user_id, plaid }) {
         </div>
       </div> */}
       <div className="py-4">
-        <h3 className="text-3xl text-base font-semibold leading-6 text-gray-900 mb-4">Transactions</h3>
-        <Transactions transactions={t} />
+        <Transactions transactions={thisMonth} />
       </div>
     </Container>
   )
@@ -108,21 +102,64 @@ export async function getServerSideProps(context) {
       where: { user_id: user.id },
     })
 
-    const transactions = await prisma.transactions.findMany({
-      where: { 
+    const thisMonth = await prisma.transactions.findMany({
+      where: {
         user_id: user.id,
         date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 1 }).toISO(),
+          gte: DateTime.now().startOf('month').toISO(),
         },
-      },
+        NOT: {
+          primary_category: 'LOAN_PAYMENTS',
+        },
+      }
     })
+
+    const lastMonth = await prisma.transactions.findMany({
+      where: {
+        user_id: user.id,
+        date: {
+          lte: DateTime.now().startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        },
+        NOT: {
+          primary_category: 'LOAN_PAYMENTS',
+        },
+      }
+    })
+
+    const thisWeek = await prisma.transactions.findMany({
+      where: {
+        user_id: user.id,
+        date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().startOf('week').toISO(),
+        },
+        NOT: {
+          primary_category: 'LOAN_PAYMENTS',
+        },
+      }
+    })
+
+    const lastWeek = await prisma.transactions.findMany({
+      where: {
+        user_id: user.id,
+        date: {
+          lte: DateTime.now().startOf('week').toISO(),
+          gte: DateTime.now().minus({ week: 1 }).startOf('week').toISO(),
+        },
+        NOT: {
+          primary_category: 'LOAN_PAYMENTS',
+        },
+      }
+    })
+
     const accounts = await prisma.accounts.findMany({
       where: { user_id: user.id },
     })
 
-    return { props: { transactions, accounts: accounts, user_id: user.id, plaid } }
+    return { props: { thisMonth, lastMonth, thisWeek, lastWeek, accounts, user_id: user.id, plaid } }
   }
 
-  return { props: { transactions: [], user_id: user.id } }
+  return { props: { thisMonth: [], user_id: user.id } }
 }

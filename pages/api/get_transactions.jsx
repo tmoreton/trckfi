@@ -15,7 +15,7 @@ export default async (req, res) => {
 
   const request = {
     access_token: plaidAccount.access_token,
-    start_date: DateTime.now().minus({ month: 1 }).toFormat('yyyy-MM-dd'),
+    start_date: DateTime.now().minus({ month: 1 }).startOf('month').toFormat('yyyy-MM-dd'),
     end_date: DateTime.now().toFormat('yyyy-MM-dd'),
     options: {
       include_personal_finance_category: true
