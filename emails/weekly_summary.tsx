@@ -44,15 +44,16 @@ export default function ({ thisWeek, lastWeek }) {
               </Row>
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
-            <Button
-              pX={20}
-              pY={12}
-              className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
-              href='https://www.trckfi.com/my-dashboard'
-            >
-              This Week: <strong className="text-[20px] text-white">${Number(thisWeekSum).toFixed(2)}</strong>
-            </Button>
-            <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
+            <Section className="text-center mt-[32px] mb-[32px]">
+              <Button
+                pX={20}
+                pY={12}
+                className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
+                href='https://www.trckfi.com/my-dashboard'
+              >
+                This Week: <strong className="text-[20px] text-white">${Number(thisWeekSum).toFixed(2)}</strong>
+              </Button>
+            </Section>
             <Section>
               <Row>
                 <Column align="left">
@@ -74,7 +75,17 @@ export default function ({ thisWeek, lastWeek }) {
               </Row>
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mt-[22px] mb-[32px] font-bold">VS.</Text>
-            <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text>
+            <Section className="text-center mt-[32px] mb-[32px]">
+              <Button
+                pX={20}
+                pY={12}
+                className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
+                href='https://www.trckfi.com/my-dashboard'
+              >
+                Last Week: <strong className="text-[20px] text-white">${Number(lastWeekSum).toFixed(2)}</strong>
+              </Button>
+            </Section>
+            {/* <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text> */}
             <Section>
               <Row>
                 <Column align="left">
