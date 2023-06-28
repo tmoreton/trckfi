@@ -28,7 +28,7 @@ export default function ({ thisWeek, lastWeek }) {
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
             <Section className="my-auto mx-auto">
-              <Heading className="text-black text-[24px] font-normal text-center p-0 mx-0">
+              <Heading className="flex items-center justify-center text-black text-[24px] font-normal text-center p-0 mx-0">
                 <Img
                   src='https://www.trckfi.com/trckfi.png'
                   width="50"
@@ -39,8 +39,8 @@ export default function ({ thisWeek, lastWeek }) {
                 <strong>Trckfi</strong>
               </Heading>
             </Section>
-            <Text className="text-black text-[20px] leading-[24px] text-center mb-[26px]">Weekly Spending Summary</Text>
-            <Text className="text-black text-[18px] leading-[6px] text-center mb-[32px]">Amount Spent This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
+            <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
+            <Text className="text-black text-[16px] leading-[12px] text-center mb-[32px]">Amount Spent This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
                 <Column align="left">
