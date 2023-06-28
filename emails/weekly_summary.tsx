@@ -38,7 +38,7 @@ export default function ({ thisWeek, lastWeek }) {
                 className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[24px] font-normal text-center p-0 mb-[18px] mx-0">
+            <Heading className="text-black text-[24px] font-normal text-center p-0 mb-0 mx-0">
               <strong>Trckfi</strong>
             </Heading>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center my-0">Weekly Spending Summary</Text>
@@ -48,7 +48,7 @@ export default function ({ thisWeek, lastWeek }) {
                 pX={20}
                 pY={12}
                 className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
-                href='https://www.trckfi.com/my-dashboard'
+                href='https://www.trckfi.com/dashboard'
               >
                 <strong className="text-[20px] text-white">${Number(thisWeekSum).toFixed(2)}</strong>
               </Button>
@@ -63,7 +63,7 @@ export default function ({ thisWeek, lastWeek }) {
                   <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[3].name}: <strong>${thisWeekSorted[3].amount}</strong></Text>
                   <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[4].name}: <strong>${thisWeekSorted[4].amount}</strong></Text>
                 </Column>
-                <Column align="left">
+                <Column align="right">
                   <Img
                     src='https://www.trckfi.com/color-credit-card.png'
                     width="150"
@@ -80,18 +80,17 @@ export default function ({ thisWeek, lastWeek }) {
                 pX={20}
                 pY={12}
                 className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
-                href='https://www.trckfi.com/my-dashboard'
+                href='https://www.trckfi.com/dashboard'
               >
                 <strong className="text-[20px] text-white">${Number(lastWeekSum).toFixed(2)}</strong>
               </Button>
             </Section>
-            {/* <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text> */}
             <Section>
               <Row>
                 <Column align="left">
                   <Img
                     src='https://www.trckfi.com/color-calendar.png'
-                    width="125"
+                    width="150"
                     alt="Calendar"
                     className="p-2"
                   />
