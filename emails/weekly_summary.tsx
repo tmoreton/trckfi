@@ -29,29 +29,28 @@ export default function ({ thisWeek, lastWeek }) {
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
-            <Section className="flex flex-1 justify-center items-center my-auto mx-auto">
-              <Row className="flex flex-1 justify-center items-center my-auto mx-auto">
-                <Column align="center">
-                  <Img
-                    src='https://www.trckfi.com/trckfi.png'
-                    width="50"
-                    height="50"
-                    alt="Trckfi"
-                    className="p-2"
-                  />
-                  <strong>Trckfi</strong>
-                </Column>
-              </Row>
+            <Section>
+              <Img
+                src='https://www.trckfi.com/trckfi.png'
+                width="50"
+                height="50"
+                alt="Trckfi"
+                className="my-0 mx-auto"
+              />
             </Section>
+            <Heading className="text-black text-[24px] font-normal text-center p-0 mb-[30px] mx-0">
+              <strong>Trckfi</strong>
+            </Heading>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
             <Section className="text-center mt-[32px] mb-[32px]">
+            <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">This Week</Text>
               <Button
                 pX={20}
                 pY={12}
                 className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
                 href='https://www.trckfi.com/my-dashboard'
               >
-                This Week: <strong className="text-[20px] text-white">${Number(thisWeekSum).toFixed(2)}</strong>
+                <strong className="text-[20px] text-white">${Number(thisWeekSum).toFixed(2)}</strong>
               </Button>
             </Section>
             <Section>
@@ -76,13 +75,14 @@ export default function ({ thisWeek, lastWeek }) {
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mt-[22px] mb-[32px] font-bold">VS.</Text>
             <Section className="text-center mt-[32px] mb-[32px]">
+              <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week</Text>
               <Button
                 pX={20}
                 pY={12}
                 className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
                 href='https://www.trckfi.com/my-dashboard'
               >
-                Last Week: <strong className="text-[20px] text-white">${Number(lastWeekSum).toFixed(2)}</strong>
+                <strong className="text-[20px] text-white">${Number(lastWeekSum).toFixed(2)}</strong>
               </Button>
             </Section>
             {/* <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text> */}
