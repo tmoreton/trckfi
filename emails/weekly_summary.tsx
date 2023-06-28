@@ -30,18 +30,28 @@ export default function ({ thisWeek, lastWeek }) {
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
             <Section className="flex flex-1 justify-center items-center my-auto mx-auto">
-              <Container className="flex justify-center items-center my-auto mx-auto text-black text-[24px] font-normal p-0">
-                <Img
-                  src='https://www.trckfi.com/trckfi.png'
-                  width="50"
-                  height="50"
-                  alt="Trckfi"
-                  className="p-2 flex justify-center items-center "
-                />
-                <strong className="p-2 flex justify-center items-center ">Trckfi</strong>
-              </Container>
+              <Row className="flex flex-1 justify-center items-center my-auto mx-auto">
+                <Column align="center">
+                  <Img
+                    src='https://www.trckfi.com/trckfi.png'
+                    width="50"
+                    height="50"
+                    alt="Trckfi"
+                    className="p-2"
+                  />
+                  <strong>Trckfi</strong>
+                </Column>
+              </Row>
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
+            <Button
+              pX={20}
+              pY={12}
+              className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
+              href='https://www.trckfi.com/my-dashboard'
+            >
+              This Week: <strong className="text-[20px] text-white">${Number(thisWeekSum).toFixed(2)}</strong>
+            </Button>
             <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
