@@ -21,6 +21,7 @@ export default async (req, res) => {
       include_personal_finance_category: true
     }
   }
+  console.log(request)
 
   try {
     const response = await plaidClient.transactionsGet(request)

@@ -14,7 +14,6 @@ import Plaid from "../components/plaid"
 export default function () {
   const { data: session } = useSession()
   const [loading, setLoading] = useState({access_token: null, loading: false})
-  const [removed, setRemoved] = useState({access_token: null, loading: false})
   const [thisMonth, setThisMonth] = useState([])
   const [lastMonth, setLastMonth] = useState([])
   const [thisWeek, setThisWeek] = useState([])
@@ -66,19 +65,6 @@ export default function () {
     getDashboard()
   }
 
-  const removeToken = async (access_token) => {
-    setRemoved(true)
-    const res = await fetch(`/api/remove_access_token`, {
-      body: JSON.stringify({
-        access_token: access_token
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-  }
-
   if (!session) return (
     <Container>
       <Header/>
@@ -94,7 +80,7 @@ export default function () {
         <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
         <Plaid getTransactions={getTransactions} />
       </div>
-      <Cards accounts={accounts} getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} loading={loading} removed={removed}/>
+      <Cards accounts={accounts} getTransactions={getTransactions} tokens={plaid} loading={loading} getDashboard={getDashboard} />
       <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
       {/* <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">

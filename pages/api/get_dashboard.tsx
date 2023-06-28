@@ -23,7 +23,7 @@ export default async (req, res) => {
         },
       },
       orderBy: {
-        date: 'desc'
+        authorized_date: 'desc'
       }
     })
 

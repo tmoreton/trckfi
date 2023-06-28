@@ -30,14 +30,13 @@ const getAccessToken = async ({ public_token, user_id }) => {
     method: 'POST',
   })
   const { access_token } = await res.json()
-  console.log(access_token)
   return access_token
 }
 
 const Link = ({ linkToken, getTransactions }) => {
   const { data: session } = useSession()
-  const onSuccess = React.useCallback((public_token) => {
-    const access_token = getAccessToken({ public_token, user_id: session?.user.id })
+  const onSuccess = React.useCallback(async (public_token) => {
+    const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
     setTimeout(() => {
       getTransactions(access_token)
     }, 5000)

@@ -1,8 +1,36 @@
+import { useState } from 'react'
 import { ArrowPathIcon, TrashIcon } from '@heroicons/react/20/solid'
+import RemoveAccount from "./remove-account"
 
-export default function ({ accounts, getTransactions, removed, removeToken, loading }) {
+export default function ({ getTransactions, getDashboard, loading, accounts }) {
+  const [open, setOpen] = useState(false)
+  const [removedAccounts, setAccounts] = useState([])
+  const [token, setToken] = useState('')
+
+  const getAccounts = async (access_token) => {
+    setToken(access_token)
+    setOpen(true)
+    const items = accounts.filter(item => item.access_token.indexOf(access_token) !== -1);
+    setAccounts(items)
+  }
+
+  const removeToken = async () => {
+    const res = await fetch(`/api/remove_access_token`, {
+      body: JSON.stringify({
+        access_token: token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    getDashboard()
+    setOpen(false)
+  }
+
   return (
     <div className="py-10">
+      <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
       <ul role="list" className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         { accounts?.length < 1 && <p className="text-gray-500"><b>No Cards Synced Yet</b></p>}
         { accounts?.map((account) => {
@@ -29,16 +57,14 @@ export default function ({ accounts, getTransactions, removed, removeToken, load
                       <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
                     </button>
                   </div>
-                  <div className={removed.access_token === account.access_token && removed.loading && 'hidden'}>
-                    <button
-                      onClick={() => removeToken(account.access_token)}
-                      type="button"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
-                    >
-                      <span className="sr-only">Remove</span>
-                      <TrashIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => getAccounts(account.access_token)}
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+                  >
+                    <span className="sr-only">Remove</span>
+                    <TrashIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+                  </button>
                 </div>
               </div>
             </li>
