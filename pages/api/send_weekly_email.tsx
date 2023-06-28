@@ -13,34 +13,34 @@ export default async (req, res) => {
     where: { email: email },
   })
 
-  const thisMonth = await prisma.transactions.findMany({
-    where: {
-      user_id: user.id,
-      date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().startOf('month').toISO(),
-      },
-      NOT: {
-        primary_category: 'LOAN_PAYMENTS',
-      },
-    },
-    orderBy: {
-      authorized_date: 'desc'
-    }
-  })
+  // const thisMonth = await prisma.transactions.findMany({
+  //   where: {
+  //     user_id: user.id,
+  //     date: {
+  //       lte: DateTime.now().toISO(),
+  //       gte: DateTime.now().startOf('month').toISO(),
+  //     },
+  //     NOT: {
+  //       primary_category: 'LOAN_PAYMENTS',
+  //     },
+  //   },
+  //   orderBy: {
+  //     authorized_date: 'desc'
+  //   }
+  // })
 
-  const lastMonth = await prisma.transactions.findMany({
-    where: {
-      user_id: user.id,
-      date: {
-        lte: DateTime.now().startOf('month').toISO(),
-        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-      },
-      NOT: {
-        primary_category: 'LOAN_PAYMENTS',
-      },
-    }
-  })
+  // const lastMonth = await prisma.transactions.findMany({
+  //   where: {
+  //     user_id: user.id,
+  //     date: {
+  //       lte: DateTime.now().startOf('month').toISO(),
+  //       gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+  //     },
+  //     NOT: {
+  //       primary_category: 'LOAN_PAYMENTS',
+  //     },
+  //   }
+  // })
 
   const thisWeek = await prisma.transactions.findMany({
     where: {
@@ -74,14 +74,7 @@ export default async (req, res) => {
     }
   })
 
-  const accounts = await prisma.accounts.findMany({
-    where: { 
-      user_id: user.id,
-      active: true
-    },
-  })
-
-  const emailHtml = render(<WeeklySummaryEmail accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek}/>)
+  const emailHtml = render(<WeeklySummaryEmail thisWeek={thisWeek} lastWeek={lastWeek}/>)
   
   const message = {
     from: process.env.EMAIL_ADDRESS,
