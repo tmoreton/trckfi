@@ -89,6 +89,7 @@ model Accounts {
   updatedAt     DateTime @updatedAt
   access_token  String?
   item_id       String?
+  active        Boolean? @default(true)
 
   @@map("accounts")
 }

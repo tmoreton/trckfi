@@ -1,27 +1,59 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Transactions from "../components/transactions"
 import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
 import Snapshot from "../components/snapshot"
-import Plaid from "../components/plaid"
-import prisma from '../lib/prisma';
-import { getSession, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import Header from '../components/header'
 import Cards from '../components/cards'
-import Tokens from '../components/tokens'
-import PieChart from '../components/pie-chart'
-import BarChart from '../components/bar-chart'
-import { DateTime } from "luxon";
+import Loader from '../components/loader'
+// import PieChart from '../components/pie-chart'
+// import BarChart from '../components/bar-chart'
 
-export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts, user_id, plaid }) {
+export default function () {
   const { data: session } = useSession()
-  const [loading, setLoading] = useState({access_token: null, loading: false});
+  const [loading, setLoading] = useState({access_token: null, loading: false})
+  const [removed, setRemoved] = useState({access_token: null, loading: false})
+  const [thisMonth, setThisMonth] = useState([])
+  const [lastMonth, setLastMonth] = useState([])
+  const [thisWeek, setThisWeek] = useState([])
+  const [lastWeek, setLastWeek] = useState([])
+  const [accounts, setAccounts] = useState([])
+  const [plaid, setPlaid] = useState([])
+  const [refreshing, setRefreshing] = useState(false)
+
+  useEffect(() => {
+    if(session && thisMonth.length < 1){
+      getDashboard();
+    }
+  }, [session]);
+
+  const getDashboard = async () => {
+    setRefreshing(true)
+    const res = await fetch(`/api/get_dashboard`, {
+      body: JSON.stringify({
+        user_id: session.user.id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { thisMonth, lastMonth, thisWeek, lastWeek, accounts, plaid } = await res.json()
+    setThisMonth(thisMonth)
+    setLastMonth(lastMonth)
+    setThisWeek(thisWeek)
+    setLastWeek(lastWeek)
+    setAccounts(accounts)
+    setPlaid(plaid)
+    setRefreshing(false)
+  }
 
   const getTransactions = async (access_token) => {
     setLoading({access_token: access_token, loading: true})
     await fetch(`/api/get_transactions`, {
       body: JSON.stringify({
-        user_id: user_id,
+        user_id: session.user.id,
         access_token: access_token
       }),
       headers: {
@@ -30,10 +62,11 @@ export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts, u
       method: 'POST',
     })
     setLoading({access_token: null, loading: false})
+    getDashboard()
   }
 
   const removeToken = async (access_token) => {
-    setLoading(true)
+    setRemoved(true)
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
         access_token: access_token
@@ -43,7 +76,6 @@ export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts, u
       },
       method: 'POST',
     })
-    setLoading(false)
   }
 
   if (!session) return (
@@ -55,22 +87,11 @@ export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts, u
 
   return (
     <Container>
+      <Loader refreshing={refreshing} />
       <Header/>
-      <h1 className="text-3xl md:text-5xl text-base font-bold leading-2 text-gray-900 text-center">My Dashboard</h1>
-      
-      {/* <div className="py-4">
-        <h3 className="text-base font-semibold leading-6 text-gray-900 mb-4">Accounts</h3>
-        <div className="sm:flex sm:items-center justify-items-start">
-          <Plaid />
-          <Tokens getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} loading={loading}/>
-        </div>
-      </div> */}
-      <div className="py-10">
-        <Cards accounts={accounts}/>
-      </div>
-      <div className="py-10">
-        <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
-      </div>
+      <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1>
+      <Cards accounts={accounts} getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} loading={loading} removed={removed}/>
+      <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
       {/* <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="relative flex items-center space-x-3 px-6 py-5">
@@ -81,85 +102,7 @@ export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts, u
           </div>
         </div>
       </div> */}
-      <div className="py-4">
-        <Transactions transactions={thisMonth} />
-      </div>
+      <Transactions transactions={thisMonth} />
     </Container>
   )
-}
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context)
-
-  if(!session?.user?.id) return { props: { data: [], user_id: null } }
-
-  const user = await prisma.user.findUnique({
-    where: { id: session?.user?.id },
-  })
-
-  if(user){
-    const plaid = await prisma.plaid.findMany({
-      where: { user_id: user.id },
-    })
-
-    const thisMonth = await prisma.transactions.findMany({
-      where: {
-        user_id: user.id,
-        date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().startOf('month').toISO(),
-        },
-        NOT: {
-          primary_category: 'LOAN_PAYMENTS',
-        },
-      }
-    })
-
-    const lastMonth = await prisma.transactions.findMany({
-      where: {
-        user_id: user.id,
-        date: {
-          lte: DateTime.now().startOf('month').toISO(),
-          gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-        },
-        NOT: {
-          primary_category: 'LOAN_PAYMENTS',
-        },
-      }
-    })
-
-    const thisWeek = await prisma.transactions.findMany({
-      where: {
-        user_id: user.id,
-        date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().startOf('week').toISO(),
-        },
-        NOT: {
-          primary_category: 'LOAN_PAYMENTS',
-        },
-      }
-    })
-
-    const lastWeek = await prisma.transactions.findMany({
-      where: {
-        user_id: user.id,
-        date: {
-          lte: DateTime.now().startOf('week').toISO(),
-          gte: DateTime.now().minus({ week: 1 }).startOf('week').toISO(),
-        },
-        NOT: {
-          primary_category: 'LOAN_PAYMENTS',
-        },
-      }
-    })
-
-    const accounts = await prisma.accounts.findMany({
-      where: { user_id: user.id },
-    })
-
-    return { props: { thisMonth, lastMonth, thisWeek, lastWeek, accounts, user_id: user.id, plaid } }
-  }
-
-  return { props: { thisMonth: [], user_id: user.id } }
 }

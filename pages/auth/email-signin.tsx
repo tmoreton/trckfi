@@ -26,7 +26,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                   type="email"
                   autoComplete="email"
                   required
-                  className="block w-full min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                  className="block w-full min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 border-b border border-gray-200"
                 />
               </div>
             </div>

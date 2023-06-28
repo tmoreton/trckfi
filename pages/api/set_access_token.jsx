@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  const { public_token, metadata, user_id } = req.body
+  const { public_token, user_id } = req.body
   try {
     if(user_id){
       const response = await plaidClient.itemPublicTokenExchange({
