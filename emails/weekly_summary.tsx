@@ -15,8 +15,9 @@ import {
   Column
 } from '@react-email/components';
 import * as React from 'react';
+import Snapshot from "../components/snapshot"
 
-export default function () {
+export default function ({ accounts, thisMonth, lastMonth, thisWeek, lastWeek }) {
   return (
     <Html>
       <Head />
@@ -40,7 +41,7 @@ export default function () {
             <Section>
               <Row>
                 <Column align="right">
-                  <Img className="rounded-full" src='https://react-email-demo-ijnnx5hul-resend.vercel.app/static/vercel-user.png' width="64" height="64" />
+                  <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
                 </Column>
                 <Column align="center">
                   <Img
