@@ -4,7 +4,7 @@ import { render } from '@react-email/render'
 import WeeklySummaryEmail from "../../emails/weekly_summary"
 import prisma from '../../lib/prisma';
 
-export default async (req, res) => {
+export default function handler(req, res) {
   // const { email } = req.body
   const email = 'tmoreton89@gmail.com'
   const emailHtml = render(<WeeklySummaryEmail />)
@@ -26,8 +26,8 @@ export default async (req, res) => {
   })
 
   try {
-    await transporter.sendMail(message)
-    return res.status(200).json({ status: 'OK' })
+    transporter.sendMail(message)
+    res.status(200).end('Hello Cron!');
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() })
   }
