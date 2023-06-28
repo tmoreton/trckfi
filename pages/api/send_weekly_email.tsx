@@ -74,8 +74,6 @@ export default async (req, res) => {
     }
   })
 
-  console.log(lastWeek)
-
   const emailHtml = render(<WeeklySummaryEmail thisWeek={thisWeek} lastWeek={lastWeek}/>)
   
   const message = {
