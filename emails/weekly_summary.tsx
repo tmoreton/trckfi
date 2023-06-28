@@ -27,15 +27,15 @@ export default function ({ thisWeek, lastWeek }) {
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="mx-auto p-[20px] w-[465px]">
-            <Section className="my-auto mx-auto">
-              <Heading className="flex items-center justify-center text-black text-[24px] font-normal text-center p-0 mx-0 my-auto mx-auto">
-                <Img
-                  src='https://www.trckfi.com/trckfi.png'
-                  width="50"
-                  height="50"
-                  alt="Trckfi"
-                  className="p-2"
-                />
+            <Section className="flex justify-center">
+              <Img
+                src='https://www.trckfi.com/trckfi.png'
+                width="50"
+                height="50"
+                alt="Trckfi"
+                className="p-2"
+              />
+              <Heading className="text-black text-[24px] font-normal">
                 <strong>Trckfi</strong>
               </Heading>
             </Section>
