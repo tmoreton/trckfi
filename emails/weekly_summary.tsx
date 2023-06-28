@@ -38,12 +38,12 @@ export default function ({ thisWeek, lastWeek }) {
                 className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[24px] font-normal text-center p-0 mb-[30px] mx-0">
+            <Heading className="text-black text-[24px] font-normal text-center p-0 mb-[18px] mx-0">
               <strong>Trckfi</strong>
             </Heading>
-            <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
+            <Text className="text-[#666666] text-[20px] leading-[24px] text-center my-0">Weekly Spending Summary</Text>
             <Section className="text-center mt-[32px] mb-[32px]">
-            <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">This Week</Text>
+            <Text className="text-black text-[16px] leading-[12px] text-center mb-[12px] font-bold">This Week</Text>
               <Button
                 pX={20}
                 pY={12}
@@ -75,7 +75,7 @@ export default function ({ thisWeek, lastWeek }) {
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mt-[22px] mb-[32px] font-bold">VS.</Text>
             <Section className="text-center mt-[32px] mb-[32px]">
-              <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week</Text>
+              <Text className="text-black text-[16px] leading-[12px] text-center mb-[12px] font-bold">Last Week</Text>
               <Button
                 pX={20}
                 pY={12}
