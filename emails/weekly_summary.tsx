@@ -51,7 +51,7 @@ export default function ({ thisWeek, lastWeek }) {
                 </Column>
                 <Column align="left">
                   <Img
-                    src='https://www.trckfi.com/pink-card.png'
+                    src='https://www.trckfi.com/color-credit-card.png'
                     width="100"
                     alt="Credit Card"
                     className="my-0"
@@ -63,6 +63,14 @@ export default function ({ thisWeek, lastWeek }) {
             <Text className="text-black text-[16px] leading-[12px] text-center mb-[32px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
+                <Column align="right">
+                  <Img
+                    src='https://www.trckfi.com/color-calendar-card.png'
+                    width="100"
+                    alt="Credit Card"
+                    className="my-0"
+                  />
+                </Column>
                 <Column align="left">
                   <Text className="text-black text-[18px] leading-[12px] mb-[22px] font-bold">Top 5 Purchases</Text>
                   <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[0].name}: <strong>${lastWeekSum[0].amount}</strong></Text>
@@ -70,14 +78,6 @@ export default function ({ thisWeek, lastWeek }) {
                   <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[2].name}: <strong>${lastWeekSum[2].amount}</strong></Text>
                   <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[3].name}: <strong>${lastWeekSum[3].amount}</strong></Text>
                   <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[4].name}: <strong>${lastWeekSum[4].amount}</strong></Text>
-                </Column>
-                <Column align="left">
-                  <Img
-                    src='https://www.trckfi.com/pink-card.png'
-                    width="100"
-                    alt="Credit Card"
-                    className="my-0"
-                  />
                 </Column>
               </Row>
             </Section>
