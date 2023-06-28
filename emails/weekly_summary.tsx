@@ -17,11 +17,12 @@ import {
 import * as React from 'react';
 
 export default function ({ thisWeek, lastWeek }) {
-  const thisWeekSum = thisWeek.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
-  const lastWeekSum = lastWeek.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
+  let thisWeekSum = 0
+  let lastWeekSum = lastWeek.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
   const sorted = thisWeek.sort((a,b) => {
-      return Number(a.amount) - Number(b.amount);
-  });
+      thisWeekSum += Number(a.amount)
+      return Number(b.amount) - Number(a.amount)
+  })
   return (
     <Html>
       <Head />
@@ -42,7 +43,7 @@ export default function ({ thisWeek, lastWeek }) {
               </Heading>
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
-            <Text className="text-black text-[16px] leading-[12px] text-center mb-[32px]">This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
+            <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
                 <Column align="left">
@@ -56,23 +57,23 @@ export default function ({ thisWeek, lastWeek }) {
                 <Column align="left">
                   <Img
                     src='https://www.trckfi.com/color-credit-card.png'
-                    width="200"
+                    width="175"
                     alt="Credit Card"
-                    className="my-0"
+                    className="p-2"
                   />
                 </Column>
               </Row>
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center my-[32px]">VS.</Text>
-            <Text className="text-black text-[16px] leading-[12px] text-center mb-[32px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text>
+            <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
                 <Column align="right">
                   <Img
                     src='https://www.trckfi.com/color-calendar.png'
-                    width="200"
+                    width="175"
                     alt="Calendar"
-                    className="my-0"
+                    className="p-2"
                   />
                 </Column>
                 <Column align="left">
