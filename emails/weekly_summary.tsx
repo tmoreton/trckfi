@@ -40,21 +40,20 @@ export default function ({ thisWeek, lastWeek }) {
               <strong>Trckfi</strong>
             </Heading>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[18px]">Weekly Spending Summary</Text>
-            <Text className="text-[20px] leading-[6px] text-center mb-[6px] font-bold">Amount Spent This Week: ${thisWeekSum}</Text>
+            <Text className="text-[16px] leading-[6px] text-center mb-[6px]">Amount Spent This Week: <strong>${thisWeekSum}</strong></Text>
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Section>
               <Row>
-                <Column align="left">
-                  <Text className="text-[20px] leading-[12px] text-center mb-[18px] font-bold">Top 3 Purchases</Text>
-                  <Text className="text-[12px] leading-[6px]">{thisWeek[0].name}</Text>
-                  <Text className="text-[12px] leading-[6px]">{thisWeek[1].name}</Text>
-                  <Text className="text-[12px] leading-[6px]">{thisWeek[2].name}</Text>
+                <Column align="center">
+                  <Text className="text-black text-[20px] leading-[12px] mb-[18px] font-bold">Top 3 Purchases</Text>
+                  <Text className="text-black text-[12px] leading-[6px]">{thisWeek[0].name}</Text>
+                  <Text className="text-black text-[12px] leading-[6px]">{thisWeek[1].name}</Text>
+                  <Text className="text-black text-[12px] leading-[6px]">{thisWeek[2].name}</Text>
                 </Column>
                 <Column align="center">
                   <Img
-                    src='https://www.trckfi.com/pink-credit.png'
+                    src='https://www.trckfi.com/pink-card.png'
                     width="150"
-                    height="150"
                     alt="Credit Card"
                     className="my-0 mx-auto"
                   />
