@@ -39,14 +39,16 @@ export default function ({ thisWeek, lastWeek }) {
             <Heading className="text-black text-[24px] font-normal text-center p-0 mt-[30px] mx-0">
               <strong>Trckfi</strong>
             </Heading>
-            <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[36px]">Weekly Spending Summary</Text>
+            <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[18px]">Weekly Spending Summary</Text>
+            <Text className="text-[20px] leading-[6px] text-center mb-[6px] font-bold">Amount Spent This Week: ${thisWeekSum}</Text>
+            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Section>
               <Row>
-                <Column align="right">
-                  <Text className="text-[20px] leading-[24px] text-center mb-[36px] font-bold">Top 3 Purchases</Text>
-                  <Text className="text-[12px]">{thisWeek[0].name}</Text>
-                  <Text className="text-[12px]">{thisWeek[1].name}</Text>
-                  <Text className="text-[12px]">{thisWeek[2].name}</Text>
+                <Column align="left">
+                  <Text className="text-[20px] leading-[12px] text-center mb-[18px] font-bold">Top 3 Purchases</Text>
+                  <Text className="text-[12px] leading-[6px]">{thisWeek[0].name}</Text>
+                  <Text className="text-[12px] leading-[6px]">{thisWeek[1].name}</Text>
+                  <Text className="text-[12px] leading-[6px]">{thisWeek[2].name}</Text>
                 </Column>
                 <Column align="left">
                   <Img
@@ -56,8 +58,6 @@ export default function ({ thisWeek, lastWeek }) {
                     alt="Credit Card"
                     className="my-0 mx-auto"
                   />
-                  <Text className="text-[20px] leading-[24px] text-center mb-[36px] font-bold">This Week</Text>
-                  <Text className="text-[12px] leading-[24px] text-center">${thisWeekSum}</Text>
                 </Column>
               </Row>
             </Section>
