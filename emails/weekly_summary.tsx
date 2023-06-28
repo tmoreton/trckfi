@@ -29,17 +29,17 @@ export default function ({ thisWeek, lastWeek }) {
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
-            <Section style={{justifyContent: 'center', alignItems: 'center'}} className="flex flex-1 justify-center items-center my-auto mx-auto">
-              <Heading style={{alignItems: 'center'}} className="flex flex-1 justify-center items-center my-auto mx-auto text-black text-[24px] font-normal p-0 mx-0">
+            <Section className="flex flex-1 justify-center items-center my-auto mx-auto">
+              <Container className="flex justify-center items-center my-auto mx-auto text-black text-[24px] font-normal p-0">
                 <Img
                   src='https://www.trckfi.com/trckfi.png'
                   width="50"
                   height="50"
                   alt="Trckfi"
-                  className="p-2"
+                  className="p-2 flex justify-center items-center "
                 />
-                <strong>Trckfi</strong>
-              </Heading>
+                <strong className="p-2 flex justify-center items-center ">Trckfi</strong>
+              </Container>
             </Section>
             <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[16px]">Weekly Spending Summary</Text>
             <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
@@ -47,11 +47,11 @@ export default function ({ thisWeek, lastWeek }) {
               <Row>
                 <Column align="left">
                   <Text className="text-black text-[18px] leading-[12px] mb-[22px] font-bold">Top 5 Purchases</Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{thisWeekSorted[0].name}: <strong>${thisWeekSorted[0].amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{thisWeekSorted[1].name}: <strong>${thisWeekSorted[1].amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{thisWeekSorted[2].name}: <strong>${thisWeekSorted[2].amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{thisWeekSorted[3].name}: <strong>${thisWeekSorted[3].amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{thisWeekSorted[4].name}: <strong>${thisWeekSorted[4].amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[0].name}: <strong>${thisWeekSorted[0].amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[1].name}: <strong>${thisWeekSorted[1].amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[2].name}: <strong>${thisWeekSorted[2].amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[3].name}: <strong>${thisWeekSorted[3].amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{thisWeekSorted[4].name}: <strong>${thisWeekSorted[4].amount}</strong></Text>
                 </Column>
                 <Column align="left">
                   <Img
@@ -77,11 +77,11 @@ export default function ({ thisWeek, lastWeek }) {
                 </Column>
                 <Column align="left">
                   <Text className="text-black text-[18px] leading-[12px] mb-[22px] font-bold">Top 5 Purchases</Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{lastWeekSorted[0]?.name}: <strong>${lastWeekSorted[0]?.amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{lastWeekSorted[1]?.name}: <strong>${lastWeekSorted[1]?.amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{lastWeekSorted[2]?.name}: <strong>${lastWeekSorted[2]?.amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{lastWeekSorted[3]?.name}: <strong>${lastWeekSorted[3]?.amount}</strong></Text>
-                  <Text className="text-black text-[15px] leading-[6px]">{lastWeekSorted[4]?.name}: <strong>${lastWeekSorted[4]?.amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{lastWeekSorted[0]?.name}: <strong>${lastWeekSorted[0]?.amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{lastWeekSorted[1]?.name}: <strong>${lastWeekSorted[1]?.amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{lastWeekSorted[2]?.name}: <strong>${lastWeekSorted[2]?.amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{lastWeekSorted[3]?.name}: <strong>${lastWeekSorted[3]?.amount}</strong></Text>
+                  <Text className="text-[#666666] text-[12px] leading-[6px]">{lastWeekSorted[4]?.name}: <strong>${lastWeekSorted[4]?.amount}</strong></Text>
                 </Column>
               </Row>
             </Section>
