@@ -29,8 +29,8 @@ export default function ({ thisWeek, lastWeek }) {
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
-            <Section className="flex flex-1 justify-center items-center my-auto mx-auto">
-              <Heading className="flex flex-1 justify-center items-center my-auto mx-auto text-black text-[24px] font-normal p-0 mx-0">
+            <Section style={{justifyContent: 'center', alignItems: 'center'}} className="flex flex-1 justify-center items-center my-auto mx-auto">
+              <Heading style={{alignItems: 'center'}} className="flex flex-1 justify-center items-center my-auto mx-auto text-black text-[24px] font-normal p-0 mx-0">
                 <Img
                   src='https://www.trckfi.com/trckfi.png'
                   width="50"
@@ -56,21 +56,21 @@ export default function ({ thisWeek, lastWeek }) {
                 <Column align="left">
                   <Img
                     src='https://www.trckfi.com/color-credit-card.png'
-                    width="200"
+                    width="150"
                     alt="Credit Card"
                     className="p-2"
                   />
                 </Column>
               </Row>
             </Section>
-            <Text className="text-[#666666] text-[20px] leading-[24px] text-center my-[32px]">VS.</Text>
+            <Text className="text-[#666666] text-[20px] leading-[24px] text-center mt-[22px] mb-[32px] font-bold">VS.</Text>
             <Text className="text-black text-[16px] leading-[12px] text-center mb-[26px]">Last Week: <strong className="text-[20px]">${Number(lastWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
-                <Column align="right">
+                <Column align="left">
                   <Img
                     src='https://www.trckfi.com/color-calendar.png'
-                    width="150"
+                    width="125"
                     alt="Calendar"
                     className="p-2"
                   />
