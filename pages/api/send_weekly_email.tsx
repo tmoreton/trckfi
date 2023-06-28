@@ -54,7 +54,7 @@ export default async (req, res) => {
       },
     },
     orderBy: {
-      authorized_date: 'desc'
+      authorized_date: 'asc'
     }
   })
 
@@ -70,7 +70,7 @@ export default async (req, res) => {
       },
     },
     orderBy: {
-      authorized_date: 'desc'
+      authorized_date: 'asc'
     }
   })
 
@@ -79,7 +79,7 @@ export default async (req, res) => {
   const message = {
     from: process.env.EMAIL_ADDRESS,
     to: email,
-    subject: 'Trcki Weekly Summary',
+    subject: 'Trckfi Weekly Summary',
     html: emailHtml,
   }
 

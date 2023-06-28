@@ -28,26 +28,26 @@ export default function ({ thisWeek, lastWeek }) {
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
             <Section className="my-auto mx-auto">
-              <Img
-                src='https://www.trckfi.com/trckfi.png'
-                width="50"
-                height="50"
-                alt="Trckfi"
-                className="p-2"
-              />
-              <Heading className="text-black text-[24px] font-normal text-center p-0 mt-[30px] mx-0">
+              <Heading className="text-black text-[24px] font-normal text-center p-0 mx-0">
+                <Img
+                  src='https://www.trckfi.com/trckfi.png'
+                  width="50"
+                  height="50"
+                  alt="Trckfi"
+                  className="p-2"
+                />
                 <strong>Trckfi</strong>
               </Heading>
             </Section>
             <Text className="text-black text-[20px] leading-[24px] text-center mb-[26px]">Weekly Spending Summary</Text>
-            <Text className="text-black text-[18px] leading-[6px] text-center mb-[32px]">Amount Spent This Week: <strong className="text-[20px]">${thisWeekSum}</strong></Text>
+            <Text className="text-black text-[18px] leading-[6px] text-center mb-[32px]">Amount Spent This Week: <strong className="text-[20px]">${Number(thisWeekSum).toFixed(2)}</strong></Text>
             <Section>
               <Row>
                 <Column align="left">
                   <Text className="text-black text-[20px] leading-[12px] mb-[18px] font-bold">Top 3 Purchases</Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[0].name}: <strong>${thisWeek[0].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[1].name}: <strong>${thisWeek[1].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[2].name}: <strong>${thisWeek[2].amount}</strong></Text>
+                  <Text className="text-black text-[14px] leading-[6px]">{thisWeek[0].name}: <strong>${thisWeek[0].amount}</strong></Text>
+                  <Text className="text-black text-[14px] leading-[6px]">{thisWeek[1].name}: <strong>${thisWeek[1].amount}</strong></Text>
+                  <Text className="text-black text-[14px] leading-[6px]">{thisWeek[2].name}: <strong>${thisWeek[2].amount}</strong></Text>
                 </Column>
                 <Column align="center">
                   <Img
