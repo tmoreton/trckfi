@@ -50,11 +50,11 @@ export default function ({ thisWeek, lastWeek }) {
                   <Text className="text-[12px] leading-[6px]">{thisWeek[1].name}</Text>
                   <Text className="text-[12px] leading-[6px]">{thisWeek[2].name}</Text>
                 </Column>
-                <Column align="left">
+                <Column align="center">
                   <Img
-                    src='https://www.trckfi.com/credit-card.png'
-                    width="50"
-                    height="50"
+                    src='https://www.trckfi.com/pink-credit.png'
+                    width="150"
+                    height="150"
                     alt="Credit Card"
                     className="my-0 mx-auto"
                   />
