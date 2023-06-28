@@ -27,18 +27,18 @@ export default function ({ thisWeek, lastWeek }) {
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
-            <Section>
+            <Section className="my-auto mx-auto">
               <Img
                 src='https://www.trckfi.com/trckfi.png'
                 width="50"
                 height="50"
                 alt="Trckfi"
-                className="my-0 mx-auto"
+                className="p-2"
               />
+              <Heading className="text-black text-[24px] font-normal text-center p-0 mt-[30px] mx-0">
+                <strong>Trckfi</strong>
+              </Heading>
             </Section>
-            <Heading className="text-black text-[24px] font-normal text-center p-0 mt-[30px] mx-0">
-              <strong>Trckfi</strong>
-            </Heading>
             <Text className="text-black text-[20px] leading-[24px] text-center mb-[26px]">Weekly Spending Summary</Text>
             <Text className="text-black text-[18px] leading-[6px] text-center mb-[32px]">Amount Spent This Week: <strong className="text-[20px]">${thisWeekSum}</strong></Text>
             <Section>
