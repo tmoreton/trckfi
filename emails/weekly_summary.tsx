@@ -73,11 +73,11 @@ export default function ({ thisWeek, lastWeek }) {
                 </Column>
                 <Column align="left">
                   <Text className="text-black text-[18px] leading-[12px] mb-[22px] font-bold">Top 5 Purchases</Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[0].name}: <strong>${lastWeekSum[0].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[1].name}: <strong>${lastWeekSum[1].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[2].name}: <strong>${lastWeekSum[2].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[3].name}: <strong>${lastWeekSum[3].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[4].name}: <strong>${lastWeekSum[4].amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[0]?.name}: <strong>${lastWeekSum[0]?.amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[1]?.name}: <strong>${lastWeekSum[1]?.amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[2]?.name}: <strong>${lastWeekSum[2]?.amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[3]?.name}: <strong>${lastWeekSum[3]?.amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{lastWeekSum[4]?.name}: <strong>${lastWeekSum[4]?.amount}</strong></Text>
                 </Column>
               </Row>
             </Section>
