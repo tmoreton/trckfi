@@ -52,6 +52,9 @@ export default async (req, res) => {
       NOT: {
         primary_category: 'LOAN_PAYMENTS',
       },
+    },
+    orderBy: {
+      authorized_date: 'asc'
     }
   })
 
@@ -65,6 +68,9 @@ export default async (req, res) => {
       NOT: {
         primary_category: 'LOAN_PAYMENTS',
       },
+    },
+    orderBy: {
+      authorized_date: 'asc'
     }
   })
 
