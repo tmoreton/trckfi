@@ -26,9 +26,9 @@ export default function ({ thisWeek, lastWeek }) {
       <Preview>Trckfi - Weekly Summary</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
+          <Container className="mx-auto p-[20px] w-[465px]">
             <Section className="my-auto mx-auto">
-              <Heading className="flex items-center justify-center text-black text-[24px] font-normal text-center p-0 mx-0">
+              <Heading className="flex items-center justify-center text-black text-[24px] font-normal text-center p-0 mx-0 my-auto mx-auto">
                 <Img
                   src='https://www.trckfi.com/trckfi.png'
                   width="50"
@@ -44,7 +44,7 @@ export default function ({ thisWeek, lastWeek }) {
             <Section>
               <Row>
                 <Column align="left">
-                  <Text className="text-black text-[20px] leading-[12px] mb-[18px] font-bold">Top 3 Purchases</Text>
+                  <Text className="text-black text-[18px] leading-[12px] mb-[18px] font-bold">Top 3 Purchases</Text>
                   <Text className="text-black text-[14px] leading-[6px]">{thisWeek[0].name}: <strong>${thisWeek[0].amount}</strong></Text>
                   <Text className="text-black text-[14px] leading-[6px]">{thisWeek[1].name}: <strong>${thisWeek[1].amount}</strong></Text>
                   <Text className="text-black text-[14px] leading-[6px]">{thisWeek[2].name}: <strong>${thisWeek[2].amount}</strong></Text>
