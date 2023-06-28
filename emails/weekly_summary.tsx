@@ -39,21 +39,20 @@ export default function ({ thisWeek, lastWeek }) {
             <Heading className="text-black text-[24px] font-normal text-center p-0 mt-[30px] mx-0">
               <strong>Trckfi</strong>
             </Heading>
-            <Text className="text-[#666666] text-[20px] leading-[24px] text-center mb-[18px]">Weekly Spending Summary</Text>
-            <Text className="text-[16px] leading-[6px] text-center mb-[6px]">Amount Spent This Week: <strong>${thisWeekSum}</strong></Text>
-            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
+            <Text className="text-black text-[20px] leading-[24px] text-center mb-[26px]">Weekly Spending Summary</Text>
+            <Text className="text-black text-[18px] leading-[6px] text-center mb-[32px]">Amount Spent This Week: <strong className="text-[20px]">${thisWeekSum}</strong></Text>
             <Section>
               <Row>
-                <Column align="center">
+                <Column align="left">
                   <Text className="text-black text-[20px] leading-[12px] mb-[18px] font-bold">Top 3 Purchases</Text>
                   <Text className="text-black text-[16px] leading-[6px]">{thisWeek[0].name}: <strong>${thisWeek[0].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[1].name}: <strong>${thisWeek[0].amount}</strong></Text>
-                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[2].name}: <strong>${thisWeek[0].amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[1].name}: <strong>${thisWeek[1].amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[2].name}: <strong>${thisWeek[2].amount}</strong></Text>
                 </Column>
                 <Column align="center">
                   <Img
                     src='https://www.trckfi.com/pink-card.png'
-                    width="150"
+                    width="100"
                     alt="Credit Card"
                     className="my-0 mx-auto"
                   />

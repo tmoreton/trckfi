@@ -54,7 +54,7 @@ export default async (req, res) => {
       },
     },
     orderBy: {
-      authorized_date: 'asc'
+      authorized_date: 'desc'
     }
   })
 
@@ -70,7 +70,7 @@ export default async (req, res) => {
       },
     },
     orderBy: {
-      authorized_date: 'asc'
+      authorized_date: 'desc'
     }
   })
 
