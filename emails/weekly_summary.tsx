@@ -46,9 +46,9 @@ export default function ({ thisWeek, lastWeek }) {
               <Row>
                 <Column align="center">
                   <Text className="text-black text-[20px] leading-[12px] mb-[18px] font-bold">Top 3 Purchases</Text>
-                  <Text className="text-black text-[12px] leading-[6px]">{thisWeek[0].name}</Text>
-                  <Text className="text-black text-[12px] leading-[6px]">{thisWeek[1].name}</Text>
-                  <Text className="text-black text-[12px] leading-[6px]">{thisWeek[2].name}</Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[0].name}: <strong>${thisWeek[0].amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[1].name}: <strong>${thisWeek[0].amount}</strong></Text>
+                  <Text className="text-black text-[16px] leading-[6px]">{thisWeek[2].name}: <strong>${thisWeek[0].amount}</strong></Text>
                 </Column>
                 <Column align="center">
                   <Img
