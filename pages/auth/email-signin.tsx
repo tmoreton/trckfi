@@ -11,8 +11,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
             Sign in to your account
           </h2>
         </div>
-
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" method="post" action="/api/auth/signin/email">
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <div>
@@ -26,7 +25,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                   type="email"
                   autoComplete="email"
                   required
-                  className="block w-full min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 border-b border border-gray-200"
+                  className="block w-full min-w-0 flex-auto rounded-md bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 border border-gray-300"
                 />
               </div>
             </div>
@@ -44,7 +43,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
             <a href="#" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
-              Start a 14 day free trial
+              Start a 30 day free trial
             </a>
           </p>
         </div>

@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react"
 import Header from '../components/header'
 import Cards from '../components/cards'
 import Loader from '../components/loader'
+import Plaid from "../components/plaid"
 // import PieChart from '../components/pie-chart'
 // import BarChart from '../components/bar-chart'
 
@@ -89,7 +90,10 @@ export default function () {
     <Container>
       <Loader refreshing={refreshing} />
       <Header/>
-      <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1>
+      <div className='flex items-center justify-center'>
+        <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
+        <Plaid getTransactions={getTransactions} />
+      </div>
       <Cards accounts={accounts} getTransactions={getTransactions} tokens={plaid} removeToken={removeToken} loading={loading} removed={removed}/>
       <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
       {/* <div className="grid min-h-full place-items-center py-4">

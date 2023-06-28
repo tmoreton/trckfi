@@ -5,7 +5,7 @@ import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
 const Plaid = ({ getTransactions }) => {
   const [linkToken, setLinkToken] = useState(null)
-  
+
   const generateToken = async () => {
     const response = await fetch('/api/create_link_token', {
       method: 'POST',
@@ -49,11 +49,9 @@ const Link = ({ linkToken, getTransactions }) => {
   })
 
   return (
-    <div style={{marginLeft: '-55px'}}>
-      <button onClick={() => open()} disabled={!ready} className="py-4 text-center absolute">
-        <PlusCircleIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
-      </button>
-    </div>
+    <button onClick={() => open()} disabled={!ready} className="p-3">
+      <PlusCircleIcon className="h-10 w-10 text-pink-600" aria-hidden="true" />
+    </button>
   );
 };
 

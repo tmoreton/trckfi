@@ -1,10 +1,8 @@
 import { ArrowPathIcon, TrashIcon } from '@heroicons/react/20/solid'
-import Plaid from "./plaid"
 
 export default function ({ accounts, getTransactions, removed, removeToken, loading }) {
   return (
     <div className="py-10">
-      <Plaid getTransactions={getTransactions} />
       <ul role="list" className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         { accounts?.length < 1 && <p className="text-gray-500"><b>No Cards Synced Yet</b></p>}
         { accounts?.map((account) => {
@@ -45,8 +43,7 @@ export default function ({ accounts, getTransactions, removed, removeToken, load
               </div>
             </li>
           )
-        })}
-        
+        })} 
       </ul>
     </div>
   )
