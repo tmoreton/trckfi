@@ -18,7 +18,7 @@ export const SignInEmail = ({ url }) => {
   return (
     <Html>
       <Head />
-      <Preview>Trckfi - Sign In Link</Preview>
+      <Preview>Magic Sign In Link</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
@@ -38,7 +38,7 @@ export const SignInEmail = ({ url }) => {
               <Button
                 pX={20}
                 pY={12}
-                className="bg-pink-600 rounded text-white text-[12px] font-semibold no-underline text-center"
+                className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
                 href={url}
               >
                 Sign In
