@@ -18,7 +18,7 @@ export const SignInEmail = ({ url }) => {
   return (
     <Html>
       <Head />
-      <Preview>Magic Sign In Link</Preview>
+      <Preview>Trckfi - Sign In</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
