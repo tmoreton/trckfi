@@ -42,7 +42,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
                 Expenses
               </Text>
-              <Row>
+              <Row className="w-full">
                 <Column align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0">
                     This Month
@@ -78,7 +78,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 Income
               </Text>
               <Row className="mb-8">
-                <Column align="center">
+                <Column className="w-1/2" align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0">
                     This Month
                   </Text>
@@ -91,7 +91,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     VS.
                   </Text>
                 </Column>
-                <Column align="center">
+                <Column className="w-1/2" align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
                     Last Month
                   </Text>
@@ -108,12 +108,12 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                   Category Spend
                 </Text>
                 <Row>
-                  <Column align="left">
+                  <Column className="w-1/2" align="left">
                     <Text className="text-[#666666] text-[16px] mb-1 ml-8 font-bold">
                       Category
                     </Text>
                   </Column>
-                  <Column align="right">
+                  <Column className="w-1/2" align="right">
                     <Text className="text-[#666666] text-[16px] mb-1 mr-8 font-bold">
                       This Month
                     </Text>
@@ -121,13 +121,13 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 </Row>
                 <Hr className="w-11/12 border-t border-gray-300 mx-auto mb-2" />
                 {categories.map((item) => (
-                  <Row >
-                    <Column align="left">
+                  <Row>
+                    <Column className="w-1/2" align="left">
                       <Text className="text-[#666666] text-[12px] my-1 ml-8">
                         {item.primary_category.split('_').join(' ')}
                       </Text>
                     </Column>
-                    <Column align="right">
+                    <Column className="w-1/2" align="right">
                       {
                         item._sum.amount > 0 ?
                         <Text className="text-red-500 text-[16px] my-1 mr-8 font-bold">
@@ -153,7 +153,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 {thisMonth.map((item) => {
                   if(Number(item.amount) > 0){
                     return (
-                      <Row >
+                    <Row >
                       <Column className="w-40" align="left">
                         <Text className="text-[#666666] text-[12px] my-1 ml-8 font-bold">
                           {item.name.substring(0, 15)}
