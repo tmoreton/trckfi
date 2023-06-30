@@ -3,8 +3,8 @@ import { render } from '@react-email/render'
 import MonthlySummary from "../emails/monthly_summary"
 import { DateTime } from "luxon";
 
-export default function ({ thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome }) {
-  const emailHtml = render(<MonthlySummary thisMonth={thisMonth} categories={categories} thisMonthTotal={thisMonthTotal} lastMonthTotal={lastMonthTotal} thisMonthIncome={thisMonthIncome} lastMonthIncome={lastMonthIncome} />)
+export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome }) {
+  const emailHtml = render(<MonthlySummary month={month} thisMonth={thisMonth} categories={categories} thisMonthTotal={thisMonthTotal} lastMonthTotal={lastMonthTotal} thisMonthIncome={thisMonthIncome} lastMonthIncome={lastMonthIncome} />)
   return <div dangerouslySetInnerHTML={{__html: emailHtml}}></div>
 }
  
@@ -20,8 +20,8 @@ export async function getServerSideProps(context) {
     where: {
       user_id: user.id,
       date: {
-        lte: DateTime.now().startOf('month').toISO(),
-        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
       },
       primary_category: 'INCOME'
     },
@@ -37,8 +37,8 @@ export async function getServerSideProps(context) {
     where: {
       user_id: user.id,
       date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().startOf('month').toISO(),
+        lte: DateTime.now().startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
       },
       primary_category: 'INCOME'
     },
@@ -54,8 +54,8 @@ export async function getServerSideProps(context) {
     where: {
       user_id: user.id,
       date: {
-        lte: DateTime.now().startOf('month').toISO(),
-        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
       },
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
@@ -76,8 +76,8 @@ export async function getServerSideProps(context) {
     where: {
       user_id: user.id,
       date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().startOf('month').toISO(),
+        lte: DateTime.now().startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
       },
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
@@ -99,8 +99,8 @@ export async function getServerSideProps(context) {
     where: {
       user_id: user.id,
       date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().startOf('month').toISO(),
+        lte: DateTime.now().startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
       },
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
@@ -117,8 +117,8 @@ export async function getServerSideProps(context) {
     where: {
       user_id: user.id,
       date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().startOf('month').toISO(),
+        lte: DateTime.now().startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
       },
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
@@ -139,6 +139,7 @@ export async function getServerSideProps(context) {
     thisMonthTotal: JSON.parse(JSON.stringify(thisMonthTotal)),
     lastMonthTotal: JSON.parse(JSON.stringify(lastMonthTotal)),
     thisMonthIncome: JSON.parse(JSON.stringify(thisMonthIncome)),
-    lastMonthIncome: JSON.parse(JSON.stringify(lastMonthIncome))
+    lastMonthIncome: JSON.parse(JSON.stringify(lastMonthIncome)),
+    month: DateTime.local().monthLong
   } }
 }
