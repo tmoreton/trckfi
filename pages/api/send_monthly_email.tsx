@@ -103,6 +103,7 @@ export default async (req, res) => {
         { primary_category: 'LOAN_PAYMENTS' },
         { primary_category: 'TRANSFER_IN' },
         { primary_category: 'TRANSFER_OUT' },
+        { primary_category: 'INCOME' }
       ],
     },
     _sum: {

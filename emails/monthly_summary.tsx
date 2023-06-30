@@ -17,6 +17,7 @@ import {
 import * as React from 'react';
 
 export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome }) {
+  categories.sort((a, b) => b._sum.amount-a._sum.amount)
   return (
     <Html>
       <Head />
@@ -37,13 +38,13 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 <strong>{month}'s Summary</strong>
               </Heading>
               <Text className="text-[#666666] text-[12px] mt-0">
-                Let's review your finances
+                Let's review your finances from last month
               </Text>
               <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
                 Expenses
               </Text>
               <Row className="w-full">
-                <Column align="center">
+                <Column className="w-60" align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0">
                     This Month
                   </Text>
@@ -59,7 +60,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     VS.
                   </Text>
                 </Column>
-                <Column align="center">
+                <Column className="w-60" align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
                     Last Month
                   </Text>
@@ -72,13 +73,13 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 </Column>
               </Row>
 
-              <Hr className="w-1/2 border-t border-gray-300 mx-auto mb-8 mt-6" />
+              <Hr className="w-1/2 border-t border-gray-300 mx-auto mb-8 mt-3" />
 
               <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
                 Income
               </Text>
               <Row className="mb-8">
-                <Column className="w-1/2" align="center">
+                <Column className="w-60" align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0">
                     This Month
                   </Text>
@@ -91,7 +92,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     VS.
                   </Text>
                 </Column>
-                <Column className="w-1/2" align="center">
+                <Column className="w-60" align="center">
                   <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
                     Last Month
                   </Text>
@@ -102,50 +103,6 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               </Row>
             </Section>
 
-            {/* <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
-              <Section className="mt-3 mb-4">
-                <Text className="text-[#464c63] font-light text-[22px] mb-2">
-                  Category Spend
-                </Text>
-                <Row>
-                  <Column className="w-1/2" align="left">
-                    <Text className="text-[#666666] text-[16px] mb-1 ml-8 font-bold">
-                      Category
-                    </Text>
-                  </Column>
-                  <Column className="w-1/2" align="right">
-                    <Text className="text-[#666666] text-[16px] mb-1 mr-8 font-bold">
-                      This Month
-                    </Text>
-                  </Column>
-                </Row>
-                <Hr className="w-11/12 border-t border-gray-300 mx-auto mb-2" />
-                {categories.map((item) => (
-                  <Row>
-                    <Column className="w-auto" align="left">
-                      <Text className="text-[#666666] text-[12px] my-1 ml-8">
-                        {item.primary_category.split('_').join(' ')}
-                      </Text>
-                    </Column>
-                    <Column className="w-20" align="right">
-                      {
-                        item._sum.amount > 0 ?
-                        <Text className="text-red-500 text-[16px] my-1 mr-8 font-bold">
-                          ${Math.abs(Math.round(item._sum.amount))}
-                        </Text>
-                        :
-                        <Text className="text-green-500 text-[16px] my-1 mr-8 font-bold">
-                          ${Math.abs(Math.round(item._sum.amount))}
-                        </Text>
-                      }
-                    </Column>
-                  </Row>
-                ))}
-              </Section>
-            </Section> */}
-            
-
-
             <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
@@ -153,29 +110,29 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 {categories.map((item) => (
-                    <Row >
-                      <Column className="w-60" align="left">
-                        <Text className="text-[#666666] text-[12px] my-1 ml-8 font-bold">
-                          {item.primary_category.split('_').join(' ')}
+                  <Row >
+                    <Column className="w-64" align="left">
+                      <Text className="text-[#666666] text-[12px] my-0 ml-8 mb-1">
+                        {item.primary_category.split('_').join(' ')}
+                      </Text>
+                    </Column>
+                    <Column align="left">
+                      <Text className="text-[#666666] text-[10px] my-0 ml-8">
+                      </Text>
+                    </Column>
+                    <Column align="right">
+                      {
+                        item._sum.amount > 0 ?
+                        <Text className="text-red-500 text-[16px] my-0 mr-8 font-bold">
+                          ${Math.abs(Math.round(item._sum.amount))}
                         </Text>
-                      </Column>
-                      <Column align="left">
-                        <Text className="text-[#666666] text-[10px] my-1 ml-8">
+                        :
+                        <Text className="text-green-500 text-[16px] my-0 mr-8 font-bold">
+                          ${Math.abs(Math.round(item._sum.amount))}
                         </Text>
-                      </Column>
-                      <Column align="right">
-                        {
-                          item._sum.amount > 0 ?
-                          <Text className="text-red-500 text-[16px] my-1 mr-8 font-bold">
-                            ${Math.abs(Math.round(item._sum.amount))}
-                          </Text>
-                          :
-                          <Text className="text-green-500 text-[16px] my-1 mr-8 font-bold">
-                            ${Math.abs(Math.round(item._sum.amount))}
-                          </Text>
-                        }
-                      </Column>
-                    </Row>
+                      }
+                    </Column>
+                  </Row>
                 ))}
               </Section>
             </Section>
@@ -193,17 +150,17 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     return (
                     <Row >
                       <Column className="w-40" align="left">
-                        <Text className="text-[#666666] text-[12px] my-1 ml-8 font-bold">
-                          {item.name.substring(0, 15)}
+                        <Text className="text-[#666666] text-[12px] my-0 ml-8 font-bold mb-1">
+                          {item.name.substring(0, 15).toUpperCase()}
                         </Text>
                       </Column>
                       <Column align="left">
-                        <Text className="text-[#666666] text-[10px] my-1 ml-8">
+                        <Text className="text-[#666666] text-[8px] my-0 ml-8">
                           {item.primary_category.split('_').join(' ')}
                         </Text>
                       </Column>
                       <Column align="right">
-                        <Text className="text-red-500 text-[14px] my-1 mr-8 font-bold">
+                        <Text className="text-red-500 text-[16px] my-0 mr-8 font-bold">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
                       </Column>

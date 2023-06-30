@@ -8,7 +8,6 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
   return <div dangerouslySetInnerHTML={{__html: emailHtml}}></div>
 }
  
-// This gets called on every request
 export async function getServerSideProps(context) {
   const email = 'tmoreton89@gmail.com'
 
@@ -106,6 +105,7 @@ export async function getServerSideProps(context) {
         { primary_category: 'LOAN_PAYMENTS' },
         { primary_category: 'TRANSFER_IN' },
         { primary_category: 'TRANSFER_OUT' },
+        { primary_category: 'INCOME' }
       ],
     },
     _sum: {
