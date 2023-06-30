@@ -3,9 +3,6 @@ title: 'The Path to Financial Independence: Tracking Your Expenses'
 excerpt: 'Becoming financially independent is a goal that many of us strive for. It represents the freedom to live life on our terms, without the stress and limitations imposed by financial constraints. While achieving financial independence may seem like a daunting task, the first step on this journey is surprisingly simple yet powerful: tracking your expenses.'
 coverImage: '/assets/blog/track-receipt.jpg'
 date: '2020-03-16T05:35:07.322Z'
-author:
-  name: JJ Kasper
-  picture: '/assets/blog/authors/jj.jpeg'
 ogImage:
   url: '/assets/blog/cover.jpg'
 ---

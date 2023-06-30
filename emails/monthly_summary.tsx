@@ -25,7 +25,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
         <Body className="bg-[#f3f3f5] my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
             <Img
-              src='/trckfi.png'
+              src='https://www.trckfi.com/trckfi.png'
               width="25"
               height="25"
               alt="Trckfi"
