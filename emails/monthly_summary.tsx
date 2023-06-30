@@ -32,7 +32,8 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               className="mx-auto my-2"
             />
 
-            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center">
+            <Section className="bg-[#ffffff] rounded text-center">
+              <Hr className="w-full border-t-2 border-pink-500 mx-auto my-0" />
               <Heading className="text-[#464c63] text-[22px] mt-4">
                 <strong>{month}'s Summary</strong>
               </Heading>
@@ -72,7 +73,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 </Column>
               </Row>
 
-              <Hr className="w-1/2 border-t border-gray-300 mx-auto mb-8 mt-3" />
+              
 
               <Text className="text-[#464c63] font-light text-[16px] my-0 font-semibold">
                 Income
@@ -102,7 +103,8 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               </Row>
             </Section>
 
-            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
+            <Section className="bg-[#ffffff] rounded text-center my-5">
+              <Hr className="w-full border-t-2 border-pink-500 mx-auto my-0" />
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
                   Category Spend
@@ -136,7 +138,8 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               </Section>
             </Section>
 
-            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
+            <Section className="bg-[#ffffff] rounded text-center my-5">
+              <Hr className="w-full border-t-2 border-pink-500 mx-auto my-0" />
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
                   Top 10 Expenses
