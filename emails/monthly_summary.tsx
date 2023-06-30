@@ -155,7 +155,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                         </Text>
                       </Column>
                       <Column className="w-40" align="left">
-                        <Text className="text-[#666666] text-[8px] my-0 ml-8">
+                        <Text className="text-[#666666] text-[7px] my-0 ml-8">
                           {item.primary_category.split('_').join(' ')}
                         </Text>
                       </Column>
