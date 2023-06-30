@@ -38,7 +38,7 @@ export const SignInEmail = ({ url }) => {
               <Button
                 pX={20}
                 pY={12}
-                className="bg-[#ff3378] rounded text-white text-[12px] font-semibold no-underline text-center"
+                className="bg-pink-600 rounded text-white text-[12px] font-semibold no-underline text-center"
                 href={url}
               >
                 Sign In

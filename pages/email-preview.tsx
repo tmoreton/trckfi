@@ -141,5 +141,5 @@ export async function getServerSideProps(context) {
     thisMonthIncome: JSON.parse(JSON.stringify(thisMonthIncome)),
     lastMonthIncome: JSON.parse(JSON.stringify(lastMonthIncome)),
     month: DateTime.local().monthLong
-  } }
+  }}
 }

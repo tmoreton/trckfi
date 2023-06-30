@@ -27,7 +27,7 @@ export const authOptions = {
         const transport = nodemailer.createTransport(server)
         const emailHtml = render(<SignInEmail url={url}/>)
         await transport.sendMail({
-          to: email,
+          to: `"Trckfi" <${email}>`,
           from,
           subject: `Sign in to Trckfi`,
           html: emailHtml,
@@ -40,7 +40,8 @@ export const authOptions = {
   },
   pages: {
     signIn: '/auth/email-signin',
-    verifyRequest: '/auth/verify-request'
+    verifyRequest: '/auth/verify-request',
+    error: '/auth/error'
   },
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
