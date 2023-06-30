@@ -58,8 +58,8 @@ export default async (req, res) => {
         create: {
           transaction_id: transactions[i].transaction_id,
           account_id: transactions[i].account_id,
-          amount: transactions[i].amount.toString(),
-          authorized_date: transactions[i].authorized_date,
+          amount: transactions[i].amount,
+          authorized_date: transactions[i].authorized_date || transactions[i].date,
           date: new Date(transactions[i].date),
           name: transactions[i].name,
           merchant_name: transactions[i].merchant_name,

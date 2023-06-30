@@ -11,6 +11,7 @@ const diff = (a, b) => {
 
 export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts }) {
   const date = DateTime.local()
+  console.log(thisMonth)
   const thisMonthSum = thisMonth.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
   const balance = accounts.reduce((accumulator, currentValue) => accumulator + Number(currentValue.balances.current), 0)
   const lastMonthSum = lastMonth.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)

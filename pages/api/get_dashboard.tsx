@@ -18,14 +18,36 @@ export default async (req, res) => {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().startOf('month').toISO(),
         },
-        NOT: {
-          primary_category: 'LOAN_PAYMENTS',
-        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' }
+        ],
       },
       orderBy: {
         authorized_date: 'desc'
       }
     })
+
+    const aggregate = await prisma.transactions.groupBy({
+      by: ['primary_category'],
+      where: {
+        user_id: user_id,
+        date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().startOf('month').toISO(),
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' }
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+    })    
+    console.log(aggregate)
 
     const lastMonth = await prisma.transactions.findMany({
       where: {

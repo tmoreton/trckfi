@@ -112,7 +112,7 @@ model Transactions {
   authorized_date   String?
   item_id           String?
   date              DateTime?
-  amount            BigInt?
+  amount            Decimal?  @db.Decimal(9, 2)
 
   @@map("transactions")
 }
