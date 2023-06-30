@@ -73,7 +73,6 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 </Column>
               </Row>
 
-
               <Text className="text-[#464c63] font-light text-[16px] my-0 font-semibold">
                 Income
               </Text>
