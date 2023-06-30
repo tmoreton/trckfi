@@ -149,17 +149,17 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                   if(Number(item.amount) > 0){
                     return (
                     <Row >
-                      <Column className="w-1/3" align="left">
+                      <Column className="w-44" align="left">
                         <Text className="text-[#666666] text-[11px] my-0 ml-8 my-0 font-semibold">
                           {item.name.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
-                      <Column className="w-1/3" align="left">
+                      <Column align="left">
                         <Text className="text-[#666666] text-[8px] my-0 ml-8">
                           {item.primary_category.split('_').join(' ')}
                         </Text>
                       </Column>
-                      <Column className="w-1/3" align="right">
+                      <Column align="right">
                         <Text className="text-red-500 text-[16px] my-0 mr-8 font-semibold">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
