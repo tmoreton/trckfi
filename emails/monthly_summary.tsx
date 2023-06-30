@@ -25,13 +25,12 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
         <Body className="bg-[#f3f3f5] my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
             <Img
-              src='https://www.trckfi.com/trckfi.png'
+              src='/trckfi.png'
               width="25"
               height="25"
               alt="Trckfi"
               className="mx-auto my-2"
             />
-
             <Section className="bg-[#ffffff] rounded text-center">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Heading className="text-[#464c63] text-[22px] mt-4">
@@ -49,7 +48,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     Last Month
                   </Text>
                   <Text className="text-red-500 text-[28px] font-bold my-0">
-                    ${Math.abs(Math.round(lastMonthTotal._sum.amount))}
+                    -${Math.abs(Math.round(lastMonthTotal._sum.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
                     {lastMonthTotal._count.amount} transactions
@@ -65,7 +64,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     This Month
                   </Text>
                   <Text className="text-red-500 text-[28px] font-bold my-0">
-                    ${Math.abs(Math.round(thisMonthTotal._sum.amount))}
+                    -${Math.abs(Math.round(thisMonthTotal._sum.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
                     {thisMonthTotal._count.amount} transactions
