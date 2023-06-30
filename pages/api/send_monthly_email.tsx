@@ -134,9 +134,10 @@ export default async (req, res) => {
   const emailHtml = render(<MonthlySummary month={DateTime.local().monthLong} thisMonth={thisMonth} categories={categories} thisMonthTotal={thisMonthTotal} lastMonthTotal={lastMonthTotal} thisMonthIncome={thisMonthIncome} lastMonthIncome={lastMonthIncome} />)
   
   const message = {
-    from: process.env.EMAIL_ADDRESS,
+    from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
     to: email,
     subject: `Trckfi - ${DateTime.local().monthLong} Summary`,
+    text: 'This is some text',
     html: emailHtml,
   }
 
