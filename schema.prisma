@@ -97,7 +97,6 @@ model Accounts {
 model Transactions {
   id                String    @id @default(cuid())
   account_id        String?
-  account_name      String?
   name              String?
   merchant_name     String?
   payment_channel   String?
@@ -107,13 +106,13 @@ model Transactions {
   location          Json?
   pending           Boolean?  @default(false)
   primary_category  String?
-  amount            String?
   user_id           String    @map("user_id")
   createdAt         DateTime? @default(now())
   updatedAt         DateTime? @updatedAt
   authorized_date   String?
   item_id           String?
   date              DateTime?
+  amount            BigInt?
 
   @@map("transactions")
 }
