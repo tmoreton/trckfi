@@ -151,10 +151,10 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     <Row >
                       <Column className="w-40" align="left">
                         <Text className="text-[#666666] text-[11px] my-0 ml-8 my-0 font-semibold">
-                          {item.name.substring(0, 15).toUpperCase().replace('.',' ')}
+                          {item.name.substring(0, 14).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
-                      <Column className="w-40" align="left">
+                      <Column className="w-36" align="left">
                         <Text className="text-[#666666] text-[8px] my-0 ml-8">
                           {item.primary_category.split('_').join(' ')}
                         </Text>
