@@ -147,8 +147,8 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     return (
                     <Row >
                       <Column className="w-40" align="left">
-                        <Text className="text-[#666666] text-[12px] my-0 ml-8 font-bold mb-1">
-                          {item.name.substring(0, 15).toUpperCase()}
+                        <Text className="text-[#666666] text-[11px] my-0 ml-8 my-0">
+                          {item.name.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
                       <Column align="left">
