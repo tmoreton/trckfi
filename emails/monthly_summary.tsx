@@ -102,7 +102,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               </Row>
             </Section>
 
-            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
+            {/* <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
               <Section className="mt-3 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-2">
                   Category Spend
@@ -142,8 +142,46 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                   </Row>
                 ))}
               </Section>
-            </Section>
+            </Section> */}
             
+
+
+            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
+              <Section className="mt-0 mb-4">
+                <Text className="text-[#464c63] font-light text-[22px] mb-1">
+                  Category Spend
+                </Text>
+                <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
+                {categories.map((item) => (
+                    <Row >
+                      <Column className="w-60" align="left">
+                        <Text className="text-[#666666] text-[12px] my-1 ml-8 font-bold">
+                          {item.primary_category.split('_').join(' ')}
+                        </Text>
+                      </Column>
+                      <Column align="left">
+                        <Text className="text-[#666666] text-[10px] my-1 ml-8">
+                        </Text>
+                      </Column>
+                      <Column align="right">
+                        {
+                          item._sum.amount > 0 ?
+                          <Text className="text-red-500 text-[16px] my-1 mr-8 font-bold">
+                            ${Math.abs(Math.round(item._sum.amount))}
+                          </Text>
+                          :
+                          <Text className="text-green-500 text-[16px] my-1 mr-8 font-bold">
+                            ${Math.abs(Math.round(item._sum.amount))}
+                          </Text>
+                        }
+                      </Column>
+                    </Row>
+                ))}
+              </Section>
+            </Section>
+
+
+
             <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
