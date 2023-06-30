@@ -1,0 +1,188 @@
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Img,
+  Preview,
+  Section,
+  Tailwind,
+  Text,
+  Row, 
+  Column
+} from '@react-email/components';
+import * as React from 'react';
+
+export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome }) {
+  return (
+    <Html>
+      <Head />
+      <Preview>{month} Summary</Preview>
+      <Tailwind>
+        <Body className="bg-[#f3f3f5] my-auto mx-auto font-sans">
+          <Container className="mx-auto w-[465px]">
+            <Img
+              src='https://www.trckfi.com/trckfi.png'
+              width="25"
+              height="25"
+              alt="Trckfi"
+              className="mx-auto my-2"
+            />
+
+            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center">
+              <Heading className="text-[#464c63] text-[22px] mt-4">
+                <strong>{month}'s Summary</strong>
+              </Heading>
+              <Text className="text-[#666666] text-[12px] mt-0">
+                Let's review your finances
+              </Text>
+              <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
+                Expenses
+              </Text>
+              <Row>
+                <Column align="center">
+                  <Text className="text-[#666666] text-[16px] mb-0 mt-0">
+                    This Month
+                  </Text>
+                  <Text className="text-red-500 text-[28px] font-bold mt-2 mb-0">
+                    ${Math.abs(Math.round(thisMonthTotal._sum.amount))}
+                  </Text>
+                  <Text className="text-[#888888] text-[8px] mt-0">
+                    {thisMonthTotal._count.amount} transactions
+                  </Text>
+                </Column>
+                <Column align="center">
+                  <Text className="text-[#666666] text-[16px] fold-bold">
+                    VS.
+                  </Text>
+                </Column>
+                <Column align="center">
+                  <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
+                    Last Month
+                  </Text>
+                  <Text className="text-red-500 text-[28px] font-bold mt-2 mb-0">
+                    ${Math.abs(Math.round(lastMonthTotal._sum.amount))}
+                  </Text>
+                  <Text className="text-[#888888] text-[8px] mt-0">
+                    {lastMonthTotal._count.amount} transactions
+                  </Text>
+                </Column>
+              </Row>
+
+              <Hr className="w-1/2 border-t border-gray-300 mx-auto mb-8 mt-6" />
+
+              <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
+                Income
+              </Text>
+              <Row className="mb-8">
+                <Column align="center">
+                  <Text className="text-[#666666] text-[16px] mb-0 mt-0">
+                    This Month
+                  </Text>
+                  <Text className="text-green-500 text-[28px] font-bold mt-2 mb-0">
+                    ${Math.abs(Math.round(thisMonthIncome._sum.amount))}
+                  </Text>
+                </Column>
+                <Column align="center">
+                  <Text className="text-[#666666] text-[16px] fold-bold">
+                    VS.
+                  </Text>
+                </Column>
+                <Column align="center">
+                  <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
+                    Last Month
+                  </Text>
+                  <Text className="text-green-500 text-[28px] font-bold mt-2 mb-0">
+                    ${Math.abs(Math.round(lastMonthIncome._sum.amount))}
+                  </Text>
+                </Column>
+              </Row>
+            </Section>
+
+            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
+              <Section className="mt-3 mb-4">
+                <Text className="text-[#464c63] font-light text-[22px] mb-2">
+                  Category Spend
+                </Text>
+                <Row>
+                  <Column align="left">
+                    <Text className="text-[#666666] text-[16px] mb-1 ml-8 font-bold">
+                      Category
+                    </Text>
+                  </Column>
+                  <Column align="right">
+                    <Text className="text-[#666666] text-[16px] mb-1 mr-8 font-bold">
+                      This Month
+                    </Text>
+                  </Column>
+                </Row>
+                <Hr className="w-11/12 border-t border-gray-300 mx-auto mb-2" />
+                {categories.map((item) => (
+                  <Row >
+                    <Column align="left">
+                      <Text className="text-[#666666] text-[12px] my-1 ml-8">
+                        {item.primary_category.split('_').join(' ')}
+                      </Text>
+                    </Column>
+                    <Column align="right">
+                      {
+                        item._sum.amount > 0 ?
+                        <Text className="text-red-500 text-[16px] my-1 mr-8 font-bold">
+                          ${Math.abs(Math.round(item._sum.amount))}
+                        </Text>
+                        :
+                        <Text className="text-green-500 text-[16px] my-1 mr-8 font-bold">
+                          ${Math.abs(Math.round(item._sum.amount))}
+                        </Text>
+                      }
+                    </Column>
+                  </Row>
+                ))}
+              </Section>
+            </Section>
+            
+            <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
+              <Section className="mt-0 mb-4">
+                <Text className="text-[#464c63] font-light text-[22px] mb-1">
+                  Top 5 Expenses
+                </Text>
+                <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
+                {thisMonth.map((item) => {
+                  if(Number(item.amount) > 0){
+                    return (
+                      <Row >
+                      <Column className="w-40" align="left">
+                        <Text className="text-[#666666] text-[12px] my-1 ml-8 font-bold">
+                          {item.name.substring(0, 15)}
+                        </Text>
+                      </Column>
+                      <Column align="left">
+                        <Text className="text-[#666666] text-[10px] my-1 ml-8">
+                          {item.primary_category.split('_').join(' ')}
+                        </Text>
+                      </Column>
+                      <Column align="right">
+                        <Text className="text-red-500 text-[14px] my-1 mr-8 font-bold">
+                          ${Math.abs(Math.round(item.amount))}
+                        </Text>
+                      </Column>
+                    </Row>
+                    )
+                  }
+                })}
+              </Section>
+            </Section>
+
+            <Hr className="border border-solid border-[#eaeaea] my-[16px] mx-0 w-full" />
+            <Text className="text-[#666666] text-[8px] text-center">
+              If you were not expecting this email please contact us at support@trckfi.com
+            </Text>
+          </Container>
+        </Body>
+      </Tailwind>
+    </Html>
+  );
+};

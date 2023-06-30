@@ -28,6 +28,16 @@ export default function () {
     }
   }, [session]);
 
+  // const sendEmail = async () => {
+  //   const res = await fetch(`/api/send_weekly_email`, {
+  //     body: '',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  // }
+
   const getDashboard = async () => {
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
