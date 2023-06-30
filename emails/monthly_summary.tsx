@@ -124,11 +124,11 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     <Column align="right">
                       {
                         item._sum.amount > 0 ?
-                        <Text className="text-red-500 text-[16px] my-0 mr-8 font-bold">
+                        <Text className="text-red-500 text-[16px] my-0 mr-8 font-semibold">
                           ${Math.abs(Math.round(item._sum.amount))}
                         </Text>
                         :
-                        <Text className="text-green-500 text-[16px] my-0 mr-8 font-bold">
+                        <Text className="text-green-500 text-[16px] my-0 mr-8 font-semibold">
                           ${Math.abs(Math.round(item._sum.amount))}
                         </Text>
                       }
@@ -150,7 +150,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                     return (
                     <Row >
                       <Column className="w-1/3" align="left">
-                        <Text className="text-[#666666] text-[11px] my-0 ml-8 my-0">
+                        <Text className="text-[#666666] text-[11px] my-0 ml-8 my-0 font-semibold">
                           {item.name.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
@@ -160,7 +160,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                         </Text>
                       </Column>
                       <Column className="w-1/3" align="right">
-                        <Text className="text-red-500 text-[16px] my-0 mr-8 font-bold">
+                        <Text className="text-red-500 text-[16px] my-0 mr-8 font-semibold">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
                       </Column>
