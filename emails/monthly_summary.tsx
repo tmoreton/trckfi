@@ -33,7 +33,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
             />
 
             <Section className="bg-[#ffffff] rounded text-center">
-              <Hr className="w-full border-t-2 border-pink-500 mx-auto my-0" />
+              <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Heading className="text-[#464c63] text-[22px] mt-4">
                 <strong>{month}'s Summary</strong>
               </Heading>
@@ -104,7 +104,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
             </Section>
 
             <Section className="bg-[#ffffff] rounded text-center my-5">
-              <Hr className="w-full border-t-2 border-pink-500 mx-auto my-0" />
+              <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
                   Category Spend
@@ -139,7 +139,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
             </Section>
 
             <Section className="bg-[#ffffff] rounded text-center my-5">
-              <Hr className="w-full border-t-2 border-pink-500 mx-auto my-0" />
+              <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
                   Top 10 Expenses
@@ -159,7 +159,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                           {item.primary_category.split('_').join(' ')}
                         </Text>
                       </Column>
-                      <Column className="w-20" align="right">
+                      <Column align="right">
                         <Text className="text-red-500 text-[16px] my-0 mr-8 font-bold">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
