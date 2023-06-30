@@ -20,7 +20,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
   return (
     <Html>
       <Head />
-      <Preview>{month} Summary</Preview>
+      <Preview>Your {month} Finance Summary</Preview>
       <Tailwind>
         <Body className="bg-[#f3f3f5] my-auto mx-auto font-sans">
           <Container className="mx-auto w-[465px]">
@@ -122,12 +122,12 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 <Hr className="w-11/12 border-t border-gray-300 mx-auto mb-2" />
                 {categories.map((item) => (
                   <Row>
-                    <Column className="w-1/2" align="left">
+                    <Column align="left">
                       <Text className="text-[#666666] text-[12px] my-1 ml-8">
                         {item.primary_category.split('_').join(' ')}
                       </Text>
                     </Column>
-                    <Column className="w-1/2" align="right">
+                    <Column className="w-20" align="right">
                       {
                         item._sum.amount > 0 ?
                         <Text className="text-red-500 text-[16px] my-1 mr-8 font-bold">

@@ -135,7 +135,7 @@ export default async (req, res) => {
   const message = {
     from: process.env.EMAIL_ADDRESS,
     to: email,
-    subject: `Trckfi - ${DateTime.local().monthLong} Finance Summary`,
+    subject: `Trckfi - ${DateTime.local().monthLong} Summary`,
     html: emailHtml,
   }
 
