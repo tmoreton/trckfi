@@ -122,7 +122,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 <Hr className="w-11/12 border-t border-gray-300 mx-auto mb-2" />
                 {categories.map((item) => (
                   <Row>
-                    <Column align="left">
+                    <Column className="w-auto" align="left">
                       <Text className="text-[#666666] text-[12px] my-1 ml-8">
                         {item.primary_category.split('_').join(' ')}
                       </Text>
