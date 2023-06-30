@@ -1,6 +1,5 @@
 import {
   Body,
-  Button,
   Container,
   Head,
   Heading,
@@ -37,18 +36,18 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               <Heading className="text-[#464c63] text-[22px] mt-4">
                 <strong>{month}'s Summary</strong>
               </Heading>
-              <Text className="text-[#666666] text-[12px] mt-0">
+              <Text className="text-[#666666] text-[12px] mt-0 mb-4">
                 Let's review your finances from last month
               </Text>
-              <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
+              <Text className="text-[#464c63] font-light text-[16px] my-0 font-semibold">
                 Expenses
               </Text>
               <Row className="w-full">
                 <Column className="w-60" align="center">
-                  <Text className="text-[#666666] text-[16px] mb-0 mt-0">
+                  <Text className="text-[#666666] text-[12px] mb-0 mt-0">
                     This Month
                   </Text>
-                  <Text className="text-red-500 text-[28px] font-bold mt-2 mb-0">
+                  <Text className="text-red-500 text-[28px] font-bold my-0">
                     ${Math.abs(Math.round(thisMonthTotal._sum.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
@@ -61,10 +60,10 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                   </Text>
                 </Column>
                 <Column className="w-60" align="center">
-                  <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
+                  <Text className="text-[#666666] text-[12px] mb-0 mt-0 ">
                     Last Month
                   </Text>
-                  <Text className="text-red-500 text-[28px] font-bold mt-2 mb-0">
+                  <Text className="text-red-500 text-[28px] font-bold my-0">
                     ${Math.abs(Math.round(lastMonthTotal._sum.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
@@ -75,15 +74,15 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
 
               <Hr className="w-1/2 border-t border-gray-300 mx-auto mb-8 mt-3" />
 
-              <Text className="text-[#464c63] font-light text-[16px] my-4 font-semibold">
+              <Text className="text-[#464c63] font-light text-[16px] my-0 font-semibold">
                 Income
               </Text>
               <Row className="mb-8">
                 <Column className="w-60" align="center">
-                  <Text className="text-[#666666] text-[16px] mb-0 mt-0">
+                  <Text className="text-[#666666] text-[12px] my-0">
                     This Month
                   </Text>
-                  <Text className="text-green-500 text-[28px] font-bold mt-2 mb-0">
+                  <Text className="text-green-500 text-[28px] font-bold my-0">
                     ${Math.abs(Math.round(thisMonthIncome._sum.amount))}
                   </Text>
                 </Column>
@@ -93,10 +92,10 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                   </Text>
                 </Column>
                 <Column className="w-60" align="center">
-                  <Text className="text-[#666666] text-[16px] mb-0 mt-0 ">
+                  <Text className="text-[#666666] text-[12px] my-0 ">
                     Last Month
                   </Text>
-                  <Text className="text-green-500 text-[28px] font-bold mt-2 mb-0">
+                  <Text className="text-green-500 text-[28px] font-bold my-0">
                     ${Math.abs(Math.round(lastMonthIncome._sum.amount))}
                   </Text>
                 </Column>
@@ -137,19 +136,17 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
               </Section>
             </Section>
 
-
-
             <Section className="bg-[#ffffff] rounded border-t-2 border-[#ff3378] text-center my-5">
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
-                  Top 5 Expenses
+                  Top 10 Expenses
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 {thisMonth.map((item) => {
                   if(Number(item.amount) > 0){
                     return (
                     <Row >
-                      <Column className="w-40" align="left">
+                      <Column className="w-36" align="left">
                         <Text className="text-[#666666] text-[12px] my-0 ml-8 font-bold mb-1">
                           {item.name.substring(0, 15).toUpperCase()}
                         </Text>

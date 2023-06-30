@@ -130,7 +130,7 @@ export async function getServerSideProps(context) {
     orderBy: {
       amount: 'desc'
     },
-    take: 5,
+    take: 10,
   })
 
   return { props: { 

@@ -128,7 +128,7 @@ export default async (req, res) => {
     orderBy: {
       amount: 'desc'
     },
-    take: 5,
+    take: 10,
   })
 
   const emailHtml = render(<MonthlySummary month={DateTime.local().monthLong} thisMonth={thisMonth} categories={categories} thisMonthTotal={thisMonthTotal} lastMonthTotal={lastMonthTotal} thisMonthIncome={thisMonthIncome} lastMonthIncome={lastMonthIncome} />)
