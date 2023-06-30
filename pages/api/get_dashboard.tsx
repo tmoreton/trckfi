@@ -47,7 +47,6 @@ export default async (req, res) => {
         amount: true,
       },
     })    
-    console.log(aggregate)
 
     const lastMonth = await prisma.transactions.findMany({
       where: {

@@ -101,7 +101,6 @@ model Transactions {
   merchant_name     String?
   payment_channel   String?
   transaction_id    String    @unique
-  transaction_type  String?
   detailed_category String?
   location          Json?
   pending           Boolean?  @default(false)
@@ -113,6 +112,7 @@ model Transactions {
   item_id           String?
   date              DateTime?
   amount            Decimal?  @db.Decimal(9, 2)
+  category          Json?
 
   @@map("transactions")
 }

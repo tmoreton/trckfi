@@ -66,9 +66,8 @@ export default async (req, res) => {
           payment_channel: transactions[i].payment_channel,
           detailed_category: transactions[i].personal_finance_category.detailed,
           primary_category: transactions[i].personal_finance_category.primary,
-          pending: false,
+          pending: transactions[i].pending,
           location: transactions[i].location,
-          transaction_type: transactions[i].transaction_type,
           user_id: user_id,
           item_id: plaidAccount.item_id
         },

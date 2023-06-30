@@ -5,7 +5,7 @@ const Checkout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await fetch(`/api/checkout-session`, {
+    const res = await fetch(`/api/checkout_session`, {
       body: JSON.stringify({
         mode: 'monthly',
       }),
