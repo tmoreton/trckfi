@@ -3,7 +3,7 @@ import { usePlaidLink } from 'react-plaid-link';
 import { useSession } from "next-auth/react"
 import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
-const Plaid = ({ getTransactions }) => {
+const Plaid = ({ getAccounts, syncTransactions }) => {
   const [linkToken, setLinkToken] = useState(null)
 
   const generateToken = async () => {
@@ -18,7 +18,7 @@ const Plaid = ({ getTransactions }) => {
     generateToken();
   }, [])
 
-  return linkToken != null ? <Link linkToken={linkToken} getTransactions={getTransactions}/> : <></>
+  return linkToken != null ? <Link linkToken={linkToken} getAccounts={getAccounts} syncTransactions={syncTransactions}/> : <></>
 }
 
 const getAccessToken = async ({ public_token, user_id }) => {
@@ -33,13 +33,14 @@ const getAccessToken = async ({ public_token, user_id }) => {
   return access_token
 }
 
-const Link = ({ linkToken, getTransactions }) => {
+const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   const { data: session } = useSession()
   const onSuccess = React.useCallback(async (public_token) => {
     const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
     setTimeout(() => {
-      getTransactions(access_token)
-    }, 5000)
+      getAccounts(access_token)
+      syncTransactions(access_token)
+    }, 2000)
   }, [])
 
   const { open, ready } = usePlaidLink({

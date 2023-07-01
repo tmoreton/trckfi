@@ -68,11 +68,12 @@ model VerificationToken {
 }
 
 model Plaid {
-  id           Int    @id @default(autoincrement())
-  access_token String @unique
-  item_id      String @unique
-  user_id      String @map("user_id")
+  id           Int      @id @default(autoincrement())
+  access_token String   @unique
+  item_id      String   @unique
+  user_id      String   @map("user_id")
   cursor       String?
+  active       Boolean? @default(true)
 
   @@map("plaid")
 }
@@ -114,7 +115,7 @@ model Transactions {
   date              DateTime?
   amount            Decimal?  @db.Decimal(9, 2)
   category          Json?
-  active            Boolean? @default(true)
+  active            Boolean?  @default(true)
 
   @@map("transactions")
 }

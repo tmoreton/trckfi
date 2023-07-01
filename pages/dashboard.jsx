@@ -65,6 +65,43 @@ export default function () {
     getDashboard()
   }
 
+  const getAccounts = async (access_token) => {
+    setLoading({access_token: access_token, loading: true})
+    await fetch(`/api/get_accounts`, {
+      body: JSON.stringify({
+        user_id: session.user.id,
+        access_token: access_token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    getDashboard()
+  }
+
+  const syncTransactions = async (access_token) => {
+    setLoading({access_token: access_token, loading: true})
+    const res = await fetch(`/api/sync_transactions`, {
+      body: JSON.stringify({
+        user_id: session.user.id,
+        access_token: access_token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+
+    const { has_more } = await res.json()
+    if(has_more){
+      syncTransactions(access_token)
+    } else {
+      setLoading({access_token: null, loading: false})
+      getDashboard()
+    }
+  }
+
   if (!session) return (
     <Container>
       <Header/>
@@ -78,9 +115,9 @@ export default function () {
       <Header/>
       <div className='flex items-center justify-center'>
         <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
-        <Plaid getTransactions={getTransactions} />
+        <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
       </div>
-      <Cards accounts={accounts} getTransactions={getTransactions} tokens={plaid} loading={loading} getDashboard={getDashboard} />
+      <Cards accounts={accounts} getTransactions={syncTransactions} tokens={plaid} loading={loading} getDashboard={getDashboard} />
       <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
       {/* <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
