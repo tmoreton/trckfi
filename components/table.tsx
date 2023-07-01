@@ -28,14 +28,14 @@ export default function Table({ columns, data }) {
 
   // Render the UI for your table
   return (
-    <div className="my-8">
+    <div className="my-4">
       <input
         value={filterInput}
         onChange={handleFilterChange}
         placeholder={"Search name"}
         className="block w-1/3 p-4 rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
       />
-      <table className="min-w-full divide-y divide-gray-300" {...getTableProps()}>
+      <table className="min-w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

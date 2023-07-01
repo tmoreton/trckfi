@@ -29,7 +29,7 @@ export default function ({ getTransactions, getDashboard, loading, accounts }) {
   }
 
   return (
-    <div className="py-10">
+    <div className="my-4">
       <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
       <ul role="list" className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         { accounts?.length < 1 && <p className="text-gray-500"><b>No Cards Synced Yet</b></p>}

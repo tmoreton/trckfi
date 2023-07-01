@@ -109,7 +109,14 @@ export default function () {
     },
     {
       Header: "Amount",
-      accessor: "amount"
+      accessor: "amount",
+      Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2)
+    }, 
+    {
+      Header: '',
+      accessor: "transaction_id",
+      Cell: ({ cell: { value } }) => <button className="text-pink-600 hover:text-pink-900">Edit</button>
+
     }
   ]
 
@@ -125,7 +132,10 @@ export default function () {
       <Snapshot accounts={a} totalStats={totalStats} />
       {/* <PieChart pieChart={pieChart}/>
       <BarChart /> */}
+      <hr class="h-px mb-8 mt-10 bg-gray-400 border-1" />
+      <h1 className="text-2xl font-bold text-gray-900">Transactions</h1>
       <Table columns={columns} data={t} />
+    
       {/* <Transactions transactions={t} /> */}
     </Container>
   )
