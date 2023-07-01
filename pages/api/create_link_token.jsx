@@ -8,8 +8,7 @@ export default async (req, res) => {
     products: ['transactions'],
     language: 'en',
     country_codes: ['US'],
-    webhook: 'https://trckfi.com/api/plaid_webhook',
-    redirect_uri: 'https://trckfi.com/dashboard'
+    webhook: 'https://trckfi.com/api/plaid_webhook'
   };
 
   const createTokenResponse = await plaidClient.linkTokenCreate(params);
