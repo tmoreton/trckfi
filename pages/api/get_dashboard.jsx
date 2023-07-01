@@ -7,40 +7,39 @@ export default async (req, res) => {
   if (!user_id ) return res.status(500)
 
   try { 
-
-    // const lastMonthIncome = await prisma.transactions.aggregate({
-    //   where: {
-    //     user_id: user_id,
-    //     date: {
-    //       lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-    //       gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
-    //     },
-    //     primary_category: 'INCOME'
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    //   _count: {
-    //     amount: true,
-    //   },
-    // })
+    const lastMonthIncome = await prisma.transactions.aggregate({
+      where: {
+        user_id: user_id,
+        date: {
+          lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
+        },
+        primary_category: 'INCOME'
+      },
+      _sum: {
+        amount: true,
+      },
+      _count: {
+        amount: true,
+      },
+    })
   
-    // const thisMonthIncome = await prisma.transactions.aggregate({
-    //   where: {
-    //     user_id: user_id,
-    //     date: {
-    //       lte: DateTime.now().startOf('month').toISO(),
-    //       gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-    //     },
-    //     primary_category: 'INCOME'
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    //   _count: {
-    //     amount: true,
-    //   },
-    // })
+    const thisMonthIncome = await prisma.transactions.aggregate({
+      where: {
+        user_id: user_id,
+        date: {
+          lte: DateTime.now().startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        },
+        primary_category: 'INCOME'
+      },
+      _sum: {
+        amount: true,
+      },
+      _count: {
+        amount: true,
+      },
+    })
   
     const lastMonth = await prisma.transactions.aggregate({
       where: {
@@ -137,7 +136,9 @@ export default async (req, res) => {
 
     const stats = {
       lastMonthTotal: lastMonth._sum.amount,
-      thisMonthTotal: thisMonth._sum.amount
+      thisMonthTotal: thisMonth._sum.amount,
+      lastMonthIncome: lastMonthIncome._sum.amount,
+      thisMonthIncome: thisMonthIncome._sum.amount
     }
 
     return res.status(200).json({ stats, accounts, transactions, categories })

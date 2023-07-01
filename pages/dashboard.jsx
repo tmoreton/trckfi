@@ -8,7 +8,7 @@ import Header from '../components/header'
 import Cards from '../components/cards'
 import Loader from '../components/loader'
 import Plaid from "../components/plaid"
-// import PieChart from '../components/pie-chart'
+import PieChart from '../components/pie-chart'
 // import BarChart from '../components/bar-chart'
 
 export default function () {
@@ -19,6 +19,7 @@ export default function () {
     thisMonthTotal: 0
   })
   const [t, setTransactions] = useState([])
+  const [pieChart, setChartData] = useState([])
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
 
@@ -39,8 +40,9 @@ export default function () {
       },
       method: 'POST',
     })
-    const { stats, accounts, transactions } = await res.json()
+    const { stats, accounts, transactions, categories } = await res.json()
     setStats(stats)
+    setChartData(categories)
     setTransactions(transactions)
     setAccounts(accounts)
     setRefreshing(false)
@@ -100,16 +102,16 @@ export default function () {
       </div>
       <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
       <Snapshot accounts={a} totalStats={totalStats} />
-      {/* <div className="grid min-h-full place-items-center py-4">
+      <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="relative flex items-center space-x-3 px-6 py-5">
-              <PieChart />
+              {/* <PieChart pieChart={pieChart}/> */}
           </div>
           <div className="relative flex items-center space-x-3 px-6 py-5">
-            <BarChart />
+            {/* <BarChart /> */}
           </div>
         </div>
-      </div> */}
+      </div>
       <Transactions transactions={t} />
     </Container>
   )

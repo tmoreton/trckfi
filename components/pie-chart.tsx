@@ -1,6 +1,7 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+
 export const CHART_COLORS = {
   red: 'rgb(255, 99, 132)',
   orange: 'rgb(255, 159, 64)',
@@ -13,33 +14,34 @@ export const CHART_COLORS = {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        CHART_COLORS.red,
-        CHART_COLORS.orange,
-        CHART_COLORS.yellow,
-        CHART_COLORS.green,
-        CHART_COLORS.purple,
-        CHART_COLORS.grey,
-      ],
-      borderColor: [
-        CHART_COLORS.red,
-        CHART_COLORS.orange,
-        CHART_COLORS.yellow,
-        CHART_COLORS.green,
-        CHART_COLORS.purple,
-        CHART_COLORS.grey,
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-
-export default function () {
+export default function ({ pieChart }) {
+  const labels = pieChart.map(a => a.primary_category)
+  const sums = pieChart.map(a => a._sum.amount)
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Categories',
+        data: sums,
+        backgroundColor: [
+          CHART_COLORS.red,
+          CHART_COLORS.orange,
+          CHART_COLORS.yellow,
+          CHART_COLORS.green,
+          CHART_COLORS.purple,
+          CHART_COLORS.grey,
+        ],
+        borderColor: [
+          CHART_COLORS.red,
+          CHART_COLORS.orange,
+          CHART_COLORS.yellow,
+          CHART_COLORS.green,
+          CHART_COLORS.purple,
+          CHART_COLORS.grey,
+        ],
+        borderWidth: 1,
+      },
+    ],
+  }
   return <Pie data={data} />;
 }
