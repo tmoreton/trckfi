@@ -16,5 +16,5 @@
     "incremental": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/checkout-session.js", "pages/api/create-account.js", "pages/success.jsx", "components/plaid.jsx", "pages/dashboard.jsx", "pages/api/set_access_token.jsx", "pages/api/get_transactions.jsx", "pages/api/create_link_token.jsx", "pages/api/get_dashboard.jsx", "pages/api/remove_access_token.jsx", "pages/api/get_accounts.jsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/checkout-session.js", "pages/api/create-account.js", "pages/success.jsx", "components/plaid.jsx", "pages/dashboard.jsx", "pages/api/set_access_token.jsx", "pages/api/get_transactions.jsx", "pages/api/create_link_token.jsx", "pages/api/get_dashboard.jsx", "pages/api/remove_access_token.jsx", "pages/api/get_accounts.jsx", "pages/api/sync_transactions.jsx"]
 }
