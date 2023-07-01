@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Transactions from "../components/transactions"
 import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
@@ -9,6 +9,7 @@ import Cards from '../components/cards'
 import Loader from '../components/loader'
 import Plaid from "../components/plaid"
 import PieChart from '../components/pie-chart'
+import Table from '../components/table'
 // import BarChart from '../components/bar-chart'
 
 export default function () {
@@ -92,6 +93,26 @@ export default function () {
     </Container>
   )
 
+  const columns = [
+    {
+      Header: "Name",
+      accessor: "name"
+    },
+    {
+      Header: "Category",
+      accessor: "primary_category",
+      // Cell: ({ cell: { value } }) => <Genres values={value} />
+    },
+    {
+      Header: "Date",
+      accessor: "authorized_date"
+    },
+    {
+      Header: "Amount",
+      accessor: "amount"
+    }
+  ]
+
   return (
     <Container>
       <Loader refreshing={refreshing} />
@@ -102,17 +123,10 @@ export default function () {
       </div>
       <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
       <Snapshot accounts={a} totalStats={totalStats} />
-      <div className="grid min-h-full place-items-center py-4">
-        <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="relative flex items-center space-x-3 px-6 py-5">
-              {/* <PieChart pieChart={pieChart}/> */}
-          </div>
-          <div className="relative flex items-center space-x-3 px-6 py-5">
-            {/* <BarChart /> */}
-          </div>
-        </div>
-      </div>
-      <Transactions transactions={t} />
+      {/* <PieChart pieChart={pieChart}/>
+      <BarChart /> */}
+      <Table columns={columns} data={t} />
+      {/* <Transactions transactions={t} /> */}
     </Container>
   )
 }
