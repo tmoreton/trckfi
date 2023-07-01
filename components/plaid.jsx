@@ -15,7 +15,6 @@ const Plaid = ({ getAccounts, syncTransactions }) => {
   }
 
   useEffect(() => {
-    getAccounts('access-production-33ec142f-d1a2-4b62-b5d4-d219c1d2dbd1')
     generateToken();
   }, [])
 

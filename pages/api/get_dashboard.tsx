@@ -8,12 +8,16 @@ export default async (req, res) => {
 
   try { 
     const plaid = await prisma.plaid.findMany({
-      where: { user_id: user_id },
+      where: { 
+        user_id: user_id,
+        active: true,
+      },
     })
 
     const thisMonth = await prisma.transactions.findMany({
       where: {
         user_id: user_id,
+        active: true,
         date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().startOf('month').toISO(),
@@ -33,6 +37,7 @@ export default async (req, res) => {
       by: ['primary_category'],
       where: {
         user_id: user_id,
+        active: true,
         date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().startOf('month').toISO(),
@@ -51,6 +56,7 @@ export default async (req, res) => {
     const lastMonth = await prisma.transactions.findMany({
       where: {
         user_id: user_id,
+        active: true,
         date: {
           lte: DateTime.now().startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
@@ -64,6 +70,7 @@ export default async (req, res) => {
     const thisWeek = await prisma.transactions.findMany({
       where: {
         user_id: user_id,
+        active: true,
         date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().startOf('week').toISO(),
@@ -77,6 +84,7 @@ export default async (req, res) => {
     const lastWeek = await prisma.transactions.findMany({
       where: {
         user_id: user_id,
+        active: true,
         date: {
           lte: DateTime.now().startOf('week').toISO(),
           gte: DateTime.now().minus({ week: 1 }).startOf('week').toISO(),
