@@ -91,7 +91,7 @@ export default async (req, res) => {
     const categories = await prisma.transactions.groupBy({
       by: ['primary_category'],
       where: {
-        user_id: user.id,
+        user_id: user_id,
         active: true,
         date: {
           lte: DateTime.now().toISO(),

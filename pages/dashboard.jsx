@@ -14,7 +14,10 @@ import Plaid from "../components/plaid"
 export default function () {
   const { data: session } = useSession()
   const [loading, setLoading] = useState({access_token: null, loading: false})
-  const [totalStats, setStats] = useState({})
+  const [totalStats, setStats] = useState({
+    lastMonthTotal: 0,
+    thisMonthTotal: 0
+  })
   const [t, setTransactions] = useState([])
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
@@ -42,22 +45,6 @@ export default function () {
     setAccounts(accounts)
     setRefreshing(false)
   }
-
-  // const getTransactions = async (access_token) => {
-  //   setLoading({access_token: access_token, loading: true})
-  //   await fetch(`/api/get_transactions`, {
-  //     body: JSON.stringify({
-  //       user_id: session.user.id,
-  //       access_token: access_token
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  //   setLoading({access_token: null, loading: false})
-  //   getDashboard()
-  // }
 
   const getAccounts = async (access_token) => {
     setLoading({access_token: access_token, loading: true})
