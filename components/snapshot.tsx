@@ -1,5 +1,4 @@
 import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon } from '@heroicons/react/20/solid'
-import { DateTime } from "luxon";
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -9,13 +8,9 @@ const diff = (a, b) => {
   return  Math.round(100 * Math.abs(( a - b ) / ( (a+b)/2 )))
  }
 
-export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts }) {
-  const date = DateTime.local()
-  const thisMonthSum = thisMonth.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
-  const balance = accounts.reduce((accumulator, currentValue) => accumulator + Number(currentValue.balances.current), 0)
-  const lastMonthSum = lastMonth.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
-  const thisWeekSum = thisWeek.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
-  const lastWeekSum = lastWeek.reduce((accumulator, currentValue) => accumulator + Number(currentValue.amount), 0)
+export default function ({ totalStats, accounts }) {
+  const { thisMonthTotal, lastMonthTotal } = totalStats
+  const balance = accounts?.reduce((accumulator, currentValue) => accumulator + Number(currentValue.balances.current), 0)
 
   return (
     <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -42,17 +37,17 @@ export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts })
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <p className="text-2xl font-semibold text-gray-900">
-            ${Number(thisMonthSum).toFixed(2)}
-            <span className="ml-2 text-sm font-medium text-gray-500">from ${Number(lastMonthSum).toFixed(2)}</span>
+            ${Number(thisMonthTotal).toFixed(2)}
+            <span className="ml-2 text-sm font-medium text-gray-500">from ${Number(lastMonthTotal).toFixed(2)}</span>
           </p>
-          <p className={classNames(lastMonthSum >= thisMonthSum ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
-            <ArrowUpIcon className={classNames(lastMonthSum >= thisMonthSum ? 'text-green-600' : 'text-red-600', 'h-5 w-5 flex-shrink-0 self-center text-green-500')} aria-hidden="true" />
-            {diff(thisMonthSum, lastMonthSum)}%
+          <p className={classNames(lastMonthTotal >= thisMonthTotal ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
+            <ArrowUpIcon className={classNames(lastMonthTotal >= thisMonthTotal ? 'text-green-600' : 'text-red-600', 'h-5 w-5 flex-shrink-0 self-center text-green-500')} aria-hidden="true" />
+            {diff(thisMonthTotal, lastMonthTotal)}%
           </p>
         </dd>
       </div>
 
-      <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
+      {/* <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
         <dt>
           <div className="absolute rounded-md bg-pink-600 p-3">
             <CalendarIcon className="h-6 w-6 text-white" aria-hidden="true" />
@@ -74,7 +69,7 @@ export default function ({ thisMonth, lastMonth, thisWeek, lastWeek, accounts })
             {diff(thisWeekSum, lastWeekSum)}%
           </p>
         </dd>
-      </div>
+      </div> */}
     </dl>
   )
 }

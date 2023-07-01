@@ -14,16 +14,13 @@ import Plaid from "../components/plaid"
 export default function () {
   const { data: session } = useSession()
   const [loading, setLoading] = useState({access_token: null, loading: false})
-  const [thisMonth, setThisMonth] = useState([])
-  const [lastMonth, setLastMonth] = useState([])
-  const [thisWeek, setThisWeek] = useState([])
-  const [lastWeek, setLastWeek] = useState([])
-  const [accounts, setAccounts] = useState([])
-  const [plaid, setPlaid] = useState([])
+  const [totalStats, setStats] = useState({})
+  const [t, setTransactions] = useState([])
+  const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
 
   useEffect(() => {
-    if(session && thisMonth.length < 1){
+    if(session && t.length < 1){
       getDashboard();
     }
   }, [session]);
@@ -39,31 +36,28 @@ export default function () {
       },
       method: 'POST',
     })
-    const { thisMonth, lastMonth, thisWeek, lastWeek, accounts, plaid } = await res.json()
-    setThisMonth(thisMonth)
-    setLastMonth(lastMonth)
-    setThisWeek(thisWeek)
-    setLastWeek(lastWeek)
+    const { stats, accounts, transactions } = await res.json()
+    setStats(stats)
+    setTransactions(transactions)
     setAccounts(accounts)
-    setPlaid(plaid)
     setRefreshing(false)
   }
 
-  const getTransactions = async (access_token) => {
-    setLoading({access_token: access_token, loading: true})
-    await fetch(`/api/get_transactions`, {
-      body: JSON.stringify({
-        user_id: session.user.id,
-        access_token: access_token
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    setLoading({access_token: null, loading: false})
-    getDashboard()
-  }
+  // const getTransactions = async (access_token) => {
+  //   setLoading({access_token: access_token, loading: true})
+  //   await fetch(`/api/get_transactions`, {
+  //     body: JSON.stringify({
+  //       user_id: session.user.id,
+  //       access_token: access_token
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   setLoading({access_token: null, loading: false})
+  //   getDashboard()
+  // }
 
   const getAccounts = async (access_token) => {
     setLoading({access_token: access_token, loading: true})
@@ -117,8 +111,8 @@ export default function () {
         <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
         <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
       </div>
-      <Cards accounts={accounts} getTransactions={syncTransactions} tokens={plaid} loading={loading} getDashboard={getDashboard} />
-      <Snapshot accounts={accounts} thisMonth={thisMonth} lastMonth={lastMonth} thisWeek={thisWeek} lastWeek={lastWeek} />
+      <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
+      <Snapshot accounts={a} totalStats={totalStats} />
       {/* <div className="grid min-h-full place-items-center py-4">
         <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="relative flex items-center space-x-3 px-6 py-5">
@@ -129,7 +123,7 @@ export default function () {
           </div>
         </div>
       </div> */}
-      <Transactions transactions={thisMonth} />
+      <Transactions transactions={t} />
     </Container>
   )
 }
