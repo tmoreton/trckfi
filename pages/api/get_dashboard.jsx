@@ -176,8 +176,57 @@ export default async (req, res) => {
         dt_string: 'asc'
       },
     })
-    monthlyIncomeData.pop()
-    monthlyExpenseData.pop()
+
+    const recurring1 = await prisma.transactions.findMany({
+      where: {
+        user_id: user_id,
+        active: true,
+        date: {
+          lte: DateTime.now().startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' }
+        ],
+      },
+      orderBy: {
+        amount: 'desc'
+      },
+    })
+
+    const recurring2 = await prisma.transactions.findMany({
+      where: {
+        user_id: user_id,
+        active: true,
+        date: {
+          lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' }
+        ],
+      },
+      orderBy: {
+        amount: 'desc'
+      },
+    })
+
+    let recurring = []
+    recurring1.forEach((month1) => {
+      let tarObj = recurring2.find((obj) => {
+        return month1.amount === obj.amount && month1.name === obj.name;
+      })
+      if(tarObj){
+        duplicates.push(tarObj)
+      }
+    })
+
     const stats = {
       lastMonthTotal: lastMonth._sum.amount,
       thisMonthTotal: thisMonth._sum.amount,
@@ -185,7 +234,7 @@ export default async (req, res) => {
       thisMonthIncome: thisMonthIncome._sum.amount
     }
 
-    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData })
+    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })

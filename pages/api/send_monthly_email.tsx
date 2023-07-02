@@ -16,6 +16,7 @@ export default async (req, res) => {
   const lastMonthIncome = await prisma.transactions.aggregate({
     where: {
       user_id: user.id,
+      active: true,
       date: {
         lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
         gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
@@ -33,6 +34,7 @@ export default async (req, res) => {
   const thisMonthIncome = await prisma.transactions.aggregate({
     where: {
       user_id: user.id,
+      active: true,
       date: {
         lte: DateTime.now().startOf('month').toISO(),
         gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
@@ -50,6 +52,7 @@ export default async (req, res) => {
   const lastMonthTotal = await prisma.transactions.aggregate({
     where: {
       user_id: user.id,
+      active: true,
       date: {
         lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
         gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
@@ -72,6 +75,7 @@ export default async (req, res) => {
   const thisMonthTotal = await prisma.transactions.aggregate({
     where: {
       user_id: user.id,
+      active: true,
       date: {
         lte: DateTime.now().startOf('month').toISO(),
         gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
@@ -114,6 +118,7 @@ export default async (req, res) => {
   const thisMonth = await prisma.transactions.findMany({
     where: {
       user_id: user.id,
+      active: true,
       date: {
         lte: DateTime.now().startOf('month').toISO(),
         gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
@@ -128,10 +133,49 @@ export default async (req, res) => {
     orderBy: {
       amount: 'desc'
     },
-    take: 10,
   })
 
-  const emailHtml = render(<MonthlySummary month={DateTime.local().monthLong} thisMonth={thisMonth} categories={categories} thisMonthTotal={thisMonthTotal} lastMonthTotal={lastMonthTotal} thisMonthIncome={thisMonthIncome} lastMonthIncome={lastMonthIncome} />)
+  const lastMonth = await prisma.transactions.findMany({
+    where: {
+      user_id: user.id,
+      active: true,
+      date: {
+        lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+        gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
+      },
+      NOT: [
+        { primary_category: 'LOAN_PAYMENTS' },
+        { primary_category: 'TRANSFER_IN' },
+        { primary_category: 'TRANSFER_OUT' },
+        { primary_category: 'INCOME' }
+      ],
+    },
+    orderBy: {
+      amount: 'desc'
+    },
+  })
+
+  let recurring = []
+  thisMonth.forEach((i) => {
+    let obj = lastMonth.find((x) => {
+      return i.amount === x.amount && i.name === x.name;
+    })
+    if(obj){
+      recurring.push(obj)
+    }
+  })
+  const emailHtml = render(
+    <MonthlySummary 
+      month={DateTime.local().monthLong} 
+      thisMonth={thisMonth.slice(0, 10)} 
+      categories={categories} 
+      thisMonthTotal={thisMonthTotal} 
+      lastMonthTotal={lastMonthTotal} 
+      thisMonthIncome={thisMonthIncome} 
+      lastMonthIncome={lastMonthIncome}
+      recurring={recurring}
+    />
+  )
   
   const message = {
     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,

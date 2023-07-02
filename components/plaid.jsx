@@ -39,8 +39,10 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
     const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
     setTimeout(() => {
       getAccounts(access_token)
-      syncTransactions(access_token)
     }, 2000)
+    setTimeout(() => {
+      syncTransactions(access_token)
+    }, 10000)
   }, [])
 
   const { open, ready } = usePlaidLink({

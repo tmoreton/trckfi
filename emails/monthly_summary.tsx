@@ -15,7 +15,7 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome }) {
+export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, recurring }) {
   categories.sort((a, b) => b._sum.amount-a._sum.amount)
   return (
     <Html>
@@ -167,41 +167,43 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 })}
               </Section>
             </Section>
-
-            <Section className="bg-[#ffffff] rounded text-center my-5">
-              <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
-              <Section className="mt-0 mb-4">
-                <Text className="text-[#464c63] font-light text-[22px] mb-1">
-                  Monthly Recurring
-                </Text>
-                <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
-                {categories.map((item) => (
-                  <Row >
-                    <Column className="w-64" align="left">
-                      <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
-                        {item.primary_category.split('_').join(' ')}
-                      </Text>
-                    </Column>
-                    <Column align="left">
-                      <Text className="text-[#666666] text-[10px] my-0 ml-6">
-                      </Text>
-                    </Column>
-                    <Column align="right">
-                      {
-                        item._sum.amount > 0 ?
-                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item._sum.amount))}
+            {
+              recurring.length > 0 &&
+              <Section className="bg-[#ffffff] rounded text-center my-5">
+                <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
+                <Section className="mt-0 mb-4">
+                  <Text className="text-[#464c63] font-light text-[22px] mb-1">
+                    Monthly Recurring
+                  </Text>
+                  <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
+                  {recurring.map((item) => (
+                    <Row >
+                      <Column className="w-64" align="left">
+                        <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
+                          {item.name}
                         </Text>
-                        :
-                        <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item._sum.amount))}
+                      </Column>
+                      <Column align="left">
+                        <Text className="text-[#666666] text-[10px] my-0 ml-6">
                         </Text>
-                      }
-                    </Column>
-                  </Row>
-                ))}
+                      </Column>
+                      <Column align="right">
+                        {
+                          item._sum.amount > 0 ?
+                          <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
+                            ${Math.abs(Math.round(item._sum.amount))}
+                          </Text>
+                          :
+                          <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
+                            ${Math.abs(Math.round(item._sum.amount))}
+                          </Text>
+                        }
+                      </Column>
+                    </Row>
+                  ))}
+                </Section>
               </Section>
-            </Section>
+            }
 
             <Hr className="border border-solid border-[#eaeaea] my-[16px] mx-0 w-full" />
             <Text className="text-[#666666] text-[8px] text-center">
