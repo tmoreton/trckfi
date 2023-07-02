@@ -125,7 +125,7 @@ export default function () {
       <Container>
         <Loader refreshing={refreshing} />
         <Header/>
-        <div className='flex items-center justify-center'>
+        <div className="flex items-center justify-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
