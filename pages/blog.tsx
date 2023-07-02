@@ -15,7 +15,7 @@ export default function Index({ allPosts }: Props) {
   return (
     <Layout>
       <Head>
-        <title>Trckfi</title>
+        <title>Trckfi - Blog</title>
       </Head>
       <Container>
         <Header />

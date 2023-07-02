@@ -114,7 +114,7 @@ export default async (req, res) => {
         active: true,
         date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 12 }).startOf('month').toISO(),
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
