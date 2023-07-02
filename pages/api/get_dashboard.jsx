@@ -141,8 +141,8 @@ export default async (req, res) => {
         active: true,
         primary_category: 'INCOME',
         date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 12 }).startOf('month').toISO(),
+          lte: DateTime.now().startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 13 }).startOf('month').toISO(),
         },
       },
       _sum: {
@@ -159,8 +159,8 @@ export default async (req, res) => {
         user_id: user_id,
         active: true,
         date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 12 }).startOf('month').toISO(),
+          lte: DateTime.now().startOf('month').toISO(),
+          gte: DateTime.now().minus({ months: 13 }).startOf('month').toISO(),
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
