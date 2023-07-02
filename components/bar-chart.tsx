@@ -59,5 +59,5 @@ export default function ({ monthlyIncomeData, monthlyExpenseData }) {
       },
     ],
   }
-  return <div className='sm:w-1/2 w-100 mx-auto mt-8'><Bar options={options} data={data} /></div>
+  return <div className="sm:w-2/3 w-100 mx-auto mt-8 p-28"><Bar options={options} data={data} /></div>
 }

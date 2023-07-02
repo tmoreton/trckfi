@@ -11,6 +11,7 @@ import Table from '../components/table'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import BarChart from '../components/bar-chart'
+import PieChart from '../components/pie-chart'
 
 export default function () {
   const { data: session } = useSession()
@@ -24,6 +25,7 @@ export default function () {
   const [expenseData, setExpenseData] = useState([])
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
+  const [pieData, setPieData] = useState([])
 
   useEffect(() => {
     if(session && t.length < 1){
@@ -42,13 +44,14 @@ export default function () {
       },
       method: 'POST',
     })
-    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData } = await res.json()
-    setIncomeData(monthlyIncomeData)
+    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData, categories } = await res.json()
     setExpenseData(monthlyExpenseData)
+    setIncomeData(monthlyIncomeData)
     setStats(stats)
     setTransactions(transactions)
     setAccounts(accounts)
     setRefreshing(false)
+    setPieData(categories)
   }
 
   const getAccounts = async (access_token) => {
@@ -133,10 +136,11 @@ export default function () {
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <hr class="h-px mb-8 mt-10 bg-gray-400 border-1" />
+        <div class="flex items-center justify-center">
+          <PieChart pieData={pieData} />
+          <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
+        </div>
         <Snapshot accounts={a} totalStats={totalStats} />
-        <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
-        <h1 className="text-2xl font-bold text-gray-900">Transactions</h1>
         <Table columns={columns} data={t} />
       </Container>
     </Layout>

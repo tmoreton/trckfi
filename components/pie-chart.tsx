@@ -14,9 +14,33 @@ export const CHART_COLORS = {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function ({ pieChart }) {
-  const labels = pieChart.map(a => a.primary_category)
-  const sums = pieChart.map(a => a._sum.amount)
+const capitalize = (string) => {
+  let str = string.split('_').join(' ').toLowerCase()
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'bottom' as const,
+      labels: {
+        usePointStyle: true,
+        boxWidth: 6,
+        pointStyle: 'circle',
+        padding: 15,
+        font: {
+          padding: 5,
+          size: 10
+        }
+      }
+    },
+  },
+}
+
+export default function ({ pieData }) {
+  const labels = pieData.map(a => capitalize(a.primary_category))
+  const sums = pieData.map(a => Math.abs(a._sum.amount))
   const data = {
     labels: labels,
     datasets: [
@@ -24,24 +48,36 @@ export default function ({ pieChart }) {
         label: 'Categories',
         data: sums,
         backgroundColor: [
-          CHART_COLORS.red,
-          CHART_COLORS.orange,
-          CHART_COLORS.yellow,
-          CHART_COLORS.green,
-          CHART_COLORS.purple,
-          CHART_COLORS.grey,
+          '#36a2eb',
+          '#9ad0f5',
+          '#ff6384',
+          '#ffb1c1',
+          '#4bc0c0',
+          '#a5dfdf',
+          '#ffcd56',
+          '#ffe19a',
+          '#9966ff',
+          '#b199e7',
+          '#bdb2db',
+          '#c9cbcf'
         ],
         borderColor: [
-          CHART_COLORS.red,
-          CHART_COLORS.orange,
-          CHART_COLORS.yellow,
-          CHART_COLORS.green,
-          CHART_COLORS.purple,
-          CHART_COLORS.grey,
+          '#36a2eb',
+          '#9ad0f5',
+          '#ff6384',
+          '#ffb1c1',
+          '#4bc0c0',
+          '#a5dfdf',
+          '#ffcd56',
+          '#ffe19a',
+          '#9966ff',
+          '#b199e7',
+          '#bdb2db',
+          '#c9cbcf'
         ],
         borderWidth: 1,
       },
     ],
   }
-  return <Pie data={data} />;
+  return <div className='sm:w-1/3 w-100 mx-auto mt-8'><Pie options={options} data={data} /></div>
 }
