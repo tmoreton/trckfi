@@ -156,14 +156,15 @@ export default async (req, res) => {
   })
 
   let recurring = []
-  thisMonth.forEach((i) => {
-    let obj = lastMonth.find((x) => {
-      return i.amount === x.amount && i.name === x.name;
+  lastMonth.forEach((i) => {
+    let obj = thisMonth.find((x) => {
+      return Number(i.amount) === Number(x.amount)
     })
     if(obj){
       recurring.push(obj)
     }
   })
+
   const emailHtml = render(
     <MonthlySummary 
       month={DateTime.local().monthLong} 

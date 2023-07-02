@@ -177,25 +177,26 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                   </Text>
                   <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                   {recurring.map((item) => (
-                    <Row >
-                      <Column className="w-64" align="left">
+                    <Row key={item.id}>
+                      <Column className="w-44" align="left">
                         <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
                           {item.name}
                         </Text>
                       </Column>
-                      <Column align="left">
-                        <Text className="text-[#666666] text-[10px] my-0 ml-6">
+                      <Column className="w-32" align="left">
+                        <Text className="text-[#666666] text-[8px] my-0 ml-6">
+                          {item.authorized_date}
                         </Text>
                       </Column>
                       <Column align="right">
                         {
-                          item._sum.amount > 0 ?
+                          item.amount > 0 ?
                           <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                            ${Math.abs(Math.round(item._sum.amount))}
+                            ${Math.abs(Math.round(item.amount))}
                           </Text>
                           :
                           <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
-                            ${Math.abs(Math.round(item._sum.amount))}
+                            ${Math.abs(Math.round(item.amount))}
                           </Text>
                         }
                       </Column>
