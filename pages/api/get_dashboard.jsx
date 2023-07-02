@@ -63,7 +63,7 @@ export default async (req, res) => {
         amount: true,
       },
     })
-  
+    
     const thisMonth = await prisma.transactions.aggregate({
       where: {
         user_id: user_id,
@@ -227,9 +227,12 @@ export default async (req, res) => {
       }
     })
 
+    console.log(DateTime.now().minus({ months: 1 }).startOf('month').monthLong)
     const stats = {
       lastMonthTotal: lastMonth._sum.amount,
       thisMonthTotal: thisMonth._sum.amount,
+      thisMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
+      lastMonthString: DateTime.now().minus({ months: 2 }).startOf('month').monthLong,
       lastMonthIncome: lastMonthIncome._sum.amount,
       thisMonthIncome: thisMonthIncome._sum.amount
     }

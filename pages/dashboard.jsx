@@ -18,7 +18,9 @@ export default function () {
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
     lastMonthTotal: 0,
-    thisMonthTotal: 0
+    thisMonthTotal: 0,
+    thisMonthString: '',
+    lastMonthString: ''
   })
   const [t, setTransactions] = useState([])
   const [incomeData, setIncomeData] = useState([])
@@ -136,7 +138,7 @@ export default function () {
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center py-16">
           <PieChart pieData={pieData} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
