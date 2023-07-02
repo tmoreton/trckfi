@@ -2,27 +2,32 @@ import prisma from '../lib/prisma';
 import { render } from '@react-email/render'
 import MonthlySummary from "../emails/monthly_summary"
 import { DateTime } from "luxon";
+import { useSession } from "next-auth/react"
 
-export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, recurring }) {
-  if (!month) return <></>
+export default function ({ email, month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, recurring }) {
+  const { data: session } = useSession()
 
-  const emailHtml = render(
-    <MonthlySummary 
-      month={month} 
-      thisMonth={thisMonth} 
-      categories={categories} 
-      thisMonthTotal={thisMonthTotal} 
-      lastMonthTotal={lastMonthTotal} 
-      thisMonthIncome={thisMonthIncome} 
-      lastMonthIncome={lastMonthIncome} 
-      recurring={recurring}
-    />
-  )
-  return <div dangerouslySetInnerHTML={{__html: emailHtml}}></div>
+  if(session?.user?.email === email){
+    if (!month) return <></>
+    const emailHtml = render(
+      <MonthlySummary 
+        month={month} 
+        thisMonth={thisMonth} 
+        categories={categories} 
+        thisMonthTotal={thisMonthTotal} 
+        lastMonthTotal={lastMonthTotal} 
+        thisMonthIncome={thisMonthIncome} 
+        lastMonthIncome={lastMonthIncome} 
+        recurring={recurring}
+      />
+    )
+    return <div dangerouslySetInnerHTML={{__html: emailHtml}}></div>
+  }
+  return <></>
 }
 
-export async function getServerSideProps(context) {
-  const email = context.query.email
+export async function getServerSideProps({ query }) {
+  const email = query.email
   if (!email) return { props: {}}
   
   const user = await prisma.user.findUnique({
@@ -186,6 +191,7 @@ export async function getServerSideProps(context) {
     thisMonthIncome: JSON.parse(JSON.stringify(thisMonthIncome)),
     lastMonthIncome: JSON.parse(JSON.stringify(lastMonthIncome)),
     month: DateTime.local().monthLong,
-    recurring: JSON.parse(JSON.stringify(recurring))
+    recurring: JSON.parse(JSON.stringify(recurring)),
+    email
   }}
 }
