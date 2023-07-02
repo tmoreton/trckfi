@@ -9,6 +9,7 @@ import Pricing from '../components/pricing'
 import Header from '../components/header'
 import Newsletter from '../components/newsletter'
 import Menu from '../components/menu'
+import PricingDual from '../components/pricing-dual'
 
 type Props = {
   allPosts: Post[]
@@ -25,6 +26,7 @@ export default function Index({ allPosts }: Props) {
         <Menu />
         <Hero />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        <PricingDual />
         <Pricing />
         <Newsletter />
       </Container>

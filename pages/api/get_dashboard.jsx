@@ -134,6 +134,50 @@ export default async (req, res) => {
       },
     })
 
+    const monthlyIncomeData = await prisma.transactions.groupBy({
+      by: ['dt_string'],
+      where: {
+        user_id: user_id,
+        active: true,
+        primary_category: 'INCOME',
+        date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ months: 12 }).startOf('month').toISO(),
+        },
+      },
+      _sum: {
+        amount: true,
+      },
+      orderBy: {
+        dt_string: 'asc'
+      },
+    })
+
+    const monthlyExpenseData = await prisma.transactions.groupBy({
+      by: ['dt_string'],
+      where: {
+        user_id: user_id,
+        active: true,
+        date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ months: 12 }).startOf('month').toISO(),
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+      orderBy: {
+        dt_string: 'asc'
+      },
+    })
+    monthlyIncomeData.pop()
+    monthlyExpenseData.pop()
     const stats = {
       lastMonthTotal: lastMonth._sum.amount,
       thisMonthTotal: thisMonth._sum.amount,
@@ -141,7 +185,7 @@ export default async (req, res) => {
       thisMonthIncome: thisMonthIncome._sum.amount
     }
 
-    return res.status(200).json({ stats, accounts, transactions, categories })
+    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })

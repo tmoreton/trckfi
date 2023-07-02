@@ -22,6 +22,7 @@ export default async (req, res) => {
         },
         update: {
           balances: accounts[i].balances,
+          active: true
         },
         create: {
           access_token: plaidAccount.access_token,

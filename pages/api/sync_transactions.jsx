@@ -33,7 +33,9 @@ export default async (req, res) => {
         where: { 
           transaction_id: added[i].transaction_id 
         },
-        update: {},
+        update: {
+          active: true
+        },
         create: {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,
@@ -49,7 +51,8 @@ export default async (req, res) => {
           pending: added[i].pending,
           location: added[i].location,
           user_id: user_id,
-          item_id: plaidAccount.item_id
+          item_id: plaidAccount.item_id,
+          dt_string: added[i].date.substring(0,7)
         },
       })
     }
@@ -61,7 +64,6 @@ export default async (req, res) => {
 
     return res.status(200).json({ has_more: has_more })
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

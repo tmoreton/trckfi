@@ -116,6 +116,7 @@ model Transactions {
   amount            Decimal?  @db.Decimal(9, 2)
   category          Json?
   active            Boolean?  @default(true)
+  dt_string         String?
 
   @@map("transactions")
 }

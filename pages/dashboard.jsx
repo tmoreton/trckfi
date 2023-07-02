@@ -10,6 +10,7 @@ import Plaid from "../components/plaid"
 import Table from '../components/table'
 import Head from 'next/head'
 import Layout from '../components/layout'
+import BarChart from '../components/bar-chart'
 
 export default function () {
   const { data: session } = useSession()
@@ -19,7 +20,8 @@ export default function () {
     thisMonthTotal: 0
   })
   const [t, setTransactions] = useState([])
-  const [pieChart, setChartData] = useState([])
+  const [incomeData, setIncomeData] = useState([])
+  const [expenseData, setExpenseData] = useState([])
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
 
@@ -40,9 +42,10 @@ export default function () {
       },
       method: 'POST',
     })
-    const { stats, accounts, transactions, categories } = await res.json()
+    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData } = await res.json()
+    setIncomeData(monthlyIncomeData)
+    setExpenseData(monthlyExpenseData)
     setStats(stats)
-    setChartData(categories)
     setTransactions(transactions)
     setAccounts(accounts)
     setRefreshing(false)
@@ -132,7 +135,7 @@ export default function () {
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <hr class="h-px mb-8 mt-10 bg-gray-400 border-1" />
         <Snapshot accounts={a} totalStats={totalStats} />
-        <hr class="h-px mb-8 mt-10 bg-gray-400 border-1" />
+        <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         <h1 className="text-2xl font-bold text-gray-900">Transactions</h1>
         <Table columns={columns} data={t} />
       </Container>

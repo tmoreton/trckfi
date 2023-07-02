@@ -20,36 +20,44 @@ ChartJS.register(
 );
 
 export const options = {
+  scales: {
+    x: {
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      grid: {
+        display: false
+      }
+    }
+  },
   responsive: true,
   plugins: {
     legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart',
+      position: 'bottom' as const,
     },
   },
-};
+}
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+export default function ({ monthlyIncomeData, monthlyExpenseData }) {
+  const monthlyLabel = monthlyIncomeData.map(a => a.dt_string)
+  const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
+  const monthlyExpenseSum = monthlyExpenseData.map(a => Math.abs(a._sum.amount))
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
-
-export default function () {
-  return <Bar options={options} data={data} />;
+  const data = {
+    labels: monthlyLabel,
+    datasets: [
+      {
+        label: 'Income',
+        data: monthlySum,
+        backgroundColor: '#009c7b'
+      }, {
+        label: 'Expense',
+        data: monthlyExpenseSum,
+        backgroundColor: '#ff6384'
+      },
+    ],
+  }
+  return <div className='w-1/2'><Bar options={options} data={data} /></div>
 }

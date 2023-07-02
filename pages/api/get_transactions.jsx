@@ -69,7 +69,8 @@ export default async (req, res) => {
           pending: transactions[i].pending,
           location: transactions[i].location,
           user_id: user_id,
-          item_id: plaidAccount.item_id
+          item_id: plaidAccount.item_id,
+          dt_string: added[i].date.substring(0,7)
         },
       })
     }

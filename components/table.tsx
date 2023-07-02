@@ -77,7 +77,6 @@ export default function Table({ columns, data }) {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
-                    console.log(row.cells)
                     if(cell.column.Header === 'Name'){
                       return (
                         <td className="w-{50} whitespace-nowrap px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
