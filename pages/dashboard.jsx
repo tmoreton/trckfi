@@ -9,6 +9,7 @@ import Loader from '../components/loader'
 import Plaid from "../components/plaid"
 import Table from '../components/table'
 import Head from 'next/head'
+import Layout from '../components/layout'
 
 export default function () {
   const { data: session } = useSession()
@@ -117,7 +118,7 @@ export default function () {
   ]
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>Trckfi - Dashboard</title>
       </Head>
@@ -135,6 +136,6 @@ export default function () {
         <h1 className="text-2xl font-bold text-gray-900">Transactions</h1>
         <Table columns={columns} data={t} />
       </Container>
-    </>
+    </Layout>
   )
 }

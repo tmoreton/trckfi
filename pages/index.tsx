@@ -7,6 +7,7 @@ import Head from 'next/head'
 import Post from '../interfaces/post'
 import Pricing from '../components/pricing'
 import Header from '../components/header'
+import Newsletter from '../components/newsletter'
 
 type Props = {
   allPosts: Post[]
@@ -15,19 +16,18 @@ type Props = {
 export default function Index({ allPosts }: Props) {
   const morePosts = allPosts.slice(0, 2)
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Trckfi</title>
-        </Head>
-        <Container>
-          <Header />
-          <Hero />
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-          <Pricing />
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>Trckfi</title>
+      </Head>
+      <Container>
+        <Header />
+        <Hero />
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        <Pricing />
+        <Newsletter />
+      </Container>
+    </Layout>
   )
 }
 

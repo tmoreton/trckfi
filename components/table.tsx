@@ -8,7 +8,6 @@ export default function Table({ columns, data }) {
     start: 0,
     end: 20
   });
-  // Use the state and functions returned from useTable to build your UI
 
   const {
     getTableProps,
@@ -42,16 +41,15 @@ export default function Table({ columns, data }) {
     }
   };
 
-  // Render the UI for your table
   return (
-    <div className="mt-4 mb-20">
+    <div className="w-full mt-4 overflow-scroll">
       <input
         value={filterInput}
         onChange={handleFilterChange}
         placeholder={"Search name"}
-        className="block w-1/3 p-4 rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+        className="block w-full sm:w-1/3 p-4 rounded-md border-1 py-1.5 pr-14 text-gray-900 border-b border border-gray-200"
       />
-      <table className="min-w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
+      <table className="w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
