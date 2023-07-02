@@ -4,7 +4,8 @@ import MonthlySummary from "../emails/monthly_summary"
 import { DateTime } from "luxon";
 
 export default function ({ month, thisMonth, categories, thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, recurring }) {
-  // return <></>
+  if (!month) return <></>
+
   const emailHtml = render(
     <MonthlySummary 
       month={month} 
@@ -21,11 +22,13 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
 }
 
 export async function getServerSideProps(context) {
-  const email = 'tmoreton89@gmail.com'
-
+  const email = context.query.email
+  if (!email) return { props: {}}
+  
   const user = await prisma.user.findUnique({
     where: { email: email },
   })
+  if (!user?.id) return { props: {}}
 
   const lastMonthIncome = await prisma.transactions.aggregate({
     where: {
