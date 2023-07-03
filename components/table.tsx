@@ -67,7 +67,7 @@ export default function ({ columns, data }) {
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                  <th className='whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                  <th className='w-1/5 whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                     <div className="flex">
                       {column.render("Header")}
 
