@@ -99,8 +99,7 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          { primary_category: 'TRANSFER_OUT' }
         ],
       },
       _sum: {
