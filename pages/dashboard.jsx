@@ -12,6 +12,7 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
+import EditModal from '../components/edit-modal'
 
 export default function () {
   const { data: session } = useSession()
@@ -28,6 +29,7 @@ export default function () {
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
   const [pieData, setPieData] = useState([])
+  const [item, setEdit] = useState({});
 
   useEffect(() => {
     if(session && t.length < 1){
@@ -120,8 +122,9 @@ export default function () {
     }, 
     {
       Header: '',
-      accessor: "transaction_id",
-      Cell: ({ cell: { value } }) => <button className="text-pink-600 hover:text-pink-900">Edit</button>
+      id: 'id',
+      accessor: data => data,
+      Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>
     }
   ]
 
@@ -132,6 +135,7 @@ export default function () {
       </Head>
       <Container>
         <Loader refreshing={refreshing} />
+        <EditModal item={item} setEdit={setEdit} />
         <Header/>
         <div className="flex items-center justify-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>

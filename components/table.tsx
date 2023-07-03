@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
-import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid'
+import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 
-export default function Table({ columns, data }) {
+export default function ({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
   const [paginate, setPagination] = useState({
     start: 0,
@@ -65,7 +65,12 @@ export default function Table({ columns, data }) {
                         : "whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                     }
                   >
-                    {column.render("Header")}
+                    <div  className="flex">
+                      {column.render("Header")}
+                      <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                        <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                    </div>
                   </th>
                 ))}
               </tr>
