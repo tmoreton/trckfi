@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
-import { DateTime } from "luxon";
 
 export default async (req, res) => {
   const { user_id, access_token } = req.body
@@ -33,9 +32,7 @@ export default async (req, res) => {
         where: { 
           transaction_id: added[i].transaction_id 
         },
-        update: {
-          active: true
-        },
+        update: {},
         create: {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,

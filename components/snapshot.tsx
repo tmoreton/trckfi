@@ -10,7 +10,14 @@ const diff = (a, b) => {
 
 export default function ({ totalStats, accounts }) {
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
-  const balance = accounts?.reduce((accumulator, currentValue) => accumulator + Number(currentValue.balances.current), 0)
+  let balance = 0
+  accounts.forEach(e => {
+    if(e.type === 'credit'){
+      balance -= Number(e.balances.current)
+    } else {
+      balance += Number(e.balances.current)
+    }
+  });
 
   return (
     <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -22,7 +29,7 @@ export default function ({ totalStats, accounts }) {
           <p className="ml-16 truncate text-sm font-medium text-gray-500">Current Balance</p>
         </dt>
         <dd className="ml-16 flex items-baseline">
-          <p className={balance < 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
+          <p className={balance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
             ${Number(balance).toFixed(2)}
           </p>
         </dd>
@@ -36,10 +43,10 @@ export default function ({ totalStats, accounts }) {
           <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Expenses</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <p className="text-2xl font-semibold text-red-600">
-            ${Number(thisMonthTotal).toFixed(2)}
-            <span className="ml-2 text-sm font-medium text-gray-500">from ${Number(lastMonthTotal).toFixed(2)}</span>
-          </p>
+          <div className="flex items-baseline justify-between">
+            <p className="text-2xl font-semibold text-red-600">${Number(thisMonthTotal).toFixed(2)}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(lastMonthTotal).toFixed(2)}</span> in {lastMonthString}</p>
+          </div>
           <p className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             <ArrowUpIcon className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'h-5 w-5 flex-shrink-0 self-center text-green-500')} aria-hidden="true" />
             {diff(Number(thisMonthTotal), Number(lastMonthTotal))}%
@@ -55,10 +62,10 @@ export default function ({ totalStats, accounts }) {
           <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Income</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <p className="text-2xl font-semibold text-green-600">
-            ${Number(Math.abs(thisMonthIncome)).toFixed(2)}
-            <span className="ml-2 text-sm text-gray-500">from ${Number(Math.abs(lastMonthIncome)).toFixed(2)} in {lastMonthString}</span>
-          </p>
+          <div className="flex items-baseline justify-between">
+            <p className="text-2xl font-semibold text-green-600">${Number(Math.abs(thisMonthIncome)).toFixed(2)}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(Math.abs(lastMonthIncome)).toFixed(2)}</span> in {lastMonthString}</p>
+          </div>
           <p className={classNames(Number(thisMonthIncome) >= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             {
                Number(thisMonthIncome) >= Number(lastMonthIncome) ?

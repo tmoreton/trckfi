@@ -226,8 +226,7 @@ export default async (req, res) => {
         duplicates.push(tarObj)
       }
     })
-
-    console.log(DateTime.now().minus({ months: 1 }).startOf('month').monthLong)
+    
     const stats = {
       lastMonthTotal: lastMonth._sum.amount,
       thisMonthTotal: thisMonth._sum.amount,

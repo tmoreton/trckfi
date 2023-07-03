@@ -15,6 +15,7 @@ export const CHART_COLORS = {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const capitalize = (string) => {
+  return string
   let str = string.split('_').join(' ').toLowerCase()
   return str.charAt(0).toUpperCase() + str.slice(1)
 }

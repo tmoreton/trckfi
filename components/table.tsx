@@ -43,7 +43,7 @@ export default function Table({ columns, data }) {
 
   return (
     <>
-      <div className="w-full mt-4 overflow-scroll">
+      <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <input
           value={filterInput}
           onChange={handleFilterChange}

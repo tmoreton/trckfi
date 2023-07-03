@@ -73,6 +73,7 @@ export default function () {
 
   const syncTransactions = async (access_token) => {
     setLoading({access_token: access_token, loading: true})
+    getAccounts(access_token)
     const res = await fetch(`/api/sync_transactions`, {
       body: JSON.stringify({
         user_id: session.user.id,
@@ -83,7 +84,6 @@ export default function () {
       },
       method: 'POST',
     })
-
     const { has_more } = await res.json()
     if(has_more){
       syncTransactions(access_token)
