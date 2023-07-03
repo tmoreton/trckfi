@@ -44,32 +44,26 @@ export default function ({ columns, data }) {
   return (
     <>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
-        <input
-          value={filterInput}
-          onChange={handleFilterChange}
-          placeholder={"Search name"}
-          className="block w-full sm:w-1/3 p-4 rounded-md border-1 py-1.5 pr-14 text-gray-900 border-b border border-gray-200"
-        />
+
         <table className="w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                  <th
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                    className={
-                      column.isSorted
-                        ? column.isSortedDesc
-                          ? "whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900 sort-desc"
-                          : "whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900 sort-asc"
-                        : "whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    }
-                  >
-                    <div  className="flex">
+                  <th className='whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                    <div className="flex">
                       {column.render("Header")}
-                      <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                        <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                      <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200 sort-asc">
+                        <ChevronDownIcon {...column.getHeaderProps(column.getSortByToggleProps())} className="h-5 w-5" aria-hidden="true" />
                       </span>
+                      { column.render("Header") === 'Name' &&
+                        <input
+                          value={filterInput}
+                          onChange={handleFilterChange}
+                          placeholder={"Search name"}
+                          className="text-center mx-4 px-4"
+                        />
+                      }
                     </div>
                   </th>
                 ))}

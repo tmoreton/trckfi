@@ -20,7 +20,7 @@ export default function ({ totalStats, accounts }) {
   });
 
   return (
-    <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <dl className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
         <dt>
           <div className="absolute rounded-md bg-pink-600 p-3">

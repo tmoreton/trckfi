@@ -141,12 +141,12 @@ export default function () {
           <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
+        <Snapshot accounts={a} totalStats={totalStats} />
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <div class="flex items-center justify-center py-16">
+        <div class="flex items-center justify-center">
           <PieChart pieData={pieData} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
-        <Snapshot accounts={a} totalStats={totalStats} />
         <Table columns={columns} data={t} />
       </Container>
     </Layout>
