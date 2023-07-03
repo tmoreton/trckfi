@@ -3,7 +3,8 @@ import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export default function ({ columns, data }) {
-  const [filterInput, setFilterInput] = useState("");
+  const [filterNameInput, setFilterNameInput] = useState("");
+  const [filterCategoryInput, setFilterCategoryInput] = useState("");
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
@@ -25,10 +26,17 @@ export default function ({ columns, data }) {
     useSortBy,
   );
 
-  const handleFilterChange = e => {
+  const handleNameFilterChange = e => {
     const value = e.target.value || undefined;
-    setFilter("name", value);
-    setFilterInput(value)
+    setFilter('name', value);
+    setFilterNameInput(value)
+    setPagination({start: 0, end: 20})
+  };
+
+  const handleCateoryFilterChange = e => {
+    const value = e.target.value || undefined;
+    setFilter('primary_category', value);
+    setFilterCategoryInput(value)
     setPagination({start: 0, end: 20})
   };
 
@@ -58,9 +66,17 @@ export default function ({ columns, data }) {
                       </span>
                       { column.render("Header") === 'Name' &&
                         <input
-                          value={filterInput}
-                          onChange={handleFilterChange}
-                          placeholder={"Search name"}
+                          value={filterNameInput}
+                          onChange={handleNameFilterChange}
+                          placeholder={"Search Name"}
+                          className="text-center mx-4 px-4"
+                        />
+                      }
+                      { column.render("Header") === 'Category' &&
+                        <input
+                          value={filterCategoryInput}
+                          onChange={handleCateoryFilterChange}
+                          placeholder={"Search Category"}
                           className="text-center mx-4 px-4"
                         />
                       }
