@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
 import Snapshot from "../components/snapshot"

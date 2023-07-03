@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export default function ({ columns, data }) {
   const [filterNameInput, setFilterNameInput] = useState("");
   const [filterCategoryInput, setFilterCategoryInput] = useState("");
+  const [sum, setSum] = useState('');
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
@@ -25,6 +26,15 @@ export default function ({ columns, data }) {
     useFilters,
     useSortBy,
   );
+
+  useEffect(() => {
+    let total = 0
+    rows.map((row) => {
+      total += Number(row.values.amount)
+    })
+    let num = Number(Math.abs(total)).toFixed(2)
+    setSum(num)
+  }, [rows])
 
   const handleNameFilterChange = e => {
     const value = e.target.value || undefined;
@@ -52,7 +62,6 @@ export default function ({ columns, data }) {
   return (
     <>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
-
         <table className="w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
@@ -61,9 +70,22 @@ export default function ({ columns, data }) {
                   <th className='whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                     <div className="flex">
                       {column.render("Header")}
-                      <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200 sort-asc">
-                        <ChevronDownIcon {...column.getHeaderProps(column.getSortByToggleProps())} className="h-5 w-5" aria-hidden="true" />
-                      </span>
+
+                      { column.render("Header") !== '' ?
+                        <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200 sort-asc">
+                          <ChevronDownIcon 
+                            {...column.getHeaderProps(column.getSortByToggleProps())} 
+                            className="h-5 w-5" 
+                            aria-hidden="true"
+                          />
+                        </span>
+                        :
+                        <div className="block">
+                          <p className="text-xs text-gray-400">Total:</p>
+                          <p className="text-lg text-pink-600">${sum}</p>
+                        </div>
+                      }
+
                       { column.render("Header") === 'Name' &&
                         <input
                           value={filterNameInput}
