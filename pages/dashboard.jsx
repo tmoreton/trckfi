@@ -3,7 +3,6 @@ import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
 import Snapshot from "../components/snapshot"
 import { useSession } from "next-auth/react"
-import Header from '../components/header'
 import Cards from '../components/cards'
 import Loader from '../components/loader'
 import Plaid from "../components/plaid"
@@ -13,6 +12,8 @@ import Layout from '../components/layout'
 import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
+import Header from '../components/new-header'
+
 
 export default function () {
   const { data: session } = useSession()

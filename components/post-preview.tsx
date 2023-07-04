@@ -31,7 +31,7 @@ const PostPreview = ({
           {title}
         </Link>
       </h3>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <p className="text-md leading-relaxed mb-4 text-gray-700">{excerpt}</p>
     </div>
   )
 }

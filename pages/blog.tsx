@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
-import Header from '../components/header'
+import Header from '../components/new-header'
 
 type Props = {
   allPosts: Post[]
