@@ -41,6 +41,7 @@
     "recharts": "^2.7.2",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
+    "snake-case": "^3.0.4",
     "stripe": "^12.10.0",
     "superjson": "^1.12.4",
     "typescript": "^4.7.4"

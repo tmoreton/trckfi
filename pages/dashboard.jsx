@@ -105,26 +105,36 @@ export default function () {
   const columns = [
     {
       Header: "Name",
-      accessor: "name"
+      accessor: "name",
+      style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
-      Header: "Category",
-      accessor: "primary_category"
+      Header: "Primary Category",
+      accessor: "primary_category",
+      style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+    },
+    {
+      Header: "Detailed Category",
+      accessor: "detailed_category",
+      style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "Date",
-      accessor: "authorized_date"
+      accessor: "authorized_date",
+      style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "Amount",
       accessor: "amount",
-      Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2)
+      Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2),
+      style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     }, 
     {
       Header: '',
       id: 'id',
       accessor: data => data,
-      Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>
+      Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
+      style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     }
   ]
 
@@ -135,7 +145,7 @@ export default function () {
       </Head>
       <Container>
         <Loader refreshing={refreshing} />
-        <EditModal item={item} setEdit={setEdit} />
+        <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} />
         <Header/>
         <div className="flex items-center justify-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
@@ -143,6 +153,8 @@ export default function () {
         </div>
         <Snapshot accounts={a} totalStats={totalStats} />
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
+        {/* <hr className="w-full border-t-3 border-pink-500 mx-auto my-0" /> */}
+        <h2 className="text-2xl font-bold text-center text-gray-900">Last 6 Months</h2>
         <div class="flex items-center justify-center">
           <PieChart pieData={pieData} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />

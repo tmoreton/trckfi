@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { snakeCase } from "snake-case";
 
 export default function ({ columns, data }) {
   const [filterNameInput, setFilterNameInput] = useState("");
   const [filterCategoryInput, setFilterCategoryInput] = useState("");
+  const [filterDetailedInput, setFilterDetailedInput] = useState("");
   const [sum, setSum] = useState('');
   const [paginate, setPagination] = useState({
     start: 0,
@@ -43,10 +45,17 @@ export default function ({ columns, data }) {
     setPagination({start: 0, end: 20})
   };
 
-  const handleCateoryFilterChange = e => {
+  const handleCategoryFilterChange = e => {
     const value = e.target.value || undefined;
     setFilter('primary_category', value);
     setFilterCategoryInput(value)
+    setPagination({start: 0, end: 20})
+  };
+
+  const handleDetailedFilterChange = e => {
+    const value = e.target.value || undefined;
+    setFilter('detailed_category', value);
+    setFilterDetailedInput(value)
     setPagination({start: 0, end: 20})
   };
 
@@ -62,17 +71,17 @@ export default function ({ columns, data }) {
   return (
     <>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
-        <table className="w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
+        <table className="sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                  <th className='w-1/5 whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                  <th className={column.render("style")}>
                     <div className="flex">
                       {column.render("Header")}
 
                       { column.render("Header") !== '' ?
-                        <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200 sort-asc">
+                        <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                           <ChevronDownIcon 
                             {...column.getHeaderProps(column.getSortByToggleProps())} 
                             className="h-5 w-5" 
@@ -85,24 +94,31 @@ export default function ({ columns, data }) {
                           <p className="text-lg text-pink-600">${sum}</p>
                         </div>
                       }
-
-                      { column.render("Header") === 'Name' &&
+                    </div>
+                    { column.render("Header") === 'Name' &&
                         <input
                           value={filterNameInput}
                           onChange={handleNameFilterChange}
                           placeholder={"Search Name"}
-                          className="text-center mx-4 px-4"
+                          className="py-2 mt-2 w-full"
                         />
                       }
-                      { column.render("Header") === 'Category' &&
+                      { column.render("Header") === 'Primary Category' &&
                         <input
                           value={filterCategoryInput}
-                          onChange={handleCateoryFilterChange}
+                          onChange={handleCategoryFilterChange}
                           placeholder={"Search Category"}
-                          className="text-center mx-4 px-4"
+                          className="py-2 mt-2 w-full"
                         />
                       }
-                    </div>
+                      { column.render("Header") === 'Detailed Category' &&
+                        <input
+                          value={filterDetailedInput}
+                          onChange={handleDetailedFilterChange}
+                          placeholder={"Search Detailed Category"}
+                          className="py-2 mt-2 w-full"
+                        />
+                      }
                   </th>
                 ))}
               </tr>
@@ -116,11 +132,11 @@ export default function ({ columns, data }) {
                   {row.cells.map(cell => {
                     if(cell.column.Header === 'Name'){
                       return (
-                        <td className="w-{50} whitespace-nowrap px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                        <td className="overflow-hidden px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
                       );
                     } else {
                       return (
-                        <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                        <td className="overflow-hidden px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
                       );
                     }
                   })}
