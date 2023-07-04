@@ -1,4 +1,4 @@
-import CheckoutBtn from './checkout-btn'
+
 
 export default function () {
   return (
@@ -13,10 +13,14 @@ export default function () {
               Full control to use, download and delete your data when you want.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <CheckoutBtn />
-              <a href="#pricing" className="text-sm font-semibold leading-6 text-gray-900">
-                Learn more <span aria-hidden="true">→</span>
+              <a href="/getting-started" className="text-sm font-semibold leading-6 text-gray-900">
+                <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  Get Started
+                </button>
               </a>
+              {/* <a href="#pricing" className="text-sm font-semibold leading-6 text-gray-900">
+                Learn more <span aria-hidden="true">→</span>
+              </a> */}
             </div>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
-import CheckoutBtn from './checkout-btn'
 
 const includedFeatures = [
   'Private forum access',
@@ -43,12 +42,16 @@ export default function () {
               <div className="mx-auto max-w-xs px-8">
                 {/* <p className="text-base font-semibold text-gray-600">Pay once, own it forever</p> */}
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">$4.99</span>
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">$5.99</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">/month</span>
                 </p>
-                <CheckoutBtn />
+                <a href="/getting-started" className="text-sm font-semibold leading-6 text-gray-900">
+                  <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Get Started
+                  </button>
+                </a>
                 <p className="mt-6 text-xs leading-5 text-gray-600">
-                  Cnacel Anytime
+                  Cancel Anytime
                 </p>
               </div>
             </div>

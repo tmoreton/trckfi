@@ -26,7 +26,6 @@ export default function Index({ allPosts }: Props) {
         <Menu />
         <Hero />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        <PricingDual />
         <Pricing />
         <Newsletter />
       </Container>
