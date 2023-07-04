@@ -10,11 +10,15 @@ const includedFeatures = [
 export default function () {
   return (
     <div id="pricing" className="bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl sm:text-center">
+      <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Pricing</h2>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas
+            in. Explicabo id ut laborum.
+          </p>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+        <div className="mx-auto mt-8 max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:mx-0 lg:flex lg:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
             {/* <h3 className="text-2xl font-bold tracking-tight text-gray-900">Monthly</h3> */}
             <p className="text-base leading-7 text-gray-600">
