@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { useSession } from "next-auth/react"
+import { TrashIcon } from '@heroicons/react/20/solid'
 
 export default function ({ item, setEdit, getDashboard }) {
   const [transaction, updateTransaction] = useState({
@@ -21,6 +21,19 @@ export default function ({ item, setEdit, getDashboard }) {
 
   const update = async () => {
     const res = await fetch(`/api/update_transaction`, {
+      body: JSON.stringify({ 
+        transaction: transaction
+    }),
+      method: 'POST',
+    })
+    if (res.status === 200){
+      getDashboard()
+      setEdit({})
+    }
+  }
+
+  const remove = async () => {
+    const res = await fetch(`/api/remove_transaction`, {
       body: JSON.stringify({ 
         transaction: transaction
     }),
@@ -170,6 +183,7 @@ export default function ({ item, setEdit, getDashboard }) {
                   >
                     Cancel
                   </button>
+                  <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
                 </div>
               </Dialog.Panel>
             </Transition.Child>
