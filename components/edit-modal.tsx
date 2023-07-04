@@ -76,7 +76,7 @@ export default function ({ item, setEdit, getDashboard }) {
                             onChange={handleChange}
                           />
                           <label 
-                            for="transaction_name" 
+                            htmlFor="transaction_name" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
                             Name
@@ -93,7 +93,7 @@ export default function ({ item, setEdit, getDashboard }) {
                             onChange={handleChange}
                           />
                           <label 
-                            for="primary_category" 
+                            htmlFor="primary_category" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
                             Primary Category
                           </label>
@@ -109,7 +109,7 @@ export default function ({ item, setEdit, getDashboard }) {
                             onChange={handleChange}
                           />
                           <label 
-                            for="detailed_category" 
+                            htmlFor="detailed_category" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
                             Detailed Category
@@ -127,7 +127,7 @@ export default function ({ item, setEdit, getDashboard }) {
                               onChange={handleChange}
                             />
                             <label 
-                              for="amount" 
+                              htmlFor="amount" 
                               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
                               Amount
