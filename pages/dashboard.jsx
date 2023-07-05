@@ -155,8 +155,10 @@ export default function ({ newUser, user }) {
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
-        <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
-        <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+        <div className="py-4">
+          <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
+          <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+        </div>
         <Snapshot accounts={a} totalStats={totalStats} />
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         {/* <hr className="w-full border-t-3 border-pink-500 mx-auto my-0" /> */}
@@ -196,10 +198,7 @@ export async function getServerSideProps(context) {
         active: true
       }
     })
-    return {
-      redirect: { destination: '/dashboard', permanent: false },
-      props: { user: session?.user, newUser: true }
-    }
+    return { props: { user: session?.user, newUser: true }}
   }
 
   if(!session?.user) return { props: { user: null }}

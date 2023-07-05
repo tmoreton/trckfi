@@ -5,7 +5,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import LoginBtn from './login-btn'
-import { useSession } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -25,8 +25,8 @@ export default function () {
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 items-center justify-between">
+          <div>
+            <div className="flex h-16 items-center justify-between py-4">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <Link href='/'>
@@ -53,9 +53,10 @@ export default function () {
                   <Menu as="div" className="relative ml-3">
                     {
                       session ?
-                      <Menu.Button>
+                      <Menu.Button className="flex items-center">
+                        <b>{session.user.email}</b>
                         <span className="sr-only">Open user menu</span>
-                        <Cog8ToothIcon className="h-8 w-8 text-pink-600" aria-hidden="true" />
+                        <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
                       </Menu.Button>
                       :
                       <LoginBtn />
@@ -70,7 +71,7 @@ export default function () {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
+                        {/* <Menu.Item>
                           {({ active }) => (
                             <a
                               href="#"
@@ -95,18 +96,18 @@ export default function () {
                               Settings
                             </a>
                           )}
-                        </Menu.Item>
+                        </Menu.Item> */}
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <button
+                              onClick={() => signOut()}
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                'block px-4 py-2 text-sm text-gray-700 w-full text-left'
                               )}
                             >
                               Sign out
-                            </a>
+                            </button>
                           )}
                         </Menu.Item>
                       </Menu.Items>
@@ -160,8 +161,8 @@ export default function () {
                     Settings
                   </Disclosure.Button>
                   <Disclosure.Button
-                    as="a"
-                    href="#"
+                    as="button"
+                    onClick={() => signOut()}
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                   >
                     Sign out

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function () {
   return (
-    <div className="pb-16 pt-20 text-center lg:pt-32">
+    <div className="mx-auto py-32 sm:py-48 lg:py-56 text-center">
     <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-tight text-slate-900 sm:text-7xl">
       Your finances{' '}
       <span className="relative whitespace-nowrap text-pink-600">
