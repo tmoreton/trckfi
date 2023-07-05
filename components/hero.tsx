@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function () {
   return (
     <div className="pb-16 pt-20 text-center lg:pt-32">
@@ -21,11 +23,11 @@ export default function () {
       We make the opposite trade-off, and hope you don’t get audited.
     </p>
     <div className="mt-10 flex justify-center gap-x-6 mb-36 lg:mb-44">
-      <a href="/getting-started" className="text-sm font-semibold leading-6 text-gray-900">
+      <Link href='/getting-started' className="text-sm font-semibold leading-6 text-gray-900">
         <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
           Get Started
         </button>
-      </a>
+      </Link>
     </div>
   </div>
   )

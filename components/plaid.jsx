@@ -22,6 +22,7 @@ const Plaid = ({ getAccounts, syncTransactions }) => {
 }
 
 const getAccessToken = async ({ public_token, user_id }) => {
+  console.log(public_token)
   const res = await fetch(`/api/set_access_token`, {
     body: JSON.stringify({ public_token, user_id }),
     headers: {
@@ -30,6 +31,7 @@ const getAccessToken = async ({ public_token, user_id }) => {
     method: 'POST',
   })
   const { access_token } = await res.json()
+  console.log(access_token)
   return access_token
 }
 

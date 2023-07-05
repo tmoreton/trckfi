@@ -240,7 +240,7 @@ export default async (req, res) => {
         return month1.amount === obj.amount && month1.name === obj.name;
       })
       if(tarObj){
-        duplicates.push(tarObj)
+        recurring.push(tarObj)
       }
     })
     
@@ -255,6 +255,7 @@ export default async (req, res) => {
 
     return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring })
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

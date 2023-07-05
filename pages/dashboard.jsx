@@ -32,13 +32,13 @@ export default function ({ newUser, user }) {
   const [refreshing, setRefreshing] = useState(false)
   const [pieData, setPieData] = useState([])
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(newUser);
+  const [setupModal, openSetupModal] = useState(newUser || false);
 
   useEffect(() => {
     if(user && !newUser){
-      getDashboard();
+      getDashboard()
     }
-  }, [user]);
+  }, [user, newUser])
 
   const getDashboard = async () => {
     setRefreshing(true)
@@ -62,6 +62,7 @@ export default function ({ newUser, user }) {
   }
 
   const getAccounts = async (access_token) => {
+    openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
     await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
@@ -77,6 +78,7 @@ export default function ({ newUser, user }) {
   }
 
   const syncTransactions = async (access_token) => {
+    openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
     getAccounts(access_token)
     const res = await fetch(`/api/sync_transactions`, {
@@ -147,7 +149,7 @@ export default function ({ newUser, user }) {
         <title>Trckfi - Dashboard</title>
       </Head>
       <Container>
-        <SetupModal open={setupModal} />
+        <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <Header/>
@@ -174,18 +176,6 @@ export async function getServerSideProps(context) {
     apiVersion: '2022-11-15',
   });
 
-  if(!session?.user) return { props: { user: null }}
-  
-  if(!session.user?.stripeSubscriptionId) return {
-    redirect: {
-      destination: '/getting-started',
-      permanent: false,
-    },
-  }
-
-  const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
-  if (!plan.active) return { props: { user: null }}
-
   if (session_id){
     const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
 
@@ -206,5 +196,18 @@ export async function getServerSideProps(context) {
     })
     return { props: { user: session?.user, newUser: true } }
   }
+
+  if(!session?.user) return { props: { user: null }}
+  
+  if(!session.user?.stripeSubscriptionId) return {
+    redirect: {
+      destination: '/getting-started',
+      permanent: false,
+    },
+  }
+
+  const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
+  if (!plan.active) return { props: { user: null }}
+
   return { props: { user: session?.user } }
 }
