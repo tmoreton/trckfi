@@ -43,7 +43,7 @@ export default function ({ getTransactions, getDashboard, loading, accounts }) {
               <div className="flex flex-1 items-center justify-between truncate rounded-md border-b border border-gray-200 bg-white">
                 <div className="flex-1 truncate px-4 py-2 text-sm">
                   <p className="text-gray-900 hover:text-gray-600">
-                    {account.official_name.length > 30 ? `${account.official_name.substring(0, 40)}...` : account.official_name}
+                    {account.official_name?.length > 30 ? `${account.official_name?.substring(0, 40)}...` : account.official_name}
                   </p>
                   <p className={balanceClass}><b>Balance:</b> ${Number(account.balances.current).toFixed(2)}</p>
                   <p className="text-xs text-gray-400">{account.subtype}</p>

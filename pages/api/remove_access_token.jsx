@@ -21,7 +21,7 @@ export default async (req, res) => {
           access_token: plaidAccount.access_token
         },
         data: {
-          active: false
+          active: false,
         }
       })
       await prisma.accounts.updateMany({
@@ -29,7 +29,8 @@ export default async (req, res) => {
           access_token: plaidAccount.access_token
         },
         data: {
-          active: false
+          active: false,
+          user_id: null
         }
       })
       await prisma.transactions.updateMany({
@@ -37,7 +38,8 @@ export default async (req, res) => {
           item_id: plaidAccount.item_id
         },
         data: {
-          active: false
+          active: false,
+          user_id: null
         }
       })
     }

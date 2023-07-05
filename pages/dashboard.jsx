@@ -16,8 +16,10 @@ import Header from '../components/new-header'
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 export default function ({ newUser, user }) {
+  const router = useRouter()
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
     lastMonthTotal: 0,
@@ -154,7 +156,7 @@ export default function ({ newUser, user }) {
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <Header/>
         <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
-        <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
+        <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <Snapshot accounts={a} totalStats={totalStats} />
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         {/* <hr className="w-full border-t-3 border-pink-500 mx-auto my-0" /> */}
@@ -194,7 +196,10 @@ export async function getServerSideProps(context) {
         active: true
       }
     })
-    return { props: { user: session?.user, newUser: true } }
+    return {
+      redirect: { destination: '/dashboard', permanent: false },
+      props: { user: session?.user, newUser: true }
+    }
   }
 
   if(!session?.user) return { props: { user: null }}
@@ -208,6 +213,6 @@ export async function getServerSideProps(context) {
 
   const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
   if (!plan.active) return { props: { user: null }}
-
+  console.log(plan)
   return { props: { user: session?.user } }
 }

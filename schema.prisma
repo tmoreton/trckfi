@@ -71,8 +71,8 @@ model VerificationToken {
 model Plaid {
   id           Int      @id @default(autoincrement())
   access_token String   @unique
-  item_id      String   @unique
-  user_id      String   @map("user_id")
+  item_id      String?  @unique
+  user_id      String?  @map("user_id")
   active       Boolean? @default(true)
   cursor       String?
 
@@ -87,7 +87,7 @@ model Accounts {
   official_name String?
   subtype       String?
   type          String?
-  user_id       String   @map("user_id")
+  user_id       String?  @map("user_id")
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   access_token  String?

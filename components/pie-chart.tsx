@@ -82,5 +82,5 @@ export default function ({ pieData }) {
       },
     ],
   }
-  return <div className='sm:w-1/3 w-100 mx-auto mt-8'><Pie options={options} data={data} /></div>
+  return <div className='lg:w-1/3 w-100 mx-auto mt-8'><Pie options={options} data={data} /></div>
 }

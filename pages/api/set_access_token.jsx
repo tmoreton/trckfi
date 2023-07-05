@@ -10,7 +10,7 @@ export default async (req, res) => {
         public_token: public_token
       });
 
-      const token = await prisma.plaid.create({
+      await prisma.plaid.create({
         data: {
           user_id: user_id,
           item_id: response.data.item_id,
@@ -20,7 +20,7 @@ export default async (req, res) => {
       return res.status(200).json({ access_token: response.data.access_token })
     }
 
-    return res.status(500)
+    return res.status(500).json('No User ID')
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() })
   }
