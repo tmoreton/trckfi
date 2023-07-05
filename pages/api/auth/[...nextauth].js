@@ -47,10 +47,13 @@ export const authOptions = {
   secret: process.env.JWT_SECRET,
   callbacks: {
     async session(session, user) {
-      if(user){
-        user.user_id = user.user?.id
-      }
       return session;
+    },
+    async signIn({ user, account, profile, email, credentials }) {
+      return true
+    },
+    async redirect({ url, baseUrl }) {
+      return url
     },
   },
 }

@@ -6,7 +6,32 @@ export default async (req, res) => {
   const { user_id } = req.body
   if (!user_id ) return res.status(500)
 
-  try { 
+  const defaultData = { 
+    stats: {
+      lastMonthTotal: 0,
+      thisMonthTotal: 0,
+      thisMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
+      lastMonthString: DateTime.now().minus({ months: 2 }).startOf('month').monthLong,
+      lastMonthIncome: 0,
+      thisMonthIncome: 0
+    }, 
+    accounts: [], 
+    transactions: [], 
+    categories: [], 
+    monthlyIncomeData: [], 
+    monthlyExpenseData: [], 
+    recurring: [] 
+  }
+
+  try {
+    const accounts = await prisma.accounts.findMany({
+      where: { 
+        user_id: user_id,
+        active: true
+      },
+    })
+    if(accounts.length <= 0) return res.status(200).json(defaultData)
+    
     const lastMonthIncome = await prisma.transactions.aggregate({
       where: {
         user_id: user_id,
@@ -126,13 +151,6 @@ export default async (req, res) => {
       },
     })
 
-    const accounts = await prisma.accounts.findMany({
-      where: { 
-        user_id: user_id,
-        active: true
-      },
-    })
-
     const monthlyIncomeData = await prisma.transactions.groupBy({
       by: ['dt_string'],
       where: {
@@ -237,7 +255,6 @@ export default async (req, res) => {
 
     return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring })
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

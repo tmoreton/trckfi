@@ -9,6 +9,8 @@ const diff = (a, b) => {
  }
 
 export default function ({ totalStats, accounts }) {
+  if (!totalStats || !accounts) return null
+  
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
   let balance = 0
   accounts.forEach(e => {

@@ -13,9 +13,10 @@ import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
 import Header from '../components/new-header'
+import Stripe from 'stripe'
+import prisma from '../lib/prisma'
 
-
-export default function () {
+export default function ({ newUser }) {
   const { data: session } = useSession()
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
@@ -33,7 +34,7 @@ export default function () {
   const [item, setEdit] = useState({});
 
   useEffect(() => {
-    if(session && t.length < 1){
+    if(session && !newUser){
       getDashboard();
     }
   }, [session]);
@@ -95,7 +96,7 @@ export default function () {
       getDashboard()
     }
   }
-
+  console.log(session?.user)
   if (!session) return (
     <Container>
       <Header/>
@@ -164,4 +165,32 @@ export default function () {
       </Container>
     </Layout>
   )
+}
+
+export async function getServerSideProps(context) {
+  const { session_id } = context.query
+  if (session_id){
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2022-11-15',
+    });
+    // Fetch data from external API
+    const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
+
+    if(!customer || !subscription) return { props: { newUser: false } }
+
+    const data = await stripe.customers.retrieve(customer)
+    const { email, phone } = data
+
+    await prisma.user.update({
+      where: { email: email.toLowerCase() },
+      data: { 
+        stripeCustomerId: customer,
+        stripeSubscriptionId: subscription,
+        phone,
+        active: true
+      }
+    })
+    return { props: { newUser: true } }
+  }
+  return { props: { newUser: true } }
 }

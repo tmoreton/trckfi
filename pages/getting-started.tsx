@@ -4,12 +4,32 @@ import Icon from '../components/icon';
 import CheckoutBtn from '../components/checkout-btn'
 import { useSession } from "next-auth/react"
 
-export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { data: session } = useSession()
 
-  if (session) return <CheckoutBtn />
+  if (session && !session?.user?.stripeSubscriptionId) return (
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
+      <div className="sm:mx-auto sm:w-full mb-4">
+        <Icon />
+        <div className="pt-4 text-center space-y-3">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-4">
+            Success! 🎉
+          </h1>
+          <p className="text-lg text-gray-600 w-1/3 mx-auto">
+            We successfully created an account for you, next let's get access to our personalization dashboard
+          </p>
+        </div>
+      </div>
+      <div className="my-4 mx-auto">
+        <CheckoutBtn />
+      </div>
+      <p className="text-xs text-gray-400 text-center">
+        Cancel anytime for any reason
+      </p>
+    </div>
+  )
   
-  return (
+  if (!session) return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
       <div className="sm:mx-auto sm:w-full mb-4">
         <Icon />
@@ -24,7 +44,6 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
             PS. Check your spam folder since it's your first email from us.
           </p>
         </div>
-
       </div>
       <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-3" method="post" action="/api/auth/signin/email">

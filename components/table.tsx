@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
-import { snakeCase } from "snake-case";
 
 export default function ({ columns, data }) {
+  if (!data || !columns) return null
+  
   const [filterNameInput, setFilterNameInput] = useState("");
   const [filterCategoryInput, setFilterCategoryInput] = useState("");
   const [filterDetailedInput, setFilterDetailedInput] = useState("");

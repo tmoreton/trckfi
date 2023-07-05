@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
 import getStripe from '../utils/get-stripejs'
+import { useSession } from "next-auth/react"
 
 const Checkout = () => {
-
+  const { data: session } = useSession()
+  
   const handleSubmit = async (e) => {
+    console.log(session.user.email)
     e.preventDefault()
     const res = await fetch(`/api/checkout_session`, {
-      body: JSON.stringify({
-        mode: 'monthly',
+      body: JSON.stringify({ 
+        email: session.user.email
       }),
       method: 'POST',
     })
-    const session = await res.json()
+    const response = await res.json()
     if (res.status === 500) return
 
     // Redirect to Checkout.
     const stripe = await getStripe()
     const { error } = await stripe!.redirectToCheckout({
-      sessionId: session.id,
+      sessionId: response.id,
     })
   }
 

@@ -41,6 +41,8 @@ export const options = {
 }
 
 export default function ({ monthlyIncomeData, monthlyExpenseData }) {
+  if (!monthlyIncomeData || !monthlyExpenseData) return null
+
   const monthlyLabel = monthlyIncomeData.map(a => a.dt_string)
   const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
   const monthlyExpenseSum = monthlyExpenseData.map(a => Math.abs(a._sum.amount))

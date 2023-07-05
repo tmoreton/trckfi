@@ -41,18 +41,19 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  stripeId      String?
-  phone         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  active        Boolean   @default(true)
-  accounts      Account[]
-  sessions      Session[]
+  id                   String    @id @default(cuid())
+  name                 String?
+  email                String?   @unique
+  emailVerified        DateTime?
+  image                String?
+  phone                String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  active               Boolean   @default(true)
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  accounts             Account[]
+  sessions             Session[]
 
   @@map("users")
 }
@@ -72,8 +73,8 @@ model Plaid {
   access_token String   @unique
   item_id      String   @unique
   user_id      String   @map("user_id")
-  cursor       String?
   active       Boolean? @default(true)
+  cursor       String?
 
   @@map("plaid")
 }
@@ -102,20 +103,20 @@ model Transactions {
   name              String?
   merchant_name     String?
   payment_channel   String?
-  transaction_id    String?    @unique
+  transaction_id    String?   @unique
   detailed_category String?
   location          Json?
   pending           Boolean?  @default(false)
   primary_category  String?
-  user_id           String?    @map("user_id")
+  user_id           String?   @map("user_id")
   createdAt         DateTime? @default(now())
   updatedAt         DateTime? @updatedAt
   authorized_date   String?
   item_id           String?
   date              DateTime?
   amount            Decimal?  @db.Decimal(9, 2)
-  category          Json?
   active            Boolean?  @default(true)
+  category          Json?
   dt_string         String?
 
   @@map("transactions")

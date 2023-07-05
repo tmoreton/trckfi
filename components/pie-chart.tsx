@@ -40,6 +40,8 @@ export const options = {
 }
 
 export default function ({ pieData }) {
+  if (!pieData) return null
+
   const labels = pieData.map(a => capitalize(a.primary_category))
   const sums = pieData.map(a => Math.abs(a._sum.amount))
   const data = {

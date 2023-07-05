@@ -15,7 +15,7 @@ const Plaid = ({ getAccounts, syncTransactions }) => {
   }
 
   useEffect(() => {
-    generateToken();
+    generateToken()
   }, [])
 
   return linkToken != null ? <Link linkToken={linkToken} getAccounts={getAccounts} syncTransactions={syncTransactions}/> : <></>
@@ -56,5 +56,10 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
     </button>
   );
 };
+
+export async function getServerSideProps(context) {
+  console.log(context)
+  return { props: {} }
+}
 
 export default Plaid;
