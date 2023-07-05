@@ -6,7 +6,6 @@ const Checkout = () => {
   const { data: session } = useSession()
   
   const handleSubmit = async (e) => {
-    console.log(session.user.email)
     e.preventDefault()
     const res = await fetch(`/api/checkout_session`, {
       body: JSON.stringify({ 

@@ -213,6 +213,5 @@ export async function getServerSideProps(context) {
 
   const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
   if (!plan.active) return { props: { user: null }}
-  console.log(plan)
   return { props: { user: session?.user } }
 }
