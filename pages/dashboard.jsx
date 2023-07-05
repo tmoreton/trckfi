@@ -12,7 +12,7 @@ import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
 import SetupModal from '../components/setup-modal'
-import Header from '../components/new-header'
+import Menu from '../components/menu'
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
@@ -104,7 +104,7 @@ export default function ({ newUser, user }) {
 
   if (!user) return (
     <Container>
-      <Header/>
+      <Menu/>
       <Preview />
     </Container>
   )
@@ -151,10 +151,10 @@ export default function ({ newUser, user }) {
         <title>Trckfi - Dashboard</title>
       </Head>
       <Container>
+        <Menu/>
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
-        <Header/>
         <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
         <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <Snapshot accounts={a} totalStats={totalStats} />

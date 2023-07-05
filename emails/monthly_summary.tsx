@@ -108,7 +108,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 {categories.map((item) => (
-                  <Row >
+                  <Row key={item.id}>
                     <Column className="w-64" align="left">
                       <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
                         {item.primary_category.split('_').join(' ')}
@@ -145,7 +145,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                 {thisMonth.map((item) => {
                   if(Number(item.amount) > 0){
                     return (
-                    <Row >
+                    <Row key={item.id}>
                       <Column className="w-44" align="left">
                         <Text className="text-[#666666] text-[11px] my-0 ml-6 my-0 font-semibold">
                           {item.name.substring(0, 15).toUpperCase().replace('.',' ')}

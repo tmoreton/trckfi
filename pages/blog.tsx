@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
-import Header from '../components/new-header'
+import Menu from '../components/menu'
 
 type Props = {
   allPosts: Post[]
@@ -18,7 +18,7 @@ export default function Index({ allPosts }: Props) {
         <title>Trckfi - Blog</title>
       </Head>
       <Container>
-        <Header />
+        <Menu />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Container>
     </Layout>
