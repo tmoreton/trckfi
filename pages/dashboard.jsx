@@ -11,14 +11,13 @@ import Layout from '../components/layout'
 import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
-import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
-export default function ({ newUser, user }) {
+export default function ({ user }) {
   const router = useRouter()
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
@@ -34,13 +33,12 @@ export default function ({ newUser, user }) {
   const [refreshing, setRefreshing] = useState(false)
   const [pieData, setPieData] = useState([])
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(newUser || false);
 
   useEffect(() => {
-    if(user && !newUser){
+    if(user){
       getDashboard()
     }
-  }, [user, newUser])
+  }, [user])
 
   const getDashboard = async () => {
     setRefreshing(true)
@@ -64,7 +62,6 @@ export default function ({ newUser, user }) {
   }
 
   const getAccounts = async (access_token) => {
-    openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
     await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
@@ -80,7 +77,6 @@ export default function ({ newUser, user }) {
   }
 
   const syncTransactions = async (access_token) => {
-    openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
     getAccounts(access_token)
     const res = await fetch(`/api/sync_transactions`, {
@@ -152,10 +148,10 @@ export default function ({ newUser, user }) {
       </Head>
       <Container>
         <Menu/>
-        <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
+        {/* <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/> */}
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
-        <div className="py-4">
+        <div className="py-10 flex justify-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
           <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
@@ -198,7 +194,7 @@ export async function getServerSideProps(context) {
         active: true
       }
     })
-    return { props: { user: session?.user, newUser: true }}
+    return { props: { user: session?.user }}
   }
 
   if(!session?.user) return { props: { user: null }}

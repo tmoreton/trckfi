@@ -97,12 +97,12 @@ export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getSe
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
 
-  if(session && session?.user?.stripeSubscriptionId) return {
-    redirect: {
-      destination: '/dashboard',
-      permanent: false,
-    },
-  }
+  // if(session && session?.user) return {
+  //   redirect: {
+  //     destination: '/dashboard',
+  //     permanent: false,
+  //   },
+  // }
 
   const csrfToken = await getCsrfToken(context)
   return {
