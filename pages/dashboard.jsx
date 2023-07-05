@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
 import Snapshot from "../components/snapshot"
-import { useSession } from "next-auth/react"
 import Cards from '../components/cards'
 import Loader from '../components/loader'
 import Plaid from "../components/plaid"
@@ -12,14 +11,13 @@ import Layout from '../components/layout'
 import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
+import SetupModal from '../components/setup-modal'
 import Header from '../components/new-header'
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
+import { getSession } from 'next-auth/react'
 
-export default function ({ newUser }) {
-  const { data: session } = useSession()
-  const id = session?.user?.id
-
+export default function ({ newUser, user }) {
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
     lastMonthTotal: 0,
@@ -33,19 +31,20 @@ export default function ({ newUser }) {
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
   const [pieData, setPieData] = useState([])
-  const [item, setEdit] = useState({});
+  const [item, setEdit] = useState({})
+  const [setupModal, openSetupModal] = useState(newUser);
 
   useEffect(() => {
-    if(id && !newUser){
+    if(user && !newUser){
       getDashboard();
     }
-  }, [id]);
+  }, [user]);
 
   const getDashboard = async () => {
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({
-        user_id: id
+        user_id: user.id
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +65,7 @@ export default function ({ newUser }) {
     setLoading({access_token: access_token, loading: true})
     await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
-        user_id: id,
+        user_id: user.id,
         access_token: access_token
       }),
       headers: {
@@ -82,7 +81,7 @@ export default function ({ newUser }) {
     getAccounts(access_token)
     const res = await fetch(`/api/sync_transactions`, {
       body: JSON.stringify({
-        user_id: id,
+        user_id: user.id,
         access_token: access_token
       }),
       headers: {
@@ -99,7 +98,7 @@ export default function ({ newUser }) {
     }
   }
 
-  if (!session) return (
+  if (!user) return (
     <Container>
       <Header/>
       <Preview />
@@ -148,17 +147,15 @@ export default function ({ newUser }) {
         <title>Trckfi - Dashboard</title>
       </Head>
       <Container>
+        <SetupModal open={setupModal} />
         <Loader refreshing={refreshing} />
-        <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} />
+        <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <Header/>
-        <div className="flex items-center justify-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
-          <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
-        </div>
+        <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
+        <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <Snapshot accounts={a} totalStats={totalStats} />
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         {/* <hr className="w-full border-t-3 border-pink-500 mx-auto my-0" /> */}
-        <h2 className="text-2xl font-bold text-center text-gray-900">Last 6 Months</h2>
         <div class="flex items-center justify-center">
           <PieChart pieData={pieData} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
@@ -171,17 +168,31 @@ export default function ({ newUser }) {
 
 export async function getServerSideProps(context) {
   const { session_id } = context.query
+  const session = await getSession(context)
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2022-11-15',
+  });
+
+  if(!session?.user) return { props: { user: null }}
+  
+  if(!session.user?.stripeSubscriptionId) return {
+    redirect: {
+      destination: '/getting-started',
+      permanent: false,
+    },
+  }
+
+  const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
+  if (!plan.active) return { props: { user: null }}
+
   if (session_id){
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2022-11-15',
-    });
-    // Fetch data from external API
     const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
 
     if(!customer || !subscription) return { props: { newUser: false } }
 
     const data = await stripe.customers.retrieve(customer)
-    const { email, phone } = data
+    const { email, phone, name } = data
 
     await prisma.user.update({
       where: { email: email.toLowerCase() },
@@ -189,10 +200,11 @@ export async function getServerSideProps(context) {
         stripeCustomerId: customer,
         stripeSubscriptionId: subscription,
         phone,
+        name,
         active: true
       }
     })
-    return { props: { newUser: true } }
+    return { props: { user: session?.user, newUser: true } }
   }
-  return { props: { newUser: true } }
+  return { props: { user: session?.user } }
 }

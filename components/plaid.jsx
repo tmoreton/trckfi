@@ -51,15 +51,16 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   })
 
   return (
-    <button onClick={() => open()} disabled={!ready} className="p-3">
-      <PlusCircleIcon className="h-10 w-10 text-pink-600" aria-hidden="true" />
+    <button
+      onClick={() => open()} 
+      disabled={!ready}
+      type="button"
+      className="my-4 flex mx-auto items-center justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+    >
+      <p className="mr-3 ">Add Account</p>
+      <PlusCircleIcon className="h-8 w-8 text-white" aria-hidden="true" />
     </button>
   );
-};
-
-export async function getServerSideProps(context) {
-  console.log(context)
-  return { props: {} }
 }
 
 export default Plaid;
