@@ -18,6 +18,8 @@ import prisma from '../lib/prisma'
 
 export default function ({ newUser }) {
   const { data: session } = useSession()
+  const id = session?.user?.id
+
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
     lastMonthTotal: 0,
@@ -34,16 +36,16 @@ export default function ({ newUser }) {
   const [item, setEdit] = useState({});
 
   useEffect(() => {
-    if(session && !newUser){
+    if(id && !newUser){
       getDashboard();
     }
-  }, [session]);
+  }, [id]);
 
   const getDashboard = async () => {
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({
-        user_id: session.user.id
+        user_id: id
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +66,7 @@ export default function ({ newUser }) {
     setLoading({access_token: access_token, loading: true})
     await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
-        user_id: session.user.id,
+        user_id: id,
         access_token: access_token
       }),
       headers: {
@@ -80,7 +82,7 @@ export default function ({ newUser }) {
     getAccounts(access_token)
     const res = await fetch(`/api/sync_transactions`, {
       body: JSON.stringify({
-        user_id: session.user.id,
+        user_id: id,
         access_token: access_token
       }),
       headers: {
@@ -96,7 +98,7 @@ export default function ({ newUser }) {
       getDashboard()
     }
   }
-  console.log(session?.user)
+
   if (!session) return (
     <Container>
       <Header/>

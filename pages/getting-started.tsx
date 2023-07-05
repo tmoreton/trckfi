@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react"
 export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { data: session } = useSession()
 
-  if (session && !session?.user?.stripeSubscriptionId) return (
+  if (session) return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
       <div className="sm:mx-auto sm:w-full mb-4">
         <Icon />
