@@ -30,6 +30,7 @@ export default async (req, res) => {
         active: true
       },
     })
+
     if(accounts.length <= 0) return res.status(200).json(defaultData)
     
     const lastMonthIncome = await prisma.transactions.aggregate({

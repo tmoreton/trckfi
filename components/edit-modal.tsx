@@ -168,7 +168,7 @@ export default function ({ item, setEdit, getDashboard }) {
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
@@ -183,7 +183,7 @@ export default function ({ item, setEdit, getDashboard }) {
                   >
                     Cancel
                   </button>
-                  <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
+                  <TrashIcon onClick={remove} className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
                 </div>
               </Dialog.Panel>
             </Transition.Child>
