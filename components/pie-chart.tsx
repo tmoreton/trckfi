@@ -1,6 +1,6 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import { Pie, Doughnut } from 'react-chartjs-2';
 
 export const CHART_COLORS = {
   red: 'rgb(255, 99, 132)',
@@ -14,16 +14,11 @@ export const CHART_COLORS = {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const capitalize = (string) => {
-  return string
-  let str = string.split('_').join(' ').toLowerCase()
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
-
 export const options = {
   responsive: true,
   plugins: {
     legend: {
+      display: false,
       position: 'bottom' as const,
       labels: {
         usePointStyle: true,
@@ -39,11 +34,11 @@ export const options = {
   },
 }
 
-export default function ({ pieData }) {
-  if (!pieData) return null
+export default function ({ categories }) {
+  if (!categories) return null
 
-  const labels = pieData.map(a => capitalize(a.primary_category))
-  const sums = pieData.map(a => Math.abs(a._sum.amount))
+  const labels = categories.map(a => (a.primary_category || a.detailed_category))
+  const sums = categories.map(a => Math.abs(a._sum.amount))
   const data = {
     labels: labels,
     datasets: [
@@ -82,5 +77,9 @@ export default function ({ pieData }) {
       },
     ],
   }
-  return <div className='lg:w-1/3 w-100 mx-auto mt-8'><Pie options={options} data={data} /></div>
+  return (
+    <div className='w-1/4 w-100 mx-auto mt-8'>
+      <Doughnut options={options} data={data} />
+    </div>
+  )
 }

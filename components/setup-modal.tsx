@@ -37,9 +37,12 @@ export default ({ open, getAccounts, syncTransactions }) => {
                     <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
                       Welcome to your Dashboard! 🎉
                     </Dialog.Title>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500 mb-4">
+                    <div className="mt-1">
+                      <p className="text-sm text-gray-600">
                         Let's connect a bank or credit card
+                      </p>
+                      <p className="text-xs text-gray-400  my-4">
+                        The first time you connect it may take a few a minutes to gather your historical data
                       </p>
                     </div>
                   </div>

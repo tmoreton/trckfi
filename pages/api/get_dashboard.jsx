@@ -132,6 +132,26 @@ export default async (req, res) => {
         amount: true,
       },
     })
+
+    const detailedCategories = await prisma.transactions.groupBy({
+      by: ['detailed_category'],
+      where: {
+        user_id: user_id,
+        active: true,
+        date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ months: 6 }).startOf('month').toISO(),
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' }
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+    })
   
     const transactions = await prisma.transactions.findMany({
       where: {
@@ -254,7 +274,7 @@ export default async (req, res) => {
       thisMonthIncome: thisMonthIncome._sum.amount
     }
 
-    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring })
+    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring, detailedCategories })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { snakeCase } from "snake-case";
 
 export default function ({ columns, data }) {
   if (!data || !columns) return null
-  
-  const [filterNameInput, setFilterNameInput] = useState("");
-  const [filterCategoryInput, setFilterCategoryInput] = useState("");
-  const [filterDetailedInput, setFilterDetailedInput] = useState("");
-  const [sum, setSum] = useState('');
+
+  const [sum, setSum] = useState('')
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
@@ -36,29 +34,9 @@ export default function ({ columns, data }) {
       total += Number(row.values.amount)
     })
     let num = Number(Math.abs(total)).toFixed(2)
+    setPagination({start: 0, end: 20})
     setSum(num)
   }, [rows])
-
-  const handleNameFilterChange = e => {
-    const value = e.target.value || undefined;
-    setFilter('name', value);
-    setFilterNameInput(value)
-    setPagination({start: 0, end: 20})
-  };
-
-  const handleCategoryFilterChange = e => {
-    const value = e.target.value || undefined;
-    setFilter('primary_category', value);
-    setFilterCategoryInput(value)
-    setPagination({start: 0, end: 20})
-  };
-
-  const handleDetailedFilterChange = e => {
-    const value = e.target.value || undefined;
-    setFilter('detailed_category', value);
-    setFilterDetailedInput(value)
-    setPagination({start: 0, end: 20})
-  };
 
   const updatePagination = (type) => {
     if(type === 'PREVIOUS' && paginate.end > 20){
@@ -71,6 +49,10 @@ export default function ({ columns, data }) {
 
   return (
     <>
+      <div className="block">
+        <p className="text-xs text-gray-400">Total:</p>
+        <p className="text-lg text-pink-600">${sum}</p>
+      </div>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="table-fixed sm:table-auto w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
@@ -80,8 +62,7 @@ export default function ({ columns, data }) {
                   <th className={column.render("style")}>
                     <div className="flex">
                       {column.render("Header")}
-
-                      { column.render("Header") !== '' ?
+                      { column.render("Header") !== '' &&
                         <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                           <ChevronDownIcon 
                             {...column.getHeaderProps(column.getSortByToggleProps())} 
@@ -89,35 +70,13 @@ export default function ({ columns, data }) {
                             aria-hidden="true"
                           />
                         </span>
-                        :
-                        <div className="block">
-                          <p className="text-xs text-gray-400">Total:</p>
-                          <p className="text-lg text-pink-600">${sum}</p>
-                        </div>
                       }
                     </div>
-                    { column.render("Header") === 'Name' &&
-                        <input
-                          value={filterNameInput}
-                          onChange={handleNameFilterChange}
-                          placeholder={"Search Name"}
-                          className="py-2 mt-2 w-full"
-                        />
-                      }
-                      { column.render("Header") === 'Primary Category' &&
-                        <input
-                          value={filterCategoryInput}
-                          onChange={handleCategoryFilterChange}
-                          placeholder={"Search Category"}
-                          className="py-2 mt-2 w-full"
-                        />
-                      }
-                      { column.render("Header") === 'Detailed Category' &&
-                        <input
-                          value={filterDetailedInput}
-                          onChange={handleDetailedFilterChange}
-                          placeholder={"Search Detailed Category"}
-                          className="py-2 mt-2 w-full"
+                      { column.render("Header") !== '' &&
+                        <input                          
+                          onChange={(e) => setFilter(snakeCase(column.render("Header")), e.target.value)}
+                          placeholder={`Filter ${column.render("Header")}`}
+                          className="w-full font-normal rounded p-2 my-4 focus:outline-none pink-border"
                         />
                       }
                   </th>

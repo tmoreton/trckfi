@@ -33,9 +33,11 @@ export default function ({ newUser, user }) {
   const [expenseData, setExpenseData] = useState([])
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
-  const [pieData, setPieData] = useState([])
+  
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(newUser || false);
+  const [setupModal, openSetupModal] = useState(newUser || false)
+  const [categories, setCategories] = useState([])
+  const [detailedCategories, setDetailedCategories] = useState([])
 
   useEffect(() => {
     if(user && !newUser){
@@ -54,14 +56,15 @@ export default function ({ newUser, user }) {
       },
       method: 'POST',
     })
-    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData, categories } = await res.json()
+    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData, categories, detailedCategories } = await res.json()
     setExpenseData(monthlyExpenseData)
     setIncomeData(monthlyIncomeData)
     setStats(stats)
     setTransactions(transactions)
     setAccounts(accounts)
     setRefreshing(false)
-    setPieData(categories)
+    setCategories(categories)
+    setDetailedCategories(detailedCategories)
   }
 
   const getAccounts = async (access_token) => {
@@ -127,7 +130,7 @@ export default function ({ newUser, user }) {
       style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
-      Header: "Date",
+      Header: "Authorized Date",
       accessor: "authorized_date",
       style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
@@ -161,10 +164,13 @@ export default function ({ newUser, user }) {
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Snapshot accounts={a} totalStats={totalStats} />
+        <input className="block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white pink-border" id="grid-first-name" type="text" placeholder="Jane" />
+
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         {/* <hr className="w-full border-t-3 border-pink-500 mx-auto my-0" /> */}
         <div class="flex items-center justify-center">
-          <PieChart pieData={pieData} />
+          <PieChart categories={categories} />
+          <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
         <Table columns={columns} data={t} />
