@@ -158,7 +158,7 @@ export default function ({ newUser, user }) {
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
-          <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+          <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Snapshot accounts={a} totalStats={totalStats} />
         <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />

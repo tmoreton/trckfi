@@ -39,14 +39,16 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   const router = useRouter()
 
   const onSuccess = React.useCallback(async (public_token) => {
-    const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
-    setTimeout(() => {
-      getAccounts(access_token)
-    }, 1000)
-    setTimeout(() => {
-      syncTransactions(access_token)
-    }, 10000)
-  }, [])
+    if(session?.user){
+      const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
+      setTimeout(() => {
+        getAccounts(access_token)
+      }, 1000)
+      setTimeout(() => {
+        syncTransactions(access_token)
+      }, 10000)
+    }
+  }, [session])
 
   const { open, ready } = usePlaidLink({
     token: linkToken,
