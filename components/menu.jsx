@@ -21,6 +21,7 @@ const classNames = (...classes) => {
 export default function () {
   const [openModal, setOpen] = useState(false)
   const { data: session } = useSession()
+  const user_id = session?.user?.id
   const router = useRouter()
   const currentRoute = router.pathname
   return (
@@ -28,7 +29,7 @@ export default function () {
       {({ open }) => (
         <>
           <div>
-            <CancelModal open={openModal} setOpen={setOpen} signOut={signOut} user_id={session?.user?.id}/>
+            <CancelModal open={openModal} setOpen={setOpen} signOut={signOut} user_id={user_id}/>
             <div className="flex h-16 items-center justify-between py-4">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
