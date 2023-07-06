@@ -57,8 +57,6 @@ export default function ({ newUser, user }) {
   }, [email])
 
   const updateDashboard = async (data) => {
-    console.log(dates)
-    console.log(data)
     setDatePicker(false)
     setDates(data)
     setRefreshing(true)
