@@ -2,17 +2,16 @@ import React, { useEffect } from 'react';
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/react"
 import Icon from '../components/icon';
-import { useSession } from "next-auth/react"
 import { getSession } from 'next-auth/react'
 import Menu from '../components/menu'
 import Container from "../components/container"
 import Layout from "../components/layout"
 import Head from 'next/head'
 import getStripe from '../utils/get-stripejs'
+import Loading from "../components/loading"
 
-export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const { data: session } = useSession()
-  const email = session?.user?.email
+export default function ({ csrfToken, user }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const email = user?.email
 
   const handleSubmit = async (email) => {
     const res = await fetch(`/api/checkout_session`, {
@@ -84,12 +83,12 @@ export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getSe
       </Container>
     </Layout>
   )
-  return null
+  return <Loading />
+
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
-
   // if(session && session?.user) return {
   //   redirect: {
   //     destination: '/dashboard',
@@ -99,6 +98,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const csrfToken = await getCsrfToken(context)
   return {
-    props: { csrfToken },
+    props: { csrfToken, user: session?.user },
   }
 }

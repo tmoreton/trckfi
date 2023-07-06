@@ -1,12 +1,12 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
-export default ({ open, setOpen, signOut, user_id }) => {
+export default ({ open, setOpen, signOut, user }) => {
 
   const unsubscribe = async (e) => {
     const res = await fetch(`/api/cancel_subscription`, {
       body: JSON.stringify({
-        user_id: user_id
+        user_id: user?.id
       }),
       headers: {
         'Content-Type': 'application/json',
