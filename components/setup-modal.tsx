@@ -38,13 +38,13 @@ export default ({ open, getAccounts, syncTransactions }) => {
                       Welcome to your Dashboard! 🎉
                     </Dialog.Title>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-gray-500 mb-4">
                         Let's connect a bank or credit card
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center ">
+                <div className="flex justify-center">
                   <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
                 </div>
               </Dialog.Panel>

@@ -64,7 +64,7 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
       disabled={!ready}
       type="button"
     >
-      <PlusCircleIcon className="h-8 w-8 text-pink-600" aria-hidden="true" />
+      <PlusCircleIcon className="h-10 w-10 text-pink-600" aria-hidden="true" />
     </button>
   );
 }

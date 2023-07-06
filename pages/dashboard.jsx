@@ -154,7 +154,7 @@ export default function ({ newUser, user }) {
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center">
-          <h1 className="text-3xl font-bold text-gray-900 text-center">My Dashboard</h1> 
+          <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
           <Plaid user={user} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Snapshot accounts={a} totalStats={totalStats} />
@@ -209,5 +209,5 @@ export async function getServerSideProps(context) {
 
   const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
   if (!plan.active) return { props: { user: null }}
-  return { props: { user: session?.user } }
+  return { props: { user: session?.user, newUser: false } }
 }
