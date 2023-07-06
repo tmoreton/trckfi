@@ -47,7 +47,7 @@ export default function () {
               <div className="mx-auto max-w-xs px-8">
                 {/* <p className="text-base font-semibold text-gray-600">Pay once, own it forever</p> */}
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">$5.99</span>
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">$4.99</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">/month</span>
                 </p>
                 <Link href="/getting-started" className="text-sm font-semibold leading-6 text-gray-900">
