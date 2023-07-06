@@ -39,7 +39,8 @@ export default async (req, res) => {
         },
         data: {
           active: false,
-          user_id: null
+          user_id: null,
+          transaction_id: null
         }
       })
     }
