@@ -16,6 +16,7 @@ import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
 import DatePicker from '../components/date-picker'
+import { DateTime } from "luxon"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -34,21 +35,22 @@ export default function ({ newUser, user }) {
   const [expenseData, setExpenseData] = useState([])
   const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
-  
   const [item, setEdit] = useState({})
   const [setupModal, openSetupModal] = useState(newUser || false)
   const [categories, setCategories] = useState([])
   const [detailedCategories, setDetailedCategories] = useState([])
   const [showAccounts, setShowAccounts] = useState(false)
+  const [openDatePicker, setDatePicker] = useState(false)
+  const email = user?.email
 
   useEffect(() => {
-    if(user && !newUser){
+    if(email && !newUser){
       getDashboard()
     }
     if(newUser){
       setShowAccounts(true)
     }
-  }, [user, newUser])
+  }, [email])
 
   const getDashboard = async () => {
     setRefreshing(true)
@@ -170,12 +172,14 @@ export default function ({ newUser, user }) {
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <DatePicker/>
+        <DatePicker openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
+
         <div class="flex items-center justify-center">
           <PieChart categories={categories} />
           <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
+
         <Table columns={columns} data={t} />
       </Container>
     </Layout>
