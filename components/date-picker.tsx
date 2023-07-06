@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DateRangePicker } from 'react-date-range'
-let options = { year: 'numeric', month: 'short', day: 'numeric' };
 
 export default function ({ openDatePicker, setDatePicker, dates, updateDashboard }) {
   const [dateRange, updateDateRange] = useState({
@@ -22,12 +21,12 @@ export default function ({ openDatePicker, setDatePicker, dates, updateDashboard
     <div className="pb-10 pt-2">
       <div className="mt-10 flex justify-center gap-x-6 items-center">
         <button onClick={() => setDatePicker(true)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
-          {new Date(dateRange.startDate).toLocaleDateString("en-US", options)}
+          {new Date(dateRange.startDate).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}
         </button>
         <p className="font-bold">-</p>
         <button onClick={() => setDatePicker(true)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
           
-          {new Date(dateRange.endDate).toLocaleDateString("en-US", options)}
+          {new Date(dateRange.endDate).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}
         </button>
       </div>
       <Transition.Root show={openDatePicker} as={Fragment}>

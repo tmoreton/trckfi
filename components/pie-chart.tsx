@@ -18,7 +18,7 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      display: false,
+      display: true,
       position: 'bottom' as const,
       labels: {
         usePointStyle: true,

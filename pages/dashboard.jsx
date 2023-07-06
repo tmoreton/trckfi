@@ -205,7 +205,7 @@ export default function ({ newUser, user }) {
         <DatePicker dates={dates} updateDashboard={updateDashboard} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
 
         <div class="flex items-center justify-center">
-          <PieChart categories={categories} />
+          {/* <PieChart categories={categories} /> */}
           <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
