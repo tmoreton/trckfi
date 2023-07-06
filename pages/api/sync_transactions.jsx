@@ -43,7 +43,7 @@ export default async (req, res) => {
           merchant_name: added[i].merchant_name,
           payment_channel: added[i].payment_channel,
           category: added[i].category,
-          detailed_category: added[i].personal_finance_category.detailed,
+          detailed_category: added[i].personal_finance_category.detailed.replace(added[i].personal_finance_category.primary, ''),
           primary_category: added[i].personal_finance_category.primary,
           pending: added[i].pending,
           location: added[i].location,
