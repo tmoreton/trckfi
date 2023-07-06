@@ -32,7 +32,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <p className={balance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
-            ${Number(balance).toFixed(2)}
+            ${Number(balance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
           {
             showAccounts ?
@@ -58,8 +58,8 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="flex items-baseline justify-between">
-            <p className="text-2xl font-semibold text-red-600">${Number(thisMonthTotal).toFixed(2)}</p>
-            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(lastMonthTotal).toFixed(2)}</span> in {lastMonthString}</p>
+            <p className="text-2xl font-semibold text-red-600">${Number(thisMonthTotal).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(lastMonthTotal).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
           </div>
           <p className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             <ArrowUpIcon className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'h-5 w-5 flex-shrink-0 self-center text-green-500')} aria-hidden="true" />
@@ -77,8 +77,8 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="flex items-baseline justify-between">
-            <p className="text-2xl font-semibold text-green-600">${Number(Math.abs(thisMonthIncome)).toFixed(2)}</p>
-            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(Math.abs(lastMonthIncome)).toFixed(2)}</span> in {lastMonthString}</p>
+            <p className="text-2xl font-semibold text-green-600">${Number(Math.abs(thisMonthIncome)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(Math.abs(lastMonthIncome)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
           </div>
           <p className={classNames(Number(thisMonthIncome) >= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             {

@@ -41,9 +41,9 @@ export const options = {
 }
 
 export default function ({ monthlyIncomeData, monthlyExpenseData }) {
-  if (!monthlyIncomeData || !monthlyExpenseData) return null
+  if (monthlyIncomeData.length <= 0 || monthlyExpenseData.length <= 0) return null
 
-  const monthlyLabel = monthlyIncomeData.map(a => a.dt_string)
+  const monthlyLabel = monthlyExpenseData.map(a => a.dt_string)
   const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
   const monthlyExpenseSum = monthlyExpenseData.map(a => Math.abs(a._sum.amount))
 
@@ -61,5 +61,6 @@ export default function ({ monthlyIncomeData, monthlyExpenseData }) {
       },
     ],
   }
+  console.log(data)
   return <div className="sm:w-2/3 w-100 mx-auto mt-8 p-0 sm:pl-28"><Bar options={options} data={data} /></div>
 }

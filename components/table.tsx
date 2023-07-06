@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
-import { snakeCase } from "snake-case";
+import { snakeCase } from "snake-case"
 
 export default function ({ columns, data }) {
   if (!data || !columns) return null
@@ -33,7 +33,7 @@ export default function ({ columns, data }) {
     rows.map((row) => {
       total += Number(row.values.amount)
     })
-    let num = Number(Math.abs(total)).toFixed(2)
+    let num = Number(Math.abs(total)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     setPagination({start: 0, end: 20})
     setSum(num)
   }, [rows])
@@ -49,9 +49,12 @@ export default function ({ columns, data }) {
 
   return (
     <>
-      <div className="block">
-        <p className="text-xs text-gray-400">Total:</p>
-        <p className="text-lg text-pink-600">${sum}</p>
+      <div className="mt-10 flex justify-center gap-x-6 items-center">
+        <div className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
+          <p className="text-md mr-2">Total:</p>
+          <p className="text-2xl font-bold">${sum}</p>
+        </div>
+          
       </div>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="table-fixed sm:table-auto w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
