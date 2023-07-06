@@ -11,14 +11,13 @@ import Layout from '../components/layout'
 import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
+import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
 
-export default function ({ user }) {
-  const router = useRouter()
+export default function ({ newUser, user }) {
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
     lastMonthTotal: 0,
@@ -33,12 +32,13 @@ export default function ({ user }) {
   const [refreshing, setRefreshing] = useState(false)
   const [pieData, setPieData] = useState([])
   const [item, setEdit] = useState({})
+  const [setupModal, openSetupModal] = useState(newUser || false);
 
   useEffect(() => {
-    if(user){
+    if(user && !newUser){
       getDashboard()
     }
-  }, [user])
+  }, [user, newUser])
 
   const getDashboard = async () => {
     setRefreshing(true)
@@ -62,6 +62,7 @@ export default function ({ user }) {
   }
 
   const getAccounts = async (access_token) => {
+    openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
     await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
@@ -77,6 +78,7 @@ export default function ({ user }) {
   }
 
   const syncTransactions = async (access_token) => {
+    openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
     getAccounts(access_token)
     const res = await fetch(`/api/sync_transactions`, {
@@ -148,7 +150,7 @@ export default function ({ user }) {
       </Head>
       <Container>
         <Menu/>
-        {/* <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/> */}
+        <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center">
@@ -175,16 +177,15 @@ export async function getServerSideProps(context) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2022-11-15',
   });
-
-  if (session_id){
+  
+  if (session_id && !session?.user?.stripeSubscriptionId){
     const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
-
     if(!customer || !subscription) return { props: { newUser: false } }
 
     const data = await stripe.customers.retrieve(customer)
     const { email, phone, name } = data
 
-    await prisma.user.update({
+    const user = await prisma.user.update({
       where: { email: email.toLowerCase() },
       data: { 
         stripeCustomerId: customer,
@@ -194,7 +195,7 @@ export async function getServerSideProps(context) {
         active: true
       }
     })
-    return { props: { user: session?.user }}
+    return { props: { user: user, newUser: true }}
   }
 
   if(!session?.user) return { props: { user: null }}

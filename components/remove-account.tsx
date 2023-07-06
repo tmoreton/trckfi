@@ -45,7 +45,7 @@ export default function ({ open, setOpen, removeToken, accounts }) {
                         <ul>
                           {accounts.map((a) => (
                             <li className="text-sm text-gray-500 font-bold mt-4">
-                              {a.official_name}
+                              {a.name}
                             </li>
                           ))}
                         </ul>

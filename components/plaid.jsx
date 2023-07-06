@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
 import { useSession } from "next-auth/react"
 import { PlusCircleIcon } from '@heroicons/react/20/solid'
+import { useRouter } from 'next/router'
 
 const Plaid = ({ getAccounts, syncTransactions }) => {
   const [linkToken, setLinkToken] = useState(null)
@@ -35,11 +36,13 @@ const getAccessToken = async ({ public_token, user_id }) => {
 
 const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   const { data: session } = useSession()
+  const router = useRouter()
+
   const onSuccess = React.useCallback(async (public_token) => {
     const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
     setTimeout(() => {
       getAccounts(access_token)
-    }, 2000)
+    }, 1000)
     setTimeout(() => {
       syncTransactions(access_token)
     }, 10000)
@@ -50,9 +53,14 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
     onSuccess,
   })
 
+  const openLink = () => {
+    router.replace('/dashboard', undefined, { shallow: true })
+    open()
+  }
+
   return (
     <button
-      onClick={() => open()} 
+      onClick={openLink} 
       disabled={!ready}
       type="button"
     >
