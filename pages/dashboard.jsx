@@ -13,8 +13,6 @@ import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
 import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'
-import Stripe from 'stripe'
-import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
 
 export default function ({ newUser, user }) {
@@ -171,43 +169,42 @@ export default function ({ newUser, user }) {
 }
 
 export async function getServerSideProps(context) {
-  const { session_id } = context.query
+  const { new_user } = context.query
   const session = await getSession(context)
-
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2022-11-15',
-  });
+  console.log(context.query)
+  // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  //   apiVersion: '2022-11-15',
+  // });
   
-  if (session_id && !session?.user?.stripeSubscriptionId){
-    const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
-    if(!customer || !subscription) return { props: { newUser: false } }
+  // if (session_id && !session?.user?.stripeSubscriptionId){
+  //   const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
+  //   if(!customer || !subscription) return { props: { newUser: false } }
 
-    const data = await stripe.customers.retrieve(customer)
-    const { email, phone, name } = data
+  //   const data = await stripe.customers.retrieve(customer)
+  //   const { email, phone, name } = data
 
-    const user = await prisma.user.update({
-      where: { email: email.toLowerCase() },
-      data: { 
-        stripeCustomerId: customer,
-        stripeSubscriptionId: subscription,
-        phone,
-        name,
-        active: true
-      }
-    })
-    return { props: { user: user, newUser: true }}
-  }
+  //   const user = await prisma.user.update({
+  //     where: { email: email.toLowerCase() },
+  //     data: { 
+  //       stripeCustomerId: customer,
+  //       stripeSubscriptionId: subscription,
+  //       phone,
+  //       name,
+  //       active: true
+  //     }
+  //   })
+  //   return { props: { user: user, newUser: true }}
+  // }
 
   if(!session?.user) return { props: { user: null }}
-  
-  if(!session.user?.stripeSubscriptionId) return {
+  if(!session.user?.stripeSubscriptionId || !session?.user?.active) return {
     redirect: {
       destination: '/getting-started',
       permanent: false,
     },
   }
 
-  const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
-  if (!plan.active) return { props: { user: null }}
-  return { props: { user: session?.user, newUser: false } }
+  // const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
+  // if (!plan.active) return { props: { user: null }}
+  return { props: { user: session?.user, newUser: new_user || false } }
 }

@@ -1,7 +1,26 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
-export default ({ open, setOpen }) => {
+export default ({ open, setOpen, signOut, user_id }) => {
+
+  const unsubscribe = async (e) => {
+    const res = await fetch(`/api/cancel_subscription`, {
+      body: JSON.stringify({
+        user_id: user_id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+
+    const response = await res.json()
+    if(!response.error){
+      setOpen(false)
+      signOut()
+    }
+  }
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
@@ -47,7 +66,7 @@ export default ({ open, setOpen }) => {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    onClick={unsubscribe}
                   >
                     Cancel
                   </button>

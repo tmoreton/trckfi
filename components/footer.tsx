@@ -15,7 +15,7 @@ const Footer = () => {
         </Link>
         <nav className="flex justify-between columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
           {navigation.map((item) => (
-            <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+            <Link key={item.name} href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
               {item.name}
             </Link>
           ))}

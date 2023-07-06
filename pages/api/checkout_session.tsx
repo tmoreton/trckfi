@@ -16,7 +16,7 @@ export default async (req, res) => {
       ],
       mode: 'subscription',
       customer_email: email,
-      success_url: `${req.headers.origin}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/getting-started?session_id={CHECKOUT_SESSION_ID}`,
     };
     const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(params);

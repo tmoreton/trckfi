@@ -59,9 +59,6 @@ export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getSe
               <p className="text-md text-gray-600">
                 With built in Two-Factor Authentication we don't use passwords that can be hacked. Instead we will send you a magic link everytime you sign in.
               </p>
-              <p className="text-xs text-gray-400">
-                PS. Check your spam folder since it's your first email from us.
-              </p>
             </div>
           </div>
           <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">

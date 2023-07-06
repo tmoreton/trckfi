@@ -14,7 +14,7 @@ const navigation = [
   { name: 'My Dashboard', href: '/dashboard' },
 ]
 
-function classNames(...classes) {
+const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -28,7 +28,7 @@ export default function () {
       {({ open }) => (
         <>
           <div>
-            <CancelModal open={openModal} setOpen={setOpen} />
+            <CancelModal open={openModal} setOpen={setOpen} signOut={signOut} user_id={session?.user?.id}/>
             <div className="flex h-16 items-center justify-between py-4">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
@@ -80,7 +80,7 @@ export default function () {
                               onClick={() => setOpen(true)}
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                'block px-4 py-2 text-sm text-gray-700 w-full text-left'
                               )}
                             >
                               Cancel Subscription
@@ -126,6 +126,7 @@ export default function () {
                 <Disclosure.Button
                   as="a"
                   href={item.href}
+                  key={item.name}
                   className={currentRoute === item.href ? "block font-bold text-pink-600 px-3 py-2" : "block text-gray-900 px-3 py-2"}
                 >
                   {item.name}
