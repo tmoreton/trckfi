@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./components/**/*.tsx', './pages/**/*.tsx'],
+  content: ['./components/**/*.tsx', './pages/**/*.tsx', "./node_modules/tailwind-datepicker-react/dist/**/*.js"],
   theme: {
     extend: {
       colors: {

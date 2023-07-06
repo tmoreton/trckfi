@@ -28,7 +28,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
           <div className="absolute rounded-md bg-pink-600 p-3">
             <CreditCardIcon className="h-6 w-6 text-white" aria-hidden="true" />
           </div>
-          <p className="ml-16 truncate text-sm font-medium text-gray-500">Current Account Balance</p>
+          <p className="ml-16 truncate text-sm font-medium text-gray-500">Account Balance</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <p className={balance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>

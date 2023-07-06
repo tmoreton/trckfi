@@ -15,6 +15,7 @@ import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
+import DatePicker from '../components/date-picker'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -169,6 +170,7 @@ export default function ({ newUser, user }) {
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
+        <DatePicker/>
         <div class="flex items-center justify-center">
           <PieChart categories={categories} />
           <PieChart categories={detailedCategories} />
@@ -193,8 +195,8 @@ export async function getServerSideProps(context) {
     },
   }
 
-  const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
-  if (!plan.active) return { props: { user: null, newUser: false }}
+  // const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
+  // if (!plan.active) return { props: { user: null, newUser: false }}
 
   if (new_user) return { props: { user, newUser: true } }
   return { props: { user, newUser: false } }
