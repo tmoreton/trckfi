@@ -1,48 +1,43 @@
+import React, { useEffect } from 'react';
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/react"
 import Icon from '../components/icon';
-import CheckoutBtn from '../components/checkout-btn'
 import { useSession } from "next-auth/react"
 import { getSession } from 'next-auth/react'
 import Menu from '../components/menu'
 import Container from "../components/container"
 import Layout from "../components/layout"
 import Head from 'next/head'
+import getStripe from '../utils/get-stripejs'
 
 export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { data: session } = useSession()
+  const email = session?.user?.email
 
-  if (session) return (
-    <Layout>
-      <Head>
-        <title>Trckfi - Getting Started</title>
-      </Head>
-      <Container>
-        <Menu />
-        <div className="mx-auto py-32 sm:py-48 lg:py-56 text-center">
-          <div className="sm:mx-auto sm:w-full mb-4">
-            <Icon />
-            <div className="pt-4 text-center space-y-3">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-4">
-                Success! 🎉
-              </h1>
-              <p className="text-lg text-gray-600 w-1/3 mx-auto">
-                Now that you have an account, let's get access to your personalized dashboard
-              </p>
-            </div>
-          </div>
-          <div className="my-4 mx-auto">
-            <CheckoutBtn />
-          </div>
-          <p className="text-xs text-gray-400 text-center">
-            Cancel anytime for any reason
-          </p>
-        </div>
-      </Container>
-    </Layout>
-  )
-  
-  if (!session) return (
+  const handleSubmit = async (email) => {
+    const res = await fetch(`/api/checkout_session`, {
+      body: JSON.stringify({ 
+        email: email
+      }),
+      method: 'POST',
+    })
+    const response = await res.json()
+    if (res.status === 500) return
+
+    // Redirect to Checkout.
+    const stripe = await getStripe()
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: response.id,
+    })
+  }
+
+  useEffect(() => {
+    if(email){
+      handleSubmit(email)
+    }
+  }, [email])
+
+  if (!email) return (
     <Layout>
       <Head>
         <title>Trckfi - Getting Started</title>
@@ -89,6 +84,7 @@ export default function ({ csrfToken }: InferGetServerSidePropsType<typeof getSe
       </Container>
     </Layout>
   )
+  return null
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

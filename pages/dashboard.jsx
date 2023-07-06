@@ -14,6 +14,11 @@ import EditModal from '../components/edit-modal'
 import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
+import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2022-11-15',
+})
 
 export default function ({ newUser, user }) {
   const [loading, setLoading] = useState({access_token: null, loading: false})
@@ -171,40 +176,19 @@ export default function ({ newUser, user }) {
 export async function getServerSideProps(context) {
   const { new_user } = context.query
   const session = await getSession(context)
-  console.log(context.query)
-  // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  //   apiVersion: '2022-11-15',
-  // });
-  
-  // if (session_id && !session?.user?.stripeSubscriptionId){
-  //   const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
-  //   if(!customer || !subscription) return { props: { newUser: false } }
+  const user = session?.user
 
-  //   const data = await stripe.customers.retrieve(customer)
-  //   const { email, phone, name } = data
-
-  //   const user = await prisma.user.update({
-  //     where: { email: email.toLowerCase() },
-  //     data: { 
-  //       stripeCustomerId: customer,
-  //       stripeSubscriptionId: subscription,
-  //       phone,
-  //       name,
-  //       active: true
-  //     }
-  //   })
-  //   return { props: { user: user, newUser: true }}
-  // }
-
-  if(!session?.user) return { props: { user: null }}
-  if(!session.user?.stripeSubscriptionId || !session?.user?.active) return {
+  if(!user) return { props: { user: null }}
+  if(!user?.stripeSubscriptionId || !user?.active) return {
     redirect: {
       destination: '/getting-started',
       permanent: false,
     },
   }
 
-  // const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
-  // if (!plan.active) return { props: { user: null }}
-  return { props: { user: session?.user, newUser: new_user || false } }
+  const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
+  if (!plan.active) return { props: { user: null, newUser: false }}
+
+  if (new_user) return { props: { user, newUser: true } }
+  return { props: { user, newUser: false } }
 }

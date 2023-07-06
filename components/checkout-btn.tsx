@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import getStripe from '../utils/get-stripejs'
 import { useSession } from "next-auth/react"
 
