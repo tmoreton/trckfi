@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma';
 import { DateTime } from "luxon";
 
 export default async (req, res) => {
-  const { user_id } = req.body
+  const { user_id, range } = req.body
   if (!user_id ) return res.status(500)
 
   const defaultData = { 
@@ -112,15 +112,15 @@ export default async (req, res) => {
         amount: true,
       },
     })
-  
+
     const categories = await prisma.transactions.groupBy({
       by: ['primary_category'],
       where: {
         user_id: user_id,
         active: true,
         date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 6 }).startOf('month').toISO(),
+          lte: range.startDate,
+          gte: range.endDate
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
@@ -139,8 +139,8 @@ export default async (req, res) => {
         user_id: user_id,
         active: true,
         date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 6 }).startOf('month').toISO(),
+          lte: range.startDate,
+          gte: range.endDate
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
@@ -158,8 +158,8 @@ export default async (req, res) => {
         user_id: user_id,
         active: true,
         date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 6 }).startOf('month').toISO(),
+          lte: range.startDate,
+          gte: range.endDate
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
@@ -179,8 +179,8 @@ export default async (req, res) => {
         active: true,
         primary_category: 'INCOME',
         date: {
-          lte: DateTime.now().startOf('month').toISO(),
-          gte: DateTime.now().minus({ months: 7 }).startOf('month').toISO(),
+          lte: range.startDate,
+          gte: range.endDate
         },
       },
       _sum: {
@@ -197,8 +197,8 @@ export default async (req, res) => {
         user_id: user_id,
         active: true,
         date: {
-          lte: DateTime.now().startOf('month').toISO(),
-          gte: DateTime.now().minus({ months: 7 }).startOf('month').toISO(),
+          lte: range.startDate,
+          gte: range.endDate
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
@@ -274,7 +274,7 @@ export default async (req, res) => {
       thisMonthIncome: thisMonthIncome._sum.amount
     }
 
-    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring, detailedCategories })
+    return res.status(200).json({ stats, accounts, transactions, categories, monthlyIncomeData, monthlyExpenseData, recurring, detailedCategories, range })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })

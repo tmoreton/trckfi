@@ -41,6 +41,10 @@ export default function ({ newUser, user }) {
   const [detailedCategories, setDetailedCategories] = useState([])
   const [showAccounts, setShowAccounts] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
+  const [dates, setDates] = useState({
+    startDate: DateTime.now().toISO(),
+    endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
+  })
   const email = user?.email
 
   useEffect(() => {
@@ -52,11 +56,39 @@ export default function ({ newUser, user }) {
     }
   }, [email])
 
+  const updateDashboard = async (data) => {
+    console.log(dates)
+    console.log(data)
+    setDatePicker(false)
+    setDates(data)
+    setRefreshing(true)
+    const res = await fetch(`/api/get_dashboard`, {
+      body: JSON.stringify({
+        user_id: user.id,
+        range: data
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData, categories, detailedCategories } = await res.json()
+    setExpenseData(monthlyExpenseData)
+    setIncomeData(monthlyIncomeData)
+    setStats(stats)
+    setTransactions(transactions)
+    setAccounts(accounts)
+    setRefreshing(false)
+    setCategories(categories)
+    setDetailedCategories(detailedCategories)
+  }
+
   const getDashboard = async () => {
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({
-        user_id: user.id
+        user_id: user.id,
+        range: dates
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -172,7 +204,7 @@ export default function ({ newUser, user }) {
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <DatePicker openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
+        <DatePicker dates={dates} updateDashboard={updateDashboard} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
 
         <div class="flex items-center justify-center">
           <PieChart categories={categories} />

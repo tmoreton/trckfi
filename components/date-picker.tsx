@@ -1,31 +1,33 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DateRangePicker } from 'react-date-range'
-import { DateTime } from "luxon";
+let options = { year: 'numeric', month: 'short', day: 'numeric' };
 
-const selectionRange = {
-  startDate: new Date(),
-  endDate: new Date(),
-  key: 'selection',
-}
+export default function ({ openDatePicker, setDatePicker, dates, updateDashboard }) {
+  const [dateRange, updateDateRange] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: 'selection',
+  })
 
-export default function ({ openDatePicker, setDatePicker }) {
-  const [dateRange, updateDateRange] = useState(selectionRange)
-
-  const handleSelect = (ranges) => {
-    console.log(ranges.selection)
-    updateDateRange(ranges.selection)
-  }
+  useEffect(() => {
+    updateDateRange({
+      startDate: new Date(dates.endDate),
+      endDate: new Date(dates.startDate),
+      key: 'selection',
+    })
+  }, [dates])
 
   return (
-    <div className="py-10">
+    <div className="pb-10 pt-2">
       <div className="mt-10 flex justify-center gap-x-6 items-center">
         <button onClick={() => setDatePicker(true)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
-          {DateTime.fromObject(dateRange.startDate).toLocaleString(DateTime.DATE_MED)}
+          {new Date(dateRange.startDate).toLocaleDateString("en-US", options)}
         </button>
         <p className="font-bold">-</p>
         <button onClick={() => setDatePicker(true)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
-          {DateTime.fromObject(dateRange.startDate).toLocaleString(DateTime.DATE_MED)}
+          
+          {new Date(dateRange.endDate).toLocaleDateString("en-US", options)}
         </button>
       </div>
       <Transition.Root show={openDatePicker} as={Fragment}>
@@ -55,13 +57,16 @@ export default function ({ openDatePicker, setDatePicker }) {
                 <Dialog.Panel className="relative transform rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all">
                   <DateRangePicker
                     ranges={[dateRange]}
-                    onChange={handleSelect}
+                    onChange={e => updateDateRange(e.selection)}
                   />
                   <div className="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
                       type="button"
                       className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
-                      onClick={() => console.log('test')}
+                      onClick={() => updateDashboard({
+                        startDate: dateRange.endDate,
+                        endDate: dateRange.startDate
+                      })}
                     >
                       Appy
                     </button>
