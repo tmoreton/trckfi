@@ -61,7 +61,7 @@ export default function ({ columns, data }) {
                 {headerGroup.headers.map(column => (
                   <th className={column.render("style")}>
                     <div className="flex">
-                      {column.render("Header")}
+                      <p className="font-bold">{column.render("Header")}</p>
                       { column.render("Header") !== '' &&
                         <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                           <ChevronDownIcon 

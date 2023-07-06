@@ -38,10 +38,14 @@ export default function ({ newUser, user }) {
   const [setupModal, openSetupModal] = useState(newUser || false)
   const [categories, setCategories] = useState([])
   const [detailedCategories, setDetailedCategories] = useState([])
+  const [showAccounts, setShowAccounts] = useState(false)
 
   useEffect(() => {
     if(user && !newUser){
       getDashboard()
+    }
+    if(newUser){
+      setShowAccounts(true)
     }
   }, [user, newUser])
 
@@ -163,11 +167,8 @@ export default function ({ newUser, user }) {
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
-        <Snapshot accounts={a} totalStats={totalStats} />
-        <input className="block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white pink-border" id="grid-first-name" type="text" placeholder="Jane" />
-
-        <Cards accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        {/* <hr className="w-full border-t-3 border-pink-500 mx-auto my-0" /> */}
+        <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
+        <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <div class="flex items-center justify-center">
           <PieChart categories={categories} />
           <PieChart categories={detailedCategories} />
