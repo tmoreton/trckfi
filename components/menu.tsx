@@ -1,11 +1,12 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Cog8ToothIcon  } from '@heroicons/react/24/solid'
 import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/outline'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import LoginBtn from './login-btn'
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react"
+import CancelModal from './cancel-modal'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -18,6 +19,7 @@ function classNames(...classes) {
 }
 
 export default function () {
+  const [openModal, setOpen] = useState(false)
   const { data: session } = useSession()
   const router = useRouter()
   const currentRoute = router.pathname
@@ -26,6 +28,7 @@ export default function () {
       {({ open }) => (
         <>
           <div>
+            <CancelModal open={openModal} setOpen={setOpen} />
             <div className="flex h-16 items-center justify-between py-4">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
@@ -73,15 +76,15 @@ export default function () {
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <button
+                              onClick={() => setOpen(true)}
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}
                             >
                               Cancel Subscription
-                            </a>
+                            </button>
                           )}
                         </Menu.Item>
                         <Menu.Item>
@@ -134,8 +137,8 @@ export default function () {
                 session ?
                 <div className="mt-3 space-y-1 px-2">
                   <Disclosure.Button
-                    as="a"
-                    href="#"
+                    as="button"
+                    onClick={() => setOpen(true)}
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                   >
                     Cancel Subscription
