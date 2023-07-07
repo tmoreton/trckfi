@@ -37,8 +37,23 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function ({ categories }) {
   if (!categories) return null
 
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+        position: 'top' as const,
+      },
+      title: {
+        display: true,
+        text: 'Categories',
+      },
+    },
+  }
+
   const labels = categories.map(a => (a.primary_category || a.detailed_category))
   const sums = categories.map(a => Math.abs(a._sum.amount))
+  console.log(categories)
   const data = {
     labels: labels,
     datasets: [
@@ -78,8 +93,13 @@ export default function ({ categories }) {
     ],
   }
   return (
-    <div className='sm:w-1/3 w-100 mx-auto mt-8'>
-      <Doughnut data={data} />
-    </div>
+    <>
+      {/* <div className="w-full bg-gray-200 rounded-full h-2.5">
+        <div className="bg-pink-600 h-2.5 rounded-full" style={{width: '45%'}}></div>
+      </div> */}
+      <div className='sm:w-1/3 w-100 mx-auto mt-8 ml-4'>
+        <Doughnut data={data} options={options}/>
+      </div>   
+    </>
   )
 }

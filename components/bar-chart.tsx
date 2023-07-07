@@ -47,6 +47,19 @@ export default function ({ monthlyIncomeData, monthlyExpenseData }) {
   //   },
   // }
 
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+      },
+      title: {
+        display: true,
+        text: 'Monthly Expense & Income',
+      },
+    },
+  };
+
   let data = {
     labels: monthlyLabel.reverse(),
     datasets: [
@@ -74,5 +87,5 @@ export default function ({ monthlyIncomeData, monthlyExpenseData }) {
       ],
     }
   }
-  return <div className="sm:w-2/3 w-100 mx-auto mt-8 p-0 sm:pl-28"><Bar data={data} /></div>
+  return <div className="sm:w-2/3 w-100 mx-auto mt-8 p-0 sm:pl-28"><Bar options={options} data={data} /></div>
 }

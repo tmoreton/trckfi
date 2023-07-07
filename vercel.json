@@ -1,6 +1,10 @@
 {
   "crons": [{
     "path": "/api/send_monthly_email",
+    "schedule": "0 8 1 * *"
+  },
+  {
+    "path": "/api/auto_update",
     "schedule": "0 8 2 * *"
   }]
 }
