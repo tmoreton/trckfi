@@ -38,7 +38,6 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   const { data: session } = useSession()
   const router = useRouter()
   const onSuccess = async (public_token) => {
-    console.log(session)
     if(session?.user){
       const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
       getAccounts(access_token)

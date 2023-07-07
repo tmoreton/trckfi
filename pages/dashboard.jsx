@@ -24,14 +24,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default function ({ newUser, user }) {
+  const email = user?.email
   const [error, showError] = useState(null)
   const [loading, setLoading] = useState({access_token: null, loading: false})
-  const [totalStats, setStats] = useState({
-    lastMonthTotal: 0,
-    thisMonthTotal: 0,
-    thisMonthString: '',
-    lastMonthString: ''
-  })
+  const [totalStats, setStats] = useState({})
   const [t, setTransactions] = useState([])
   const [incomeData, setIncomeData] = useState([])
   const [expenseData, setExpenseData] = useState([])
@@ -47,7 +43,6 @@ export default function ({ newUser, user }) {
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
-  const email = user?.email
 
   useEffect(() => {
     if(email && !newUser){
@@ -58,32 +53,14 @@ export default function ({ newUser, user }) {
     }
   }, [email])
 
-  const updateDashboard = async (data) => {
-    setDatePicker(false)
-    setDates(data)
-    setRefreshing(true)
-    const res = await fetch(`/api/get_dashboard`, {
-      body: JSON.stringify({
-        user_id: user.id,
-        range: data
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData, categories, detailedCategories } = await res.json()
-    setExpenseData(monthlyExpenseData)
-    setIncomeData(monthlyIncomeData)
-    setStats(stats)
-    setTransactions(transactions)
-    setAccounts(accounts)
-    setRefreshing(false)
-    setCategories(categories)
-    setDetailedCategories(detailedCategories)
-  }
+  useEffect(() => {
+    if(dates){
+      getDashboard()
+    }
+  }, [dates])
 
   const getDashboard = async () => {
+    setDatePicker(false)
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({
@@ -95,7 +72,8 @@ export default function ({ newUser, user }) {
       },
       method: 'POST',
     })
-    const { stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories } = await res.json()
+    const { error, stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories } = await res.json()
+    showError(error)
     setExpenseData(groupByMonth)
     setIncomeData(groupByMonthIncome)
     setStats(stats)
@@ -109,7 +87,7 @@ export default function ({ newUser, user }) {
   const getAccounts = async (access_token) => {
     openSetupModal(false)
     setLoading({access_token: access_token, loading: true})
-    await fetch(`/api/get_accounts`, {
+    const res = await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
         user_id: user.id,
         access_token: access_token
@@ -119,6 +97,8 @@ export default function ({ newUser, user }) {
       },
       method: 'POST',
     })
+    const { error } = await res.json()
+    showError(error)
     getDashboard()
   }
 
@@ -210,7 +190,7 @@ export default function ({ newUser, user }) {
           <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
-        <DatePicker dates={dates} updateDashboard={updateDashboard} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
+        <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
         <Table columns={columns} data={t} />
       </Container>
     </Layout>
