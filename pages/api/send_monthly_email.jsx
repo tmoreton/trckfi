@@ -164,7 +164,7 @@ export default async (req, res) => {
       let recurring = []
       lastMonth.forEach((i) => {
         let obj = thisMonth.find((x) => {
-          return Number(i.amount) === Number(x.amount)
+          return Number(i.amount) === Number(x.amount) && i.name === x.name
         })
         if(obj){
           recurring.push(obj)

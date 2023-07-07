@@ -114,7 +114,7 @@ export async function getServerSideProps({ query }) {
   })
 
   const categories = await prisma.transactions.groupBy({
-    by: ['primary_category'],
+    by: ['detailed_category'],
     where: {
       user_id: user.id,
       date: {
@@ -176,7 +176,7 @@ export async function getServerSideProps({ query }) {
   let recurring = []
   lastMonth.forEach((i) => {
     let obj = thisMonth.find((x) => {
-      return Number(i.amount) === Number(x.amount)
+      return Number(i.amount) === Number(x.amount) && i.name === x.name
     })
     if(obj){
       recurring.push(obj)
