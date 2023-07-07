@@ -4,6 +4,9 @@
     "schedule": "0 9 1 * *"
   },
   {
+    "path": "/api/send_weekly_email",
+    "schedule": "0 9 * * 0"
+  },{
     "path": "/api/auto_sync_update",
     "schedule": "0 6 * * 6"
   }]
