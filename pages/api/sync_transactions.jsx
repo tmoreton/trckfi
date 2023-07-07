@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
+import { DateTime } from "luxon"
 
 export default async (req, res) => {
   const { user_id, access_token } = req.body
@@ -37,8 +38,8 @@ export default async (req, res) => {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,
           amount: added[i].amount,
-          authorized_date: new Date(transactions[i].authorized_date) || new Date(transactions[i].date),
-          date: transactions[i].date,
+          authorized_date: new Date(added[i].authorized_date) || new Date(added[i].date),
+          date: added[i].date,
           name: added[i].name,
           merchant_name: added[i].merchant_name,
           payment_channel: added[i].payment_channel,
@@ -49,8 +50,8 @@ export default async (req, res) => {
           location: added[i].location,
           user_id: user_id,
           item_id: plaidAccount.item_id,
-          monthYear: added[i].date.substring(0,7),
-          weekYear: `${added[i].date.substring(0,4)}-${DateTime.now(added[i].date).weekNumber}`
+          month_year: added[i].date.substring(0,7),
+          week_year: `${added[i].date.substring(0,4)}-${DateTime.now(added[i].date).weekNumber}`
         },
       })
     }
@@ -62,6 +63,7 @@ export default async (req, res) => {
 
     return res.status(200).json({ has_more: has_more })
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

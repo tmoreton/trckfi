@@ -12,6 +12,7 @@ import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
 import SetupModal from '../components/setup-modal'
+import ErrorModal from '../components/error-modal'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
@@ -23,6 +24,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default function ({ newUser, user }) {
+  const [error, showError] = useState(null)
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({
     lastMonthTotal: 0,
@@ -135,7 +137,8 @@ export default function ({ newUser, user }) {
       },
       method: 'POST',
     })
-    const { has_more } = await res.json()
+    const { error, has_more } = await res.json()
+    showError(error)
     if(has_more){
       syncTransactions(access_token)
     } else {
@@ -168,8 +171,8 @@ export default function ({ newUser, user }) {
       style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
-      Header: "Authorized Date",
-      accessor: "authorized_date",
+      Header: "Date",
+      accessor: "date",
       style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
@@ -194,6 +197,7 @@ export default function ({ newUser, user }) {
       </Head>
       <Container>
         <Menu/>
+        <ErrorModal error={error} showError={showError} />
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />

@@ -64,15 +64,15 @@ export default async (req, res) => {
           name: transactions[i].name,
           merchant_name: transactions[i].merchant_name,
           payment_channel: transactions[i].payment_channel,
-          category: added[i].category,
-          detailed_category: added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, ''),
+          category: transactions[i].category,
+          detailed_category: transactions[i].personal_finance_category.detailed.replace(`${transactions[i].personal_finance_category.primary}_`, ''),
           primary_category: transactions[i].personal_finance_category.primary,
           pending: transactions[i].pending,
           location: transactions[i].location,
           user_id: user_id,
           item_id: plaidAccount.item_id,
-          monthYear: added[i].date.substring(0,7),
-          weekYear: `${added[i].date.substring(0,4)}-${DateTime.now(added[i].date).weekNumber}`
+          month_year: transactions[i].date.substring(0,7),
+          week_year: `${transactions[i].date.substring(0,4)}-${DateTime.now(transactions[i].date).weekNumber}`
         },
       })
     }
