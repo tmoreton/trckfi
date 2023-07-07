@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
 import Hero from '../components/hero'
@@ -8,9 +9,18 @@ import Pricing from '../components/pricing'
 import Newsletter from '../components/newsletter'
 import Feature from '../components/feature'
 import Menu from '../components/menu'
+import DemoModal from '../components/demo-modal'
 
-export default function Index({ allPosts, showError }) {
+export default function Index({ allPosts, showError, host }) {
+  const [open, setOpen] = useState(false)
   const morePosts = allPosts.slice(0, 2)
+
+  useEffect(() => {
+    if(host?.includes('demo')){
+      setOpen(true)
+    }
+  }, [host])
+
   return (
     <Layout>
       <Head>
@@ -18,6 +28,7 @@ export default function Index({ allPosts, showError }) {
       </Head>
       <Container>
         <Menu showError={showError}/>
+        <DemoModal open={open} setOpen={setOpen} />
         <Hero />
         <Feature />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
@@ -28,7 +39,7 @@ export default function Index({ allPosts, showError }) {
   )
 }
 
-export const getStaticProps = async () => {
+export async function getServerSideProps(context) {
   const allPosts = getAllPosts([
     'title',
     'date',
@@ -37,8 +48,6 @@ export const getStaticProps = async () => {
     'coverImage',
     'excerpt',
   ])
-
-  return {
-    props: { allPosts },
-  }
+  const { req } = context
+  return {  props: { allPosts, host: req?.headers?.host } }
 }

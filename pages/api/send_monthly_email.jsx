@@ -7,16 +7,16 @@ import { DateTime } from "luxon";
 
 export default async (req, res) => {
   try {
-  const activeUsers = await prisma.user.findMany({
-    where: { 
-      active: true,
-      stripeSubscriptionId: {
-        not: null
+    const activeUsers = await prisma.user.findMany({
+      where: { 
+        active: true,
+        stripeSubscriptionId: {
+          not: null
+        }
       }
-    }
-  })
+    })
 
-  for (let a in activeUsers) {
+    for (let a in activeUsers) {
       const user_id = activeUsers[a].id
       const email = activeUsers[a].email
 
