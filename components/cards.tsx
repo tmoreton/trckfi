@@ -36,8 +36,8 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
           { accounts?.length < 1 && <p className="text-gray-500"><b>No Cards Synced Yet</b></p>}
           { accounts?.map((account) => {
             let balanceClass = 'text-gray-600 text-base'
-            if(account.type === 'credit') balanceClass = 'text-red-600 text-base'
-            if(account.type === 'depository') balanceClass = 'text-green-600 text-base'
+            if(account.type === 'credit' || account.type === 'loan') balanceClass = 'text-red-600 text-base'
+            if(account.type === 'depository' || account.type === 'investment') balanceClass = 'text-green-600 text-base'
             if(account.balances.current === 0) balanceClass = 'text-gray-600 text-base'
             return (
               <li key={account.name} className="col-span-1 flex rounded-md shadow-sm">
