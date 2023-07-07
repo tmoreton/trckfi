@@ -14,26 +14,6 @@ export const CHART_COLORS = {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-// export const options = {
-//   responsive: true,
-//   plugins: {
-//     legend: {
-//       display: true,
-//       position: 'bottom',
-//       labels: {
-//         usePointStyle: true,
-//         boxWidth: 6,
-//         pointStyle: 'circle',
-//         padding: 15,
-//         font: {
-//           padding: 5,
-//           size: 10
-//         }
-//       }
-//     },
-//   },
-// }
-
 export default function ({ categories }) {
   if (!categories) return null
 
@@ -53,7 +33,6 @@ export default function ({ categories }) {
 
   const labels = categories.map(a => (a.primary_category || a.detailed_category))
   const sums = categories.map(a => Math.abs(a._sum.amount))
-  console.log(categories)
   const data = {
     labels: labels,
     datasets: [
