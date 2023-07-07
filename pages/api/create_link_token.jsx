@@ -9,8 +9,13 @@ export default async (req, res) => {
     language: 'en',
     country_codes: ['US'],
     webhook: 'https://trckfi.com/api/plaid_webhook'
-  };
-
-  const createTokenResponse = await plaidClient.linkTokenCreate(params);
-  return res.status(200).json(createTokenResponse.data);
+  }
+  
+  try {
+    const createTokenResponse = await plaidClient.linkTokenCreate(params);
+    return res.status(200).json(createTokenResponse.data)
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ error: error.message || error.toString() })
+  }
 }

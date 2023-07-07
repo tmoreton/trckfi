@@ -22,6 +22,7 @@ export default async (req, res) => {
     const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(params);
     return res.status(200).json(checkoutSession)
   } catch (error) {
+    console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

@@ -7,11 +7,16 @@ export default async (req, res) => {
     return res.status(400).json({ error: 'Email Is Required' })
   }
 
-  const user = await prisma.user.upsert({
-    where: { email: email.toLowerCase() },
-    update: {},
-    create: { email: email.toLowerCase() },
-  })
-
-  return res.status(200).json({ status: 'OK' })
+  try {
+    const user = await prisma.user.upsert({
+      where: { email: email.toLowerCase() },
+      update: {},
+      create: { email: email.toLowerCase() },
+    })
+    
+    return res.status(200).json({ status: 'OK' })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ error: error.message || error.toString() })
+  }
 }

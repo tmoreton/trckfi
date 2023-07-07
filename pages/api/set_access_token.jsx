@@ -22,6 +22,7 @@ export default async (req, res) => {
 
     return res.status(500).json({ error: 'No User ID'})
   } catch (error) {
+    console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

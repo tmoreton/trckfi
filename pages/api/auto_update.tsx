@@ -5,7 +5,7 @@ import { DateTime } from "luxon"
 
 export default async (req, res) => {
   try {
-    await fetch(`/api/send_email`, {
+    await fetch(`https://trckfi.com/api/send_email`, {
       body: JSON.stringify({
         email: "tmoreton89@gmail.com",
         message: "This is the auto update test"
@@ -17,7 +17,6 @@ export default async (req, res) => {
     })
     return res.status(200).json({ status: "Ok" })
   } catch (error) {
-    console.log(error)
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
