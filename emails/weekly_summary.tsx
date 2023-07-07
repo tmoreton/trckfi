@@ -34,7 +34,7 @@ export default function ({ groupByWeek, categories, transactions }) {
             <Section className="bg-[#ffffff] rounded text-center">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Heading className="text-[#464c63] text-[22px] mt-4">
-                <strong>Last Week's Summary</strong>
+                <strong>Your Weekly Finance Summary</strong>
               </Heading>
               <Text className="text-[#666666] text-[12px] mt-0 mb-4">
                 Let's review your finances from last week
