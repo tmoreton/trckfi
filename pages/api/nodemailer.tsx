@@ -2,7 +2,7 @@
 const nodemailer = require('nodemailer')
 
 export default async (req, res) => {
-  const { email } = req.body
+  const { email, message } = req.body
   if (!email) {
     return res.status(400).json({ error: 'Email Is Required' })
   }
@@ -12,11 +12,11 @@ export default async (req, res) => {
     return res.status(400).json({ error: 'Invalid Email' })
   }
 
-  const message = {
+  const body = {
     from: process.env.EMAIL_ADDRESS,
     to: 'tmoreton89@gmail.com',
-    subject: `Trcki Newsletter Signup: ${email}`,
-    html: `<p>${email} signed up for the trckfi newsletter</p>`,
+    subject: `Feedback From: ${email}`,
+    html: `<p>${message}</p>`,
   }
 
   let transporter = nodemailer.createTransport({
@@ -29,7 +29,7 @@ export default async (req, res) => {
   })
 
   try {
-    await transporter.sendMail(message)
+    await transporter.sendMail(body)
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() })

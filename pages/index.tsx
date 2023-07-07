@@ -22,7 +22,7 @@ export default function Index({ allPosts, showError }) {
         <Feature />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         <Pricing />
-        <Newsletter />
+        {/* <Newsletter /> */}
       </Container>
     </Layout>
   )

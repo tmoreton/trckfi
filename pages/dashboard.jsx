@@ -173,7 +173,7 @@ export default function ({ newUser, user, showError }) {
         <title>Trckfi - Dashboard</title>
       </Head>
       <Container>
-        <Menu showError={showError} />
+        <Menu showError={showError}/>
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
@@ -199,7 +199,13 @@ export async function getServerSideProps(context) {
   const session = await getSession(context)
   const user = session?.user
 
-  if(!user) return { props: { user: null }}
+  if(!user) return { 
+    redirect: {
+      destination: '/auth/email-signin',
+      permanent: false,
+    },
+  }
+
   if(!user?.stripeSubscriptionId || !user?.active) return {
     redirect: {
       destination: '/getting-started',

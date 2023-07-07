@@ -48,6 +48,11 @@ export default function ({ showError }) {
                         {item.name}
                       </Link>
                     ))}
+                    { session &&
+                      <Link href="/feedback" className={currentRoute === '/feedback' ? "font-bold text-pink-600 px-3 py-2" : "text-gray-900 px-3 py-2"}>
+                        Feedback
+                      </Link>
+                    }
                   </div>
                 </div>
               </div>
