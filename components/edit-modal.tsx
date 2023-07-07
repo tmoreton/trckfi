@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon } from '@heroicons/react/20/solid'
 
-export default function ({ item, setEdit, getDashboard }) {
+export default function ({ item, setEdit, getDashboard, showError }) {
   const [transaction, updateTransaction] = useState({
     name: '',
     primary_category: '',
@@ -26,7 +26,9 @@ export default function ({ item, setEdit, getDashboard }) {
     }),
       method: 'POST',
     })
-    if (res.status === 200){
+    const { error } = await res.json()
+    showError(error)
+    if (!error){
       getDashboard()
       setEdit({})
     }
@@ -39,7 +41,9 @@ export default function ({ item, setEdit, getDashboard }) {
     }),
       method: 'POST',
     })
-    if (res.status === 200){
+    const { error } = await res.json()
+    showError(error)
+    if (!error){
       getDashboard()
       setEdit({})
     }

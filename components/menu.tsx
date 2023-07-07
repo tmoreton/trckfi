@@ -18,7 +18,7 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function () {
+export default function ({ showError }) {
   const [openModal, setOpen] = useState(false)
   const { data: session } = useSession()
   const user = session?.user
@@ -29,7 +29,7 @@ export default function () {
       {({ open }) => (
         <>
           <div>
-            <CancelModal open={openModal} setOpen={setOpen} signOut={signOut} user={user}/>
+            <CancelModal showError={showError} open={openModal} setOpen={setOpen} signOut={signOut} user={user}/>
             <div className="flex h-16 items-center justify-between py-4">
               <div className="flex items-center">
                 <div className="flex-shrink-0">

@@ -4,7 +4,7 @@ import { snakeCase } from "snake-case";
 
 export default async (req, res) => {
   const transaction = JSON.parse(req.body).transaction
-  if (!transaction) return res.status(500)
+  if (!transaction) return res.status(500).json({ error: 'No Transaction' })
   
   try {
     await prisma.transactions.update({

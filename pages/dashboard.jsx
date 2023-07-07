@@ -12,7 +12,6 @@ import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
 import SetupModal from '../components/setup-modal'
-import ErrorModal from '../components/error-modal'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
@@ -23,9 +22,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
 
-export default function ({ newUser, user }) {
+export default function ({ newUser, user, showError }) {
   const email = user?.email
-  const [error, showError] = useState(null)
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({})
   const [t, setTransactions] = useState([])
@@ -175,17 +173,16 @@ export default function ({ newUser, user }) {
         <title>Trckfi - Dashboard</title>
       </Head>
       <Container>
-        <Menu/>
-        <ErrorModal error={error} showError={showError} />
+        <Menu />
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
-        <EditModal item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+        <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
           <Plaid getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
-        <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
+        <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <div class="flex items-center justify-center">
           <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />

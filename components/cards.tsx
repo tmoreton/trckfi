@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ArrowPathIcon, TrashIcon } from '@heroicons/react/20/solid'
 import RemoveAccount from "./remove-account"
 
-export default function ({ getTransactions, getDashboard, loading, accounts, showAccounts }) {
+export default function ({ getTransactions, getDashboard, loading, accounts, showAccounts, showError }) {
   const [open, setOpen] = useState(false)
   const [removedAccounts, setAccounts] = useState([])
   const [token, setToken] = useState('')
@@ -24,6 +24,8 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
       },
       method: 'POST',
     })
+    const { error } = await res.json()
+    showError(error)
     getDashboard()
     setOpen(false)
   }

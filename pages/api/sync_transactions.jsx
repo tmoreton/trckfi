@@ -5,7 +5,7 @@ import { DateTime } from "luxon"
 
 export default async (req, res) => {
   const { user_id, access_token } = req.body
-  if (!user_id || !access_token) return res.status(500)
+  if (!user_id || !access_token) return res.status(500).json({ error: 'No Token or User' })
 
   const plaidAccount = await prisma.plaid.findUnique({
     where: {
