@@ -18,7 +18,7 @@ export default async (req, res) => {
       const user_id = activeUsers[a].id
       const plaidAccounts = await prisma.plaid.findMany({
         where: {
-          user_id: activeUsers[a].id,
+          user_id: user_id,
           active: true,
         }
       })
@@ -58,7 +58,7 @@ export default async (req, res) => {
               primary_category: added[i].personal_finance_category.primary,
               pending: added[i].pending,
               location: added[i].location,
-              user_id: activeUsers[a].id,
+              user_id: user_id,
               item_id: plaidAccounts[p].item_id,
               month_year: added[i].date.substring(0,7),
               week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`
