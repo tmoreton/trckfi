@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import type { GetServerSidePropsContext } from "next";
 import { getCsrfToken } from "next-auth/react"
 import Icon from '../components/icon';
 import { getSession } from 'next-auth/react'
@@ -10,7 +10,7 @@ import Head from 'next/head'
 import getStripe from '../utils/get-stripejs'
 import Loading from "../components/loading"
 
-export default function ({ csrfToken, user }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function ({ csrfToken, user, showError }) {
   const email = user?.email
 
   const handleSubmit = async (email) => {
@@ -20,14 +20,16 @@ export default function ({ csrfToken, user }: InferGetServerSidePropsType<typeof
       }),
       method: 'POST',
     })
-    const response = await res.json()
-    if (res.status === 500) return
+    const data = await res.json()
+    showError(data.error)
+    if (data.error) return
 
     // Redirect to Checkout.
     const stripe = await getStripe()
     const { error } = await stripe!.redirectToCheckout({
-      sessionId: response.id,
+      sessionId: data.id,
     })
+    showError(error)
   }
 
   useEffect(() => {
@@ -42,7 +44,7 @@ export default function ({ csrfToken, user }: InferGetServerSidePropsType<typeof
         <title>Trckfi - Getting Started</title>
       </Head>
       <Container>
-        <Menu />
+        <Menu showError={showError} />
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
           <div className="sm:mx-auto sm:w-full mb-4">
             <Icon />

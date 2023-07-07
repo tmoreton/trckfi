@@ -4,17 +4,12 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
-import Post from '../interfaces/post'
 import Pricing from '../components/pricing'
 import Newsletter from '../components/newsletter'
 import Feature from '../components/feature'
 import Menu from '../components/menu'
 
-type Props = {
-  allPosts: Post[]
-}
-
-export default function Index({ allPosts }: Props) {
+export default function Index({ allPosts, showError }) {
   const morePosts = allPosts.slice(0, 2)
   return (
     <Layout>
@@ -22,7 +17,7 @@ export default function Index({ allPosts }: Props) {
         <title>Trckfi</title>
       </Head>
       <Container>
-        <Menu />
+        <Menu showError={showError}/>
         <Hero />
         <Feature />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}

@@ -7,20 +7,12 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
-import type PostType from '../../interfaces/post'
 import Menu from '../../components/menu'
 
-type Props = {
-  post: PostType
-  morePosts: PostType[]
-  preview?: boolean
-}
-
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, preview, showError }) {
   const router = useRouter()
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`
+  const title = `${post.title} | Trckfi Blog`
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -36,7 +28,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 <title>{title}</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
-              <Menu />
+              <Menu showError={showError}/>
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}

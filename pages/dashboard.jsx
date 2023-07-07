@@ -173,7 +173,7 @@ export default function ({ newUser, user, showError }) {
         <title>Trckfi - Dashboard</title>
       </Head>
       <Container>
-        <Menu />
+        <Menu showError={showError} />
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <Loader refreshing={refreshing} />
         <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
