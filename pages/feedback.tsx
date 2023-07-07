@@ -12,7 +12,7 @@ export default function ({ showError }) {
   const send = async (e) => {
     e.preventDefault()
     if(session.user){
-      const res = await fetch(`/api/send_email`, {
+      const res = await fetch(`/api/auto_update`, {
         body: JSON.stringify({
           email: session.user.email,
           message
