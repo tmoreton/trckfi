@@ -14,25 +14,25 @@ export const CHART_COLORS = {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: true,
-      position: 'bottom' as const,
-      labels: {
-        usePointStyle: true,
-        boxWidth: 6,
-        pointStyle: 'circle',
-        padding: 15,
-        font: {
-          padding: 5,
-          size: 10
-        }
-      }
-    },
-  },
-}
+// export const options = {
+//   responsive: true,
+//   plugins: {
+//     legend: {
+//       display: true,
+//       position: 'bottom',
+//       labels: {
+//         usePointStyle: true,
+//         boxWidth: 6,
+//         pointStyle: 'circle',
+//         padding: 15,
+//         font: {
+//           padding: 5,
+//           size: 10
+//         }
+//       }
+//     },
+//   },
+// }
 
 export default function ({ categories }) {
   if (!categories) return null
@@ -78,8 +78,8 @@ export default function ({ categories }) {
     ],
   }
   return (
-    <div className='w-1/3 w-100 mx-auto mt-8'>
-      <Doughnut options={options} data={data} />
+    <div className='sm:w-1/3 w-100 mx-auto mt-8'>
+      <Doughnut data={data} />
     </div>
   )
 }
