@@ -36,7 +36,7 @@ export async function getServerSideProps({ query }) {
       user_id: user_id,
       active: true,
       authorized_date: {
-        lte: DateTime.now().startOf('week').toISO(),
+        lte: DateTime.now().toISO(),
         gte: DateTime.now().minus({ weeks: 2 }).startOf('week').toISO()
       },
       NOT: [
@@ -62,7 +62,7 @@ export async function getServerSideProps({ query }) {
       user_id: user_id,
       active: true,
       authorized_date: {
-        lte: DateTime.now().startOf('week').toISO(),
+        lte: DateTime.now().toISO(),
         gte: DateTime.now().minus({ weeks: 1 }).startOf('week').toISO()
       },
       NOT: [
@@ -81,7 +81,7 @@ export async function getServerSideProps({ query }) {
       user_id: user_id,
       active: true,
       authorized_date: {
-        lte: DateTime.now().startOf('week').toISO(),
+        lte: DateTime.now().toISO(),
         gte: DateTime.now().minus({ weeks: 1 }).startOf('week').toISO()
       },
       NOT: [

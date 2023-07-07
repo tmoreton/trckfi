@@ -42,7 +42,7 @@ export default async (req, res) => {
           amount: true,
         },
         orderBy: {
-          week_year: 'desc'
+          week_year: 'asc'
         },
       })
     
