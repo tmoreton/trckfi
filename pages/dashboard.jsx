@@ -202,14 +202,12 @@ export default function ({ newUser, user }) {
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <DatePicker dates={dates} updateDashboard={updateDashboard} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
-
         <div class="flex items-center justify-center">
           {/* <PieChart categories={categories} /> */}
           <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
-
+        <DatePicker dates={dates} updateDashboard={updateDashboard} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
         <Table columns={columns} data={t} />
       </Container>
     </Layout>

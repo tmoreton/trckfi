@@ -49,12 +49,11 @@ export default function ({ columns, data }) {
 
   return (
     <>
-      <div className="mt-10 flex justify-center gap-x-6 items-center">
+      <div className="flex justify-end gap-x-6 items-center">
         <div className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
           <p className="text-md mr-2">Total:</p>
           <p className="text-2xl font-bold">${sum}</p>
         </div>
-          
       </div>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="table-fixed sm:table-auto w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>

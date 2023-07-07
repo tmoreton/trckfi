@@ -78,7 +78,7 @@ export default function ({ categories }) {
     ],
   }
   return (
-    <div className='w-1/4 w-100 mx-auto mt-8'>
+    <div className='w-1/3 w-100 mx-auto mt-8'>
       <Doughnut options={options} data={data} />
     </div>
   )
