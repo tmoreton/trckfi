@@ -19,10 +19,11 @@ export default function ({ item, setEdit, getDashboard, showError }) {
     updateTransaction({ ...transaction, [name]: value })
   }
 
-  const update = async () => {
+  const update = async (all) => {
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
-        transaction: transaction
+        transaction: transaction,
+        all
     }),
       method: 'POST',
     })
@@ -173,10 +174,17 @@ export default function ({ item, setEdit, getDashboard, showError }) {
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
+                <button
+                    type="button"
+                    className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
+                    onClick={() => update(true)}
+                  >
+                    Update All
+                  </button>
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
-                    onClick={update}
+                    onClick={() => update(false)}
                   >
                     Update
                   </button>
