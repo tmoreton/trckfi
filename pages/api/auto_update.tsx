@@ -5,9 +5,9 @@ import { DateTime } from "luxon"
 
 export default async (req, res) => {
   try {
-    await fetch(`/api/nodemailer`, {
+    await fetch(`/api/send_email`, {
       body: JSON.stringify({
-        email: "session.user.email",
+        email: "tmoreton89@gmail.com",
         message: "This is the auto update test"
       }),
       headers: {
