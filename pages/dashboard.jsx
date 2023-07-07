@@ -50,7 +50,6 @@ export default function ({ newUser, user }) {
   const email = user?.email
 
   useEffect(() => {
-    console.log(DateTime.now().weekNumber)
     if(email && !newUser){
       getDashboard()
     }
@@ -96,9 +95,9 @@ export default function ({ newUser, user }) {
       },
       method: 'POST',
     })
-    const { stats, accounts, transactions, monthlyIncomeData, monthlyExpenseData, categories, detailedCategories } = await res.json()
-    setExpenseData(monthlyExpenseData)
-    setIncomeData(monthlyIncomeData)
+    const { stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories } = await res.json()
+    setExpenseData(groupByMonth)
+    setIncomeData(groupByMonthIncome)
     setStats(stats)
     setTransactions(transactions)
     setAccounts(accounts)

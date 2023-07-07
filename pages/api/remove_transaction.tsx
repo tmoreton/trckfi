@@ -16,7 +16,6 @@ export default async (req, res) => {
         active: false
       }
     })
-
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() })

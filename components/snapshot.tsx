@@ -5,7 +5,7 @@ const classNames = (...classes) => {
 }
 
 const diff = (a, b) => {
-  return  Math.round(100 * Math.abs(( a - b ) / ( (a+b)/2 )))
+  return  Math.round(100 * Math.abs(( a - b ) / ( (a+b)/2 ))) || 0
  }
 
 export default function ({ totalStats, accounts, setShowAccounts, showAccounts }) {
@@ -58,7 +58,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="flex items-baseline justify-between">
-            <p className="text-2xl font-semibold text-red-600">${Number(thisMonthTotal).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+            <p className="text-2xl font-semibold text-red-600">${Number(thisMonthTotal || 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
             <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(lastMonthTotal).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
           </div>
           <p className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
@@ -77,8 +77,8 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="flex items-baseline justify-between">
-            <p className="text-2xl font-semibold text-green-600">${Number(Math.abs(thisMonthIncome)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(Math.abs(lastMonthIncome)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
+            <p className="text-2xl font-semibold text-green-600">${Number(Math.abs(thisMonthIncome || 0)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(Math.abs(lastMonthIncome || 0)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
           </div>
           <p className={classNames(Number(thisMonthIncome) >= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             {

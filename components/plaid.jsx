@@ -38,14 +38,13 @@ const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   const { data: session } = useSession()
   const router = useRouter()
   const onSuccess = async (public_token) => {
+    console.log(session)
     if(session?.user){
       const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
-      setTimeout(() => {
-        getAccounts(access_token)
-      }, 1000)
+      getAccounts(access_token)
       setTimeout(() => {
         syncTransactions(access_token)
-      }, 10000)
+      }, 5000)
     }
   }
 

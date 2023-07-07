@@ -20,7 +20,7 @@ export default async (req, res) => {
       return res.status(200).json({ access_token: response.data.access_token })
     }
 
-    return res.status(500).json('No User ID')
+    return res.status(500).json({ error: 'No User ID'})
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() })
   }

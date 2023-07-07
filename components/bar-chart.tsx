@@ -20,42 +20,43 @@ ChartJS.register(
 );
 
 export default function ({ monthlyIncomeData, monthlyExpenseData }) {
-  if (monthlyIncomeData.length <= 0 && monthlyExpenseData.length <= 0) return null
+  if (!monthlyIncomeData || !monthlyExpenseData) return null
+  if (monthlyIncomeData.length < 1 && monthlyExpenseData.length < 1) return null
 
   const monthlyLabel = monthlyExpenseData.map(a => a.month_year)
   const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
   const monthlyExpenseSum = monthlyExpenseData.map(a => Math.abs(a._sum.amount))
-  const options = {
-    scales: {
-      x: {
-        grid: {
-          display: false
-        }
-      },
-      y: {
-        grid: {
-          display: false
-        }
-      }
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
-    },
-  }
+  // const options = {
+  //   scales: {
+  //     x: {
+  //       grid: {
+  //         display: false
+  //       }
+  //     },
+  //     y: {
+  //       grid: {
+  //         display: false
+  //       }
+  //     }
+  //   },
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'bottom',
+  //     },
+  //   },
+  // }
 
   let data = {
-    labels: monthlyLabel,
+    labels: monthlyLabel.reverse(),
     datasets: [
       {
         label: 'Income',
-        data: monthlySum,
+        data: monthlySum.reverse(),
         backgroundColor: '#009c7b'
       }, {
         label: 'Expenses',
-        data: monthlyExpenseSum,
+        data: monthlyExpenseSum.reverse(),
         backgroundColor: '#ff6384'
       },
     ],

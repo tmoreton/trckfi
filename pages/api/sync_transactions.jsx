@@ -37,8 +37,8 @@ export default async (req, res) => {
         create: {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,
-          amount: added[i].amount,
-          authorized_date: new Date(added[i].authorized_date) || new Date(added[i].date),
+          amount: Number(added[i].amount).toFixed(2),
+          authorized_date: new Date(added[i].date),
           date: added[i].date,
           name: added[i].name,
           merchant_name: added[i].merchant_name,
@@ -51,7 +51,7 @@ export default async (req, res) => {
           user_id: user_id,
           item_id: plaidAccount.item_id,
           month_year: added[i].date.substring(0,7),
-          week_year: `${added[i].date.substring(0,4)}-${DateTime.now(added[i].date).weekNumber}`
+          week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`
         },
       })
     }
@@ -63,7 +63,6 @@ export default async (req, res) => {
 
     return res.status(200).json({ has_more: has_more })
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }
