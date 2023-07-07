@@ -203,7 +203,6 @@ export default function ({ newUser, user }) {
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <div class="flex items-center justify-center">
-          {/* <PieChart categories={categories} /> */}
           <PieChart categories={detailedCategories} />
           <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
         </div>
