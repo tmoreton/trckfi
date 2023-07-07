@@ -185,7 +185,7 @@ export default function ({ month, thisMonth, categories, thisMonthTotal, lastMon
                       </Column>
                       <Column className="w-32" align="left">
                         <Text className="text-[#666666] text-[8px] my-0 ml-6">
-                          {item.authorized_date}
+                          {item.date}
                         </Text>
                       </Column>
                       <Column align="right">

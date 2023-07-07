@@ -36,7 +36,7 @@ export default async (req, res) => {
     const lastMonthIncome = await prisma.transactions.aggregate({
       where: {
         user_id: user_id,
-        date: {
+        authorized_date: {
           lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
         },
@@ -53,7 +53,7 @@ export default async (req, res) => {
     const thisMonthIncome = await prisma.transactions.aggregate({
       where: {
         user_id: user_id,
-        date: {
+        authorized_date: {
           lte: DateTime.now().startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
         },
@@ -71,7 +71,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
         },
@@ -94,7 +94,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: DateTime.now().startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
         },
@@ -118,7 +118,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: range.startDate,
           gte: range.endDate
         },
@@ -138,7 +138,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: range.startDate,
           gte: range.endDate
         },
@@ -157,7 +157,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: range.startDate,
           gte: range.endDate
         },
@@ -173,12 +173,12 @@ export default async (req, res) => {
     })
 
     const monthlyIncomeData = await prisma.transactions.groupBy({
-      by: ['dt_string'],
+      by: ['month_year'],
       where: {
         user_id: user_id,
         active: true,
         primary_category: 'INCOME',
-        date: {
+        authorized_date: {
           lte: range.startDate,
           gte: range.endDate
         },
@@ -187,16 +187,16 @@ export default async (req, res) => {
         amount: true,
       },
       orderBy: {
-        dt_string: 'asc'
+        month_year: 'asc'
       },
     })
 
     const monthlyExpenseData = await prisma.transactions.groupBy({
-      by: ['dt_string'],
+      by: ['month_year'],
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: range.startDate,
           gte: range.endDate
         },
@@ -211,7 +211,7 @@ export default async (req, res) => {
         amount: true,
       },
       orderBy: {
-        dt_string: 'asc'
+        month_year: 'asc'
       },
     })
 
@@ -219,7 +219,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: DateTime.now().startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
         },
@@ -239,7 +239,7 @@ export default async (req, res) => {
       where: {
         user_id: user_id,
         active: true,
-        date: {
+        authorized_date: {
           lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
           gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
         },

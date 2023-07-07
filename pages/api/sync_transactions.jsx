@@ -37,8 +37,8 @@ export default async (req, res) => {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,
           amount: added[i].amount,
-          authorized_date: added[i].authorized_date || added[i].date,
-          date: new Date(added[i].date),
+          authorized_date: new Date(transactions[i].authorized_date) || new Date(transactions[i].date),
+          date: transactions[i].date,
           name: added[i].name,
           merchant_name: added[i].merchant_name,
           payment_channel: added[i].payment_channel,
@@ -49,7 +49,8 @@ export default async (req, res) => {
           location: added[i].location,
           user_id: user_id,
           item_id: plaidAccount.item_id,
-          dt_string: added[i].date.substring(0,7)
+          monthYear: added[i].date.substring(0,7),
+          weekYear: `${added[i].date.substring(0,4)}-${DateTime.now(added[i].date).weekNumber}`
         },
       })
     }

@@ -48,6 +48,7 @@ export default function ({ newUser, user }) {
   const email = user?.email
 
   useEffect(() => {
+    console.log(DateTime.now().weekNumber)
     if(email && !newUser){
       getDashboard()
     }

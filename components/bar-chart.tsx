@@ -22,7 +22,7 @@ ChartJS.register(
 export default function ({ monthlyIncomeData, monthlyExpenseData }) {
   if (monthlyIncomeData.length <= 0 && monthlyExpenseData.length <= 0) return null
 
-  const monthlyLabel = monthlyExpenseData.map(a => a.dt_string)
+  const monthlyLabel = monthlyExpenseData.map(a => a.month_year)
   const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
   const monthlyExpenseSum = monthlyExpenseData.map(a => Math.abs(a._sum.amount))
   const options = {

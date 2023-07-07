@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon } from '@heroicons/react/20/solid'
+import { snakeCase } from "snake-case";
 
 export default function ({ item, setEdit, getDashboard }) {
   const [transaction, updateTransaction] = useState({
@@ -16,7 +17,11 @@ export default function ({ item, setEdit, getDashboard }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    updateTransaction({ ...transaction, [name]: value })
+    if(name === 'primary_category'){
+      updateTransaction({ ...transaction, [name]: snakeCase(value) })
+    } else {
+      updateTransaction({ ...transaction, [name]: value })
+    }
   }
 
   const update = async () => {

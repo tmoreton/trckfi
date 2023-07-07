@@ -111,13 +111,14 @@ model Transactions {
   user_id           String?   @map("user_id")
   createdAt         DateTime? @default(now())
   updatedAt         DateTime? @updatedAt
-  authorized_date   String?
   item_id           String?
-  date              DateTime?
+  date              String?
   amount            Decimal?  @db.Decimal(9, 2)
   active            Boolean?  @default(true)
   category          Json?
-  dt_string         String?
+  authorized_date   DateTime?
+  month_year        String?
+  week_year         String?
 
   @@map("transactions")
 }
