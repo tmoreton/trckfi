@@ -1,12 +1,9 @@
 import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid'
+import { addComma, diffNum } from '../lib/formatNumber'
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
-
-const diff = (a, b) => {
-  return  Math.round(100 * Math.abs(( a - b ) / ( (a+b)/2 ))) || 0
- }
 
 export default function ({ totalStats, accounts, setShowAccounts, showAccounts }) {
   if (!totalStats || !accounts) return null
@@ -32,7 +29,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <p className={balance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
-            ${Number(balance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            {addComma(balance)}
           </p>
           {
             showAccounts ?
@@ -58,12 +55,12 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="flex items-baseline justify-between">
-            <p className="text-2xl font-semibold text-red-600">${Number(thisMonthTotal || 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(lastMonthTotal).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
+            <p className="text-2xl font-semibold text-red-600">{addComma(thisMonthTotal || 0)}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthTotal)}</span> in {lastMonthString}</p>
           </div>
           <p className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             <ArrowUpIcon className={classNames(Number(lastMonthTotal) >= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'h-5 w-5 flex-shrink-0 self-center text-green-500')} aria-hidden="true" />
-            {diff(Number(thisMonthTotal), Number(lastMonthTotal))}%
+            {diffNum(thisMonthTotal, lastMonthTotal)}%
           </p>
         </dd>
       </div>
@@ -77,8 +74,8 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="flex items-baseline justify-between">
-            <p className="text-2xl font-semibold text-green-600">${Number(Math.abs(thisMonthIncome || 0)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">${Number(Math.abs(lastMonthIncome || 0)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> in {lastMonthString}</p>
+            <p className="text-2xl font-semibold text-green-600">{addComma(thisMonthIncome || 0)}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthIncome || 0)}</span> in {lastMonthString}</p>
           </div>
           <p className={classNames(Number(thisMonthIncome) >= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
             {
@@ -87,7 +84,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
               :
               <ArrowUpIcon className='text-green-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
             }
-            {diff(Number(thisMonthIncome), Number(lastMonthIncome))}%
+            {diffNum(thisMonthIncome, lastMonthIncome)}%
           </p>
         </dd>
       </div>

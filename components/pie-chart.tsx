@@ -1,6 +1,7 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { addComma } from '../lib/formatNumber'
 
 export const CHART_COLORS = {
   red: 'rgb(255, 99, 132)',
@@ -39,22 +40,25 @@ export default function ({ categories }) {
         position: 'top' as const,
       },
       title: {
-        display: true,
+        display: false,
         text: 'Categories',
       },
     },
   }
 
+  let sum = 0
   const filtered = categories.map((a, i) => {
+    sum += Number(a._sum.amount)
     return {
-      category: a.primary_category || a.detailed_category,
+      name: a.primary_category || a.detailed_category,
       color: colors[i],
       amount: a._sum.amount
     }
   })
+  filtered.sort((a,b) => b.amount - a.amount)
 
   const data = {
-    labels: filtered.map(e => e.category),
+    labels: filtered.map(e => e.name),
     datasets: [
       {
         data: filtered.map(e => e.amount),
@@ -65,16 +69,22 @@ export default function ({ categories }) {
 
   return (
     <>
-      <div className="w-full">
-      { filtered.map(() => {
+      <div className="w-1/4">
+      { filtered.map(i => {
         return (
-          <div className=" my-4 w-full bg-gray-200 rounded-full h-2.5">
-            <div className="bg-pink-600 h-2.5 rounded-full" style={{width: '45%'}}></div>
-          </div>
+          <>
+            <div className="flex justify-between pt-2 pb-1 text-xs text-gray-500">
+              <p >{i.name.split('_').join(' ')}</p>
+              <p className="font-semibold">{addComma(i.amount)}</p>
+            </div>
+            <div className="mb-2 w-full bg-white rounded h-1">
+              <div className="h-1 rounded" style={{width: `${Number(i.amount)/sum*100}%`, backgroundColor: i.color}}></div>
+            </div>
+          </>
         )
       })}
       </div>
-      <div className='sm:w-1/3 w-100 mx-auto mt-8 ml-4'>
+      <div className='sm:w-1/4 w-100 mx-auto mt-8 ml-4'>
         <Doughnut data={data} options={options}/>
       </div>   
     </>
