@@ -35,6 +35,7 @@
     "plaid": "^14.1.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
+    "react-csv": "^2.2.2",
     "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-plaid-link": "^3.4.0",

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { snakeCase } from "snake-case"
+import { CSVLink } from "react-csv";
+import { DateTime } from "luxon";
 
 export default function ({ columns, data }) {
   if (!data || !columns) return null
-
+  const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState('')
   const [paginate, setPagination] = useState({
     start: 0,
@@ -26,7 +28,14 @@ export default function ({ columns, data }) {
     },
     useFilters,
     useSortBy,
-  );
+  )
+  let csv = []
+  csv.push(headerGroups[0].headers.map((row) => row.Header))
+  rows.map((row) => {
+    let values = Object.values(row.values)
+    values.pop()
+    csv.push(values)
+  })
 
   useEffect(() => {
     let total = 0
@@ -45,11 +54,10 @@ export default function ({ columns, data }) {
     if (type === 'NEXT' && rows.length >= paginate.end) {
       setPagination({start: paginate.start+20, end: paginate.end+20})
     }
-  };
+  }
 
   return (
     <>
-
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="table-fixed sm:table-auto w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
@@ -83,8 +91,9 @@ export default function ({ columns, data }) {
                         </div>
                       }
                       { column.render("Header") === '' &&
-                        <button className="mt-5 text-center button rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                          <p>Export CSV</p>
+                        <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                          <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>Download CSV</CSVLink>
+                          <p className="text-xs font-gray-300 font-extralight">({rows.length} selected)</p>
                         </button>
                       }
                   </th>
