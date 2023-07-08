@@ -5,7 +5,6 @@ import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
 import Plaid from "../components/plaid"
-import PlaidLink from "../components/plaid-link"
 import Table from '../components/table'
 import Head from 'next/head'
 import Layout from '../components/layout'
@@ -175,13 +174,12 @@ export default function ({ newUser, user, showError }) {
       </Head>
       <Container>
         <Menu showError={showError}/>
-        <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
+        <SetupModal open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
-        <div className="py-10 flex justify-center">
+        <div className="py-10 flex justify-center items-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
           <Plaid showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} />
-          {/* <Plaid showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} /> */}
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />

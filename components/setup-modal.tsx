@@ -2,10 +2,10 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Plaid from "./plaid"
 
-export default ({ open, getAccounts, syncTransactions }) => {
+export default ({ open, getAccounts, syncTransactions, openSetupModal }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => console.log("close")}>
+      <Dialog as="div" className="relative z-10" onClose={() => openSetupModal(false)}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
