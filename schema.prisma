@@ -52,6 +52,7 @@ model User {
   active               Boolean   @default(false)
   stripeCustomerId     String?
   stripeSubscriptionId String?
+  subscribed           Boolean   @default(false)
   accounts             Account[]
   sessions             Session[]
 
@@ -119,6 +120,7 @@ model Transactions {
   authorized_date   DateTime?
   month_year        String?
   week_year         String?
+  recurring         Boolean   @default(false)
 
   @@map("transactions")
 }
