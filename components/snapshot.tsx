@@ -13,11 +13,11 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
   
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
   let balance = 0
-  accounts.forEach(e => {
-    if(e.type === 'credit'){
-      balance -= Number(e.balances.current)
+  accounts.forEach(a => {
+    if(a.type === 'credit' || a.type === 'loan'){
+      balance -= Number(a.balances.current)
     } else {
-      balance += Number(e.balances.current)
+      balance += Number(a.balances.current)
     }
   });
 
