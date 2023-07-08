@@ -85,7 +85,7 @@ export default function ({ columns, data }) {
                         />
                       }
                       { column.render("Header") === 'Amount' &&
-                        <div className="w-full my-4 inline-flex items-center justify-center rounded py-1 px-4 text-sm font-semibold bg-white pink-border">
+                        <div className="w-full my-4 inline-flex items-center justify-left rounded py-1 pr-4 text-sm font-semibold bg-white ml-0">
                           <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
                           <p className="text-lg font-semibold text-pink-600">${sum}</p>
                         </div>
@@ -107,15 +107,7 @@ export default function ({ columns, data }) {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
-                    if(cell.column.Header === 'Name'){
-                      return (
-                        <td className="overflow-hidden px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                      );
-                    } else {
-                      return (
-                        <td className="overflow-hidden px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                      );
-                    }
+                    return (<td className="overflow-hidden px-2 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                   })}
                 </tr>
               )

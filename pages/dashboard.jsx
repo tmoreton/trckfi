@@ -17,6 +17,7 @@ import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
 import DatePicker from '../components/date-picker'
 import { DateTime } from "luxon"
+import { useRouter } from 'next/router'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -37,6 +38,8 @@ export default function ({ newUser, user, showError }) {
   const [detailedCategories, setDetailedCategories] = useState([])
   const [showAccounts, setShowAccounts] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
+  const router = useRouter()
+
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
@@ -48,6 +51,7 @@ export default function ({ newUser, user, showError }) {
     }
     if(newUser){
       setShowAccounts(true)
+      router.replace('/dashboard', undefined, { shallow: true });
     }
   }, [email])
 
@@ -135,35 +139,35 @@ export default function ({ newUser, user, showError }) {
     {
       Header: "Name",
       accessor: "name",
-      style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "Primary Category",
       accessor: "primary_category",
-      style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "Detailed Category",
       accessor: "detailed_category",
-      style: "w-1/4 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "Date",
       accessor: "date",
-      style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "Amount",
       accessor: "amount",
       Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2),
-      style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
     }, 
     {
       Header: '',
       id: 'id',
       accessor: data => data,
       Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
-      style: "w-1/12 px-2 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "text-center"
     }
   ]
 
