@@ -42,17 +42,11 @@ export default function ({ showError }) {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                      {navigation.map((item) => (
+                    {navigation.map((item) => (
                       <Link href={item.href} key={item.name} className={currentRoute === item.href ? "font-bold text-pink-600 px-3 py-2" : "text-gray-900 px-3 py-2"}>
                         {item.name}
                       </Link>
                     ))}
-                    { session &&
-                      <Link href="/feedback" className={currentRoute === '/feedback' ? "font-bold text-pink-600 px-3 py-2" : "text-gray-900 px-3 py-2"}>
-                        Feedback
-                      </Link>
-                    }
                   </div>
                 </div>
               </div>
@@ -80,6 +74,16 @@ export default function ({ showError }) {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link href="/feedback" className={classNames(
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+                              )}>
+                              Feedback
+                            </Link>
+                          )}
+                        </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <button

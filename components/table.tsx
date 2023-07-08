@@ -49,12 +49,7 @@ export default function ({ columns, data }) {
 
   return (
     <>
-      <div className="flex justify-end gap-x-6 items-center">
-        <div className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
-          <p className="text-md mr-2">Total:</p>
-          <p className="text-2xl font-bold">${sum}</p>
-        </div>
-      </div>
+
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="table-fixed sm:table-auto w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
@@ -74,12 +69,22 @@ export default function ({ columns, data }) {
                         </span>
                       }
                     </div>
-                      { column.render("Header") !== '' &&
+                      { column.render("Header") !== '' && column.render("Header") !== 'Amount' &&
                         <input                          
                           onChange={(e) => setFilter(snakeCase(column.render("Header")), e.target.value)}
                           placeholder={`Filter ${column.render("Header")}`}
                           className="w-full font-normal rounded p-2 my-4 focus:outline-none pink-border"
                         />
+                      }
+                      { column.render("Header") === 'Amount' &&
+                        <div className="w-full my-4 inline-flex items-center justify-center rounded py-1 px-4 text-sm font-semibold bg-pink-600 text-white">
+                          <p className="text-lg font-semibold">${sum}</p>
+                        </div>
+                      }
+                      { column.render("Header") === '' &&
+                        <div className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                          <p className="text-lg font-semibold">Export CSV</p>
+                        </div>
                       }
                   </th>
                 ))}
