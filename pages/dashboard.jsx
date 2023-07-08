@@ -3,7 +3,7 @@ import Container from "../components/container"
 import Preview from "../components/dashboard-preview"
 import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
-import Loader from '../components/loader'
+import LoadingModal from '../components/loading-modal'
 import Plaid from "../components/plaid"
 import Table from '../components/table'
 import Head from 'next/head'
@@ -175,7 +175,7 @@ export default function ({ newUser, user, showError }) {
       <Container>
         <Menu showError={showError}/>
         <SetupModal open={setupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
-        <Loader refreshing={refreshing} />
+        <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 

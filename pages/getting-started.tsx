@@ -8,7 +8,7 @@ import Container from "../components/container"
 import Layout from "../components/layout"
 import Head from 'next/head'
 import getStripe from '../utils/get-stripejs'
-import Loading from "../components/loading"
+import LoadingModal from '../components/loading-modal'
 
 export default function ({ csrfToken, user, showError }) {
   const email = user?.email
@@ -53,7 +53,7 @@ export default function ({ csrfToken, user, showError }) {
                 Let's create an account
               </h1>
               <p className="text-md text-gray-600">
-                With built in Two-Factor Authentication we don't use passwords that can be hacked. Instead we will send you a magic link everytime you sign in.
+                With passwordless login we don't use passwords that can be hacked. Instead we will send you a magic link everytime you sign in.
               </p>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function ({ csrfToken, user, showError }) {
       </Container>
     </Layout>
   )
-  return <Loading />
+  return <LoadingModal refreshing={true} text="Checking Account Status..."/>
 
 }
 
