@@ -77,14 +77,15 @@ export default function ({ columns, data }) {
                         />
                       }
                       { column.render("Header") === 'Amount' &&
-                        <div className="w-full my-4 inline-flex items-center justify-center rounded py-1 px-4 text-sm font-semibold bg-pink-600 text-white">
-                          <p className="text-lg font-semibold">${sum}</p>
+                        <div className="w-full my-4 inline-flex items-center justify-center rounded py-1 px-4 text-sm font-semibold bg-white pink-border">
+                          <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
+                          <p className="text-lg font-semibold text-pink-600">${sum}</p>
                         </div>
                       }
                       { column.render("Header") === '' &&
-                        <div className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                          <p className="text-lg font-semibold">Export CSV</p>
-                        </div>
+                        <button className="mt-5 text-center button rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                          <p>Export CSV</p>
+                        </button>
                       }
                   </th>
                 ))}
