@@ -4,6 +4,7 @@ import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroico
 import { snakeCase } from "snake-case"
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
+import { addComma } from '../lib/formatNumber'
 
 export default function ({ columns, data }) {
   if (!data || !columns) return null
@@ -42,9 +43,8 @@ export default function ({ columns, data }) {
     rows.map((row) => {
       total += Number(row.values.amount)
     })
-    let num = Number(Math.abs(total)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     setPagination({start: 0, end: 20})
-    setSum(num)
+    setSum(addComma(total))
   }, [rows])
 
   const updatePagination = (type) => {
@@ -87,7 +87,7 @@ export default function ({ columns, data }) {
                       { column.render("Header") === 'Amount' &&
                         <div className="w-full my-4 inline-flex items-center justify-left rounded py-1 pr-4 text-sm font-semibold bg-white ml-0">
                           <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
-                          <p className="text-lg font-semibold text-pink-600">${sum}</p>
+                          <p className="text-lg font-semibold text-pink-600">{sum}</p>
                         </div>
                       }
                       { column.render("Header") === '' &&
