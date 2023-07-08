@@ -91,10 +91,12 @@ export default function ({ columns, data }) {
                         </div>
                       }
                       { column.render("Header") === '' &&
-                        <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                          <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>Download CSV</CSVLink>
-                          <p className="text-xs font-gray-300 font-extralight">({rows.length} selected)</p>
-                        </button>
+                        <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>
+                          <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ">
+                            Download CSV
+                            <p className="text-xs font-gray-300 font-extralight">({rows.length} selected)</p>
+                          </button>
+                        </CSVLink>
                       }
                   </th>
                 ))}
