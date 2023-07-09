@@ -18,6 +18,7 @@ import Stripe from 'stripe'
 import DatePicker from '../components/date-picker'
 import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
+import { Emoji } from 'emoji-picker-react';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -136,6 +137,13 @@ export default function ({ newUser, user, showError }) {
   )
 
   const columns = [
+    {
+      Header: "Emoji",
+      accessor: "emoji",
+      accessor: data => data,
+      Cell: ({ cell: { value } }) => <Emoji unified={value.unified} size={25} />,
+      style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
+    },
     {
       Header: "Name",
       accessor: "name",

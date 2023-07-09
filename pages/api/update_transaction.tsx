@@ -17,6 +17,7 @@ export default async (req, res) => {
         where: { name: item.name },
         data: { 
           name: transaction.name,
+          unified: transaction.unified,
           primary_category: snakeCase(transaction.primary_category).toUpperCase(),
           detailed_category: snakeCase(transaction.detailed_category).toUpperCase(),
         }
@@ -27,6 +28,7 @@ export default async (req, res) => {
         data: { 
           amount: Number(transaction.amount).toFixed(2),
           name: transaction.name,
+          unified: transaction.unified,
           primary_category: snakeCase(transaction.primary_category).toUpperCase(),
           detailed_category: snakeCase(transaction.detailed_category).toUpperCase(),
         }

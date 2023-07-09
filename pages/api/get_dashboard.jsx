@@ -140,6 +140,9 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
+        // emoji: {
+        //   not: null
+        // },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },

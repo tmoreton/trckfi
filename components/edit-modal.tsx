@@ -1,18 +1,27 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon } from '@heroicons/react/20/solid'
+import EmojiPicker from 'emoji-picker-react'
+import { Emoji } from 'emoji-picker-react'
 
 export default function ({ item, setEdit, getDashboard, showError }) {
   const [transaction, updateTransaction] = useState({
     name: '',
     primary_category: '',
     detailed_category: '',
-    amount: 0
+    amount: 0,
+    unified: ""
   })
+  const [showEmoji, updateShowEmoji] = useState(false)
 
   useEffect(() => {
-    updateTransaction(item);
+    updateTransaction(item)
   }, [item])
+
+  const updateEmoji = (e) => {
+    updateTransaction({ ...transaction, unified: e.unified })
+    updateShowEmoji(false)
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,23 +91,31 @@ export default function ({ item, setEdit, getDashboard, showError }) {
                       <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4">
                         Edit Transaction
                       </Dialog.Title>
+                      { showEmoji ? 
+                      <EmojiPicker onEmojiClick={updateEmoji}/> 
+                      :
                       <form>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <input 
-                            type="text" 
-                            name="name" 
-                            id="transaction_name" 
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required
-                            value={transaction?.name}
-                            onChange={handleChange}
-                          />
-                          <label 
-                            htmlFor="transaction_name" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Name
-                          </label>
+                        <div className="relative z-0 w-full mb-6 group inline-flex">
+                          <p onClick={() => updateShowEmoji(true)}>
+                            <Emoji unified={transaction.unified} size={25} />
+                          </p>
+                          <div className="ml-4 w-full">
+                            <input 
+                              type="text" 
+                              name="name" 
+                              id="transaction_name" 
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              required
+                              value={transaction?.name}
+                              onChange={handleChange}
+                            />
+                            <label 
+                              htmlFor="transaction_name" 
+                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Name
+                            </label>
+                          </div>
                         </div>
                         <div className="relative z-0 w-full mb-6 group">
                           <input 
@@ -151,25 +168,9 @@ export default function ({ item, setEdit, getDashboard, showError }) {
                               Amount
                             </label>
                           </div>
-                          {/* <div className="relative z-0 w-full mb-6 group">
-                            <input 
-                              type="text" 
-                              name="date" 
-                              id="date" 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                              required
-                              value={transaction?.date}
-                              onChange={handleChange}
-                            />
-                            <label 
-                              for="date" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Date
-                            </label>
-                          </div> */}
                         </div>
                       </form>
+                      }
                     </div>
                   </div>
                 </div>
