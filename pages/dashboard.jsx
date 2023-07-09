@@ -139,7 +139,7 @@ export default function ({ newUser, user, showError }) {
   const columns = [
     {
       Header: "Emoji",
-      accessor: "emoji",
+      id: "unified",
       accessor: data => data,
       Cell: ({ cell: { value } }) => <Emoji unified={value.unified} size={25} />,
       style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
