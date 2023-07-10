@@ -58,6 +58,7 @@ export default function ({ monthlyIncomeData, monthlyExpenseData, weeklyData }) 
   }, [monthlyExpenseData, key])
 
   const updateBar = (expenses, key) => {
+    // const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
     const labels = key === 'monthly' ? expenses.map(a => a.month_year) : expenses.map(a => a.week_year)
     const sums = expenses.map(a => Math.abs(a._sum.amount))
     setData({
@@ -69,20 +70,7 @@ export default function ({ monthlyIncomeData, monthlyExpenseData, weeklyData }) 
       }],
     })
   }
-
-  // const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
-  // if(monthlyIncomeData.length <= 0){
-  //   data = {
-  //     labels: monthlyLabel,
-  //     datasets: [
-  //       {
-  //         label: 'Expenses',
-  //         data: monthlyExpenseSum,
-  //         backgroundColor: '#ff6384'
-  //       },
-  //     ],
-  //   }
-  // }
+  
   return (
     <>
       <div>
