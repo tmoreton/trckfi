@@ -58,19 +58,38 @@ export default function ({ monthlyIncomeData, monthlyExpenseData, weeklyData }) 
   }, [monthlyExpenseData, key])
 
   const updateBar = (expenses, key) => {
-    // const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
+    const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
     const labels = key === 'monthly' ? expenses.map(a => a.month_year) : expenses.map(a => a.week_year)
     const sums = expenses.map(a => Math.abs(a._sum.amount))
-    setData({
-      labels: labels.reverse(),
-      datasets: [{
-        label: 'Expenses',
-        data: sums.reverse(),
-        backgroundColor: '#ff6384'
-      }],
-    })
+    if(key === 'weekly' || monthlySum <= 0){
+      setData({
+        labels: labels.reverse(),
+        datasets: [
+          {
+            label: 'Expenses',
+            data: sums.reverse(),
+            backgroundColor: '#ff6384'
+          }
+        ],
+      })
+    } else {
+      setData({
+        labels: labels.reverse(),
+        datasets: [
+          {
+            label: 'Income',
+            data: monthlySum.reverse(),
+            backgroundColor: '#009c7b'
+          },{
+            label: 'Expenses',
+            data: sums.reverse(),
+            backgroundColor: '#ff6384'
+          }
+        ],
+      })
+    }
   }
-  
+
   return (
     <>
       <div>
