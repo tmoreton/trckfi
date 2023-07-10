@@ -46,7 +46,7 @@ export default function () {
             </div>
           </div>
           <img
-            src="/assets/dashboard-full.jpg"
+            src="/assets/dashboard-full-1.jpg"
             alt="Product screenshot"
             className="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 md:-ml-4 lg:-ml-0"
             width={2432}
