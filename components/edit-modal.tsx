@@ -19,7 +19,6 @@ export default function ({ item, setEdit, getDashboard, showError }) {
   }, [item])
 
   const updateEmoji = (e) => {
-    console.log(e)
     updateTransaction({ ...transaction, unified: e.unified })
     updateShowEmoji(false)
   }

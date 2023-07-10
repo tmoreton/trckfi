@@ -8,8 +8,6 @@ import Plaid from "../components/plaid"
 import Table from '../components/table'
 import Head from 'next/head'
 import Layout from '../components/layout'
-import BarChart from '../components/bar-chart'
-import PieChart from '../components/pie-chart'
 import EditModal from '../components/edit-modal'
 import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'

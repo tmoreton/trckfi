@@ -68,10 +68,22 @@ export default function ({ columns, data }) {
         )
       case 'Amount':
         return (
-          <div className="w-full my-4 items-center justify-left rounded py-1 pr-4 text-sm font-semibold bg-white ml-0">
-            <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
-            <p className="text-lg font-semibold text-pink-600">{sum}</p>
-          </div>
+          <>
+            <div className="flex">
+              <p className="font-bold">{column.render("Header")}</p>
+              <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                <ChevronDownIcon 
+                  {...column.getHeaderProps(column.getSortByToggleProps())} 
+                  className="h-5 w-5" 
+                  aria-hidden="true"
+                />
+              </span>
+            </div>
+            <div className="w-full mb-4 items-center justify-left rounded py-1 pr-4 text-sm font-semibold bg-white ml-0">
+              <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
+              <p className="text-lg font-semibold text-pink-600">{sum}</p>
+            </div>
+          </>
         )
       case 'Download':
         return (
