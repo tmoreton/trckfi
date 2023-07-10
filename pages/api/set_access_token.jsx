@@ -8,7 +8,7 @@ export default async (req, res) => {
     if(user_id){
       const { data } = await plaidClient.itemPublicTokenExchange({
         public_token: public_token
-      });
+      })
 
       await prisma.plaid.create({
         data: {

@@ -187,12 +187,12 @@ export default function ({ newUser, user, showError }) {
       </Head>
       <Container>
         <Menu showError={showError}/>
-        <SetupModal open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
+        <SetupModal showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center items-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
-          <PlaidLink showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+          <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />

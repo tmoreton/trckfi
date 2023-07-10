@@ -3,13 +3,14 @@ import { usePlaidLink } from 'react-plaid-link';
 import { useSession } from "next-auth/react"
 import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
-export default function ({ getAccounts, syncTransactions, showError }) {
+export default function ({ getAccounts, syncTransactions, showError, user }) {
   const [linkToken, setLinkToken] = useState(null)
-  const { data: session } = useSession()
 
   useEffect(() => {
-    generateToken()
-  }, [])
+    if(user){
+      generateToken()
+    }
+  }, [user])
 
   const generateToken = async () => {
     const response = await fetch('/api/create_link_token', {
@@ -36,7 +37,7 @@ export default function ({ getAccounts, syncTransactions, showError }) {
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
-      const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
+      const access_token = await getAccessToken({ public_token, user_id: user.id })
       if(access_token){
         getAccounts(access_token)
         syncTransactions(access_token)
