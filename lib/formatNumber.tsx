@@ -6,3 +6,7 @@ export const addComma = (num) => {
 export const diffNum = (a, b) => {
 return  Math.round(100 * Math.abs(( Number(a) - Number(b) ) / ( (Number(a) + Number(b))/2 ))) || 0
 }
+
+export const classNames = (...classes) => {
+  return classes.filter(Boolean).join(' ')
+}

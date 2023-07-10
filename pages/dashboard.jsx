@@ -19,6 +19,7 @@ import DatePicker from '../components/date-picker'
 import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
+import Graphs from '../components/graphs'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -39,6 +40,7 @@ export default function ({ newUser, user, showError }) {
   const [detailedCategories, setDetailedCategories] = useState([])
   const [showAccounts, setShowAccounts] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
+  const [weeklyData, setWeeklyData] = useState([])
   const router = useRouter()
 
   const [dates, setDates] = useState({
@@ -75,10 +77,11 @@ export default function ({ newUser, user, showError }) {
       },
       method: 'POST',
     })
-    const { error, stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories } = await res.json()
+    const { error, stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek } = await res.json()
     showError(error)
     setExpenseData(groupByMonth)
     setIncomeData(groupByMonthIncome)
+    setWeeklyData(groupByWeek)
     setStats(stats)
     setTransactions(transactions)
     setAccounts(accounts)
@@ -138,10 +141,10 @@ export default function ({ newUser, user, showError }) {
 
   const columns = [
     {
-      Header: "Emoji",
+      Header: "unified",
       id: "unified",
       accessor: data => data,
-      Cell: ({ cell: { value } }) => <Emoji unified={value.unified} size={25} />,
+      Cell: ({ cell: { value } }) => <Emoji unified={value.unified} size={20} />,
       style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
@@ -171,7 +174,7 @@ export default function ({ newUser, user, showError }) {
       style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
     }, 
     {
-      Header: '',
+      Header: 'Download',
       id: 'id',
       accessor: data => data,
       Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
@@ -195,10 +198,7 @@ export default function ({ newUser, user, showError }) {
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <div class="flex items-center justify-center">
-          <PieChart categories={detailedCategories} />
-          <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} />
-        </div>
+        <Graphs categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
         <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
         <Table columns={columns} data={t} />
       </Container>

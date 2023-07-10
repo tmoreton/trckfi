@@ -7,32 +7,32 @@ export default async (req, res) => {
   if (!user_id ) return res.status(500)
   try {
 
-    // const groupByWeek = await prisma.transactions.groupBy({
-    //   by: ['week_year'],
-    //   where: {
-    //     user_id: user_id,
-    //     active: true,
-    //     authorized_date: {
-    //       lte: range.startDate,
-    //       gte: range.endDate
-    //     },
-    //     NOT: [
-    //       { primary_category: 'LOAN_PAYMENTS' },
-    //       { primary_category: 'TRANSFER_IN' },
-    //       { primary_category: 'TRANSFER_OUT' },
-    //       { primary_category: 'INCOME' }
-    //     ],
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    //   _count: {
-    //     amount: true,
-    //   },
-    //   orderBy: {
-    //     week_year: 'desc'
-    //   },
-    // })
+    const groupByWeek = await prisma.transactions.groupBy({
+      by: ['week_year'],
+      where: {
+        user_id: user_id,
+        active: true,
+        authorized_date: {
+          lte: range.startDate,
+          gte: range.endDate
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' }
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+      _count: {
+        amount: true,
+      },
+      orderBy: {
+        week_year: 'desc'
+      },
+    })
 
     const accounts = await prisma.accounts.findMany({
       where: { 
@@ -140,9 +140,6 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        // emoji: {
-        //   not: null
-        // },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },
@@ -171,7 +168,7 @@ export default async (req, res) => {
       detailedCategories,
       groupByMonthIncome,
       groupByMonth,
-      // groupByWeek
+      groupByWeek
     })
 
   } catch (error) {

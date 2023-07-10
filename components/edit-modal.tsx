@@ -19,6 +19,7 @@ export default function ({ item, setEdit, getDashboard, showError }) {
   }, [item])
 
   const updateEmoji = (e) => {
+    console.log(e)
     updateTransaction({ ...transaction, unified: e.unified })
     updateShowEmoji(false)
   }
@@ -88,18 +89,18 @@ export default function ({ item, setEdit, getDashboard, showError }) {
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="w-full">
                     <div className="mt-3 text-center sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4">
+                      <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4 flex justify-center">
                         Edit Transaction
+                        <span className="ml-4" onClick={() => updateShowEmoji(true)}>
+                          <Emoji unified={transaction.unified} size={25} />
+                        </span>
                       </Dialog.Title>
                       { showEmoji ? 
                       <EmojiPicker onEmojiClick={updateEmoji}/> 
                       :
                       <form>
                         <div className="relative z-0 w-full mb-6 group inline-flex">
-                          <p onClick={() => updateShowEmoji(true)}>
-                            <Emoji unified={transaction.unified} size={25} />
-                          </p>
-                          <div className="ml-4 w-full">
+                          <div className="w-full">
                             <input 
                               type="text" 
                               name="name" 

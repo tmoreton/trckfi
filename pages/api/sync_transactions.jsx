@@ -3,6 +3,17 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 import { DateTime } from "luxon"
 
+const icons = {
+  "COFFEE": "2615",
+  "FAST_FOOD": "1f35f",
+  "FLIGHTS": "2708-fe0f",
+  "GYMS_AND_FITNESS_CENTERS": "1f3cb-fe0f",
+  "RENT": "1f3e1",
+  "RESTAURANT": "1f37d-fe0f",
+  "SPORTING_GOODS": "1f3c8",
+  "TAXIS_AND_RIDE_SHARES": "1f695"
+}
+
 export default async (req, res) => {
   const { user_id, access_token } = req.body
   if (!user_id || !access_token) return res.status(500).json({ error: 'No Token or User' })
@@ -29,6 +40,7 @@ export default async (req, res) => {
     let has_more = response.data.has_more
 
     for (var i in added) {
+      let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
       await prisma.transactions.upsert({
         where: { 
           transaction_id: added[i].transaction_id 
@@ -44,14 +56,15 @@ export default async (req, res) => {
           merchant_name: added[i].merchant_name,
           payment_channel: added[i].payment_channel,
           category: added[i].category,
-          detailed_category: added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, ''),
+          detailed_category: detailed_category,
+          unified: icons[detailed_category],
           primary_category: added[i].personal_finance_category.primary,
           pending: added[i].pending,
           location: added[i].location,
           user_id: user_id,
           item_id: plaidAccount.item_id,
           month_year: added[i].date.substring(0,7),
-          week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`
+          week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
         },
       })
     }
