@@ -4,6 +4,7 @@ import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
   const { access_token, all } = req.body
+  console.log(all)
   try {
     const plaidAccount = await prisma.plaid.findUnique({
       where: {

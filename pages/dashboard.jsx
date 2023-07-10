@@ -148,22 +148,22 @@ export default function ({ newUser, user, showError }) {
     {
       Header: "Name",
       accessor: "name",
-      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/4 mr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Primary Category",
       accessor: "primary_category",
-      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Detailed Category",
       accessor: "detailed_category",
-      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Date",
       accessor: "date",
-      style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Amount",

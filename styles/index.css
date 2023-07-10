@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .pink-border {
-  border: 1px solid rgb(219 39 119);
+  border: 1px solid #db2777;
 }
 
 aside.EmojiPickerReact.epr-main {

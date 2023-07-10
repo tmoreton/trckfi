@@ -14,7 +14,7 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
     setAccounts(items)
   }
 
-  const removeToken = async ({ all }) => {
+  const removeToken = async (all) => {
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
         access_token: token,
