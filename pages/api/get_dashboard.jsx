@@ -30,9 +30,10 @@ export default async (req, res) => {
         amount: true,
       },
       orderBy: {
-        week_year: 'desc'
+        week_year: 'asc'
       },
     })
+    groupByWeek.sort((a, b) => b.week_year.split('-')[1] - a.week_year.split('-')[1])
 
     const accounts = await prisma.accounts.findMany({
       where: { 
