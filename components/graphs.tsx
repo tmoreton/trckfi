@@ -83,7 +83,7 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
 
   return (
     <div>        
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-10">
         <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200">
           <div>
             <div className="sm:hidden">

@@ -19,7 +19,7 @@ export default function ({ openDatePicker, setDatePicker, dates, setDates }) {
 
   return (
     <div>
-      <div className="mt-10 flex justify-center gap-x-6 items-center">
+      <div className="py-3 flex justify-center gap-x-6 items-center">
         <button onClick={() => setDatePicker(true)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-lg font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
           {new Date(dateRange.startDate).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}
         </button>

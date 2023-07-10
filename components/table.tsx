@@ -117,7 +117,7 @@ export default function ({ columns, data }) {
   return (
     <>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
-        <table className="table-fixed sm:table-auto w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
+        <table className="lg:table-auto sm:table-fixed  w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
