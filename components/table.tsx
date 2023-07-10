@@ -85,8 +85,8 @@ export default function ({ columns, data }) {
       case 'Download':
         return (
           <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>
-            <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-xs font-semibold text-white shadow-sm">
-              Download CSV
+            <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-base font-semibold text-white shadow-sm">
+              Download
             </button>
             <p className="text-xs font-gray-300 font-extralight pt-2">({rows.length} filtered)</p>
           </CSVLink>
