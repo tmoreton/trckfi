@@ -18,59 +18,57 @@ export default async (req, res) => {
     })
 
     const subscription = await stripe.subscriptions.cancel(user.stripeSubscriptionId);
+    
+    const plaid = await prisma.plaid.findMany({
+      where: {
+        user_id: user.id
+      },
+    })
 
-    if(subscription){
-      const plaid = await prisma.plaid.findMany({
+    for (var i in plaid) {        
+      await plaidClient.itemRemove({
+        access_token: plaid[i].access_token
+      })
+
+      await prisma.plaid.updateMany({
         where: {
-          user_id: user.id
+          item_id: plaid[i].item_id
         },
+        data: {
+          active: false,
+        }
+      })
+
+      await prisma.accounts.updateMany({
+        where: {
+          item_id: plaid[i].item_id
+        },
+        data: {
+          active: false,
+          user_id: null
+        }
       })
   
-      for (var i in plaid) {        
-        await plaidClient.itemRemove({
-          access_token: plaid[i].access_token
-        })
-  
-        await prisma.plaid.updateMany({
-          where: {
-            item_id: plaid[i].item_id
-          },
-          data: {
-            active: false,
-          }
-        })
-  
-        await prisma.accounts.updateMany({
-          where: {
-            item_id: plaid[i].item_id
-          },
-          data: {
-            active: false,
-            user_id: null
-          }
-        })
-    
-        await prisma.transactions.updateMany({
-          where: {
-            item_id: plaid[i].item_id
-          },
-          data: {
-            active: false,
-            user_id: null,
-            transaction_id: null
-          }
-        })
+      await prisma.transactions.updateMany({
+        where: {
+          item_id: plaid[i].item_id
+        },
+        data: {
+          active: false,
+          user_id: null,
+          transaction_id: null
+        }
+      })
 
-        await prisma.user.updateMany({
-          where: {
-            id: user.id
-          },
-          data: {
-            active: false,
-            stripeSubscriptionId: null,
-          }
-        })
-      }
+      await prisma.user.updateMany({
+        where: {
+          id: user.id
+        },
+        data: {
+          active: false,
+          stripeSubscriptionId: null,
+        }
+      })
     }
 
     return res.status(200).json('ok')

@@ -50,10 +50,10 @@ export default function ({ newUser, user, showError }) {
     if(email && !newUser){
       getDashboard()
     }
-    if(newUser){
-      setShowAccounts(true)
-      router.replace('/dashboard', undefined, { shallow: true });
-    }
+    // if(newUser){
+    //   setShowAccounts(true)
+    //   router.replace('/dashboard', undefined, { shallow: true });
+    // }
   }, [email])
 
   useEffect(() => {
@@ -187,7 +187,7 @@ export default function ({ newUser, user, showError }) {
       </Head>
       <Container>
         <Menu showError={showError}/>
-        <SetupModal open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
+        {/* <SetupModal open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/> */}
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center items-center">
@@ -226,6 +226,6 @@ export async function getServerSideProps(context) {
   // const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
   // if (!plan.active) return { props: { user: null, newUser: false }}
 
-  if (new_user) return { props: { user, newUser: true } }
-  return { props: { user, newUser: false } }
+  // if (new_user) return { props: { user, newUser: true } }
+  return { props: { user } }
 }
