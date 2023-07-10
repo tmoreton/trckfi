@@ -12,8 +12,8 @@ export default async (req, res) => {
   }
   
   try {
-    const createTokenResponse = await plaidClient.linkTokenCreate(params);
-    return res.status(200).json(createTokenResponse.data)
+    const { data } = await plaidClient.linkTokenCreate(params);
+    return res.status(200).json({ link_token: data.link_token })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
