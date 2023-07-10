@@ -132,6 +132,26 @@ export default async (req, res) => {
         amount: true,
       },
     })
+
+    const emojiCategories = await prisma.transactions.groupBy({
+      by: ['unified'],
+      where: {
+        user_id: user_id,
+        active: true,
+        authorized_date: {
+          lte: range.startDate,
+          gte: range.endDate
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' }
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+    })
   
     const transactions = await prisma.transactions.findMany({
       where: {
@@ -169,7 +189,8 @@ export default async (req, res) => {
       detailedCategories,
       groupByMonthIncome,
       groupByMonth,
-      groupByWeek
+      groupByWeek,
+      emojiCategories
     })
 
   } catch (error) {

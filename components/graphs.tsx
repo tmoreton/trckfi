@@ -3,6 +3,7 @@ import BarChart from './bar-chart'
 import { addComma, classNames } from '../lib/formatNumber'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { Emoji } from 'emoji-picker-react';
 
 const colors = [
   '#36a2eb',
@@ -22,11 +23,12 @@ const colors = [
 const tabs = [
   { name: 'Primary Categories', key: 'primary_category' },
   { name: 'Detailed Categories', key: 'detailed_category' },
+  { name: 'Emoji Categories', key: 'unified' },
 ]
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function ({ categories, detailedCategories, incomeData, expenseData, weeklyData }) {
+export default function ({ categories, detailedCategories, incomeData, expenseData, weeklyData, emojiCategories }) {
   if (!categories) return null
   const [data, setData] = useState({
     labels: [],
@@ -39,6 +41,8 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
   useEffect(() => {
     if(key === 'primary_category'){
       updatePie(categories)
+    } else if(key === 'unified') {
+      updatePie(emojiCategories)
     } else {
       updatePie(detailedCategories)
     }
@@ -49,7 +53,7 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
     let updated = categories.map((a, i) => {
       total += Number(a._sum.amount)
       return {
-        name: a.primary_category || a.detailed_category,
+        name: a.primary_category || a.detailed_category || a.unified,
         color: colors[i],
         amount: a._sum.amount
       }
@@ -126,10 +130,16 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
           <div className="gap-x-8 grid grid-cols-1 lg:grid-cols-2">
             <div className="col-span-1">
               { filtered.map(i => {
+                console.log(i)
                 return (
                   <>
                     <div className="flex justify-between pt-2 pb-1 text-xs text-gray-500">
-                      <p >{i.name.split('_').join(' ')}</p>
+                      {
+                        key === 'unified' ?
+                        <Emoji unified={i.name} size={20}/>
+                        :
+                        <p>{i?.name?.split('_').join(' ')}</p>
+                      }
                       <p className="font-semibold">{addComma(i.amount)}</p>
                     </div>
                     <div className="mb-2 w-full bg-white rounded h-1">

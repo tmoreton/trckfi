@@ -36,9 +36,11 @@ export default function ({ newUser, user, showError }) {
   const [setupModal, openSetupModal] = useState(newUser || false)
   const [categories, setCategories] = useState([])
   const [detailedCategories, setDetailedCategories] = useState([])
+  const [emojiCategories, setEmojiCategories] = useState([])
   const [showAccounts, setShowAccounts] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [weeklyData, setWeeklyData] = useState([])
+  
   const router = useRouter()
 
   const [dates, setDates] = useState({
@@ -75,7 +77,7 @@ export default function ({ newUser, user, showError }) {
       },
       method: 'POST',
     })
-    const { error, stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek } = await res.json()
+    const { error, stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
     showError(error)
     setExpenseData(groupByMonth)
     setIncomeData(groupByMonthIncome)
@@ -85,6 +87,7 @@ export default function ({ newUser, user, showError }) {
     setAccounts(accounts)
     setRefreshing(false)
     setCategories(categories)
+    setEmojiCategories(emojiCategories)
     setDetailedCategories(detailedCategories)
   }
 
@@ -140,9 +143,8 @@ export default function ({ newUser, user, showError }) {
   const columns = [
     {
       Header: "unified",
-      id: "unified",
-      accessor: data => data,
-      Cell: ({ cell: { value } }) => <Emoji unified={value.unified} size={20} />,
+      accessor: data => data.unified,
+      Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
       style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
     },
     {
@@ -197,7 +199,7 @@ export default function ({ newUser, user, showError }) {
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
-        <Graphs categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
+        <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
         <Table columns={columns} data={t} />
       </Container>
     </Layout>

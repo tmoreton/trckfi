@@ -5,13 +5,16 @@ import { snakeCase } from "snake-case"
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { addComma } from '../lib/formatNumber'
-import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
+import EmojiModal from '../components/emoji-modal'
 
 export default function ({ columns, data }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState('')
+  const [showEmoji, setShowEmoji] = useState(false)
+  const [emoji, setEmoji] = useState('1f50d')
+
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
@@ -58,13 +61,20 @@ export default function ({ columns, data }) {
     }
   }
 
+  const searchEmoji = (e) => {
+    console.log(e)
+    setFilter('unified', e)
+    setShowEmoji(false)
+    setEmoji(e)
+  }
+
   const renderHeader = (column) => {
     switch (column.render("Header")) {
       case 'unified':
         return (
-          <div className="mr-4">
-            <Emoji unified="1f50d" />
-          </div>
+          <button className="mr-4" onClick={() => setShowEmoji(true)}>
+            <Emoji unified={emoji} />
+          </button>
         )
       case 'Amount':
         return (
@@ -116,6 +126,7 @@ export default function ({ columns, data }) {
 
   return (
     <>
+      <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="lg:table-auto sm:table-fixed  w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
