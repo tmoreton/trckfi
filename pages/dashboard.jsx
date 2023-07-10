@@ -176,7 +176,7 @@ export default function ({ newUser, user, showError }) {
       id: 'id',
       accessor: data => data,
       Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
-      style: "text-center"
+      style: "text-center w-8"
     }
   ]
 

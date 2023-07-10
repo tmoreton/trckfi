@@ -62,8 +62,8 @@ export default function ({ columns, data }) {
     switch (column.render("Header")) {
       case 'unified':
         return (
-          <div className="w-6 mr-4">
-            <Emoji unified="1f50d" size={30} />
+          <div className="mr-4">
+            <Emoji unified="1f50d" />
           </div>
         )
       case 'Amount':
@@ -72,26 +72,23 @@ export default function ({ columns, data }) {
             <div className="flex">
               <p className="font-bold">{column.render("Header")}</p>
               <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                <ChevronDownIcon 
+                <ChevronDownIcon removeToken
                   {...column.getHeaderProps(column.getSortByToggleProps())} 
                   className="h-5 w-5" 
                   aria-hidden="true"
                 />
               </span>
             </div>
-            <div className="w-full mb-4 items-center justify-left rounded py-1 pr-4 text-sm font-semibold bg-white ml-0">
-              <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
-              <p className="text-lg font-semibold text-pink-600">{sum}</p>
-            </div>
+            <p className="text-lg font-semibold text-pink-600">{sum}</p>
           </>
         )
       case 'Download':
         return (
           <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>
-            <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ">
+            <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-xs font-semibold text-white shadow-sm">
               Download CSV
-              <p className="text-xs font-gray-300 font-extralight">({rows.length} selected)</p>
             </button>
+            <p className="text-xs font-gray-300 font-extralight pt-2">({rows.length} selected)</p>
           </CSVLink>
         )
       default:
@@ -127,47 +124,6 @@ export default function ({ columns, data }) {
                 {headerGroup.headers.map(column => (
                   <th className={column.render("style")}>
                     {renderHeader(column)}
-                    {/* <div className="flex">
-                      {
-                        hideSearch(column.render("Header")) &&
-                        <p className="font-bold">{column.render("Header")}</p>
-                      }
-                      
-                      { column.render("Header") !== '' &&
-                        <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                          <ChevronDownIcon 
-                            {...column.getHeaderProps(column.getSortByToggleProps())} 
-                            className="h-5 w-5" 
-                            aria-hidden="true"
-                          />
-                        </span>
-                      }
-                    </div>
-                      { hideSearch(column.render("Header")) &&
-                        <input                          
-                          onChange={(e) => setFilter(snakeCase(column.render("Header")), e.target.value)}
-                          placeholder={`Filter ${column.render("Header")}`}
-                          className="w-full font-normal rounded p-2 my-4 focus:outline-none pink-border"
-                        />
-                      }
-                      { column.render("Header") === 'unified' &&
-                        <Emoji unified="1f50d" size={25} />
-                        // <EmojiPicker onEmojiClick={e => console.log(e)}/> 
-                      }
-                      { column.render("Header") === 'Amount' &&
-                        <div className="w-full my-4 inline-flex items-center justify-left rounded py-1 pr-4 text-sm font-semibold bg-white ml-0">
-                          <span className="text-gray-400 text-sm font-normal mr-2">Total: </span>
-                          <p className="text-lg font-semibold text-pink-600">{sum}</p>
-                        </div>
-                      }
-                      { column.render("Header") === '' &&
-                        <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>
-                          <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ">
-                            Download CSV
-                            <p className="text-xs font-gray-300 font-extralight">({rows.length} selected)</p>
-                          </button>
-                        </CSVLink>
-                      } */}
                   </th>
                 ))}
               </tr>

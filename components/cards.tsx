@@ -14,10 +14,11 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
     setAccounts(items)
   }
 
-  const removeToken = async () => {
+  const removeToken = async ({ all }) => {
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
-        access_token: token
+        access_token: token,
+        all
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +33,7 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
 
   return (
     <div className={!showAccounts && 'hidden'}>
-      <div className="pt-4 border-t-2">
+      <div className="py-4 border-t-2">
         <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
         <ul role="list" className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           { accounts?.length < 1 && <p className="text-gray-500"><b>No Cards Synced Yet</b></p>}
