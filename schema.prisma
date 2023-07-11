@@ -122,6 +122,9 @@ model Transactions {
   week_year         String?
   recurring         Boolean   @default(false)
   unified           String?   @default("1f4b8")
+  account_name      String?
+  notes             String?
+  type              String?
 
   @@map("transactions")
 }

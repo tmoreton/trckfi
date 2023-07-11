@@ -45,9 +45,7 @@ export default function ({ columns, data }) {
 
   useEffect(() => {
     let total = 0
-    
     rows.map((row) => {
-      console.log(row)
       total += Number(row.values.amount)
     })
     setPagination({start: 0, end: 20})
