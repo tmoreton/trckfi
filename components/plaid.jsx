@@ -22,8 +22,6 @@ const Plaid = ({ getAccounts, syncTransactions }) => {
 }
 
 const getAccessToken = async ({ public_token, user_id }) => {
-  console.log('public token')
-  console.log(public_token)
   const res = await fetch(`/api/set_access_token`, {
     body: JSON.stringify({ public_token, user_id }),
     headers: {
@@ -38,7 +36,6 @@ const getAccessToken = async ({ public_token, user_id }) => {
 const Link = ({ linkToken, getAccounts, syncTransactions }) => {
   const { data: session } = useSession()
   const onSuccess = React.useCallback(async (public_token) => {
-    console.log(session)
     const access_token = await getAccessToken({ public_token, user_id: session?.user.id })
     if(access_token){
       setTimeout(() => {

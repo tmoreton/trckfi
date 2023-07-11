@@ -125,12 +125,9 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
               </div>
             </div>
           </div>
-
-
           <div className="gap-x-8 grid grid-cols-1 lg:grid-cols-2">
             <div className="col-span-1">
               { filtered.map(i => {
-                console.log(i)
                 return (
                   <>
                     <div className="flex justify-between pt-2 pb-1 text-xs text-gray-500">

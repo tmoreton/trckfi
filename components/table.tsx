@@ -62,7 +62,6 @@ export default function ({ columns, data }) {
   }
 
   const searchEmoji = (e) => {
-    console.log(e)
     setFilter('unified', e)
     setShowEmoji(false)
     setEmoji(e)

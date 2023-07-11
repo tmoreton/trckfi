@@ -59,7 +59,6 @@ export default function ({ monthlyIncomeData, monthlyExpenseData, weeklyData }) 
 
   const updateBar = (expenses, key) => {
     const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
-    console.log(expenses.sort((o) => { return o.week_year }))
     const labels = key === 'monthly' ? expenses.map(a => a.month_year) : expenses.map(a => a.week_year)
     const sums = expenses.map(a => Math.abs(a._sum.amount))
 
