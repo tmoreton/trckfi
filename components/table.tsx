@@ -67,13 +67,21 @@ export default function ({ columns, data }) {
     setEmoji(e)
   }
 
+  const removeEmoji = () => {
+    setFilter('unified', '')
+    setEmoji('1f50d')
+  }
+
   const renderHeader = (column) => {
     switch (column.render("Header")) {
       case 'unified':
         return (
-          <button className="mr-4" onClick={() => setShowEmoji(true)}>
-            <Emoji unified={emoji} />
-          </button>
+          <>
+            <button className="mr-4" onClick={() => setShowEmoji(true)}>
+              <Emoji unified={emoji} />
+            </button>
+            { emoji !== '1f50d' && <p onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</p>}
+          </>
         )
       case 'Amount':
         return (
