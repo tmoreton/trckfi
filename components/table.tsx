@@ -45,7 +45,9 @@ export default function ({ columns, data }) {
 
   useEffect(() => {
     let total = 0
+    
     rows.map((row) => {
+      console.log(row)
       total += Number(row.values.amount)
     })
     setPagination({start: 0, end: 20})
@@ -62,6 +64,7 @@ export default function ({ columns, data }) {
   }
 
   const searchEmoji = (e) => {
+    console.log(e)
     setFilter('unified', e)
     setShowEmoji(false)
     setEmoji(e)

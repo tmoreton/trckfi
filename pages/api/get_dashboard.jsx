@@ -105,7 +105,8 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' }
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' }
         ],
       },
       _sum: {
@@ -125,7 +126,8 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' }
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' }
         ],
       },
       _sum: {
@@ -145,7 +147,8 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' }
+          { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' }
         ],
       },
       _sum: {
@@ -166,6 +169,17 @@ export default async (req, res) => {
           { primary_category: 'TRANSFER_IN' },
           { primary_category: 'TRANSFER_OUT' },
         ],
+      },
+      select: {
+        name: true,
+        primary_category: true,
+        detailed_category: true,
+        item_id: true,
+        amount: true,
+        active: true,
+        date: true,
+        unified: true,
+        transaction_id: true,
       },
       orderBy: {
         date: 'desc'

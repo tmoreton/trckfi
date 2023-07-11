@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ArrowPathIcon, TrashIcon } from '@heroicons/react/20/solid'
 import RemoveAccount from "./remove-account"
+import { addComma, diffNum } from '../lib/formatNumber'
 
 export default function ({ getTransactions, getDashboard, loading, accounts, showAccounts, showError }) {
   const [open, setOpen] = useState(false)
@@ -49,7 +50,7 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
                     <p className="text-gray-900 hover:text-gray-600">
                       {account.name?.length > 30 ? `${account.name?.substring(0, 40)}...` : account.name}
                     </p>
-                    <p className={balanceClass}><b>Balance:</b> ${Number(account.balances.current).toFixed(2)}</p>
+                    <p className={balanceClass}><b>Balance:</b> {addComma(account.balances.current)}</p>
                     <p className="text-xs text-gray-400">{account.subtype}</p>
                   </div>
                   <div className="p-2 mt-6 flex">

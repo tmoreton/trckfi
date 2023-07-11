@@ -11,7 +11,13 @@ const icons = {
   "RENT": "1f3e1",
   "RESTAURANT": "1f37d-fe0f",
   "SPORTING_GOODS": "1f3c8",
-  "TAXIS_AND_RIDE_SHARES": "1f695"
+  "TAXIS_AND_RIDE_SHARES": "1f695",
+  "GAS_AND_ELECTRICITY": "1f4a1",
+  "BEER_WINE_AND_LIQUOR": "1f37a",
+  "ATM_FEES": "1f3e6",
+  "INTEREST_EARNED": "1f4b0",
+  "WAGES": "1f4b0",
+  "PARKING": "1f697",
 }
 
 export default async (req, res) => {
@@ -23,6 +29,22 @@ export default async (req, res) => {
       access_token: access_token
     },
   })
+
+  const accounts = await prisma.accounts.findMany({
+    where: { 
+      user_id: user_id,
+      active: true
+    },
+  })
+
+  const formatAmount = (account_id, amount) => {
+    let { type } = accounts.find(a => a.account_id === account_id)
+    if(type === 'credit' || type === 'loan'){
+      return Number(-Math.abs(amount)).toFixed(2)
+    } else {
+      return Number(Math.abs(amount)).toFixed(2)
+    }
+  }
 
   const request = {
     access_token: plaidAccount.access_token,
@@ -49,7 +71,7 @@ export default async (req, res) => {
         create: {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,
-          amount: Number(added[i].amount).toFixed(2),
+          amount: formatAmount(added[i].account_id, added[i].amount),
           authorized_date: new Date(added[i].date),
           date: added[i].date,
           name: added[i].name,

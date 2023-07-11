@@ -50,22 +50,26 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
 
   const updatePie = (categories) => {
     let total = 0
-    let updated = categories.map((a, i) => {
-      total += Number(a._sum.amount)
+    let mapped = categories.map((a, i) => {
       return {
         name: a.primary_category || a.detailed_category || a.unified,
         color: colors[i],
         amount: a._sum.amount
       }
     }).sort((a,b) => b.amount - a.amount)
+
+    let filtered = mapped.filter((a) => {
+      total += Number(a.amount)
+      if(Number(a.amount) > 0) return a
+    })
     setSum(total)
-    setFiltered(updated)
+    setFiltered(filtered)
     setData({
-      labels: updated.map(e => e.name),
+      labels: filtered.map(e => e.name),
       datasets: [
         {
-          data: updated.map(e => e.amount),
-          backgroundColor: updated.map(e => e.color),
+          data: filtered.map(e => e.amount),
+          backgroundColor: filtered.map(e => e.color),
         },
       ],
     })
