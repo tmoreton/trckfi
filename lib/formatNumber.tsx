@@ -10,17 +10,3 @@ export const diffNum = (a, b) => {
 export const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
-
-// export const type = (type, num) => {
-//   switch (type) {
-//     case 'credit' || 'loan':
-//       return -Math.abs(num)
-//     case 'depository' || 'loan':
-
-//     default:
-//       console.log(`Sorry, we are out of ${expr}.`);
-//   }
-// }
-
-// Math.abs(num) => Always positive
-// -Math.abs(num) => Always negative
