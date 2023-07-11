@@ -154,7 +154,12 @@ export default function ({ columns, data }) {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
-                    return (<td className="overflow-hidden py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                    console.log(cell)
+                    if(cell.column.Header === 'Amount' && cell.value > 0){
+                      return (<td className="overflow-hidden py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                    } else {
+                      return (<td className="overflow-hidden py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                    }
                   })}
                 </tr>
               )

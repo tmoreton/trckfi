@@ -47,11 +47,15 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
               <li key={account.name} className="col-span-1 flex rounded-md shadow-sm">
                 <div className="flex flex-1 items-center justify-between truncate rounded-md border-b border border-gray-200 bg-white">
                   <div className="flex-1 truncate px-4 py-2 text-sm">
-                    <p className="text-gray-900 hover:text-gray-600">
-                      {account.name?.length > 30 ? `${account.name?.substring(0, 40)}...` : account.name}
+                  <p className={balanceClass}><b>Balance:</b> {addComma(account.balances.current)}</p>
+
+                    <p className="text-xs text-gray-900 hover:text-gray-600">
+                      {account.official_name?.length > 30 ? `${account.official_name?.substring(0, 40)}...` : account.official_name}
                     </p>
-                    <p className={balanceClass}><b>Balance:</b> {addComma(account.balances.current)}</p>
-                    <p className="text-xs text-gray-400">{account.subtype}</p>
+                    <p className="text-xs text-gray-900 hover:text-gray-600">
+                      {account.name?.length > 30 ? `${account.name?.substring(0, 40)}...` : account.name}
+                      <span className="text-xs text-gray-400 ml-2">{account.subtype}</span>
+                    </p>
                   </div>
                   <div className="p-2 mt-6 flex">
                     <div className={loading.access_token === account.access_token && loading.loading && "animate-spin"}>
