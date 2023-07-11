@@ -10,7 +10,7 @@ export default async (req, res) => {
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
         {
-          price: 'price_1NM9t4CCAkkOWnyTmWQXqfkF', 
+          price: process.env.STRIPE_SUBSCRIPTION_ID, 
           quantity: 1
         },
       ],
