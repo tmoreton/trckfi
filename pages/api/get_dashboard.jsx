@@ -171,6 +171,7 @@ export default async (req, res) => {
         ],
       },
       select: {
+        id: true,
         name: true,
         primary_category: true,
         detailed_category: true,

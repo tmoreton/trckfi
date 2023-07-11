@@ -67,7 +67,7 @@ export default async (req, res) => {
     let next_cursor = response.data.next_cursor
     let has_more = response.data.has_more
 
-    for (var i in added) {
+    for (let i in added) {
       let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
       let { amount, account_name, type } = formatAmount(added[i].account_id, added[i].amount)
       await prisma.transactions.upsert({

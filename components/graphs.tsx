@@ -56,11 +56,11 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
         color: colors[i],
         amount: a._sum.amount
       }
-    }).sort((a,b) => b.amount - a.amount)
+    }).sort((a,b) => a.amount - b.amount)
 
     let filtered = mapped.filter((a) => {
       total += Number(a.amount)
-      if(Number(a.amount) > 0) return a
+      if(Number(a.amount) < 0) return a
     })
     setSum(total)
     setFiltered(filtered)
