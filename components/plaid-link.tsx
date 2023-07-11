@@ -40,7 +40,9 @@ export default function ({ getAccounts, syncTransactions, showError, user }) {
       const access_token = await getAccessToken({ public_token, user_id: user.id })
       if(access_token){
         getAccounts(access_token)
-        syncTransactions(access_token)
+        setTimeout(() => {
+          syncTransactions(access_token)
+        }, 5000)
       } else {
         showError('Couldnt get access token, please try again')
       }
