@@ -2,8 +2,18 @@
 //   onClick?: React.ReactNode,
 //   children: React.ReactNode
 // }
+// import React, { useEffect, useState } from 'react';
 
 export default function ({ children, onClick }) {
+  // const [loading, setLoading] = useState(false)
+
+  // useEffect(() => {
+  //   setLoading(true)
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 1000)
+  // }, [onClick])
+
   return (
     <button
       type="button"
