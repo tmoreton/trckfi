@@ -8,7 +8,7 @@ import PlaidLink from "../components/plaid-link"
 import Table from '../components/table'
 import Head from 'next/head'
 import Layout from '../components/layout'
-import EditModal from '../components/edit-modal'
+import TransactionModal from '../components/transaction-modal'
 import SetupModal from '../components/setup-modal'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
@@ -210,7 +210,7 @@ export default function ({ newUser, user, showError }) {
         <Menu showError={showError}/>
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-        <EditModal selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center items-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
           <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a} />

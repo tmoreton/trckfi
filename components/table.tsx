@@ -144,8 +144,20 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
 
   return (
     <>
-      {selected.length > 0 &&
-        <div className="absolute pb-12 flex h-12 items-center space-x-3">
+      <div className="absolute pb-12 flex h-12 items-center space-x-3">
+        <PinkBtn onClick={() => setEdit({
+            name: null,
+            primary_category: null,
+            detailed_category: null,
+            amount: null,
+            notes: null,
+            unified: '1f50d',
+            new: true
+          }
+        )}>
+          Add Transaction
+        </PinkBtn>
+        {selected.length > 0 &&
           <PinkBtn onClick={() => setEdit({
               name: null,
               primary_category: null,
@@ -157,8 +169,8 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
           )}>
             Bulk edit
           </PinkBtn>
-        </div>
-      }
+        }
+      </div>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="lg:table-auto sm:table-fixed  w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>

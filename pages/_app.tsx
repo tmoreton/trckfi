@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { AppProps } from 'next/app'
-import '../styles/index.css'
 import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
+import ErrorModal from '../components/error-modal'
+import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import ErrorModal from '../components/error-modal'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)

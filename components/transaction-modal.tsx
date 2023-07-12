@@ -4,24 +4,33 @@ import { TrashIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
 import PinkBtn from './pink-btn'
+import DatePicker from "react-datepicker"
+import { DateTime } from "luxon"
 
-export default function ({ item, setEdit, getDashboard, showError, selected }) {
+export default function ({ item, setEdit, getDashboard, showError, selected, user }) {
   const [transaction, updateTransaction] = useState({
     name: null,
     primary_category: null,
     detailed_category: null,
     amount: null,
     unified: null,
-    notes: null
+    notes: null,
+    new: false,
+    date: null
   })
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
-    console.log(item)
     setIds(selected.map(s => s.id))
     updateTransaction(item)
   }, [item, selected])
+
+  useEffect(() => {
+    const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')
+    updateTransaction({ ...transaction, date: date_time })
+  }, [startDate])
 
   const updateEmoji = (e) => {
     updateTransaction({ ...transaction, unified: e.unified })
@@ -34,7 +43,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
   }
 
   const update = async () => {
-    console.log(transaction)
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
         transaction,
@@ -55,6 +63,22 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
       body: JSON.stringify({ 
         transaction,
         ids
+    }),
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if (!error){
+      getDashboard()
+      setEdit({})
+    }
+  }
+
+  const add = async () => {
+    const res = await fetch(`/api/add_transaction`, {
+      body: JSON.stringify({ 
+        transaction,
+        user,
     }),
       method: 'POST',
     })
@@ -96,7 +120,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
                   <div className="w-full">
                     <div className="mt-3 text-center sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4 flex justify-center">
-                        Edit Transaction
+                        { transaction.new ? 'Add Transaction' : 'Edit Transaction' }
                         <span className="ml-4" onClick={() => updateShowEmoji(true)}>
                           <Emoji unified={transaction.unified} size={25} />
                         </span>
@@ -175,6 +199,19 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
                               Amount
                             </label>
                           </div>
+                          <div className="relative z-0 w-full mb-6 group">
+                            <DatePicker 
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                              selected={startDate} 
+                              onChange={(date) => setStartDate(date)}
+                            />
+                            <label 
+                              htmlFor="date" 
+                              className="left-0 peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Date
+                            </label>
+                          </div>
                         </div>
                         <div className="relative z-0 w-full mb-6 group inline-flex">
                           <textarea
@@ -198,9 +235,16 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
-                  <PinkBtn onClick={update}>
-                    { ids.length > 0 ? 'Update Selected' : 'Update'}
-                  </PinkBtn>
+                  {
+                    transaction.new ?
+                    <PinkBtn onClick={add}>
+                      Add
+                    </PinkBtn>
+                    :
+                    <PinkBtn onClick={update}>
+                      { ids.length > 0 ? 'Update Selected' : 'Update'}
+                    </PinkBtn>
+                  }
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
