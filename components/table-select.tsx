@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { snakeCase } from "snake-case"
@@ -14,11 +14,35 @@ export default function ({ columns, data }) {
   const [sum, setSum] = useState('')
   const [showEmoji, setShowEmoji] = useState(false)
   const [emoji, setEmoji] = useState('1f50d')
-
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
   });
+  const people = [
+    {
+      name: 'Lindsay Walton',
+      title: 'Front-end Developer',
+      email: 'lindsay.walton@example.com',
+      role: 'Member',
+    },
+  ]
+  const checkbox = useRef()
+  const [checked, setChecked] = useState(false)
+  const [indeterminate, setIndeterminate] = useState(false)
+
+  // useLayoutEffect(() => {
+  //   const isIndeterminate = selectedPeople.length > 0 && selectedPeople.length < people.length
+  //   setChecked(selectedPeople.length === people.length)
+  //   setIndeterminate(isIndeterminate)
+  //   checkbox.current.indeterminate = isIndeterminate
+  // }, [selectedPeople])
+
+  // function toggleAll() {
+  //   setSelectedPeople(checked || indeterminate ? [] : people)
+  //   setChecked(!checked && !indeterminate)
+  //   setIndeterminate(false)
+  // }
+
 
   const {
     getTableProps,
@@ -74,6 +98,16 @@ export default function ({ columns, data }) {
 
   const renderHeader = (column) => {
     switch (column.render("Header")) {
+      case 'sort':
+        return (
+          <input
+            type="checkbox"
+            className="h-4 w-4 rounded border-gray-300"
+            // value={person.email}
+            // checked={selectedPeople.includes(person)}
+            onChange={(e) => console.log(e.target.checked)}
+          />
+        )
       case 'unified':
         return (
           <>
@@ -153,11 +187,10 @@ export default function ({ columns, data }) {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
-                    console.log(cell)
                     if(cell.column.Header === 'Amount' && cell.value > 0){
-                      return (<td className="overflow-hidden py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     } else {
-                      return (<td className="overflow-hidden py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     }
                   })}
                 </tr>

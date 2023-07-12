@@ -5,7 +5,8 @@ import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
 import PlaidLink from "../components/plaid-link"
-import Table from '../components/table'
+// import Table from '../components/table'
+import Table from '../components/table-select'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import EditModal from '../components/edit-modal'
@@ -40,7 +41,8 @@ export default function ({ newUser, user, showError }) {
   const [showAccounts, setShowAccounts] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [weeklyData, setWeeklyData] = useState([])
-  
+  const [selected, setSelected] = useState([])
+
   const router = useRouter()
 
   const [dates, setDates] = useState({
@@ -140,7 +142,25 @@ export default function ({ newUser, user, showError }) {
     </Container>
   )
 
+  const updateSelect = (e, value) => {
+    let checked = e.target.checked
+    let arr = selected
+    if(checked){
+      arr.push(value)
+      setSelected(arr)
+    } else {
+      let found = arr.filter(( obj ) => obj.id !== value.id)
+      setSelected(found)
+    }
+  }
+
   const columns = [
+    {
+      Header: "sort",
+      accessor: data => data,
+      Cell: ({ cell: { value } }) => <input checked={selected.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox" className="h-4 w-4 rounded border-gray-300" />,
+      style: ""
+    },
     {
       Header: "unified",
       accessor: data => data.unified,
