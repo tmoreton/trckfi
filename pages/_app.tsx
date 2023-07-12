@@ -11,7 +11,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const [error, showError] = useState(null)
   return (
     <SessionProvider session={session}>
-      <ErrorModal error={error} showError={showError} />
+      <ErrorModal error={error} />
       <Component {...pageProps} showError={showError}/>
       <Analytics />
     </SessionProvider>
