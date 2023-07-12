@@ -81,14 +81,14 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
         return (
           <input
             type="checkbox"
-            className="h-4 w-4 rounded border-gray-300"
+            className="h-4 w-4 rounded border-gray-300 mt-6"
             onChange={(e) => e.target.checked ? setSelected(rows.map((r) => r?.values?.id)) : setSelected([])}
           />
         )
       case 'unified':
         return (
           <>
-            <button className="mr-4" onClick={() => setShowEmoji(true)}>
+            <button className="mr-2 mt-6" onClick={() => setShowEmoji(true)}>
               <Emoji unified={emoji} />
             </button>
             { emoji !== '1f50d' && <p onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</p>}
@@ -113,7 +113,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
       case 'Download':
         return (
           <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-            <PinkBtn>
+            <PinkBtn onClick={() => {}}>
               Download
             </PinkBtn>
             <p className="text-xs font-gray-300 font-extralight pt-2">({rows.length} filtered)</p>

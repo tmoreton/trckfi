@@ -9,7 +9,6 @@ import Layout from "../components/layout"
 import Head from 'next/head'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/loading-modal'
-import PinkBtn from './pink-btn'
 
 export default function ({ csrfToken, user, showError }) {
   const email = user?.email

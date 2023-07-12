@@ -52,7 +52,7 @@ export default function () {
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">/month</span>
                 </p>
                 <Link href="/getting-started">
-                  <PinkBtn>
+                  <PinkBtn onClick={() => {}}>
                     Get Started
                   </PinkBtn>
                 </Link>

@@ -154,16 +154,16 @@ export default function ({ newUser, user, showError }) {
 
   const columns = [
     {
-      Header: "sort",
-      accessor: data => data,
-      Cell: ({ cell: { value } }) => <input checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox" className="h-4 w-4 rounded border-gray-300" />,
-      style: ""
-    },
-    {
       Header: "unified",
       accessor: data => data.unified,
       Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
       style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
+    },
+    {
+      Header: "sort",
+      accessor: data => data,
+      Cell: ({ cell: { value } }) => <input checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox" className="h-4 w-4 rounded border-gray-300" />,
+      style: ""
     },
     {
       Header: "Name",
