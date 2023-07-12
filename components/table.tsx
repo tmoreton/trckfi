@@ -100,7 +100,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
             <div className="flex">
               <p className="font-bold">{column.render("Header")}</p>
               <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                <ChevronDownIcon removeToken
+                <ChevronDownIcon
                   {...column.getHeaderProps(column.getSortByToggleProps())} 
                   className="h-5 w-5" 
                   aria-hidden="true"

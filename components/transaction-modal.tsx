@@ -8,7 +8,7 @@ import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 
 export default function ({ item, setEdit, getDashboard, showError, selected, user }) {
-  const [transaction, updateTransaction] = useState({
+  const defaultTransaction = {
     name: null,
     primary_category: null,
     detailed_category: null,
@@ -17,7 +17,8 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     notes: null,
     new: false,
     date: null
-  })
+  }
+  const [transaction, updateTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
   const [startDate, setStartDate] = useState(new Date());
@@ -25,6 +26,11 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   useEffect(() => {
     setIds(selected.map(s => s.id))
     updateTransaction(item)
+    if(item?.date){
+      setStartDate(new Date(item.date))
+    } else {
+      setStartDate(new Date())
+    }
   }, [item, selected])
 
   useEffect(() => {
