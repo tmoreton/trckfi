@@ -3,34 +3,34 @@ import prisma from '../../lib/prisma';
 import { snakeCase } from "snake-case";
 
 export default async (req, res) => {
-  const { transaction, all } = JSON.parse(req.body)
+  const { transaction, ids } = JSON.parse(req.body)
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-
+  const { id, name, unified, primary_category, detailed_category, amount } = transaction
   try {
-    if(all){
-      const item = await prisma.transactions.findUnique({
-        where: {
-          id: transaction.id
-        }
-      })
-      await prisma.transactions.updateMany({
-        where: { name: item.name },
-        data: { 
-          name: transaction.name,
-          unified: transaction.unified,
-          primary_category: snakeCase(transaction.primary_category).toUpperCase(),
-          detailed_category: snakeCase(transaction.detailed_category).toUpperCase(),
-        }
+    if(ids.length > 0){
+      ids.forEach( async (i) => {
+        const item = await prisma.transactions.findUnique({
+          where: { id: i }
+        })
+        let data = {}
+        if (name) data['name'] = name
+        if (unified) data['unified'] = unified
+        if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
+        if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
+        await prisma.transactions.updateMany({
+          where: { name: item.name },
+          data
+        })
       })
     } else {
       await prisma.transactions.update({
-        where: { id: transaction.id },
+        where: { id },
         data: { 
-          amount: Number(transaction.amount).toFixed(2),
-          name: transaction.name,
-          unified: transaction.unified,
-          primary_category: snakeCase(transaction.primary_category).toUpperCase(),
-          detailed_category: snakeCase(transaction.detailed_category).toUpperCase(),
+          amount: Number(amount).toFixed(2),
+          primary_category: snakeCase(primary_category).toUpperCase(),
+          detailed_category: snakeCase(detailed_category).toUpperCase(),
+          name,
+          unified,
         }
       })
     }

@@ -9,7 +9,7 @@ import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './emoji-modal'
 import PinkBtn from './pink-btn'
 
-export default function ({ columns, data, selected, setSelected }) {
+export default function ({ columns, data, selected, setSelected, setEdit }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState('')
@@ -143,7 +143,15 @@ export default function ({ columns, data, selected, setSelected }) {
     <>
       {selected.length > 0 &&
         <div className="absolute pb-12 flex h-12 items-center space-x-3">
-          <PinkBtn onClick={() => console.log('test')}>
+          <PinkBtn onClick={() => setEdit({
+              name: null,
+              primary_category: null,
+              detailed_category: null,
+              amount: null,
+              unified: null,
+              bulk: true
+            }
+          )}>
             Bulk edit
           </PinkBtn>
           <PinkBtn onClick={() => console.log('test')}>

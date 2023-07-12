@@ -48,11 +48,6 @@ export default function ({ newUser, user, showError }) {
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
 
-
-  useEffect(() => {
-    console.log(selected)
-  }, [selected])
-
   useEffect(() => {
     if(email && !newUser){
       getDashboard()
@@ -214,7 +209,7 @@ export default function ({ newUser, user, showError }) {
         <Menu showError={showError}/>
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-        <EditModal showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+        <EditModal selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center items-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
           <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} />
@@ -223,7 +218,7 @@ export default function ({ newUser, user, showError }) {
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
         <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-        <Table selected={selected} setSelected={setSelected} columns={columns} data={t} />
+        <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} />
       </Container>
     </Layout>
   )

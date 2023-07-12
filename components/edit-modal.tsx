@@ -3,20 +3,23 @@ import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
+import PinkBtn from './pink-btn'
 
-export default function ({ item, setEdit, getDashboard, showError }) {
+export default function ({ item, setEdit, getDashboard, showError, selected }) {
   const [transaction, updateTransaction] = useState({
-    name: '',
-    primary_category: '',
-    detailed_category: '',
-    amount: 0,
-    unified: ""
+    name: null,
+    primary_category: null,
+    detailed_category: null,
+    amount: null,
+    unified: null
   })
+  const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
 
   useEffect(() => {
+    setIds(selected.map(s => s.id))
     updateTransaction(item)
-  }, [item])
+  }, [item, selected])
 
   const updateEmoji = (e) => {
     updateTransaction({ ...transaction, unified: e.unified })
@@ -28,11 +31,11 @@ export default function ({ item, setEdit, getDashboard, showError }) {
     updateTransaction({ ...transaction, [name]: value })
   }
 
-  const update = async (all) => {
+  const update = async () => {
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
         transaction: transaction,
-        all
+        ids
     }),
       method: 'POST',
     })
@@ -175,20 +178,9 @@ export default function ({ item, setEdit, getDashboard, showError }) {
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
-                <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
-                    onClick={() => update(true)}
-                  >
-                    Update All
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
-                    onClick={() => update(false)}
-                  >
-                    Update
-                  </button>
+                  <PinkBtn onClick={update}>
+                    { ids.length > 0 ? 'Update Selected' : 'Update'}
+                  </PinkBtn>
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
