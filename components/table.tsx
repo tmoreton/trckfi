@@ -6,19 +6,19 @@ import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { addComma } from '../lib/formatNumber'
 import { Emoji } from 'emoji-picker-react'
-import EmojiModal from '../components/emoji-modal'
+import EmojiModal from './emoji-modal'
+import PinkBtn from './pink-btn'
 
-export default function ({ columns, data }) {
+export default function ({ columns, data, selected, setSelected }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState('')
   const [showEmoji, setShowEmoji] = useState(false)
   const [emoji, setEmoji] = useState('1f50d')
-
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
-  });
+  })
 
   const {
     getTableProps,
@@ -74,6 +74,14 @@ export default function ({ columns, data }) {
 
   const renderHeader = (column) => {
     switch (column.render("Header")) {
+      case 'sort':
+        return (
+          <input
+            type="checkbox"
+            className="h-4 w-4 rounded border-gray-300"
+            onChange={(e) => e.target.checked ? setSelected(rows.map((r) => r?.values?.id)) : setSelected([])}
+          />
+        )
       case 'unified':
         return (
           <>
@@ -133,6 +141,16 @@ export default function ({ columns, data }) {
 
   return (
     <>
+      {selected.length > 0 &&
+        <div className="absolute pb-12 flex h-12 items-center space-x-3">
+          <PinkBtn onClick={() => console.log('test')}>
+            Bulk edit
+          </PinkBtn>
+          <PinkBtn onClick={() => console.log('test')}>
+            Delete all
+          </PinkBtn>
+        </div>
+      }
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="lg:table-auto sm:table-fixed  w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
@@ -153,11 +171,10 @@ export default function ({ columns, data }) {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
-                    console.log(cell)
                     if(cell.column.Header === 'Amount' && cell.value > 0){
-                      return (<td className="overflow-hidden py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     } else {
-                      return (<td className="overflow-hidden py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     }
                   })}
                 </tr>

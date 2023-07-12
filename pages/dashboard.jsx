@@ -5,8 +5,7 @@ import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
 import PlaidLink from "../components/plaid-link"
-// import Table from '../components/table'
-import Table from '../components/table-select'
+import Table from '../components/table'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import EditModal from '../components/edit-modal'
@@ -26,6 +25,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export default function ({ newUser, user, showError }) {
   const email = user?.email
+  const router = useRouter()
   const [loading, setLoading] = useState({access_token: null, loading: false})
   const [totalStats, setStats] = useState({})
   const [t, setTransactions] = useState([])
@@ -43,12 +43,15 @@ export default function ({ newUser, user, showError }) {
   const [weeklyData, setWeeklyData] = useState([])
   const [selected, setSelected] = useState([])
 
-  const router = useRouter()
-
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
+
+
+  useEffect(() => {
+    console.log(selected)
+  }, [selected])
 
   useEffect(() => {
     if(email && !newUser){
@@ -146,8 +149,8 @@ export default function ({ newUser, user, showError }) {
     let checked = e.target.checked
     let arr = selected
     if(checked){
-      arr.push(value)
-      setSelected(arr)
+      let found = arr.concat([value]);
+      setSelected(found)
     } else {
       let found = arr.filter(( obj ) => obj.id !== value.id)
       setSelected(found)
@@ -158,7 +161,7 @@ export default function ({ newUser, user, showError }) {
     {
       Header: "sort",
       accessor: data => data,
-      Cell: ({ cell: { value } }) => <input checked={selected.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox" className="h-4 w-4 rounded border-gray-300" />,
+      Cell: ({ cell: { value } }) => <input checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox" className="h-4 w-4 rounded border-gray-300" />,
       style: ""
     },
     {
@@ -220,7 +223,7 @@ export default function ({ newUser, user, showError }) {
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
         <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
         <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-        <Table columns={columns} data={t} />
+        <Table selected={selected} setSelected={setSelected} columns={columns} data={t} />
       </Container>
     </Layout>
   )
