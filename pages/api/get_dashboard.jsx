@@ -180,6 +180,8 @@ export default async (req, res) => {
         active: true,
         date: true,
         unified: true,
+        notes: true,
+        account_name: true,
       },
       orderBy: {
         date: 'desc'

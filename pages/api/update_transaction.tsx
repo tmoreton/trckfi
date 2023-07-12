@@ -5,7 +5,7 @@ import { snakeCase } from "snake-case";
 export default async (req, res) => {
   const { transaction, ids } = JSON.parse(req.body)
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { id, name, unified, primary_category, detailed_category, amount } = transaction
+  const { id, name, unified, primary_category, detailed_category, amount, notes } = transaction
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {
@@ -14,6 +14,7 @@ export default async (req, res) => {
         })
         let data = {}
         if (name) data['name'] = name
+        if (notes) data['notes'] = notes
         if (unified && unified !== '1f50d') data['unified'] = unified
         if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
@@ -31,6 +32,7 @@ export default async (req, res) => {
           detailed_category: snakeCase(detailed_category).toUpperCase(),
           name,
           unified,
+          notes
         }
       })
     }

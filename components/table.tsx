@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
-import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/20/solid'
 import { snakeCase } from "snake-case"
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
@@ -15,6 +15,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
   const [sum, setSum] = useState('')
   const [showEmoji, setShowEmoji] = useState(false)
   const [emoji, setEmoji] = useState('1f50d')
+  const [csv, updateCSV] = useState([])
   const [paginate, setPagination] = useState({
     start: 0,
     end: 20
@@ -35,13 +36,15 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
     useFilters,
     useSortBy,
   )
-  let csv = []
-  csv.push(headerGroups[0].headers.map((row) => row.Header))
-  rows.map((row) => {
-    let values = Object.values(row.values)
-    values.pop()
-    csv.push(values)
-  })
+  
+  const downloadCSV = () => {
+    let arr = [['Name', 'Primary Category', 'Detailed Category', 'Date', 'Amount', 'Account Name', 'Notes']]
+    rows.forEach(r => (
+      arr.push([r.original.name, r.original.primary_category, r.original.detailed_category, r.original.date, r.original.amount, r.original.account_name, r.original.notes])
+    ))
+    updateCSV(arr)
+    return true
+  }
 
   useEffect(() => {
     let total = 0
@@ -109,7 +112,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
         )
       case 'Download':
         return (
-          <CSVLink filename={`trckfi-data-${today}.csv`} data={csv}>
+          <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
             <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-base font-semibold text-white shadow-sm">
               Download
             </button>
@@ -148,6 +151,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
               primary_category: null,
               detailed_category: null,
               amount: null,
+              notes: null,
               unified: '1f50d',
             }
           )}>
@@ -180,6 +184,8 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
                   {row.cells.map(cell => {
                     if(cell.column.Header === 'Amount' && cell.value > 0){
                       return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                    } else if (cell.column.Header === 'Name' && cell.row.original.notes){
+                      return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500 flex items-center" {...cell.getCellProps()}>{cell.render("Cell")} <ChatBubbleOvalLeftIcon className="h-5 w-5 ml-3" /></td>);
                     } else {
                       return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     }

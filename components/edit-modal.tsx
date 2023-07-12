@@ -11,12 +11,14 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
     primary_category: null,
     detailed_category: null,
     amount: null,
-    unified: null
+    unified: null,
+    notes: null
   })
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
 
   useEffect(() => {
+    console.log(item)
     setIds(selected.map(s => s.id))
     updateTransaction(item)
   }, [item, selected])
@@ -32,9 +34,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
   }
 
   const update = async () => {
+    console.log(transaction)
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
-        transaction: transaction,
+        transaction,
         ids
     }),
       method: 'POST',
@@ -171,6 +174,22 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
                               Amount
                             </label>
                           </div>
+                        </div>
+                        <div className="relative z-0 w-full mb-6 group inline-flex">
+                          <textarea
+                            rows={4}
+                            name="notes"
+                            id="notes"
+                            value={transaction?.notes}
+                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                            onChange={handleChange}
+                          />
+                          <label 
+                            htmlFor="notes" 
+                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          >
+                            Notes
+                          </label>
                         </div>
                       </form>
                       }
