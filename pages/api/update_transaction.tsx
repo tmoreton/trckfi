@@ -14,7 +14,7 @@ export default async (req, res) => {
         })
         let data = {}
         if (name) data['name'] = name
-        if (unified) data['unified'] = unified
+        if (unified && unified !== '1f50d') data['unified'] = unified
         if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
         await prisma.transactions.updateMany({

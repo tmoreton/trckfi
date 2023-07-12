@@ -148,8 +148,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
               primary_category: null,
               detailed_category: null,
               amount: null,
-              unified: null,
-              bulk: true
+              unified: '1f50d',
             }
           )}>
             Bulk edit
