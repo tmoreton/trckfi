@@ -49,12 +49,12 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
                   <div className="flex-1 truncate px-4 py-2 text-sm">
                   <p className={balanceClass}><b>Balance:</b> {addComma(account.balances.current)}</p>
 
-                    <p className="text-xs text-gray-900 hover:text-gray-600">
+                    <p className="text-xs text-gray-900 hover:text-gray-600 mb-1">
                       {account.official_name?.length > 30 ? `${account.official_name?.substring(0, 40)}...` : account.official_name}
                     </p>
                     <p className="text-xs text-gray-900 hover:text-gray-600">
                       {account.name?.length > 30 ? `${account.name?.substring(0, 40)}...` : account.name}
-                      <span className="text-xs text-gray-400 ml-2">{account.subtype}</span>
+                      {/* <span className="text-xs text-gray-400 ml-2">{account.subtype}</span> */}
                     </p>
                   </div>
                   <div className="p-2 mt-6 flex">

@@ -40,7 +40,7 @@ export default function ({ open, setOpen, removeToken, accounts }) {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure you want to deactivate this account? The following connections will be removed but transactions already imported will remain.
+                          Are you sure you want to deactivate this account? The following connections will be removed:
                         </p>
                         <ul>
                           {accounts.map((a) => (
