@@ -65,6 +65,7 @@ export default function ({ newUser, user, showError }) {
   }, [dates])
 
   const getDashboard = async () => {
+    setSelected([])
     setDatePicker(false)
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
@@ -195,7 +196,7 @@ export default function ({ newUser, user, showError }) {
       Header: 'Download',
       id: 'id',
       accessor: data => data,
-      Cell: ({ cell: { value } }) => <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
+      Cell: ({ cell: { value } }) => selected.length <= 0 && <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
       style: "text-center w-8"
     }
   ]

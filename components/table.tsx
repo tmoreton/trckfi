@@ -157,9 +157,6 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
           )}>
             Bulk edit
           </PinkBtn>
-          <PinkBtn onClick={() => console.log('test')}>
-            Delete all
-          </PinkBtn>
         </div>
       }
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>

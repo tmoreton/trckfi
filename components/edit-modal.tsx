@@ -53,7 +53,8 @@ export default function ({ item, setEdit, getDashboard, showError, selected }) {
   const remove = async () => {
     const res = await fetch(`/api/remove_transaction`, {
       body: JSON.stringify({ 
-        transaction: transaction
+        transaction,
+        ids
     }),
       method: 'POST',
     })
