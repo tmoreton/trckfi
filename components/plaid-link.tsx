@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
-import { useSession } from "next-auth/react"
 import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
 export default function ({ accounts, getAccounts, syncTransactions, showError, user }) {

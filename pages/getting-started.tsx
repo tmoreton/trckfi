@@ -9,6 +9,7 @@ import Layout from "../components/layout"
 import Head from 'next/head'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/loading-modal'
+import PinkBtn from './pink-btn'
 
 export default function ({ csrfToken, user, showError }) {
   const email = user?.email
@@ -75,7 +76,7 @@ export default function ({ csrfToken, user, showError }) {
               </div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                className="flex text-center justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 mx-auto"
               >
                 Create Account
               </button>

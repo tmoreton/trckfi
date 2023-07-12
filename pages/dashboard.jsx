@@ -207,7 +207,7 @@ export default function ({ newUser, user, showError }) {
       </Head>
       <Container>
         <Menu showError={showError}/>
-        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions}/>
+        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <EditModal selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center items-center">
