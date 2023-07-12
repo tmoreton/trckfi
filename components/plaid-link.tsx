@@ -3,7 +3,7 @@ import { usePlaidLink } from 'react-plaid-link';
 import { useSession } from "next-auth/react"
 import { PlusCircleIcon } from '@heroicons/react/20/solid'
 
-export default function ({ getAccounts, syncTransactions, showError, user }) {
+export default function ({ accounts, getAccounts, syncTransactions, showError, user }) {
   const [linkToken, setLinkToken] = useState(null)
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function ({ getAccounts, syncTransactions, showError, user }) {
 
   const { open, ready } = usePlaidLink({
     token: linkToken,
-    onSuccess: async (public_token, metadata) => {
+    onSuccess: async (public_token) => {
       const access_token = await getAccessToken({ public_token, user_id: user.id })
       if(access_token){
         getAccounts(access_token)
@@ -49,9 +49,23 @@ export default function ({ getAccounts, syncTransactions, showError, user }) {
     },
   });
   
+  const checkAccounts = async () => {
+    let active_accounts = []
+    accounts.forEach(a => {
+      if (!active_accounts.includes(a.item_id)){
+        active_accounts.push(a.item_id)
+      }
+    })
+    if(active_accounts.length < 5){
+      open()
+    } else {
+      showError('Account link limit of 5 reached for this account, please un-link an active connection or upgrade to Pro account')
+    }
+  }
+
   if(!linkToken) return null
   return (
-    <button onClick={() => open()} disabled={!ready} className="p-3">
+    <button onClick={checkAccounts} disabled={!ready} className="p-3">
       <PlusCircleIcon className="h-10 w-10 text-pink-600" aria-hidden="true" />
     </button>
   )

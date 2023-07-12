@@ -1,11 +1,19 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
-export default function ({ error, showError }) {
+export default function ({ error }) {
+  const [show, setShow] = useState(null)
+
+  useEffect(() => {
+    if(error !== null && error !== undefined && typeof error !== 'object' ){
+      setShow(error)
+    }
+  }, [error])
+
   return (
-    <Transition.Root show={error !== null && error !== undefined} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={showError}>
+    <Transition.Root show={show !== null} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={() => setShow(null)}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -39,7 +47,7 @@ export default function ({ error, showError }) {
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        {error}
+                        {show}
                       </p>
                     </div>
                   </div>
@@ -48,7 +56,7 @@ export default function ({ error, showError }) {
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => showError(null)}
+                    onClick={() => setShow(null)}
                   >
                     Try Again
                   </button>

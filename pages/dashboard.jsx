@@ -212,7 +212,7 @@ export default function ({ newUser, user, showError }) {
         <EditModal selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
         <div className="py-10 flex justify-center items-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
-          <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+          <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a} />
         </div>
         <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
         <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />

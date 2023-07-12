@@ -113,9 +113,9 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
       case 'Download':
         return (
           <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-            <button className="text-center button rounded-md bg-pink-600 px-3 py-2 text-base font-semibold text-white shadow-sm">
+            <PinkBtn>
               Download
-            </button>
+            </PinkBtn>
             <p className="text-xs font-gray-300 font-extralight pt-2">({rows.length} filtered)</p>
           </CSVLink>
         )
