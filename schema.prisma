@@ -50,10 +50,10 @@ model User {
   createdAt            DateTime  @default(now())
   updatedAt            DateTime  @updatedAt
   active               Boolean   @default(false)
+  linkedUserId         String?
   stripeCustomerId     String?
   stripeSubscriptionId String?
   subscribed           Boolean   @default(false)
-  linkedUserId         String?
   accounts             Account[]
   sessions             Session[]
 
@@ -75,8 +75,8 @@ model Plaid {
   access_token String   @unique
   item_id      String?  @unique
   user_id      String?  @map("user_id")
-  active       Boolean? @default(true)
   cursor       String?
+  active       Boolean? @default(true)
 
   @@map("plaid")
 }
@@ -115,17 +115,17 @@ model Transactions {
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
-  active            Boolean?  @default(true)
   category          Json?
-  authorized_date   DateTime?
-  month_year        String?
-  week_year         String?
-  recurring         Boolean   @default(false)
-  unified           String?   @default("1f4b8")
+  active            Boolean?  @default(true)
   account_name      String?
-  notes             String?
-  type              String?
   alert_date        DateTime?
+  month_year        String?
+  notes             String?
+  recurring         Boolean   @default(false)
+  type              String?
+  unified           String?   @default("1f4b8")
+  week_year         String?
+  authorized_date   DateTime?
 
   @@map("transactions")
 }
