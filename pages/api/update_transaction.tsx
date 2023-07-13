@@ -6,7 +6,7 @@ import { DateTime } from "luxon"
 export default async (req, res) => {
   const { transaction, ids } = JSON.parse(req.body)
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { id, name, unified, primary_category, detailed_category, amount, notes, date } = transaction
+  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date } = transaction
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {
@@ -20,12 +20,15 @@ export default async (req, res) => {
         if (unified && unified !== '1f50d') data['unified'] = unified
         if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
+        if (alert_date) data['alert_date'] = alert_date
+        
         if (date) {
           data['date'] = date
           data['authorized_date'] = new Date(date)
           data['month_year'] = date.substring(0,7)
           data['week_year'] = `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
         }
+        
         await prisma.transactions.updateMany({
           where: { name: item.name },
           data
@@ -42,6 +45,7 @@ export default async (req, res) => {
           unified,
           notes,
           date,
+          alert_date,
           authorized_date: new Date(date),
           month_year: date.substring(0,7),
           week_year: `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`

@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { TrashIcon } from '@heroicons/react/20/solid'
+import { TrashIcon, BellAlertIcon, XCircleIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
 import PinkBtn from './pink-btn'
@@ -16,14 +16,17 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     unified: null,
     notes: null,
     new: false,
-    date: null
+    date: null,
+    alert_date: null
   }
   const [transaction, updateTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date())
+  const [alertDate, setAlertDate] = useState(null)
 
   useEffect(() => {
+    setAlertDate(null)
     setIds(selected.map(s => s.id))
     updateTransaction(item)
     if(item?.date){
@@ -31,12 +34,19 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     } else {
       setStartDate(new Date())
     }
+    if(item?.alert_date){
+      setAlertDate(new Date(item.alert_date))
+    }
   }, [item, selected])
 
   useEffect(() => {
     const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')
     updateTransaction({ ...transaction, date: date_time })
   }, [startDate])
+
+  useEffect(() => {
+    updateTransaction({ ...transaction, alert_date: alertDate })
+  }, [alertDate])
 
   const updateEmoji = (e) => {
     updateTransaction({ ...transaction, unified: e.unified })
@@ -134,108 +144,133 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                       { showEmoji ? 
                       <EmojiPicker onEmojiClick={updateEmoji}/> 
                       :
-                      <form>
-                        <div className="relative z-0 w-full mb-6 group inline-flex">
-                          <div className="w-full">
+                      <>
+                        <form>
+                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                            <div className="w-full">
+                              <input 
+                                type="text" 
+                                name="name" 
+                                id="transaction_name" 
+                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                                required
+                                value={transaction?.name}
+                                onChange={handleChange}
+                              />
+                              <label 
+                                htmlFor="transaction_name" 
+                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Name
+                              </label>
+                            </div>
+                          </div>
+                          <div className="relative z-0 w-full mb-6 group">
                             <input 
                               type="text" 
-                              name="name" 
-                              id="transaction_name" 
+                              name="primary_category" 
+                              id="primary_category" 
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                              required
-                              value={transaction?.name}
+                              required 
+                              value={transaction?.primary_category}
                               onChange={handleChange}
                             />
                             <label 
-                              htmlFor="transaction_name" 
+                              htmlFor="primary_category" 
+                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
+                              Primary Category
+                            </label>
+                          </div>
+                          <div className="relative z-0 w-full mb-6 group">
+                            <input 
+                              type="text" 
+                              name="detailed_category" 
+                              id="detailed_category" 
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              required 
+                              value={transaction?.detailed_category}
+                              onChange={handleChange}
+                            />
+                            <label 
+                              htmlFor="detailed_category" 
                               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
-                              Name
+                              Detailed Category
                             </label>
                           </div>
-                        </div>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <input 
-                            type="text" 
-                            name="primary_category" 
-                            id="primary_category" 
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required 
-                            value={transaction?.primary_category}
-                            onChange={handleChange}
-                          />
-                          <label 
-                            htmlFor="primary_category" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
-                            Primary Category
-                          </label>
-                        </div>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <input 
-                            type="text" 
-                            name="detailed_category" 
-                            id="detailed_category" 
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required 
-                            value={transaction?.detailed_category}
-                            onChange={handleChange}
-                          />
-                          <label 
-                            htmlFor="detailed_category" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Detailed Category
-                          </label>
-                        </div>
-                        <div className="grid md:grid-cols-2 md:gap-6">
-                          <div className="relative z-0 w-full mb-6 group">
-                            <input 
-                              type="text" 
-                              name="amount" 
-                              id="amount" 
+                          <div className="grid md:grid-cols-2 md:gap-6">
+                            <div className="relative z-0 w-full mb-6 group">
+                              <input 
+                                type="text" 
+                                name="amount" 
+                                id="amount" 
+                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                                required
+                                value={transaction?.amount}
+                                onChange={handleChange}
+                              />
+                              <label 
+                                htmlFor="amount" 
+                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Amount
+                              </label>
+                            </div>
+                            <div className="relative z-0 w-full mb-6 group">
+                              <DatePicker 
+                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                                selected={startDate} 
+                                onChange={(date) => setStartDate(date)}
+                              />
+                              <label 
+                                htmlFor="date" 
+                                className="left-0 peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Date
+                              </label>
+                            </div>
+                          </div>
+                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                            <textarea
+                              rows={4}
+                              name="notes"
+                              id="notes"
+                              value={transaction?.notes}
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                              required
-                              value={transaction?.amount}
                               onChange={handleChange}
                             />
                             <label 
-                              htmlFor="amount" 
+                              htmlFor="notes" 
                               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
-                              Amount
+                              Notes
                             </label>
                           </div>
-                          <div className="relative z-0 w-full mb-6 group">
+                        </form>
+                        <div className="relative z-0 w-full group">
+                        { alertDate ?
+                          <div className="inline-flex items-center">
                             <DatePicker 
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                              selected={startDate} 
-                              onChange={(date) => setStartDate(date)}
+                              selected={alertDate} 
+                              onChange={(date) => setAlertDate(date)}
                             />
                             <label 
                               htmlFor="date" 
                               className="left-0 peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
-                              Date
+                              Alert Date
                             </label>
+                            <XCircleIcon onClick={() => setAlertDate(null)} className="h-5 w-5 text-red-400 mr-4"/>
                           </div>
+                          :
+                          <button onClick={() => setAlertDate(new Date())} className="text-sm text-gray-500 inline-flex font-semibold">
+                            <BellAlertIcon className="h-5 w-5 text-red-400 mr-4" aria-hidden="true"/> 
+                            Set Alert
+                          </button>
+                        }
                         </div>
-                        <div className="relative z-0 w-full mb-6 group inline-flex">
-                          <textarea
-                            rows={4}
-                            name="notes"
-                            id="notes"
-                            value={transaction?.notes}
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                            onChange={handleChange}
-                          />
-                          <label 
-                            htmlFor="notes" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Notes
-                          </label>
-                        </div>
-                      </form>
+                      </>
                       }
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
-import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/20/solid'
+import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon } from '@heroicons/react/20/solid'
 import { snakeCase } from "snake-case"
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
@@ -193,8 +193,14 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
                   {row.cells.map(cell => {
                     if(cell.column.Header === 'Amount' && cell.value > 0){
                       return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
-                    } else if (cell.column.Header === 'Name' && cell.row.original.notes){
-                      return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500 flex items-center" {...cell.getCellProps()}>{cell.render("Cell")} <ChatBubbleOvalLeftIcon className="h-5 w-5 ml-3" /></td>);
+                    } else if (cell.column.Header === 'Name'){
+                      return (
+                        <td className="overflow-hidden px-1 py-2 text-sm text-gray-500 flex items-center" {...cell.getCellProps()}>
+                          {cell.render("Cell")} 
+                          { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-5 w-5 ml-3" /> }
+                          { cell.row.original.alert_date && <BellAlertIcon className="h-5 w-5 ml-3 text-red-400" /> }
+                        </td>
+                      )
                     } else {
                       return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     }

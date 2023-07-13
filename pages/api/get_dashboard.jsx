@@ -182,6 +182,7 @@ export default async (req, res) => {
         unified: true,
         notes: true,
         account_name: true,
+        alert_date: true
       },
       orderBy: {
         date: 'desc'
