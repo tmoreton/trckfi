@@ -1,13 +1,13 @@
 {
   "crons": [{
-    "path": "/api/send_monthly_email",
+    "path": "/api/cron/send_monthly_email",
     "schedule": "0 9 1 * *"
   },
   {
-    "path": "/api/send_weekly_email",
+    "path": "/api/cron/send_weekly_email",
     "schedule": "0 9 * * 0"
   },{
-    "path": "/api/auto_sync_update",
+    "path": "/api/cron/auto_sync_update",
     "schedule": "0 20 * * 6"
   }]
 }
