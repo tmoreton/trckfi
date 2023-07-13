@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-import prisma from '../../lib/prisma';
-import plaidClient from '../../utils/plaid';
+import prisma from '../../../lib/prisma';
+import plaidClient from '../../../utils/plaid';
 import { DateTime } from "luxon"
 
 export default async (req, res) => {

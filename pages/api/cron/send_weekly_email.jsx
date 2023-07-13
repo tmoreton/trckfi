@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 const nodemailer = require('nodemailer')
 import { render } from '@react-email/render'
-import WeeklySummary from "../../emails/weekly_summary"
-import prisma from '../../lib/prisma';
+import WeeklySummary from "../../../emails/weekly_summary"
+import prisma from '../../../lib/prisma';
 import { DateTime } from "luxon";
 
 export default async (req, res) => {
