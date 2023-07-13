@@ -56,7 +56,6 @@ export default async (req, res) => {
               category: added[i].category,
               detailed_category: added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, ''),
               primary_category: added[i].personal_finance_category.primary,
-              pending: added[i].pending,
               location: added[i].location,
               user_id: user_id,
               item_id: plaidAccounts[p].item_id,

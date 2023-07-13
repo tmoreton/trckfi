@@ -53,6 +53,7 @@ model User {
   stripeCustomerId     String?
   stripeSubscriptionId String?
   subscribed           Boolean   @default(false)
+  linkedUserId         String?
   accounts             Account[]
   sessions             Session[]
 
@@ -107,7 +108,6 @@ model Transactions {
   transaction_id    String?   @unique
   detailed_category String?
   location          Json?
-  pending           Boolean?  @default(false)
   primary_category  String?
   user_id           String?   @map("user_id")
   createdAt         DateTime? @default(now())
@@ -125,6 +125,7 @@ model Transactions {
   account_name      String?
   notes             String?
   type              String?
+  alert_date        DateTime?
 
   @@map("transactions")
 }
