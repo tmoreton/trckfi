@@ -1,10 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-import nodemailer from 'nodemailer'
-import { generate } from 'random-words'
-import { render } from '@react-email/render'
 import prisma from '../../lib/prisma'
-import LinkToken from "../../emails/link_token"
-import { DateTime } from "luxon";
 
 export default async (req, res) => {
   const { access_code, user } = req.body
@@ -17,17 +12,23 @@ export default async (req, res) => {
       }
     })
 
-    if(!link_token) return res.status(200).json({ error: 'Couldnt find a matching token' })
-
-    const linked_user = await prisma.user.upsert({
+    if(!link_token) return res.status(200).json({ error: 'Access Code not found' })
+    if (new Date() > link_token?.expires) return res.status(200).json({ error: 'Access Code has expired, please try again' })
+   
+    const subscribed_user = await prisma.user.upsert({
       where: { id: link_token.user_id },
-      update: { linkedUserId: user.id },
+      update: { 
+        linkedUserId: user.id 
+      },
       create: {},
     })
 
     await prisma.user.upsert({
       where: { id: user.id },
-      update: { linkedUserId: linked_user.id },
+      update: { 
+        linkedUserId: subscribed_user.id,
+        active: true,
+      },
       create: {},
     })
 

@@ -31,7 +31,7 @@ import {
                   className="my-0 mx-auto"
                 />
               </Section>
-              <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
+              <Heading className="text-black text-[24px] font-normal text-center p-0 mt-[30px] mb-[10px] mx-0">
                 Join <strong>Trckfi</strong>
               </Heading>
               <Text className="text-[#666666] text-[14px] leading-[24px] text-center">

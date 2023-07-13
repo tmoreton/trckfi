@@ -3,14 +3,18 @@ import prisma from '../../lib/prisma';
 import { DateTime } from "luxon";
 
 export default async (req, res) => {
-  const { user_id, range } = req.body
+  const { user, range } = req.body
+  const user_id = user?.id
   if (!user_id ) return res.status(500)
   try {
 
     const groupByWeek = await prisma.transactions.groupBy({
       by: ['week_year'],
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         authorized_date: {
           lte: range.startDate,
@@ -37,7 +41,10 @@ export default async (req, res) => {
 
     const accounts = await prisma.accounts.findMany({
       where: { 
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true
       },
     })
@@ -46,7 +53,10 @@ export default async (req, res) => {
     groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         primary_category: 'INCOME',
         authorized_date: {
@@ -69,7 +79,10 @@ export default async (req, res) => {
     groupByMonth = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         authorized_date: {
           lte: range.startDate,
@@ -96,7 +109,10 @@ export default async (req, res) => {
     const categories = await prisma.transactions.groupBy({
       by: ['primary_category'],
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         authorized_date: {
           lte: range.startDate,
@@ -117,7 +133,10 @@ export default async (req, res) => {
     const detailedCategories = await prisma.transactions.groupBy({
       by: ['detailed_category'],
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         authorized_date: {
           lte: range.startDate,
@@ -138,7 +157,10 @@ export default async (req, res) => {
     const emojiCategories = await prisma.transactions.groupBy({
       by: ['unified'],
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         authorized_date: {
           lte: range.startDate,
@@ -158,7 +180,10 @@ export default async (req, res) => {
   
     const transactions = await prisma.transactions.findMany({
       where: {
-        user_id: user_id,
+        OR: [
+          { user_id: user_id },
+          { user_id: user?.linkedUserId },
+        ],
         active: true,
         authorized_date: {
           lte: range.startDate,

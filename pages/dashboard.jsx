@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Container from "../components/container"
-import Preview from "../components/dashboard-preview"
 import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
@@ -18,6 +17,7 @@ import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
+import prisma from '../lib/prisma'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -54,7 +54,7 @@ export default function ({ newUser, user, showError }) {
     }
     if(newUser){
       setShowAccounts(true)
-      router.replace('/dashboard', undefined, { shallow: true });
+      router.replace('/dashboard', undefined, { shallow: true })
     }
   }, [email])
 
@@ -70,7 +70,7 @@ export default function ({ newUser, user, showError }) {
     setRefreshing(true)
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({
-        user_id: user.id,
+        user,
         range: dates
       }),
       headers: {
@@ -133,13 +133,6 @@ export default function ({ newUser, user, showError }) {
       getDashboard()
     }
   }
-
-  if (!user) return (
-    <Container>
-      <Menu/>
-      <Preview />
-    </Container>
-  )
 
   const updateSelect = (e, value) => {
     let checked = e.target.checked
@@ -237,13 +230,30 @@ export async function getServerSideProps(context) {
     },
   }
 
-  if(!user?.stripeSubscriptionId || !user?.active) return {
+  if(!user.stripeSubscriptionId && !user.linkedUserId || !user.active) return {
     redirect: {
       destination: '/getting-started',
       permanent: false,
     },
   }
 
+  if(user.linkedUserId) {
+    const linked_user = await prisma.user.findUnique({
+      where: { id: user.linkedUserId }
+    })
+    if(linked_user?.stripeSubscriptionId){
+      if (new_user) return { props: { user, newUser: true } }
+      return { props: { user, newUser: false } }
+    } else {
+      return {
+        redirect: {
+          destination: '/getting-started',
+          permanent: false,
+        }
+      }
+    }
+  }
+  
   // const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
   // if (!plan.active) return { props: { user: null, newUser: false }}
 
