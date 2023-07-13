@@ -41,14 +41,14 @@ export default async (req, res) => {
     let { type, official_name } = accounts.find(a => a.account_id === account_id)
     if(type === 'credit' || type === 'loan'){
       if(Number(amount) < 0){
-        return { amount: Number(Math.abs(amount)).toFixed(2), account_name: official_name, type }
+        return { amount: Number(Math.abs(amount)).toFixed(2), type }
       }
-      return { amount: Number(-Math.abs(amount)).toFixed(2), account_name: official_name, type }
+      return { amount: Number(-Math.abs(amount)).toFixed(2), type }
     } else {
       if(Number(amount) > 0){
-        return { amount: Number(-Math.abs(amount)).toFixed(2), account_name: official_name, type }
+        return { amount: Number(-Math.abs(amount)).toFixed(2), type }
       }
-      return { amount: Number(Math.abs(amount)).toFixed(2), account_name: official_name, type }
+      return { amount: Number(Math.abs(amount)).toFixed(2), type }
     }
   }
 
@@ -69,7 +69,7 @@ export default async (req, res) => {
 
     for (let i in added) {
       let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
-      let { amount, account_name, type } = formatAmount(added[i].account_id, added[i].amount)
+      let { amount, type } = formatAmount(added[i].account_id, added[i].amount)
       await prisma.transactions.upsert({
         where: { 
           transaction_id: added[i].transaction_id 
@@ -78,7 +78,6 @@ export default async (req, res) => {
         create: {
           transaction_id: added[i].transaction_id,
           account_id: added[i].account_id,
-          account_name: account_name,
           type: type,
           amount: amount,
           authorized_date: new Date(added[i].date),

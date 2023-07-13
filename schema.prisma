@@ -41,21 +41,22 @@ model Session {
 }
 
 model User {
-  id                   String    @id @default(cuid())
+  id                   String         @id @default(cuid())
   name                 String?
-  email                String?   @unique
+  email                String?        @unique
   emailVerified        DateTime?
   image                String?
   phone                String?
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
-  active               Boolean   @default(false)
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  active               Boolean        @default(false)
   stripeCustomerId     String?
   stripeSubscriptionId String?
-  subscribed           Boolean   @default(false)
+  subscribed           Boolean        @default(false)
   linkedUserId         String?
   accounts             Account[]
   sessions             Session[]
+  Transactions         Transactions[]
 
   @@map("users")
 }
@@ -82,19 +83,20 @@ model Plaid {
 }
 
 model Accounts {
-  id            Int      @id @default(autoincrement())
-  account_id    String?  @unique
+  id            Int            @id @default(autoincrement())
+  account_id    String?        @unique
   balances      Json?
   name          String?
   official_name String?
   subtype       String?
   type          String?
-  user_id       String?  @map("user_id")
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  user_id       String?        @map("user_id")
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
   access_token  String?
   item_id       String?
-  active        Boolean? @default(true)
+  active        Boolean?       @default(true)
+  Transactions  Transactions[]
 
   @@map("accounts")
 }
@@ -122,10 +124,11 @@ model Transactions {
   week_year         String?
   recurring         Boolean   @default(false)
   unified           String?   @default("1f4b8")
-  account_name      String?
   notes             String?
   type              String?
   alert_date        DateTime?
+  account           Accounts? @relation(fields: [account_id], references: [account_id])
+  user              User?     @relation(fields: [user_id], references: [id])
 
   @@map("transactions")
 }

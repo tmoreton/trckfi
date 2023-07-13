@@ -38,9 +38,9 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
   )
   
   const downloadCSV = () => {
-    let arr = [['Name', 'Primary Category', 'Detailed Category', 'Date', 'Amount', 'Account Name', 'Notes']]
+    let arr = [['Name', 'Primary Category', 'Detailed Category', 'Date', 'Amount', 'Notes']]
     rows.forEach(r => (
-      arr.push([r.original.name, r.original.primary_category, r.original.detailed_category, r.original.date, r.original.amount, r.original.account_name, r.original.notes])
+      arr.push([r.original.name, r.original.primary_category, r.original.detailed_category, r.original.date, r.original.amount, r.original.notes])
     ))
     updateCSV(arr)
     return true
@@ -192,7 +192,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
                     if(cell.column.Header === 'Amount' && cell.value > 0){
-                      return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold textgreen--600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     } else if (cell.column.Header === 'Name'){
                       return (
                         <td className="overflow-hidden px-1 py-2 text-sm text-gray-500 flex items-center" {...cell.getCellProps()}>

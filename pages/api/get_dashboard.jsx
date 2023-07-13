@@ -206,7 +206,6 @@ export default async (req, res) => {
         date: true,
         unified: true,
         notes: true,
-        account_name: true,
         alert_date: true
       },
       orderBy: {
