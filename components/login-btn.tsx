@@ -16,7 +16,7 @@ export default function () {
   }
   return (
     <PinkBtn onClick={signIn}>
-       Sign In
+      Sign In
     </PinkBtn>
   )
 }
