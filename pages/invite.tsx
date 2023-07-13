@@ -33,7 +33,7 @@ export default function ({ showError, user }) {
   const remove = async (e) => {
     e.preventDefault()
     if(user){
-      const res = await fetch(`/api/cron/send_alert`, {
+      const res = await fetch(`/api/remove_link`, {
         body: JSON.stringify({
           user
         }),
@@ -42,9 +42,9 @@ export default function ({ showError, user }) {
         },
         method: 'POST',
       })
-      // const { error } = await res.json()
-      // showError(error)
-      // if(!error) signOut()
+      const { error } = await res.json()
+      showError(error)
+      if(!error) signOut()
     }
   }
 
