@@ -229,7 +229,7 @@ export async function getServerSideProps(context) {
       permanent: false,
     },
   }
-
+  console.log(user)
   if(!user.stripeSubscriptionId && !user.linkedUserId || !user.active) return {
     redirect: {
       destination: '/getting-started',
@@ -237,7 +237,7 @@ export async function getServerSideProps(context) {
     },
   }
 
-  if(user.linkedUserId) {
+  if(!user.stripeSubscriptionId && user.linkedUserId) {
     const linked_user = await prisma.user.findUnique({
       where: { id: user.linkedUserId }
     })

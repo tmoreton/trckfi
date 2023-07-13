@@ -1,13 +1,14 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import { DateTime } from "luxon";
+// import yahooFinance from 'yahoo-finance2';
 
 export default async (req, res) => {
   const { user, range } = req.body
   const user_id = user?.id
   if (!user_id ) return res.status(500)
   try {
-
+    // const { regularMarketPrice, currency, shortName } = await yahooFinance.quote('AAPL');
     const groupByWeek = await prisma.transactions.groupBy({
       by: ['week_year'],
       where: {
