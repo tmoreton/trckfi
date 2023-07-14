@@ -31,7 +31,7 @@ export default function Index({ allPosts, showError, host }) {
         <DemoModal open={open} setOpen={setOpen} />
         <Hero />
         <Feature />
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         <Pricing />
         {/* <Newsletter /> */}
       </Container>
