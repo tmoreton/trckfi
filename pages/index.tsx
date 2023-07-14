@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
+import Faq from '../components/faq'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
@@ -33,6 +34,7 @@ export default function Index({ allPosts, showError, host }) {
         <Feature />
         {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         <Pricing />
+        <Faq />
         {/* <Newsletter /> */}
       </Container>
     </Layout>
