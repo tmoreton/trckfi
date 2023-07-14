@@ -229,7 +229,7 @@ export async function getServerSideProps(context) {
       permanent: false,
     },
   }
-  console.log(user)
+
   if(!user.stripeSubscriptionId && !user.linkedUserId || !user.active) return {
     redirect: {
       destination: '/getting-started',

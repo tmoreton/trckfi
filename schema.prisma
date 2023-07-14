@@ -25,7 +25,8 @@ model Account {
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
-  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plaid              Plaid?  @relation(fields: [access_token], references: [access_token])
+  user               User    @relation(fields: [userId], references: [id])
 
   @@unique([provider, providerAccountId])
 }
@@ -72,12 +73,13 @@ model VerificationToken {
 }
 
 model Plaid {
-  id           String   @id @default(cuid())
-  access_token String   @unique
-  item_id      String?  @unique
-  user_id      String?  @map("user_id")
-  active       Boolean? @default(true)
+  id           String    @id @default(cuid())
+  access_token String    @unique
+  item_id      String?   @unique
+  user_id      String?   @map("user_id")
+  active       Boolean?  @default(true)
   cursor       String?
+  Account      Account[]
 
   @@map("plaid")
 }

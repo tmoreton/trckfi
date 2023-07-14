@@ -76,11 +76,11 @@ export default function ({ showError }) {
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link href="/invite" className={classNames(
+                            <Link href="/settings" className={classNames(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700 w-full text-left'
                               )}>
-                              Invite User
+                              Settings
                             </Link>
                           )}
                         </Menu.Item>
@@ -92,19 +92,6 @@ export default function ({ showError }) {
                               )}>
                               Feedback
                             </Link>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              onClick={() => setOpen(true)}
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-                              )}
-                            >
-                              Cancel Subscription
-                            </button>
                           )}
                         </Menu.Item>
                         <Menu.Item>
@@ -157,13 +144,6 @@ export default function ({ showError }) {
               {
                 session ?
                 <div className="mt-3 space-y-1 px-2">
-                  <Disclosure.Button
-                    as="button"
-                    onClick={() => setOpen(true)}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                  >
-                    Cancel Subscription
-                  </Disclosure.Button>
                   <Disclosure.Button
                     as="button"
                     onClick={() => signOut()}

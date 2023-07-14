@@ -26,28 +26,8 @@ export default async (req, res) => {
     const access_code = generate({ exactly: 5, join: '-' })
     const expires = DateTime.now().plus({hours: 24}).toISO()
 
-    // await prisma.linkTokens.create({
-    //   data: {
-    //     to_email: to_email.toLowerCase(),
-    //     from_email: from_email.toLowerCase(),
-    //     user_id,
-    //     access_code,
-    //     expires
-    //   },
-    // })
-    await prisma.linkTokens.upsert({
-      where: { 
-        user_id,
-        to_email: to_email.toLowerCase()
-      },
-      update: {
-        to_email: to_email.toLowerCase(),
-        from_email: from_email.toLowerCase(),
-        user_id,
-        access_code,
-        expires
-      },
-      create: { 
+    await prisma.linkTokens.create({
+      data: {
         to_email: to_email.toLowerCase(),
         from_email: from_email.toLowerCase(),
         user_id,
