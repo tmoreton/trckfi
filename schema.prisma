@@ -25,7 +25,8 @@ model Account {
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
-  plaid              Plaid?  @relation(fields: [access_token], references: [access_token])
+  plaidId            String?
+  Plaid              Plaid?  @relation(fields: [plaidId], references: [id])
   user               User    @relation(fields: [userId], references: [id])
 
   @@unique([provider, providerAccountId])
