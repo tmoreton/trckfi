@@ -49,12 +49,15 @@ model VerificationToken {
 }
 
 model Plaid {
-  id           String   @id @default(cuid())
-  access_token String   @unique
-  item_id      String?  @unique
-  user_id      String?  @map("user_id")
-  active       Boolean? @default(true)
-  cursor       String?
+  id              String   @id @default(cuid())
+  access_token    String   @unique
+  item_id         String?  @unique @map("item_id")
+  user_id         String?  @map("user_id")
+  active          Boolean? @default(true)
+  cursor          String?
+  bank_name       String?
+  link_session_id String?
+  public_token    String?
 
   @@map("plaid")
 }
@@ -73,6 +76,7 @@ model Accounts {
   active        Boolean?       @default(true)
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
+  bank_name     String?
   Transactions  Transactions[]
 
   @@map("accounts")
@@ -132,7 +136,7 @@ model Subscriptions {
   start_date           String?
   status               String?
   trial_end            String?
-  user_id              String?
+  user_id              String? @map("user_id")
 
   @@map("subscriptions")
 }

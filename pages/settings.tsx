@@ -297,6 +297,18 @@ export async function getServerSideProps(context) {
       access_token: true
     },
   })
+
+  const p = await prisma.plaid.findMany({
+    where: {
+      OR: query,
+      active: true,
+    },
+    include: {
+      accounts: true
+    }
+  })
+  console.log(p)
+
   const accounts = a.reduce(function (r, a) {
     r[a.access_token] = r[a.access_token] || [];
     r[a.access_token].push(a);

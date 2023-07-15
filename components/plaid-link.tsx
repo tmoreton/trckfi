@@ -21,9 +21,9 @@ export default function ({ showError, user }) {
     setLinkToken(link_token)
   }
 
-  const getAccessToken = async ({ public_token, user_id }) => {
+  const getAccessToken = async ({ public_token, user_id, metadata }) => {
     const res = await fetch(`/api/set_access_token`, {
-      body: JSON.stringify({ public_token, user_id }),
+      body: JSON.stringify({ public_token, user_id, metadata }),
       method: 'POST',
     })
     const { access_token, error } = await res.json()
@@ -61,8 +61,9 @@ export default function ({ showError, user }) {
 
   const { open, ready } = usePlaidLink({
     token: linkToken,
-    onSuccess: async (public_token) => {
-      const access_token = await getAccessToken({ public_token, user_id: user.id })
+    onSuccess: async (public_token, metadata) => {
+      console.log(user)
+      const access_token = await getAccessToken({ public_token, user_id: user.id, metadata })
       if(access_token){
         getAccounts(access_token)
         setTimeout(() => {

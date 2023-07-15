@@ -22,7 +22,8 @@ const icons = {
 }
 
 export default async (req, res) => {
-  const { user_id, access_token } = req.body
+  let { user_id, access_token } = JSON?.parse(req.body) || req.body
+
   if (!user_id || !access_token) return res.status(500).json({ error: 'No Token or User' })
 
   const plaidAccount = await prisma.plaid.findUnique({

@@ -3,7 +3,8 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  const { user_id, access_token } = req.body
+  let { user_id, access_token } = JSON?.parse(req.body) || req.body
+
   if (!user_id || !access_token) return res.status(500)
 
   const plaidAccount = await prisma.plaid.findUnique({
@@ -28,6 +29,7 @@ export default async (req, res) => {
         create: {
           access_token: plaidAccount.access_token,
           item_id: plaidAccount.item_id,
+          bank_name: plaidAccount.bank_name,
           account_id: accounts[i].account_id,
           name: accounts[i].name,
           // @ts-ignore
