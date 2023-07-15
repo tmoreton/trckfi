@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import PlaidLink from "./plaid-link"
 
-export default ({ accounts, user, open, getAccounts, syncTransactions, openSetupModal, showError }) => {
+export default ({ user, open, openSetupModal, showError }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => openSetupModal(false)}>
@@ -48,7 +48,7 @@ export default ({ accounts, user, open, getAccounts, syncTransactions, openSetup
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <PlaidLink accounts={accounts} user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+                  <PlaidLink user={user} showError={showError} />
                 </div>
               </Dialog.Panel>
             </Transition.Child>

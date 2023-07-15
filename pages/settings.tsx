@@ -6,6 +6,7 @@ import prisma from '../lib/prisma'
 import { signOut } from "next-auth/react"
 import { useRouter } from 'next/router'
 import RemoveAccount from "../components/remove-account"
+import PlaidLink from "../components/plaid-link"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -15,7 +16,6 @@ export default function ({ showError, user, linked_user, accounts }) {
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
   const [email, setEmail] = useState('')
   const [open, setOpen] = useState(false)
-  const [accessToken, setAccessToken] = useState(null)
   const [removedAccounts, setRemovedAccounts] = useState([])
   const router = useRouter()
 
@@ -78,7 +78,7 @@ export default function ({ showError, user, linked_user, accounts }) {
   }
 
   return (
-    <DashboardLayout showError={showError}>
+    <DashboardLayout>
       <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
         <div>
@@ -158,9 +158,7 @@ export default function ({ showError, user, linked_user, accounts }) {
           </ul>
 
           <div className="flex border-t border-gray-100 pt-6">
-            <button type="button" className="text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500">
-              <span aria-hidden="true">+</span> Add another bank
-            </button>
+            { (Object.keys(accounts)?.length < 5) ? <PlaidLink user={user} showError={showError} /> : <p className="text-sm leading-6 text-gray-500">Please remove account link to add more...</p>}
           </div>
         </div>
 

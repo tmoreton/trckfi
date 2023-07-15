@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { usePlaidLink } from 'react-plaid-link';
-import { PlusCircleIcon } from '@heroicons/react/20/solid'
+import React, { useEffect, useState } from 'react'
+import { usePlaidLink } from 'react-plaid-link'
+import { useRouter } from 'next/router'
 
-export default function ({ accounts, getAccounts, syncTransactions, showError, user }) {
+export default function ({ showError, user }) {
   const [linkToken, setLinkToken] = useState(null)
+  const router = useRouter()
 
   useEffect(() => {
     if(user){
@@ -23,14 +24,39 @@ export default function ({ accounts, getAccounts, syncTransactions, showError, u
   const getAccessToken = async ({ public_token, user_id }) => {
     const res = await fetch(`/api/set_access_token`, {
       body: JSON.stringify({ public_token, user_id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
       method: 'POST',
     })
     const { access_token, error } = await res.json()
     showError(error)
     return access_token
+  }
+
+  const getAccounts = async (access_token) => {
+    const res = await fetch(`/api/get_accounts`, {
+      body: JSON.stringify({
+        user_id: user.id,
+        access_token: access_token
+      }),
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) router.reload()
+  }
+
+  const syncTransactions = async (access_token) => {
+    const res = await fetch(`/api/sync_transactions`, {
+      body: JSON.stringify({
+        user_id: user.id,
+        access_token: access_token
+      }),
+      method: 'POST',
+    })
+    const { error, has_more } = await res.json()
+    showError(error)
+    if(has_more){
+      syncTransactions(access_token)
+    }
   }
 
   const { open, ready } = usePlaidLink({
@@ -46,26 +72,12 @@ export default function ({ accounts, getAccounts, syncTransactions, showError, u
         showError('Couldnt get access token, please try again')
       }
     },
-  });
-  
-  const checkAccounts = async () => {
-    let active_accounts = []
-    accounts.forEach(a => {
-      if (!active_accounts.includes(a.item_id)){
-        active_accounts.push(a.item_id)
-      }
-    })
-    if(active_accounts.length < 5){
-      open()
-    } else {
-      showError('Account link limit of 5 reached for this account, please un-link an active connection or upgrade to Pro account')
-    }
-  }
+  })
 
   if(!linkToken) return null
   return (
-    <button onClick={checkAccounts} disabled={!ready} className="p-3">
-      <PlusCircleIcon className="h-10 w-10 text-pink-600" aria-hidden="true" />
+    <button onClick={() => open()} disabled={!ready} type="button" className="text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500">
+      <span aria-hidden="true">+</span> Add another bank
     </button>
   )
 }

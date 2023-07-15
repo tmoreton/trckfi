@@ -58,7 +58,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
             <p className="text-2xl font-semibold text-red-600">{addComma(thisMonthTotal || 0)}</p>
             <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthTotal)}</span> in {lastMonthString}</p>
           </div>
-          <p className={classNames(Number(lastMonthTotal) <= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
+          <p className={classNames(Number(lastMonthTotal) <= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
             {
                Number(lastMonthTotal) <= Number(thisMonthTotal) ?
               <ArrowDownIcon className='text-green-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
@@ -82,7 +82,7 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
             <p className="text-2xl font-semibold text-green-600">{addComma(thisMonthIncome || 0)}</p>
             <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthIncome || 0)}</span> in {lastMonthString}</p>
           </div>
-          <p className={classNames(Number(thisMonthIncome) <= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'ml-2 flex items-baseline text-sm font-semibold')}>
+          <p className={classNames(Number(thisMonthIncome) <= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
             {
                Number(thisMonthIncome) <= Number(lastMonthIncome) ?
               <ArrowDownIcon className='text-red-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
