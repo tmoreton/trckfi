@@ -261,8 +261,9 @@ export default function ({ showError, user, linked_user, accounts }) {
 
 export async function getServerSideProps(context) {
   const session= await getSession(context)
+  const user = session?.user
 
-  if(!session) return {
+  if(!user) return {
     redirect: {
       destination: '/',
       permanent: false,
@@ -270,7 +271,7 @@ export async function getServerSideProps(context) {
   }
 
    // @ts-ignore
-  const { linked_user_id, id, email } = session?.user
+  const { linked_user_id, id, email } = user
 
   if(!email) return {
     redirect: {
