@@ -6,7 +6,7 @@ import { getSession } from 'next-auth/react'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/loading-modal'
 
-export default function ({ csrfToken, user, showError }) {
+export default function ({ csrfToken, user, showError, base_url }) {
   const email = user?.email
 
   const handleSubmit = async (email) => {
@@ -48,7 +48,7 @@ export default function ({ csrfToken, user, showError }) {
         </div>
       </div>
       <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-3" method="post" action="/api/auth/signin/email">
+        <form className="space-y-3" method="post" action={`/api/auth/signin/email?callbackUrl=${base_url}/getting-started`}>
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <label htmlFor="email" className="block text-sm font-small leading-6 text-pink-600">
             Email address
@@ -61,7 +61,7 @@ export default function ({ csrfToken, user, showError }) {
               autoComplete="email"
               required
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-              />
+            />
           </div>
           <button
             type="submit"
@@ -88,7 +88,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 
   const csrfToken = await getCsrfToken(context)
+  const base_url = process.env.BASE_URL
   return {
-    props: { csrfToken, user },
+    props: { csrfToken, user, base_url },
   }
 }
