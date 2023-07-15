@@ -15,6 +15,7 @@ model Session {
   sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
 }
@@ -26,12 +27,13 @@ model User {
   emailVerified   DateTime?
   image           String?
   phone           String?
-  created_at      DateTime  @default(now())
-  updated_at      DateTime  @updatedAt
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
   active          Boolean   @default(false)
-  subscription_id String?
   subscribed      Boolean   @default(false)
   linked_user_id  String?
+  subscription_id String?
+  sessions        Session[]
 
   @@map("users")
 }
@@ -47,15 +49,12 @@ model VerificationToken {
 }
 
 model Plaid {
-  id           String     @id @default(cuid())
-  access_token String     @unique
-  item_id      String?    @unique
-  user_id      String?    @map("user_id")
-  active       Boolean?   @default(true)
+  id           String   @id @default(cuid())
+  access_token String   @unique
+  item_id      String?  @unique
+  user_id      String?  @map("user_id")
+  active       Boolean? @default(true)
   cursor       String?
-  created_at   DateTime?  @default(now())
-  updated_at   DateTime?  @updatedAt
-  Accounts     Accounts[]
 
   @@map("plaid")
 }
@@ -69,14 +68,11 @@ model Accounts {
   subtype       String?
   type          String?
   user_id       String?        @map("user_id")
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
   access_token  String?
   item_id       String?
-  created_at    DateTime?      @default(now())
-  updated_at    DateTime?      @updatedAt
   active        Boolean?       @default(true)
-  Plaid         Plaid?         @relation(fields: [item_id], references: [item_id])
+  created_at    DateTime       @default(now())
+  updated_at    DateTime       @updatedAt
   Transactions  Transactions[]
 
   @@map("accounts")
@@ -93,8 +89,6 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
-  created_at        DateTime? @default(now())
-  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -108,6 +102,8 @@ model Transactions {
   notes             String?
   type              String?
   alert_date        DateTime?
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   account           Accounts? @relation(fields: [account_id], references: [account_id])
 
   @@map("transactions")
