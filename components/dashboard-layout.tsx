@@ -15,7 +15,6 @@ import { signOut } from "next-auth/react"
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
-  { name: 'Billing', href: '#', icon: CreditCardIcon },
 ]
 
 function classNames(...classes) {

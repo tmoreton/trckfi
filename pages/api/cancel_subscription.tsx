@@ -17,7 +17,7 @@ export default async (req, res) => {
       },
     })
 
-    const subscription = await stripe.subscriptions.cancel(user.subscription_id);
+    await stripe.subscriptions.cancel(user.subscription_id);
     
     const plaid = await prisma.plaid.findMany({
       where: {
@@ -26,9 +26,7 @@ export default async (req, res) => {
     })
 
     for (var i in plaid) {        
-      await plaidClient.itemRemove({
-        access_token: plaid[i].access_token
-      })
+      await plaidClient.itemRemove({ access_token: plaid[i].access_token })
 
       await prisma.plaid.updateMany({
         where: {
@@ -36,27 +34,6 @@ export default async (req, res) => {
         },
         data: {
           active: false,
-        }
-      })
-
-      await prisma.accounts.updateMany({
-        where: {
-          item_id: plaid[i].item_id
-        },
-        data: {
-          active: false,
-          user_id: null
-        }
-      })
-  
-      await prisma.transactions.updateMany({
-        where: {
-          item_id: plaid[i].item_id
-        },
-        data: {
-          active: false,
-          user_id: null,
-          transaction_id: null
         }
       })
 

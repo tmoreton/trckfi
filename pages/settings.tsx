@@ -7,6 +7,7 @@ import { signOut } from "next-auth/react"
 import { useRouter } from 'next/router'
 import RemoveAccount from "../components/remove-account"
 import PlaidLink from "../components/plaid-link"
+import CancelModal from '../components/cancel-modal'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -14,6 +15,7 @@ function classNames(...classes) {
 
 export default function ({ showError, user, linked_user, accounts }) {
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
+  const [openCancelModal, setCancelOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [open, setOpen] = useState(false)
   const [removedAccounts, setRemovedAccounts] = useState([])
@@ -36,7 +38,6 @@ export default function ({ showError, user, linked_user, accounts }) {
     showError(error)
     if(!error) setEmail('Email Sent! 🎉')
   }
-
 
   const remove = async (e) => {
     e.preventDefault()
@@ -79,6 +80,7 @@ export default function ({ showError, user, linked_user, accounts }) {
 
   return (
     <DashboardLayout>
+      <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
       <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
         <div>
@@ -87,6 +89,16 @@ export default function ({ showError, user, linked_user, accounts }) {
             This information will be displayed publicly so be careful what you share.
           </p>
           <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
+            <div className="pt-6 sm:flex">
+              <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Subscription</dt>
+              <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                <div className="text-gray-900">Monthly - Active</div>
+                <button onClick={() => setCancelOpen(true)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                  Cancel
+                </button>
+              </dd>
+            </div>
+
             <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Name</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
