@@ -26,7 +26,7 @@ export default function Post({ post, preview, showError }) {
             <article className="mb-32">
               <Head>
                 <title>{title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <meta property="og:image" content={post.coverImage} />
               </Head>
               <Menu showError={showError}/>
               <PostHeader
