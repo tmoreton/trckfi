@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
 import Faq from '../components/faq'
 import Hero from '../components/hero'
+import HeroNew from '../components/hero-new'
+
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
@@ -30,7 +31,7 @@ export default function Index({ allPosts, showError, host }) {
       <Container>
         <Menu showError={showError}/>
         <DemoModal open={open} setOpen={setOpen} />
-        <Hero />
+        <HeroNew />
         <Feature />
         {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         <Pricing />
