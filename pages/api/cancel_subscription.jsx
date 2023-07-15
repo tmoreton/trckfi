@@ -17,7 +17,7 @@ export default async (req, res) => {
       },
     })
 
-    const subscription = await stripe.subscriptions.cancel(user.stripeSubscriptionId);
+    const subscription = await stripe.subscriptions.cancel(user.subscription_id);
     
     const plaid = await prisma.plaid.findMany({
       where: {
@@ -66,7 +66,7 @@ export default async (req, res) => {
         },
         data: {
           active: false,
-          stripeSubscriptionId: null,
+          subscription_id: null,
         }
       })
     }

@@ -14,7 +14,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         authorized_date: {
@@ -44,7 +44,7 @@ export default async (req, res) => {
       where: { 
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true
       },
@@ -56,7 +56,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         primary_category: 'INCOME',
@@ -82,7 +82,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         authorized_date: {
@@ -112,7 +112,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         authorized_date: {
@@ -136,7 +136,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         authorized_date: {
@@ -160,7 +160,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         authorized_date: {
@@ -183,7 +183,7 @@ export default async (req, res) => {
       where: {
         OR: [
           { user_id: user_id },
-          { user_id: user?.linkedUserId },
+          { user_id: user?.linked_user_id },
         ],
         active: true,
         authorized_date: {

@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
       where: { email: email.toLowerCase() },
       data: { 
         stripeCustomerId: customer,
-        stripeSubscriptionId: subscription,
+        subscription_id: subscription,
         phone,
         name,
         active: true

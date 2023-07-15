@@ -147,7 +147,7 @@ export async function getServerSideProps(context) {
     const subscribed_user = await prisma.user.upsert({
       where: { id: link_token.user_id },
       update: { 
-        linkedUserId: user.id 
+        linked_user_id: user.id 
       },
       create: {},
     })
@@ -156,7 +156,7 @@ export async function getServerSideProps(context) {
     await prisma.user.upsert({
       where: { id: user.id },
       update: { 
-        linkedUserId: subscribed_user.id,
+        linked_user_id: subscribed_user.id,
         active: true,
       },
       create: {},

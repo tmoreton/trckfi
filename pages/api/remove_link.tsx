@@ -6,9 +6,9 @@ export default async (req, res) => {
 
   try {
     await prisma.user.upsert({
-      where: { id: user.linkedUserId },
+      where: { id: user.linked_user_id },
       update: { 
-        linkedUserId: null,
+        linked_user_id: null,
         active: false,
       },
       create: {},
@@ -16,7 +16,7 @@ export default async (req, res) => {
 
     await prisma.user.upsert({
       where: { id: user.id },
-      update: { linkedUserId: null },
+      update: { linked_user_id: null },
       create: {},
     })
 

@@ -21,21 +21,19 @@ model Session {
 }
 
 model User {
-  id                   String         @id @default(cuid())
-  name                 String?
-  email                String?        @unique
-  emailVerified        DateTime?
-  image                String?
-  phone                String?
-  createdAt            DateTime       @default(now())
-  updatedAt            DateTime       @updatedAt
-  active               Boolean        @default(false)
-  subscribed           Boolean        @default(false)
-  linkedUserId         String?
-  stripeCustomerId     String?
-  stripeSubscriptionId String?
-  sessions             Session[]
-  Transactions         Transactions[]
+  id              String    @id @default(cuid())
+  name            String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  phone           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  active          Boolean   @default(false)
+  subscribed      Boolean   @default(false)
+  linked_user_id  String?
+  subscription_id String?
+  sessions        Session[]
 
   @@map("users")
 }
@@ -104,10 +102,9 @@ model Transactions {
   notes             String?
   type              String?
   alert_date        DateTime?
-  createdAt         DateTime? @default(now())
-  updatedAt         DateTime? @updatedAt
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   account           Accounts? @relation(fields: [account_id], references: [account_id])
-  user              User?     @relation(fields: [user_id], references: [id])
 
   @@map("transactions")
 }
@@ -119,6 +116,25 @@ model LinkTokens {
   expires     DateTime?
   from_email  String?
   to_email    String?
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @updatedAt
 
   @@map("link_tokens")
+}
+
+model Subscriptions {
+  id                   String  @id @default(cuid())
+  customer             String?
+  subscription         String? @unique
+  canceled_at          String?
+  cancel_at            String?
+  current_period_end   String?
+  current_period_start String?
+  ended_at             String?
+  start_date           String?
+  status               String?
+  trial_end            String?
+  user_id              String?
+
+  @@map("subscriptions")
 }

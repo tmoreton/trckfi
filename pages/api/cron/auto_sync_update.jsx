@@ -8,7 +8,7 @@ export default async (req, res) => {
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
-        stripeSubscriptionId: {
+        subscription_id: {
           not: null
         }
       }
