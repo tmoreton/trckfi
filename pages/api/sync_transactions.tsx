@@ -73,6 +73,7 @@ export default async (req, res) => {
           detailed_category: detailed_category,
           unified: icons[detailed_category],
           primary_category: added[i].personal_finance_category.primary,
+          // @ts-ignore
           location: added[i].location,
           user_id: user_id,
           item_id: plaidAccount.item_id,

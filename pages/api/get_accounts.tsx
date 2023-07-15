@@ -21,6 +21,7 @@ export default async (req, res) => {
           account_id: accounts[i].account_id
         },
         update: {
+          // @ts-ignore
           balances: accounts[i].balances,
           active: true
         },
@@ -29,6 +30,7 @@ export default async (req, res) => {
           item_id: plaidAccount.item_id,
           account_id: accounts[i].account_id,
           name: accounts[i].name,
+          // @ts-ignore
           balances: accounts[i].balances,
           official_name: accounts[i].official_name,
           subtype: accounts[i].subtype,
