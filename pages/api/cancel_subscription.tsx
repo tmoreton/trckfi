@@ -8,7 +8,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default async (req, res) => {
-  const { user_id } = req.body
+  let body;
+  if(typeof req.body === 'object'){
+    body = req.body
+  } else {
+    body = JSON.parse(req.body)
+  }
+  let { user_id } = body
 
   try {
     const user = await prisma.user.findUnique({
