@@ -12,6 +12,7 @@ export default async (req, res) => {
   }
   
   try {
+    // @ts-ignore
     const { data } = await plaidClient.linkTokenCreate(params);
     return res.status(200).json({ link_token: data.link_token })
   } catch (error) {

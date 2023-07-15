@@ -66,6 +66,7 @@ export default async (req, res) => {
         },
         data: {
           active: false,
+          // @ts-ignore
           subscription_id: null,
         }
       })
