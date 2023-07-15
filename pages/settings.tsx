@@ -162,7 +162,7 @@ export default function ({ showError, user, linked_user, accounts }) {
           </ul>
 
           <div className="flex border-t border-gray-100 pt-6">
-            { (Object.keys(accounts)?.length < 5) ? <PlaidLink user={user} showError={showError} /> : <p className="text-sm leading-6 text-gray-500">Please remove account link to add more...</p>}
+            { (Object.keys(accounts)?.length < 7) ? <PlaidLink user={user} showError={showError} /> : <p className="text-sm leading-6 text-gray-500">Please remove account link to add more...</p>}
           </div>
         </div>
 
