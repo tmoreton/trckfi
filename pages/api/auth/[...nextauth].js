@@ -62,7 +62,7 @@ export const authOptions = {
   secret: process.env.JWT_SECRET,
   callbacks: {
     async session(session, user) {
-      return session;
+      return session
     },
     async signIn({ user, account, profile, email, credentials }) {
       return true

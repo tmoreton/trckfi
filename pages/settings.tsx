@@ -315,24 +315,26 @@ export default function ({ showError, user, linked_user, accounts }) {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context)
-  const user = session?.user
-  if(!user) return {
+  const { user } = await getSession(context)
+   // @ts-ignore
+  const { linked_user_id, id, email } = user
+
+  if(!email) return {
     redirect: {
       destination: '/',
       permanent: false,
     }
   }
   let linked_user = null
-  if(user.linked_user_id){
+  if(linked_user_id){
     linked_user = await prisma.user.findUnique({
-      where: { id: user.linked_user_id }
+      where: { id: linked_user_id }
     })
   }
 
   const a = await prisma.accounts.findMany({
     where: {
-      user_id: user.id,
+      user_id: id,
       active: true,
     },
     select: {

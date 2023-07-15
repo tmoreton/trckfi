@@ -3,10 +3,6 @@ import type { GetServerSidePropsContext } from "next";
 import { getCsrfToken } from "next-auth/react"
 import Icon from '../components/icon';
 import { getSession } from 'next-auth/react'
-import Menu from '../components/menu'
-import Container from "../components/container"
-import Layout from "../components/layout"
-import Head from 'next/head'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/loading-modal'
 
@@ -83,15 +79,16 @@ export default function ({ csrfToken, user, showError }) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
-  // if(session && session?.user) return {
-  //   redirect: {
-  //     destination: '/dashboard',
-  //     permanent: false,
-  //   },
-  // }
+  console.log(session)
+  if(session) return {
+    redirect: {
+      destination: '/dashboard',
+      permanent: false,
+    },
+  }
 
   const csrfToken = await getCsrfToken(context)
   return {
-    props: { csrfToken, user: session?.user },
+    props: { csrfToken, user: session },
   }
 }
