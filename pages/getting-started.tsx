@@ -50,7 +50,7 @@ export default function ({ csrfToken, user, showError }) {
       <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-3" method="post" action="/api/auth/signin/email">
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-          <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="email" className="block text-sm font-small leading-6 text-pink-600">
             Email address
           </label>
           <div className="mt-2">
@@ -60,8 +60,8 @@ export default function ({ csrfToken, user, showError }) {
               type="email"
               autoComplete="email"
               required
-              className="block w-full min-w-0 flex-auto rounded-md bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 border border-gray-300"
-            />
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+              />
           </div>
           <button
             type="submit"
