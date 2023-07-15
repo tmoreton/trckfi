@@ -3,8 +3,7 @@ title: '5 Truths About Personal Finances That Everyone Should Know About'
 excerpt: 'Having a realistic budget is a crucial part of financial planning and money management. By setting up a realistic budget plan that aligns with your unique spending habits and income, you gain control over your money, rather than letting it control you.'
 coverImage: '/assets/blog/five-truths-1.jpg'
 date: '2023-07-14'
-ogImage:
-  url: '/assets/blog/five-truths-1.jpg'
+category: 'Personal Finance'
 ---
 
 Get ready to discover some misconceptions about personal finances that can help you unlock the keys to your financial success
