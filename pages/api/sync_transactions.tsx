@@ -22,7 +22,13 @@ const icons = {
 }
 
 export default async (req, res) => {
-  let { user_id, access_token } = req.body
+  let body;
+  if(typeof req === 'object'){
+    body = JSON.parse(req.body)
+  } else {
+    body = req.body
+  }  
+  let { user_id, access_token } = body
 
   if (!user_id || !access_token) return res.status(500).json({ error: 'No Token or User' })
 

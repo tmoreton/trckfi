@@ -3,7 +3,14 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  const { public_token, user_id, metadata } = JSON.parse(req.body)
+  let body;
+  if(typeof req === 'object'){
+    body = JSON.parse(req.body)
+  } else {
+    body = req.body
+  }  
+  let { public_token, user_id, metadata } = body
+
   try {
     if(user_id){
       const { data } = await plaidClient.itemPublicTokenExchange({
@@ -25,7 +32,6 @@ export default async (req, res) => {
 
     return res.status(500).json({ error: 'No User ID', access_token: null})
   } catch (error) {
-    console.log(error)
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
