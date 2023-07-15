@@ -260,9 +260,17 @@ export default function ({ showError, user, linked_user, accounts }) {
 }
 
 export async function getServerSideProps(context) {
-  const { user } = await getSession(context)
+  const session= await getSession(context)
+
+  if(!session) return {
+    redirect: {
+      destination: '/',
+      permanent: false,
+    }
+  }
+
    // @ts-ignore
-  const { linked_user_id, id, email } = user
+  const { linked_user_id, id, email } = session?.user
 
   if(!email) return {
     redirect: {

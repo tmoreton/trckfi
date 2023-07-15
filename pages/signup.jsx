@@ -10,15 +10,19 @@ import Login from './auth/email-signin'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
 
-export default function ({ showError, user, access_code, csrfToken, error }) {
-  // const [accessCode, setAccessCode] = useState('')
-  // const router = useRouter()
-
+export default function ({ showError, user, access_code, csrfToken, error, email, base_url }) {
+  const [updateEmail, setUpdateEmail] = useState('')
+  const router = useRouter()
+  const currentRoute = router.pathname
+  console.log(router)
   // useEffect(() => {
   //   if(access_code){
   //     setAccessCode(access_code)
   //   }
   // }, [access_code])
+  useEffect(() => {
+    setUpdateEmail(email)
+  }, [email])
 
   useEffect(() => {
     if(error) showError(error)
@@ -60,7 +64,7 @@ export default function ({ showError, user, access_code, csrfToken, error }) {
             <p className="mt-2 text-lg leading-8 text-gray-600 mb-4">
               Let's get started by creating an account!
             </p>
-            <form className="space-y-6" method="post" action={`/api/auth/signin/email?access_code=${access_code}`}>
+            <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${base_url}/signup?access_code=${access_code}`}>
               <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
               <div  className="mt-10 relative z-0 w-full mb-6 group inline-flex">
                 <div className="w-full">
@@ -70,6 +74,8 @@ export default function ({ showError, user, access_code, csrfToken, error }) {
                     type="email"
                     autoComplete="email"
                     required
+                    value={updateEmail}
+                    onChange={e => setUpdateEmail(e.target.value)}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                   />
                   <label 
@@ -130,8 +136,9 @@ export default function ({ showError, user, access_code, csrfToken, error }) {
 
 export async function getServerSideProps(context) {
   const csrfToken = await getCsrfToken(context)
-  const { access_code } = context.query
+  const { access_code, email } = context.query
   const session = await getSession(context)
+  const base_url = process.env.BASE_URL
   const user = session?.user
 
   if(user && access_code) {
@@ -171,6 +178,6 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { csrfToken, user: session?.user, access_code },
+    props: { csrfToken, user: session?.user, access_code, email, base_url },
   }
 }
