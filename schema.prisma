@@ -10,28 +10,6 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Account {
-  id                 String  @id @default(cuid())
-  userId             String  @map("user_id")
-  type               String
-  provider           String
-  providerAccountId  String  @map("provider_account_id")
-  refresh_token      String?
-  access_token       String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
-  oauth_token_secret String?
-  oauth_token        String?
-  plaidId            String?
-  Plaid              Plaid?  @relation(fields: [plaidId], references: [id])
-  user               User    @relation(fields: [userId], references: [id])
-
-  @@unique([provider, providerAccountId])
-}
-
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique @map("session_token")
@@ -42,19 +20,18 @@ model Session {
 }
 
 model User {
-  id                   String    @id @default(cuid())
-  name                 String?
-  email                String?   @unique
-  emailVerified        DateTime?
-  image                String?
-  phone                String?
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
-  active               Boolean   @default(false)
-  stripeSubscriptionId String?
-  subscribed           Boolean   @default(false)
-  linkedUserId         String?
-  accounts             Account[]
+  id              String    @id @default(cuid())
+  name            String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  phone           String?
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  active          Boolean   @default(false)
+  subscription_id String?
+  subscribed      Boolean   @default(false)
+  linked_user_id  String?
 
   @@map("users")
 }
@@ -70,13 +47,15 @@ model VerificationToken {
 }
 
 model Plaid {
-  id           String    @id @default(cuid())
-  access_token String    @unique
-  item_id      String?   @unique
-  user_id      String?   @map("user_id")
-  active       Boolean?  @default(true)
+  id           String     @id @default(cuid())
+  access_token String     @unique
+  item_id      String?    @unique
+  user_id      String?    @map("user_id")
+  active       Boolean?   @default(true)
   cursor       String?
-  Account      Account[]
+  created_at   DateTime?  @default(now())
+  updated_at   DateTime?  @updatedAt
+  Accounts     Accounts[]
 
   @@map("plaid")
 }
@@ -94,7 +73,10 @@ model Accounts {
   updatedAt     DateTime       @updatedAt
   access_token  String?
   item_id       String?
+  created_at    DateTime?      @default(now())
+  updated_at    DateTime?      @updatedAt
   active        Boolean?       @default(true)
+  Plaid         Plaid?         @relation(fields: [item_id], references: [item_id])
   Transactions  Transactions[]
 
   @@map("accounts")
@@ -111,8 +93,8 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
-  createdAt         DateTime? @default(now())
-  updatedAt         DateTime? @updatedAt
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -138,6 +120,8 @@ model LinkTokens {
   expires     DateTime?
   from_email  String?
   to_email    String?
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @updatedAt
 
   @@map("link_tokens")
 }

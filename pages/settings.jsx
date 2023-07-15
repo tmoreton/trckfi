@@ -324,9 +324,9 @@ export async function getServerSideProps(context) {
     }
   }
   let linked_user = null
-  if(user.linkedUserId){
+  if(user.linked_user_id){
     linked_user = await prisma.user.findUnique({
-      where: { id: user.linkedUserId }
+      where: { id: user.linked_user_id }
     })
   }
 

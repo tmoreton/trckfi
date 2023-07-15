@@ -230,18 +230,18 @@ export async function getServerSideProps(context) {
     },
   }
 
-  if(!user.stripeSubscriptionId && !user.linkedUserId || !user.active) return {
+  if(!user.subscription_id && !user.linked_user_id || !user.active) return {
     redirect: {
       destination: '/pricing',
       permanent: false,
     },
   }
 
-  if(!user.stripeSubscriptionId && user.linkedUserId) {
+  if(!user.subscription_id && user.linked_user_id) {
     const linked_user = await prisma.user.findUnique({
-      where: { id: user.linkedUserId }
+      where: { id: user.linked_user_id }
     })
-    if(linked_user?.stripeSubscriptionId){
+    if(linked_user?.subscription_id){
       if (new_user) return { props: { user, newUser: true } }
       return { props: { user, newUser: false } }
     } else {
@@ -254,7 +254,7 @@ export async function getServerSideProps(context) {
     }
   }
   
-  // const { plan } = await stripe.subscriptions.retrieve(session.user.stripeSubscriptionId)
+  // const { plan } = await stripe.subscriptions.retrieve(session.user.subscription_id)
   // if (!plan.active) return { props: { user: null, newUser: false }}
 
   if (new_user) return { props: { user, newUser: true } }

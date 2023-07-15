@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
     const user = await prisma.user.update({
       where: { email: email.toLowerCase() },
       data: { 
-        stripeSubscriptionId: subscription,
+        subscription_id: subscription,
         phone,
         name,
         active: true
