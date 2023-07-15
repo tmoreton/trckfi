@@ -17,7 +17,6 @@ export default function ({ showError, user, linked_user, accounts }) {
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
   const [openCancelModal, setCancelOpen] = useState(false)
   const [email, setEmail] = useState('')
-  const [open, setOpen] = useState(false)
   const [removedAccounts, setRemovedAccounts] = useState([])
   const router = useRouter()
 
@@ -56,10 +55,10 @@ export default function ({ showError, user, linked_user, accounts }) {
   }
 
   const removeToken = async (access_token) => {
+    console.log(access_token)
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
         access_token,
-        all: false
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -71,17 +70,10 @@ export default function ({ showError, user, linked_user, accounts }) {
     if(!error) router.reload()
   }
 
-  const removeModal = async (accounts, key) => {
-    // const items = accounts[key].filter(item => item.access_token.indexOf(accounts[key].access_token) !== -1)
-    // setAccessToken(accounts[key].access_token)
-    // setRemovedAccounts(accounts)
-    // setOpen(true)
-  }
-
   return (
     <DashboardLayout>
       <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
-      <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
+      <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
         <div>
           <h2 className="text-base font-semibold leading-7 text-pink-600">Profile</h2>
@@ -157,11 +149,11 @@ export default function ({ showError, user, linked_user, accounts }) {
               Object.keys(accounts).map(key => {
                 return (
                   <div key={key} className="flex justify-between gap-x-6 py-6">
-                    <li >
+                    <li>
                      <p className="text-lg font-bold text-gray-900 py-1">{key}</p>
                       { accounts[key].map(a => <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - <span className="font-light">{a.official_name}</span></div>) }
                     </li>
-                    <button onClick={() => removeToken(accounts[key].access_token)} type="button" className="font-semibold text-red-600 hover:text-red-500">
+                    <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
                       Remove
                     </button>
                   </div>

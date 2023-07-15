@@ -3,7 +3,7 @@ import plaidClient from '../../utils/plaid';
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
-  const { access_token, all } = req.body
+  const { access_token } = req.body
   try {
     const plaidAccount = await prisma.plaid.findUnique({
       where: {
@@ -33,18 +33,18 @@ export default async (req, res) => {
           user_id: null
         }
       })
-      if(all){
-        await prisma.transactions.updateMany({
-          where: {
-            item_id: plaidAccount.item_id
-          },
-          data: {
-            active: false,
-            user_id: null,
-            transaction_id: null
-          }
-        })
-      }
+      // if(all){
+      //   await prisma.transactions.updateMany({
+      //     where: {
+      //       item_id: plaidAccount.item_id
+      //     },
+      //     data: {
+      //       active: false,
+      //       user_id: null,
+      //       transaction_id: null
+      //     }
+      //   })
+      // }
     }
     return res.status(200).json('ok')
   } catch (error) {

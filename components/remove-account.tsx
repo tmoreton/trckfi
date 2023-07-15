@@ -2,10 +2,11 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
-export default function ({ open, setOpen, removeToken, accounts }) {
+export default function ({ setRemovedAccounts, removeToken, removedAccounts }) {
+  console.log(removedAccounts)
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
+    <Transition.Root show={removedAccounts?.length > 0} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={() => setRemovedAccounts([])}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -43,8 +44,8 @@ export default function ({ open, setOpen, removeToken, accounts }) {
                           Are you sure you want to deactivate this account? The following connections will be removed:
                         </p>
                         <ul>
-                          {accounts.map((a) => (
-                            <li key={a.name} className="text-sm text-gray-500 font-bold mt-4">
+                          {removedAccounts?.map((a) => (
+                            <li key={a.name} className="text-xs text-gray-500 font-normal mt-1">
                               {a.name}
                             </li>
                           ))}
@@ -57,21 +58,14 @@ export default function ({ open, setOpen, removeToken, accounts }) {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={() => removeToken(true)}
-                  >
-                    Deactivate + Remove Transactions
-                  </button>
-                  <button
-                    type="button"
-                    className="ml-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => removeToken(false)}
+                    onClick={() => removeToken(removedAccounts[0].access_token)}
                   >
                     Deactivate
                   </button>
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    onClick={() => setRemovedAccounts([])}
                   >
                     Cancel
                   </button>
