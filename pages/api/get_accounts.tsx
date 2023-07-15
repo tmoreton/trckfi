@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  let { user_id, access_token } = JSON?.parse(req.body) || req.body
+  let { user_id, access_token } = req.body
 
   if (!user_id || !access_token) return res.status(500)
 
