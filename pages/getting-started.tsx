@@ -78,7 +78,9 @@ export default function ({ csrfToken, user, showError }) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
-  if(session) return {
+  const user = session?.user
+  // @ts-ignore
+  if(user && user?.active) return {
     redirect: {
       destination: '/dashboard',
       permanent: false,

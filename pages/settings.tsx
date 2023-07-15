@@ -270,7 +270,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-   // @ts-ignore
+  // @ts-ignore
   const { linked_user_id, id, email } = user
 
   if(!email) return {
