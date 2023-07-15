@@ -52,15 +52,20 @@ export default function ({ showError }) {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex items-center">
-                  {/* Profile dropdown */}
+                  { session &&
+                    <Link href="/dashboard">
+                      <b>My Dashboard</b>
+                    </Link>
+                  }
                   <Menu as="div" className="relative ml-3">
                     {
                       session ?
-                      <Menu.Button className="flex items-center">
-                        <b>{session.user.email}</b>
-                        <span className="sr-only">Open user menu</span>
-                        <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
-                      </Menu.Button>
+                      <Link href="/settings">
+                        <Menu.Button className="flex items-center">
+                          <span className="sr-only">Open user menu</span>
+                          <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
+                        </Menu.Button>
+                      </Link>
                       :
                       <LoginBtn />
                     }

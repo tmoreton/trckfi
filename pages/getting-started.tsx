@@ -79,7 +79,6 @@ export default function ({ csrfToken, user, showError }) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
-  console.log(session)
   if(session) return {
     redirect: {
       destination: '/dashboard',
