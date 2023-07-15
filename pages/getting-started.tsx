@@ -89,6 +89,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const csrfToken = await getCsrfToken(context)
   return {
-    props: { csrfToken, user: session },
+    props: { csrfToken, user },
   }
 }
