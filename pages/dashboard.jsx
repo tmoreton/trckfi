@@ -4,7 +4,6 @@ import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
 import Table from '../components/table'
-import Head from 'next/head'
 import TransactionModal from '../components/transaction-modal'
 import SetupModal from '../components/setup-modal'
 import { getSession } from 'next-auth/react'

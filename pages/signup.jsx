@@ -4,9 +4,7 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
-import PinkBtn from '../components/pink-btn'
 import { useRouter } from 'next/router'
-import Login from './auth/email-signin'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
 
