@@ -9,13 +9,13 @@ export default async (req, res) => {
   const { name, unified, primary_category, detailed_category, amount, notes, date } = transaction
   try {
     let data = { 
-      payment_channel: 'trckfi',
       amount: Number(amount).toFixed(2),
       primary_category: snakeCase(primary_category).toUpperCase(),
       detailed_category: snakeCase(detailed_category).toUpperCase(),
       month_year: date.substring(0,7),
       week_year: `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`,
       authorized_date: new Date(date),
+      merchant_name: 'Trckfi',
       date,
       name,
       unified,

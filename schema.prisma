@@ -83,7 +83,6 @@ model Transactions {
   account_id        String?
   name              String?
   merchant_name     String?
-  payment_channel   String?
   transaction_id    String?   @unique
   detailed_category String?
   location          Json?
@@ -100,7 +99,6 @@ model Transactions {
   recurring         Boolean   @default(false)
   unified           String?   @default("1f4b8")
   notes             String?
-  type              String?
   alert_date        DateTime?
   created_at        DateTime? @default(now())
   updated_at        DateTime? @updatedAt

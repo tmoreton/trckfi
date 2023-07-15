@@ -208,7 +208,7 @@ export default function ({ showError, user, linked_user, accounts }) {
                       return (
                         <div key={key} className="flex justify-between gap-x-6 py-6">
                           <li >
-                            { accounts[key].map(a => <div className="font-medium text-gray-900">{a.official_name}</div>) }
+                            { accounts[key].map(a => <div className="font-medium text-gray-900 py-1">{a.name} - <span className="font-light">{a.official_name}</span></div>) }
                           </li>
                           <button onClick={() => removeToken(accounts[key].access_token)} type="button" className="font-semibold text-red-600 hover:text-red-500">
                             Remove
@@ -338,6 +338,7 @@ export async function getServerSideProps(context) {
       active: true,
     },
     select: {
+      name: true,
       official_name: true,
       access_token: true
     },

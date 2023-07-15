@@ -9,3 +9,18 @@ export const diffNum = (a, b) => {
 export const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
+
+export const formatAmount = (accounts, account_id, amount) => {
+  let { type } = accounts.find(a => a.account_id === account_id)
+  if(type === 'credit' || type === 'loan'){
+    if(Number(amount) < 0){
+      return { amount: Number(Math.abs(amount)).toFixed(2) }
+    }
+    return { amount: Number(-Math.abs(amount)).toFixed(2) }
+  } else {
+    if(Number(amount) > 0){
+      return { amount: Number(-Math.abs(amount)).toFixed(2) }
+    }
+    return { amount: Number(Math.abs(amount)).toFixed(2) }
+  }
+}

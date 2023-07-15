@@ -23,6 +23,13 @@ export default async (req, res) => {
         }
       })
 
+      const accounts = await prisma.accounts.findMany({
+        where: { 
+          user_id: user_id,
+          active: true
+        },
+      })
+
       for (let p in plaidAccounts) {
         const request = {
           access_token: plaidAccounts[p].access_token,
@@ -37,7 +44,7 @@ export default async (req, res) => {
         let added = response.data.added
         // let next_cursor = response.data.next_cursor
         // let has_more = response.data.has_more
-        
+        let { amount } = formatAmount(accounts, added[i].account_id, added[i].amount)
         for (let i in added) {
           await prisma.transactions.upsert({
             where: { 
@@ -47,12 +54,11 @@ export default async (req, res) => {
             create: {
               transaction_id: added[i].transaction_id,
               account_id: added[i].account_id,
-              amount: Number(added[i].amount).toFixed(2),
+              amount: amount,
               authorized_date: new Date(added[i].date),
               date: added[i].date,
               name: added[i].name,
               merchant_name: added[i].merchant_name,
-              payment_channel: added[i].payment_channel,
               category: added[i].category,
               detailed_category: added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, ''),
               primary_category: added[i].personal_finance_category.primary,
