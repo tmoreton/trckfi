@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Container from "../components/container"
+import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
@@ -195,26 +195,20 @@ export default function ({ newUser, user, showError }) {
   ]
 
   return (
-    <Layout>
-      <Head>
-        <title>Trckfi - Dashboard</title>
-      </Head>
-      <Container>
-        <Menu showError={showError}/>
-        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
-        <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
-        <div className="py-10 flex justify-center items-center">
-          <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
-          <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a} />
-        </div>
-        <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
-        <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
-        <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
-        <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-        <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} />
-      </Container>
-    </Layout>
+    <DashboardLayout showError={showError}>
+      <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
+      <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
+      <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+      {/* <div className="py-10 flex justify-center items-center">
+        <h1 className="text-3xl font-bold text-gray-900 text-center pr-4">My Dashboard</h1> 
+        <PlaidLink user={user} showError={showError} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a} />
+      </div> */}
+      <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
+      <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
+      <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
+      <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
+      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} />
+    </DashboardLayout>
   )
 }
 
