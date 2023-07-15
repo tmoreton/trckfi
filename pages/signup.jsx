@@ -14,7 +14,6 @@ export default function ({ showError, user, access_code, csrfToken, error, email
   const [updateEmail, setUpdateEmail] = useState('')
   const router = useRouter()
   const currentRoute = router.pathname
-  console.log(router)
   // useEffect(() => {
   //   if(access_code){
   //     setAccessCode(access_code)

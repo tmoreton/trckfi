@@ -4,22 +4,17 @@ import RemoveAccount from "./remove-account"
 import { addComma } from '../lib/formatNumber'
 
 export default function ({ getTransactions, getDashboard, loading, accounts, showAccounts, showError }) {
-  const [open, setOpen] = useState(false)
-  const [removedAccounts, setAccounts] = useState([])
-  const [token, setToken] = useState('')
+  const [removedAccounts, setRemovedAccounts] = useState([])
 
   const getAccounts = async (access_token) => {
-    setToken(access_token)
-    setOpen(true)
-    const items = accounts.filter(item => item.access_token.indexOf(access_token) !== -1);
-    setAccounts(items)
+    const items = accounts.filter(item => item.access_token.indexOf(access_token) !== -1)
+    setRemovedAccounts(items)
   }
 
-  const removeToken = async (all) => {
+  const removeToken = async (access_token) => {
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
-        access_token: token,
-        all
+        access_token,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -28,14 +23,14 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
     })
     const { error } = await res.json()
     showError(error)
+    setRemovedAccounts([])
     getDashboard()
-    setOpen(false)
   }
 
   return (
     <div className={!showAccounts && 'hidden'}>
       <div className="py-4 border-t-2">
-        <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
+        <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         <ul role="list" className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           { accounts?.length < 1 && <p className="text-gray-500"><b>No Cards Synced Yet</b></p>}
           { accounts?.map((account) => {

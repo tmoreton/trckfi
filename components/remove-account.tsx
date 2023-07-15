@@ -3,7 +3,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function ({ setRemovedAccounts, removeToken, removedAccounts }) {
-  console.log(removedAccounts)
   return (
     <Transition.Root show={removedAccounts?.length > 0} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => setRemovedAccounts([])}>

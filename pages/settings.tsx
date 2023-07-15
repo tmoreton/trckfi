@@ -55,7 +55,6 @@ export default function ({ showError, user, linked_user, accounts }) {
   }
 
   const removeToken = async (access_token) => {
-    console.log(access_token)
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
         access_token,
@@ -297,7 +296,6 @@ export async function getServerSideProps(context) {
     r[a.bank_name].push(a);
     return r;
   }, Object.create(null))
-  console.log(accounts)
   
   return { props: { user, linked_user, accounts } }
 }
