@@ -158,7 +158,8 @@ export default function ({ showError, user, linked_user, accounts }) {
                 return (
                   <div key={key} className="flex justify-between gap-x-6 py-6">
                     <li >
-                      { accounts[key].map(a => <div className="font-medium text-gray-900 py-1">{a.name} - <span className="font-light">{a.official_name}</span></div>) }
+                     <p className="text-lg font-bold text-gray-900 py-1">{key}</p>
+                      { accounts[key].map(a => <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - <span className="font-light">{a.official_name}</span></div>) }
                     </li>
                     <button onClick={() => removeToken(accounts[key].access_token)} type="button" className="font-semibold text-red-600 hover:text-red-500">
                       Remove
@@ -293,16 +294,18 @@ export async function getServerSideProps(context) {
     },
     select: {
       name: true,
+      bank_name: true,
       official_name: true,
       access_token: true
     },
   })
 
   const accounts = a.reduce(function (r, a) {
-    r[a.access_token] = r[a.access_token] || [];
-    r[a.access_token].push(a);
+    r[a.bank_name] = r[a.bank_name] || [];
+    r[a.bank_name].push(a);
     return r;
   }, Object.create(null))
+  console.log(accounts)
   
   return { props: { user, linked_user, accounts } }
 }
