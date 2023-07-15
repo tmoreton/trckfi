@@ -14,7 +14,7 @@ import {
   } from '@react-email/components';
   import * as React from 'react';
   
-  export default function ({ signup_url, link_url, access_code, from_email }) {
+  export default function ({ signup_url, access_code, from_email }) {
     return (
       <Html>
         <Head />
@@ -37,11 +37,8 @@ import {
               <Text className="text-[#666666] text-[14px] leading-[24px] text-center">
                 {from_email} invited you to join their Trckfi account!
               </Text>
-              <Text className="text-black text-[24px] font-bold text-center p-0 mt-[10px] mx-0 text-center">
-                Step 1:
-              </Text>
               <Text className="text-[#666666] text-[14px] leading-[24px] text-center">
-                Create an account by clicking the link below.
+                Let's start by creating an account by clicking the link below.
               </Text>
               <Section className="text-center mt-[10px] mb-[32px]">
                 <Button
@@ -53,30 +50,14 @@ import {
                   Create Account
                 </Button>
               </Section>
-              <Text className="text-black text-[24px] font-bold text-center p-0 mt-[10px] mx-0 text-center">
-                Step 2:
+              <Text className="text-[#666666] text-[10px] leading-[24px] text-center">
+                Please be sure to click create account link within 24 hours as will will expire.
               </Text>
-              <Text className="text-[#666666] text-[14px] leading-[24px] text-center">
-                Once logged in you can link with another account by clicking Link Account or using the access code below.
-              </Text>
-              <Section className="text-center mt-[10px] mb-[32px]">
-                <Button
-                  pX={20}
-                  pY={12}
-                  className="bg-pink-600 rounded text-white text-[12px] font-semibold no-underline text-center"
-                  href={link_url}
-                >
-                  Link Account
-                </Button>
-              </Section>
-              <Text className="text-[#666666] text-[14px] leading-[24px] text-center">
-                Please be sure to use it within 24 hours as will will expire.
-              </Text>
-              <Section className="w-full bg-gray-100 rounded text-white text-[12px] font-semibold no-underline text-center">
+              {/* <Section className="w-full bg-gray-100 rounded text-white text-[12px] font-semibold no-underline text-center">
                 <Text className="text-black text-[24px] font-normal text-center p-8 my-[30px] mx-0 text-center">{access_code}</Text>
-              </Section>
+              </Section> */}
               <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
-              <Text className="text-[#666666] text-[12px] leading-[24px]">
+              <Text className="text-[#666666] text-[10px] leading-[24px]">
                 If you were not expecting this invitation, you can ignore this email.
                 If you are concerned about your account's safety, please reply 
                 to this email to get in touch with us.

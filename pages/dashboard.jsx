@@ -232,7 +232,7 @@ export async function getServerSideProps(context) {
 
   if(!user.stripeSubscriptionId && !user.linkedUserId || !user.active) return {
     redirect: {
-      destination: '/getting-started',
+      destination: '/pricing',
       permanent: false,
     },
   }

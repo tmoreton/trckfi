@@ -1,18 +1,16 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
-const Newsletter = () => {
-  const inputEl = useRef(null)
-  const [error, setError] = useState(false)
-  const [message, setMessage] = useState('')
+const Newsletter = ({ showError }) => {
+  const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
 
   const subscribe = async (e) => {
     e.preventDefault()
-    const email = inputEl.current.value
 
-    const res = await fetch(`/api/send_email`, {
+    const res = await fetch(`/api/create_user`, {
       body: JSON.stringify({
-        email: email,
+        email,
+        subscribed: true
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -21,16 +19,11 @@ const Newsletter = () => {
     })
 
     const { error } = await res.json()
-    if (error) {
-      setError(true)
-      setMessage(error)
-      return
+    showError(error)
+    if(!error) {
+      setSubscribed(true)
+      setEmail('')
     }
-
-    inputEl.current.value = ''
-    setError(false)
-    setSubscribed(true)
-    setMessage('Successfully! 🎉 You are now subscribed.')
   }
 
   return (
@@ -46,10 +39,11 @@ const Newsletter = () => {
             </label>
             <input
               autoComplete="email"
-              id="email-input"
+              id="email"
               name="email"
-              placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
-              ref={inputEl}
+              value={email}
+              placeholder={'Enter your email'}
+              onChange={e => setEmail(e.target.value)}
               required
               type="email"
               disabled={subscribed}
@@ -59,7 +53,7 @@ const Newsletter = () => {
               type="submit"
               className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Notify me
+              { subscribed ? "Subscribed!  🎉" : "Notify me"}
             </button>
           </form>
         </div>

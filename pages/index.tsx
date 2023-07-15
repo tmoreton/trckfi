@@ -35,7 +35,7 @@ export default function Index({ allPosts, showError, host }) {
         {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         <Pricing />
         <Faq />
-        {/* <Newsletter /> */}
+        <Newsletter showError={showError} />
       </Container>
     </Layout>
   )

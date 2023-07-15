@@ -11,7 +11,7 @@ const includedFeatures = [
 
 export default function () {
   return (
-    <div id="pricing" className="bg-white py-20 sm:py-24">
+    <div id="pricing" className="bg-white py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Pricing</h2>
@@ -53,10 +53,13 @@ export default function () {
                 </p>
                 <Link href="/getting-started">
                   <PinkBtn onClick={() => {}}>
-                    Get Started
+                    Buy plan
                   </PinkBtn>
                 </Link>
-                <p className="mt-6 text-xs leading-5 text-gray-600">
+                <p className="mt-6 font-semibold leading-6 text-sm text-pink-600 hover:text-pink-500">
+                  Start a 30 day free trial
+                </p>
+                <p className="text-xs leading-5 text-gray-600">
                   Cancel Anytime
                 </p>
               </div>

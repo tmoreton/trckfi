@@ -108,7 +108,7 @@ export default function ({ showError, user, linked_user, accounts }) {
         <div className="flex justify-center items-center">
           <h1 className="text-3xl font-bold text-gray-900 text-center">Settings</h1> 
         </div>
-        <div className="mx-auto max-w-7xl lg:flex lg:gap-x-16 lg:px-8">
+        <div className="mx-auto lg:flex lg:gap-x-16">
           <aside className="flex overflow-x-auto border-b border-gray-900/5 py-4 lg:block lg:w-64 lg:flex-none lg:border-0 lg:py-20">
             <nav className="flex-none px-4 sm:px-6 lg:px-0">
               <ul role="list" className="flex gap-x-3 gap-y-1 whitespace-nowrap lg:flex-col">
@@ -317,15 +317,19 @@ export default function ({ showError, user, linked_user, accounts }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context)
   const user = session?.user
-  const linked_user = await prisma.user.findUnique({
-    where: { id: user.linkedUserId }
-  })
-  // const accounts = await prisma.accounts.findMany({
-  //   where: { user_id: user.id },
-  //   include: {
-  //     plaid: true,
-  //   },
-  // })
+  if(!user) return {
+    redirect: {
+      destination: '/',
+      permanent: false,
+    }
+  }
+  let linked_user = null
+  if(user.linkedUserId){
+    linked_user = await prisma.user.findUnique({
+      where: { id: user.linkedUserId }
+    })
+  }
+
   const a = await prisma.accounts.findMany({
     where: {
       user_id: user.id,
@@ -340,7 +344,7 @@ export async function getServerSideProps(context) {
     r[a.access_token] = r[a.access_token] || [];
     r[a.access_token].push(a);
     return r;
-  }, Object.create(null));
-
+  }, Object.create(null))
+  
   return { props: { user, linked_user, accounts } }
 }

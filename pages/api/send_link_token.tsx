@@ -38,8 +38,7 @@ export default async (req, res) => {
 
     const emailHtml = render(
       <LinkToken 
-        signup_url={`${req.headers.origin}/auth/email-signin`}
-        link_url={`${req.headers.origin}/link?access_code=${access_code}`}
+        signup_url={`${req.headers.origin}/signup?access_code=${access_code}`}
         access_code={access_code}
         from_email={from_email}
       />

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowPathIcon, TrashIcon } from '@heroicons/react/20/solid'
 import RemoveAccount from "./remove-account"
-import { addComma, diffNum } from '../lib/formatNumber'
+import { addComma } from '../lib/formatNumber'
 
 export default function ({ getTransactions, getDashboard, loading, accounts, showAccounts, showError }) {
   const [open, setOpen] = useState(false)

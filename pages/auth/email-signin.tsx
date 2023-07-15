@@ -1,6 +1,7 @@
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/react"
 import Icon from '../../components/icon';
+import Link from 'next/link'
 
 export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
@@ -39,9 +40,9 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{' '}
-          <a href="/getting-started" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
+          <Link href="/getting-started" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
             Start a 30 day free trial
-          </a>
+          </Link>
         </p>
       </div>
     </div>

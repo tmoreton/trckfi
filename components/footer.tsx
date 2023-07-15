@@ -3,7 +3,7 @@ import Link from 'next/link'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
-  { name: 'My Dashboard', href: '/dashboard' },
+  { name: 'Pricing', href: '/pricing' },
 ]
 
 const Footer = () => {
