@@ -10,28 +10,6 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Account {
-  id                 String  @id @default(cuid())
-  userId             String  @map("user_id")
-  type               String
-  provider           String
-  providerAccountId  String  @map("provider_account_id")
-  refresh_token      String?
-  access_token       String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
-  oauth_token_secret String?
-  oauth_token        String?
-  plaidId            String?
-  Plaid              Plaid?  @relation(fields: [plaidId], references: [id])
-  user               User    @relation(fields: [userId], references: [id])
-
-  @@unique([provider, providerAccountId])
-}
-
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique @map("session_token")
@@ -52,11 +30,10 @@ model User {
   createdAt            DateTime       @default(now())
   updatedAt            DateTime       @updatedAt
   active               Boolean        @default(false)
-  stripeCustomerId     String?
-  stripeSubscriptionId String?
   subscribed           Boolean        @default(false)
   linkedUserId         String?
-  accounts             Account[]
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
   sessions             Session[]
   Transactions         Transactions[]
 
@@ -74,13 +51,12 @@ model VerificationToken {
 }
 
 model Plaid {
-  id           String    @id @default(cuid())
-  access_token String    @unique
-  item_id      String?   @unique
-  user_id      String?   @map("user_id")
-  active       Boolean?  @default(true)
+  id           String   @id @default(cuid())
+  access_token String   @unique
+  item_id      String?  @unique
+  user_id      String?  @map("user_id")
+  active       Boolean? @default(true)
   cursor       String?
-  Account      Account[]
 
   @@map("plaid")
 }
@@ -115,8 +91,6 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
-  createdAt         DateTime? @default(now())
-  updatedAt         DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -130,6 +104,8 @@ model Transactions {
   notes             String?
   type              String?
   alert_date        DateTime?
+  createdAt         DateTime? @default(now())
+  updatedAt         DateTime? @updatedAt
   account           Accounts? @relation(fields: [account_id], references: [account_id])
   user              User?     @relation(fields: [user_id], references: [id])
 
