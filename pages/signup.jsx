@@ -8,6 +8,7 @@ import PinkBtn from '../components/pink-btn'
 import { useRouter } from 'next/router'
 import Login from './auth/email-signin'
 import { getCsrfToken } from "next-auth/react"
+import prisma from '../lib/prisma'
 
 export default function ({ showError, user, access_code, csrfToken, error }) {
   // const [accessCode, setAccessCode] = useState('')
