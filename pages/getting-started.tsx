@@ -20,7 +20,6 @@ export default function ({ csrfToken, user, showError, base_url }) {
     showError(data.error)
     if (data.error) return
 
-    // Redirect to Checkout.
     const stripe = await getStripe()
     const { error } = await stripe!.redirectToCheckout({
       sessionId: data.id,
