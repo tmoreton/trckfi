@@ -1,5 +1,6 @@
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
+import { getSession } from 'next-auth/react'
 
 export default function () {
   return null
@@ -7,26 +8,32 @@ export default function () {
 
 export async function getServerSideProps(context) {
   const { session_id } = context.query
+  const session = await getSession(context)
+  const user = session?.user
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2022-11-15',
   });
   
   if (session_id){
-    const session = await stripe.checkout.sessions.retrieve(session_id)
-    console.log(session)
-    const { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end } = session
+    const stripe_session = await stripe.checkout.sessions.retrieve(session_id)
+    const { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end } = stripe_session
+    console.log(stripe_session)
+
     if(!customer || !subscription) return { props: { newUser: false } }
 
     const data = await stripe.customers.retrieve(customer)
     const { email, phone, name } = data
     
     await prisma.subscriptions.create({
-      data: { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end }
+      data: { user_id: user?.id, customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end }
     })
 
-    const user = await prisma.user.update({
-      where: { email: email.toLowerCase() },
+    await prisma.user.update({
+      where: { 
+        email: email.toLowerCase(),
+        id: user?.id
+      },
       data: { 
         subscription_id: subscription,
         phone,
