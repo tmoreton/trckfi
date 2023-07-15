@@ -74,7 +74,6 @@ export default function ({ csrfToken, user, showError }) {
     </div>
   )
   return <LoadingModal refreshing={true} text="Checking Account Status..."/>
-
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

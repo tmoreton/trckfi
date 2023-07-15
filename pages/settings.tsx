@@ -84,7 +84,7 @@ export default function ({ showError, user, linked_user, accounts }) {
       <RemoveAccount open={open} setOpen={setOpen} removeToken={removeToken} accounts={removedAccounts} />
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
         <div>
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
+          <h2 className="text-base font-semibold leading-7 text-pink-600">Profile</h2>
           <p className="mt-1 text-sm leading-6 text-gray-500">
             This information will be displayed publicly so be careful what you share.
           </p>
@@ -150,7 +150,7 @@ export default function ({ showError, user, linked_user, accounts }) {
         </div>
 
         <div>
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Bank accounts</h2>
+          <h2 className="text-base font-semibold leading-7 text-pink-600">Bank accounts</h2>
           <p className="mt-1 text-sm leading-6 text-gray-500">Connect bank accounts to your account.</p>
           <ul role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
             {
@@ -175,7 +175,7 @@ export default function ({ showError, user, linked_user, accounts }) {
         </div>
 
         <div>
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Emails and Communications</h2>
+          <h2 className="text-base font-semibold leading-7 text-pink-600">Emails and Communications</h2>
           <p className="mt-1 text-sm leading-6 text-gray-500">
             Choose what language and currency format to use throughout your account.
           </p>
@@ -276,10 +276,10 @@ export async function getServerSideProps(context) {
       where: { id: linked_user_id }
     })
   }
-
+  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
   const a = await prisma.accounts.findMany({
     where: {
-      user_id: id,
+      OR: query,
       active: true,
     },
     select: {

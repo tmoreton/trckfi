@@ -11,7 +11,7 @@ export default async (req, res) => {
         to_email: user.email 
       }
     })
-
+    console.log(link_token)
     if(!link_token) return res.status(200).json({ error: 'Access Code not found' })
     if (new Date() > link_token?.expires) return res.status(200).json({ error: 'Access Code has expired, please try again' })
    
