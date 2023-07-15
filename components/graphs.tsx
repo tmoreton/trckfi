@@ -134,7 +134,7 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
               { filtered.map(i => {
                 return (
                   <>
-                    <div className="flex justify-between pt-2 pb-1 text-xs text-gray-500">
+                    <div className="flex justify-between pb-1 text-xs text-gray-500">
                       {
                         key === 'unified' ?
                         <Emoji unified={i.name} size={20}/>
