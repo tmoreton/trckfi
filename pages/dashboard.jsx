@@ -3,13 +3,10 @@ import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
 import LoadingModal from '../components/loading-modal'
-import PlaidLink from "../components/plaid-link"
 import Table from '../components/table'
 import Head from 'next/head'
-import Layout from '../components/layout'
 import TransactionModal from '../components/transaction-modal'
 import SetupModal from '../components/setup-modal'
-import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
 import DatePicker from '../components/date-picker'
@@ -18,6 +15,7 @@ import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import prisma from '../lib/prisma'
+import Head from 'next/head'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -196,6 +194,9 @@ export default function ({ newUser, user, showError }) {
 
   return (
     <DashboardLayout showError={showError}>
+      <Head>
+        <title>Trckfi - Dashboard</title>
+      </Head>
       <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
       <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />

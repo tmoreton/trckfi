@@ -31,7 +31,7 @@ export default function ({ showError }) {
   return (
     <Layout>
       <Head>
-        <title>Trckfi</title>
+        <title>Trckfi - Feedback</title>
       </Head>
       <Container>
         <Menu showError={showError}/>

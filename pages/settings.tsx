@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import RemoveAccount from "../components/remove-account"
 import PlaidLink from "../components/plaid-link"
 import CancelModal from '../components/cancel-modal'
+import Head from 'next/head'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -71,6 +72,9 @@ export default function ({ showError, user, linked_user, accounts }) {
 
   return (
     <DashboardLayout>
+      <Head>
+        <title>Trckfi - Settings</title>
+      </Head>
       <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
       <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
