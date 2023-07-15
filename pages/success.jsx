@@ -13,16 +13,19 @@ export async function getServerSideProps(context) {
   });
   
   if (session_id){
-    const { customer, subscription } = await stripe.checkout.sessions.retrieve(session_id)
+    const { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end } = await stripe.checkout.sessions.retrieve(session_id)
     if(!customer || !subscription) return { props: { newUser: false } }
 
     const data = await stripe.customers.retrieve(customer)
     const { email, phone, name } = data
+    console.log(data)
+    await prisma.subscriptions.create({
+      data: { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end }
+    })
 
     const user = await prisma.user.update({
       where: { email: email.toLowerCase() },
       data: { 
-        stripeCustomerId: customer,
         stripeSubscriptionId: subscription,
         phone,
         name,
