@@ -4,7 +4,7 @@ import WeeklySummary from "../emails/weekly_summary"
 import { DateTime } from "luxon";
 import { useSession } from "next-auth/react"
 
-export default function ({ email, groupByWeek, categories, transactions }) {
+export default function ({ email, groupByWeek, primaryCategories, detailedCategories, transactions, this_week, last_week }) {
   const { data: session } = useSession()
 
   if(session?.user?.email === email){
@@ -12,7 +12,10 @@ export default function ({ email, groupByWeek, categories, transactions }) {
       <WeeklySummary 
         groupByWeek={groupByWeek} 
         transactions={transactions} 
-        categories={categories} 
+        primaryCategories={primaryCategories} 
+        detailedCategories={detailedCategories}
+        this_week={this_week}
+        last_week={last_week} 
       />
     )
     return <div dangerouslySetInnerHTML={{__html: emailHtml}}></div>
@@ -30,19 +33,24 @@ export async function getServerSideProps({ query }) {
   if (!user?.id) return { props: {}}
   const user_id = user.id
 
+  const date = DateTime.now()
+  const this_week = `${date.year}-${date.minus({ days: 3 }).weekNumber}`
+  const last_week = `${date.year}-${date.minus({ days: 9 }).weekNumber}`
+
   const groupByWeek = await prisma.transactions.groupBy({
     by: ['week_year'],
     where: {
       user_id: user_id,
       active: true,
-      authorized_date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().minus({ weeks: 2 }).startOf('week').toISO()
-      },
+      OR: [
+        { week_year: this_week },
+        { week_year: last_week },
+      ],
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
         { primary_category: 'TRANSFER_IN' },
         { primary_category: 'TRANSFER_OUT' },
+        { primary_category: 'INCOME' },
       ],
     },
     _sum: {
@@ -56,34 +64,79 @@ export async function getServerSideProps({ query }) {
     },
   })
 
-  const categories = await prisma.transactions.groupBy({
-    by: ['detailed_category'],
+  const primary = await prisma.transactions.groupBy({
+    by: ['primary_category', 'week_year'],
     where: {
       user_id: user_id,
       active: true,
-      authorized_date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().minus({ weeks: 1 }).startOf('week').toISO()
-      },
+      OR: [
+        { week_year: this_week },
+        { week_year: last_week },
+      ],
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
         { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' }
+        { primary_category: 'TRANSFER_OUT' },
+        { primary_category: 'INCOME' },
       ],
     },
     _sum: {
       amount: true,
     }
   })
+  let primaryCategories = []
+  primary.forEach(p => {
+    if(p.week_year === this_week){
+      let item = primary.filter((i) => i.week_year === last_week && i.primary_category === p.primary_category)[0]
+      primaryCategories.push({
+        category: p.primary_category.split('_').join(' '),
+        this_week_amount: p._sum.amount,
+        last_week_amount: item?._sum.amount
+      })
+    }
+  })
+  primaryCategories.sort((a, b) => a.this_week_amount-b.this_week_amount)
 
-  const transactions = await prisma.transactions.findMany({
+  const detailed = await prisma.transactions.groupBy({
+    by: ['detailed_category', 'week_year'],
     where: {
       user_id: user_id,
       active: true,
-      authorized_date: {
-        lte: DateTime.now().toISO(),
-        gte: DateTime.now().minus({ weeks: 1 }).startOf('week').toISO()
-      },
+      OR: [
+        { week_year: this_week },
+        { week_year: last_week },
+      ],
+      NOT: [
+        { primary_category: 'LOAN_PAYMENTS' },
+        { primary_category: 'TRANSFER_IN' },
+        { primary_category: 'TRANSFER_OUT' },
+        { primary_category: 'INCOME' },
+      ],
+    },
+    _sum: {
+      amount: true,
+    }
+  })
+  let detailedCategories = []
+  detailed.forEach(p => {
+    if(p.week_year === this_week){
+      let item = detailed.filter((i) => i.week_year === last_week && i.detailed_category === p.detailed_category)[0]
+      detailedCategories.push({
+        category: p.detailed_category.split('_').join(' '),
+        this_week_amount: p._sum.amount,
+        last_week_amount: item?._sum.amount
+      })
+    }
+  })
+  detailedCategories.sort((a, b) => a.this_week_amount-b.this_week_amount)
+
+  const t = await prisma.transactions.findMany({
+    where: {
+      user_id: user_id,
+      active: true,
+      OR: [
+        { week_year: this_week },
+      ],
       NOT: [
         { primary_category: 'LOAN_PAYMENTS' },
         { primary_category: 'TRANSFER_IN' },
@@ -91,14 +144,18 @@ export async function getServerSideProps({ query }) {
       ],
     },
     orderBy: {
-      amount: 'desc'
+      amount: 'asc'
     }
-  })   
+  })
+  const transactions = t.slice(0, 10)
 
   return { props: { 
     groupByWeek: JSON.parse(JSON.stringify(groupByWeek)),
-    categories: JSON.parse(JSON.stringify(categories)),
+    primaryCategories: JSON.parse(JSON.stringify(primaryCategories)),
+    detailedCategories: JSON.parse(JSON.stringify(detailedCategories)),
     transactions: JSON.parse(JSON.stringify(transactions)),
-    email
+    email,
+    this_week,
+    last_week
   }}
 }
