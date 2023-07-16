@@ -41,7 +41,7 @@ export default function SignIn({ csrfToken, base_url }: InferGetServerSidePropsT
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{' '}
           <Link href="/getting-started" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
-            Start a 30 day free trial
+            Get started
           </Link>
         </p>
       </div>

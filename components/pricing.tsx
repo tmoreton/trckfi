@@ -56,9 +56,9 @@ export default function () {
                     Buy plan
                   </PinkBtn>
                 </Link>
-                <p className="mt-6 font-semibold leading-6 text-sm text-pink-600 hover:text-pink-500">
+                {/* <p className="mt-6 font-semibold leading-6 text-sm text-pink-600 hover:text-pink-500">
                   Start a 30 day free trial
-                </p>
+                </p> */}
                 <p className="text-xs leading-5 text-gray-600">
                   Cancel Anytime
                 </p>
