@@ -22,12 +22,23 @@ export default async (req, res) => {
 
     for (let a in activeUsers) {
       const user_id = activeUsers[a].id
+      const linked_user_id = activeUsers[a].linked_user_id
+      let linked_user_email;
+      if(linked_user_id){
+        linked_user_email = await prisma.user.findUnique({
+          where: { 
+            id: linked_user_id,
+            active: true
+          }
+        })?.email
+      }
       const email = activeUsers[a].email
+      const user_query = linked_user_id ? [{ user_id: user_id }, { user_id: linked_user_id }] : [{ user_id: user_id }]
 
       const groupByWeek = await prisma.transactions.groupBy({
         by: ['week_year'],
         where: {
-          user_id: user_id,
+          OR: user_query,
           active: true,
           OR: [
             { week_year: this_week },
@@ -54,7 +65,7 @@ export default async (req, res) => {
       const primary = await prisma.transactions.groupBy({
         by: ['primary_category', 'week_year'],
         where: {
-          user_id: user_id,
+          OR: user_query,
           active: true,
           OR: [
             { week_year: this_week },
@@ -87,7 +98,7 @@ export default async (req, res) => {
       const detailed = await prisma.transactions.groupBy({
         by: ['detailed_category', 'week_year'],
         where: {
-          user_id: user_id,
+          OR: user_query,
           active: true,
           OR: [
             { week_year: this_week },
@@ -119,7 +130,7 @@ export default async (req, res) => {
 
       const t = await prisma.transactions.findMany({
         where: {
-          user_id: user_id,
+          OR: user_query,
           active: true,
           OR: [
             { week_year: this_week },
