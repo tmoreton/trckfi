@@ -33,6 +33,20 @@ export async function getServerSideProps({ query }) {
   if (!user?.id) return { props: {}}
   const user_id = user.id
 
+  const linked_user_id = user.linked_user_id
+  let linked_user_email;
+  if(linked_user_id){
+    const res = await prisma.user.findUnique({
+      where: { 
+        id: linked_user_id,
+        active: true
+      }
+    })
+    linked_user_email = res.email
+    
+  }
+  console.log(linked_user_email)
+
   const date = DateTime.now()
   const this_week = `${date.year}-${date.minus({ days: 3 }).weekNumber}`
   const last_week = `${date.year}-${date.minus({ days: 9 }).weekNumber}`

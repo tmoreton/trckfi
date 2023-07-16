@@ -25,12 +25,13 @@ export default async (req, res) => {
       const linked_user_id = activeUsers[a].linked_user_id
       let linked_user_email;
       if(linked_user_id){
-        linked_user_email = await prisma.user.findUnique({
+        const res = await prisma.user.findUnique({
           where: { 
             id: linked_user_id,
             active: true
           }
-        })?.email
+        })
+        linked_user_email = res.email
       }
       const email = activeUsers[a].email
       const user_query = linked_user_id ? [{ user_id: user_id }, { user_id: linked_user_id }] : [{ user_id: user_id }]
