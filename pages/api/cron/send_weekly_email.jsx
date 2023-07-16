@@ -174,6 +174,15 @@ export default async (req, res) => {
       })
       
       await transporter.sendMail(message)
+      if(linked_user_email){
+        await transporter.sendMail({
+          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+          to: linked_user_email,
+          subject: `Trckfi - Weekly Summary`,
+          text: '',
+          html: emailHtml,
+        })
+      }
     }
 
     return res.status(200).json({ status: 'OK' })
