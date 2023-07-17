@@ -202,13 +202,13 @@ export default function ({ newUser, user, showError }) {
   ]
 
   return (
-    <DashboardLayout showError={showError}>
+    <DashboardLayout>
       <Head>
         <title>Trckfi - Dashboard</title>
       </Head>
-      <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
+      <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} />
       <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-      <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+      <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
       <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
       <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
@@ -229,16 +229,17 @@ export async function getServerSideProps(context) {
       permanent: false,
     },
   }
-
+  // @ts-ignore
   if(!user.subscription_id && !user.linked_user_id || !user.active) return {
     redirect: {
       destination: '/pricing',
       permanent: false,
     },
   }
-
+  // @ts-ignore
   if(!user.subscription_id && user.linked_user_id) {
     const linked_user = await prisma.user.findUnique({
+      // @ts-ignore
       where: { id: user.linked_user_id }
     })
     if(linked_user?.subscription_id){
