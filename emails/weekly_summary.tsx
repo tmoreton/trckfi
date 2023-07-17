@@ -34,7 +34,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
             />
             <Section className="bg-[#ffffff] rounded text-center">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
-              <Heading className="text-[#464c63] text-[22px] mt-4  inline-flex items-center">
+              <Heading className="text-[#464c63] text-[22px] mt-4 inline-flex items-center">
                 <span className="mr-2" ><Emoji unified='1f4b8' size={20}/></span><strong>Weekly Finance Summary</strong>
               </Heading>
               <Text className="text-[#666666] text-[12px] mt-0 mb-4">

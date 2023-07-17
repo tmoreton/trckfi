@@ -20,167 +20,169 @@ export default async (req, res) => {
       const user_id = activeUsers[a].id
       const email = activeUsers[a].email
 
-      const lastMonthIncome = await prisma.transactions.aggregate({
-        where: {
-          user_id: user_id,
-          active: true,
-          date: {
-            lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
-          },
-          primary_category: 'INCOME'
-        },
-        _sum: {
-          amount: true,
-        },
-        _count: {
-          amount: true,
-        },
-      })
+      const date = DateTime.now()
+      const this_month = date.toFormat('yyyy-MM')
+      const last_month = date.minus({ months: 1 }).toFormat('yyyy-MM')
 
-      const thisMonthIncome = await prisma.transactions.aggregate({
-        where: {
-          user_id: user_id,
-          active: true,
-          date: {
-            lte: DateTime.now().startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-          },
-          primary_category: 'INCOME'
-        },
-        _sum: {
-          amount: true,
-        },
-        _count: {
-          amount: true,
-        },
-      })
-
-      const lastMonthTotal = await prisma.transactions.aggregate({
-        where: {
-          user_id: user_id,
-          active: true,
-          date: {
-            lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
-          },
-          NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' },
-          ],
-        },
-        _sum: {
-          amount: true,
-        },
-        _count: {
-          amount: true,
-        },
-      })
-
-      const thisMonthTotal = await prisma.transactions.aggregate({
-        where: {
-          user_id: user_id,
-          active: true,
-          date: {
-            lte: DateTime.now().startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-          },
-          NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' },
-          ],
-        },
-        _sum: {
-          amount: true,
-        },
-        _count: {
-          amount: true,
-        },
-      })
-
-      const categories = await prisma.transactions.groupBy({
-        by: ['detailed_category'],
-        where: {
-          user_id: user_id,
-          date: {
-            lte: DateTime.now().startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-          },
-          NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-          ],
-        },
-        _sum: {
-          amount: true,
-        },
-      })
-
-      const thisMonth = await prisma.transactions.findMany({
-        where: {
-          user_id: user_id,
-          active: true,
-          date: {
-            lte: DateTime.now().startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-          },
-          NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' }
-          ],
-        },
-        orderBy: {
-          amount: 'desc'
-        },
-      })
-
-      const lastMonth = await prisma.transactions.findMany({
-        where: {
-          user_id: user_id,
-          active: true,
-          date: {
-            lte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-            gte: DateTime.now().minus({ months: 2 }).startOf('month').toISO(),
-          },
-          NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' }
-          ],
-        },
-        orderBy: {
-          amount: 'desc'
-        },
-      })
-
-      let recurring = []
-      lastMonth.forEach((i) => {
-        let obj = thisMonth.find((x) => {
-          return Number(i.amount) === Number(x.amount) && i.name === x.name
+      const linked_user_id = user.linked_user_id
+      let linked_user_email;
+      if(linked_user_id){
+        const res = await prisma.user.findUnique({
+          where: { 
+            id: linked_user_id,
+            active: true
+          }
         })
-        if(obj){
-          recurring.push(obj)
+        linked_user_email = res.email
+      }
+      const user_query = linked_user_id ? [{ user_id: user_id }, { user_id: linked_user_id }] : [{ user_id: user_id }]
+
+      const groupByMonth = await prisma.transactions.groupBy({
+        by: ['month_year'],
+        where: {
+          OR: user_query,
+          active: true,
+          OR: [
+            { month_year: this_month },
+            { month_year: last_month },
+          ],
+          NOT: [
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+            { primary_category: 'INCOME' },
+          ],
+        },
+        _sum: {
+          amount: true,
+        },
+        _count: {
+          amount: true,
+        },
+        orderBy: {
+          month_year: 'desc'
+        },
+      })
+
+      const groupByMonthIncome = await prisma.transactions.groupBy({
+        by: ['month_year'],
+        where: {
+          OR: user_query,
+          active: true,
+          OR: [
+            { month_year: this_month },
+            { month_year: last_month },
+          ],
+          primary_category: 'INCOME'
+        },
+        _sum: {
+          amount: true,
+        },
+        _count: {
+          amount: true,
+        },
+        orderBy: {
+          month_year: 'desc'
+        },
+      })
+
+      const primary = await prisma.transactions.groupBy({
+        by: ['primary_category', 'month_year'],
+        where: {
+          OR: user_query,
+          active: true,
+          OR: [
+            { month_year: this_month },
+            { month_year: last_month },
+          ],
+          NOT: [
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+            { primary_category: 'INCOME' },
+          ],
+        },
+        _sum: {
+          amount: true,
         }
       })
+      let primaryCategories = []
+      primary.forEach(p => {
+        if(p.month_year === this_month){
+          let item = primary.filter((i) => i.month_year === last_month && i.primary_category === p.primary_category)[0]
+          primaryCategories.push({
+            category: p.primary_category.split('_').join(' '),
+            this_month_amount: p._sum.amount,
+            last_month_amount: item?._sum.amount
+          })
+        }
+      })
+      primaryCategories.sort((a, b) => a.this_month_amount-b.this_month_amount)
+      primaryCategories = primaryCategories.slice(0, 10)
+
+      const detailed = await prisma.transactions.groupBy({
+        by: ['detailed_category', 'month_year'],
+        where: {
+          OR: user_query,
+          active: true,
+          OR: [
+            { month_year: this_month },
+            { month_year: last_month },
+          ],
+          NOT: [
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+            { primary_category: 'INCOME' },
+          ],
+        },
+        _sum: {
+          amount: true,
+        }
+      })
+      let detailedCategories = []
+      detailed.forEach(p => {
+        if(p.month_year === this_month){
+          let item = detailed.filter((i) => i.month_year === last_month && i.detailed_category === p.detailed_category)[0]
+          detailedCategories.push({
+            category: p.detailed_category.split('_').join(' '),
+            this_month_amount: p._sum.amount,
+            last_month_amount: item?._sum.amount
+          })
+        }
+      })
+      detailedCategories.sort((a, b) => a.this_month_amount-b.this_month_amount)
+      detailedCategories = detailedCategories.slice(0, 10)
+
+      const t = await prisma.transactions.findMany({
+        where: {
+          OR: user_query,
+          active: true,
+          month_year: this_month,
+          NOT: [
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+            { primary_category: 'INCOME' },
+          ],
+        },
+        orderBy: {
+          amount: 'asc'
+        }
+      })
+      const transactions = t.slice(0, 10)
 
       const emailHtml = render(
         <MonthlySummary 
-          month={DateTime.local().monthLong} 
-          thisMonth={thisMonth.slice(0, 10)} 
-          categories={categories} 
-          thisMonthTotal={thisMonthTotal} 
-          lastMonthTotal={lastMonthTotal} 
-          thisMonthIncome={thisMonthIncome} 
-          lastMonthIncome={lastMonthIncome}
-          recurring={recurring}
+          groupByMonth={groupByMonth} 
+          groupByMonthIncome={groupByMonthIncome} 
+          primaryCategories={primaryCategories} 
+          detailedCategories={detailedCategories} 
+          transactions={transactions} 
+          recurring={[]} 
+          email={email}
+          this_month={this_month}
+          last_month={last_month}
         />
       )
       
