@@ -68,7 +68,7 @@ export default async (req, res) => {
               // @ts-ignore
               location: added[i].location,
               user_id: user_id,
-              item_id: plaidAccount.item_id,
+              item_id: plaidAccounts[p].item_id,
               month_year: added[i].date.substring(0,7),
               week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
             },
