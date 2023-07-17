@@ -7,12 +7,12 @@ const faqs = [
     answer: "Never! This is why we don't have a free tirer, so that we can sustain the application without ever selling your data",
   },
   {
-    question: "Does Trckfi sell my data?",
-    answer: "Never! This is why we don't have a free tirer, so that we can sustain the application without ever selling your data",
+    question: "How do you connect to my bank account?",
+    answer: "We use Plaid api to connect to your bank transactions so we don't store any personal information or login details at all",
   },
   {
-    question: "Does Trckfi sell my data?",
-    answer: "Never! This is why we don't have a free tirer, so that we can sustain the application without ever selling your data",
+    question: "Can I request a feature?",
+    answer: "Yes! We love feedback and would love to hear what features and/or fixes that would improve the platform",
   },
 ]
 

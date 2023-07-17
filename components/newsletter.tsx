@@ -31,7 +31,7 @@ const Newsletter = ({ showError }) => {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden bg-pink-600 px-6 py-24 shadow-2xl rounded-3xl sm:px-24 xl:py-32">
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Get notified when we’re launching.
+            Get notified when we launch.
           </h2>
           <form className="mx-auto mt-10 flex max-w-md gap-x-4" onSubmit={subscribe}>
             <label htmlFor="email-address" className="sr-only">
