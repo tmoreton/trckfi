@@ -12,7 +12,8 @@ import PinkBtn from './pink-btn'
 export default function ({ columns, data, selected, setSelected, setEdit }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
-  const [sum, setSum] = useState('')
+  const [sum, setSum] = useState(0)
+  const [count, setCount] = useState(0)
   const [showEmoji, setShowEmoji] = useState(false)
   const [emoji, setEmoji] = useState('1f50d')
   const [csv, updateCSV] = useState([])
@@ -47,13 +48,17 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
   }
 
   useEffect(() => {
-    let total = 0
-    rows.map((row) => {
-      total += Number(row.values.amount)
-    })
-    setPagination({start: 0, end: 20})
-    setSum(addComma(total))
+    if(rows.length !== count){
+      let total = 0
+      rows.map((row) => {
+        total += Number(row.values.amount)
+      })
+      setPagination({start: 0, end: 20})
+      setSum(total)
+      setCount(rows.length)
+    }
   }, [rows])
+
 
   const updatePagination = (type) => {
     if(type === 'PREVIOUS' && paginate.end > 20){
@@ -108,7 +113,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
                 />
               </span>
             </div>
-            <p className="text-lg font-semibold text-pink-600">{sum}</p>
+            <p className="text-lg font-semibold text-pink-600">{addComma(sum)}</p>
           </>
         )
       case 'Download':
