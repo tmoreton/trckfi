@@ -35,7 +35,7 @@ import {
               <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
                 <span className="mr-2" ><Emoji unified='1f6a8' size={20}/></span><strong>Trckfi Alert</strong>                
               </Heading>
-              <Text className="text-[#666666] text-[16px] my-4 leading-[24px] font-bold text-center inline-flex">
+              <Text className="text-[#666666] text-[16px] my-4 leading-[24px] text-center font-bold text-center inline-flex">
                 <Emoji unified={transaction.unified} size={20}/><span className="ml-1">{transaction.name}</span>
               </Text>
               <Text className="text-[#666666] text-[12px] my-4 leading-[24px] text-center inline-flex">

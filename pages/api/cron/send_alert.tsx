@@ -39,8 +39,8 @@ export default async (req, res) => {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore
           to: t.user.email,
-          subject: `${render(<Emoji unified='1f6a8' size={20}/>)} Trckfi Alert!`,
-          text: `One of your alert has triggered`,
+          subject: `Trckfi Alert`,
+          text: ``,
           html: emailHtml,
         }
     
