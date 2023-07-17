@@ -26,7 +26,7 @@ export default async (req, res) => {
         date: 'desc'
       },
     })
-
+    
     if(transactions.length > 0){
       transactions.forEach(async (t) => {
         const emailHtml = render(
@@ -34,12 +34,12 @@ export default async (req, res) => {
             transaction={t}
           />
         )
-        
+
         const message = {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore
-          to: t.user_id.email,
-          subject: `${<Emoji unified='1f6a8' size={20}/>} Trckfi Alert!`,
+          to: t.user.email,
+          subject: `${render(<Emoji unified='1f6a8' size={20}/>)} Trckfi Alert!`,
           text: `One of your alert has triggered`,
           html: emailHtml,
         }

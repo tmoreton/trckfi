@@ -3,13 +3,14 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  let body;
-  if(typeof req.body === 'object'){
-    body = req.body
-  } else {
-    body = JSON.parse(req.body)
-  }  
-  let { user_id, access_token } = body
+  // let body;
+  // if(typeof req.body === 'object'){
+  //   body = req.body
+  // } else {
+  //   body = JSON.parse(req.body)
+  // }  
+  // let { user_id, access_token } = body
+  let { user_id, access_token } = req.body
 
   if (!user_id || !access_token) return res.status(500)
 

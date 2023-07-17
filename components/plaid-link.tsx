@@ -14,6 +14,9 @@ export default function ({ showError, user }) {
 
   const generateToken = async () => {
     const response = await fetch('/api/create_link_token', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     });
     const { link_token, error } = await response.json()
@@ -24,6 +27,9 @@ export default function ({ showError, user }) {
   const getAccessToken = async ({ public_token, user_id, metadata }) => {
     const res = await fetch(`/api/set_access_token`, {
       body: JSON.stringify({ public_token, user_id, metadata }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const { access_token, error } = await res.json()
@@ -37,6 +43,9 @@ export default function ({ showError, user }) {
         user_id: user.id,
         access_token: access_token
       }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const { error } = await res.json()
@@ -50,6 +59,9 @@ export default function ({ showError, user }) {
         user_id: user.id,
         access_token: access_token
       }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const { error, has_more } = await res.json()

@@ -41,18 +41,30 @@ export default function ({ showError, user, linked_user, accounts }) {
 
   const remove = async (e) => {
     e.preventDefault()
-    const res = await fetch(`/api/remove_link`, {
+    const res = await fetch(`/api/cron/send_alert`, {
       body: JSON.stringify({
-        user
+        user_id: user.id,
+        from_email: user.email,
+        to_email: email
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) signOut()
+    console.log(await res.json())
+    // const res = await fetch(`/api/remove_link`, {
+    //   body: JSON.stringify({
+    //     user
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
+    // const { error } = await res.json()
+    // showError(error)
+    // if(!error) signOut()
   }
 
   const removeToken = async (access_token) => {
