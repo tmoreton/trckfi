@@ -38,9 +38,9 @@ export default function ({ showError }) {
   return (
     <DashboardLayout>
       <Head>
-        <title>Trckfi - Dashboard</title>
+        <title>Trckfi - Net Worth</title>
       </Head>
-      <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
+      <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-2 xl:gap-x-8">
         {clients.map((client) => (
           <li key={client.id} className="overflow-hidden rounded-xl border border-gray-200">
             <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
