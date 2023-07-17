@@ -59,7 +59,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   }
 
   const update = async () => {
-    updateTransaction(transaction)
     setEdit({})
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
@@ -70,6 +69,11 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     })
     const { error } = await res.json()
     showError(error)
+    if(ids.length > 1){
+      getDashboard()
+    } else {
+      updateTransaction(transaction)
+    }
   }
 
   const remove = async () => {
