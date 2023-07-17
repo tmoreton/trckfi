@@ -7,7 +7,7 @@ import PinkBtn from './pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 
-export default function ({ item, setEdit, getDashboard, showError, selected, user }) {
+export default function ({ item, setEdit, getDashboard, showError, selected, user, updateTransaction }) {
   const defaultTransaction = {
     name: null,
     primary_category: null,
@@ -19,7 +19,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     date: null,
     alert_date: null
   }
-  const [transaction, updateTransaction] = useState(defaultTransaction)
+  const [transaction, setTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
   const [startDate, setStartDate] = useState(new Date())
@@ -28,7 +28,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   useEffect(() => {
     setAlertDate(null)
     setIds(selected.map(s => s.id))
-    updateTransaction(item)
+    setTransaction(item)
     if(item?.date){
       setStartDate(new Date(item.date))
     } else {
@@ -41,24 +41,26 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
 
   useEffect(() => {
     const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')
-    updateTransaction({ ...transaction, date: date_time })
+    setTransaction({ ...transaction, date: date_time })
   }, [startDate])
 
   useEffect(() => {
-    updateTransaction({ ...transaction, alert_date: alertDate })
+    setTransaction({ ...transaction, alert_date: alertDate })
   }, [alertDate])
 
   const updateEmoji = (e) => {
-    updateTransaction({ ...transaction, unified: e.unified })
+    setTransaction({ ...transaction, unified: e.unified })
     updateShowEmoji(false)
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    updateTransaction({ ...transaction, [name]: value })
+    setTransaction({ ...transaction, [name]: value })
   }
 
   const update = async () => {
+    updateTransaction(transaction)
+    setEdit({})
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
         transaction,
@@ -68,10 +70,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     })
     const { error } = await res.json()
     showError(error)
-    if (!error){
-      getDashboard()
-      setEdit({})
-    }
   }
 
   const remove = async () => {

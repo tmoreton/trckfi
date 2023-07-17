@@ -15,6 +15,7 @@ import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import prisma from '../lib/prisma'
 import Head from 'next/head'
+import { snakeCase } from "snake-case";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -87,6 +88,15 @@ export default function ({ newUser, user, showError }) {
     setCategories(categories)
     setEmojiCategories(emojiCategories)
     setDetailedCategories(detailedCategories)
+  }
+
+  const updateTransaction = (item) => {
+    let updatedTransactions = t
+    item.primary_category = snakeCase(item.primary_category).toUpperCase()
+    item.detailed_category = snakeCase(item.detailed_category).toUpperCase()
+    let foundIndex = updatedTransactions.findIndex(t => t.id == item.id)
+    updatedTransactions[foundIndex] = item
+    setTransactions(updatedTransactions)
   }
 
   const getAccounts = async (access_token) => {
@@ -198,7 +208,7 @@ export default function ({ newUser, user, showError }) {
       </Head>
       <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} getAccounts={getAccounts} syncTransactions={syncTransactions} accounts={a}/>
       <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-      <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
+      <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} getAccounts={getAccounts} syncTransactions={syncTransactions} />
       <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
       <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
