@@ -27,8 +27,8 @@ export const authOptions = {
         const transport = nodemailer.createTransport(server)
         const emailHtml = render(<SignInEmail url={url}/>)
         await transport.sendMail({
-          to: `"Trckfi" <${email}>`,
-          from,
+          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+          to: email,
           subject: `Sign in to Trckfi`,
           html: emailHtml,
         });
