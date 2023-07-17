@@ -23,10 +23,10 @@ export default function () {
                 </span>{' '}
                 with automation
               </h1>
-              <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
+              {/* <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
                 fugiat veniam occaecat fugiat aliqua.
-              </p>
+              </p> */}
               <div className="mt-10 flex justify-center gap-x-6 mb-16 lg:mb-24">
                 <Link href='/pricing' className="text-md font-semibold leading-6 text-gray-900">
                   <button className="rounded-3xl bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
