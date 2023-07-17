@@ -45,8 +45,9 @@ export default async (req, res) => {
         let added = response.data.added
         // let next_cursor = response.data.next_cursor
         // let has_more = response.data.has_more
-        let { amount } = formatAmount(accounts, added[i].account_id, added[i].amount)
         for (let i in added) {
+          let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
+          let { amount } = formatAmount(accounts, added[i].account_id, added[i].amount)
           await prisma.transactions.upsert({
             where: { 
               transaction_id: added[i].transaction_id 
@@ -61,13 +62,15 @@ export default async (req, res) => {
               name: added[i].name,
               merchant_name: added[i].merchant_name,
               category: added[i].category,
-              detailed_category: added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, ''),
+              detailed_category: detailed_category,
+              unified: icons[detailed_category],
               primary_category: added[i].personal_finance_category.primary,
+              // @ts-ignore
               location: added[i].location,
               user_id: user_id,
-              item_id: plaidAccounts[p].item_id,
+              item_id: plaidAccount.item_id,
               month_year: added[i].date.substring(0,7),
-              week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`
+              week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
             },
           })
         }
