@@ -50,13 +50,15 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
 
   const updatePie = (categories) => {
     let total = 0
-    let mapped = categories.map((a, i) => {
+    let sorted = categories.sort((a,b) => a._sum.amount - b._sum.amount)
+    let mapped = sorted.map((a, i) => {
       return {
         name: a.primary_category || a.detailed_category || a.unified,
         color: colors[i],
         amount: a._sum.amount
       }
-    }).sort((a,b) => a.amount - b.amount)
+    })
+    mapped = mapped.slice(0, 10)
 
     let filtered = mapped.filter((a) => {
       total += Number(a.amount)
@@ -139,7 +141,7 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
                         key === 'unified' ?
                         <Emoji unified={i.name} size={20}/>
                         :
-                        <p>{i?.name?.split('_').join(' ')}</p>
+                        <p>{i?.name?.split('_').join(' ').slice(0, 22)}</p>
                       }
                       <p className="font-semibold">{addComma(i.amount)}</p>
                     </div>

@@ -2,24 +2,7 @@
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 import { DateTime } from "luxon"
-import { formatAmount } from '../../lib/formatNumber'
-
-const icons = {
-  "COFFEE": "2615",
-  "FAST_FOOD": "1f35f",
-  "FLIGHTS": "2708-fe0f",
-  "GYMS_AND_FITNESS_CENTERS": "1f3cb-fe0f",
-  "RENT": "1f3e1",
-  "RESTAURANT": "1f37d-fe0f",
-  "SPORTING_GOODS": "1f3c8",
-  "TAXIS_AND_RIDE_SHARES": "1f695",
-  "GAS_AND_ELECTRICITY": "1f4a1",
-  "BEER_WINE_AND_LIQUOR": "1f37a",
-  "ATM_FEES": "1f3e6",
-  "INTEREST_EARNED": "1f4b0",
-  "WAGES": "1f4b0",
-  "PARKING": "1f697",
-}
+import { formatAmount, icons } from '../../lib/formatNumber'
 
 export default async (req, res) => {
   let body;
