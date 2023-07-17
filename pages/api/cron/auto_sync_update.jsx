@@ -43,7 +43,7 @@ export default async (req, res) => {
       
         const response = await plaidClient.transactionsSync(request)
         let added = response.data.added
-        // let next_cursor = response.data.next_cursor
+        let next_cursor = response.data.next_cursor
         // let has_more = response.data.has_more
         for (let i in added) {
           let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
@@ -74,6 +74,11 @@ export default async (req, res) => {
             },
           })
         }
+
+        await prisma.plaid.update({
+          where: { access_token: plaidAccounts[p].access_token },
+          data: { cursor: next_cursor }
+        })
       }
     }
     
