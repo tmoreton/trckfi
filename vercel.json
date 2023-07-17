@@ -7,9 +7,14 @@
     {
       "path": "/api/cron/send_weekly_email",
       "schedule": "0 8 * * 1"
-    },{
+    },
+    {
       "path": "/api/cron/auto_sync_update",
       "schedule": "0 6 * * 1"
+    },
+    {
+      "path": "/api/cron/send_alert",
+      "schedule": "0 8 * * *"
     }
   ]
 }

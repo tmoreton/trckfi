@@ -21,19 +21,20 @@ model Session {
 }
 
 model User {
-  id              String    @id @default(cuid())
+  id              String         @id @default(cuid())
   name            String?
-  email           String?   @unique
+  email           String?        @unique
   emailVerified   DateTime?
   image           String?
   phone           String?
-  active          Boolean   @default(false)
-  subscription_id String?
-  subscribed      Boolean   @default(false)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  active          Boolean        @default(false)
+  subscribed      Boolean        @default(false)
   linked_user_id  String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  subscription_id String?
   sessions        Session[]
+  Transactions    Transactions[]
 
   @@map("users")
 }
@@ -73,9 +74,9 @@ model Accounts {
   user_id       String?        @map("user_id")
   access_token  String?
   item_id       String?
+  active        Boolean?       @default(true)
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
-  active        Boolean?       @default(true)
   bank_name     String?
   Transactions  Transactions[]
 
@@ -92,8 +93,6 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
-  created_at        DateTime? @default(now())
-  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -106,7 +105,10 @@ model Transactions {
   unified           String?   @default("1f4b8")
   notes             String?
   alert_date        DateTime?
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   account           Accounts? @relation(fields: [account_id], references: [account_id])
+  user              User?     @relation(fields: [user_id], references: [id])
 
   @@map("transactions")
 }
