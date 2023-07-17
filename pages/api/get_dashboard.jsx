@@ -194,6 +194,7 @@ export default async (req, res) => {
           { primary_category: 'LOAN_PAYMENTS' },
           { primary_category: 'TRANSFER_IN' },
           { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
         ],
       },
       select: {
@@ -217,8 +218,8 @@ export default async (req, res) => {
     const stats = {
       lastMonthTotal: groupByMonth[1]?._sum?.amount,
       thisMonthTotal: groupByMonth[0]?._sum?.amount,
-      thisMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
-      lastMonthString: DateTime.now().minus({ months: 2 }).startOf('month').monthLong,
+      thisMonthString: DateTime.now().startOf('month').monthLong,
+      lastMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
       lastMonthIncome: groupByMonthIncome[1]?._sum?.amount,
       thisMonthIncome: groupByMonthIncome[0]?._sum?.amount,
     }
