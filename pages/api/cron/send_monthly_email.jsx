@@ -19,12 +19,12 @@ export default async (req, res) => {
     for (let a in activeUsers) {
       const user_id = activeUsers[a].id
       const email = activeUsers[a].email
+      const linked_user_id = activeUsers[a].linked_user_id
 
       const date = DateTime.now()
       const this_month = date.toFormat('yyyy-MM')
       const last_month = date.minus({ months: 1 }).toFormat('yyyy-MM')
 
-      const linked_user_id = user.linked_user_id
       let linked_user_email;
       if(linked_user_id){
         const res = await prisma.user.findUnique({
