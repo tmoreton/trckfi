@@ -81,7 +81,7 @@ export default function ({ showError, user, linked_user, accounts }) {
         <div>
           <h2 className="text-base font-semibold leading-7 text-pink-600">Profile</h2>
           <p className="mt-1 text-sm leading-6 text-gray-500">
-            This information will be displayed publicly so be careful what you share.
+            General account information
           </p>
           <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
             <div className="pt-6 sm:flex">
@@ -166,7 +166,7 @@ export default function ({ showError, user, linked_user, accounts }) {
           </ul>
 
           <div className="flex border-t border-gray-100 pt-6">
-            { (Object.keys(accounts)?.length < 7) ? <PlaidLink user={user} showError={showError} /> : <p className="text-sm leading-6 text-gray-500">Please remove account link to add more...</p>}
+            { (Object.keys(accounts)?.length < 10) ? <PlaidLink user={user} showError={showError} /> : <p className="text-sm leading-6 text-red-600 font-bold">Please remove account link to add more...</p>}
           </div>
         </div>
 
