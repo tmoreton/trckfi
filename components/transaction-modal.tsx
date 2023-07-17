@@ -59,8 +59,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   }
 
   const update = async () => {
-    updateTransaction(transaction)
     setEdit({})
+    if(ids.length <= 1){
+      updateTransaction(transaction)
+    }
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
         transaction,
