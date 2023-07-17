@@ -22,7 +22,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   const [transaction, setTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
-  const [startDate, setStartDate] = useState(new Date())
+  const [startDate, setStartDate] = useState(null)
   const [alertDate, setAlertDate] = useState(null)
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     if(item?.date){
       setStartDate(new Date(item.date))
     } else {
-      setStartDate(new Date())
+      setStartDate(null)
     }
     if(item?.alert_date){
       setAlertDate(new Date(item.alert_date))
