@@ -42,6 +42,9 @@ export default function ({ user, accounts, sum, showError }) {
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl mb-6">Net Worth: {addComma(sum)}</h2>
       </div>
+      <button onClick={() => setOpen(true)} className="absolute top-[50px] text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500 py-4">
+        <p><span aria-hidden="true">+</span> Add Account</p>
+      </button>
       <AccountModal showError={showError} open={open} setOpen={setOpen} user={user}/>
       <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
         {accounts.map((account) => Number(account._sum.amount) !== 0 && (
@@ -125,12 +128,12 @@ export default function ({ user, accounts, sum, showError }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context)
   
-  if(!session?.user) return { 
-    redirect: {
-      destination: '/auth/email-signin',
-      permanent: false,
-    },
-  }
+  // if(!session?.user) return { 
+  //   redirect: {
+  //     destination: '/auth/email-signin',
+  //     permanent: false,
+  //   },
+  // }
   
   // @ts-ignore
   const { id, linked_user_id } = session?.user

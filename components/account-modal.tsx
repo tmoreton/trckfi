@@ -59,6 +59,24 @@ export default function ({ showError, open, setOpen, user }) {
                         Add Account
                       </Dialog.Title>
                       <form onSubmit={handleSubmit}>
+                        <div className="relative z-0 w-full mb-8 group">
+                          <label 
+                            htmlFor="subtype" 
+                            className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          >
+                            Type
+                          </label>
+                          <select
+                            id="subtype"
+                            name="subtype"
+                            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            onChange={handleChange}
+                          >
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>Mexico</option>
+                          </select>
+                        </div>
                         <div className="relative z-0 w-full mb-6 group inline-flex">
                           <div className="w-full">
                             <input 
@@ -80,21 +98,6 @@ export default function ({ showError, open, setOpen, user }) {
                         <div className="relative z-0 w-full mb-6 group">
                           <input 
                             type="text" 
-                            name="type" 
-                            id="type" 
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required 
-                            onChange={handleChange}
-                          />
-                          <label 
-                            htmlFor="type" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
-                            Type
-                          </label>
-                        </div>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <input 
-                            type="text" 
                             name="institution" 
                             id="institution" 
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
@@ -105,7 +108,7 @@ export default function ({ showError, open, setOpen, user }) {
                             htmlFor="institution" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
-                            Bank
+                            Instituion
                           </label>
                         </div>
                         <div className="grid md:grid-cols-2 md:gap-6">
@@ -130,7 +133,7 @@ export default function ({ showError, open, setOpen, user }) {
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
+                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center justify-between">
                   <PinkBtn onClick={handleSubmit}>
                     Add
                   </PinkBtn>
