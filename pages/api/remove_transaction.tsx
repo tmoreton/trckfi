@@ -2,7 +2,7 @@
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
-  const { transaction, ids } = JSON.parse(req.body)
+  const { transaction, ids } = req.body
   if (!transaction) return res.status(500)
   
   try {

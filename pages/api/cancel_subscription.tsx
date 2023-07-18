@@ -8,13 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default async (req, res) => {
-  // let body;
-  // if(typeof req.body === 'object'){
-  //   body = req.body
-  // } else {
-  //   body = JSON.parse(req.body)
-  // }
-  // let { user_id } = body
   let { user_id } = req.body
 
   try {

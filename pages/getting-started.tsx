@@ -14,6 +14,9 @@ export default function ({ csrfToken, user, showError, base_url }) {
       body: JSON.stringify({ 
         email: email
       }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const data = await res.json()

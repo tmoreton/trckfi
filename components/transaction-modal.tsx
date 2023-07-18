@@ -67,7 +67,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
       body: JSON.stringify({ 
         transaction,
         ids
-    }),
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const { error } = await res.json()
@@ -82,7 +85,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
       body: JSON.stringify({ 
         transaction,
         ids
-    }),
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const { error } = await res.json()
@@ -98,7 +104,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
       body: JSON.stringify({ 
         transaction,
         user,
-    }),
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method: 'POST',
     })
     const { error } = await res.json()

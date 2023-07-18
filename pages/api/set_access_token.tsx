@@ -7,6 +7,7 @@ export default async (req, res) => {
 
   const response = await plaidClient.institutionsGetById({
     institution_id: metadata?.institution?.institution_id,
+    // @ts-ignore
     country_codes: ['US'],
   })
 
@@ -22,6 +23,7 @@ export default async (req, res) => {
           user_id: user_id,
           item_id: data.item_id,
           access_token: data.access_token,
+          // @ts-ignore
           institution: metadata?.institution?.name,
           institution_id: metadata?.institution?.institution_id,
           institution_details: {

@@ -4,7 +4,7 @@ import { snakeCase } from "snake-case";
 import { DateTime } from "luxon"
 
 export default async (req, res) => {
-  const { transaction, ids } = JSON.parse(req.body)
+  const { transaction, ids } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
   const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date } = transaction
   try {
