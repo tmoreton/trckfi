@@ -7,7 +7,7 @@ import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma';
 import { addComma, getAmount } from '../lib/formatNumber'
 import AccountModal from '../components/account-modal'
-import plaidClient from '../utils/plaid';
+import { Emoji } from 'emoji-picker-react'
 
 const statuses = {
   depository: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -18,6 +18,18 @@ const statuses = {
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+const renderImg = (account) => {
+  if(account.subtype === 'rental') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
+  return (
+    <img
+      src={`/assets/banks/${account.institution}.png`}
+      alt={account.institution}
+      className="h-12 w-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
+    />
+  )
 }
 
 export default function ({ user, accounts, sum, showError }) {
@@ -35,11 +47,7 @@ export default function ({ user, accounts, sum, showError }) {
         {accounts.map((account) => Number(account._sum.amount) !== 0 && (
           <li key={account.id} className="overflow-hidden rounded-xl border border-gray-200 ">
             <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
-              <img
-                src={`/assets/banks/${account.institution}.png`}
-                alt={account.institution}
-                className="h-12 w-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
-              />
+              {renderImg(account)}
               <div className="leading-6 text-gray-900">
                 <div className="text-lg font-bold">{account.institution}</div>
               </div>
@@ -99,11 +107,11 @@ export default function ({ user, accounts, sum, showError }) {
                 <div className="font-medium text-gray-900">{addComma(account._sum.amount)}</div>
                 <div
                   className={classNames(
-                    statuses[account.type],
+                    statuses[account.subtype],
                     'rounded-md py-1 px-2 text-xs font-medium ring-1 ring-inset'
                   )}
                 >
-                  {account.type}
+                  {account.subtype}
                 </div>
               </div>
             </dl>
@@ -116,13 +124,20 @@ export default function ({ user, accounts, sum, showError }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
+  
+  if(!session?.user) return { 
+    redirect: {
+      destination: '/auth/email-signin',
+      permanent: false,
+    },
+  }
+  
   // @ts-ignore
   const { id, linked_user_id } = session?.user
 
-
   // @ts-ignore
   const accounts = await prisma.accounts.groupBy({
-    by: ['institution', 'type'],
+    by: ['institution', 'subtype'],
     where: {
       OR: [
         { user_id: id },

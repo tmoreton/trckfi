@@ -11,9 +11,8 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
   let balance = 0
   accounts.forEach(a => {
-    if(a.type === 'credit'){
-      balance -= Number(a.amount)
-    } else if(a.type === 'depository'){
+    const { type } = a
+    if(type === 'credit' || type === 'depository'){
       balance += Number(a.amount)
     }
   });

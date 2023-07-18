@@ -1,6 +1,5 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Emoji } from 'emoji-picker-react'
 import PinkBtn from './pink-btn'
 
 export default function ({ showError, open, setOpen, user }) {
