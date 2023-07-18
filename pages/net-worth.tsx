@@ -27,7 +27,7 @@ export default function ({ user, accounts, sum }) {
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl mb-6">Net Worth: {addComma(sum)}</h2>
       </div>
-      <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-2 xl:gap-x-8">
+      <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
         {accounts.map((account) => Number(account._sum.amount) !== 0 && (
           <li key={account.id} className="overflow-hidden rounded-xl border border-gray-200 ">
             <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
