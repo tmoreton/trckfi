@@ -8,8 +8,7 @@ export default async (req, res) => {
   const { name, subtype, institution, amount } = account
   try {
     if(subtype === 'stocks'){
-      const test = await yahooFinance.quote(institution);
-      console.log(test)
+      // @ts-ignore
       const { regularMarketPrice, currency, shortName } = await yahooFinance.quote(institution);
       let data = { 
         name: shortName, 
