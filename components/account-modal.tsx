@@ -3,18 +3,18 @@ import { Dialog, Transition } from '@headlessui/react'
 import PinkBtn from './pink-btn'
 
 export default function ({ showError, open, setOpen, user }) {
-  const [accountInfo, setAccountInfo] = useState({})
+  const [account, setAccountInfo] = useState({})
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setAccountInfo({ ...accountInfo, [name]: value })
+    setAccountInfo({ ...account, [name]: value })
   }
 
   const handleSubmit = async () => {
     const res = await fetch(`/api/add_account`, {
       body: JSON.stringify({
         user_id: user.id,
-        account: accountInfo
+        account
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -72,29 +72,37 @@ export default function ({ showError, open, setOpen, user }) {
                             className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
                           >
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
+                            <option>mortgage</option>
+                            <option>credit card</option>
+                            <option>savings</option>
+                            <option>checking</option>
+                            <option>savings</option>
+                            <option>brokerage</option>
+                            <option>ira</option>
+                            <option>401k</option>
+                            <option>stocks</option>
                           </select>
                         </div>
-                        <div className="relative z-0 w-full mb-6 group inline-flex">
-                          <div className="w-full">
-                            <input 
-                              type="text" 
-                              name="name" 
-                              id="name" 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                              required
-                              onChange={handleChange}
-                            />
-                            <label 
-                              htmlFor="name" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Name
-                            </label>
+                        { account?.subtype !== 'stocks' &&
+                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                            <div className="w-full">
+                              <input 
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                                required
+                                onChange={handleChange}
+                              />
+                              <label 
+                                htmlFor="name" 
+                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Name
+                              </label>
+                            </div>
                           </div>
-                        </div>
+                        }
                         <div className="relative z-0 w-full mb-6 group">
                           <input 
                             type="text" 
@@ -108,7 +116,7 @@ export default function ({ showError, open, setOpen, user }) {
                             htmlFor="institution" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
-                            Instituion
+                            { account?.subtype === 'stocks' ? 'Stock Symbol' : 'Instituion'}
                           </label>
                         </div>
                         <div className="grid md:grid-cols-2 md:gap-6">
@@ -125,7 +133,7 @@ export default function ({ showError, open, setOpen, user }) {
                               htmlFor="amount" 
                               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
-                              Amount
+                              { account?.subtype === 'stocks' ? 'Quantity' : 'Amount'}
                             </label>
                           </div>
                         </div>

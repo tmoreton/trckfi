@@ -13,8 +13,7 @@ export default async (req, res) => {
       access_token: access_token
     },
   })
-
-
+// @ts-ignore
   try {
     const response = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
     let accounts = response.data.accounts
@@ -37,6 +36,8 @@ export default async (req, res) => {
           // @ts-ignore
           details: accounts[i].balances,
           official_name: accounts[i].official_name,
+          // @ts-ignore
+          institution:  plaidAccount.institution,
           subtype: accounts[i].subtype,
           type: accounts[i].type,
           user_id: user_id,

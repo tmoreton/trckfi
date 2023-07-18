@@ -74,7 +74,9 @@ export default async (req, res) => {
 
     return res.status(200).json({ has_more: has_more })
   } catch (error) {
-    console.error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    console.error(error.response.data)
+    if(error.response.data.error_code === 'ITEM_LOGIN_REQUIRED'){
+    }
+    return res.json({ error: error.response.data.error_message })
   }
 }

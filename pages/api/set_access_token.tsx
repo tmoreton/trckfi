@@ -10,9 +10,8 @@ export default async (req, res) => {
     // @ts-ignore
     country_codes: ['US'],
   })
-
   const { institution } = response.data
-  console.log(response)
+  
   try {
     if(user_id){
       const { data } = await plaidClient.itemPublicTokenExchange({
@@ -26,11 +25,7 @@ export default async (req, res) => {
           // @ts-ignore
           institution: metadata?.institution?.name,
           institution_id: metadata?.institution?.institution_id,
-          institution_details: {
-            primary_color: institution?.primary_color,
-            url: institution?.url,
-            logo: institution?.logo,
-          }
+          institution_details: institution
         },
       })
       return res.status(200).json({ access_token: data.access_token })

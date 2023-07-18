@@ -22,7 +22,9 @@ function classNames(...classes) {
 
 const renderImg = (account) => {
   if(account.subtype === 'rental') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account.subtype === 'stocks') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
+
   return (
     <img
       src={`/assets/banks/${account.institution}.png`}
@@ -49,7 +51,7 @@ export default function ({ user, accounts, sum, showError }) {
       <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
         {accounts.map((account) => Number(account._sum.amount) !== 0 && (
           <li key={account.id} className="overflow-hidden rounded-xl border border-gray-200 ">
-            <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
+            <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 px-4 py-3">
               {renderImg(account)}
               <div className="leading-6 text-gray-900">
                 <div className="text-lg font-bold">{account.institution}</div>
