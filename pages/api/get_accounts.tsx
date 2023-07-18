@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
+import { getAmount } from '../../lib/formatNumber'
 
 export default async (req, res) => {
   // let body;
@@ -31,6 +32,7 @@ export default async (req, res) => {
         update: {
           // @ts-ignore
           balances: accounts[i].balances,
+          amount: getAmount(accounts[i]),
           active: true
         },
         create: {
@@ -44,7 +46,8 @@ export default async (req, res) => {
           official_name: accounts[i].official_name,
           subtype: accounts[i].subtype,
           type: accounts[i].type,
-          user_id: user_id
+          user_id: user_id,
+          amount: getAmount(accounts[i]),
         },
       })
     }

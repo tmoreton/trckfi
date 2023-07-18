@@ -25,6 +25,15 @@ export const formatAmount = (accounts, account_id, amount) => {
   }
 }
 
+export const getAmount = (account) => {
+  const { type, balances } = account
+  if(type === 'credit' || type === 'loan'){
+    return Number(-Math.abs(balances.current)).toFixed(2)
+  } else {
+    return Number(Math.abs(balances.current)).toFixed(2)
+  }
+}
+
 export const icons = {
   "COFFEE": "2615",
   "FAST_FOOD": "1f35f",
