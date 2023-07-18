@@ -92,18 +92,15 @@ export default function ({ user, accounts, sum }) {
                 </dd>
               </div> */}
               <div className="flex justify-between gap-x-4 py-3">
-                <dt className="text-gray-500">Amount</dt>
-                <dd className="flex items-start gap-x-2">
-                  <div className="font-medium text-gray-900">{addComma(account._sum.amount)}</div>
-                  <div
-                    className={classNames(
-                      statuses[account.type],
-                      'rounded-md py-1 px-2 text-xs font-medium ring-1 ring-inset'
-                    )}
-                  >
-                    {account.type}
-                  </div>
-                </dd>
+                <div className="font-medium text-gray-900">{addComma(account._sum.amount)}</div>
+                <div
+                  className={classNames(
+                    statuses[account.type],
+                    'rounded-md py-1 px-2 text-xs font-medium ring-1 ring-inset'
+                  )}
+                >
+                  {account.type}
+                </div>
               </div>
             </dl>
           </li>
