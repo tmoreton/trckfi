@@ -13,7 +13,7 @@ export default async (req, res) => {
       let data = { 
         name: shortName, 
         type: 'investment', 
-        subtype, institution.toUpperCase(), 
+        subtype: institution.toUpperCase(), 
         amount: regularMarketPrice * amount, 
         user_id, 
         details: { regularMarketPrice, currency, shortName, quantity: amount }
