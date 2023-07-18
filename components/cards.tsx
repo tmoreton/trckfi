@@ -37,12 +37,12 @@ export default function ({ getTransactions, getDashboard, loading, accounts, sho
             let balanceClass = 'text-gray-600 text-base'
             if(account.type === 'credit' || account.type === 'loan') balanceClass = 'text-red-600 text-base'
             if(account.type === 'depository' || account.type === 'investment') balanceClass = 'text-green-600 text-base'
-            if(account.balances.current === 0) balanceClass = 'text-gray-600 text-base'
+            if(account.amount === 0) balanceClass = 'text-gray-600 text-base'
             return (
               <li key={account.name} className="col-span-1 flex rounded-md shadow-sm">
                 <div className="flex flex-1 items-center justify-between truncate rounded-md border-b border border-gray-200 bg-white">
                   <div className="flex-1 truncate px-4 py-2 text-sm">
-                  <p className={balanceClass}><b>Balance:</b> {addComma(account.balances.current)}</p>
+                  <p className={balanceClass}><b>Balance:</b> {addComma(account.amount)}</p>
 
                     <p className="text-xs text-gray-900 hover:text-gray-600 mb-1">
                       {account.official_name?.length > 30 ? `${account.official_name?.substring(0, 40)}...` : account.official_name}

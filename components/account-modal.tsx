@@ -12,12 +12,11 @@ export default function ({ showError, open, setOpen, user }) {
   }
 
   const handleSubmit = async () => {
-    let item = {
-      user_id: user.id,
-      account: accountInfo
-    }
     const res = await fetch(`/api/add_account`, {
-      body: JSON.stringify(item),
+      body: JSON.stringify({
+        user_id: user.id,
+        account: accountInfo
+      }),
       headers: {
         'Content-Type': 'application/json',
       },

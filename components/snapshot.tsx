@@ -12,9 +12,9 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
   let balance = 0
   accounts.forEach(a => {
     if(a.type === 'credit'){
-      balance -= Number(a.balances.current)
+      balance -= Number(a.amount)
     } else if(a.type === 'depository'){
-      balance += Number(a.balances.current)
+      balance += Number(a.amount)
     }
   });
 
