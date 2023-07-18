@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { EllipsisHorizontalIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
@@ -6,6 +6,7 @@ import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma';
 import { addComma, getAmount } from '../lib/formatNumber'
+import AccountModal from '../components/account-modal'
 
 const statuses = {
   depository: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -18,7 +19,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ({ user, accounts, sum }) {
+export default function ({ user, accounts, sum, showError }) {
+  const [open, setOpen] = useState(false)
   return (
     <DashboardLayout>
       <Head>
@@ -27,6 +29,7 @@ export default function ({ user, accounts, sum }) {
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl mb-6">Net Worth: {addComma(sum)}</h2>
       </div>
+      <AccountModal showError={showError} open={open} setOpen={setOpen} user={user}/>
       <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
         {accounts.map((account) => Number(account._sum.amount) !== 0 && (
           <li key={account.id} className="overflow-hidden rounded-xl border border-gray-200 ">
@@ -69,15 +72,15 @@ export default function ({ user, accounts, sum }) {
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="#"
+                        <button
+                          onClick={() => setOpen(true)}
                           className={classNames(
                             active ? 'bg-gray-50' : '',
                             'block px-3 py-1 text-sm leading-6 text-gray-900'
                           )}
                         >
                           Edit<span className="sr-only">, {account.name}</span>
-                        </a>
+                        </button>
                       )}
                     </Menu.Item>
                   </Menu.Items>
