@@ -26,11 +26,11 @@ export const formatAmount = (accounts, account_id, amount) => {
 }
 
 export const getAmount = (account) => {
-  const { type, amount } = account
+  const { type, balances } = account
   if(type === 'credit' || type === 'loan'){
-    return Number(-Math.abs(amount)).toFixed(2)
+    return Number(-Math.abs(balances.current)).toFixed(2)
   } else {
-    return Number(Math.abs(amount)).toFixed(2)
+    return Number(Math.abs(balances.current)).toFixed(2)
   }
 }
 

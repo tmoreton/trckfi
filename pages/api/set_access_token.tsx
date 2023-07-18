@@ -3,29 +3,32 @@ import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  // let body;
-  // if(typeof req.body === 'object'){
-  //   body = req.body
-  // } else {
-  //   body = JSON.parse(req.body)
-  // }
-  // let { public_token, user_id, metadata } = body
   let { public_token, user_id, metadata } = req.body
 
+  const response = await plaidClient.institutionsGetById({
+    institution_id: metadata?.institution?.institution_id,
+    country_codes: ['US'],
+  })
+
+  const { institution } = response.data
+  console.log(response)
   try {
     if(user_id){
       const { data } = await plaidClient.itemPublicTokenExchange({
         public_token: public_token
       })
-
       await prisma.plaid.create({
         data: {
           user_id: user_id,
           item_id: data.item_id,
           access_token: data.access_token,
-          bank_name: metadata?.institution?.name,
-          link_session_id: metadata?.link_session_id,
-          public_token: metadata?.public_token
+          institution: metadata?.institution?.name,
+          institution_id: metadata?.institution?.institution_id,
+          institution_details: {
+            primary_color: institution?.primary_color,
+            url: institution?.url,
+            logo: institution?.logo,
+          }
         },
       })
       return res.status(200).json({ access_token: data.access_token })

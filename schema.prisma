@@ -27,12 +27,13 @@ model User {
   emailVerified   DateTime?
   image           String?
   phone           String?
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
   active          Boolean        @default(false)
+  subscription_id String?
   subscribed      Boolean        @default(false)
   linked_user_id  String?
-  subscription_id String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  Plaid           Plaid[]
   sessions        Session[]
   Transactions    Transactions[]
 
@@ -50,16 +51,17 @@ model VerificationToken {
 }
 
 model Plaid {
-  id              String     @id @default(cuid())
-  access_token    String     @unique
-  item_id         String?    @unique @map("item_id")
-  user_id         String?    @map("user_id")
-  active          Boolean?   @default(true)
-  cursor          String?
-  bank_name       String?
-  link_session_id String?
-  public_token    String?
-  Accounts        Accounts[]
+  id                  String     @id @default(cuid())
+  access_token        String     @unique
+  item_id             String?    @unique @map("item_id")
+  user_id             String?    @map("user_id")
+  active              Boolean?   @default(true)
+  cursor              String?
+  institution         String?
+  institution_details Json?
+  institution_id      String?
+  Accounts            Accounts[]
+  user                User?      @relation(fields: [user_id], references: [id])
 
   @@map("plaid")
 }
@@ -67,7 +69,6 @@ model Plaid {
 model Accounts {
   id            String         @id @default(cuid())
   account_id    String?        @unique
-  balances      Json?
   name          String?
   official_name String?
   subtype       String?
@@ -75,11 +76,12 @@ model Accounts {
   user_id       String?        @map("user_id")
   access_token  String?
   item_id       String?
-  active        Boolean?       @default(true)
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
-  bank_name     String?
+  active        Boolean?       @default(true)
   amount        Decimal?       @db.Decimal(9, 2)
+  details       Json?
+  institution   String?
   plaid         Plaid?         @relation(fields: [item_id], references: [item_id])
   Transactions  Transactions[]
 
@@ -96,6 +98,8 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -108,8 +112,6 @@ model Transactions {
   unified           String?   @default("1f4b8")
   notes             String?
   alert_date        DateTime?
-  created_at        DateTime? @default(now())
-  updated_at        DateTime? @updatedAt
   account           Accounts? @relation(fields: [account_id], references: [account_id])
   user              User?     @relation(fields: [user_id], references: [id])
 

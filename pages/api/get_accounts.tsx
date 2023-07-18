@@ -21,6 +21,7 @@ export default async (req, res) => {
     },
   })
 
+
   try {
     const response = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
     let accounts = response.data.accounts
@@ -31,18 +32,17 @@ export default async (req, res) => {
         },
         update: {
           // @ts-ignore
-          balances: accounts[i].balances,
+          details: accounts[i].balances,
           amount: getAmount(accounts[i]),
           active: true
         },
         create: {
           access_token: plaidAccount.access_token,
           item_id: plaidAccount.item_id,
-          bank_name: plaidAccount.bank_name,
           account_id: accounts[i].account_id,
           name: accounts[i].name,
           // @ts-ignore
-          balances: accounts[i].balances,
+          details: accounts[i].balances,
           official_name: accounts[i].official_name,
           subtype: accounts[i].subtype,
           type: accounts[i].type,

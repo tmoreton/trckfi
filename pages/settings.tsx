@@ -289,15 +289,15 @@ export async function getServerSideProps(context) {
     },
     select: {
       name: true,
-      bank_name: true,
+      institution: true,
       official_name: true,
       access_token: true
     },
   })
 
   const accounts = a.reduce(function (r, a) {
-    r[a.bank_name] = r[a.bank_name] || [];
-    r[a.bank_name].push(a);
+    r[a.institution] = r[a.institution] || [];
+    r[a.institution].push(a);
     return r;
   }, Object.create(null))
   

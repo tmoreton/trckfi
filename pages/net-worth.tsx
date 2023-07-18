@@ -7,6 +7,7 @@ import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma';
 import { addComma, getAmount } from '../lib/formatNumber'
 import AccountModal from '../components/account-modal'
+import plaidClient from '../utils/plaid';
 
 const statuses = {
   depository: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -35,12 +36,12 @@ export default function ({ user, accounts, sum, showError }) {
           <li key={account.id} className="overflow-hidden rounded-xl border border-gray-200 ">
             <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
               <img
-                src={`/assets/banks/${account.bank_name}.png`}
-                alt={account.bank_name}
+                src={`/assets/banks/${account.institution}.png`}
+                alt={account.institution}
                 className="h-12 w-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
               />
               <div className="leading-6 text-gray-900">
-                <div className="text-lg font-bold">{account.bank_name}</div>
+                <div className="text-lg font-bold">{account.institution}</div>
               </div>
               <Menu as="div" className="relative ml-auto">
                 <Menu.Button className="-m-2.5 block p-2.5 text-gray-400 hover:text-gray-500">
@@ -117,9 +118,11 @@ export async function getServerSideProps(context) {
   const session = await getSession(context)
   // @ts-ignore
   const { id, linked_user_id } = session?.user
+
+
   // @ts-ignore
   const accounts = await prisma.accounts.groupBy({
-    by: ['bank_name', 'type'],
+    by: ['institution', 'type'],
     where: {
       OR: [
         { user_id: id },
