@@ -3,7 +3,7 @@ import DashboardLayout from "../components/dashboard-layout"
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma';
-import { addComma, getAmount } from '../lib/formatNumber'
+import { addComma } from '../lib/formatNumber'
 import AccountModal from '../components/account-modal'
 import { Emoji } from 'emoji-picker-react'
 
@@ -144,9 +144,16 @@ export default function ({ showError, user, stats, accts }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
-  
-  // @ts-ignore
-  const { id, linked_user_id } = session?.user
+  const user = session?.user
+
+  if(!user) return { 
+    redirect: {
+      destination: '/auth/email-signin',
+      permanent: false,
+    },
+  }
+
+  const { id, linked_user_id } = user
 
   let linked_user = null
   if(linked_user_id){
@@ -156,7 +163,6 @@ export async function getServerSideProps(context) {
   }
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
-  // @ts-ignore
   const accounts = await prisma.accounts.groupBy({
     by: ['type', 'subtype', 'institution', 'name'],
     where: {
@@ -167,7 +173,6 @@ export async function getServerSideProps(context) {
       active: true,
     },
     _sum: {
-      // @ts-ignore
       amount: true,
     },
     orderBy: {
@@ -185,9 +190,9 @@ export async function getServerSideProps(context) {
     }
   });
   const stats = [
-    { name: 'Net Worth', value: addComma(total_assets-total_liabilities), change: '+0%', changeType: 'nuetral' },
-    { name: 'Assets', value: addComma(total_assets), change: '+0%', changeType: 'positive' },
-    { name: 'Liabilities', value: addComma(total_liabilities), change: '+0%', changeType: 'negative' },
+    { name: 'Net Worth', value: addComma(total_assets-total_liabilities), change: '', changeType: 'nuetral' },
+    { name: 'Assets', value: addComma(total_assets), change: '', changeType: 'positive' },
+    { name: 'Liabilities', value: addComma(total_liabilities), change: '', changeType: 'negative' },
   ]
   return {
     props: { user: session?.user, accounts: JSON.parse(JSON.stringify(accounts)), stats, accts: JSON.parse(JSON.stringify(accounts))},
