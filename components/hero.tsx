@@ -28,11 +28,11 @@ export default function () {
                 fugiat veniam occaecat fugiat aliqua.
               </p> */}
               <div className="mt-10 flex justify-center gap-x-6 mb-16 lg:mb-24">
-                <Link href='/pricing' className="text-md font-semibold leading-6 text-gray-900">
+                {/* <Link href='/pricing' className="text-md font-semibold leading-6 text-gray-900">
                   <button className="rounded-3xl bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Get Started
                   </button>
-                </Link>
+                </Link> */}
                 <a href='https://demo.trckfi.com' target="_blank" className="text-md font-semibold leading-6 text-gray-900">
                   <button className="rounded-3xl bg-white px-3.5 py-2.5 text-sm font-semibold text-pink-600 shadow-sm outline outline-2 outline-pink-600">
                     Try Demo

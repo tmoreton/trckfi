@@ -1,5 +1,4 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
@@ -7,7 +6,6 @@ import Menu from '../components/menu'
 import Blog from '../components/blog'
 
 export default function Index({ allPosts, showError }) {
-  console.log(allPosts)
   return (
     <Layout>
       <Head>

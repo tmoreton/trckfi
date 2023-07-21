@@ -11,7 +11,7 @@ const tiers = [
     name: 'Essential',
     id: 'tier-essential',
     href: '#',
-    priceMonthly: '$4.99',
+    priceMonthly: '$5.99',
     description: 'Quis eleifend a tincidunt pellentesque. A tempor in sed.',
     mostPopular: true,
   },

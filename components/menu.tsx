@@ -10,8 +10,8 @@ import CancelModal from './cancel-modal'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Pricing', href: '/pricing' },
+  // { name: 'Blog', href: '/blog' },
+  // { name: 'Pricing', href: '/pricing' },
 ]
 
 const classNames = (...classes) => {
