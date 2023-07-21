@@ -9,7 +9,7 @@ import { useSession, signOut } from "next-auth/react"
 import CancelModal from './cancel-modal'
 
 const navigation = [
-  { name: 'Home', href: '/' },
+  // { name: 'Home', href: '/' },
   // { name: 'Blog', href: '/blog' },
   // { name: 'Pricing', href: '/pricing' },
 ]
@@ -60,15 +60,14 @@ export default function ({ showError }) {
                   }
                   <Menu as="div" className="relative ml-3">
                     {
-                      session ?
+                      session &&
                       <Link href="/settings">
                         <Menu.Button className="flex items-center">
                           <span className="sr-only">Open user menu</span>
                           <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
                         </Menu.Button>
                       </Link>
-                      :
-                      <LoginBtn />
+                      // <LoginBtn />
                     }
                     <Transition
                       as={Fragment}
@@ -148,7 +147,7 @@ export default function ({ showError }) {
             </div>
             <div className="pb-3 pt-4">
               {
-                session ?
+                session &&
                 <div className="mt-3 space-y-1 px-2">
                   <Disclosure.Button
                     as="button"
@@ -158,8 +157,7 @@ export default function ({ showError }) {
                     Sign out
                   </Disclosure.Button>
                 </div>
-                :
-                <LoginBtn />
+                // <LoginBtn />
               }
             </div>
           </Disclosure.Panel>
