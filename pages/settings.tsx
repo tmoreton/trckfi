@@ -287,6 +287,9 @@ export async function getServerSideProps(context) {
     where: {
       OR: query,
       active: true,
+      NOT: {
+        account_id: null
+      }
     },
     select: {
       name: true,
