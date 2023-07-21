@@ -152,7 +152,7 @@ export async function getServerSideProps(context) {
       permanent: false,
     },
   }
-
+  // @ts-ignore
   const { id, linked_user_id } = user
 
   let linked_user = null
@@ -162,17 +162,20 @@ export async function getServerSideProps(context) {
     })
   }
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-
+  // @ts-ignore
   const accounts = await prisma.accounts.groupBy({
+    // @ts-ignore
     by: ['type', 'subtype', 'institution', 'name'],
     where: {
       OR: query,
+      // @ts-ignore
       amount: {
         not: 0
       },
       active: true,
     },
     _sum: {
+      // @ts-ignore
       amount: true,
     },
     orderBy: {
@@ -182,6 +185,7 @@ export async function getServerSideProps(context) {
 
   let total_assets = 0
   let total_liabilities = 0
+  // @ts-ignore
   accounts.forEach(a => {
     if(a.type === 'loan' || a.type === 'credit'){
       total_liabilities -= Number(a._sum.amount)
