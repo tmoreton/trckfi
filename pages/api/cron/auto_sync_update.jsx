@@ -5,42 +5,41 @@ import { DateTime } from "luxon"
 import { formatAmount, icons } from '../../../lib/formatNumber'
 
 export default async (req, res) => {
-  try {
-    const activeUsers = await prisma.user.findMany({
-      where: { 
+  const activeUsers = await prisma.user.findMany({
+    where: { 
+      active: true,
+      subscription_id: {
+        not: null
+      }
+    }
+  })
+
+  for (var a in activeUsers) {
+    const user_id = activeUsers[a].id
+    const plaidAccounts = await prisma.plaid.findMany({
+      where: {
+        user_id: user_id,
         active: true,
-        subscription_id: {
-          not: null
-        }
       }
     })
 
-    for (var a in activeUsers) {
-      const user_id = activeUsers[a].id
-      const plaidAccounts = await prisma.plaid.findMany({
-        where: {
-          user_id: user_id,
-          active: true,
-        }
-      })
+    const accounts = await prisma.accounts.findMany({
+      where: { 
+        user_id: user_id,
+        active: true
+      },
+    })
 
-      const accounts = await prisma.accounts.findMany({
-        where: { 
-          user_id: user_id,
-          active: true
-        },
-      })
-
-      for (let p in plaidAccounts) {
-        const request = {
-          access_token: plaidAccounts[p].access_token,
-          cursor: plaidAccounts[p].cursor || '',
-          count: 200,
-          options: {
-            include_personal_finance_category: true
-          }
+    for (let p in plaidAccounts) {
+      const request = {
+        access_token: plaidAccounts[p].access_token,
+        cursor: plaidAccounts[p].cursor || '',
+        count: 200,
+        options: {
+          include_personal_finance_category: true
         }
-      
+      }
+      try {
         const response = await plaidClient.transactionsSync(request)
         let added = response.data.added
         let next_cursor = response.data.next_cursor
@@ -79,12 +78,11 @@ export default async (req, res) => {
           where: { access_token: plaidAccounts[p].access_token },
           data: { cursor: next_cursor }
         })
+      } catch (error) {
+        console.error(error)
+        return res.status(500).json({ error: error.message || error.toString() })
       }
     }
-    
-    return res.status(200).json({ status: "Ok" })
-  } catch (error) {
-    console.error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
   }
+  return res.status(200).json({ status: "Ok" })
 }
