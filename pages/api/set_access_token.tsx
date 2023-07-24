@@ -5,13 +5,12 @@ import plaidClient from '../../utils/plaid';
 export default async (req, res) => {
   let { public_token, user_id, metadata } = req.body
 
-  const response = await plaidClient.institutionsGetById({
-    institution_id: metadata?.institution?.institution_id,
-    // @ts-ignore
-    country_codes: ['US'],
-  })
+  // const response = await plaidClient.institutionsGetById({
+  //   institution_id: metadata?.institution?.institution_id,
+  //   // @ts-ignore
+  //   country_codes: ['US'],
+  // })
 
-  const { institution } = response.data
   try {
     if(user_id){
       const { data } = await plaidClient.itemPublicTokenExchange({
@@ -24,12 +23,7 @@ export default async (req, res) => {
           access_token: data.access_token,
           // @ts-ignore
           institution: metadata?.institution?.name,
-          institution_id: metadata?.institution?.institution_id,
-          institution_details: {
-            primary_color: institution?.primary_color,
-            url: institution?.url,
-            logo: institution?.logo,
-          }
+          institution_id: metadata?.institution?.institution_id
         },
       })
       return res.status(200).json({ access_token: data.access_token })

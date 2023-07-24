@@ -60,7 +60,7 @@ model Plaid {
   active              Boolean?   @default(true)
   cursor              String?
   institution         String?
-  institution_details Json?
+  error_code          String?
   institution_id      String?
   Accounts            Accounts[]
   user                User?      @relation(fields: [user_id], references: [id])
