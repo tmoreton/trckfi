@@ -80,7 +80,7 @@ export default async (req, res) => {
         })
       } catch (error) {
         console.error(error)
-        return res.status(500).json({ error: error.message || error.toString() })
+        // return res.status(500).json({ error: error.message || error.toString() })
       }
     }
   }
