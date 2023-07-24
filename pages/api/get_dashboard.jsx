@@ -39,13 +39,20 @@ export default async (req, res) => {
     })
     groupByWeek.sort((a, b) => b.week_year.split('-')[1] - a.week_year.split('-')[1])
 
-    const accounts = await prisma.accounts.findMany({
+    const account_balance = await prisma.accounts.aggregate({
       where: { 
         OR: [
           { user_id: user_id },
           { user_id: user?.linked_user_id },
         ],
-        active: true
+        active: true,
+        OR: [
+          { type: 'credit' },
+          { type: 'depository' },
+        ],
+      },
+      _sum: {
+        amount: true,
       },
     })
 
@@ -223,11 +230,11 @@ export default async (req, res) => {
       lastMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
       lastMonthIncome: groupByMonthIncome[1]?._sum?.amount,
       thisMonthIncome: groupByMonthIncome[0]?._sum?.amount,
+      accountBalance: account_balance._sum?.amount
     }
     
     return res.status(200).json({ 
       stats, 
-      accounts, 
       transactions, 
       categories,
       detailedCategories,

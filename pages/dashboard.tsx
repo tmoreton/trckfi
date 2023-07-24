@@ -24,23 +24,20 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default function ({ newUser, user, showError }) {
   const email = user?.email
   const router = useRouter()
-  const [loading, setLoading] = useState({access_token: null, loading: false})
+  const [loading, setLoading] = useState(false)
   const [totalStats, setStats] = useState({})
   const [t, setTransactions] = useState([])
   const [incomeData, setIncomeData] = useState([])
   const [expenseData, setExpenseData] = useState([])
-  const [a, setAccounts] = useState([])
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [setupModal, openSetupModal] = useState(newUser || false)
   const [categories, setCategories] = useState([])
   const [detailedCategories, setDetailedCategories] = useState([])
   const [emojiCategories, setEmojiCategories] = useState([])
-  const [showAccounts, setShowAccounts] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [weeklyData, setWeeklyData] = useState([])
   const [selected, setSelected] = useState([])
-
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
@@ -51,7 +48,6 @@ export default function ({ newUser, user, showError }) {
       getDashboard()
     }
     if(newUser){
-      setShowAccounts(true)
       router.replace('/dashboard', undefined, { shallow: true })
     }
   }, [email])
@@ -83,7 +79,6 @@ export default function ({ newUser, user, showError }) {
     setWeeklyData(groupByWeek)
     setStats(stats)
     setTransactions(transactions)
-    setAccounts(accounts)
     setRefreshing(false)
     setCategories(categories)
     setEmojiCategories(emojiCategories)
@@ -99,13 +94,11 @@ export default function ({ newUser, user, showError }) {
     setTransactions(updatedTransactions)
   }
 
-  const getAccounts = async (access_token) => {
-    openSetupModal(false)
-    setLoading({access_token: access_token, loading: true})
-    const res = await fetch(`/api/get_accounts`, {
+  const refresh = async () => {
+    setLoading(true)
+    const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({
         user_id: user.id,
-        access_token: access_token
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -114,22 +107,41 @@ export default function ({ newUser, user, showError }) {
     })
     const { error } = await res.json()
     showError(error)
+    setLoading(false)
     getDashboard()
   }
 
-  const syncTransactions = async (access_token) => {
+  // const getAccounts = async (access_token) => {
+  //   openSetupModal(false)
+  //   setLoading({access_token: access_token, loading: true})
+  //   const res = await fetch(`/api/get_accounts`, {
+  //     body: JSON.stringify({
+  //       user_id: user.id,
+  //       access_token: access_token
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error } = await res.json()
+  //   showError(error)
+  //   getDashboard()
+  // }
+
+  // const syncTransactions = async (access_token) => {
     // openSetupModal(false)
     // setLoading({access_token: access_token, loading: true})
     // getAccounts(access_token)
-    const res = await fetch(`/api/sync_accounts`, {
-      body: JSON.stringify({
-        user_id: user.id
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
+    // const res = await fetch(`/api/sync_transactions`, {
+    //   body: JSON.stringify({
+    //     user_id: user.id
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
     // const { error, has_more } = await res.json()
     // showError(error)
     // if(has_more){
@@ -138,7 +150,7 @@ export default function ({ newUser, user, showError }) {
     //   setLoading({access_token: null, loading: false})
     //   getDashboard()
     // }
-  }
+  // }
 
   const updateSelect = (e, value) => {
     let checked = e.target.checked
@@ -213,8 +225,7 @@ export default function ({ newUser, user, showError }) {
       <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} />
       <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
-      <Snapshot showAccounts={showAccounts} setShowAccounts={setShowAccounts} accounts={a} totalStats={totalStats} />
-      <Cards showError={showError} showAccounts={showAccounts} accounts={a} getTransactions={syncTransactions} loading={loading} getDashboard={getDashboard} />
+      <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
       <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
       <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} />

@@ -1,21 +1,14 @@
-import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid'
+import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 import { addComma, diffNum } from '../lib/formatNumber'
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ({ totalStats, accounts, setShowAccounts, showAccounts }) {
-  if (!totalStats || !accounts) return null
+export default function ({ totalStats, refresh, loading }) {
+  if (!totalStats) return null
   
-  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
-  let balance = 0
-  accounts.forEach(a => {
-    const { type } = a
-    if(type === 'credit' || type === 'depository'){
-      balance += Number(a.amount)
-    }
-  });
+  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, accountBalance } = totalStats
 
   return (
     <dl className="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -27,21 +20,19 @@ export default function ({ totalStats, accounts, setShowAccounts, showAccounts }
           <p className="ml-16 truncate text-sm font-medium text-gray-500">Credit/Debit Balance</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <p className={balance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
-            {addComma(balance)}
+          <p className={accountBalance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
+            {addComma(accountBalance)}
           </p>
-          {
-            showAccounts ?
-            <button onClick={() => setShowAccounts(false)} className="inline-flex">
-              <p className="font-bold text-xs text-pink-600">Hide Accounts</p>
-              <ChevronDownIcon className="font-bold h-5 w-5 text-pink-600" />
+          <div className={loading && "animate-spin"}>
+            <button
+              onClick={refresh}
+              type="button"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+            >
+              <span className="sr-only">Refresh</span>
+              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
             </button>
-            :
-            <button onClick={() => setShowAccounts(true)} className="inline-flex">
-              <p className="font-bold text-xs text-pink-600">Show Accounts</p>
-              <ChevronUpIcon className="font-bold h-5 w-5 text-pink-600" />
-            </button>
-          }
+          </div>
         </dd>
       </div>
 
