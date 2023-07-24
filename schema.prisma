@@ -53,17 +53,17 @@ model VerificationToken {
 }
 
 model Plaid {
-  id                  String     @id @default(cuid())
-  access_token        String     @unique
-  item_id             String?    @unique @map("item_id")
-  user_id             String?    @map("user_id")
-  active              Boolean?   @default(true)
-  cursor              String?
-  institution         String?
-  error_code          String?
-  institution_id      String?
-  Accounts            Accounts[]
-  user                User?      @relation(fields: [user_id], references: [id])
+  id             String     @id @default(cuid())
+  access_token   String     @unique
+  item_id        String?    @unique @map("item_id")
+  user_id        String?    @map("user_id")
+  active         Boolean?   @default(true)
+  cursor         String?
+  institution    String?
+  institution_id String?
+  error_code     String?
+  accounts       Accounts[]
+  user           User?      @relation(fields: [user_id], references: [id])
 
   @@map("plaid")
 }

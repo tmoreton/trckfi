@@ -5,7 +5,7 @@ import { getAmount } from '../../lib/formatNumber'
 
 export default async (req, res) => {
   let { user_id, access_token } = req.body
-
+  
   if (!user_id || !access_token) return res.status(500)
 
   const plaidAccount = await prisma.plaid.findUnique({
@@ -13,7 +13,8 @@ export default async (req, res) => {
       access_token: access_token
     },
   })
-// @ts-ignore
+  
+  // @ts-ignore
   try {
     const response = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
     let accounts = response.data.accounts
@@ -35,7 +36,7 @@ export default async (req, res) => {
           name: accounts[i].name,
           // @ts-ignore
           details: accounts[i].balances,
-          official_name: accounts[i].official_name,
+          official_name: accounts[i].official_name || accounts[i].name,
           // @ts-ignore
           institution:  plaidAccount.institution,
           subtype: accounts[i].subtype,

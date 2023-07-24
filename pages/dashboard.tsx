@@ -118,27 +118,26 @@ export default function ({ newUser, user, showError }) {
   }
 
   const syncTransactions = async (access_token) => {
-    openSetupModal(false)
-    setLoading({access_token: access_token, loading: true})
-    getAccounts(access_token)
-    const res = await fetch(`/api/sync_transactions`, {
+    // openSetupModal(false)
+    // setLoading({access_token: access_token, loading: true})
+    // getAccounts(access_token)
+    const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({
-        user_id: user.id,
-        access_token: access_token
+        user_id: user.id
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
-    const { error, has_more } = await res.json()
-    showError(error)
-    if(has_more){
-      syncTransactions(access_token)
-    } else {
-      setLoading({access_token: null, loading: false})
-      getDashboard()
-    }
+    // const { error, has_more } = await res.json()
+    // showError(error)
+    // if(has_more){
+    //   syncTransactions(access_token)
+    // } else {
+    //   setLoading({access_token: null, loading: false})
+    //   getDashboard()
+    // }
   }
 
   const updateSelect = (e, value) => {
@@ -170,6 +169,11 @@ export default function ({ newUser, user, showError }) {
       Header: "Name",
       accessor: "name",
       style: "w-1/4 mr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+    },
+    {
+      Header: "Account",
+      accessor: "account.name",
+      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Primary Category",

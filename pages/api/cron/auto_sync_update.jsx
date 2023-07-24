@@ -78,9 +78,13 @@ export default async (req, res) => {
           where: { access_token: plaidAccounts[p].access_token },
           data: { cursor: next_cursor }
         })
+        
       } catch (error) {
         console.error(error)
-        // return res.status(500).json({ error: error.message || error.toString() })
+        await prisma.plaid.update({
+          where: { access_token: plaidAccounts[p].access_token },
+          data: { error_code: error.response?.data?.error_code }
+        })
       }
     }
   }

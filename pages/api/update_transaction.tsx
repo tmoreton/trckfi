@@ -21,7 +21,6 @@ export default async (req, res) => {
         if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
         if (alert_date) data['alert_date'] = alert_date
-        console.log(date)
         if (date) {
           data['date'] = date
           data['authorized_date'] = new Date(date)

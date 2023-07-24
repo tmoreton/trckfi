@@ -75,8 +75,12 @@ export default async (req, res) => {
     return res.status(200).json({ has_more: has_more })
   } catch (error) {
     console.error(error.response.data)
-    if(error.response.data.error_code === 'ITEM_LOGIN_REQUIRED'){
-    }
+    await prisma.plaid.update({
+      where: { access_token: access_token },
+      // @ts-ignore
+      data: { error_code: error.response?.data?.error_code }
+    })
+
     return res.json({ error: error.response.data.error_message })
   }
 }

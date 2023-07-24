@@ -18,7 +18,6 @@ export async function getServerSideProps(context) {
   if (session_id){
     const stripe_session = await stripe.checkout.sessions.retrieve(session_id)
     const { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end } = stripe_session
-    console.log(stripe_session)
 
     if(!customer || !subscription) return { props: { newUser: false } }
 

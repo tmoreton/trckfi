@@ -196,24 +196,26 @@ export default async (req, res) => {
           { primary_category: 'INCOME' },
         ],
       },
-      select: {
-        id: true,
-        name: true,
-        primary_category: true,
-        detailed_category: true,
-        item_id: true,
-        amount: true,
-        active: true,
-        date: true,
-        unified: true,
-        notes: true,
-        alert_date: true
+      include: {
+        account: true
       },
+      // select: {
+      //   id: true,
+      //   name: true,
+      //   primary_category: true,
+      //   detailed_category: true,
+      //   item_id: true,
+      //   amount: true,
+      //   active: true,
+      //   date: true,
+      //   unified: true,
+      //   notes: true,
+      //   alert_date: true
+      // },
       orderBy: {
         date: 'desc'
       },
     })   
-
     const stats = {
       lastMonthTotal: groupByMonth[1]?._sum?.amount,
       thisMonthTotal: groupByMonth[0]?._sum?.amount,
