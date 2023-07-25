@@ -4,7 +4,7 @@ import plaidClient from '../../utils/plaid';
 export default async (req, res) => {
   const { user_id } = req.body
   const params = {
-    user: { client_user_id: process.env.PLAID_CLIENT_ID },
+    user: { client_user_id: user_id },
     client_name: 'Trckfi',
     products: ['transactions'],
     language: 'en',
