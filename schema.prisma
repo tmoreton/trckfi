@@ -35,9 +35,9 @@ model User {
   updatedAt       DateTime       @updatedAt
   lastLogin       DateTime?
   loginAttempts   Decimal?       @db.Decimal(9, 2)
-  Plaid           Plaid[]
+  plaid           Plaid[]
   sessions        Session[]
-  Transactions    Transactions[]
+  transactions    Transactions[]
 
   @@map("users")
 }
@@ -85,7 +85,7 @@ model Accounts {
   details       Json?
   institution   String?
   plaid         Plaid?         @relation(fields: [item_id], references: [item_id])
-  Transactions  Transactions[]
+  transactions  Transactions[]
 
   @@map("accounts")
 }

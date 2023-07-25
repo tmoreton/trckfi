@@ -62,7 +62,7 @@ export const icons = {
   "OTHER_FOOD_AND_DRINK": "1f354",
   "OTHER_TRAVEL": "1f5fa-fe0f",
   "HAIR_AND_BEAUTY": "1f487-200d-2640-fe0f",
-  "OTHER_GENERAL_SERVICES": "1f937",
+  "OTHER_GENERAL_SERVICES": "1f4bb",
   "INSURANCE": "26c8-fe0f",
   "LODGING": "1f3e8"
 }

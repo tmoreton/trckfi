@@ -185,7 +185,7 @@ export default async (req, res) => {
       },
     })
   
-    const transactions = await prisma.transactions.findMany({
+    let transactions = await prisma.transactions.findMany({
       where: {
         OR: [
           { user_id: user_id },
@@ -222,7 +222,9 @@ export default async (req, res) => {
       orderBy: {
         date: 'desc'
       },
-    })   
+    })
+    // transactions = transactions.filter(t => t.account.active)
+
     const stats = {
       lastMonthTotal: groupByMonth[1]?._sum?.amount,
       thisMonthTotal: groupByMonth[0]?._sum?.amount,

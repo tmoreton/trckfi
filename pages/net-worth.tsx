@@ -6,6 +6,8 @@ import prisma from '../lib/prisma';
 import { addComma } from '../lib/formatNumber'
 import AccountModal from '../components/account-modal'
 import { Emoji } from 'emoji-picker-react'
+import PlaidLink from '../components/plaid-link';
+import { useRouter } from 'next/router'
 
 const statuses = {
   Paid: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -33,16 +35,36 @@ const renderImg = (account) => {
 
 export default function ({ showError, user, stats, accts }) {
   const [open, setOpen] = useState(false)
+  const router = useRouter()
+
+  const hideAccount = async (id) => {
+    const res = await fetch(`/api/hide_account`, {
+      body: JSON.stringify({ 
+        user_id: user.id,
+        id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) router.reload()
+  }
 
   return (
     <DashboardLayout>
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
-      <button onClick={() => setOpen(true)} className=" text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500 py-4">
-        <p><span aria-hidden="true">+</span> Add Account</p>
-      </button>
       <AccountModal showError={showError} open={open} setOpen={setOpen} user={user}/>
+      <div className="flex justify-between">
+        <button onClick={() => setOpen(true)} className=" text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500 py-4">
+          <p><span aria-hidden="true">+</span> Add Account</p>
+        </button>
+        <PlaidLink user={user} showError={showError} />
+      </div>
       <main>
         <div className="relative isolate overflow-hidden">
           {/* Stats */}
@@ -50,7 +72,7 @@ export default function ({ showError, user, stats, accts }) {
             <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
               {stats.map((stat, statIdx) => (
                 <div
-                  key={stat.name}
+                  key={statIdx}
                   className={classNames(
                     statIdx % 2 === 1 ? 'sm:border-l' : statIdx === 2 ? 'lg:border-l' : '',
                     'flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8'
@@ -118,6 +140,9 @@ export default function ({ showError, user, stats, accts }) {
                       </td>
                       <td className="hidden py-5 pr-6 sm:table-cell">
                         <div className="text-md leading-6 text-gray-900">{addComma(a._sum.amount)}</div>
+                        <div className="mt-1 text-xs leading-5 text-gray-500">
+                          Since last month
+                        </div>
                       </td>
                       <td className="py-5 text-right">
                         <div className="flex justify-end">
@@ -125,9 +150,9 @@ export default function ({ showError, user, stats, accts }) {
                             Edit
                           </button>
                         </div>
-                        {/* <div className="mt-1 text-xs leading-5 text-gray-500">
-                          Hello
-                        </div> */}
+                        <button onClick={() => hideAccount(a.id)} className="mt-1 text-xs leading-5 text-gray-500">
+                          Hide
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -165,7 +190,7 @@ export async function getServerSideProps(context) {
   // @ts-ignore
   const accounts = await prisma.accounts.groupBy({
     // @ts-ignore
-    by: ['type', 'subtype', 'institution', 'name'],
+    by: ['subtype', 'institution', 'id', 'type', 'name'],
     where: {
       OR: query,
       // @ts-ignore

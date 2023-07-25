@@ -97,7 +97,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
             <button className="mr-2 mt-6" onClick={() => setShowEmoji(true)}>
               <Emoji unified={emoji} />
             </button>
-            { emoji !== '1f50d' && <p onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</p>}
+            { emoji !== '1f50d' && <button onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</button>}
           </>
         )
       case 'Amount':

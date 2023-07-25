@@ -1,17 +1,24 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import PinkBtn from './pink-btn'
+
 const types = [
+  { type: 'Manual Bank Entry', name: 'Name', institution: 'Instituion', amount:  'Amount' },
+  { type: 'Home Value', name: null, institution: 'Address', amount:  'Current Est. Value' },
+  { type: 'Stocks', name: null, institution: 'Stock Symbol', amount:  'Quantity' },
+  { type: 'Crypto', name: null, institution: 'Crypto', amount:  'Quantity' }
+]
+
+const subtypes = [
   { subtype: 'mortgage', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'rental', name: null, institution: 'Address', amount:  'Current Est. Value' },
   { subtype: 'credit card', name: 'Name', institution: 'Instituion', amount:  'Amount' },
   { subtype: 'savings', name: 'Name', institution: 'Instituion', amount:  'Amount' },
   { subtype: 'checking', name: 'Name', institution: 'Instituion', amount:  'Amount' },
   { subtype: 'brokerage', name: 'Name', institution: 'Instituion', amount:  'Amount' },
   { subtype: 'ira', name: 'Name', institution: 'Instituion', amount:  'Amount' },
   { subtype: '401k', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'stocks', name: null, institution: 'Stock Symbol', amount:  'Quantity' }
 ]
+
 export default function ({ showError, open, setOpen, user }) {
   const [account, setAccountInfo] = useState({})
 
@@ -82,7 +89,7 @@ export default function ({ showError, open, setOpen, user }) {
                             className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
                           >
-                            { types.map(t => <option>{t.subtype}</option>) }
+                            { types.map(t => <option>{t.type}</option>) }
                           </select>
                         </div>
                         {types.find(t => t.subtype === account?.subtype)?.name !== null &&

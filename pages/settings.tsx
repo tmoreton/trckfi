@@ -150,14 +150,15 @@ export default function ({ showError, user, linked_user, accounts }) {
           <ul role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
             {
               Object.keys(accounts).map(key => {
+                console.log(accounts[key][0])
                 return (
                   <div key={key} className="flex justify-between gap-x-6 py-6">
                     <li>
                      <p className="text-lg font-bold text-gray-900 py-1">{key}</p>
-                      { accounts[key].map(a => <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - <span className="font-light">{a.official_name}</span></div>) }
+                      { accounts[key].map(a => <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - <span className="font-light">{a.official_name}</span> <span className="text-red-500">{!a.active && 'Hidden'}</span></div>) }
                     </li>
                     <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
-                      Remove
+                      Remove Connection
                     </button>
                   </div>
                 )
@@ -286,7 +287,6 @@ export async function getServerSideProps(context) {
   const a = await prisma.accounts.findMany({
     where: {
       OR: query,
-      active: true,
       NOT: {
         account_id: null
       }
@@ -295,7 +295,8 @@ export async function getServerSideProps(context) {
       name: true,
       institution: true,
       official_name: true,
-      access_token: true
+      access_token: true,
+      active: true
     },
   })
 

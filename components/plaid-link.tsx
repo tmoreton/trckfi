@@ -89,7 +89,7 @@ export default function ({ showError, user }) {
   if(!linkToken) return null
   return (
     <button onClick={() => open()} disabled={!ready} type="button" className="text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500">
-      <span aria-hidden="true">+</span> Add bank
+      <span aria-hidden="true">+</span> Add Bank Connection
     </button>
   )
 }
