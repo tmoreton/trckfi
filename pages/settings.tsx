@@ -150,7 +150,6 @@ export default function ({ showError, user, linked_user, accounts }) {
           <ul role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
             {
               Object.keys(accounts).map(key => {
-                console.log(accounts[key][0])
                 return (
                   <div key={key} className="flex justify-between gap-x-6 py-6">
                     <li>
