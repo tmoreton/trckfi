@@ -37,6 +37,7 @@ export default async (req, res) => {
       for (let i in added) {
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(plaid_accounts[p]?.accounts, added[i].account_id, added[i].amount)
+        console.log(added[i])
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 

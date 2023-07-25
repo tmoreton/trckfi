@@ -153,8 +153,15 @@ export default function ({ showError, user, linked_user, accounts }) {
                 return (
                   <div key={key} className="flex justify-between gap-x-6 py-6">
                     <li>
-                     <p className="text-lg font-bold text-gray-900 py-1">{key}</p>
-                      { accounts[key].map(a => <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - <span className="font-light">{a.official_name}</span> <span className="text-red-500">{!a.active && 'Hidden'}</span></div>) }
+                      { accounts[key].map((a, i) => (
+                        <>
+                          { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution}</p>}
+                          <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
+                            <span className="font-light">{a.official_name}</span> 
+                            <span className="text-red-500">{!a.active && 'Hidden'}</span>
+                          </div>
+                        </>
+                      )) }
                     </li>
                     <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
                       Remove Connection
@@ -295,13 +302,14 @@ export async function getServerSideProps(context) {
       institution: true,
       official_name: true,
       access_token: true,
-      active: true
+      active: true,
+      item_id: true
     },
   })
 
   const accounts = a.reduce(function (r, a) {
-    r[a.institution] = r[a.institution] || [];
-    r[a.institution].push(a);
+    r[a.item_id] = r[a.item_id] || [];
+    r[a.item_id].push(a);
     return r;
   }, Object.create(null))
   

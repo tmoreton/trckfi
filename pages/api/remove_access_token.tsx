@@ -33,18 +33,16 @@ export default async (req, res) => {
           user_id: null
         }
       })
-      // if(all){
-      //   await prisma.transactions.updateMany({
-      //     where: {
-      //       item_id: plaidAccount.item_id
-      //     },
-      //     data: {
-      //       active: false,
-      //       user_id: null,
-      //       transaction_id: null
-      //     }
-      //   })
-      // }
+      await prisma.transactions.updateMany({
+        where: {
+          item_id: plaidAccount.item_id
+        },
+        data: {
+          active: false,
+          user_id: null,
+          transaction_id: null
+        }
+      })
     }
     return res.status(200).json('ok')
   } catch (error) {
