@@ -1,30 +1,58 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import PinkBtn from './pink-btn'
 
-const types = [
-  { type: 'Manual Bank Entry', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { type: 'Home Value', name: null, institution: 'Address', amount:  'Current Est. Value' },
-  { type: 'Stocks', name: null, institution: 'Stock Symbol', amount:  'Quantity' },
-  { type: 'Crypto', name: null, institution: 'Crypto', amount:  'Quantity' }
+import Combobox from './combobox'
+
+const account_types = [
+  { account_type: 'Manual Bank Entry', name: 'Bank Name', institution: 'Instituion', amount: 'Amount' },
+  { account_type: 'Home Value', name: 'Custom Name', institution: 'Address', amount: 'Current Est. Value' },
+  { account_type: 'Stocks', name: null, institution: 'Stock Symbol', amount: 'Quantity' },
+  { account_type: 'Crypto', name: null, institution: 'Crypto Symbol', amount: 'Quantity' }
 ]
 
 const subtypes = [
-  { subtype: 'mortgage', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'credit card', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'savings', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'checking', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'brokerage', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: 'ira', name: 'Name', institution: 'Instituion', amount:  'Amount' },
-  { subtype: '401k', name: 'Name', institution: 'Instituion', amount:  'Amount' },
+  { subtype: 'mortgage', type: 'loan'},
+  { subtype: 'credit card', type: 'credit'},
+  { subtype: 'savings', type: 'depository'},
+  { subtype: 'checking', type: 'depository'},
+  { subtype: 'brokerage', type: 'investment'},
+  { subtype: 'ira', type: 'investment'},
+  { subtype: '401k', type: 'investment'},
+  { subtype: 'auto', type: 'loan'},
+  { subtype: 'line of credit', type: 'loan'},
 ]
 
 export default function ({ showError, open, setOpen, user }) {
   const [account, setAccountInfo] = useState({})
+  const [stocks, setStocks] = useState([])
+
+  // useEffect(() => {
+  //   if(account.account_type === 'Stocks' && account.amount > 0){
+  //     if(account.institution?.length > 2){
+  //       getStock(account.institution)
+  //     }
+  //   }
+  // }, [account])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAccountInfo({ ...account, [name]: value })
+  }
+
+  const getStock = async ({ query, stock }) => {
+    const body = query ? JSON.stringify({search: query}) : JSON.stringify({stock})
+    const res = await fetch(`/api/get_stock_price`, {
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    console.log(data)
+    setStocks(data)
+    showError(error)
   }
 
   const handleSubmit = async () => {
@@ -78,21 +106,40 @@ export default function ({ showError, open, setOpen, user }) {
                       <form onSubmit={handleSubmit}>
                         <div className="relative z-0 w-full mb-8 group">
                           <label 
-                            htmlFor="subtype" 
+                            htmlFor="account_type" 
                             className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
                             Type
                           </label>
                           <select
-                            id="subtype"
-                            name="subtype"
+                            id="account_type"
+                            name="account_type"
                             className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
                           >
-                            { types.map(t => <option>{t.type}</option>) }
+                            { account_types.map(t => <option>{t.account_type}</option>) }
                           </select>
                         </div>
-                        {types.find(t => t.subtype === account?.subtype)?.name !== null &&
+                        { account_types.find(t => t.account_type === account?.account_type)?.account_type === 'Manual Bank Entry' &&
+                          <div className="relative z-0 w-full mb-8 group">
+                            <label 
+                              htmlFor="subtype" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Sub Type
+                            </label>
+                            <select
+                              id="subtype"
+                              name="subtype"
+                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              onChange={e => setAccountInfo({ ...account, type: JSON.parse(e.target.value).type, subtype: JSON.parse(e.target.value).subtype })}
+                            >
+                              { subtypes.map(t => <option value={JSON.stringify(t)} label={t.subtype}/>) }
+                            </select>
+                          </div>
+                        }
+                        {
+                          account_types.find(t => t.account_type === account?.account_type)?.name !== null &&
                           <div className="relative z-0 w-full mb-6 group inline-flex">
                             <div className="w-full">
                               <input 
@@ -107,9 +154,14 @@ export default function ({ showError, open, setOpen, user }) {
                                 htmlFor="name" 
                                 className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                               >
-                                {types.find(t => t.subtype === account?.subtype)?.name}
+                                {account_types.find(t => t.account_type === account?.account_type)?.name}
                               </label>
                             </div>
+                          </div>
+                        }
+                        { account_types.find(t => t.account_type === account?.account_type)?.account_type === 'Stocks' &&
+                          <div className="relative z-0 w-full mb-6 group">
+                            <Combobox stocks={stocks} getStock={getStock}/>
                           </div>
                         }
                         <div className="relative z-0 w-full mb-6 group">
@@ -125,7 +177,7 @@ export default function ({ showError, open, setOpen, user }) {
                             htmlFor="institution" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
-                            {types.find(t => t.subtype === account?.subtype)?.institution}
+                            {account_types.find(t => t.account_type === account?.account_type)?.institution}
                           </label>
                         </div>
                         <div className="grid md:grid-cols-2 md:gap-6">
@@ -142,7 +194,7 @@ export default function ({ showError, open, setOpen, user }) {
                               htmlFor="amount" 
                               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
-                              {types.find(t => t.subtype === account?.subtype)?.amount}
+                              {account_types.find(t => t.account_type === account?.account_type)?.amount}
                             </label>
                           </div>
                         </div>

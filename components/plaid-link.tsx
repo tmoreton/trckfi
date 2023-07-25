@@ -50,25 +50,22 @@ export default function ({ showError, user }) {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(!error) syncAccounts()
   }
 
-  const syncTransactions = async (access_token) => {
-    const res = await fetch(`/api/sync_transactions`, {
+  const syncAccounts = async () => {
+    const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({
-        user_id: user.id,
-        access_token: access_token
+        user_id: user.id
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
-    const { error, has_more } = await res.json()
+    const { error } = await res.json()
     showError(error)
-    if(has_more){
-      syncTransactions(access_token)
-    }
+    if(!error) router.reload()
   }
 
   const { open, ready } = usePlaidLink({
@@ -77,9 +74,6 @@ export default function ({ showError, user }) {
       const access_token = await getAccessToken({ public_token, user_id: user.id, metadata })
       if(access_token){
         getAccounts(access_token)
-        setTimeout(() => {
-          syncTransactions(access_token)
-        }, 5000)
       } else {
         showError('Couldnt get access token, please try again')
       }
