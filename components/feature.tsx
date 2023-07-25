@@ -25,7 +25,7 @@ export default function () {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-base font-semibold leading-7 text-pink-600">Everything you need</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Customizable Seach & Categorization</p>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Customizable Search & Categorization</p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             With custom rules and the ability to download your data at anytime you can really track how much money is coming in & out.
           </p>
