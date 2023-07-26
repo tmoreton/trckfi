@@ -7,6 +7,7 @@ import { addComma } from '../lib/formatNumber'
 import AccountModal from '../components/modals/account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'
 import StockModal from '../components/modals/stock-modal'
+import CryptoModal from '../components/modals/crypto-modal'
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { useRouter } from 'next/router'
@@ -26,6 +27,7 @@ function classNames(...classes) {
 const renderImg = (account) => {
   if(account.subtype === 'rental') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
   if(account.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
+  if(account.subtype === 'crypto') return (<img src={account.details?.image} alt={account.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
   if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
 
   return (
@@ -41,6 +43,7 @@ export default function ({ showError, user, stats, accts }) {
   const [open, setOpen] = useState(false)
   const [openEdit, setOpenEdit] = useState(false)
   const [openStock, setOpenStock] = useState(false)
+  const [openCrypto, setOpenCrypto] = useState(false)
   const [account, setAccount] = useState({})
   const router = useRouter()
 
@@ -73,6 +76,7 @@ export default function ({ showError, user, stats, accts }) {
       <AccountModal showError={showError} open={open} setOpen={setOpen} user={user}/>
       <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount}/>
       <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user}/>
+      <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user}/>
       <div className="flex justify-center space-x-6 mb-4">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
@@ -82,7 +86,7 @@ export default function ({ showError, user, stats, accts }) {
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Home Value
         </button>
-        <button className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+        <button  onClick={() => setOpenCrypto(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Crypto
         </button>
@@ -238,13 +242,19 @@ export async function getServerSideProps(context) {
       // @ts-ignore
       total_assets += Number(a.amount)
     }
-  });
+  })
+
   const stats = [
     { name: 'Net Worth', value: addComma(total_assets-total_liabilities), change: '', changeType: 'nuetral' },
     { name: 'Assets', value: addComma(total_assets), change: '', changeType: 'positive' },
     { name: 'Liabilities', value: addComma(total_liabilities), change: '', changeType: 'negative' },
   ]
   return {
-    props: { user: session?.user, accounts: JSON.parse(JSON.stringify(accounts)), stats, accts: JSON.parse(JSON.stringify(accounts))},
+    props: { 
+      stats,
+      user: session?.user, 
+      accounts: JSON.parse(JSON.stringify(accounts)),
+      accts: JSON.parse(JSON.stringify(accounts))
+    },
   }
 }

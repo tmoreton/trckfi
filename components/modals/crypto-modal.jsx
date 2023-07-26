@@ -6,20 +6,20 @@ import Dropdown from '../dropdown'
 
 export default function ({ showError, open, setOpen, user }) {
   const router = useRouter()
-  const [stocks, setStocks] = useState([])
+  const [stocks, setCoins] = useState([])
   const [query, setQuery] = useState(null)
   const [selected, setSelected] = useState(null)
   const [account, setAccount] = useState({})
 
   useEffect(() => {
     if(query?.length >= 3){
-      searchStock(query)
+      searchCrypto(query)
     }
   }, [query])
 
   const onClose = () => {
     setOpen(false)
-    setStocks([])
+    setCoins([])
     setQuery(null)
     setSelected(null)
     setAccount({})
@@ -33,12 +33,12 @@ export default function ({ showError, open, setOpen, user }) {
   const updateQuantity = (e) => {
     const { value } = e.target
     setAccount({ ...account, quantity: value })
-    let total = Number(value) * Number(account?.regularMarketPrice)
+    let total = Number(value) * Number(account?.current_price)
     setAccount({ ...account, amount: total.toFixed(2)})
   }
   
-  const searchStock = async (search) => {
-    const res = await fetch(`/api/search_stock`, {
+  const searchCrypto = async (search) => {
+    const res = await fetch(`/api/search_crypto`, {
       body: JSON.stringify({ search }),
       headers: {
         'Content-Type': 'application/json',
@@ -47,13 +47,13 @@ export default function ({ showError, open, setOpen, user }) {
     })
     const { error, data } = await res.json()
     showError(error)
-    setStocks(data)
+    setCoins(data)
   }
 
-  const getStock = async (selected) => {
+  const getCrypto = async (selected) => {
     setSelected(selected)
-    const res = await fetch(`/api/get_stock_price`, {
-      body: JSON.stringify({ symbol: selected.symbol }),
+    const res = await fetch(`/api/get_crypto_price`, {
+      body: JSON.stringify({ id: selected.id }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -62,14 +62,15 @@ export default function ({ showError, open, setOpen, user }) {
     const { error, data } = await res.json()
     showError(error)
     setAccount({
-      name: data.longName,
-      institution: data.fullExchangeName,
+      name: data.name,
+      institution: 'Crypto',
       type: 'investment',
-      subtype: data.typeDisp.toLowerCase(),
+      subtype: 'crypto',
       amount: null,
-      regularMarketPrice: data.regularMarketPrice,
+      current_price: data.current_price,
       symbol: data.symbol,
-      quantity: null
+      quantity: null,
+      image: data.image
     })
   }
 
@@ -78,15 +79,16 @@ export default function ({ showError, open, setOpen, user }) {
       body: JSON.stringify({
         user_id: user.id,
         name: account.name,
-        official_name: account.symbol,
-        institution: account.institution,
+        official_name: account.symbol.toUpperCase(),
+        institution: account.symbol.toUpperCase(),
         type: 'investment',
         subtype: account.subtype,
         amount: account.amount,
         details: {
-          current_price: account?.regularMarketPrice,
-          symbol: account?.symbol,
-          quantity: account?.quantity
+          current_price: account?.current_price,
+          symbol: account?.symbol.toUpperCase(),
+          quantity: account?.quantity,
+          image: account?.image
         }
       }),
       headers: {
@@ -130,10 +132,10 @@ export default function ({ showError, open, setOpen, user }) {
                   <div className="w-full">
                     <div className="mt-3 text-center sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4 flex justify-center">
-                        Add Stock
+                        Add Cryptocurrency
                       </Dialog.Title>
                       <div className="relative z-0 w-full mb-6 group">
-                        <Dropdown values={stocks} selected={selected} setSelected={getStock} onChange={setQuery} />
+                        <Dropdown values={stocks} selected={selected} setSelected={getCrypto} onChange={setQuery} />
                       </div>
                       {
                         selected &&
@@ -211,17 +213,17 @@ export default function ({ showError, open, setOpen, user }) {
                           <div className="grid md:grid-cols-2 md:gap-6">
                             <div className="relative z-0 w-full mb-6 group">
                               <label 
-                                htmlFor="regularMarketPrice" 
+                                htmlFor="current_price" 
                                 className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                               >
                                 Current Price
                               </label>
                               <input 
                                 type="text" 
-                                name="regularMarketPrice" 
-                                id="regularMarketPrice"
+                                name="current_price" 
+                                id="current_price"
                                 readOnly
-                                value={account?.regularMarketPrice}
+                                value={account?.current_price}
                                 className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                               />
                             </div>

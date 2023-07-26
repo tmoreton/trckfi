@@ -16,7 +16,9 @@ export default async (req, res) => {
         user_id, 
         account_id: account.account_id 
       },
-      data: { active: false },
+      data: { 
+        active: false
+      },
     })
 
     return res.status(200).json({ status: 'OK' })

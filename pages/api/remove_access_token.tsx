@@ -30,7 +30,6 @@ export default async (req, res) => {
         },
         data: {
           active: false,
-          user_id: null
         }
       })
       await prisma.transactions.updateMany({
@@ -39,7 +38,6 @@ export default async (req, res) => {
         },
         data: {
           active: false,
-          user_id: null,
         }
       })
     }
