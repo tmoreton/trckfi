@@ -8,6 +8,7 @@ import { addComma } from '../lib/formatNumber'
 import HomeModal from '../components/modals/home-modal'
 import HideAccountModal from '../components/modals/hide-account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'
+import ManualModal from '../components/modals/add-manually-modal'
 import StockModal from '../components/modals/stock-modal'
 import CryptoModal from '../components/modals/crypto-modal'
 import { Emoji } from 'emoji-picker-react'
@@ -83,11 +84,14 @@ export default function ({ showError, user, stats, accts }) {
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
+
       <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount}/>
       <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user}/>
       <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user}/>
       <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user}/>
+      <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user}/>
       <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account}/>
+      
       <div className="flex justify-center space-x-6 mb-4">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
@@ -102,7 +106,7 @@ export default function ({ showError, user, stats, accts }) {
           Add Crypto
         </button>
         <PlaidLink user={user} showError={showError} />
-        <button  onClick={() => setOpenCrypto(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+        <button  onClick={() => setOpenManually(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Manually
         </button>

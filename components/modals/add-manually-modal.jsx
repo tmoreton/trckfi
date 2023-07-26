@@ -3,6 +3,19 @@ import { Dialog, Transition } from '@headlessui/react'
 import PinkBtn from '../pink-btn'
 import { useRouter } from 'next/router'
 
+const subtypes = [
+  { subtype: 'mortgage', type: 'loan'},
+  { subtype: 'credit card', type: 'credit'},
+  { subtype: 'savings', type: 'depository'},
+  { subtype: 'checking', type: 'depository'},
+  { subtype: 'brokerage', type: 'investment'},
+  { subtype: 'ira', type: 'investment'},
+  { subtype: '401k', type: 'investment'},
+  { subtype: 'auto loan', type: 'loan'},
+  { subtype: 'line of credit', type: 'loan'},
+  { subtype: 'student loan', type: 'loan'},
+]
+
 export default function ({ showError, open, setOpen, user }) {
   const router = useRouter()
   const [account, setAccount] = useState({})
@@ -19,8 +32,8 @@ export default function ({ showError, open, setOpen, user }) {
         name: account.name,
         official_name: account.name,
         institution: account.institution,
-        type: 'investment',
-        subtype: 'home',
+        type: account.type,
+        subtype: account.subtype,
         amount: account.amount
       }),
       headers: {
@@ -67,12 +80,28 @@ export default function ({ showError, open, setOpen, user }) {
                         Add Account Manually
                       </Dialog.Title>
                       <form onSubmit={handleSubmit}>
-                        <div className="relative z-0 w-full mb-6 group">
+                        <div className="relative z-0 w-full mb-8 group">
+                          <label 
+                            htmlFor="subtype" 
+                            className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          >
+                            Type
+                          </label>
+                          <select
+                            id="subtype"
+                            name="subtype"
+                            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            onChange={e => setAccount({ ...account, type: JSON.parse(e.target.value).type, subtype: JSON.parse(e.target.value).subtype })}
+                          >
+                            { subtypes.map(t => <option value={JSON.stringify(t)} label={t.subtype}/>) }
+                          </select>
+                        </div>
+                        <div className="relative z-0 w-full mb-8 group">
                           <label 
                             htmlFor="name" 
                             className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                           >
-                            Address
+                            Name
                           </label>
                           <input 
                             type="text" 
@@ -84,38 +113,21 @@ export default function ({ showError, open, setOpen, user }) {
                             onChange={handleChange}
                           />
                         </div>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <label 
-                            htmlFor="institution" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Bank/Institution
-                          </label>
-                          <input 
-                            type="text" 
-                            name="institution"
-                            id="institution" 
-                            value={account?.institution}
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required 
-                            onChange={handleChange}
-                          />
-                        </div>
                         <div className="grid md:grid-cols-2 md:gap-6">
                           <div className="relative z-0 w-full mb-6 group">
                             <label 
-                              htmlFor="amount" 
+                              htmlFor="institution" 
                               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
-                              Amount
+                              Bank/Institution
                             </label>
                             <input 
                               type="text" 
-                              name="type" 
-                              id="amount"
-                              value={account?.type}
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                              required
+                              name="institution"
+                              id="institution" 
+                              value={account?.institution}
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              required 
                               onChange={handleChange}
                             />
                           </div>
