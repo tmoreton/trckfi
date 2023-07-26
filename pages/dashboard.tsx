@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
 import Cards from '../components/cards'
-import LoadingModal from '../components/loading-modal'
+import LoadingModal from '../components/modals/loading-modal'
 import Table from '../components/table'
-import TransactionModal from '../components/transaction-modal'
-import SetupModal from '../components/setup-modal'
+import TransactionModal from '../components/modals/transaction-modal'
+import SetupModal from '../components/modals/setup-modal'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
-import DatePicker from '../components/date-picker'
+import DatePicker from '../components/modals/date-picker'
 import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';

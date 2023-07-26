@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon, BellAlertIcon, XCircleIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
-import PinkBtn from './pink-btn'
+import PinkBtn from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 

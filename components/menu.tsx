@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import LoginBtn from './login-btn'
 import { useSession, signOut } from "next-auth/react"
-import CancelModal from './cancel-modal'
+import CancelModal from './modals/cancel-modal'
 
 const navigation = [
   // { name: 'Home', href: '/' },

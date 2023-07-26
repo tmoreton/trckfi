@@ -4,7 +4,7 @@ import { getCsrfToken } from "next-auth/react"
 import Icon from '../components/icon';
 import { getSession } from 'next-auth/react'
 import getStripe from '../utils/get-stripejs'
-import LoadingModal from '../components/loading-modal'
+import LoadingModal from '../components/modals/loading-modal'
 
 export default function ({ csrfToken, user, showError, base_url }) {
   const email = user?.email

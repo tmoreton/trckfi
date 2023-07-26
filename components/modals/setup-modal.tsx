@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import PlaidLink from "./plaid-link"
+import PlaidLink from "../plaid-link"
 
 export default ({ user, open, openSetupModal, showError }) => {
   return (

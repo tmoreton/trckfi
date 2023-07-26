@@ -6,7 +6,7 @@ import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { addComma } from '../lib/formatNumber'
 import { Emoji } from 'emoji-picker-react'
-import EmojiModal from './emoji-modal'
+import EmojiModal from './modals/emoji-modal'
 import PinkBtn from './pink-btn'
 
 export default function ({ columns, data, selected, setSelected, setEdit }) {

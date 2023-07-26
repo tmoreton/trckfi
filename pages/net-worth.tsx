@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma';
 import { addComma } from '../lib/formatNumber'
-import AccountModal from '../components/account-modal'
+import AccountModal from '../components/modals/account-modal'
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { useRouter } from 'next/router'
