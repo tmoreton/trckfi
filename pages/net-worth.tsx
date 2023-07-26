@@ -1,18 +1,19 @@
 import { useState } from 'react'
-import DashboardLayout from "../components/dashboard-layout"
+import { ArrowPathIcon, PlusIcon } from '@heroicons/react/20/solid'
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
+import DashboardLayout from "../components/dashboard-layout"
 import prisma from '../lib/prisma';
 import { addComma } from '../lib/formatNumber'
-import AccountModal from '../components/modals/account-modal'
+import HomeModal from '../components/modals/home-modal'
+import HideAccountModal from '../components/modals/hide-account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'
 import StockModal from '../components/modals/stock-modal'
 import CryptoModal from '../components/modals/crypto-modal'
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
-import { useRouter } from 'next/router'
-import { PlusIcon } from '@heroicons/react/20/solid'
 import { DateTime } from "luxon"
+import { useRouter } from 'next/router'
 
 const statuses = {
   Paid: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -40,29 +41,37 @@ const renderImg = (account) => {
 }
 
 export default function ({ showError, user, stats, accts }) {
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
+  const [openHome, setOpenHome] = useState(false)
   const [openEdit, setOpenEdit] = useState(false)
   const [openStock, setOpenStock] = useState(false)
   const [openCrypto, setOpenCrypto] = useState(false)
   const [account, setAccount] = useState({})
-  const router = useRouter()
 
   const editAccount = (a) => {
     setAccount(a)
     setOpenEdit(true)
   }
 
-  const hideAccount = async (id) => {
-    const res = await fetch(`/api/hide_account`, {
-      body: JSON.stringify({ 
+  const removeAccount = (a) => {
+    setAccount(a)
+    setOpen(true)
+  }
+
+  const refresh = async () => {
+    setLoading(true)
+    const res = await fetch(`/api/sync_accounts`, {
+      body: JSON.stringify({
         user_id: user.id,
-        id
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
+    setLoading(false)
     const { error } = await res.json()
     showError(error)
     if(!error) router.reload()
@@ -73,16 +82,17 @@ export default function ({ showError, user, stats, accts }) {
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
-      <AccountModal showError={showError} open={open} setOpen={setOpen} user={user}/>
       <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount}/>
       <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user}/>
       <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user}/>
+      <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user}/>
+      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account}/>
       <div className="flex justify-center space-x-6 mb-4">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Stock
         </button>
-        <button className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+        <button onClick={() => setOpenHome(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Home Value
         </button>
@@ -91,7 +101,18 @@ export default function ({ showError, user, stats, accts }) {
           Add Crypto
         </button>
         <PlaidLink user={user} showError={showError} />
+        <div className={loading && "animate-spin"}>
+          <button
+            onClick={refresh}
+            type="button"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+          >
+            <span className="sr-only">Refresh</span>
+            <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+          </button>
+        </div>
       </div>
+
       <main>
         <div className="relative isolate overflow-hidden">
           {/* Stats */}
@@ -180,7 +201,7 @@ export default function ({ showError, user, stats, accts }) {
                             Edit
                           </button>
                         </div>
-                        <button onClick={() => hideAccount(a.id)} className="mt-1 text-xs leading-5 text-gray-500">
+                        <button onClick={() => removeAccount(a)} className="mt-1 text-xs leading-5 text-gray-500">
                           Remove
                         </button>
                       </td>

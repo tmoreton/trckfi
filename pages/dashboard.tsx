@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
-import Cards from '../components/cards'
 import LoadingModal from '../components/modals/loading-modal'
 import Table from '../components/table'
 import TransactionModal from '../components/modals/transaction-modal'
@@ -72,7 +71,7 @@ export default function ({ newUser, user, showError }) {
       },
       method: 'POST',
     })
-    const { error, stats, accounts, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
+    const { error, stats, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
     showError(error)
     setExpenseData(groupByMonth)
     setIncomeData(groupByMonthIncome)
@@ -110,47 +109,6 @@ export default function ({ newUser, user, showError }) {
     setLoading(false)
     getDashboard()
   }
-
-  // const getAccounts = async (access_token) => {
-  //   openSetupModal(false)
-  //   setLoading({access_token: access_token, loading: true})
-  //   const res = await fetch(`/api/get_accounts`, {
-  //     body: JSON.stringify({
-  //       user_id: user.id,
-  //       access_token: access_token
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  //   const { error } = await res.json()
-  //   showError(error)
-  //   getDashboard()
-  // }
-
-  // const syncTransactions = async (access_token) => {
-    // openSetupModal(false)
-    // setLoading({access_token: access_token, loading: true})
-    // getAccounts(access_token)
-    // const res = await fetch(`/api/sync_transactions`, {
-    //   body: JSON.stringify({
-    //     user_id: user.id
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // const { error, has_more } = await res.json()
-    // showError(error)
-    // if(has_more){
-    //   syncTransactions(access_token)
-    // } else {
-    //   setLoading({access_token: null, loading: false})
-    //   getDashboard()
-    // }
-  // }
 
   const updateSelect = (e, value) => {
     let checked = e.target.checked
