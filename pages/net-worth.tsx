@@ -26,7 +26,7 @@ function classNames(...classes) {
 }
 
 const renderImg = (account) => {
-  if(account.subtype === 'rental') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account.subtype === 'rental' || account.subtype === 'home') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
   if(account.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account.subtype === 'crypto') return (<img src={account.details?.image} alt={account.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
   if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
@@ -48,6 +48,7 @@ export default function ({ showError, user, stats, accts }) {
   const [openEdit, setOpenEdit] = useState(false)
   const [openStock, setOpenStock] = useState(false)
   const [openCrypto, setOpenCrypto] = useState(false)
+  const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
 
   const editAccount = (a) => {
@@ -101,6 +102,10 @@ export default function ({ showError, user, stats, accts }) {
           Add Crypto
         </button>
         <PlaidLink user={user} showError={showError} />
+        <button  onClick={() => setOpenCrypto(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <PlusIcon className="h-5 w-5" aria-hidden="true" />
+          Add Manually
+        </button>
         <div className={loading && "animate-spin"}>
           <button
             onClick={refresh}
