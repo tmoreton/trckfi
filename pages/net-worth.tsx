@@ -177,7 +177,7 @@ export default function ({ showError, user, stats, accts }) {
                           </button>
                         </div>
                         <button onClick={() => hideAccount(a.id)} className="mt-1 text-xs leading-5 text-gray-500">
-                          Hide
+                          Remove
                         </button>
                       </td>
                     </tr>
