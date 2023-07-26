@@ -2,11 +2,10 @@
 import yahooFinance from 'yahoo-finance2';
 
 export default async (req, res) => {
-  const { symbol } = req.body
+  const { search } = req.body
   try {
-    // @ts-ignore
-    const { displayName, regularMarketPrice, currency, shortName, longName, typeDisp, fullExchangeName } = await yahooFinance.quote(symbol);
-    let data = { displayName, regularMarketPrice, currency, shortName, symbol, longName, typeDisp, fullExchangeName }
+    const { quotes } = await yahooFinance.search(search)
+    const data = quotes.filter(q => q.isYahooFinance)
     return res.status(200).json({ status: 'OK', data })
   } catch (error) {
     console.error(error)

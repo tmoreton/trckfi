@@ -5,9 +5,13 @@ import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma';
 import { addComma } from '../lib/formatNumber'
 import AccountModal from '../components/modals/account-modal'
+import EditAccountModal from '../components/modals/edit-account-modal'
+import StockModal from '../components/modals/stock-modal'
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { useRouter } from 'next/router'
+import { PlusIcon } from '@heroicons/react/20/solid'
+import { DateTime } from "luxon"
 
 const statuses = {
   Paid: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -21,7 +25,7 @@ function classNames(...classes) {
 
 const renderImg = (account) => {
   if(account.subtype === 'rental') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
-  if(account.subtype === 'stocks') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
+  if(account.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
 
   return (
@@ -35,7 +39,15 @@ const renderImg = (account) => {
 
 export default function ({ showError, user, stats, accts }) {
   const [open, setOpen] = useState(false)
+  const [openEdit, setOpenEdit] = useState(false)
+  const [openStock, setOpenStock] = useState(false)
+  const [account, setAccount] = useState({})
   const router = useRouter()
+
+  const editAccount = (a) => {
+    setAccount(a)
+    setOpenEdit(true)
+  }
 
   const hideAccount = async (id) => {
     const res = await fetch(`/api/hide_account`, {
@@ -59,9 +71,20 @@ export default function ({ showError, user, stats, accts }) {
         <title>Trckfi - Net Worth</title>
       </Head>
       <AccountModal showError={showError} open={open} setOpen={setOpen} user={user}/>
-      <div className="flex justify-between">
-        <button onClick={() => setOpen(true)} className=" text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500 py-4">
-          <p><span aria-hidden="true">+</span> Add Account</p>
+      <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount}/>
+      <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user}/>
+      <div className="flex justify-center space-x-6 mb-4">
+        <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <PlusIcon className="h-5 w-5" aria-hidden="true" />
+          Add Stock
+        </button>
+        <button className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <PlusIcon className="h-5 w-5" aria-hidden="true" />
+          Add Home Value
+        </button>
+        <button className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <PlusIcon className="h-5 w-5" aria-hidden="true" />
+          Add Crypto
         </button>
         <PlaidLink user={user} showError={showError} />
       </div>
@@ -115,7 +138,7 @@ export default function ({ showError, user, stats, accts }) {
                   </thead>
                   <tbody>
                   {accts.map((a) => (
-                    <tr key={a.institution}>
+                    <tr key={a.id}>
                       <td className="relative py-4 pr-6">
                         <div className="flex gap-x-6">
                           <div className="w-20 flex items-center justify-between">
@@ -139,14 +162,17 @@ export default function ({ showError, user, stats, accts }) {
                         <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
                       </td>
                       <td className="hidden py-5 pr-6 sm:table-cell">
-                        <div className="text-md leading-6 text-gray-900">{addComma(a._sum.amount)}</div>
-                        <div className="mt-1 text-xs leading-5 text-gray-500">
-                          Since last month
+                        <div className="text-md font-bold leading-6 text-gray-900">{addComma(a.amount)}</div>
+                        <div className="mt-1 text-xs leading-5 text-gray-500 font-semibold">
+                        Last Updated:
+                        </div>
+                        <div className="text-xs text-gray-400">
+                          {DateTime.fromISO(a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}
                         </div>
                       </td>
                       <td className="py-5 text-right">
                         <div className="flex justify-end">
-                          <button className="text-sm font-medium leading-6 text-pink-600 hover:text-pink-500">
+                          <button onClick={() => editAccount(a)} className="text-sm font-medium leading-6 text-pink-600 hover:text-pink-500">
                             Edit
                           </button>
                         </div>
@@ -187,10 +213,7 @@ export async function getServerSideProps(context) {
     })
   }
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-  // @ts-ignore
-  const accounts = await prisma.accounts.groupBy({
-    // @ts-ignore
-    by: ['subtype', 'institution', 'id', 'type', 'name'],
+  const accounts = await prisma.accounts.findMany({
     where: {
       OR: query,
       // @ts-ignore
@@ -199,23 +222,21 @@ export async function getServerSideProps(context) {
       },
       active: true,
     },
-    _sum: {
-      // @ts-ignore
-      amount: true,
-    },
     orderBy: {
-      subtype: 'asc',
+      // @ts-ignore
+      updated_at: 'desc',
     },
   })
 
   let total_assets = 0
   let total_liabilities = 0
-  // @ts-ignore
   accounts.forEach(a => {
     if(a.type === 'loan' || a.type === 'credit'){
-      total_liabilities -= Number(a._sum.amount)
+      // @ts-ignore
+      total_liabilities -= Number(a.amount)
     } else {
-      total_assets += Number(a._sum.amount)
+      // @ts-ignore
+      total_assets += Number(a.amount)
     }
   });
   const stats = [

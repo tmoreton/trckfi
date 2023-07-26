@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { usePlaidLink } from 'react-plaid-link'
 import { useRouter } from 'next/router'
+import { PlusIcon } from '@heroicons/react/20/solid'
 
 export default function ({ showError, user }) {
   const [linkToken, setLinkToken] = useState(null)
@@ -82,8 +83,9 @@ export default function ({ showError, user }) {
 
   if(!linkToken) return null
   return (
-    <button onClick={() => open()} disabled={!ready} type="button" className="text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500">
-      <span aria-hidden="true">+</span> Add Bank Connection
+    <button onClick={() => open()} disabled={!ready} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+      <PlusIcon className="h-5 w-5" aria-hidden="true" />
+      Add Bank Connection
     </button>
   )
 }

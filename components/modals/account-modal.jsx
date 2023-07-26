@@ -1,8 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import PinkBtn from '../pink-btn'
-
-import Combobox from '../combobox'
+import Combobox from '../dropdown'
 
 const account_types = [
   { account_type: 'Manual Bank Entry', name: 'Bank Name', institution: 'Instituion', amount: 'Amount' },

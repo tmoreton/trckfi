@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/react'
 import prisma from '../lib/prisma'
 import { signOut } from "next-auth/react"
 import { useRouter } from 'next/router'
-import RemoveAccount from "../components/modals/remove-account"
+import RemoveAccount from "../components/modals/remove-account-modal"
 import PlaidLink from "../components/plaid-link"
 import CancelModal from '../components/modals/cancel-modal'
 import Head from 'next/head'

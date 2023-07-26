@@ -8,7 +8,7 @@ import TransactionModal from '../components/modals/transaction-modal'
 import SetupModal from '../components/modals/setup-modal'
 import { getSession } from 'next-auth/react'
 import Stripe from 'stripe'
-import DatePicker from '../components/modals/date-picker'
+import DatePicker from '../components/modals/date-picker-modal'
 import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
