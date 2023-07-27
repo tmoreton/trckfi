@@ -31,10 +31,9 @@ export default function ({ showError, open, setOpen, user }) {
   }
 
   const updateQuantity = (e) => {
-    const { value } = e.target
-    setAccount({ ...account, quantity: value })
+    const { value, name } = e.target
     let total = Number(value) * Number(account?.regularMarketPrice)
-    setAccount({ ...account, amount: total.toFixed(2)})
+    setAccount({ ...account, amount: total.toFixed(2), [name]: Number(value)})
   }
   
   const searchStock = async (search) => {

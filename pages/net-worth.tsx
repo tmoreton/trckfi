@@ -84,19 +84,19 @@ export default function ({ showError, user, stats, accts }) {
       },
       method: 'POST',
     })
-    // const res = await fetch(`/api/sync_accounts`, {
-    //   body: JSON.stringify({
-    //     user_id: user.id,
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
+    const res = await fetch(`/api/sync_accounts`, {
+      body: JSON.stringify({
+        user_id: user.id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
     setLoading(false)
-    // const { error } = await res.json()
-    // showError(error)
-    // if(!error) router.reload()
+    const { error } = await res.json()
+    showError(error)
+    if(!error) router.reload()
   }
 
   return (

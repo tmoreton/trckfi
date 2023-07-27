@@ -15,25 +15,27 @@ export default async (req, res) => {
   })
   try {
     for (let i in crypto_accounts) {
-      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto_accounts[i].details.symbol}`, {
+      console.log(crypto_accounts[i])
+      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto_accounts[i].details.id}`, {
         headers: {
           'Content-Type': 'application/json',
         },
         method: 'GET',
       })
       const { market_data } = await response.json()
+      let total = Number(market_data?.current_price?.usd)*Number(crypto_accounts[i].details.quantity)
       await prisma.accounts.update({
         // @ts-ignore
         where: { id: crypto_accounts[i].id },
         data: { 
           // @ts-ignore
-          amount: Number(market_data?.current_price?.usd)*Number(crypto_accounts[i].details.quantity)
+          amount: Number(total)
         }
       })
       return res.status(200).json({ status: 'OK' })
     }
   } catch (error) {
     console.error(error)
-    // return res.status(500).json({ error: error.message || error.toString() })
+    return res.status(500).json({ error: error.message || error.toString() })
   }
 }

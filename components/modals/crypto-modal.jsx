@@ -31,10 +31,9 @@ export default function ({ showError, open, setOpen, user }) {
   }
 
   const updateQuantity = (e) => {
-    const { value } = e.target
-    setAccount({ ...account, quantity: value })
+    const { value, name } = e.target
     let total = Number(value) * Number(account?.current_price)
-    setAccount({ ...account, amount: total.toFixed(2)})
+    setAccount({ ...account, amount: total.toFixed(2),[name]: Number(value)})
   }
   
   const searchCrypto = async (search) => {
@@ -70,11 +69,13 @@ export default function ({ showError, open, setOpen, user }) {
       current_price: data.current_price,
       symbol: data.symbol,
       quantity: null,
-      image: data.image
+      image: data.image,
+      crypto_id: selected.id
     })
   }
 
   const handleSubmit = async () => {
+    console.log(account)
     const res = await fetch(`/api/add_account`, {
       body: JSON.stringify({
         user_id: user.id,
@@ -88,7 +89,8 @@ export default function ({ showError, open, setOpen, user }) {
           current_price: account?.current_price,
           symbol: account?.symbol.toUpperCase(),
           quantity: account?.quantity,
-          image: account?.image
+          image: account?.image,
+          id: account?.crypto_id
         }
       }),
       headers: {
