@@ -75,7 +75,6 @@ export default function ({ showError, open, setOpen, user }) {
   }
 
   const handleSubmit = async () => {
-    console.log(account)
     const res = await fetch(`/api/add_account`, {
       body: JSON.stringify({
         user_id: user.id,
