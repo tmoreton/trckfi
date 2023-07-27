@@ -22,6 +22,7 @@ export default async (req, res) => {
         method: 'GET',
       })
       const { market_data } = await response.json()
+       // @ts-ignore
       let total = Number(market_data?.current_price?.usd)*Number(crypto_accounts[i].details.quantity)
       await prisma.accounts.update({
         // @ts-ignore
