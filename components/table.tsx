@@ -104,6 +104,7 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
             { emoji !== '1f50d' && <button onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</button>}
           </>
         )
+        case 'Download': return null
       case 'Amount':
         return (
           <>
