@@ -66,7 +66,7 @@ export default function ({ showError, user, stats, accts }) {
 
   const refresh = async () => {
     setLoading(true)
-    const res = await fetch(`/api/sync_accounts`, {
+    fetch(`/api/update_crypto_price`, {
       body: JSON.stringify({
         user_id: user.id,
       }),
@@ -75,10 +75,28 @@ export default function ({ showError, user, stats, accts }) {
       },
       method: 'POST',
     })
+    fetch(`/api/update_stock_price`, {
+      body: JSON.stringify({
+        user_id: user.id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    // const res = await fetch(`/api/sync_accounts`, {
+    //   body: JSON.stringify({
+    //     user_id: user.id,
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
     setLoading(false)
-    const { error } = await res.json()
-    showError(error)
-    if(!error) router.reload()
+    // const { error } = await res.json()
+    // showError(error)
+    // if(!error) router.reload()
   }
 
   return (
