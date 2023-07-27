@@ -58,7 +58,7 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
         amount: a._sum.amount
       }
     })
-    mapped = mapped.slice(0, 10)
+    mapped = mapped.slice(0, 8)
 
     let filtered = mapped.filter((a) => {
       total += Number(a.amount)

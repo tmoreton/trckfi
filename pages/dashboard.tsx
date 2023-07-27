@@ -137,7 +137,7 @@ export default function ({ newUser, user, showError }) {
     {
       Header: "sort",
       accessor: data => data,
-      Cell: ({ cell: { value } }) => <input checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox"/>,
+      Cell: ({ cell: { value } }) => <input className="mr-3" checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox"/>,
       style: ""
     },
     {
@@ -150,14 +150,14 @@ export default function ({ newUser, user, showError }) {
       Header: "Name",
       id: "name",
       accessor: "name",
-      style: "w-1/4 mr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+      style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
     },
     {
       Header: "Account",
       id: "account.name",
       accessor: data => data.account.name,
       Cell: ({ cell: value }) => <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>,
-      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+      style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
     },
     {
       Header: "Category",
@@ -169,7 +169,7 @@ export default function ({ newUser, user, showError }) {
           <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[1]}</span>
         </>
       ),
-      style: "w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
     },
     {
       Header: "Date",

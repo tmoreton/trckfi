@@ -97,17 +97,17 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
         )
       case 'unified':
         return (
-          <>
-            <button className="w-8 h-8 mt-6 ml-2" onClick={() => setShowEmoji(true)}>
+          <div className="min-w-[50px]">
+            <button className="w-7 h-5 mt-6 ml-2" onClick={() => setShowEmoji(true)}>
               <Emoji unified={emoji} />
             </button>
             { emoji !== '1f50d' && <button onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</button>}
-          </>
+          </div>
         )
         case 'Download': return null
       case 'Amount':
         return (
-          <>
+          <div className="min-w-[110px]">
             <div className="flex">
               <p className="font-bold">{column.render("Header")}</p>
               <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
@@ -120,7 +120,7 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
             </div>
             <p className="text-lg font-semibold text-pink-600 mt-5">{addComma(sum)}</p>
             <p className="text-xs font-gray-300 font-extralight pt-1">({rows.length} items)</p>
-          </>
+          </div>
         )
       default:
         return (
@@ -159,6 +159,7 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
             }
           )}>
             Bulk Edit
+            <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
           </InverseBtn>
           :
           <InverseBtn onClick={() => setEdit({
@@ -203,10 +204,10 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
                     if(cell.column.Header === 'Amount' && cell.value > 0){
-                      return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (<td className="overflow-hidden px-1 py-2 text-xs font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     } else if (cell.column.Header === 'Name'){
                       return (
-                        <td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>
+                        <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
                           {cell.render("Cell")} 
                           { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-5 w-5 ml-3" /> }
                           { cell.row.original.alert_date && <BellAlertIcon className="h-5 w-5 ml-3 text-red-400" /> }
@@ -218,7 +219,7 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
                           cell.column.Header === 'Date'
                             ? 'min-w-[125px]'
                             : '',
-                          'overflow-hidden px-1 py-2 text-sm text-gray-500'
+                          'overflow-hidden px-1 py-2 text-xs text-gray-500'
                           )} {...cell.getCellProps()}>{cell.render("Cell")}
                         </td>
                       );
