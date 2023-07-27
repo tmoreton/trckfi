@@ -98,7 +98,7 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
       case 'unified':
         return (
           <>
-            <button className="mr-2 mt-6" onClick={() => setShowEmoji(true)}>
+            <button className="w-8 h-8 mt-6 ml-2" onClick={() => setShowEmoji(true)}>
               <Emoji unified={emoji} />
             </button>
             { emoji !== '1f50d' && <button onClick={removeEmoji} className="text-xs font-gray-300 font-extralight">Remove</button>}
@@ -120,15 +120,6 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
             <p className="text-lg font-semibold text-pink-600 mt-5">{addComma(sum)}</p>
             <p className="text-xs font-gray-300 font-extralight pt-1">({rows.length} items)</p>
           </>
-        )
-      case 'Download': return null
-        return (
-          <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-            <PinkBtn onClick={() => {}}>
-              Download
-            </PinkBtn>
-            <p className="text-xs font-gray-300 font-extralight pt-2">({rows.length} filtered)</p>
-          </CSVLink>
         )
       default:
         return (
@@ -152,7 +143,6 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
         )
     }    
   }
-  console.log(datePicker)
   return (
     <>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { BuildingLibraryIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
 import LoadingModal from '../components/modals/loading-modal'
@@ -123,17 +124,30 @@ export default function ({ newUser, user, showError }) {
     }
   }
 
+  const renderImg = (account) => {
+    let image_url = `/assets/banks/${account.institution}.png`
+    var http = new XMLHttpRequest();
+    http.open('HEAD', image_url, false);
+    http.send();
+    if(http.status === 404) return <BuildingLibraryIcon className="h-5 w-5" aria-hidden="true" />
+    return <img
+      src={image_url}
+      alt={account.institution}
+      className="h-5 w-5 flex-none rounded-md object-cover"
+    />
+  }
+
   const columns = [
+    {
+      Header: "sort",
+      accessor: data => data,
+      Cell: ({ cell: { value } }) => <input checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox"/>,
+      style: ""
+    },
     {
       Header: "unified",
       accessor: data => data.unified,
       Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
-      style: "p-2 text-left text-sm font-light text-gray-900"
-    },
-    {
-      Header: "sort",
-      accessor: data => data,
-      Cell: ({ cell: { value } }) => <input checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox" className="h-4 w-4 rounded border-gray-300" />,
       style: ""
     },
     {
@@ -145,7 +159,8 @@ export default function ({ newUser, user, showError }) {
     {
       Header: "Account",
       id: "account.name",
-      accessor: data => data.account.name.split(' ').slice(0, 3).join(' '),
+      accessor: data => data.account.name,
+      Cell: ({ cell: value }) => <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>,
       style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
@@ -185,7 +200,7 @@ export default function ({ newUser, user, showError }) {
   const datePicker = () => {
     return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
   }
-
+  
   return (
     <DashboardLayout>
       <Head>
@@ -196,7 +211,6 @@ export default function ({ newUser, user, showError }) {
       <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
       <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-      
       <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
     </DashboardLayout>
   )

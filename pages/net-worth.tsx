@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowPathIcon, PlusIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon, PlusIcon, BuildingLibraryIcon} from '@heroicons/react/20/solid'
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import DashboardLayout from "../components/dashboard-layout"
@@ -31,15 +31,17 @@ const renderImg = (account) => {
   if(account.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account.subtype === 'crypto') return (<img src={account.details?.image} alt={account.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
   if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
-
-  return (
-    <img
-      src={`/assets/banks/${account.institution}.png`}
-      alt={account.institution}
-      className="h-12 w-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
-    />
-  )
+  let image_url = `/assets/banks/${account.institution}.png`
+  return <img 
+    src={image_url} 
+    onError={({ currentTarget }) => {
+      currentTarget.onerror = null;
+      currentTarget.src="/assets/banks/bank.png";
+    }}
+    className="h-12 w-12 flex-none rounded-md object-cover"
+  />
 }
+
 
 export default function ({ showError, user, stats, accts }) {
   const router = useRouter()
