@@ -15,6 +15,7 @@ export default async (req, res) => {
   })
   try {
     for (let i in crypto_accounts) {
+      // @ts-ignore
       const response = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto_accounts[i].details.id}`, {
         headers: {
           'Content-Type': 'application/json',
