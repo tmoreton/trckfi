@@ -13,6 +13,8 @@ export default async (req, res) => {
       subtype: 'crypto'
     },
   })
+  if (crypto_accounts.length <= 0) return res.status(200).json({ status: 'OK' })
+
   try {
     for (let i in crypto_accounts) {
       // @ts-ignore

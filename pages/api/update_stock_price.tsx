@@ -14,6 +14,8 @@ export default async (req, res) => {
       subtype: 'equity'
     },
   })
+  if (stock_accounts.length <= 0) return res.status(200).json({ status: 'OK' })
+
   try {
     for (let i in stock_accounts) {
       // @ts-ignore
@@ -30,6 +32,6 @@ export default async (req, res) => {
     }
   } catch (error) {
     console.error(error)
-    // return res.status(500).json({ error: error.message || error.toString() })
+    return res.status(500).json({ error: error.message || error.toString() })
   }
 }
