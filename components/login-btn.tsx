@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import PinkBtn from './pink-btn'
+import { PinkBtn } from './pink-btn'
 
 export default function () {
   const { data: session } = useSession()

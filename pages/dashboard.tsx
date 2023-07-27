@@ -44,12 +44,13 @@ export default function ({ newUser, user, showError }) {
 
   useEffect(() => {
     if(email && !newUser){
-      getDashboard()
+      // getDashboard()
     }
     if(newUser){
       router.replace('/dashboard', undefined, { shallow: true })
     }
   }, [email])
+
 
   useEffect(() => {
     if(dates){
@@ -127,7 +128,7 @@ export default function ({ newUser, user, showError }) {
       Header: "unified",
       accessor: data => data.unified,
       Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
-      style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900"
+      style: "p-2 text-left text-sm font-light text-gray-900"
     },
     {
       Header: "sort",
@@ -137,31 +138,37 @@ export default function ({ newUser, user, showError }) {
     },
     {
       Header: "Name",
+      id: "name",
       accessor: "name",
       style: "w-1/4 mr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Account",
-      accessor: "account.name",
+      id: "account.name",
+      accessor: data => data.account.name.split(' ').slice(0, 3).join(' '),
       style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
-      Header: "Primary Category",
-      accessor: "primary_category",
-      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
-    },
-    {
-      Header: "Detailed Category",
-      accessor: "detailed_category",
-      style: "w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+      Header: "Category",
+      id: "category",
+      accessor: data => data.primary_category+'+'+data.detailed_category,
+      Cell: ({ cell: { value } }) => (
+        <>
+          <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[0]}</span>
+          <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[1]}</span>
+        </>
+      ),
+      style: "w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Date",
+      id: "date",
       accessor: "date",
       style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
     },
     {
       Header: "Amount",
+      id: "amount",
       accessor: "amount",
       Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2),
       style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900 px-2"
@@ -175,6 +182,10 @@ export default function ({ newUser, user, showError }) {
     }
   ]
 
+  const datePicker = () => {
+    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
+  }
+
   return (
     <DashboardLayout>
       <Head>
@@ -185,8 +196,8 @@ export default function ({ newUser, user, showError }) {
       <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
       <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-      <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
-      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} />
+      
+      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
     </DashboardLayout>
   )
 }

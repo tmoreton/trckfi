@@ -7,9 +7,9 @@ import { DateTime } from "luxon";
 import { addComma } from '../lib/formatNumber'
 import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
-import PinkBtn from './pink-btn'
+import { PinkBtn, InverseBtn } from './pink-btn'
 
-export default function ({ columns, data, selected, setSelected, setEdit }) {
+export default function ({ columns, data, selected, setSelected, setEdit, datePicker }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState(0)
@@ -37,7 +37,11 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
     useFilters,
     useSortBy,
   )
-  
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+
   const downloadCSV = () => {
     let arr = [['Name', 'Primary Category', 'Detailed Category', 'Date', 'Amount', 'Notes']]
     rows.forEach(r => (
@@ -113,10 +117,11 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
                 />
               </span>
             </div>
-            <p className="text-lg font-semibold text-pink-600">{addComma(sum)}</p>
+            <p className="text-lg font-semibold text-pink-600 mt-5">{addComma(sum)}</p>
+            <p className="text-xs font-gray-300 font-extralight pt-1">({rows.length} items)</p>
           </>
         )
-      case 'Download':
+      case 'Download': return null
         return (
           <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
             <PinkBtn onClick={() => {}}>
@@ -139,7 +144,7 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
               </span>
             </div>
             <input                          
-              onChange={(e) => setFilter(snakeCase(column.render("Header")), e.target.value)}
+              onChange={(e) => setFilter(column.id, e.target.value)}
               placeholder={`Filter ${column.render("Header")}`}
               className="w-full font-normal rounded p-2 my-4 focus:outline-none pink-border"
             />
@@ -147,24 +152,13 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
         )
     }    
   }
-
+  console.log(datePicker)
   return (
     <>
-      <div className="absolute pb-12 flex h-12 items-center space-x-3">
-        <PinkBtn onClick={() => setEdit({
-            name: null,
-            primary_category: null,
-            detailed_category: null,
-            amount: null,
-            notes: null,
-            unified: '1f50d',
-            new: true
-          }
-        )}>
-          Add Transaction
-        </PinkBtn>
-        {selected.length > 0 &&
-          <PinkBtn onClick={() => setEdit({
+      <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
+      <div className="flex h-12 items-center space-x-3 justify-between">
+        { selected.length > 0 ?
+          <InverseBtn onClick={() => setEdit({
               name: null,
               primary_category: null,
               detailed_category: null,
@@ -173,11 +167,31 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
               unified: '1f50d',
             }
           )}>
-            Bulk edit
-          </PinkBtn>
+            Bulk Edit
+          </InverseBtn>
+          :
+          <InverseBtn onClick={() => setEdit({
+              name: null,
+              primary_category: null,
+              detailed_category: null,
+              amount: null,
+              notes: null,
+              unified: '1f50d',
+              new: true
+            }
+          )}>
+            Add Transaction
+          </InverseBtn>
         }
+        {datePicker()}
+        <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+          <InverseBtn onClick={() => {}}>
+            Download CSV
+          </InverseBtn>
+          
+        </CSVLink>
       </div>
-      <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
+
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
         <table className="lg:table-auto sm:table-fixed  w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
@@ -201,14 +215,22 @@ export default function ({ columns, data, selected, setSelected, setEdit }) {
                       return (<td className="overflow-hidden px-1 py-2 text-sm font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
                     } else if (cell.column.Header === 'Name'){
                       return (
-                        <td className="overflow-hidden px-1 py-2 text-sm text-gray-500 flex items-center" {...cell.getCellProps()}>
+                        <td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>
                           {cell.render("Cell")} 
                           { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-5 w-5 ml-3" /> }
                           { cell.row.original.alert_date && <BellAlertIcon className="h-5 w-5 ml-3 text-red-400" /> }
                         </td>
                       )
                     } else {
-                      return (<td className="overflow-hidden px-1 py-2 text-sm text-gray-500" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
+                      return (
+                        <td className={classNames(
+                          cell.column.Header === 'Date'
+                            ? 'min-w-[125px]'
+                            : '',
+                          'overflow-hidden px-1 py-2 text-sm text-gray-500'
+                          )} {...cell.getCellProps()}>{cell.render("Cell")}
+                        </td>
+                      );
                     }
                   })}
                 </tr>

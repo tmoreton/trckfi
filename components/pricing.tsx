@@ -1,6 +1,6 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import PinkBtn from './pink-btn'
+import { PinkBtn } from './pink-btn'
 
 const includedFeatures = [
   'Auto import via bank',

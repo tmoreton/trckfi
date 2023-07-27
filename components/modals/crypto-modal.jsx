@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import PinkBtn from '../pink-btn'
+import { PinkBtn } from '../pink-btn'
 import { useRouter } from 'next/router'
 import Dropdown from '../dropdown'
 
