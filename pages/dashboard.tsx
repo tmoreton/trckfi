@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { BuildingLibraryIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
 import LoadingModal from '../components/modals/loading-modal'
@@ -44,9 +43,6 @@ export default function ({ newUser, user, showError }) {
   })
 
   useEffect(() => {
-    if(email && !newUser){
-      // getDashboard()
-    }
     if(newUser){
       router.replace('/dashboard', undefined, { shallow: true })
     }
@@ -126,13 +122,13 @@ export default function ({ newUser, user, showError }) {
 
   const renderImg = (account) => {
     let image_url = `/assets/banks/${account.institution}.png`
-    var http = new XMLHttpRequest();
-    http.open('HEAD', image_url, false);
-    http.send();
-    if(http.status === 404) return <BuildingLibraryIcon className="h-5 w-5" aria-hidden="true" />
     return <img
       src={image_url}
       alt={account.institution}
+      onError={({ currentTarget }) => {
+        currentTarget.onerror = null;
+        currentTarget.src="/assets/banks/bank.png";
+      }}
       className="h-5 w-5 flex-none rounded-md object-cover"
     />
   }
