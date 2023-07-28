@@ -16,12 +16,13 @@ import { snakeCase } from "snake-case";
 import { useSession } from "next-auth/react"
 import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
-const Dashboard = ({ newUser, showError }) => {
+const Dashboard = ({ newUser, showError, props }) => {
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
+  const [reload, setReload] = useState(false)
   const [item, setEdit] = useState({})
   const [setupModal, openSetupModal] = useState(newUser || false)
   const [openDatePicker, setDatePicker] = useState(false)
@@ -34,16 +35,16 @@ const Dashboard = ({ newUser, showError }) => {
   const [categories, setCategories] = useLocalStorage('primary_categories', [])
   const [emojiCategories, setEmojiCategories] = useLocalStorage('emoji_categories', [])
   const [detailedCategories, setDetailedCategories] = useLocalStorage('detailed_categories', [])
-  const [dates, setDates] = useState({
+  const [dates, setDates] = useLocalStorage('selected_dates', {
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
 
   useEffect(() => {
-    if(t.length <= 0){
+    console.log(props)
+    if(t.length <= 0 || reload){
       getDashboard()
     }
-    console.log(dates)
   }, [dates])
 
   const getDashboard = async () => {
@@ -72,6 +73,7 @@ const Dashboard = ({ newUser, showError }) => {
     setDetailedCategories(detailedCategories)
     setRefreshing(false)
     setLoading(false)
+    setReload(false)
   }
 
   const updateTransaction = (item) => {
@@ -84,8 +86,8 @@ const Dashboard = ({ newUser, showError }) => {
   }
 
   const refresh = async () => {
-    setLoading(true)
     clearLocalStorage()
+    setLoading(true)
     const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({
         // @ts-ignore
@@ -97,7 +99,7 @@ const Dashboard = ({ newUser, showError }) => {
       method: 'POST',
     })
     const { error } = await res.json()
-    if(!error) getDashboard()
+    if(!error) router.reload()
     showError(error)
   }
 
@@ -187,7 +189,7 @@ const Dashboard = ({ newUser, showError }) => {
   ]
 
   const datePicker = () => {
-    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} getDashboard={getDashboard} />
+    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} setReload={setReload}/>
   }
   
   return (

@@ -1,8 +1,9 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DateRangePicker } from 'react-date-range'
+import { DateTime } from "luxon"
 
-export default function ({ openDatePicker, setDatePicker, dates, setDates, getDashboard }) {
+export default function ({ openDatePicker, setDatePicker, dates, setDates, setReload }) {
   const [dateRange, updateDateRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -11,11 +12,10 @@ export default function ({ openDatePicker, setDatePicker, dates, setDates, getDa
 
   useEffect(() => {
     updateDateRange({
-      startDate: new Date(dates.endDate),
+      startDate:  new Date(dates.endDate),
       endDate: new Date(dates.startDate),
       key: 'selection',
     })
-    getDashboard()
   }, [dates])
 
   return (
@@ -62,10 +62,13 @@ export default function ({ openDatePicker, setDatePicker, dates, setDates, getDa
                     <button
                       type="button"
                       className="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto"
-                      onClick={() => setDates({
-                        startDate: dateRange.endDate,
-                        endDate: dateRange.startDate
-                      })}
+                      onClick={() => {
+                        setDates({
+                          startDate: dateRange.endDate,
+                          endDate: dateRange.startDate
+                        })
+                        setReload(true)
+                      }}
                     >
                       Appy
                     </button>
