@@ -31,7 +31,7 @@ const Dashboard = ({ newUser, showError }) => {
   const [t, setTransactions] = useLocalStorage('transactions', [])
   const [incomeData, setIncomeData] = useLocalStorage('income_data', [])
   const [expenseData, setExpenseData] = useLocalStorage('expense_data', [])
-  const [categories, setCategories] = useLocalStorage('categories', [])
+  const [categories, setCategories] = useLocalStorage('primary_categories', [])
   const [emojiCategories, setEmojiCategories] = useLocalStorage('emoji_categories', [])
   const [detailedCategories, setDetailedCategories] = useLocalStorage('detailed_categories', [])
   const [dates, setDates] = useState({
