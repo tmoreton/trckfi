@@ -10,12 +10,14 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signOut } from "next-auth/react"
+import { clearLocalStorage } from "../utils/useLocalStorage"
 
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Net Worth', href: '/net-worth', icon: ChartBarIcon },
   // { name: 'Custom Rules', href: '/rules', icon: UserCircleIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
+  { name: 'Feedback', href: '/feedback', icon: UserCircleIcon },
 ]
 
 function classNames(...classes) {
@@ -65,7 +67,10 @@ export default function ({ children }) {
                   ))}
                   <li>
                     <button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        clearLocalStorage()
+                        signOut()
+                      }}
                       className='w-full text-gray-700 hover:text-pink-600 hover:bg-gray-50 group flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold'
                     >
                       <UsersIcon className='text-gray-400 group-hover:text-pink-600 h-6 w-6 shrink-0' aria-hidden="true" />

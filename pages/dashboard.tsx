@@ -213,8 +213,6 @@ const Dashboard = ({ newUser, showError }) => {
   )
 }
 
-Dashboard.requireAuth = true;
-
 export default dynamic(() => Promise.resolve(Dashboard), { ssr: false });
 
 

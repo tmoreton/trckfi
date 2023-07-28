@@ -4,6 +4,7 @@ import Container from '../components/container'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import Menu from '../components/menu'
+import DashboardLayout from "../components/dashboard-layout"
 
 export default function ({ showError }) {
   const { data: session } = useSession()
@@ -11,30 +12,27 @@ export default function ({ showError }) {
 
   const send = async (e) => {
     e.preventDefault()
-    if(session.user){
-      const res = await fetch(`/api/send_email`, {
-        body: JSON.stringify({
-          email: session.user.email,
-          message
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      })
-      const { error } = await res.json()
-      showError(error)
-      setMessage('Successfully sent!')
-    }
+    const res = await fetch(`/api/send_email`, {
+      body: JSON.stringify({
+        email: session.user.email,
+        message
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setMessage('Successfully sent!')
   }
 
   return (
-    <Layout>
+    <DashboardLayout>
       <Head>
         <title>Trckfi - Feedback</title>
       </Head>
       <Container>
-        <Menu showError={showError}/>
         <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Feedback</h2>
@@ -68,6 +66,6 @@ export default function ({ showError }) {
           </form>
         </div>
       </Container>
-    </Layout>
+    </DashboardLayout>
   )
 }

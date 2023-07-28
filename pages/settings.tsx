@@ -297,6 +297,4 @@ const Settings = ({ showError }) => {
   )
 }
 
-Settings.requireAuth = true;
-
 export default dynamic(() => Promise.resolve(Settings), { ssr: false })

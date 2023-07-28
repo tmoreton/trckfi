@@ -270,6 +270,4 @@ const NetWorth = ({ showError }) => {
   )
 }
 
-NetWorth.requireAuth = true;
-
 export default dynamic(() => Promise.resolve(NetWorth), { ssr: false });
