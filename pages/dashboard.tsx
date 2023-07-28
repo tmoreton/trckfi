@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
@@ -6,15 +7,11 @@ import LoadingModal from '../components/modals/loading-modal'
 import Table from '../components/table'
 import TransactionModal from '../components/modals/transaction-modal'
 import SetupModal from '../components/modals/setup-modal'
-import { getSession } from 'next-auth/react'
-import Stripe from 'stripe'
 import DatePicker from '../components/modals/date-picker-modal'
 import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
-import prisma from '../lib/prisma'
-import Head from 'next/head'
 import { snakeCase } from "snake-case";
 import { useSession } from "next-auth/react"
 import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"

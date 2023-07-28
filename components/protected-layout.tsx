@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react"
 import LoadingModal from './modals/loading-modal'
@@ -22,6 +22,7 @@ export default function ({ children }) {
     }
 
     let user = session.user
+    // @ts-ignore
     if (!user.subscription_id && !user.linked_user_id || !user.active) {
       router.push({
         pathname: '/pricing',
