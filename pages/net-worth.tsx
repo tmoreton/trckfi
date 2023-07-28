@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import { ArrowPathIcon, PlusIcon, BuildingLibraryIcon} from '@heroicons/react/20/solid'
+import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic' 
 import Head from 'next/head'
-import { getSession } from 'next-auth/react'
+import { ArrowPathIcon, PlusIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
-import prisma from '../lib/prisma';
 import { addComma } from '../lib/formatNumber'
 import HomeModal from '../components/modals/home-modal'
 import HideAccountModal from '../components/modals/hide-account-modal'
@@ -14,13 +13,8 @@ import CryptoModal from '../components/modals/crypto-modal'
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { DateTime } from "luxon"
-import { useRouter } from 'next/router'
-
-const statuses = {
-  Paid: 'text-green-700 bg-green-50 ring-green-600/20',
-  Withdraw: 'text-gray-600 bg-gray-50 ring-gray-500/10',
-  Overdue: 'text-red-700 bg-red-50 ring-red-600/10',
-}
+import { useSession } from "next-auth/react"
+import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -42,9 +36,9 @@ const renderImg = (account) => {
   />
 }
 
-
-export default function ({ showError, user, stats, accts }) {
-  const router = useRouter()
+const NetWorth = ({ showError }) => {
+  const { data: session } = useSession()
+  const user = session?.user
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
   const [openHome, setOpenHome] = useState(false)
@@ -53,6 +47,14 @@ export default function ({ showError, user, stats, accts }) {
   const [openCrypto, setOpenCrypto] = useState(false)
   const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
+  const [stats, setStats] = useLocalStorage('net_worth_stats', [])
+  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', [])
+
+  useEffect(() => {
+    if(accounts.length <= 0){
+      getNetWorth()
+    }
+  }, [user])
 
   const editAccount = (a) => {
     setAccount(a)
@@ -64,7 +66,29 @@ export default function ({ showError, user, stats, accts }) {
     setOpen(true)
   }
 
+  const getNetWorth = async () => {
+    setLoading(true)
+    const res = await fetch(`/api/get_net_worth`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    if(error){
+      showError(error)
+    } else {
+      setStats(data.net_worth_stats)
+      setAccounts(data.accounts)
+    }
+    setLoading(false)
+  }
+
   const refresh = async () => {
+    clearLocalStorage()
     setLoading(true)
     fetch(`/api/update_crypto_price`, {
       body: JSON.stringify({
@@ -96,7 +120,7 @@ export default function ({ showError, user, stats, accts }) {
     setLoading(false)
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(!error) getNetWorth()
   }
 
   return (
@@ -104,7 +128,6 @@ export default function ({ showError, user, stats, accts }) {
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
-
       <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount}/>
       <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user}/>
       <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user}/>
@@ -191,7 +214,7 @@ export default function ({ showError, user, stats, accts }) {
                     </tr>
                   </thead>
                   <tbody>
-                  {accts.map((a) => (
+                  {accounts.map((a) => (
                     <tr key={a.id}>
                       <td className="relative py-4 pr-6">
                         <div className="flex gap-x-6">
@@ -247,64 +270,6 @@ export default function ({ showError, user, stats, accts }) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context)
-  const user = session?.user
+NetWorth.requireAuth = true;
 
-  if(!user) return { 
-    redirect: {
-      destination: '/auth/email-signin',
-      permanent: false,
-    },
-  }
-  // @ts-ignore
-  const { id, linked_user_id } = user
-
-  let linked_user = null
-  if(linked_user_id){
-    linked_user = await prisma.user.findUnique({
-      where: { id: linked_user_id }
-    })
-  }
-  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-  const accounts = await prisma.accounts.findMany({
-    where: {
-      OR: query,
-      // @ts-ignore
-      amount: {
-        not: 0
-      },
-      active: true,
-    },
-    orderBy: {
-      // @ts-ignore
-      updated_at: 'desc',
-    },
-  })
-
-  let total_assets = 0
-  let total_liabilities = 0
-  accounts.forEach(a => {
-    if(a.type === 'loan' || a.type === 'credit'){
-      // @ts-ignore
-      total_liabilities -= Number(a.amount)
-    } else {
-      // @ts-ignore
-      total_assets += Number(a.amount)
-    }
-  })
-
-  const stats = [
-    { name: 'Net Worth', value: addComma(total_assets-total_liabilities), change: '', changeType: 'nuetral' },
-    { name: 'Assets', value: addComma(total_assets), change: '', changeType: 'positive' },
-    { name: 'Liabilities', value: addComma(total_liabilities), change: '', changeType: 'negative' },
-  ]
-  return {
-    props: { 
-      stats,
-      user: session?.user, 
-      accounts: JSON.parse(JSON.stringify(accounts)),
-      accts: JSON.parse(JSON.stringify(accounts))
-    },
-  }
-}
+export default dynamic(() => Promise.resolve(NetWorth), { ssr: false });

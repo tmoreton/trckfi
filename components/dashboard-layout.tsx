@@ -2,7 +2,6 @@ import Footer from './footer'
 import Meta from './meta'
 import Container from './container'
 import {
-  BellIcon,
   ChartBarIcon,
   Cog6ToothIcon,
   UserCircleIcon,
@@ -15,6 +14,7 @@ import { signOut } from "next-auth/react"
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Net Worth', href: '/net-worth', icon: ChartBarIcon },
+  // { name: 'Custom Rules', href: '/rules', icon: UserCircleIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
 ]
 
@@ -43,7 +43,7 @@ export default function ({ children }) {
                   </Link>
                   {secondaryNavigation.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className={classNames(
                           currentRoute === item.href
@@ -60,7 +60,7 @@ export default function ({ children }) {
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                   <li>

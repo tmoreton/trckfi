@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic' 
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
 import LoadingModal from '../components/modals/loading-modal'
@@ -15,37 +16,38 @@ import Graphs from '../components/graphs'
 import prisma from '../lib/prisma'
 import Head from 'next/head'
 import { snakeCase } from "snake-case";
+import { useSession } from "next-auth/react"
+import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2022-11-15',
-})
-
-export default function ({ newUser, user, showError }) {
+const Dashboard = ({ newUser, showError }) => {
+  const { data: session } = useSession()
+  const user = session?.user
   const email = user?.email
   const router = useRouter()
   const [loading, setLoading] = useState(false)
-  const [totalStats, setStats] = useState({})
-  const [t, setTransactions] = useState([])
-  const [incomeData, setIncomeData] = useState([])
-  const [expenseData, setExpenseData] = useState([])
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [setupModal, openSetupModal] = useState(newUser || false)
-  const [categories, setCategories] = useState([])
-  const [detailedCategories, setDetailedCategories] = useState([])
-  const [emojiCategories, setEmojiCategories] = useState([])
   const [openDatePicker, setDatePicker] = useState(false)
   const [weeklyData, setWeeklyData] = useState([])
   const [selected, setSelected] = useState([])
+  const [totalStats, setStats] = useLocalStorage('total_stats', [])
+  const [t, setTransactions] = useLocalStorage('transactions', [])
+  const [incomeData, setIncomeData] = useLocalStorage('income_data', [])
+  const [expenseData, setExpenseData] = useLocalStorage('expense_data', [])
+  const [categories, setCategories] = useLocalStorage('categories', [])
+  const [emojiCategories, setEmojiCategories] = useLocalStorage('emoji_categories', [])
+  const [detailedCategories, setDetailedCategories] = useLocalStorage('detailed_categories', [])
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
 
   useEffect(() => {
-    if(newUser){
-      router.replace('/dashboard', undefined, { shallow: true })
-    }
+    // if(newUser){
+    //   router.replace('/dashboard', undefined, { shallow: true })
+    // }
+    // getDashboard()
   }, [email])
 
 
@@ -56,30 +58,32 @@ export default function ({ newUser, user, showError }) {
   }, [dates])
 
   const getDashboard = async () => {
-    setSelected([])
-    setDatePicker(false)
-    setRefreshing(true)
-    const res = await fetch(`/api/get_dashboard`, {
-      body: JSON.stringify({
-        user,
-        range: dates
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error, stats, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
-    showError(error)
-    setExpenseData(groupByMonth)
-    setIncomeData(groupByMonthIncome)
-    setWeeklyData(groupByWeek)
-    setStats(stats)
-    setTransactions(transactions)
-    setRefreshing(false)
-    setCategories(categories)
-    setEmojiCategories(emojiCategories)
-    setDetailedCategories(detailedCategories)
+    if(t.length <= 0){
+      setSelected([])
+      setDatePicker(false)
+      setRefreshing(true)
+      const res = await fetch(`/api/get_dashboard`, {
+        body: JSON.stringify({
+          user,
+          range: dates
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      const { error, stats, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
+      showError(error)
+      setExpenseData(groupByMonth)
+      setIncomeData(groupByMonthIncome)
+      setWeeklyData(groupByWeek)
+      setStats(stats)
+      setTransactions(transactions)    
+      setCategories(categories)
+      setEmojiCategories(emojiCategories)
+      setDetailedCategories(detailedCategories)
+      setRefreshing(false)
+    }
   }
 
   const updateTransaction = (item) => {
@@ -93,6 +97,7 @@ export default function ({ newUser, user, showError }) {
 
   const refresh = async () => {
     setLoading(true)
+    clearLocalStorage()
     const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({
         user_id: user.id,
@@ -103,9 +108,8 @@ export default function ({ newUser, user, showError }) {
       method: 'POST',
     })
     const { error } = await res.json()
+    if(!error) router.reload()
     showError(error)
-    setLoading(false)
-    getDashboard()
   }
 
   const updateSelect = (e, value) => {
@@ -212,46 +216,48 @@ export default function ({ newUser, user, showError }) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const { new_user } = context.query
-  const session = await getSession(context)
-  const user = session?.user
+Dashboard.requireAuth = true;
 
-  if(!user) return { 
-    redirect: {
-      destination: '/auth/email-signin',
-      permanent: false,
-    },
-  }
-  // @ts-ignore
-  if(!user.subscription_id && !user.linked_user_id || !user.active) return {
-    redirect: {
-      destination: '/pricing',
-      permanent: false,
-    },
-  }
-  // @ts-ignore
-  if(!user.subscription_id && user.linked_user_id) {
-    const linked_user = await prisma.user.findUnique({
-      // @ts-ignore
-      where: { id: user.linked_user_id }
-    })
-    if(linked_user?.subscription_id){
-      if (new_user) return { props: { user, newUser: true } }
-      return { props: { user, newUser: false } }
-    } else {
-      return {
-        redirect: {
-          destination: '/getting-started',
-          permanent: false,
-        }
-      }
-    }
-  }
+export default dynamic(() => Promise.resolve(Dashboard), { ssr: false });
+
+
+// export async function getServerSideProps(context) {
+//   const { new_user } = context.query
+//   const session = await getSession(context)
+//   const user = session?.user
+
+//   if(!user) return { 
+//     redirect: {
+//       destination: '/auth/email-signin',
+//       permanent: false,
+//     },
+//   }
+//   // @ts-ignore
+//   if(!user.subscription_id && !user.linked_user_id || !user.active) return {
+//     redirect: {
+//       destination: '/pricing',
+//       permanent: false,
+//     },
+//   }
+//   // @ts-ignore
+//   if(!user.subscription_id && user.linked_user_id) {
+//     const linked_user = await prisma.user.findUnique({
+//       // @ts-ignore
+//       where: { id: user.linked_user_id }
+//     })
+//     if(linked_user?.subscription_id){
+//       if (new_user) return { props: { user, newUser: true } }
+//       return { props: { user, newUser: false } }
+//     } else {
+//       return {
+//         redirect: {
+//           destination: '/getting-started',
+//           permanent: false,
+//         }
+//       }
+//     }
+//   }
   
-  // const { plan } = await stripe.subscriptions.retrieve(session.user.subscription_id)
-  // if (!plan.active) return { props: { user: null, newUser: false }}
-
-  if (new_user) return { props: { user, newUser: true } }
-  return { props: { user, newUser: false } }
-}
+//   if (new_user) return { props: { user, newUser: true } }
+//   return { props: { user, newUser: false } }
+// }

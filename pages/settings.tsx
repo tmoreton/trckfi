@@ -1,32 +1,62 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic' 
+import Head from 'next/head'
 import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
-import { getSession } from 'next-auth/react'
-import prisma from '../lib/prisma'
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { useRouter } from 'next/router'
 import RemoveAccount from "../components/modals/remove-account-modal"
 import PlaidLink from "../components/plaid-link"
 import CancelModal from '../components/modals/cancel-modal'
-import Head from 'next/head'
+import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ({ showError, user, linked_user, accounts }) {
+const Settings = ({ showError }) => {
+  const { data: session } = useSession()
+  const user = session?.user
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
   const [openCancelModal, setCancelOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [removedAccounts, setRemovedAccounts] = useState([])
   const router = useRouter()
+  const [linkedUser, setLinkedUser] = useLocalStorage('linked_user', '')
+  const [accounts, setAccounts] = useLocalStorage('settings_accounts', {})
+
+  useEffect(() => {
+    if(Object.keys(accounts).length <= 0){
+      getSettings()
+    }
+  }, [user])
+
+  const getSettings = async () => {
+    const res = await fetch(`/api/get_settings`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    if(error){
+      showError(error)
+    } else {
+      setLinkedUser(data.linked_user)
+      setAccounts(data.accounts)
+    }
+  }
 
   const send = async (e) => {
     e.preventDefault()
+    clearLocalStorage()
     const res = await fetch(`/api/send_link_token`, {
       body: JSON.stringify({
-        user_id: user.id,
-        from_email: user.email,
+        user_id: user?.id,
+        from_email: user?.email,
         to_email: email
       }),
       headers: {
@@ -41,6 +71,7 @@ export default function ({ showError, user, linked_user, accounts }) {
 
   const remove = async (e) => {
     e.preventDefault()
+    clearLocalStorage()
     const res = await fetch(`/api/remove_link`, {
       body: JSON.stringify({
         user
@@ -56,6 +87,7 @@ export default function ({ showError, user, linked_user, accounts }) {
   }
 
   const removeToken = async (access_token) => {
+    clearLocalStorage()
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({
         access_token,
@@ -67,7 +99,7 @@ export default function ({ showError, user, linked_user, accounts }) {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(!error) getSettings()
   }
 
   return (
@@ -97,7 +129,7 @@ export default function ({ showError, user, linked_user, accounts }) {
             <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Name</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                <div className="text-gray-900">{user.name}</div>
+                <div className="text-gray-900">{user?.name}</div>
                 {/* <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
                   Update
                 </button> */}
@@ -106,16 +138,16 @@ export default function ({ showError, user, linked_user, accounts }) {
             <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Email address</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                <div className="text-gray-900">{user.email}</div>
+                <div className="text-gray-900">{user?.email}</div>
               </dd>
             </div>
 
             {
-              linked_user ?
+              linkedUser ?
               <div className="pt-6 sm:flex items-center">
                 <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Linked Account</dt>
                 <form onSubmit={remove} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
-                  <div className="text-gray-900">{linked_user.email}</div>                 
+                  <div className="text-gray-900">{linkedUser.email}</div>                 
                   <button onClick={remove} type="button" className="flex font-semibold text-red-600 hover:text-red-500 justify-end">
                     Remove
                   </button>
@@ -150,24 +182,26 @@ export default function ({ showError, user, linked_user, accounts }) {
           <ul role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
             {
               Object.keys(accounts).map(key => {
-                return (
-                  <div key={key} className="flex justify-between gap-x-6 py-6">
-                    <li>
-                      { accounts[key].map((a, i) => (
-                        <>
-                          { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution}</p>}
-                          <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
-                            <span className="font-light">{a.official_name}</span> 
-                            <span className="text-red-500">{!a.active && 'Hidden'}</span>
-                          </div>
-                        </>
-                      )) }
-                    </li>
-                    <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
-                      Remove Connection
-                    </button>
-                  </div>
-                )
+                if(Object.keys(accounts)?.length > 0){
+                  return (
+                    <div key={key} className="flex justify-between gap-x-6 py-6">
+                      <li>
+                        { accounts[key].map((a, i) => (
+                          <>
+                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution}</p>}
+                            <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
+                              <span className="font-light">{a.official_name}</span> 
+                              <span className="text-red-500">{!a.active && 'Hidden'}</span>
+                            </div>
+                          </>
+                        )) }
+                      </li>
+                      <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
+                        Remove Connection
+                      </button>
+                    </div>
+                  )
+                }
               })
             }
           </ul>
@@ -263,55 +297,6 @@ export default function ({ showError, user, linked_user, accounts }) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const session= await getSession(context)
-  const user = session?.user
+Settings.requireAuth = true;
 
-  if(!user) return {
-    redirect: {
-      destination: '/',
-      permanent: false,
-    }
-  }
-
-  // @ts-ignore
-  const { linked_user_id, id, email } = user
-
-  if(!email) return {
-    redirect: {
-      destination: '/',
-      permanent: false,
-    }
-  }
-  let linked_user = null
-  if(linked_user_id){
-    linked_user = await prisma.user.findUnique({
-      where: { id: linked_user_id }
-    })
-  }
-  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-  const a = await prisma.accounts.findMany({
-    where: {
-      OR: query,
-      NOT: {
-        account_id: null
-      }
-    },
-    select: {
-      name: true,
-      institution: true,
-      official_name: true,
-      access_token: true,
-      active: true,
-      item_id: true
-    },
-  })
-
-  const accounts = a.reduce(function (r, a) {
-    r[a.item_id] = r[a.item_id] || [];
-    r[a.item_id].push(a);
-    return r;
-  }, Object.create(null))
-  
-  return { props: { user, linked_user, accounts } }
-}
+export default dynamic(() => Promise.resolve(Settings), { ssr: false })
