@@ -92,6 +92,7 @@ const NetWorth = ({ showError }) => {
     setLoading(true)
     fetch(`/api/update_crypto_price`, {
       body: JSON.stringify({
+        // @ts-ignore
         user_id: user.id,
       }),
       headers: {
@@ -101,6 +102,7 @@ const NetWorth = ({ showError }) => {
     })
     fetch(`/api/update_stock_price`, {
       body: JSON.stringify({
+        // @ts-ignore
         user_id: user.id,
       }),
       headers: {

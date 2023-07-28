@@ -55,6 +55,7 @@ const Settings = ({ showError }) => {
     clearLocalStorage()
     const res = await fetch(`/api/send_link_token`, {
       body: JSON.stringify({
+        // @ts-ignore
         user_id: user?.id,
         from_email: user?.email,
         to_email: email
