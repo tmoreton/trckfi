@@ -97,6 +97,7 @@ const Dashboard = ({ newUser, showError }) => {
     clearLocalStorage()
     const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({
+        // @ts-ignore
         user_id: user.id,
       }),
       headers: {
@@ -213,46 +214,4 @@ const Dashboard = ({ newUser, showError }) => {
   )
 }
 
-export default dynamic(() => Promise.resolve(Dashboard), { ssr: false });
-
-
-// export async function getServerSideProps(context) {
-//   const { new_user } = context.query
-//   const session = await getSession(context)
-//   const user = session?.user
-
-//   if(!user) return { 
-//     redirect: {
-//       destination: '/auth/email-signin',
-//       permanent: false,
-//     },
-//   }
-//   // @ts-ignore
-//   if(!user.subscription_id && !user.linked_user_id || !user.active) return {
-//     redirect: {
-//       destination: '/pricing',
-//       permanent: false,
-//     },
-//   }
-//   // @ts-ignore
-//   if(!user.subscription_id && user.linked_user_id) {
-//     const linked_user = await prisma.user.findUnique({
-//       // @ts-ignore
-//       where: { id: user.linked_user_id }
-//     })
-//     if(linked_user?.subscription_id){
-//       if (new_user) return { props: { user, newUser: true } }
-//       return { props: { user, newUser: false } }
-//     } else {
-//       return {
-//         redirect: {
-//           destination: '/getting-started',
-//           permanent: false,
-//         }
-//       }
-//     }
-//   }
-  
-//   if (new_user) return { props: { user, newUser: true } }
-//   return { props: { user, newUser: false } }
-// }
+export default dynamic(() => Promise.resolve(Dashboard), { ssr: false })

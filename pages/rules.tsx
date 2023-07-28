@@ -20,6 +20,4 @@ const Rules = ({ showError }) => {
   )
 }
 
-Rules.requireAuth = true;
-
 export default Rules

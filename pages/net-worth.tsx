@@ -270,4 +270,4 @@ const NetWorth = ({ showError }) => {
   )
 }
 
-export default dynamic(() => Promise.resolve(NetWorth), { ssr: false });
+export default dynamic(() => Promise.resolve(NetWorth), { ssr: false })
