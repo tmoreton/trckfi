@@ -19,15 +19,14 @@ import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 const Dashboard = ({ newUser, showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const email = user?.email
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [setupModal, openSetupModal] = useState(newUser || false)
   const [openDatePicker, setDatePicker] = useState(false)
-  const [weeklyData, setWeeklyData] = useState([])
   const [selected, setSelected] = useState([])
+  const [weeklyData, setWeeklyData] = useLocalStorage('weekly_data', [])
   const [totalStats, setStats] = useLocalStorage('total_stats', [])
   const [t, setTransactions] = useLocalStorage('transactions', [])
   const [incomeData, setIncomeData] = useLocalStorage('income_data', [])
@@ -41,46 +40,37 @@ const Dashboard = ({ newUser, showError }) => {
   })
 
   useEffect(() => {
-    // if(newUser){
-    //   router.replace('/dashboard', undefined, { shallow: true })
-    // }
-    // getDashboard()
-  }, [email])
-
-
-  useEffect(() => {
-    if(dates){
+    if(t.length <= 0){
       getDashboard()
     }
-  }, [dates])
+  }, [])
 
   const getDashboard = async () => {
-    if(t.length <= 0){
-      setSelected([])
-      setDatePicker(false)
-      setRefreshing(true)
-      const res = await fetch(`/api/get_dashboard`, {
-        body: JSON.stringify({
-          user,
-          range: dates
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      })
-      const { error, stats, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
-      showError(error)
-      setExpenseData(groupByMonth)
-      setIncomeData(groupByMonthIncome)
-      setWeeklyData(groupByWeek)
-      setStats(stats)
-      setTransactions(transactions)    
-      setCategories(categories)
-      setEmojiCategories(emojiCategories)
-      setDetailedCategories(detailedCategories)
-      setRefreshing(false)
-    }
+    setSelected([])
+    setDatePicker(false)
+    setRefreshing(true)
+    const res = await fetch(`/api/get_dashboard`, {
+      body: JSON.stringify({
+        user,
+        range: dates
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, stats, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
+    showError(error)
+    setExpenseData(groupByMonth)
+    setIncomeData(groupByMonthIncome)
+    setWeeklyData(groupByWeek)
+    setStats(stats)
+    setTransactions(transactions)    
+    setCategories(categories)
+    setEmojiCategories(emojiCategories)
+    setDetailedCategories(detailedCategories)
+    setRefreshing(false)
+    setLoading(false)
   }
 
   const updateTransaction = (item) => {
@@ -106,7 +96,7 @@ const Dashboard = ({ newUser, showError }) => {
       method: 'POST',
     })
     const { error } = await res.json()
-    if(!error) router.reload()
+    if(!error) getDashboard()
     showError(error)
   }
 
@@ -196,7 +186,7 @@ const Dashboard = ({ newUser, showError }) => {
   ]
 
   const datePicker = () => {
-    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} />
+    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} getDashboard={getDashboard} />
   }
   
   return (
