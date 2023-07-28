@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DateRangePicker } from 'react-date-range'
 
-export default function ({ openDatePicker, setDatePicker, dates, setDates }) {
+export default function ({ openDatePicker, setDatePicker, dates, setDates, getDashboard }) {
   const [dateRange, updateDateRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -15,6 +15,7 @@ export default function ({ openDatePicker, setDatePicker, dates, setDates }) {
       endDate: new Date(dates.startDate),
       key: 'selection',
     })
+    getDashboard()
   }, [dates])
 
   return (

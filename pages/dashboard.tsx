@@ -43,7 +43,8 @@ const Dashboard = ({ newUser, showError }) => {
     if(t.length <= 0){
       getDashboard()
     }
-  }, [])
+    console.log(dates)
+  }, [dates])
 
   const getDashboard = async () => {
     setSelected([])
