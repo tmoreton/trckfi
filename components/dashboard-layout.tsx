@@ -19,7 +19,7 @@ import Logo from '../assets/trckfi-black.jpg'
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Accounts', href: '/net-worth', icon: ChartBarIcon },
-  { name: 'Custom Rules', href: '/rules', icon: AdjustmentsHorizontalIcon },
+  // { name: 'Custom Rules', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleOvalLeftEllipsisIcon },
 ]
