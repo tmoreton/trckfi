@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DateRangePicker } from 'react-date-range'
-import { DateTime } from "luxon"
 
 export default function ({ openDatePicker, setDatePicker, dates, setDates, setReload }) {
   const [dateRange, updateDateRange] = useState({

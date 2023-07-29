@@ -25,6 +25,7 @@ export default async (req, res) => {
         amount: true,
       },
     })
+    console.log(DateTime.now().minus({ months: 1 }).startOf('month').toISO())
 
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
