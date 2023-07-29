@@ -55,7 +55,7 @@ const NetWorth = ({ showError }) => {
       getNetWorth()
     }
     // For development
-    getNetWorth()
+    // getNetWorth()
   }, [user])
 
   const editAccount = (a) => {

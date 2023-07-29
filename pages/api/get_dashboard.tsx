@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
-import { DateTime } from "luxon";
 
 export default async (req, res) => {
   const { user, range } = req.body
@@ -37,27 +36,10 @@ export default async (req, res) => {
         week_year: 'asc'
       },
     })
+    // @ts-ignore
     groupByWeek.sort((a, b) => b.week_year.split('-')[1] - a.week_year.split('-')[1])
 
-    const account_balance = await prisma.accounts.aggregate({
-      where: { 
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
-        active: true,
-        OR: [
-          { type: 'credit' },
-          { type: 'depository' },
-        ],
-      },
-      _sum: {
-        amount: true,
-      },
-    })
-
-    let groupByMonthIncome = []
-    groupByMonthIncome = await prisma.transactions.groupBy({
+    let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
         OR: [
@@ -82,8 +64,7 @@ export default async (req, res) => {
       },
     })
 
-    let groupByMonth = []
-    groupByMonth = await prisma.transactions.groupBy({
+    let groupByMonth = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
         OR: [
@@ -206,37 +187,13 @@ export default async (req, res) => {
       include: {
         account: true
       },
-      // select: {
-      //   id: true,
-      //   name: true,
-      //   primary_category: true,
-      //   detailed_category: true,
-      //   item_id: true,
-      //   amount: true,
-      //   active: true,
-      //   date: true,
-      //   unified: true,
-      //   notes: true,
-      //   alert_date: true
-      // },
       orderBy: {
         date: 'desc'
       },
     })
-    // transactions = transactions.filter(t => t.account.active)
-
-    const stats = {
-      lastMonthTotal: groupByMonth[1]?._sum?.amount,
-      thisMonthTotal: groupByMonth[0]?._sum?.amount,
-      thisMonthString: DateTime.now().startOf('month').monthLong,
-      lastMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
-      lastMonthIncome: groupByMonthIncome[1]?._sum?.amount,
-      thisMonthIncome: groupByMonthIncome[0]?._sum?.amount,
-      accountBalance: account_balance._sum?.amount
-    }
+    transactions = transactions.filter(t => t.account.active)
     
     return res.status(200).json({ 
-      stats, 
       transactions, 
       categories,
       detailedCategories,

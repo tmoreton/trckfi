@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon } from '@heroicons/react/20/solid'
-import { snakeCase } from "snake-case"
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { addComma } from '../lib/formatNumber'
 import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
-import { PinkBtn, InverseBtn } from './pink-btn'
+import { InverseBtn } from './pink-btn'
 
 export default function ({ columns, data, selected, setSelected, setEdit, datePicker }) {
   if (!data || !columns) return null
@@ -135,10 +134,11 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
                 />
               </span>
             </div>
-            <input                          
+            <input
               onChange={(e) => setFilter(column.id, e.target.value)}
               placeholder={`Filter ${column.render("Header")}`}
               className="w-full font-normal rounded p-2 my-4 focus:outline-none pink-border"
+              value={column.filterValue}
             />
           </>
         )
@@ -180,7 +180,6 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
           <InverseBtn onClick={() => {}}>
             Download CSV
           </InverseBtn>
-          
         </CSVLink>
       </div>
 

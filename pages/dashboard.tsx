@@ -43,8 +43,21 @@ const Dashboard = ({ newUser, showError }) => {
   useEffect(() => {
     if(t.length <= 0 || reload){
       getDashboard()
+      getStats()
     }
   }, [dates])
+
+  const getStats = async () => {
+    const res = await fetch(`/api/get_stats`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { stats } = await res.json()
+    setStats(stats)
+  }
 
   const getDashboard = async () => {
     setSelected([])
@@ -60,12 +73,11 @@ const Dashboard = ({ newUser, showError }) => {
       },
       method: 'POST',
     })
-    const { error, stats, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
+    const { error, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
     showError(error)
     setExpenseData(groupByMonth)
     setIncomeData(groupByMonthIncome)
     setWeeklyData(groupByWeek)
-    setStats(stats)
     setTransactions(transactions)    
     setCategories(categories)
     setEmojiCategories(emojiCategories)
@@ -201,7 +213,7 @@ const Dashboard = ({ newUser, showError }) => {
       <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
       <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
+      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker} reload={reload}/>
     </DashboardLayout>
   )
 }

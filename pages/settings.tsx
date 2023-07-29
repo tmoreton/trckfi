@@ -30,7 +30,7 @@ const Settings = ({ showError }) => {
       getSettings()
     }
     // For development
-    getSettings()
+    // getSettings()
   }, [user])
 
   const getSettings = async () => {

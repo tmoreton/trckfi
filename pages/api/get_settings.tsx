@@ -25,14 +25,6 @@ export default async (req, res) => {
       include: {
         plaid: true
       }
-      // select: {
-      //   name: true,
-      //   institution: true,
-      //   official_name: true,
-      //   access_token: true,
-      //   active: true,
-      //   item_id: true
-      // },
     })
 
     const accounts = a.reduce(function (r, a) {
