@@ -40,10 +40,7 @@ const Dashboard = ({ newUser, showError }) => {
   })
 
   useEffect(() => {
-    if(t.length <= 0 || reload){
-      getDashboard()
-      getStats()
-    }
+    if(t.length <= 0 || reload) getDashboard()      
   }, [dates])
 
   const getStats = async () => {
@@ -84,6 +81,7 @@ const Dashboard = ({ newUser, showError }) => {
     setRefreshing(false)
     setLoading(false)
     setReload(false)
+    getStats()
   }
 
   // const updateTransaction = (item) => {

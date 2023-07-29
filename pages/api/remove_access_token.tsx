@@ -18,7 +18,7 @@ export default async (req, res) => {
     if(response.data){
       await prisma.plaid.updateMany({
         where: {
-          access_token: plaidAccount.access_token
+          item_id: plaidAccount.item_id
         },
         data: {
           active: false,
@@ -26,7 +26,7 @@ export default async (req, res) => {
       })
       await prisma.accounts.updateMany({
         where: {
-          access_token: plaidAccount.access_token
+          item_id: plaidAccount.item_id
         },
         data: {
           active: false,
