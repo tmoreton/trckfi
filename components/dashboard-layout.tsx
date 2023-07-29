@@ -41,9 +41,9 @@ export default function ({ children }) {
                   <Link href='/' className="flex">
                     <div className="pb-4 flex justify-center items-center">
                       <Image
-                        src='/trckfi-black.png'
+                        src='/trckfi-black-sm.png'
                         alt='Trckfi'
-                        width={250}
+                        width={200}
                         height={100}
                       />
                     </div>
