@@ -57,7 +57,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(value)
     setTransaction({ ...transaction, [name]: value })
   }
 

@@ -19,6 +19,9 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        account_id: {
+          not: null
+        },
       },
       orderBy: {
         // @ts-ignore
