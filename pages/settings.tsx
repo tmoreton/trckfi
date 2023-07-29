@@ -216,8 +216,8 @@ const Settings = ({ showError }) => {
           </ul>
 
           <div className="flex border-t border-gray-100 pt-6">
-            <PlaidLink user={user} showError={showError} />
-            {/* { (Object.keys(accounts)?.length <= 10) ? <PlaidLink user={user} showError={showError} /> : <p className="text-sm leading-6 text-red-600 font-bold">Please remove account link to add more...</p>} */}
+            <PlaidLink user={user} showError={showError} access_token={null}/>
+            {/* { (Object.keys(accounts)?.length <= 10) ? <PlaidLink user={user} showError={showError} access_token={null} /> : <p className="text-sm leading-6 text-red-600 font-bold">Please remove account link to add more...</p>} */}
           </div>
         </div>
 

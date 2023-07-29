@@ -154,7 +154,7 @@ const NetWorth = ({ showError }) => {
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Crypto
         </button>
-        <PlaidLink user={user} showError={showError} />
+        <PlaidLink user={user} showError={showError} access_token={null}/>
         <button  onClick={() => setOpenManually(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Manually

@@ -48,7 +48,7 @@ export default ({ user, open, openSetupModal, showError }) => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <PlaidLink user={user} showError={showError} />
+                  <PlaidLink user={user} showError={showError} access_token={null}/>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
