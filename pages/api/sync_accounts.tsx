@@ -66,7 +66,10 @@ export default async (req, res) => {
 
       await prisma.plaid.update({
         where: { item_id: plaid_accounts[p].item_id },
-        data: { cursor: next_cursor }
+        data: { 
+          cursor: next_cursor,
+          error_code: null
+        }
       })
       
     } catch (error) {

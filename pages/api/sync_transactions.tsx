@@ -69,12 +69,14 @@ export default async (req, res) => {
 
     await prisma.plaid.update({
       where: { access_token: access_token },
-      data: { cursor: next_cursor }
+      data: { 
+        cursor: next_cursor,
+        error_code: null
+      }
     })
 
     return res.status(200).json({ has_more: has_more })
   } catch (error) {
-    console.error(error.response.data)
     await prisma.plaid.update({
       where: { access_token: access_token },
       // @ts-ignore
