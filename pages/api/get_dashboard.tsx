@@ -177,12 +177,12 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' },
-        ],
+        // NOT: [
+        //   { primary_category: 'LOAN_PAYMENTS' },
+        //   { primary_category: 'TRANSFER_IN' },
+        //   { primary_category: 'TRANSFER_OUT' },
+        //   { primary_category: 'INCOME' },
+        // ],
       },
       include: {
         account: true

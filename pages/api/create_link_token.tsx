@@ -13,7 +13,6 @@ export default async (req, res) => {
   }
 
   if(access_token) params['access_token'] = access_token
-  console.log(params)  
   try {
     // @ts-ignore
     const { data } = await plaidClient.linkTokenCreate(params);

@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 export default ({ refreshing, text }) => {
   return (
     <Transition.Root show={refreshing} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => console.log("close")}>
+      <Dialog as="div" className="relative z-10" onClose={() => {}}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

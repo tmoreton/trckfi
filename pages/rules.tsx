@@ -8,7 +8,6 @@ const Rules = ({ showError }) => {
   const user = session?.user
 
   useEffect(() => {
-    console.log(user)
   }, [])
 
   return(
