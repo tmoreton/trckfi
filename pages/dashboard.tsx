@@ -14,7 +14,7 @@ import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { snakeCase } from "snake-case";
 import { useSession } from "next-auth/react"
-import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
+import { useLocalStorage, clearLocalStorage, removeLocalStorage } from "../utils/useLocalStorage"
 
 const Dashboard = ({ newUser, showError }) => {
   const { data: session } = useSession()
@@ -87,14 +87,14 @@ const Dashboard = ({ newUser, showError }) => {
     setReload(false)
   }
 
-  const updateTransaction = (item) => {
-    let updatedTransactions = t
-    item.primary_category = snakeCase(item.primary_category).toUpperCase()
-    item.detailed_category = snakeCase(item.detailed_category).toUpperCase()
-    let foundIndex = updatedTransactions.findIndex(t => t.id == item.id)
-    updatedTransactions[foundIndex] = item
-    setTransactions(updatedTransactions)
-  }
+  // const updateTransaction = (item) => {
+  //   let updatedTransactions = t
+  //   item.primary_category = snakeCase(item.primary_category).toUpperCase()
+  //   item.detailed_category = snakeCase(item.detailed_category).toUpperCase()
+  //   let foundIndex = updatedTransactions.findIndex(t => t.id == item.id)
+  //   updatedTransactions[foundIndex] = item
+  //   setTransactions(updatedTransactions)
+  // }
 
   const refresh = async () => {
     clearLocalStorage()
@@ -210,10 +210,10 @@ const Dashboard = ({ newUser, showError }) => {
       </Head>
       <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} />
       <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-      <TransactionModal updateTransaction={updateTransaction} user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
+      <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
       <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
       <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker} reload={reload}/>
+      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
     </DashboardLayout>
   )
 }

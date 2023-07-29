@@ -7,7 +7,7 @@ import { PinkBtn } from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 
-export default function ({ item, setEdit, getDashboard, showError, selected, user, updateTransaction }) {
+export default function ({ item, setEdit, getDashboard, showError, selected, user }) {
   const defaultTransaction = {
     name: null,
     primary_category: null,
@@ -30,7 +30,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     setIds(selected.map(s => s.id))
     setTransaction(item)
     if(item?.date){
-      setStartDate(new Date(item.date))
+      console.log(item.date)
+      console.log(new Date(item.date))
+      console.log(new Date(item.date).toISOString())
+      setStartDate(new Date(item.date.replace(/-/g, '\/')))
     } else {
       setStartDate(null)
     }
@@ -40,7 +43,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   }, [item, selected])
 
   useEffect(() => {
-    const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')
+    const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')   
     setTransaction({ ...transaction, date: date_time })
   }, [startDate])
 
@@ -60,9 +63,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
 
   const update = async () => {
     setEdit({})
-    if(ids.length <= 1){
-      updateTransaction(transaction)
-    }
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
         transaction,
@@ -75,9 +75,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     })
     const { error } = await res.json()
     showError(error)
-    if(ids.length > 1){
-      getDashboard()
-    }
+    if(!error) getDashboard()
   }
 
   const remove = async () => {
