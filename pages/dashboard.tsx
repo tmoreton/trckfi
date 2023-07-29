@@ -12,7 +12,6 @@ import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
-import { snakeCase } from "snake-case";
 import { useSession } from "next-auth/react"
 import { useLocalStorage, clearLocalStorage, removeLocalStorage } from "../utils/useLocalStorage"
 
@@ -124,16 +123,18 @@ const Dashboard = ({ newUser, showError }) => {
   }
 
   const renderImg = (account) => {
-    let image_url = `/assets/banks/${account.institution}.png`
-    return <img
-      src={image_url}
-      alt={account.institution}
-      onError={({ currentTarget }) => {
-        currentTarget.onerror = null;
-        currentTarget.src="/assets/banks/bank.png";
-      }}
-      className="h-5 w-5 flex-none rounded-md object-cover"
-    />
+    if(account){
+      let image_url = `/assets/banks/${account.institution}.png`
+      return <img
+        src={image_url}
+        alt={account.institution}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src="/assets/banks/bank.png";
+        }}
+        className="h-5 w-5 flex-none rounded-md object-cover"
+      />
+    }
   }
 
   const columns = [
@@ -158,8 +159,8 @@ const Dashboard = ({ newUser, showError }) => {
     {
       Header: "Account",
       id: "account.name",
-      accessor: data => data.account.name,
-      Cell: ({ cell: value }) => <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>,
+      accessor: data => data?.account?.name,
+      Cell: ({ cell: value }) => value.row.original.account && <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>,
       style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
     },
     {

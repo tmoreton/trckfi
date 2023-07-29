@@ -6,7 +6,7 @@ import { DateTime } from "luxon"
 export default async (req, res) => {
   const { transaction, ids } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date } = transaction
+  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id } = transaction
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {
@@ -21,9 +21,10 @@ export default async (req, res) => {
         if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
         if (alert_date) data['alert_date'] = alert_date
+        if (account_id) data['account_id'] = account_id
         if (date) {
           data['date'] = date
-          data['authorized_date'] = new Date(date)
+          data['authorized_date'] = new Date(date.replace(/-/g, '\/'))
           data['month_year'] = date.substring(0,7)
           data['week_year'] = `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
         }
@@ -42,6 +43,7 @@ export default async (req, res) => {
           detailed_category: snakeCase(detailed_category).toUpperCase(),
           name,
           unified,
+          account_id,
           notes,
           date,
           alert_date,

@@ -6,7 +6,7 @@ import { DateTime } from "luxon";
 export default async (req, res) => {
   const { transaction, user } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { name, unified, primary_category, detailed_category, amount, notes, date } = transaction
+  const { name, unified, primary_category, detailed_category, amount, notes, date, account_id } = transaction
   try {
     let data = { 
       amount: Number(amount).toFixed(2),
@@ -20,6 +20,7 @@ export default async (req, res) => {
       name,
       unified,
       notes,
+      account_id,
       user_id: user.id,
     }
     await prisma.transactions.create({ data })

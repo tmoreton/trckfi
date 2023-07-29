@@ -24,8 +24,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   const [showEmoji, updateShowEmoji] = useState(false)
   const [startDate, setStartDate] = useState(null)
   const [alertDate, setAlertDate] = useState(null)
+  const [accounts, setAccounts] = useState([])
 
   useEffect(() => {
+    getAccounts()
     setAlertDate(null)
     setIds(selected.map(s => s.id))
     setTransaction(item)
@@ -55,7 +57,21 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(value)
     setTransaction({ ...transaction, [name]: value })
+  }
+
+  const getAccounts = async () => {
+    const res = await fetch(`/api/get_accounts`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    if(!error) setAccounts(data)
   }
 
   const update = async () => {
@@ -153,6 +169,26 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                       :
                       <>
                         <form>
+                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                            <div className="w-full">
+                            <label 
+                                htmlFor="account_id" 
+                                className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Account
+                              </label>
+                              <select
+                                id="account_id"
+                                name="account_id"
+                                onChange={handleChange}
+                                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
+                              >
+                                {accounts.map((a) => (
+                                  <option value={a.account_id} label={`${a.name} - ${a.official_name}`}/>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
                           <div className="relative z-0 w-full mb-6 group inline-flex">
                             <div className="w-full">
                               <input 

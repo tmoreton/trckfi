@@ -191,7 +191,8 @@ export default async (req, res) => {
         date: 'desc'
       },
     })
-    transactions = transactions.filter(t => t.account.active)
+    // Need to account for transactions with no account
+    // transactions = transactions.filter(t => t.account.active)
     
     return res.status(200).json({ 
       transactions, 

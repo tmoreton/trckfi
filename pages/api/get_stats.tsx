@@ -81,7 +81,7 @@ export default async (req, res) => {
         month_year: 'desc'
       },
     })
-    console.log(groupByMonth)
+
     const stats = {
       lastMonthTotal: groupByMonth[1]?._sum?.amount,
       thisMonthTotal: groupByMonth[0]?._sum?.amount,

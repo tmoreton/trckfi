@@ -1,53 +1,32 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
-import plaidClient from '../../utils/plaid';
-import { getAmount } from '../../lib/formatNumber'
 
 export default async (req, res) => {
-  let { user_id, access_token } = req.body
-  
-  if (!user_id || !access_token) return res.status(500)
+  let { user } = req.body
+  if (!user ) return res.status(500)
 
-  const plaidAccount = await prisma.plaid.findUnique({
-    where: {
-      access_token: access_token
-    },
-  })
-  
-  // @ts-ignore
   try {
-    const response = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
-    let accounts = response.data.accounts
-    for (var i in accounts) {
-      await prisma.accounts.upsert({
-        where: { 
-          account_id: accounts[i].account_id
-        },
-        update: {
-          // @ts-ignore
-          details: accounts[i].balances,
-          amount: getAmount(accounts[i]),
-          active: true
-        },
-        create: {
-          access_token: plaidAccount.access_token,
-          item_id: plaidAccount.item_id,
-          account_id: accounts[i].account_id,
-          name: accounts[i].name,
-          // @ts-ignore
-          details: accounts[i].balances,
-          official_name: accounts[i].official_name || accounts[i].name,
-          // @ts-ignore
-          institution:  plaidAccount.institution,
-          subtype: accounts[i].subtype,
-          type: accounts[i].type,
-          user_id: user_id,
-          amount: getAmount(accounts[i]),
-        },
+    const { id, linked_user_id } = user
+
+    let linked_user = null
+    if(linked_user_id){
+      linked_user = await prisma.user.findUnique({
+        where: { id: linked_user_id }
       })
     }
-
-    return res.status(200).json({ status: 'OK' })
+    const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
+    const accounts = await prisma.accounts.findMany({
+      where: {
+        OR: query,
+        active: true,
+      },
+      orderBy: {
+        // @ts-ignore
+        updated_at: 'desc',
+      },
+    })
+  
+    return res.status(200).json({ status: 'OK', data: accounts})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })

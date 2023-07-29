@@ -40,7 +40,7 @@ export default function ({ showError, user, access_token }) {
   }
 
   const getAccounts = async (access_token) => {
-    const res = await fetch(`/api/get_accounts`, {
+    const res = await fetch(`/api/get_plaid_accounts`, {
       body: JSON.stringify({
         user_id: user.id,
         access_token: access_token

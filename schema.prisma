@@ -76,7 +76,6 @@ model Accounts {
   subtype       String?
   type          String?
   user_id       String?        @map("user_id")
-  access_token  String?
   item_id       String?
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
