@@ -6,6 +6,8 @@ import {
   Cog6ToothIcon,
   UserCircleIcon,
   UsersIcon,
+  AdjustmentsHorizontalIcon,
+  ChatBubbleOvalLeftEllipsisIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -16,10 +18,10 @@ import Logo from '../assets/trckfi-black.jpg'
 
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
-  { name: 'Net Worth', href: '/net-worth', icon: ChartBarIcon },
-  // { name: 'Custom Rules', href: '/rules', icon: UserCircleIcon },
+  { name: 'Accounts', href: '/net-worth', icon: ChartBarIcon },
+  { name: 'Custom Rules', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
-  { name: 'Feedback', href: '/feedback', icon: UserCircleIcon },
+  { name: 'Feedback', href: '/feedback', icon: ChatBubbleOvalLeftEllipsisIcon },
 ]
 
 function classNames(...classes) {

@@ -16,7 +16,7 @@ import { snakeCase } from "snake-case";
 import { useSession } from "next-auth/react"
 import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
-const Dashboard = ({ newUser, showError, props }) => {
+const Dashboard = ({ newUser, showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
@@ -41,7 +41,6 @@ const Dashboard = ({ newUser, showError, props }) => {
   })
 
   useEffect(() => {
-    console.log(props)
     if(t.length <= 0 || reload){
       getDashboard()
     }

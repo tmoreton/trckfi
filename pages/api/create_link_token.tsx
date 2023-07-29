@@ -2,7 +2,7 @@
 import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
-  const { user_id } = req.body
+  const { access_token } = req.body
   const params = {
     user: { client_user_id: process.env.PLAID_CLIENT_ID },
     client_name: 'Trckfi',
@@ -11,11 +11,13 @@ export default async (req, res) => {
     country_codes: ['US'],
     webhook: 'https://trckfi.com/api/plaid_webhook'
   }
-  
+
+  if(access_token) params['access_token'] = access_token
+  console.log(params)  
   try {
     // @ts-ignore
     const { data } = await plaidClient.linkTokenCreate(params);
-    return res.status(200).json({ link_token: data.link_token, user_id })
+    return res.status(200).json({ link_token: data.link_token })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })

@@ -22,14 +22,17 @@ export default async (req, res) => {
           account_id: null
         }
       },
-      select: {
-        name: true,
-        institution: true,
-        official_name: true,
-        access_token: true,
-        active: true,
-        item_id: true
-      },
+      include: {
+        plaid: true
+      }
+      // select: {
+      //   name: true,
+      //   institution: true,
+      //   official_name: true,
+      //   access_token: true,
+      //   active: true,
+      //   item_id: true
+      // },
     })
 
     const accounts = a.reduce(function (r, a) {

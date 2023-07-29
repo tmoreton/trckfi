@@ -54,6 +54,8 @@ const NetWorth = ({ showError }) => {
     if(accounts.length <= 0){
       getNetWorth()
     }
+    // For development
+    getNetWorth()
   }, [user])
 
   const editAccount = (a) => {
@@ -83,6 +85,7 @@ const NetWorth = ({ showError }) => {
     } else {
       setStats(data.net_worth_stats)
       setAccounts(data.accounts)
+      console.log(data.accounts)
     }
     setLoading(false)
   }
@@ -237,6 +240,7 @@ const NetWorth = ({ showError }) => {
                               {a.subtype}
                             </div>
                           </div>
+                          {/* {a.plaid?.error_code} */}
                         </div>
                         <div className="absolute bottom-0 right-full h-px w-screen bg-gray-100" />
                         <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />

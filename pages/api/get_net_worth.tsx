@@ -29,6 +29,9 @@ export default async (req, res) => {
         // @ts-ignore
         updated_at: 'desc',
       },
+      include: {
+        plaid: true
+      }
     })
   
     let total_assets = 0

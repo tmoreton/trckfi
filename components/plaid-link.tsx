@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { usePlaidLink } from 'react-plaid-link'
 import { useRouter } from 'next/router'
-import { PlusIcon } from '@heroicons/react/20/solid'
+import { PlusIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 
-export default function ({ showError, user }) {
+export default function ({ showError, user, access_token }) {
   const [linkToken, setLinkToken] = useState(null)
   const router = useRouter()
 
@@ -15,6 +15,7 @@ export default function ({ showError, user }) {
 
   const generateToken = async () => {
     const response = await fetch('/api/create_link_token', {
+      body: JSON.stringify({ access_token }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -72,16 +73,24 @@ export default function ({ showError, user }) {
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
-      const access_token = await getAccessToken({ public_token, user_id: user.id, metadata })
       if(access_token){
         getAccounts(access_token)
       } else {
-        showError('Couldnt get access token, please try again')
+        let token = await getAccessToken({ public_token, user_id: user.id, metadata })
+        getAccounts(token)
       }
     },
   })
-
+  
   if(!linkToken) return null
+  if(access_token){
+    return (
+      <button onClick={() => open()} disabled={!ready} className="flex items-center font-semibold text-red-600 hover:text-red-500">
+        <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
+        Reconnect
+      </button>
+    )
+  }
   return (
     <button onClick={() => open()} disabled={!ready} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
       <PlusIcon className="h-5 w-5" aria-hidden="true" />

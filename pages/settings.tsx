@@ -29,6 +29,8 @@ const Settings = ({ showError }) => {
     if(Object.keys(accounts).length <= 0){
       getSettings()
     }
+    // For development
+    getSettings()
   }, [user])
 
   const getSettings = async () => {
@@ -189,17 +191,23 @@ const Settings = ({ showError }) => {
                       <li>
                         { accounts[key].map((a, i) => (
                           <>
-                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution}</p>}
+                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution} <span className="text-red-500 font-bold mt-4"> {a.plaid && a.plaid.error_code}</span></p>}
                             <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
                               <span className="font-light">{a.official_name}</span> 
                               <span className="text-red-500">{!a.active && 'Hidden'}</span>
                             </div>
+                            
                           </>
-                        )) }
+                        ))}
                       </li>
-                      <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
-                        Remove Connection
-                      </button>
+                      {
+                        accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED' ?
+                        <PlaidLink user={user} showError={showError} access_token={accounts[key][0]?.plaid?.access_token}/>
+                        :
+                        <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs text-red-600 hover:text-red-500">
+                          Remove Connection
+                        </button>
+                      }
                     </div>
                   )
                 }
