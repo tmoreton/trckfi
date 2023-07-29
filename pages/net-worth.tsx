@@ -51,11 +51,7 @@ const NetWorth = ({ showError }) => {
   const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', [])
 
   useEffect(() => {
-    if(accounts.length <= 0){
-      getNetWorth()
-    }
-    // For development
-    // getNetWorth()
+    getNetWorth()
   }, [user])
 
   const editAccount = (a) => {
@@ -85,7 +81,6 @@ const NetWorth = ({ showError }) => {
     } else {
       setStats(data.net_worth_stats)
       setAccounts(data.accounts)
-      console.log(data.accounts)
     }
     setLoading(false)
   }

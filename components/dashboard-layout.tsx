@@ -36,7 +36,7 @@ export default function ({ children }) {
       <div className="min-h-screen">
         <Container>
           <div className="mx-auto lg:flex lg:gap-x-0">
-            <aside className="flex overflow-x-auto border-b border-gray-900/5 py-4 lg:block lg:w-64 lg:flex-none lg:border-0 lg:py-12">
+            <aside className="flex overflow-x-auto border-b border-gray-900/5 py-4 lg:block lg:w-64 lg:flex-none lg:border-0 lg:py-6">
               <nav className="flex-none px-4 sm:px-6 lg:px-0 lg:pr-8">
                 <ul role="list" className="flex gap-x-3 gap-y-1 whitespace-nowrap lg:flex-col">
                   <Link href='/' className="flex">
@@ -93,7 +93,7 @@ export default function ({ children }) {
                 </ul>
               </nav>
             </aside>
-            <main className="px-4 py-10 sm:px-6 lg:flex-auto lg:px-0 lg:py-12">
+            <main className="px-4 py-10 sm:px-6 lg:flex-auto lg:px-0 lg:py-6">
               {children}
             </main>
           </div>
