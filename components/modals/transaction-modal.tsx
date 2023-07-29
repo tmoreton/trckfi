@@ -30,9 +30,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     setIds(selected.map(s => s.id))
     setTransaction(item)
     if(item?.date){
-      console.log(item.date)
-      console.log(new Date(item.date))
-      console.log(new Date(item.date).toISOString())
       setStartDate(new Date(item.date.replace(/-/g, '\/')))
     } else {
       setStartDate(null)

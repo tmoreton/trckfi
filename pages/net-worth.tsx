@@ -114,10 +114,7 @@ const NetWorth = ({ showError }) => {
       method: 'POST',
     })
     const res = await fetch(`/api/sync_accounts`, {
-      body: JSON.stringify({
-        // @ts-ignore
-        user_id: user.id,
-      }),
+      body: JSON.stringify({ user }),
       headers: {
         'Content-Type': 'application/json',
       },

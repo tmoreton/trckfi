@@ -57,9 +57,7 @@ export default function ({ showError, user, access_token }) {
 
   const syncAccounts = async () => {
     const res = await fetch(`/api/sync_accounts`, {
-      body: JSON.stringify({
-        user_id: user.id
-      }),
+      body: JSON.stringify({ user }),
       headers: {
         'Content-Type': 'application/json',
       },

@@ -5,16 +5,25 @@ import { DateTime } from "luxon"
 import { formatAmount, icons } from '../../lib/formatNumber'
 
 export default async (req, res) => {
-  let { user_id } = req.body
+  let { user } = req.body
 
-  if (!user_id) return res.status(500).json({ error: 'No Token or User' })
+  if (!user) return res.status(500).json({ error: 'No Token or User' })
+
+  const { id, linked_user_id } = user
+
+  let linked_user = null
+  if(linked_user_id){
+    linked_user = await prisma.user.findUnique({
+      where: { id: linked_user_id }
+    })
+  }
+  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
   const plaid_accounts = await prisma.plaid.findMany({
     where: {
-      user_id: user_id,
+      OR: query,
       active: true
     },
-    // @ts-ignore
     include: {
       accounts: true
     }
@@ -56,7 +65,7 @@ export default async (req, res) => {
             primary_category: added[i].personal_finance_category.primary,
             // @ts-ignore
             location: added[i].location,
-            user_id: user_id,
+            user_id: user.id,
             item_id: plaid_accounts[p].item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
