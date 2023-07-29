@@ -14,7 +14,6 @@ import { useRouter } from 'next/router'
 import { signOut } from "next-auth/react"
 import { clearLocalStorage } from "../utils/useLocalStorage"
 import Image from 'next/image'
-import Logo from '../assets/trckfi-black.jpg'
 
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
