@@ -44,8 +44,8 @@ export default function ({ setRemovedAccounts, removeToken, removedAccounts }) {
                         </p>
                         <ul>
                           {removedAccounts?.map((a) => (
-                            <li key={a.name} className="text-xs text-gray-500 font-normal mt-1">
-                              {a.name}
+                            <li key={a.name} className="text-xs text-gray-600 font-bold mt-1">
+                              - {a.name}
                             </li>
                           ))}
                         </ul>
