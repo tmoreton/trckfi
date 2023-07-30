@@ -116,6 +116,7 @@ const Settings = ({ showError }) => {
       method: 'POST',
     })
     const { error } = await res.json()
+    setRemovedAccounts([])
     showError(error)
     if(!error) getSettings()
   }
