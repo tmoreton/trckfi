@@ -48,6 +48,7 @@ export default async (req, res) => {
         let { id, type } = plaid[p]?.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
+        
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
@@ -68,6 +69,7 @@ export default async (req, res) => {
             // @ts-ignore
             location: added[i].location,
             user_id: user.id,
+            currency: added[i].iso_currency_code,
             item_id: plaid[p].item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,

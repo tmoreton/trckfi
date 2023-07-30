@@ -64,6 +64,7 @@ export default async (req, res) => {
               primary_category: added[i].personal_finance_category.primary,
               // @ts-ignore
               location: added[i].location,
+              currency: added[i].iso_currency_code,
               user_id: user_id,
               item_id: plaid[p].item_id,
               month_year: added[i].date.substring(0,7),

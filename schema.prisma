@@ -92,6 +92,7 @@ model Transactions {
   id                String    @id @default(cuid())
   account_id        String?
   name              String?
+  currency          String?
   merchant_name     String?
   transaction_id    String?   @unique
   detailed_category String?
