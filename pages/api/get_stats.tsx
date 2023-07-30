@@ -64,10 +64,11 @@ export default async (req, res) => {
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },
       _sum: {

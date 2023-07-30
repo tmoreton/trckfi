@@ -59,7 +59,7 @@ const NetWorth = ({ showError }) => {
     setOpenEdit(true)
   }
 
-  const removeAccount = (a) => {
+  const hideAccount = (a) => {
     setAccount(a)
     setOpen(true)
   }
@@ -252,8 +252,8 @@ const NetWorth = ({ showError }) => {
                             Edit
                           </button>
                         </div>
-                        <button onClick={() => removeAccount(a)} className="mt-1 text-xs leading-5 text-gray-500">
-                          Remove
+                        <button onClick={() => hideAccount(a)} className="mt-1 text-xs leading-5 text-gray-500">
+                          Hide
                         </button>
                       </td>
                     </tr>

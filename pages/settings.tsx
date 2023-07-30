@@ -53,6 +53,7 @@ const Settings = ({ showError }) => {
   }
 
   const unhideAccount = async (account) => {
+    clearLocalStorage()
     const res = await fetch(`/api/unhide_account`, {
       body: JSON.stringify({
         user, account
@@ -210,7 +211,7 @@ const Settings = ({ showError }) => {
                             { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution} <span className="text-red-500 font-bold mt-4"> {a.plaid && a.plaid.error_code}</span></p>}
                             <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
                               <span className="font-light">{a.official_name}</span> 
-                              <button onClick={() => unhideAccount(a)} className="text-red-500">{!a.active && 'Hidden'}</button>
+                              <button onClick={() => unhideAccount(a)} className="text-red-500">{!a.active && 'Show Account'}</button>
                             </div>
                             
                           </>

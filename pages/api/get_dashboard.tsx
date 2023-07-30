@@ -20,10 +20,11 @@ export default async (req, res) => {
           gte: range.endDate
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },
       _sum: {
@@ -77,10 +78,11 @@ export default async (req, res) => {
           gte: range.endDate
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },
       _sum: {
@@ -107,10 +109,11 @@ export default async (req, res) => {
           gte: range.endDate
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },
       _sum: {
@@ -131,10 +134,11 @@ export default async (req, res) => {
           gte: range.endDate
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },
       _sum: {
@@ -155,10 +159,11 @@ export default async (req, res) => {
           gte: range.endDate
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' }
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },
       _sum: {
@@ -177,12 +182,13 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        // NOT: [
-        //   { primary_category: 'LOAN_PAYMENTS' },
-        //   { primary_category: 'TRANSFER_IN' },
-        //   { primary_category: 'TRANSFER_OUT' },
-        //   { primary_category: 'INCOME' },
-        // ],
+        NOT: [
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
+          // { primary_category: 'INCOME' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
       },
       include: {
         account: true

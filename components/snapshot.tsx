@@ -44,7 +44,7 @@ export default function ({ totalStats, refresh, loading }) {
           <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Expenses</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <div className="flex items-baseline justify-between">
+          <div className="items-baseline justify-between">
             <p className="text-2xl font-semibold text-red-600">{addComma(thisMonthTotal || 0)}</p>
             <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthTotal)}</span> in {lastMonthString}</p>
           </div>
@@ -68,7 +68,7 @@ export default function ({ totalStats, refresh, loading }) {
           <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Income</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <div className="flex items-baseline justify-between">
+          <div className="items-baseline justify-between">
             <p className="text-2xl font-semibold text-green-600">{addComma(thisMonthIncome || 0)}</p>
             <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthIncome || 0)}</span> in {lastMonthString}</p>
           </div>

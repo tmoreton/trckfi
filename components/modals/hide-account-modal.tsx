@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
+import { clearLocalStorage } from "../../utils/useLocalStorage"
 
 export default function ({ showError, user, open, setOpen, account }) {
   const router = useRouter()
@@ -20,6 +21,7 @@ export default function ({ showError, user, open, setOpen, account }) {
     })
     const { error } = await res.json()
     showError(error)
+    clearLocalStorage()
     if(!error) router.reload()
   }
 
@@ -56,11 +58,11 @@ export default function ({ showError, user, open, setOpen, account }) {
                     </div>
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                        Remove account
+                        Hide account
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure you want to remove this account? The following account with associated transactions will be removed:
+                          Are you sure you want to hide this account? The following account with associated transactions will be hidden from your dashboard:
                         </p>
                         <p className="text-md text-gray-500 font-bold mt-3">
                           {account.name}
@@ -75,7 +77,7 @@ export default function ({ showError, user, open, setOpen, account }) {
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                     onClick={() => hideAccount(account.id)}
                   >
-                    Remove
+                    Hide
                   </button>
                   <button
                     type="button"

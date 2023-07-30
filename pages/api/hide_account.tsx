@@ -5,10 +5,14 @@ export default async (req, res) => {
   const { user_id, id } = req.body
 
   try {
-    const account = await prisma.accounts.upsert({
-      where: { user_id, id },
-      update: { active: false },
-      create: {},
+    const account = await prisma.accounts.update({
+      where: { 
+        user_id, 
+        id 
+      },
+      data: { 
+        active: false
+      },
     })
 
     await prisma.transactions.updateMany({
