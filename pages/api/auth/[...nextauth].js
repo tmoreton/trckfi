@@ -71,7 +71,7 @@ export const authOptions = {
       return true
     },
     async redirect({ url, baseUrl }) {
-      return `${url}`
+      return `${baseUrl}/success`
     }
   },
 }

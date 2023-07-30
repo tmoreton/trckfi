@@ -13,7 +13,8 @@ export default function SignIn({ csrfToken, base_url }: InferGetServerSidePropsT
         </h2>
       </div>
       <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${base_url}/success`}>
+        {/* <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${base_url}/success`}> */}
+        <form className="space-y-6" method="post" action={`/api/auth/signin/email`}>
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <div>
             <label htmlFor="email" className="block text-sm font-small leading-6 text-pink-600">
