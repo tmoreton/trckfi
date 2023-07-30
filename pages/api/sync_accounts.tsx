@@ -2,7 +2,8 @@
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 import { DateTime } from "luxon"
-import { formatAmount, icons } from '../../lib/formatNumber'
+import { formatAmount } from '../../lib/formatNumber'
+import { icons } from '../../lib/categories'
 
 export default async (req, res) => {
   let { user } = req.body
