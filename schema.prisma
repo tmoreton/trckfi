@@ -27,14 +27,15 @@ model User {
   emailVerified   DateTime?
   image           String?
   phone           String?
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
   active          Boolean        @default(false)
+  subscription_id String?
   subscribed      Boolean        @default(false)
   linked_user_id  String?
-  subscription_id String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
   loginCount      Decimal?       @default(0) @db.Decimal(6, 0)
   plaid           Plaid[]
+  Rules           Rules[]
   sessions        Session[]
   transactions    Transactions[]
 
@@ -76,9 +77,9 @@ model Accounts {
   type          String?
   user_id       String?        @map("user_id")
   item_id       String?
-  active        Boolean?       @default(true)
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
+  active        Boolean?       @default(true)
   amount        Decimal?       @db.Decimal(9, 2)
   details       Json?
   institution   String?
@@ -92,13 +93,14 @@ model Transactions {
   id                String    @id @default(cuid())
   account_id        String?
   name              String?
-  currency          String?
   merchant_name     String?
   transaction_id    String?   @unique
   detailed_category String?
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -111,8 +113,7 @@ model Transactions {
   unified           String?   @default("1f4b8")
   notes             String?
   alert_date        DateTime?
-  created_at        DateTime? @default(now())
-  updated_at        DateTime? @updatedAt
+  currency          String?
   account           Accounts? @relation(fields: [account_id], references: [id])
   user              User?     @relation(fields: [user_id], references: [id])
 
@@ -147,4 +148,14 @@ model Subscriptions {
   user_id              String? @map("user_id")
 
   @@map("subscriptions")
+}
+
+model Rules {
+  id         String  @id @default(cuid())
+  identifier String
+  ruleset    Json?
+  user_id    String? @map("user_id")
+  user       User?   @relation(fields: [user_id], references: [id])
+
+  @@map("rules")
 }
