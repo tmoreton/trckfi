@@ -42,9 +42,9 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
   }
 
   const downloadCSV = () => {
-    let arr = [['Name', 'Primary Category', 'Detailed Category', 'Date', 'Amount', 'Notes']]
+    let arr = [['Name', 'Account Name', 'Primary Category', 'Detailed Category', 'Date', 'Amount', 'Notes']]
     rows.forEach(r => (
-      arr.push([r.original.name, r.original.primary_category, r.original.detailed_category, r.original.date, r.original.amount, r.original.notes])
+      arr.push([r.original.name, r.original.account?.name, r.original.primary_category, r.original.detailed_category, r.original.date, r.original.amount, r.original.notes])
     ))
     updateCSV(arr)
     return true
@@ -148,6 +148,7 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
     <>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="flex h-12 items-center space-x-3 justify-between">
+        <div className="lg:block hidden">
         { selected.length > 0 ?
           <InverseBtn onClick={() => setEdit({
               name: null,
@@ -175,12 +176,15 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
             Add Transaction
           </InverseBtn>
         }
+        </div>
         {datePicker()}
+        <div className="lg:block hidden">
         <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
           <InverseBtn onClick={() => {}}>
             Download CSV
           </InverseBtn>
         </CSVLink>
+        </div>
       </div>
 
       <div className="w-full mt-4 overflow-scroll sm:overflow-auto">

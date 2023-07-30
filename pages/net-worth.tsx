@@ -133,7 +133,7 @@ const NetWorth = ({ showError }) => {
       <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user}/>
       <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account}/>
       
-      <div className="flex justify-center space-x-6 mb-4">
+      <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
           <PlusIcon className="h-5 w-5" aria-hidden="true" />
           Add Stock
