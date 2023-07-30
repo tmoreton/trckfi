@@ -3,22 +3,16 @@ import plaidClient from '../../utils/plaid';
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
-  const { access_token } = req.body
+  const { account } = req.body
   try {
-    const plaidAccount = await prisma.plaid.findUnique({
-      where: {
-        access_token: access_token
-      },
-    })
-
     const response = await plaidClient.itemRemove({
-      access_token: plaidAccount.access_token
+      access_token: account.plaid.access_token
     })
     
     if(response.data){
       await prisma.plaid.updateMany({
         where: {
-          item_id: plaidAccount.item_id
+          item_id: account.item_id
         },
         data: {
           active: false,
@@ -26,7 +20,7 @@ export default async (req, res) => {
       })
       await prisma.accounts.updateMany({
         where: {
-          item_id: plaidAccount.item_id
+          item_id: account.item_id
         },
         data: {
           active: false,
@@ -34,7 +28,7 @@ export default async (req, res) => {
       })
       await prisma.transactions.updateMany({
         where: {
-          item_id: plaidAccount.item_id
+          item_id: account.item_id
         },
         data: {
           active: false,

@@ -106,12 +106,10 @@ const Settings = ({ showError }) => {
     if(!error) signOut()
   }
 
-  const removeToken = async (access_token) => {
+  const removeToken = async (account) => {
     clearLocalStorage()
     const res = await fetch(`/api/remove_access_token`, {
-      body: JSON.stringify({
-        access_token,
-      }),
+      body: JSON.stringify({ account }),
       headers: {
         'Content-Type': 'application/json',
       },
