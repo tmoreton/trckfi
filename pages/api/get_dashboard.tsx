@@ -19,11 +19,9 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'INCOME' },
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
+        amount: {
+          lte: 0,
+        },
       },
       _sum: {
         amount: true,
@@ -46,7 +44,12 @@ export default async (req, res) => {
           { user_id: user?.linked_user_id },
         ],
         active: true,
-        primary_category: 'INCOME',
+        amount: {
+          gte: 0,
+        },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
         authorized_date: {
           lte: range.startDate,
           gte: range.endDate
@@ -75,11 +78,9 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'INCOME' },
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
+        amount: {
+          lte: 0,
+        },
       },
       _sum: {
         amount: true,
@@ -104,11 +105,9 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'INCOME' },
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
+        amount: {
+          lte: 0,
+        },
       },
       _sum: {
         amount: true,
@@ -127,11 +126,9 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'INCOME' },
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
+        amount: {
+          lte: 0,
+        },
       },
       _sum: {
         amount: true,
@@ -150,11 +147,9 @@ export default async (req, res) => {
           lte: range.startDate,
           gte: range.endDate
         },
-        NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'INCOME' },
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
+        amount: {
+          lte: 0,
+        },
       },
       _sum: {
         amount: true,
@@ -173,8 +168,6 @@ export default async (req, res) => {
           gte: range.endDate
         },
         NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          // { primary_category: 'INCOME' },
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
       },

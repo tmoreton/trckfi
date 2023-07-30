@@ -47,10 +47,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   }, [item, selected])
 
   useEffect(() => {
-    console.log(transaction)
-  }, [transaction])
-
-  useEffect(() => {
     const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')   
     setTransaction({ ...transaction, date: date_time })
   }, [startDate])
@@ -71,14 +67,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
 
   const handleDropdown = (e) => {
     const name = Object.keys(e)[0]
-    console.log( e[name])
     setTransaction({ ...transaction, [name]: e[name] })
-    // if(value?.primary_category){
-    //   setTransaction({ ...transaction, primary_category: value })
-    // }
-    // if(value?.detailed_category){
-    //   setTransaction({ ...transaction, detailed_category: value })
-    // }
   }
 
   const getAccounts = async () => {
@@ -103,7 +92,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
       method: 'POST',
     })
     const { error, data } = await res.json()
-    console.log(data)
     showError(error)
     setPrimary(data.primary_categories)
     setDetailed(data.detailed_categories)
@@ -219,7 +207,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                                 // @ts-ignore
                                 defaultValue={transaction?.account_id}
                                 value={transaction?.account_id}
-                                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
+                                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
                               >
                                 <option/>
                                 {accounts.map((a) => (
@@ -240,20 +228,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                               setSelected={e => handleDropdown({ primary_category: e.primary_category })} 
                               onChange={e => setTransaction({ ...transaction, primary_category: e })}
                             />
-                            {/* <input 
-                              type="text" 
-                              name="primary_category" 
-                              id="primary_category" 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                              required 
-                              value={transaction?.primary_category}
-                              onChange={handleChange}
-                            />
-                            <label 
-                              htmlFor="primary_category" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
-                              Primary Category
-                            </label> */}
                           </div>
                           <div className="relative z-0 w-full mb-8 group">
                             <label 
@@ -267,21 +241,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                               setSelected={e => handleDropdown({ detailed_category: e.detailed_category })} 
                               onChange={e => setTransaction({ ...transaction, detailed_category: e })}
                             />
-                            {/* <input 
-                              type="text" 
-                              name="detailed_category" 
-                              id="detailed_category" 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                              required 
-                              value={transaction?.detailed_category}
-                              onChange={handleChange}
-                            />
-                            <label 
-                              htmlFor="detailed_category" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Detailed Category
-                            </label> */}
                           </div>
                           <div className="relative z-0 w-full mb-6 group inline-flex">
                             <div className="w-full">
