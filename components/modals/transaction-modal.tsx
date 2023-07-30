@@ -6,6 +6,7 @@ import { Emoji } from 'emoji-picker-react'
 import { PinkBtn } from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
+import Dropdown from '../dropdown'
 
 export default function ({ item, setEdit, getDashboard, showError, selected, user }) {
   const defaultTransaction = {
@@ -26,9 +27,12 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   const [startDate, setStartDate] = useState(null)
   const [alertDate, setAlertDate] = useState(null)
   const [accounts, setAccounts] = useState([])
+  const [primary_categories, setPrimary] = useState([])
+  const [detailed_categories, setDetailed] = useState([])
 
   useEffect(() => {
     getAccounts()
+    getCategories()
     setAlertDate(null)
     setIds(selected.map(s => s.id))
     setTransaction(item)
@@ -41,6 +45,10 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
       setAlertDate(new Date(item.alert_date))
     }
   }, [item, selected])
+
+  useEffect(() => {
+    console.log(transaction)
+  }, [transaction])
 
   useEffect(() => {
     const date_time = DateTime.fromJSDate(startDate).toFormat('yyyy-MM-dd')   
@@ -61,6 +69,18 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     setTransaction({ ...transaction, [name]: value })
   }
 
+  const handleDropdown = (e) => {
+    const name = Object.keys(e)[0]
+    console.log( e[name])
+    setTransaction({ ...transaction, [name]: e[name] })
+    // if(value?.primary_category){
+    //   setTransaction({ ...transaction, primary_category: value })
+    // }
+    // if(value?.detailed_category){
+    //   setTransaction({ ...transaction, detailed_category: value })
+    // }
+  }
+
   const getAccounts = async () => {
     const res = await fetch(`/api/get_accounts`, {
       body: JSON.stringify({ user }),
@@ -72,6 +92,21 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     const { error, data } = await res.json()
     showError(error)
     if(!error) setAccounts(data)
+  }
+
+  const getCategories = async () => {
+    const res = await fetch(`/api/get_categories`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    console.log(data)
+    showError(error)
+    setPrimary(data.primary_categories)
+    setDetailed(data.detailed_categories)
   }
 
   const update = async () => {
@@ -169,7 +204,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                       :
                       <>
                         <form>
-                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                          <div className="relative z-0 w-full mb-4 group inline-flex">
                             <div className="w-full">
                             <label 
                                 htmlFor="account_id" 
@@ -193,6 +228,61 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                               </select>
                             </div>
                           </div>
+                          <div className="relative z-0 w-full mb-4 group">
+                            <label 
+                              htmlFor="primary_category" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
+                              Primary Category
+                            </label>
+                            <Dropdown 
+                              values={primary_categories.filter(c => c.primary_category.includes(transaction.primary_category?.toUpperCase()))} 
+                              selected={transaction.primary_category} 
+                              setSelected={e => handleDropdown({ primary_category: e.primary_category })} 
+                              onChange={e => setTransaction({ ...transaction, primary_category: e })}
+                            />
+                            {/* <input 
+                              type="text" 
+                              name="primary_category" 
+                              id="primary_category" 
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              required 
+                              value={transaction?.primary_category}
+                              onChange={handleChange}
+                            />
+                            <label 
+                              htmlFor="primary_category" 
+                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
+                              Primary Category
+                            </label> */}
+                          </div>
+                          <div className="relative z-0 w-full mb-8 group">
+                            <label 
+                              htmlFor="primary_category" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
+                              Detailed Category
+                            </label>
+                            <Dropdown 
+                              values={detailed_categories.filter(c => c.detailed_category.includes(transaction.detailed_category?.toUpperCase()))} 
+                              selected={transaction.detailed_category} 
+                              setSelected={e => handleDropdown({ detailed_category: e.detailed_category })} 
+                              onChange={e => setTransaction({ ...transaction, detailed_category: e })}
+                            />
+                            {/* <input 
+                              type="text" 
+                              name="detailed_category" 
+                              id="detailed_category" 
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              required 
+                              value={transaction?.detailed_category}
+                              onChange={handleChange}
+                            />
+                            <label 
+                              htmlFor="detailed_category" 
+                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Detailed Category
+                            </label> */}
+                          </div>
                           <div className="relative z-0 w-full mb-6 group inline-flex">
                             <div className="w-full">
                               <input 
@@ -211,39 +301,6 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                                 Name
                               </label>
                             </div>
-                          </div>
-                          <div className="relative z-0 w-full mb-6 group">
-                            <input 
-                              type="text" 
-                              name="primary_category" 
-                              id="primary_category" 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                              required 
-                              value={transaction?.primary_category}
-                              onChange={handleChange}
-                            />
-                            <label 
-                              htmlFor="primary_category" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
-                              Primary Category
-                            </label>
-                          </div>
-                          <div className="relative z-0 w-full mb-6 group">
-                            <input 
-                              type="text" 
-                              name="detailed_category" 
-                              id="detailed_category" 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                              required 
-                              value={transaction?.detailed_category}
-                              onChange={handleChange}
-                            />
-                            <label 
-                              htmlFor="detailed_category" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Detailed Category
-                            </label>
                           </div>
                           <div className="grid md:grid-cols-2 md:gap-6">
                             <div className="relative z-0 w-full mb-6 group">
