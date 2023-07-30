@@ -33,8 +33,7 @@ model User {
   linked_user_id  String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  lastLogin       DateTime?
-  loginAttempts   Decimal?       @db.Decimal(9, 2)
+  loginCount      Decimal?       @db.Decimal(9, 0) @default(0)
   plaid           Plaid[]
   sessions        Session[]
   transactions    Transactions[]
@@ -113,7 +112,7 @@ model Transactions {
   unified           String?   @default("1f4b8")
   notes             String?
   alert_date        DateTime?
-  account           Accounts? @relation(fields: [account_id], references: [account_id])
+  account           Accounts? @relation(fields: [account_id], references: [id])
   user              User?     @relation(fields: [user_id], references: [id])
 
   @@map("transactions")

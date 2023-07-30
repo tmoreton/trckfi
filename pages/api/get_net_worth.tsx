@@ -20,9 +20,6 @@ export default async (req, res) => {
       where: {
         OR: query,
         // @ts-ignore
-        amount: {
-          not: 0
-        },
         active: true,
       },
       orderBy: {

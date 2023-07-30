@@ -17,7 +17,8 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
     notes: null,
     new: false,
     date: null,
-    alert_date: null
+    alert_date: null,
+    account_id: null,
   }
   const [transaction, setTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
@@ -56,7 +57,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setTransaction({ ...transaction, [name]: value })
   }
 
@@ -182,10 +183,12 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                                 onChange={handleChange}
                                 // @ts-ignore
                                 defaultValue={transaction?.account_id}
+                                value={transaction?.account_id}
                                 className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
                               >
+                                <option/>
                                 {accounts.map((a) => (
-                                  <option value={a.account_id} label={`${a.name} - ${a.official_name}`}/>
+                                  <option key={a.id} value={a.id} label={`${a.name} - ${a.official_name}`}/>
                                 ))}
                               </select>
                             </div>

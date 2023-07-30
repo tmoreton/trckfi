@@ -108,6 +108,7 @@ const Settings = ({ showError }) => {
 
   const removeToken = async (account) => {
     clearLocalStorage()
+    setRemovedAccounts([])
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({ account }),
       headers: {
@@ -116,7 +117,6 @@ const Settings = ({ showError }) => {
       method: 'POST',
     })
     const { error } = await res.json()
-    setRemovedAccounts([])
     showError(error)
     if(!error) getSettings()
   }

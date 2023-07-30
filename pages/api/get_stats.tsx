@@ -34,11 +34,16 @@ export default async (req, res) => {
           { user_id: user?.linked_user_id },
         ],
         active: true,
-        primary_category: 'INCOME',
         authorized_date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
+        amount: {
+          gte: 0,
+        },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
       },
       _sum: {
         amount: true,
@@ -63,13 +68,9 @@ export default async (req, res) => {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
-        NOT: [
-          // { primary_category: 'LOAN_PAYMENTS' },
-          // { primary_category: 'TRANSFER_IN' },
-          // { primary_category: 'TRANSFER_OUT' },
-          { primary_category: 'INCOME' },
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
+        amount: {
+          lte: 0,
+        },
       },
       _sum: {
         amount: true,

@@ -10,12 +10,12 @@ export async function getServerSideProps(context) {
   const { session_id } = context.query
   const session = await getSession(context)
   const user = session?.user
-
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2022-11-15',
-  });
   
   if (session_id){
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2022-11-15',
+    });
+
     const stripe_session = await stripe.checkout.sessions.retrieve(session_id)
     const { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end } = stripe_session
 
@@ -37,12 +37,34 @@ export async function getServerSideProps(context) {
         subscription_id: subscription,
         phone,
         name,
-        active: true
+        active: true,
+        loginCount: {
+          increment: 1,
+        },
       }
     })
     return {
       redirect: {
         destination: '/dashboard?new_user=true',
+        permanent: false,
+      },
+    }
+  }
+
+  if(user && user.active){
+    await prisma.user.update({
+      where: { 
+        id: user.id
+      },
+      data: { 
+        loginCount: {
+          increment: 1,
+        },
+      }
+    })
+    return {
+      redirect: {
+        destination: '/dashboard',
         permanent: false,
       },
     }

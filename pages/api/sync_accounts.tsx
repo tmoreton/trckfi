@@ -20,7 +20,7 @@ export default async (req, res) => {
   }
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
-  const plaid_accounts = await prisma.plaid.findMany({
+  const plaid = await prisma.plaid.findMany({
     where: {
       OR: query,
       active: true
@@ -29,11 +29,11 @@ export default async (req, res) => {
       accounts: true
     }
   })
-
-  for (let p in plaid_accounts) {
+  
+  for (let p in plaid) {
     const request = {
-      access_token: plaid_accounts[p].access_token,
-      cursor: plaid_accounts[p].cursor || '',
+      access_token: plaid[p].access_token,
+      cursor: plaid[p].cursor || '',
       count: 200,
       options: {
         include_personal_finance_category: true
@@ -45,8 +45,9 @@ export default async (req, res) => {
       let next_cursor = response.data.next_cursor
       // let has_more = response.data.has_more
       for (let i in added) {
+        let { id, type } = plaid[p]?.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
-        let { amount } = formatAmount(plaid_accounts[p]?.accounts, added[i].account_id, added[i].amount)
+        let { amount } = formatAmount(type, added[i].amount)
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
@@ -54,7 +55,7 @@ export default async (req, res) => {
           update: {},
           create: {
             transaction_id: added[i].transaction_id,
-            account_id: added[i].account_id,
+            account_id: id,
             amount: amount,
             authorized_date: new Date(added[i].date),
             date: added[i].date,
@@ -67,7 +68,7 @@ export default async (req, res) => {
             // @ts-ignore
             location: added[i].location,
             user_id: user.id,
-            item_id: plaid_accounts[p].item_id,
+            item_id: plaid[p].item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
           },
@@ -75,7 +76,7 @@ export default async (req, res) => {
       }
 
       await prisma.plaid.update({
-        where: { item_id: plaid_accounts[p].item_id },
+        where: { item_id: plaid[p].item_id },
         data: { 
           cursor: next_cursor,
           error_code: null
@@ -85,7 +86,7 @@ export default async (req, res) => {
     } catch (error) {
       console.error(error)
       await prisma.plaid.update({
-        where: { item_id: plaid_accounts[p].item_id },
+        where: { item_id: plaid[p].item_id },
         // @ts-ignore
         data: { error_code: error.response?.data?.error_code }
       })

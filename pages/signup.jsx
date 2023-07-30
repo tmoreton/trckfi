@@ -4,19 +4,12 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import Menu from '../components/menu'
 import { getSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
 
 export default function ({ showError, user, access_code, csrfToken, error, email, base_url }) {
   const [updateEmail, setUpdateEmail] = useState('')
-  const router = useRouter()
-  const currentRoute = router.pathname
-  // useEffect(() => {
-  //   if(access_code){
-  //     setAccessCode(access_code)
-  //   }
-  // }, [access_code])
+
   useEffect(() => {
     setUpdateEmail(email)
   }, [email])
@@ -24,29 +17,6 @@ export default function ({ showError, user, access_code, csrfToken, error, email
   useEffect(() => {
     if(error) showError(error)
   }, [error])
-
-  // const link = async () => {
-  //   if(user && accessCode){
-  //     const res = await fetch(`/api/link_accounts`, {
-  //       body: JSON.stringify({
-  //         user: user,
-  //         access_code: accessCode
-  //       }),
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       method: 'POST',
-  //     })
-  //     const { error } = await res.json()
-  //     showError(error)
-  //     if(!error) router.replace('/dashboard?new_user=true', undefined, { shallow: true });
-  //   }
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   link()
-  // }
 
   return (
     <Layout>
@@ -162,6 +132,9 @@ export async function getServerSideProps(context) {
       update: { 
         linked_user_id: subscribed_user.id,
         active: true,
+        loginCount: {
+          increment: 1,
+        },
       },
       create: {},
     })

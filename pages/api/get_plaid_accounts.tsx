@@ -30,7 +30,6 @@ export default async (req, res) => {
           active: true
         },
         create: {
-          access_token: plaidAccount.access_token,
           item_id: plaidAccount.item_id,
           account_id: accounts[i].account_id,
           name: accounts[i].name,
