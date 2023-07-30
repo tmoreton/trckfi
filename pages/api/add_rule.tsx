@@ -1,0 +1,30 @@
+// eslint-disable-next-line import/no-anonymous-default-export
+import prisma from '../../lib/prisma';
+
+export default async (req, res) => {
+  const { ruleset, identifier, user_id } = req.body
+  if (!ruleset) return res.status(500).json({ error: 'No Rule' })
+
+  try {
+    let data = { 
+      user_id,
+      identifier,
+      ruleset
+    }
+    // @ts-ignore
+    const rule = await prisma.rules.create({ data })
+    await prisma.transactions.updateMany({
+      where: { 
+        user_id,
+        name: {
+          contains: identifier
+        }
+      },
+      data: ruleset,
+    })
+    return res.status(200).json({ status: 'OK', data: rule })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ error: error.message || error.toString() })
+  }
+}
