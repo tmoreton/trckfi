@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { TrashIcon, BellAlertIcon, XCircleIcon } from '@heroicons/react/20/solid'
+import { TrashIcon, BellAlertIcon, XCircleIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
 import { PinkBtn } from '../pink-btn'
@@ -207,13 +207,16 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                                 // @ts-ignore
                                 defaultValue={transaction?.account_id}
                                 value={transaction?.account_id}
-                                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
+                                className="mt-2 w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
                               >
                                 <option/>
                                 {accounts.map((a) => (
                                   <option key={a.id} value={a.id} label={`${a.name} - ${a.official_name}`}/>
-                                ))}
+                                ))}                                
                               </select>
+                              <div className="absolute inset-y-0 mt-8 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
+                                <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                              </div>
                             </div>
                           </div>
                           <div className="relative z-0 w-full mb-4 group">
@@ -242,7 +245,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                               onChange={e => setTransaction({ ...transaction, detailed_category: e })}
                             />
                           </div>
-                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                          <div className="relative z-0 w-full mb-8 group inline-flex">
                             <div className="w-full">
                               <input 
                                 type="text" 

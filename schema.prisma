@@ -27,13 +27,13 @@ model User {
   emailVerified   DateTime?
   image           String?
   phone           String?
-  active          Boolean        @default(false)
-  subscription_id String?
-  subscribed      Boolean        @default(false)
-  linked_user_id  String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  loginCount      Decimal?       @db.Decimal(6, 0) @default(0)
+  active          Boolean        @default(false)
+  subscribed      Boolean        @default(false)
+  linked_user_id  String?
+  subscription_id String?
+  loginCount      Decimal?       @default(0) @db.Decimal(6, 0)
   plaid           Plaid[]
   sessions        Session[]
   transactions    Transactions[]
@@ -76,9 +76,9 @@ model Accounts {
   type          String?
   user_id       String?        @map("user_id")
   item_id       String?
+  active        Boolean?       @default(true)
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
-  active        Boolean?       @default(true)
   amount        Decimal?       @db.Decimal(9, 2)
   details       Json?
   institution   String?
@@ -98,8 +98,6 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
-  created_at        DateTime? @default(now())
-  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -112,6 +110,8 @@ model Transactions {
   unified           String?   @default("1f4b8")
   notes             String?
   alert_date        DateTime?
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   account           Accounts? @relation(fields: [account_id], references: [id])
   user              User?     @relation(fields: [user_id], references: [id])
 
