@@ -81,9 +81,9 @@ const Rules = ({ showError }) => {
 
             <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-gray-200 text-sm leading-6">
               <div className="sm:flex">
-                <dt className="font-bold text-pink-500 sm:w-64 sm:flex-none sm:pr-6">Identifier</dt>
+                <dt className="font-bold text-pink-600 sm:w-64 sm:flex-none sm:pr-6">Identifier</dt>
                 <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                  <div className="font-bold text-pink-500">Rules</div>
+                  <div className="font-bold text-pink-600">Rules</div>
                 </dd>
               </div>
               {rules.map(rule => (
