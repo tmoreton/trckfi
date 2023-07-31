@@ -55,8 +55,8 @@ export default async (req, res) => {
         let { id, type } = plaid[p]?.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
-        let rule = rules.find(r => r.identifier === added[i].name.toUpperCase())
-        let ruleset = JSON.parse(rule?.ruleset)
+        let { ruleset } = rules.find(r => r.identifier.toUpperCase() === added[i].name.toUpperCase())
+        console.log(ruleset)
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
@@ -68,7 +68,7 @@ export default async (req, res) => {
             amount: amount,
             authorized_date: new Date(added[i].date),
             date: added[i].date,
-            name: ruleset?.name || added[i].name,
+            name: ruleset?.name || added[i].merchant_name || added[i].name,
             merchant_name: added[i].merchant_name,
             category: added[i].category,
             detailed_category: ruleset?.detailed_category || detailed_category,
