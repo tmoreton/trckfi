@@ -83,16 +83,23 @@ export default async (req, res) => {
       },
     })
 
+    let this_month = DateTime.now().startOf('month')
+    let last_month = DateTime.now().minus({ months: 1 }).startOf('month')
+    let thisMonthTotal = groupByMonth.find(m => m.month_year === this_month.toFormat('yyyy-LL'))
+    let lastMonthTotal = groupByMonth.find(m => m.month_year === last_month.toFormat('yyyy-LL'))
+    let thisMonthIncome = groupByMonthIncome.find(m => m.month_year === this_month.toFormat('yyyy-LL'))
+    let lastMonthIncome = groupByMonthIncome.find(m => m.month_year === last_month.toFormat('yyyy-LL'))
+    
     const stats = {
-      lastMonthTotal: groupByMonth[1]?._sum?.amount,
-      thisMonthTotal: groupByMonth[0]?._sum?.amount,
-      thisMonthString: DateTime.now().startOf('month').monthLong,
-      lastMonthString: DateTime.now().minus({ months: 1 }).startOf('month').monthLong,
-      lastMonthIncome: groupByMonthIncome[1]?._sum?.amount,
-      thisMonthIncome: groupByMonthIncome[0]?._sum?.amount,
+      lastMonthTotal: lastMonthTotal?._sum?.amount || 0,
+      thisMonthTotal: thisMonthTotal?._sum?.amount || 0,
+      thisMonthString: this_month.monthLong,
+      lastMonthString: last_month.monthLong,
+      lastMonthIncome: lastMonthIncome?._sum?.amount || 0,
+      thisMonthIncome: thisMonthIncome?._sum?.amount || 0,
       accountBalance: account_balance._sum?.amount
     }
-    
+
     return res.status(200).json({ stats })
 
   } catch (error) {
