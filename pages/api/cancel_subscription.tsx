@@ -37,14 +37,14 @@ export default async (req, res) => {
         }
       })
 
-      await prisma.user.updateMany({
+      await prisma.user.update({
         where: {
           id: user.id
         },
         data: {
           active: false,
           // @ts-ignore
-          subscription_id: null,
+          subscription_id: null
         }
       })
     }
