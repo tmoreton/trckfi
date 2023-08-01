@@ -31,11 +31,11 @@ export async function getServerSideProps(context) {
       data: { 
         subscription_id: subscription,
         customer_id: customer,
-        canceled_at: canceled_at?.toString(), 
-        ended_at: ended_at?.toString(), 
-        start_date: start_date?.toString(), 
+        canceled_at, 
+        ended_at, 
+        start_date, 
         status, 
-        trial_end: trial_end?.toString(),
+        trial_end,
         phone,
         active: true,
         login_count: {

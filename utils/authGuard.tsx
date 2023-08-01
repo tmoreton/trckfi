@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react"
 import LoadingModal from '../components/modals/loading-modal'
-const authenticated_routes = ['/dashboard', '/settings', '/net-worth', '/feedback']
+import { DateTime } from "luxon"
+const authenticated_routes = ['/dashboard', '/settings', '/rules', '/net-worth', '/feedback']
 
 export default function ({ children }) {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function ({ children }) {
       
       if(session?.user){
         let user = session.user
+        console.log(DateTime.fromMillis(user.trial_end))
         // @ts-ignore
         if (!user.subscription_id && !user.linked_user_id || !user.active) {
           router.push({
