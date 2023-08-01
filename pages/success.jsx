@@ -17,9 +17,10 @@ export async function getServerSideProps(context) {
     });
 
     const stripe_session = await stripe.checkout.sessions.retrieve(session_id)
+    console.log(stripe_session)
     const { customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end } = stripe_session
 
-    if(!customer || !subscription) return { props: { newUser: false } }
+    if(!customer || !subscription) return { props: {} }
 
     const data = await stripe.customers.retrieve(customer)
     const { email, phone, name } = data
@@ -45,7 +46,7 @@ export async function getServerSideProps(context) {
     })
     return {
       redirect: {
-        destination: '/dashboard?new_user=true',
+        destination: '/dashboard',
         permanent: false,
       },
     }
