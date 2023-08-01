@@ -5,18 +5,23 @@ import { useSession } from "next-auth/react"
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { PinkBtn } from '../components/pink-btn'
 import { DateTime } from "luxon"
+import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
 const Rules = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [rules, setRules] = useState([])
+  const [rules, setRules] = useLocalStorage('rules', [])
   const [identifier, setIdentifier] = useState('')
   const [ruleset, setRuleset] = useState(null)
-  const [alerts, setAlerts] = useState([])
+  const [alerts, setAlerts] = useLocalStorage('alerts', [])
 
   useEffect(() => {
-    getRules()
-    getAlerts()
+    if(rules.length < 1){
+      getRules()
+    }
+    if(alerts.length < 1){
+      getAlerts()
+    }
   }, [])
 
   const getAlerts = async () => {
@@ -62,6 +67,7 @@ const Rules = ({ showError }) => {
     // setRules(data)
     setRuleset(null)
     showError(error)
+    clearLocalStorage()
     if(!error) getRules()
   }
 
@@ -109,7 +115,7 @@ const Rules = ({ showError }) => {
               Create rules to auto categorize or current transactions
             </p>
 
-            <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-gray-200 text-sm leading-6">
+            <dl className="mt-6 space-y-3 divide-y divide-gray-100 border-gray-200 text-sm leading-6">
               <div className="sm:flex">
                 <dt className="font-bold text-pink-600 sm:w-64 sm:flex-none sm:pr-6">Identifier</dt>
                 <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
@@ -117,7 +123,7 @@ const Rules = ({ showError }) => {
                 </dd>
               </div>
               {rules && rules?.map(rule => (
-                <div className="pt-6 sm:flex items-center">
+                <div className="pt-3 sm:flex items-center">
                   <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{rule?.identifier}</dt>
                   <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                     <div>
