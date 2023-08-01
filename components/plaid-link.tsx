@@ -36,6 +36,7 @@ export default function ({ showError, user, access_token }) {
       method: 'POST',
     })
     const { access_token, error } = await res.json()
+    console.log(access_token)
     showError(error)
     return access_token
   }
@@ -44,7 +45,7 @@ export default function ({ showError, user, access_token }) {
     const res = await fetch(`/api/get_plaid_accounts`, {
       body: JSON.stringify({
         user_id: user.id,
-        access_token: access_token
+        access_token
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +73,6 @@ export default function ({ showError, user, access_token }) {
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
-      clearLocalStorage()
       if(access_token){
         getAccounts(access_token)
       } else {
