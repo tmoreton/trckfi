@@ -28,7 +28,6 @@ const Rules = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
-    console.log(data)
     showError(error)
     setAlerts(data)
   }
@@ -60,9 +59,10 @@ const Rules = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
-    setRules(data)
+    // setRules(data)
     setRuleset(null)
     showError(error)
+    if(!error) getRules()
   }
 
   const removeRule = async (id) => {
@@ -116,9 +116,9 @@ const Rules = ({ showError }) => {
                   <div className="font-bold text-pink-600">Rules</div>
                 </dd>
               </div>
-              {rules && rules.map(rule => (
+              {rules && rules?.map(rule => (
                 <div className="pt-6 sm:flex items-center">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{rule.identifier}</dt>
+                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{rule?.identifier}</dt>
                   <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                     <div>
                     {Object.keys(rule?.ruleset)?.map(i => (
@@ -129,7 +129,7 @@ const Rules = ({ showError }) => {
                       </>
                     ))}
                     </div>
-                    <button onClick={() => removeRule(rule.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                    <button onClick={() => removeRule(rule?.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
                       Remove
                     </button>
                   </dd>
@@ -174,16 +174,18 @@ const Rules = ({ showError }) => {
                             <option value="primary_category" label="Primary Category" />
                             <option value="detailed_category" label="Detailed Category" />
                             <option value="recurring" label="Recurring" />
+                            <option value="active" label="Active" />
                           </select>
                         </div>
                         <div className="font-medium text-gray-900 sm:w-64 sm:flex-none">
-                          { i === 'recurring' ?
+                          { i === 'recurring' || i === 'active' ?
                             <select
-                              name="recurring"
-                              value={ruleset[i].recurring}
+                              name={i}
+                              value={ruleset[i].recurring || ruleset[i].active}
                               onChange={e => setRuleset({ ...ruleset, [i]: e.target.value })}
                               className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             >
+                              <option value="" label="" />
                               <option value="true" label="True" />
                               <option value="false" label="False" />
                             </select>
