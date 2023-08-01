@@ -24,7 +24,7 @@ export default async (req, res) => {
       },
       orderBy: {
         // @ts-ignore
-        updated_at: 'desc',
+        updated_at: 'desc'
       },
       include: {
         plaid: true
