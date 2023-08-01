@@ -116,7 +116,7 @@ const Rules = ({ showError }) => {
                   <div className="font-bold text-pink-600">Rules</div>
                 </dd>
               </div>
-              {rules.map(rule => (
+              {rules && rules.map(rule => (
                 <div className="pt-6 sm:flex items-center">
                   <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{rule.identifier}</dt>
                   <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
