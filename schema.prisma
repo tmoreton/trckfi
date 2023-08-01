@@ -35,11 +35,11 @@ model User {
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
   login_count     Decimal?       @default(0) @db.Decimal(6, 0)
-  canceled_at     Decimal?       @db.Decimal(9, 2)
-  ended_at        Decimal?       @db.Decimal(9, 2)
-  start_date      Decimal?       @db.Decimal(9, 2)
+  canceled_at     String?        
+  ended_at        String?
+  start_date      String?
   status          String?
-  trial_end       Decimal?       @db.Decimal(9, 2)
+  trial_end       String?
   plaid           Plaid[]
   Rules           Rules[]
   sessions        Session[]
