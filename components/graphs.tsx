@@ -28,7 +28,8 @@ const tabs = [
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function ({ categories, detailedCategories, incomeData, expenseData, weeklyData, emojiCategories }) {
+export default function ({ graphData }) {
+  const { categories, emojiCategories, detailedCategories } = graphData
   if (!categories) return null
   const [data, setData] = useState({
     labels: [],
@@ -158,7 +159,7 @@ export default function ({ categories, detailedCategories, incomeData, expenseDa
           </div>
         </div>
         <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6  sm:pt-2 rounded-md border border-gray-200">
-          <BarChart monthlyIncomeData={incomeData} monthlyExpenseData={expenseData} weeklyData={weeklyData}/>
+          <BarChart graphData={graphData} />
         </div>
       </div>
     </div>

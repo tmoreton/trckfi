@@ -12,7 +12,6 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signOut } from "next-auth/react"
-import { clearLocalStorage } from "../utils/useLocalStorage"
 import Image from 'next/image'
 
 const secondaryNavigation = [
@@ -74,7 +73,6 @@ export default function ({ children }) {
                   <li>
                     <button
                       onClick={() => {
-                        clearLocalStorage()
                         signOut()
                       }}
                       className='w-full text-gray-700 hover:text-pink-600 hover:bg-gray-50 group flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold'

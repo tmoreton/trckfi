@@ -4,11 +4,10 @@ import Head from 'next/head'
 import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
-import { useRouter } from 'next/router'
 import RemoveAccount from "../components/modals/remove-account-modal"
 import PlaidLink from "../components/plaid-link"
 import CancelModal from '../components/modals/cancel-modal'
-import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
+import  { useLocalStorage } from '../utils/useLocalStorage'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -21,17 +20,12 @@ const Settings = ({ showError }) => {
   const [openCancelModal, setCancelOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [removedAccounts, setRemovedAccounts] = useState([])
-  const router = useRouter()
-  const [linkedUser, setLinkedUser] = useLocalStorage('linked_user', '')
+  const [linkedUser, setLinkedUser] = useState('')
   const [accounts, setAccounts] = useLocalStorage('settings_accounts', {})
 
   useEffect(() => {
-    if(Object.keys(accounts).length <= 0){
-      getSettings()
-    }
-    // For development
-    // getSettings()
-  }, [user])
+    getSettings()
+  }, [])
 
   const getSettings = async () => {
     const res = await fetch(`/api/get_settings`, {
@@ -53,7 +47,6 @@ const Settings = ({ showError }) => {
   }
 
   const unhideAccount = async (account) => {
-    clearLocalStorage()
     const res = await fetch(`/api/unhide_account`, {
       body: JSON.stringify({
         user, account
@@ -71,7 +64,6 @@ const Settings = ({ showError }) => {
 
   const send = async (e) => {
     e.preventDefault()
-    clearLocalStorage()
     const res = await fetch(`/api/send_link_token`, {
       body: JSON.stringify({
         // @ts-ignore
@@ -91,7 +83,6 @@ const Settings = ({ showError }) => {
 
   const remove = async (e) => {
     e.preventDefault()
-    clearLocalStorage()
     const res = await fetch(`/api/remove_link`, {
       body: JSON.stringify({
         user
@@ -107,7 +98,6 @@ const Settings = ({ showError }) => {
   }
 
   const removeToken = async (account) => {
-    clearLocalStorage()
     setRemovedAccounts([])
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({ account }),

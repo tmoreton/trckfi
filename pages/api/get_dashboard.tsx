@@ -170,40 +170,15 @@ export default async (req, res) => {
         amount: true,
       },
     })
-  
-    let transactions = await prisma.transactions.findMany({
-      where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
-        active: true,
-        authorized_date: {
-          lte: range.startDate,
-          gte: range.endDate
-        },
-        NOT: [
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
-      },
-      include: {
-        account: true
-      },
-      orderBy: {
-        date: 'desc'
-      },
-    })
-    transactions = transactions.filter(t => t.account?.active)
     
-    return res.status(200).json({ 
-      transactions, 
+    return res.status(200).json({ data: {
       categories,
       detailedCategories,
       groupByMonthIncome,
       groupByMonth,
       groupByWeek,
       emojiCategories
-    })
+    }})
 
   } catch (error) {
     console.error(error)

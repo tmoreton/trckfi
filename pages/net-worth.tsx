@@ -14,7 +14,7 @@ import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { DateTime } from "luxon"
 import { useSession } from "next-auth/react"
-import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
+import  { useLocalStorage } from '../utils/useLocalStorage'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -48,7 +48,7 @@ const NetWorth = ({ showError }) => {
   const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
   const [stats, setStats] = useLocalStorage('net_worth_stats', [])
-  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', [])
+  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts',[])
 
   useEffect(() => {
     getNetWorth()
@@ -86,7 +86,6 @@ const NetWorth = ({ showError }) => {
   }
 
   const refresh = async () => {
-    clearLocalStorage()
     setLoading(true)
     fetch(`/api/update_crypto_price`, {
       body: JSON.stringify({

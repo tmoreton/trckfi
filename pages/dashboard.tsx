@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
-import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
+import  { useLocalStorage } from '../utils/useLocalStorage'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -21,28 +21,27 @@ const Dashboard = ({ showError }) => {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
-  const [reload, setReload] = useState(false)
   const [item, setEdit] = useState({})
   const [setupModal, openSetupModal] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
-  const [weeklyData, setWeeklyData] = useLocalStorage('weekly_data', [])
-  const [totalStats, setStats] = useLocalStorage('total_stats', [])
-  const [t, setTransactions] = useLocalStorage('transactions', [])
-  const [incomeData, setIncomeData] = useLocalStorage('income_data', [])
-  const [expenseData, setExpenseData] = useLocalStorage('expense_data', [])
-  const [categories, setCategories] = useLocalStorage('primary_categories', [])
-  const [emojiCategories, setEmojiCategories] = useLocalStorage('emoji_categories', [])
-  const [detailedCategories, setDetailedCategories] = useLocalStorage('detailed_categories', [])
-  const [dates, setDates] = useLocalStorage('selected_dates', {
+  const [t, setTransactions] = useLocalStorage('transactions',[])
+  const [graphData, setGraphData] = useLocalStorage('graph_data', {})
+  const [totalStats, setStats] = useLocalStorage('dashboard_stats', [])
+  const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
-    endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
+    endDate: DateTime.now().minus({ months: 3 }).startOf('month').toISO()
   })
 
   useEffect(() => {
-    if(t.length <= 0 || reload) getDashboard()
+    getTransactions()
     // @ts-ignore
     if(user?.loginCount <= 1) openSetupModal(true)
+  }, [])
+
+  useEffect(() => {
+    getDashboard()
+    getStats()
   }, [dates])
 
   const getStats = async () => {
@@ -55,12 +54,13 @@ const Dashboard = ({ showError }) => {
     })
     const { stats } = await res.json()
     setStats(stats)
+    setLoading(false)
   }
 
   const getDashboard = async () => {
-    setSelected([])
-    setDatePicker(false)
-    setRefreshing(true)
+    setLoading(true)
+    if(totalStats.length <= 0) setRefreshing(true)
+    getStats()
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({
         user,
@@ -71,32 +71,43 @@ const Dashboard = ({ showError }) => {
       },
       method: 'POST',
     })
-    const { error, transactions, groupByMonth, groupByMonthIncome, categories, detailedCategories, groupByWeek, emojiCategories } = await res.json()
+    const { error, data } = await res.json()
     showError(error)
-    setExpenseData(groupByMonth)
-    setIncomeData(groupByMonthIncome)
-    setWeeklyData(groupByWeek)
-    setTransactions(transactions)    
-    setCategories(categories)
-    setEmojiCategories(emojiCategories)
-    setDetailedCategories(detailedCategories)
+    setGraphData(data)
+  }
+
+  const getTransactions = async () => {
+    setSelected([])
+    const res = await fetch(`/api/get_transactions`, {
+      body: JSON.stringify({
+        user,
+        range: dates
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    setTransactions(data)    
     setRefreshing(false)
     setLoading(false)
-    setReload(false)
-    getStats()
   }
 
   // const updateTransaction = (item) => {
+  //   setTransactions([])
   //   let updatedTransactions = t
   //   item.primary_category = snakeCase(item.primary_category).toUpperCase()
   //   item.detailed_category = snakeCase(item.detailed_category).toUpperCase()
   //   let foundIndex = updatedTransactions.findIndex(t => t.id == item.id)
-  //   updatedTransactions[foundIndex] = item
+  //   // updatedTransactions[foundIndex] = item
+  //   delete updatedTransactions[foundIndex]
+  //   updatedTransactions.push(item)
   //   setTransactions(updatedTransactions)
   // }
 
   const refresh = async () => {
-    clearLocalStorage()
     setLoading(true)
     const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({ user }),
@@ -106,8 +117,10 @@ const Dashboard = ({ showError }) => {
       method: 'POST',
     })
     const { error } = await res.json()
-    if(!error) router.reload()
     showError(error)
+    getStats()
+    getDashboard()
+    getTransactions()
   }
 
   const updateSelect = (e, value) => {
@@ -198,7 +211,7 @@ const Dashboard = ({ showError }) => {
   ]
 
   const datePicker = () => {
-    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker} setReload={setReload}/>
+    return <DatePicker dates={dates} setDates={setDates} openDatePicker={openDatePicker} setDatePicker={setDatePicker}/>
   }
   
   return (
@@ -208,10 +221,10 @@ const Dashboard = ({ showError }) => {
       </Head>
       <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} />
       <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-      <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getDashboard={getDashboard} />
+      <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
       <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
-      <Graphs emojiCategories={emojiCategories} categories={categories} detailedCategories={detailedCategories} incomeData={incomeData} expenseData={expenseData} weeklyData={weeklyData} />
-      <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
+      <Graphs graphData={graphData} />
+      { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
     </DashboardLayout>
   )
 }

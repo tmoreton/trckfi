@@ -39,9 +39,10 @@ const options = {
   },
 };
 
-export default function ({ monthlyIncomeData, monthlyExpenseData, weeklyData }) {
-  if (!monthlyIncomeData || !monthlyExpenseData) return null
-  if (monthlyIncomeData.length < 1 && monthlyExpenseData.length < 1) return null
+export default function ({ graphData }) {
+  const { groupByMonthIncome, groupByMonth, groupByWeek } = graphData
+  if (!groupByMonthIncome || !groupByMonth) return null
+  if (groupByMonthIncome.length < 1 && groupByMonth.length < 1) return null
 
   const [key, updateKey] = useState('monthly')
   const [data, setData] = useState({
@@ -51,14 +52,14 @@ export default function ({ monthlyIncomeData, monthlyExpenseData, weeklyData }) 
 
   useEffect(() => {
     if(key === 'monthly'){
-      updateBar(monthlyExpenseData, key)
+      updateBar(groupByMonth, key)
     } else {
-      updateBar(weeklyData, key)
+      updateBar(groupByWeek, key)
     }
-  }, [monthlyExpenseData, key])
+  }, [groupByMonth, key])
 
   const updateBar = (expenses, key) => {
-    const monthlySum = monthlyIncomeData.map(a => Math.abs(a._sum.amount))
+    const monthlySum = groupByMonthIncome.map(a => Math.abs(a._sum.amount))
     const labels = key === 'monthly' ? expenses.map(a => a.month_year) : expenses.map(a => a.week_year)
     const sums = expenses.map(a => Math.abs(a._sum.amount))
 

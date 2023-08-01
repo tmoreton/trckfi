@@ -5,23 +5,19 @@ import { useSession } from "next-auth/react"
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { PinkBtn } from '../components/pink-btn'
 import { DateTime } from "luxon"
-import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
+import  { useLocalStorage } from '../utils/useLocalStorage'
 
 const Rules = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [rules, setRules] = useLocalStorage('rules', [])
   const [identifier, setIdentifier] = useState('')
   const [ruleset, setRuleset] = useState(null)
+  const [rules, setRules] = useLocalStorage('rules', [])
   const [alerts, setAlerts] = useLocalStorage('alerts', [])
 
   useEffect(() => {
-    if(rules.length < 1){
-      getRules()
-    }
-    if(alerts.length < 1){
-      getAlerts()
-    }
+    getRules()
+    getAlerts()
   }, [])
 
   const getAlerts = async () => {
@@ -67,7 +63,6 @@ const Rules = ({ showError }) => {
     // setRules(data)
     setRuleset(null)
     showError(error)
-    clearLocalStorage()
     if(!error) getRules()
   }
 

@@ -71,6 +71,9 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
       },
       _sum: {
         amount: true,

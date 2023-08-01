@@ -2,7 +2,6 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
-import { clearLocalStorage } from "../../utils/useLocalStorage"
 
 export default function ({ showError, user, open, setOpen, account }) {
   const router = useRouter()
@@ -21,7 +20,6 @@ export default function ({ showError, user, open, setOpen, account }) {
     })
     const { error } = await res.json()
     showError(error)
-    clearLocalStorage()
     if(!error) router.reload()
   }
 
