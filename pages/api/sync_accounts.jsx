@@ -81,6 +81,8 @@ export default async (req, res) => {
             item_id: plaid[p].item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
+            active: rule?.ruleset?.active || true,
+            recurring: rule?.ruleset?.recurring || false,
           },
         })
       }
