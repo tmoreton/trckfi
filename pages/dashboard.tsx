@@ -42,6 +42,7 @@ const Dashboard = ({ showError }) => {
   useEffect(() => {
     console.log(user)
     if(t.length <= 0 || reload) getDashboard()
+    // @ts-ignore
     if(user?.loginCount <= 1) openSetupModal(true)
   }, [dates])
 
