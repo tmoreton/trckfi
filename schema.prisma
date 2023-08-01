@@ -139,20 +139,6 @@ model LinkTokens {
   @@map("link_tokens")
 }
 
-model Subscriptions {
-  id                   String  @id @default(cuid())
-  customer             String?
-  subscription         String? @unique
-  canceled_at          String?
-  ended_at             String?
-  start_date           String?
-  status               String?
-  trial_end            String?
-  user_id              String? @map("user_id")
-
-  @@map("subscriptions")
-}
-
 model Rules {
   id         String  @id @default(cuid())
   identifier String
