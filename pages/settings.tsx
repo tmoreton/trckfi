@@ -139,7 +139,7 @@ const Settings = ({ showError }) => {
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Subscription</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                 <div className="text-gray-900">Monthly - Active</div>
-                <button onClick={() => setCancelOpen(true)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                <button onClick={() => setCancelOpen(true)} type="button" className="font-semibold text-red-600 hover:text-red-500">
                   Cancel Subscription
                 </button>
               </dd>
@@ -168,7 +168,7 @@ const Settings = ({ showError }) => {
                 <form onSubmit={remove} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
                   <div className="text-gray-900">{linkedUser.email}</div>                 
                   <button onClick={remove} type="button" className="flex font-semibold text-red-600 hover:text-red-500 justify-end">
-                    Remove
+                    Unlink
                   </button>
                 </form>
               </div>
@@ -220,7 +220,7 @@ const Settings = ({ showError }) => {
                         accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED' ?
                         <PlaidLink user={user} showError={showError} access_token={accounts[key][0]?.plaid?.access_token}/>
                         :
-                        <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs text-red-600 hover:text-red-500">
+                        <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
                           Remove Connection
                         </button>
                       }
@@ -240,13 +240,13 @@ const Settings = ({ showError }) => {
         <div>
           <h2 className="text-base font-semibold leading-7 text-pink-600">Emails and Communications</h2>
           <p className="mt-1 text-sm leading-6 text-gray-500">
-            Choose what language and currency format to use throughout your account.
+            Choose what emails to receive on a weekly & monthly basis
           </p>
 
           <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
             <Switch.Group as="div" className="flex pt-6">
               <Switch.Label as="dt" className="w-64 flex-none pr-6 font-medium text-gray-900" passive>
-                Weekly Emails
+                Receive Weekly Emails
               </Switch.Label>
               <dd className="flex flex-auto items-center justify-end">
                 <Switch
@@ -270,7 +270,7 @@ const Settings = ({ showError }) => {
 
             <Switch.Group as="div" className="flex pt-6">
               <Switch.Label as="dt" className="w-64 flex-none pr-6 font-medium text-gray-900" passive>
-                Monthly Emails
+                Receive Monthly Emails
               </Switch.Label>
               <dd className="flex flex-auto items-center justify-end">
                 <Switch
@@ -294,7 +294,7 @@ const Settings = ({ showError }) => {
 
             <Switch.Group as="div" className="flex pt-6">
               <Switch.Label as="dt" className="w-64 flex-none pr-6 font-medium text-gray-900" passive>
-                Alerts
+                Receive Reminders
               </Switch.Label>
               <dd className="flex flex-auto items-center justify-end">
                 <Switch
