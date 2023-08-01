@@ -40,7 +40,7 @@ const Dashboard = ({ newUser, showError }) => {
   })
 
   useEffect(() => {
-    if(t.length <= 0 || reload) getDashboard()      
+    if(t.length <= 0 || reload) getDashboard()
   }, [dates])
 
   const getStats = async () => {

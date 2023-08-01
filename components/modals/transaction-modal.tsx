@@ -7,6 +7,7 @@ import { PinkBtn } from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 import Dropdown from '../dropdown'
+import { clearLocalStorage } from "../../utils/useLocalStorage"
 
 export default function ({ item, setEdit, getDashboard, showError, selected, user }) {
   const defaultTransaction = {
@@ -98,6 +99,7 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
   }
 
   const update = async () => {
+    clearLocalStorage()
     setEdit({})
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
