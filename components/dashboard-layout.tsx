@@ -18,7 +18,7 @@ import Image from 'next/image'
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
-  { name: 'Custom Rules', href: '/rules', icon: AdjustmentsHorizontalIcon },
+  { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleOvalLeftEllipsisIcon },
 ]

@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { useSession } from "next-auth/react"
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { PinkBtn } from '../components/pink-btn'
+import { DateTime } from "luxon"
 
 const Rules = ({ showError }) => {
   const { data: session } = useSession()
@@ -11,10 +12,26 @@ const Rules = ({ showError }) => {
   const [rules, setRules] = useState([])
   const [identifier, setIdentifier] = useState('')
   const [ruleset, setRuleset] = useState(null)
+  const [alerts, setAlerts] = useState([])
 
   useEffect(() => {
     getRules()
+    getAlerts()
   }, [])
+
+  const getAlerts = async () => {
+    const res = await fetch(`/api/get_alerts`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    console.log(data)
+    showError(error)
+    setAlerts(data)
+  }
 
   const getRules = async () => {
     const res = await fetch(`/api/get_rules`, {
@@ -152,7 +169,9 @@ const Rules = ({ showError }) => {
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                           />
                         </div>
-                        <XCircleIcon onClick={() => setRuleset(null)} className='text-red-400 group-hover:text-red-600 h-5 w-5 shrink-0' />
+                        <button onClick={() => setRuleset(null)} type="button">
+                          <XCircleIcon className='text-red-400 group-hover:text-red-600 h-5 w-5 shrink-0' />
+                        </button>
                       </div>
                     ))}
                   </dd>
@@ -177,15 +196,18 @@ const Rules = ({ showError }) => {
             </p>
 
             <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
-              <div className="pt-6 sm:flex">
-                <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Full name</dt>
-                <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                  <div className="text-gray-900">Tom Cook</div>
-                  <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
-                    Remove
-                  </button>
-                </dd>
-              </div>
+              {alerts.map(alert => (
+                <div className="pt-6 sm:flex">
+                  <dt className="font-bold text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{alert.name}</dt>
+                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                    <div className="text-gray-900"><span className="font-semibold">Reminder Date:</span> {DateTime.fromISO(alert.alert_date).toLocaleString(DateTime.DATE_FULL)}</div>
+                    <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                      Remove
+                    </button>
+                  </dd>
+                </div>
+              ))}
+
               {/* <div className="flex border-t border-gray-100 pt-6">
                 <button type="button" className="text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500">
                   <span aria-hidden="true">+</span> Add another bank
