@@ -15,7 +15,7 @@ import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
 import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
-const Dashboard = ({ newUser, showError }) => {
+const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
@@ -23,7 +23,7 @@ const Dashboard = ({ newUser, showError }) => {
   const [refreshing, setRefreshing] = useState(false)
   const [reload, setReload] = useState(false)
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(newUser || false)
+  const [setupModal, openSetupModal] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [weeklyData, setWeeklyData] = useLocalStorage('weekly_data', [])
@@ -40,8 +40,9 @@ const Dashboard = ({ newUser, showError }) => {
   })
 
   useEffect(() => {
+    console.log(user)
     if(t.length <= 0 || reload) getDashboard()
-    getStats()
+    if(user?.loginCount <= 1) openSetupModal(true)
   }, [dates])
 
   const getStats = async () => {
