@@ -8,10 +8,8 @@ export default function ({ showError, user, refresh_access_token }) {
   const router = useRouter()
 
   useEffect(() => {
-    if(user){
-      generateToken()
-    }
-  }, [user])
+    generateToken()
+  }, [])
 
   const generateToken = async () => {
     const response = await fetch('/api/create_link_token', {
