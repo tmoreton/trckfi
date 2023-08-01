@@ -9,7 +9,6 @@ import TransactionModal from '../components/modals/transaction-modal'
 import SetupModal from '../components/modals/setup-modal'
 import DatePicker from '../components/modals/date-picker-modal'
 import { DateTime } from "luxon"
-import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
@@ -18,7 +17,6 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
@@ -38,7 +36,7 @@ const Dashboard = ({ showError }) => {
     getStats()
     getTransactions()
     // @ts-ignore
-    if(user?.loginCount <= 1) openSetupModal(true)
+    if(user?.loginCount <= 1 && totalStats.length <= 0) openSetupModal(true)
   }, [])
 
   useEffect(() => {
