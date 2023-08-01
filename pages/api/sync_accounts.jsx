@@ -4,6 +4,7 @@ import plaidClient from '../../utils/plaid';
 import { DateTime } from "luxon"
 import { formatAmount } from '../../lib/formatNumber'
 import { icons } from '../../lib/categories'
+import { snakeCase } from "snake-case";
 
 export default async (req, res) => {
   let { user } = req.body
@@ -56,24 +57,24 @@ export default async (req, res) => {
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
         let { ruleset } = rules.find(r => r.identifier.toUpperCase() === added[i].name.toUpperCase())
-        console.log(ruleset)
+
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
           },
           update: {},
           create: {
-            transaction_id: added[i].transaction_id,
+            amount,
             account_id: id,
-            amount: amount,
+            transaction_id: added[i].transaction_id,
             authorized_date: new Date(added[i].date),
             date: added[i].date,
             name: ruleset?.name || added[i].merchant_name || added[i].name,
             merchant_name: added[i].merchant_name,
             category: added[i].category,
-            detailed_category: ruleset?.detailed_category || detailed_category,
+            detailed_category: snakeCase(ruleset?.detailed_category).toUpperCase() || detailed_category,
             unified: icons[detailed_category],
-            primary_category: ruleset?.primary_category || added[i].personal_finance_category.primary,
+            primary_category: snakeCase(ruleset?.primary_category).toUpperCase() || added[i].personal_finance_category.primary,
             // @ts-ignore
             location: added[i].location,
             user_id: user.id,

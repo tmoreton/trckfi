@@ -15,11 +15,13 @@ export default async (req, res) => {
       })
     }
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
+    // @ts-ignore
     const rules = await prisma.rules.findMany({
       where: {
         OR: query,
       }
     })
+    console.log(rules)
   
     return res.status(200).json({ status: 'OK', data: rules })
   } catch (error) {
