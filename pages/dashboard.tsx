@@ -34,14 +34,15 @@ const Dashboard = ({ showError }) => {
   })
 
   useEffect(() => {
+    getDashboard()
+    getStats()
     getTransactions()
     // @ts-ignore
     if(user?.loginCount <= 1) openSetupModal(true)
   }, [])
 
   useEffect(() => {
-    getDashboard()
-    getStats()
+    getTransactions()
   }, [dates])
 
   const getStats = async () => {
@@ -62,10 +63,7 @@ const Dashboard = ({ showError }) => {
     if(totalStats.length <= 0) setRefreshing(true)
     getStats()
     const res = await fetch(`/api/get_dashboard`, {
-      body: JSON.stringify({
-        user,
-        range: dates
-      }),
+      body: JSON.stringify({ user }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -94,18 +92,6 @@ const Dashboard = ({ showError }) => {
     setRefreshing(false)
     setLoading(false)
   }
-
-  // const updateTransaction = (item) => {
-  //   setTransactions([])
-  //   let updatedTransactions = t
-  //   item.primary_category = snakeCase(item.primary_category).toUpperCase()
-  //   item.detailed_category = snakeCase(item.detailed_category).toUpperCase()
-  //   let foundIndex = updatedTransactions.findIndex(t => t.id == item.id)
-  //   // updatedTransactions[foundIndex] = item
-  //   delete updatedTransactions[foundIndex]
-  //   updatedTransactions.push(item)
-  //   setTransactions(updatedTransactions)
-  // }
 
   const refresh = async () => {
     setLoading(true)
