@@ -21,7 +21,6 @@ export default async (req, res) => {
         OR: query,
       }
     })
-    console.log(rules)
   
     return res.status(200).json({ status: 'OK', data: rules })
   } catch (error) {

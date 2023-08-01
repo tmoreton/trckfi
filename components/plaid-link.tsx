@@ -36,7 +36,6 @@ export default function ({ showError, user, access_token }) {
       method: 'POST',
     })
     const { access_token, error } = await res.json()
-    console.log(access_token)
     showError(error)
     return access_token
   }
