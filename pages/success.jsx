@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   const { session_id } = context.query
   const session = await getSession(context)
   const user = session?.user
-  
+
   if (session_id){
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2022-11-15',
@@ -22,10 +22,6 @@ export async function getServerSideProps(context) {
 
     const { ended_at, start_date, status, trial_end } = await stripe.subscriptions.retrieve(subscription)
     const { email, phone } = await stripe.customers.retrieve(customer)
-    
-    await prisma.subscriptions.create({
-      data: { user_id: user?.id, customer, subscription, canceled_at, ended_at, start_date, status, trial_end }
-    })
 
     await prisma.user.update({
       where: { 
@@ -34,9 +30,15 @@ export async function getServerSideProps(context) {
       },
       data: { 
         subscription_id: subscription,
+        customer_id: customer,
+        canceled_at, 
+        ended_at, 
+        start_date, 
+        status, 
+        trial_end,
         phone,
         active: true,
-        loginCount: {
+        login_count: {
           increment: 1,
         },
       }
@@ -55,7 +57,7 @@ export async function getServerSideProps(context) {
         id: user.id
       },
       data: { 
-        loginCount: {
+        login_count: {
           increment: 1,
         },
       }

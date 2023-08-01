@@ -132,7 +132,7 @@ export async function getServerSideProps(context) {
       update: { 
         linked_user_id: subscribed_user.id,
         active: true,
-        loginCount: {
+        login_count: {
           increment: 1,
         },
       },
