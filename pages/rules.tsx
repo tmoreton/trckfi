@@ -68,7 +68,6 @@ const Rules = ({ showError }) => {
   const removeRule = async (id) => {
     const res = await fetch(`/api/remove_rule`, {
       body: JSON.stringify({
-        // @ts-ignore
         user,
         id
       }),
@@ -82,6 +81,21 @@ const Rules = ({ showError }) => {
     if(!error) getRules()
   }
 
+  const removeAlert = async (id) => {
+    const res = await fetch(`/api/remove_alert`, {
+      body: JSON.stringify({
+        id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) getAlerts()
+  }
+
   return(
     <DashboardLayout>
       <Head>
@@ -92,7 +106,7 @@ const Rules = ({ showError }) => {
           <div>
             <h2 className="text-lg font-bold leading-7 text-gray-900">Custom Rules</h2>
             <p className="mt-1 text-sm leading-6 text-gray-500">
-              Create rules to auto categorize or update transactions.
+              Create rules to auto categorize or update transactions
             </p>
 
             <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-gray-200 text-sm leading-6">
@@ -192,27 +206,21 @@ const Rules = ({ showError }) => {
           <div>
             <h2 className="text-lg font-bold leading-7 text-gray-900">Upcoming Reminders</h2>
             <p className="mt-1 text-sm leading-6 text-gray-500">
-              This information will be displayed publicly so be careful what you share.
+              Never forget an upcoming subscription or reminder again
             </p>
 
             <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
               {alerts.map(alert => (
                 <div className="pt-6 sm:flex">
-                  <dt className="font-bold text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{alert.name}</dt>
+                  <dt className="font-bold text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{alert.name} - <span className="font-normal">{DateTime.fromISO(alert.alert_date).toLocaleString(DateTime.DATE_FULL)}</span></dt>
                   <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900"><span className="font-semibold">Reminder Date:</span> {DateTime.fromISO(alert.alert_date).toLocaleString(DateTime.DATE_FULL)}</div>
-                    <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                    <div className="text-gray-900"><span className="font-semibold">Notes:</span> {alert.notes}</div>
+                    <button onClick={() => removeAlert(alert.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
                       Remove
                     </button>
                   </dd>
                 </div>
               ))}
-
-              {/* <div className="flex border-t border-gray-100 pt-6">
-                <button type="button" className="text-sm font-semibold leading-6 text-pink-600 hover:text-pink-500">
-                  <span aria-hidden="true">+</span> Add another bank
-                </button>
-              </div> */}
             </dl>
           </div>
         </div>
