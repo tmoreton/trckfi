@@ -22,8 +22,8 @@ export default async (req, res) => {
       const linked_user_id = activeUsers[a].linked_user_id
 
       const date = DateTime.now()
-      const this_month = date.toFormat('yyyy-MM')
-      const last_month = date.minus({ months: 1 }).toFormat('yyyy-MM')
+      const this_month = date.minus({ days: 7 }).toFormat('yyyy-MM')
+      const last_month = date.minus({ months: 1, days: 7 }).toFormat('yyyy-MM')
 
       let linked_user_email;
       if(linked_user_id){

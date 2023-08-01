@@ -361,7 +361,12 @@ export default function ({ item, setEdit, getDashboard, showError, selected, use
                   >
                     Cancel
                   </button>
-                  <TrashIcon onClick={remove} className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
+                  <button
+                    type="button"
+                    onClick={remove}
+                  >
+                    <TrashIcon onClick={remove} className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
+                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

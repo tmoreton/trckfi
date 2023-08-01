@@ -35,8 +35,8 @@ export async function getServerSideProps({ query }) {
   if (!user?.id) return { props: {}}
 
   const date = DateTime.now()
-  const this_month = date.toFormat('yyyy-MM')
-  const last_month = date.minus({ months: 1 }).toFormat('yyyy-MM')
+  const this_month = date.minus({ days: 7 }).toFormat('yyyy-MM')
+  const last_month = date.minus({ months: 1, days: 7 }).toFormat('yyyy-MM')
 
   const linked_user_id = user.linked_user_id
   let linked_user_email;
@@ -77,6 +77,7 @@ export async function getServerSideProps({ query }) {
       month_year: 'desc'
     },
   })
+  console.log(groupByMonth)
 
   const groupByMonthIncome = await prisma.transactions.groupBy({
     by: ['month_year'],
