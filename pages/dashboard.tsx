@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
-import { useLocalStorage, clearLocalStorage, removeLocalStorage } from "../utils/useLocalStorage"
+import { useLocalStorage, clearLocalStorage } from "../utils/useLocalStorage"
 
 const Dashboard = ({ newUser, showError }) => {
   const { data: session } = useSession()

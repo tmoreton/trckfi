@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { usePlaidLink } from 'react-plaid-link'
 import { useRouter } from 'next/router'
 import { PlusIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
+import { clearLocalStorage } from "../utils/useLocalStorage"
 
 export default function ({ showError, user, access_token }) {
   const [linkToken, setLinkToken] = useState(null)
@@ -71,6 +72,7 @@ export default function ({ showError, user, access_token }) {
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
+      clearLocalStorage()
       if(access_token){
         getAccounts(access_token)
       } else {
