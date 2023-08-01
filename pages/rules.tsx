@@ -106,7 +106,7 @@ const Rules = ({ showError }) => {
           <div>
             <h2 className="text-lg font-bold leading-7 text-gray-900">Custom Rules</h2>
             <p className="mt-1 text-sm leading-6 text-gray-500">
-              Create rules to auto categorize or update transactions
+              Create rules to auto categorize or current transactions
             </p>
 
             <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-gray-200 text-sm leading-6">
@@ -173,15 +173,28 @@ const Rules = ({ showError }) => {
                             <option value="name" label="Name" />
                             <option value="primary_category" label="Primary Category" />
                             <option value="detailed_category" label="Detailed Category" />
+                            <option value="recurring" label="Recurring" />
                           </select>
                         </div>
                         <div className="font-medium text-gray-900 sm:w-64 sm:flex-none">
-                          <input
-                            name={i}
-                            onChange={e => setRuleset({ ...ruleset, [i]: e.target.value })}
-                            required
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                          />
+                          { i === 'recurring' ?
+                            <select
+                              name="recurring"
+                              value={ruleset[i].recurring}
+                              onChange={e => setRuleset({ ...ruleset, [i]: e.target.value })}
+                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            >
+                              <option value="true" label="True" />
+                              <option value="false" label="False" />
+                            </select>
+                            :
+                            <input
+                              name={i}
+                              onChange={e => setRuleset({ ...ruleset, [i]: e.target.value })}
+                              required
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                            />
+                          }
                         </div>
                         <button onClick={() => setRuleset(null)} type="button">
                           <XCircleIcon className='text-red-400 group-hover:text-red-600 h-5 w-5 shrink-0' />
