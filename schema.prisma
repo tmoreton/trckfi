@@ -138,9 +138,6 @@ model Subscriptions {
   customer             String?
   subscription         String? @unique
   canceled_at          String?
-  cancel_at            String?
-  current_period_end   String?
-  current_period_start String?
   ended_at             String?
   start_date           String?
   status               String?

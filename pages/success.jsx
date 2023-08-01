@@ -18,11 +18,11 @@ export async function getServerSideProps(context) {
 
     if(!customer || !subscription) return { props: {} }
 
-    const { current_period_end, current_period_start, ended_at, start_date, status, trial_end } = await stripe.subscriptions.retrieve(subscription)
+    const { ended_at, start_date, status, trial_end } = await stripe.subscriptions.retrieve(subscription)
     const { email, phone } = await stripe.customers.retrieve(customer)
     
     await prisma.subscriptions.create({
-      data: { user_id: user?.id, customer, subscription, canceled_at, current_period_end, current_period_start, ended_at, start_date, status, trial_end }
+      data: { user_id: user?.id, customer, subscription, canceled_at, ended_at, start_date, status, trial_end }
     })
 
     await prisma.user.update({
