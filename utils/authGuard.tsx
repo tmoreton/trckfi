@@ -26,7 +26,10 @@ export default function ({ children }) {
       
       if(session?.user){
         let user = session.user
-        console.log(DateTime.fromMillis(user.trial_end))
+        // @ts-ignore
+        if (DateTime.fromSeconds(Number(user?.trial_end)) > DateTime.now()) {
+          // do something here to check stripe status
+        }
         // @ts-ignore
         if (!user.subscription_id && !user.linked_user_id || !user.active) {
           router.push({
