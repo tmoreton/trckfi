@@ -218,7 +218,7 @@ const Settings = ({ showError }) => {
                       </li>
                       {
                         accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED' ?
-                        <PlaidLink user={user} showError={showError} access_token={accounts[key][0]?.plaid?.access_token}/>
+                        <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
                         :
                         <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
                           Remove Connection
@@ -232,7 +232,7 @@ const Settings = ({ showError }) => {
           </ul>
 
           <div className="flex border-t border-gray-100 pt-6">
-            <PlaidLink user={user} showError={showError} access_token={null}/>
+            <PlaidLink user={user} showError={showError} refresh_access_token={null}/>
             {/* { (Object.keys(accounts)?.length <= 10) ? <PlaidLink user={user} showError={showError} access_token={null} /> : <p className="text-sm leading-6 text-red-600 font-bold">Please remove account link to add more...</p>} */}
           </div>
         </div>
