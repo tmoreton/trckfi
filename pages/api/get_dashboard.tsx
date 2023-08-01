@@ -7,7 +7,7 @@ export default async (req, res) => {
   const user_id = user?.id
   if (!user_id ) return res.status(500)
   const startDate = DateTime.now().toISO()
-  const endDate = DateTime.now().minus({ months: 3 }).startOf('month').toISO()
+  const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   
   try {
     const groupByWeek = await prisma.transactions.groupBy({
