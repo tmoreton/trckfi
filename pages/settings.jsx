@@ -135,15 +135,16 @@ const Settings = ({ showError }) => {
               </dd>
             </div>
 
-            <div className="pt-6 sm:flex">
+            {/* <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Name</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                 <div className="text-gray-900">{user?.name}</div>
-                {/* <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
                   Update
-                </button> */}
+                </button>
               </dd>
-            </div>
+            </div> */}
+
             <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Email address</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
