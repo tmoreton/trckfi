@@ -8,7 +8,9 @@ export default function () {
 
 export async function getServerSideProps(context) {
   const { session_id } = context.query
-
+  const session = await getSession(context)
+  const user = session?.user
+  
   if (session_id){
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2022-11-15',
