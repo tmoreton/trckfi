@@ -26,7 +26,7 @@ export default function ({ showError }) {
   const router = useRouter()
   const currentRoute = router.pathname
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav" className="container mx-auto px-5 bg-white">
       {({ open }) => (
         <>
           <div>

@@ -24,10 +24,10 @@ export default function Index({ showError, host }) {
       <Head>
         <title>Trckfi</title>
       </Head>
+      <Menu showError={showError}/>
+      <DemoModal open={open} setOpen={setOpen} />
+      <Hero />
       <Container>
-        <Menu showError={showError}/>
-        <DemoModal open={open} setOpen={setOpen} />
-        <Hero />
         <Feature />
         {/* <Pricing /> */}
         <Faq />
