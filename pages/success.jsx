@@ -51,7 +51,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  if(user && user.active){
+  if(user && user?.active){
     await prisma.user.update({
       where: { 
         id: user.id
