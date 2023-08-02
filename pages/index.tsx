@@ -16,9 +16,9 @@ export default function Index({ showError, host }) {
       </Head>
       {
         host?.includes('demo') &&
-        <div className="flex items-center gap-x-6 bg-pink-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-          <p className="text-sm leading-6 text-white">
-            <strong className="font-semibold">Welcome to the Trckfi Demo! 🎉</strong>
+        <div className="block gap-x-6 bg-pink-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+          <p className="text-sm leading-6 text-white font-semibold text-center">
+            Welcome to the Trckfi Demo! 🎉
           </p>
         </div>
       }
