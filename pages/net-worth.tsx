@@ -130,7 +130,7 @@ const NetWorth = ({ showError }) => {
       <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getNetWorth}/>
       <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getNetWorth}/>
       <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getNetWorth} />
-      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account}/>
+      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getNetWorth} />
       
       <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
