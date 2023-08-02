@@ -1,25 +1,8 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { PinkBtn } from '../pink-btn'
-import { useRouter } from 'next/router'
 
-// const types = [
-//   { subtype: 'mortgage', type: 'loan'},
-//   { subtype: 'credit card', type: 'credit'},
-//   { subtype: 'savings', type: 'depository'},
-//   { subtype: 'checking', type: 'depository'},
-//   { subtype: 'brokerage', type: 'investment'},
-//   { subtype: 'ira', type: 'investment'},
-//   { subtype: '401k', type: 'investment'},
-//   { subtype: 'crypto', type: 'investment'},
-//   { subtype: 'stocks', type: 'investment'},
-//   { subtype: 'rental', type: 'investment'},
-//   { subtype: 'auto', type: 'loan'},
-//   { subtype: 'line of credit', type: 'loan'},
-// ]
-
-export default function ({ showError, open, setOpen, user, account, setAccount }) {
-  const router = useRouter()
+export default function ({ showError, open, setOpen, user, account, setAccount, getNetWorth }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +23,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount }
     const { error } = await res.json()
     showError(error)
     setOpen(false)
-    if(!error) router.reload()
+    if(!error) getNetWorth()
   }
 
   return (

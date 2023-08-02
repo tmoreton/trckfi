@@ -1,11 +1,8 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import { useRouter } from 'next/router'
 
-export default function ({ showError, user, open, setOpen, account }) {
-  const router = useRouter()
-
+export default function ({ showError, user, open, setOpen, account, getNetWorth }) {
   const hideAccount = async (id) => {
     setOpen(false)
     const res = await fetch(`/api/hide_account`, {
@@ -20,7 +17,7 @@ export default function ({ showError, user, open, setOpen, account }) {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(!error) getNetWorth()
   }
 
   return (

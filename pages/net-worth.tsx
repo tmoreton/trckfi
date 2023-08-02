@@ -125,11 +125,11 @@ const NetWorth = ({ showError }) => {
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
-      <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount}/>
-      <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user}/>
-      <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user}/>
-      <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user}/>
-      <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user}/>
+      <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getNetWorth}/>
+      <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getNetWorth}/>
+      <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getNetWorth}/>
+      <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getNetWorth}/>
+      <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getNetWorth} />
       <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account}/>
       
       <div className="lg:flex justify-center space-x-6 mb-4 sm:block">

@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { PinkBtn } from '../pink-btn'
-import { useRouter } from 'next/router'
 import Dropdown from '../dropdown'
 
-export default function ({ showError, open, setOpen, user }) {
-  const router = useRouter()
+export default function ({ showError, open, setOpen, user, getNetWorth }) {
   const [stocks, setStocks] = useState([])
   const [query, setQuery] = useState(null)
   const [selected, setSelected] = useState(null)
@@ -96,7 +94,7 @@ export default function ({ showError, open, setOpen, user }) {
     const { error } = await res.json()
     showError(error)
     setOpen(false)
-    if(!error) router.reload()
+    if(!error) getNetWorth()
   }
 
   return (

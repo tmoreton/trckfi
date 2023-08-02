@@ -1,10 +1,8 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { PinkBtn } from '../pink-btn'
-import { useRouter } from 'next/router'
 
-export default function ({ showError, open, setOpen, user }) {
-  const router = useRouter()
+export default function ({ showError, open, setOpen, user, getNetWorth }) {
   const [account, setAccount] = useState({})
 
   const handleChange = (e) => {
@@ -31,7 +29,7 @@ export default function ({ showError, open, setOpen, user }) {
     const { error } = await res.json()
     showError(error)
     setOpen(false)
-    if(!error) router.reload()
+    if(!error) getNetWorth()
   }
 
   return (
