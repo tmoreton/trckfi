@@ -25,7 +25,8 @@
   @apply text-pink-600 underline
 }
 
-.markdown ul {
+.markdown ul,
+.markdown ol {
   @apply list-disc mt-2
 }
 
