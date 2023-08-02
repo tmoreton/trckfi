@@ -60,11 +60,11 @@ export async function getServerSideProps({ query }) {
         { month_year: this_month },
         { month_year: last_month },
       ],
+      amount: {
+        lte: 0,
+      },
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
-        { primary_category: 'INCOME' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
       ],
     },
     _sum: {
@@ -77,7 +77,6 @@ export async function getServerSideProps({ query }) {
       month_year: 'desc'
     },
   })
-  console.log(groupByMonth)
 
   const groupByMonthIncome = await prisma.transactions.groupBy({
     by: ['month_year'],
@@ -88,7 +87,12 @@ export async function getServerSideProps({ query }) {
         { month_year: this_month },
         { month_year: last_month },
       ],
-      primary_category: 'INCOME'
+      amount: {
+        gte: 0,
+      },
+      NOT: [
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
+      ],
     },
     _sum: {
       amount: true,
@@ -110,11 +114,11 @@ export async function getServerSideProps({ query }) {
         { month_year: this_month },
         { month_year: last_month },
       ],
+      amount: {
+        lte: 0,
+      },
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
-        { primary_category: 'INCOME' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
       ],
     },
     _sum: {
@@ -144,11 +148,11 @@ export async function getServerSideProps({ query }) {
         { month_year: this_month },
         { month_year: last_month },
       ],
+      amount: {
+        lte: 0,
+      },
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
-        { primary_category: 'INCOME' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
       ],
     },
     _sum: {
@@ -175,10 +179,7 @@ export async function getServerSideProps({ query }) {
       active: true,
       month_year: this_month,
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
-        { primary_category: 'INCOME' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
       ],
     },
     orderBy: {
