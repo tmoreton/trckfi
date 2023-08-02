@@ -73,6 +73,7 @@ const Dashboard = ({ showError }) => {
   }
 
   const getTransactions = async () => {
+    setDatePicker(false)
     setSelected([])
     const res = await fetch(`/api/get_transactions`, {
       body: JSON.stringify({
