@@ -3,9 +3,9 @@ import Link from 'next/link'
 export default function () {
   return (
     <div className="relative overflow-hidden isolate bg-white">
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-26">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
-          <div className="mt-24 sm:mt-32 lg:mt-18">
+          <div className="mt-16 sm:mt-32 lg:mt-12">
             {/* <h1 className="mt-10 text-4xl font-bold text-gray-900 sm:text-6xl">
               Take CONTROL <br/>of Your WEALTH <br/> your DATA your eyes ONLY. 
             </h1> */}
@@ -39,7 +39,7 @@ export default function () {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-28">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <img
