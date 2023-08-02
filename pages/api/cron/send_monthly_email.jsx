@@ -24,7 +24,10 @@ export default async (req, res) => {
       const date = DateTime.now()
       const this_month = date.minus({ days: 7 }).toFormat('yyyy-MM')
       const last_month = date.minus({ months: 1, days: 7 }).toFormat('yyyy-MM')
-
+      // const startDate = DateTime.now().toISO()
+      // const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
+      console.log(this_month)
+      console.log(n)
       let linked_user_email;
       if(linked_user_id){
         const res = await prisma.user.findUnique({
@@ -46,11 +49,11 @@ export default async (req, res) => {
             { month_year: this_month },
             { month_year: last_month },
           ],
+          amount: {
+            lte: 0,
+          },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
           ],
         },
         _sum: {
@@ -73,8 +76,12 @@ export default async (req, res) => {
             { month_year: this_month },
             { month_year: last_month },
           ],
-          primary_category: 'INCOME'
-        },
+          amount: {
+            gte: 0,
+          },
+          NOT: [
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          ],        },
         _sum: {
           amount: true,
         },
@@ -95,11 +102,11 @@ export default async (req, res) => {
             { month_year: this_month },
             { month_year: last_month },
           ],
+          amount: {
+            lte: 0,
+          },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
           ],
         },
         _sum: {
@@ -129,11 +136,11 @@ export default async (req, res) => {
             { month_year: this_month },
             { month_year: last_month },
           ],
+          amount: {
+            lte: 0,
+          },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
           ],
         },
         _sum: {
@@ -160,10 +167,7 @@ export default async (req, res) => {
           active: true,
           month_year: this_month,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-            { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
           ],
         },
         orderBy: {
