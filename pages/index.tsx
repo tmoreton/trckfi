@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import Faq from '../components/faq'
 import Hero from '../components/hero-2'
@@ -8,24 +7,22 @@ import Pricing from '../components/pricing'
 import Newsletter from '../components/newsletter'
 import Feature from '../components/feature'
 import Menu from '../components/menu'
-import DemoModal from '../components/modals/demo-modal'
 
 export default function Index({ showError, host }) {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    if(host?.includes('demo')){
-      setOpen(true)
-    }
-  }, [host])
-
   return (
     <Layout>
       <Head>
         <title>Trckfi</title>
       </Head>
+      {
+        host?.includes('demo') &&
+        <div className="flex items-center gap-x-6 bg-pink-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+          <p className="text-sm leading-6 text-white">
+            <strong className="font-semibold">Welcome to the Trckfi Demo! 🎉</strong>
+          </p>
+        </div>
+      }
       <Menu showError={showError}/>
-      <DemoModal open={open} setOpen={setOpen} />
       <Hero />
       <Container>
         <Feature />
