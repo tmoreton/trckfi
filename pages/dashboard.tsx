@@ -12,7 +12,7 @@ import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
-import  { useLocalStorage } from '../utils/useLocalStorage'
+import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -92,6 +92,7 @@ const Dashboard = ({ showError }) => {
   }
 
   const refresh = async () => {
+    clearLocalStorage()
     setLoading(true)
     const res = await fetch(`/api/sync_accounts`, {
       body: JSON.stringify({ user }),
