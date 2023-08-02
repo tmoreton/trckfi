@@ -10,13 +10,25 @@
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply text-3xl mt-12 mb-4 leading-snug font-semibold
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-2xl mt-8 mb-4 leading-snug font-medium
+}
+
+.markdown h4 {
+  @apply text-xl mt-6 mb-2 leading-snug font-medium
 }
 
 .markdown a {
   @apply text-pink-600 underline
+}
+
+.markdown ul {
+  @apply list-disc mt-2
+}
+
+.markdown li {
+  @apply ml-10
 }

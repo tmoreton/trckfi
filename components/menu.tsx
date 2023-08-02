@@ -73,9 +73,12 @@ export default function ({ showError }) {
                         </Menu.Button>
                       </Link>
                       :
+                      
+                      <Link href="#get-notified">
                       <PinkBtn onClick={() => console.log('close')}>
                         Get Notified
                       </PinkBtn>
+                      </Link>
                       // <LoginBtn />
                     }
                     <Transition
