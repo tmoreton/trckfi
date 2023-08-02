@@ -56,8 +56,8 @@ export default function ({ showError }) {
       <Head>
         <title>Trckfi - Pricing</title>
       </Head>
+      <Menu showError={showError} />
       <Container>
-        <Menu showError={showError} />
         <div className="bg-white py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">

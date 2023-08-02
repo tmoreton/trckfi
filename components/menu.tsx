@@ -10,9 +10,9 @@ import CancelModal from './modals/cancel-modal'
 import Image from 'next/image'
 
 const navigation = [
-  // { name: 'Home', href: '/' },
-  // { name: 'Blog', href: '/blog' },
-  // { name: 'Pricing', href: '/pricing' },
+  { name: 'Home', href: '/' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Pricing', href: '/pricing' },
 ]
 
 const classNames = (...classes) => {

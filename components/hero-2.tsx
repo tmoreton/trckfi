@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function () {
   return (
     <div className="relative overflow-hidden isolate bg-white">
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-26">
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-16">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
           <div className="mt-16 sm:mt-32 lg:mt-16">
             {/* <h1 className="mt-10 text-4xl font-bold text-gray-900 sm:text-6xl">

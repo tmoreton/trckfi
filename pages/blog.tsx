@@ -11,8 +11,8 @@ export default function Index({ allPosts, showError }) {
       <Head>
         <title>Trckfi - Blog</title>
       </Head>
+      <Menu showError={showError}/>
       <Container>
-        <Menu showError={showError}/>
         {allPosts.length > 0 && <Blog posts={allPosts.reverse()} />}
       </Container>
     </Layout>
