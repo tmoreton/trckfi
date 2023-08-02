@@ -19,7 +19,7 @@ Imagine having complete **control over your finances**, where budgeting becomes 
 * [Bridging the Gap: Integrating Expense Tracking and Budgeting](#closing-gap)
 * [Takeaway](#takeaway)
 
-## <a name="expense-tracking">The Foundation of Financial Awareness: Expense Tracking</a>
+## <a id="expense-tracking">The Foundation of Financial Awareness: Expense Tracking</a>
 Are you familiar with the concept of [expense tracking] (/tracking-your-monthly-expenses) and its potential to save you money? Tracking your expenses consistently allows you to understand your spending habits and identify trends. It may reveal that discretionary expenses like Ubers, meal deliveries, or impulse Amazon purchases are draining your income. Knowing that your discretionary spending is higher (much higher) than you had realized can help you to reallocate funds and prioritize your financial goals. 
 
 **Spotting unwanted recurring charges** is another benefit of expense tracking. For instance, I once forgot to cancel a Canva membership, and it cost me $13 every month for a full year before I noticed. Multiple unused subscriptions were draining my money, leaving me feeling completely lost about my personal finances.
@@ -28,7 +28,7 @@ To avoid such situations, I explored different methods for [tracking my expenses
 
 ![monthly-expense-tracker-template](/assets/blog/monthly-expense-tracker.png)
 
-### <a name:”manual-tracking”>**Using Manual Tracking with Excel Spreadsheets**</a>
+### <a id="manual-tracking">**Using Manual Tracking with Excel Spreadsheets**</a>
 **Manual entry** involves recording expenses by hand, either in a notebook or an **excel spreadsheet**. This hands-on approach allows for a deeper engagement with your spending habits and provides a sense of control and awareness as you actively have to [track and categorize your expenses] (/tracking-your-monthly-expenses). 
 
 However, it can be very time-consuming and requires consistent discipline to maintain accurate records. Forgetting to add an expense can throw off your entire tracker, so it's crucial to record every single penny properly to avoid issues.
@@ -45,7 +45,7 @@ Cons:
 * Requires discipline
 * Spend tracking might not be accurate if not all expenses are recorded
 
-### <a name="automated-tracking">**Using an Mobile or Web App for Tracking Expenses**</a>
+### <a id="automated-tracking">**Using an Mobile or Web App for Tracking Expenses**</a>
 **Automated solutions** simplify the expense tracking process through automation. Many personal finance apps and platforms offer automatic expense tracking by syncing with your bank accounts and credit cards, capturing all transactions in one place. This method saves you time and provides real-time updates on your spending. Additionally, it offers the convenience of generating categorized reports, enabling more efficient expense analysis.
 
 As someone who values efficiency and simplicity, I prefer automated solutions for tracking my expenses. It's easier, and the time saved from manual recording can be spent on analyzing spending trends. I've developed a habit of checking my dashboard weekly to **monitor my financial progress**.
@@ -64,10 +64,10 @@ Cons:
 
 Remember, when choosing an [expense tracking method](/tracking-your-monthly-expenses), consider your preferences, lifestyle, and desired level of detail. Some prefer manual tracking for a hands-on approach, while others value the convenience and efficiency of automation, gaining instant insights. Find a method that resonates with you and supports your financial goals – ultimately, consistency is key to success. 🙂
 
-### <a name=”tracking-and-budgeting”>**Expense Tracking & Budget Planning: The Power Combo!**</a>
+### <a id="tracking-and-budgeting">**Expense Tracking & Budget Planning: The Power Combo!**</a>
 Integrating expense tracking with [budget planning] (/budgeting-made-easy) is essential for a [solid strategy] (/10-must-know-personal-finance-basics-for-financial success) to manage your money effectively. By aligning your expense tracking data with your budget, you gain a holistic view of your **financial health**. Pay attention to patterns and trends in your expenses to identify areas where adjustments are needed and make better decisions about your money. Are there any categories where you consistently overspend? **Are there areas where you can cut back without sacrificing your quality of life?** Whether you track expenses manually or use automated solutions, consistent review and analysis of your spending patterns are key to success. This integration allows you to allocate money more effectively and stay accountable, paving the way for your [financial success] (/10-must-know-personal-finance-basics-for-financial success).
 
-## <a name="budgeting-journey">Budgeting will Empower Your Financial Journey</a>
+## <a id="budgeting-journey">Budgeting will Empower Your Financial Journey</a>
 **Budgeting** is the key to taking charge of your financial future—, going beyond just expense tracking. Explore different budgeting methods to revolutionize how you manage your money:
 
 ![zero-based-budget-template](/assets/blog/zero-based-budget.png)
@@ -80,7 +80,7 @@ Integrating expense tracking with [budget planning] (/budgeting-made-easy) is es
 
 For instance, if you aim to save $10,000 for a down payment, set monthly savings targets to track your progress. This approach makes your objectives more attainable and keeps you motivated throughout the journey. Don't forget to **celebrate each milestone** you achieve and be ready to adjust your [budget](/budgeting-made-easy) when needed. This iterative process allows you to adapt your financial plan to changing circumstances and ensures you stay on track towards achieving your goals. Building a realistic budget is a powerful tool that empowers you to take control of your finances and make your dreams a tangible reality.
 
-##  <a name="closing-gap"> **Bridging the Gap: Integrating Expense Tracking and Budgeting**</a>
+##  <a id="closing-gap"> **Bridging the Gap: Integrating Expense Tracking and Budgeting**</a>
 Implementing a crafted budget makes your income, expenses, and savings goals crystal clear, enabling timely adjustments to stay on track. Budgeting empowers you to live within your means, reduce financial stress, and transform your financial dreams into a tangible reality. As you adhere to your budget, you'll gain more control over your finances and make choices aligned with your long-term plans. Combining expense tracking and budgeting equips you with powerful tools to build a brighter financial future for yourself and your loved ones.
 
 ### Tips to Stay on Track:
@@ -91,7 +91,7 @@ Implementing a crafted budget makes your income, expenses, and savings goals cry
 
 By integrating expense tracking and budgeting, you gain control over your finances, reduce stress, and turn your financial dreams into a tangible reality. Keep these tips in mind as you embark on your journey to build a brighter financial future for yourself and your loved ones.
 
-## <a name=”takeaway”>**In Conclusion</a>
+## <a id=”takeaway”>**In Conclusion</a>
 Mastering the concepts of expense tracking and budgeting is the key to achieving financial freedom. Take the first step today by tracking your expenses and creating a budget aligned with your goals. Learn from your experiences and embrace the sense of empowerment that comes with taking charge of your financial future.
 
 If you're eager to continue your financial journey, stay updated with practical tips and money hacks by following us on [**@trckfi**](https://www.instagram.com/trckfi). 
