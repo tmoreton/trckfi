@@ -34,7 +34,7 @@ model User {
   linked_user_id  String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  login_count     Decimal?       @db.Decimal(6, 0)
+  login_count     Decimal?       @default(0) @db.Decimal(6, 0)
   canceled_at     Decimal?       @db.Decimal(15, 0)
   ended_at        Decimal?       @db.Decimal(15, 0)
   start_date      Decimal?       @db.Decimal(15, 0)
