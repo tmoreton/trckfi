@@ -169,7 +169,7 @@ const Rules = ({ showError }) => {
                             name="rule"
                             value={i}
                             onChange={e => setRuleset({ ...ruleset, [e.target.value]: '' })}
-                            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-600 sm:text-sm sm:leading-6"
                           >
                             <option value="name" label="Name" />
                             <option value="primary_category" label="Primary Category" />
@@ -184,7 +184,7 @@ const Rules = ({ showError }) => {
                               name={i}
                               value={ruleset[i].recurring || ruleset[i].active}
                               onChange={e => setRuleset({ ...ruleset, [i]: e.target.value })}
-                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-600 sm:text-sm sm:leading-6"
                             >
                               <option value="" label="" />
                               <option value="true" label="True" />

@@ -88,7 +88,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                           <select
                             id="subtype"
                             name="subtype"
-                            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-600 sm:text-sm sm:leading-6"
                             onChange={e => setAccount({ ...account, type: JSON.parse(e.target.value).type, subtype: JSON.parse(e.target.value).subtype })}
                           >
                             { subtypes.map(t => <option value={JSON.stringify(t)} label={t.subtype}/>) }

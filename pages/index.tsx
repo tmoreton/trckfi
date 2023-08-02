@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import Faq from '../components/faq'
-import Hero from '../components/hero'
+import Hero from '../components/hero-2'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import Pricing from '../components/pricing'
