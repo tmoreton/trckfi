@@ -21,7 +21,7 @@
   @apply text-xl mt-6 mb-2 leading-snug font-medium
 }
 
-.markdown a {
+.markdown a[href] {
   @apply text-pink-600 underline
 }
 
