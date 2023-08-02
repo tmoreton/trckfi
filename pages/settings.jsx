@@ -201,7 +201,7 @@ const Settings = ({ showError }) => {
                             { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution} <span className="text-red-500 font-bold mt-4"> {a.plaid && a.plaid.error_code}</span></p>}
                             <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
                               <span className="font-light">{a.official_name}</span> 
-                              <button onClick={() => unhideAccount(a)} className="text-red-500">{!a.active && 'Show Account'}</button>
+                              <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
                             </div>
                             
                           </>
