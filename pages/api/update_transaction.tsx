@@ -17,6 +17,7 @@ export default async (req, res) => {
         let data = {}
         if (name) data['name'] = name
         if (notes) data['notes'] = notes
+        if (amount) data['amount'] = Number(amount).toFixed(2)
         if (unified && unified !== '1f50d') data['unified'] = unified
         if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
