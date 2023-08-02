@@ -28,7 +28,7 @@ To avoid such situations, I explored different methods for [<u>tracking my expen
 
 ![monthly-expense-tracker-template](/assets/blog/monthly-expense-tracker.png)
 
-### <a name:”manual-tracking”>**Using Manual Tracking with Excel Spreadsheets**</a>
+### <a name="manual-tracking">**Using Manual Tracking with Excel Spreadsheets**</a>
 Manual entry involves recording expenses by hand, either in a notebook or an excel spreadsheet. This hands-on approach allows for a deeper engagement with your spending habits and provides a sense of control and awareness as you actively have to [<u>track and categorize your expenses</u>](/tracking-your-monthly-expenses). 
 
 However, it can be very **time-consuming** and requires consistent discipline to maintain accurate records. Forgetting to add an expense can throw off your entire tracker, so it's crucial to record every single penny properly to avoid issues.
