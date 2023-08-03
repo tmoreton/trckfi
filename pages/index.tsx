@@ -1,5 +1,4 @@
 import Container from '../components/container'
-import Faq from '../components/faq'
 import Hero from '../components/hero-2'
 import Layout from '../components/layout'
 import Head from 'next/head'
@@ -18,7 +17,7 @@ export default function Index({ showError, host }) {
         <title>Trckfi</title>
       </Head>
       {
-        host?.includes('demo') &&
+        process.env['NEXT_PUBLIC_BASE_URL'].includes('demo') &&
         <div className="block gap-x-6 bg-pink-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
           <p className="text-sm leading-6 text-white font-semibold text-center">
             Welcome to the Trckfi Demo! 🎉
@@ -33,14 +32,8 @@ export default function Index({ showError, host }) {
         <FeatureLeft />
         <FeatureRight />
         <FeatureNetWorth />
-        {/* <Faq /> */}
         <Newsletter showError={showError} />
       </Container>
     </Layout>
   )
-}
-
-export async function getServerSideProps(context) {
-  const { req } = context
-  return {  props: { host: req?.headers?.host } }
 }

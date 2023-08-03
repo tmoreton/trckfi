@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Icon from '../../components/icon';
 import Link from 'next/link'
 
-export default function SignIn({ csrfToken, base_url }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ export default function SignIn({ csrfToken, base_url }: InferGetServerSidePropsT
           </h2>
         </div>
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${base_url}/success`}>
+          <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/success`}>
           {/* <form className="space-y-6" method="post" action={`/api/auth/signin/email`}> */}
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <div>
@@ -58,8 +58,7 @@ export default function SignIn({ csrfToken, base_url }: InferGetServerSidePropsT
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const csrfToken = await getCsrfToken(context)
-  const base_url = process.env.BASE_URL
   return {
-    props: { csrfToken, base_url },
+    props: { csrfToken },
   }
 }
