@@ -26,10 +26,19 @@ export default async (req, res) => {
       OR: query,
     }
   })
+
+  const plaidAccount = await prisma.plaid.findUnique({
+    where: {
+      id: plaid.id,
+    },
+    include: {
+      accounts: true
+    }
+  })
   
   try {
     const request = {
-      access_token: plaid.access_token,
+      access_token: plaidAccount.access_token,
       cursor: '',
       count: 200,
       options: {
@@ -42,7 +51,7 @@ export default async (req, res) => {
     let next_cursor = response.data.next_cursor
     // let has_more = response.data.has_more
     for (let i in added) {
-      let { id, type } = plaid[p]?.accounts.find(a => a.account_id === added[i].account_id)
+      let { id, type } = plaidAccount.accounts.find(a => a.account_id === added[i].account_id)
       let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
       let { amount } = formatAmount(type, added[i].amount)
       let rule = rules.find(r => added[i].name.toUpperCase().includes(r.identifier.toUpperCase()))
@@ -66,7 +75,7 @@ export default async (req, res) => {
           location: added[i].location,
           user_id: user.id,
           currency: added[i].iso_currency_code,
-          item_id: plaid[p].item_id,
+          item_id: plaidAccount.item_id,
           month_year: added[i].date.substring(0,7),
           week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
           active: rule?.ruleset?.active && (rule?.ruleset?.active === 'true') || true,
@@ -75,7 +84,7 @@ export default async (req, res) => {
       })
     }
     await prisma.plaid.update({
-      where: { id: plaid.id },
+      where: { id: plaidAccount.id },
       data: { 
         cursor: next_cursor,
         error_code: null
@@ -85,7 +94,7 @@ export default async (req, res) => {
   } catch (error) {
     console.error(error)
     await prisma.plaid.update({
-      where: { id: plaid.id },
+      where: { id: plaidAccount.id },
       data: { error_code: error.response?.data?.error_code }
     })
     return res.status(500).json({ error: error.message || error.toString() })
