@@ -1,15 +1,15 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon, HomeIcon, ServerIcon } from '@heroicons/react/20/solid'
 
 const features = [
   {
-    name: 'Custom Categories',
-    description: 'Multiple levels of categorization with Emoji support & search',
-    icon: CloudArrowUpIcon,
+    name: 'Live Price Updates',
+    description: 'Keep up to date with real-time stock & crypto prices',
+    icon: ArrowPathIcon,
   },
   {
-    name: 'Searchable.',
-    description: 'Quick & easy access to combine varios search vectors',
-    icon: LockClosedIcon,
+    name: 'Est Home Value',
+    description: 'Our home is one of our biggest investments, we can track its value with the overall net worth',
+    icon: HomeIcon,
   },
   {
     name: 'Download CSV',
@@ -27,7 +27,7 @@ export default function () {
             <h2 className="text-base font-semibold leading-7 text-pink-600">Track your progress</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Wealth Tracker</p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              With custom rules and the ability to download your data at anytime you can really track how much money is coming in & out.
+              Watch as you hit your money goals month by month and tracking your progress with live bank, stock market & crypto price updates
             </p>
           </div>
         </div>

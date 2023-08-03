@@ -4,6 +4,7 @@ import Hero from '../components/hero-2'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import Newsletter from '../components/newsletter'
+import Features from '../components/features'
 import FeatureCenter from '../components/feature-center'
 import FeatureLeft from '../components/feature-left'
 import FeatureRight from '../components/feature-right'
@@ -27,6 +28,7 @@ export default function Index({ showError, host }) {
       <Menu showError={showError}/>
       <Hero />
       <Container>
+        <Features />
         <FeatureCenter />
         <FeatureLeft />
         <FeatureRight />
