@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import Head from 'next/head'
+import { ArrowPathIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
@@ -18,6 +19,7 @@ const Settings = ({ showError }) => {
   const user = session?.user
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
   const [openCancelModal, setCancelOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [removedAccounts, setRemovedAccounts] = useState([])
   const [linkedUser, setLinkedUser] = useState({})
@@ -38,6 +40,7 @@ const Settings = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
+    setLoading(false)
     if(error){
       showError(error)
     } else {
@@ -112,6 +115,7 @@ const Settings = ({ showError }) => {
   }
 
   const syncAccount = async (plaid) => {
+    setLoading(true)
     setRemovedAccounts([])
     const res = await fetch(`/api/sync_account`, {
       body: JSON.stringify({ plaid, user }),
@@ -123,21 +127,6 @@ const Settings = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     if(!error) getSettings()
-  }
-
-  const renderButton = async () => {
-    return <div>test</div>
-    // if(accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED') {
-    //   return <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
-    // }
-    // if(accounts[key][0]?.plaid?.error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION') {
-    //   return <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="font-semibold text-red-600 hover:text-red-500">Resync Account</button>
-    // }
-    // return (
-    //   <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
-    //     Remove Connection
-    //   </button>
-    // )
   }
 
   return (
@@ -238,8 +227,22 @@ const Settings = ({ showError }) => {
                         ))}
                       </li>
                       { error_code === 'ITEM_LOGIN_REQUIRED' && <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/> }
-                      { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="font-semibold text-red-600 hover:text-red-500">Resync Account</button> }
-                      { !error_code && <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">Remove Connection</button> }
+                      { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
+                        <div className={loading ? 'animate-spin flex items-center' : 'flex items-center'}>
+                          <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="flex items-center font-semibold text-red-600 hover:text-red-500">
+                            <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
+                            <span>Resync Account</span>
+                          </button>
+                        </div>
+                      }
+                      { !error_code && 
+                        <div className={loading ? 'animate-spin flex items-center' : 'flex items-center'}>
+                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="flex items-center  font-semibold text-red-600 hover:text-red-500">
+                            { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
+                            <span>Remove Connection</span>
+                          </button>
+                        </div>
+                      }
                     </div>
                   )
                 }
