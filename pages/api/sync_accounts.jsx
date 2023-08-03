@@ -39,11 +39,11 @@ export default async (req, res) => {
   })
   
   for (let p in plaid) {
-    console.log(plaid.institution)
+    console.log(plaid[p].institution)
     const request = {
       access_token: plaid[p].access_token,
       cursor: plaid[p].cursor || '',
-      count: 200,
+      count: 250,
       options: {
         include_personal_finance_category: true
       }
