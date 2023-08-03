@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import Head from 'next/head'
-import { ArrowPathIcon, PlusIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon, PlusIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
 import { addComma } from '../lib/formatNumber'
 import HomeModal from '../components/modals/home-modal'
@@ -218,7 +218,7 @@ const NetWorth = ({ showError }) => {
                           <div className="w-20 flex items-center justify-between">
                             {renderImg(a)}
                           </div>
-                          <div className="flex-auto">
+                          <div>
                             <div className="flex items-start gap-x-3">
                               <div className="text-md font-bold">
                                 {a.name}
@@ -231,7 +231,7 @@ const NetWorth = ({ showError }) => {
                               {a.subtype}
                             </div>
                           </div>
-                          {/* {a.plaid?.error_code} */}
+                          {a.plaid?.error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1" aria-hidden="true" />}
                         </div>
                         <div className="absolute bottom-0 right-full h-px w-screen bg-gray-100" />
                         <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
@@ -242,7 +242,7 @@ const NetWorth = ({ showError }) => {
                         Last Updated:
                         </div>
                         <div className="text-xs text-gray-400">
-                          {DateTime.fromISO(a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}
+                          {DateTime.fromISO(a?.plaid?.updated_at || a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}
                         </div>
                       </td>
                       <td className="py-5 text-right">
