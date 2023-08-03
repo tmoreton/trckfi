@@ -4,7 +4,6 @@ import PlaidLink from "../plaid-link"
 import ConfettiExplosion from 'react-confetti-explosion'
 
 export default ({ user, open, openSetupModal, showError }) => {
-  console.log(ConfettiExplosion)
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => openSetupModal(false)}>

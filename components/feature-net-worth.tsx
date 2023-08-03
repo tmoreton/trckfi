@@ -1,4 +1,5 @@
 import { ArrowPathIcon, HomeIcon, ServerIcon } from '@heroicons/react/20/solid'
+import { Emoji } from 'emoji-picker-react'
 
 const features = [
   {
@@ -23,9 +24,9 @@ export default function () {
     <>
       <div className="mt-32 mb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl sm:text-center">
+          <div className="mx-auto max-w-2xl sm:text-center justify-between">
             <h2 className="text-base font-semibold leading-7 text-pink-600">Track your progress</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Wealth Tracker</p>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex justify-center"><div className="mr-3 mt-1"><Emoji unified={'1f4c8'} size={30} /></div> Wealth Tracker</p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Watch as you hit your money goals month by month and tracking your progress with live bank, stock market & crypto price updates
             </p>
