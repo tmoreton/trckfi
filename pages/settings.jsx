@@ -125,7 +125,7 @@ const Settings = ({ showError }) => {
     if(!error) getSettings()
   }
 
-  const renderButton = async (accounts) => {
+  const renderButton = async (accounts, key) => {
     if(accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED') {
       return <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
     }
@@ -235,7 +235,7 @@ const Settings = ({ showError }) => {
                           </>
                         ))}
                       </li>
-                      { renderButton(accounts) }
+                      { renderButton(accounts, key) }
                     </div>
                   )
                 }
