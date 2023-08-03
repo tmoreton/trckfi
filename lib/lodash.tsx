@@ -33,3 +33,8 @@ export const getAmount = (account) => {
     return Number(Math.abs(balances.current)).toFixed(2)
   }
 }
+
+const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+export const validateEmail = (email) => {
+  return email.match(regex)
+};

@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
-import { addComma } from '../../lib/formatNumber'
+import { addComma } from '../../lib/lodash'
 
 export default async (req, res) => {
   let { user } = req.body

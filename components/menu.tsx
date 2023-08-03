@@ -76,9 +76,9 @@ export default function ({ showError }) {
                       :
                       
                       <Link href="#get-notified">
-                      <PinkBtn onClick={() => console.log('close')}>
-                        Get Notified
-                      </PinkBtn>
+                        <PinkBtn onClick={() => console.log('close')}>
+                          Join Waitlist!
+                        </PinkBtn>
                       </Link>
                       // <LoginBtn />
                     }
@@ -171,9 +171,11 @@ export default function ({ showError }) {
                   </Disclosure.Button>
                 </div>
                 :
-                <PinkBtn onClick={() => console.log('close')}>
-                  Get Notified
-                </PinkBtn>
+                <Link href="#get-notified">
+                  <PinkBtn onClick={() => console.log('close')}>
+                    Join Waitlist!
+                  </PinkBtn>
+                </Link>
                 // <LoginBtn />
               }
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { classNames } from '../lib/formatNumber'
+import { classNames } from '../lib/lodash'
 
 import {
   Chart as ChartJS,

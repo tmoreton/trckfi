@@ -13,7 +13,6 @@ import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
-import ConfettiExplosion from 'react-confetti-explosion'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -38,7 +37,6 @@ const Dashboard = ({ showError }) => {
     getTransactions()
     // @ts-ignore
     if(user?.login_count <= 1 && t.length <= 0) openSetupModal(true)
-    openSetupModal(true)
   }, [])
 
   useEffect(() => {

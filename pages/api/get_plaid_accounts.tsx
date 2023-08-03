@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
-import { getAmount } from '../../lib/formatNumber'
+import { getAmount } from '../../lib/lodash'
 
 export default async (req, res) => {
   let { user_id, access_token } = req.body

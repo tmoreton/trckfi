@@ -3,7 +3,7 @@ import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
-import { addComma } from '../lib/formatNumber'
+import { addComma } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'

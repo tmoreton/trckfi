@@ -6,7 +6,8 @@ import {
     LockClosedIcon,
     ServerIcon,
   } from '@heroicons/react/20/solid'
-  
+  import { Emoji } from 'emoji-picker-react';
+
   const features = [
     {
       name: 'Push to deploy.',
@@ -45,11 +46,10 @@ import {
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-base font-semibold leading-7 text-pink-600">Everything you need</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">No server? No problem.</p>
+            <h2 className="text-base font-semibold leading-7 text-pink-600">Why Trckfi?</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex">Your Data, For Your Eyes Only <div className="ml-4"><Emoji unified={'1f440'} size={50} /></div></p>
             <p className="mt-6 text-lg leading-8 text-gray-900">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-              dolor cupiditate blanditiis.
+              Trckfi doesn’t share your data without your permission, and we don’t sell or rent your financial information to outside companies.
             </p>
           </div>
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-900 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import BarChart from './bar-chart'
-import { addComma, classNames } from '../lib/formatNumber'
+import { addComma, classNames } from '../lib/lodash'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Emoji } from 'emoji-picker-react';

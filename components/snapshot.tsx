@@ -1,5 +1,5 @@
 import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
-import { addComma, diffNum } from '../lib/formatNumber'
+import { addComma, diffNum } from '../lib/lodash'
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')

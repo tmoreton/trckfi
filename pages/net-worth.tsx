@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { ArrowPathIcon, PlusIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
-import { addComma } from '../lib/formatNumber'
+import { addComma } from '../lib/lodash'
 import HomeModal from '../components/modals/home-modal'
 import HideAccountModal from '../components/modals/hide-account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'

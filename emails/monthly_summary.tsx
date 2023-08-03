@@ -14,7 +14,7 @@ import {
   Column
 } from '@react-email/components';
 import * as React from 'react';
-import { addComma } from '../lib/formatNumber'
+import { addComma } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react';
 
 export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, detailedCategories, transactions, recurring }) {

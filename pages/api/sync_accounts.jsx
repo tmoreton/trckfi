@@ -2,7 +2,7 @@
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 import { DateTime } from "luxon"
-import { formatAmount } from '../../lib/formatNumber'
+import { formatAmount } from '../../lib/lodash'
 import { icons } from '../../lib/categories'
 import { snakeCase } from "snake-case";
 

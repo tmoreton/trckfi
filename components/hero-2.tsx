@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import VideoModal from './modals/video-modal'
+import { Emoji } from 'emoji-picker-react';
 
 export default function () {
   const [open, setOpen] = useState(false)
@@ -29,13 +30,13 @@ export default function () {
               </span>{' '}
               with automation
             </h1>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              Take control of your wealth and keep your data, for your eyes only.
+            <p className="mt-2 text-lg leading-8 text-gray-600 max-w-md">
+              Take control of your wealth journey while keeping your data private & secure.
             </p>
             <div className="mt-8 flex items-center gap-x-6">
-              <Link href='/pricing' className="text-md font-semibold leading-6 text-gray-900">
+              <Link href='#get-notified' className="text-md font-semibold leading-6 text-gray-900">
                 <button className="rounded-3xl bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                  Get Started
+                  Join Waitlist!
                 </button>
               </Link>
               <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-gray-900 hidden lg:block">
