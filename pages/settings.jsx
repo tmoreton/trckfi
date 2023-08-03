@@ -228,17 +228,21 @@ const Settings = ({ showError }) => {
                       </li>
                       { error_code === 'ITEM_LOGIN_REQUIRED' && <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/> }
                       { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
-                        <div className={loading ? 'animate-spin flex items-center' : 'flex items-center'}>
+                        <div className='flex items-center'>
                           <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="flex items-center font-semibold text-red-600 hover:text-red-500">
-                            <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
-                            <span>Resync Account</span>
+                            <div className={loading && 'animate-spin'}>
+                              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+                            </div>
+                            <span className="ml-2">Resync Account</span>
                           </button>
                         </div>
                       }
-                      { !error_code && 
-                        <div className={loading ? 'animate-spin flex items-center' : 'flex items-center'}>
+                      { !error_code &&
+                        <div className='flex items-center'>
                           <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="flex items-center  font-semibold text-red-600 hover:text-red-500">
-                            { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
+                            <div className={loading && 'animate-spin'}>
+                              { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
+                            </div>
                             <span>Remove Connection</span>
                           </button>
                         </div>
