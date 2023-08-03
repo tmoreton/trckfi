@@ -68,6 +68,8 @@ model Plaid {
   institution    String?
   institution_id String?
   error_code     String?
+  created_at     DateTime   @default(now())
+  updated_at     DateTime   @default(now()) @updatedAt
   accounts       Accounts[]
   user           User?      @relation(fields: [user_id], references: [id])
 
