@@ -50,7 +50,7 @@ export default function ({ showError }) {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
-                    <Link href={item.href} key={item.name} className={currentRoute === item.href ? "font-bold text-pink-600 px-3 py-2" : "text-gray-900 px-3 py-2"}>
+                    <Link href={item.href} key={item.name} className={currentRoute === item.href ? "text-lg font-bold text-pink-600 px-3 py-2" : "text-lg text-gray-900 px-3 py-2 font-semibold"}>
                       {item.name}
                     </Link>
                   ))}
