@@ -15,6 +15,14 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
     <SessionProvider session={session}>
       <ErrorModal error={error} />
         <AuthGuard>
+          {
+            process.env['NEXT_PUBLIC_BASE_URL'].includes('demo') &&
+            <div className="block gap-x-6 bg-pink-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+              <p className="text-sm leading-6 text-white font-semibold text-center">
+                Welcome to the Trckfi Demo! 🎉
+              </p>
+            </div>
+          }
           <Component {...pageProps} showError={showError} />
         </AuthGuard>
       <Analytics />

@@ -16,14 +16,6 @@ export default function Index({ showError, host }) {
       <Head>
         <title>Trckfi</title>
       </Head>
-      {
-        process.env['NEXT_PUBLIC_BASE_URL'].includes('demo') &&
-        <div className="block gap-x-6 bg-pink-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-          <p className="text-sm leading-6 text-white font-semibold text-center">
-            Welcome to the Trckfi Demo! 🎉
-          </p>
-        </div>
-      }
       <Menu showError={showError}/>
       <Hero />
       <Container>
