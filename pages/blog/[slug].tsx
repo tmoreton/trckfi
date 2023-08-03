@@ -12,7 +12,7 @@ import Menu from '../../components/menu'
 
 export default function Post({ post, preview, showError }) {
   const router = useRouter()
-  const title = `${post.title} | Trckfi Blog`
+  const title = `${post?.title} | Trckfi Blog`
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }

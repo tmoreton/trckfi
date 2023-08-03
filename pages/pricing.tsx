@@ -58,7 +58,7 @@ export default function ({ showError }) {
       </Head>
       <Menu showError={showError} />
       <Container>
-        <div className="bg-white py-24">
+        <div className="bg-white py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-base font-semibold leading-7 text-pink-600">Pricing</h2>

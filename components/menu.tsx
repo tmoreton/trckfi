@@ -12,8 +12,9 @@ import { PinkBtn } from './pink-btn'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'FAQ', href: '/faq' },
   { name: 'Pricing', href: '/pricing' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 const classNames = (...classes) => {

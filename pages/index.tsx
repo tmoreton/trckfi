@@ -3,9 +3,11 @@ import Faq from '../components/faq'
 import Hero from '../components/hero-2'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import Pricing from '../components/pricing'
 import Newsletter from '../components/newsletter'
-import Feature from '../components/feature'
+import FeatureCenter from '../components/feature-center'
+import FeatureLeft from '../components/feature-left'
+import FeatureRight from '../components/feature-right'
+import FeatureNetWorth from '../components/feature-net-worth'
 import Menu from '../components/menu'
 
 export default function Index({ showError, host }) {
@@ -25,9 +27,11 @@ export default function Index({ showError, host }) {
       <Menu showError={showError}/>
       <Hero />
       <Container>
-        <Feature />
-        {/* <Pricing /> */}
-        <Faq />
+        <FeatureCenter />
+        <FeatureLeft />
+        <FeatureRight />
+        <FeatureNetWorth />
+        {/* <Faq /> */}
         <Newsletter showError={showError} />
       </Container>
     </Layout>
