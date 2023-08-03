@@ -39,6 +39,7 @@ export default async (req, res) => {
   })
   
   for (let p in plaid) {
+    console.log(plaid.institution)
     const request = {
       access_token: plaid[p].access_token,
       cursor: plaid[p].cursor || '',
@@ -52,6 +53,7 @@ export default async (req, res) => {
       let added = response.data.added
       let next_cursor = response.data.next_cursor
       // let has_more = response.data.has_more
+      console.log(response.data)
       for (let i in added) {
         let { id, type } = plaid[p]?.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
