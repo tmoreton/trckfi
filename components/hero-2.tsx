@@ -1,8 +1,13 @@
+import { useState } from 'react'
 import Link from 'next/link'
+import VideoModal from './modals/video-modal'
 
 export default function () {
+  const [open, setOpen] = useState(false)
+
   return (
     <div className="relative overflow-hidden isolate bg-white">
+      <VideoModal setOpen={setOpen} open={open} />
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-16">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
           <div className="mt-16 sm:mt-32 lg:mt-16">
@@ -33,9 +38,9 @@ export default function () {
                   Get Started
                 </button>
               </Link>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+              <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-gray-900 hidden lg:block">
                 Watch how Trckfi works <span aria-hidden="true">→</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -64,7 +69,6 @@ export default function () {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

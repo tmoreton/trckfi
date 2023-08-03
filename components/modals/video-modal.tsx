@@ -27,18 +27,8 @@ export default ({ open, setOpen }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white pt-5 text-left shadow-xl transition-all sm:w-full sm:max-w-sm">
-                <div>
-                  <div style={{ padding: "55.67% 0 0 0" }}>
-                    <iframe 
-                      src="https://player.vimeo.com/video/851013697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                      frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      className="absolute top-0 left-0 w-100 h-100"
-                      title="Screen Recording 2023-08-02 at 11.58.42 AM"
-                    ></iframe>
-                    </div><script src="https://player.vimeo.com/api/player.js"></script>
-                </div>
+              <Dialog.Panel className="relative transform rounded-lg text-left shadow-xl">
+                <iframe src="https://player.vimeo.com/video/851013697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1000" height="557" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Screen Recording 2023-08-02 at 11.58.42 AM"></iframe>
               </Dialog.Panel>
             </Transition.Child>
           </div>
