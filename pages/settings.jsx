@@ -111,6 +111,34 @@ const Settings = ({ showError }) => {
     if(!error) getSettings()
   }
 
+  const syncAccount = async (plaid) => {
+    setRemovedAccounts([])
+    const res = await fetch(`/api/sync_account`, {
+      body: JSON.stringify({ plaid, user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) getSettings()
+  }
+
+  const renderButton = async (accounts) => {
+    if(accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED') {
+      return <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
+    }
+    if(accounts[key][0]?.plaid?.error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION') {
+      return <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="font-semibold text-red-600 hover:text-red-500">Resync Account</button>
+    }
+    return (
+      <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
+        Remove Connection
+      </button>
+    )
+  }
+
   return (
     <DashboardLayout>
       <Head>
@@ -198,7 +226,7 @@ const Settings = ({ showError }) => {
                       <li>
                         { accounts[key].map((a, i) => (
                           <>
-                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution} <span className="text-red-500 font-bold mt-4"> {a.plaid && a.plaid.error_code}</span></p>}
+                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution} <span className="text-red-600 font-bold mt-4">- {a.plaid && a.plaid.error_code}</span></p>}
                             <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
                               <span className="font-light">{a.official_name}</span> 
                               <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
@@ -207,14 +235,7 @@ const Settings = ({ showError }) => {
                           </>
                         ))}
                       </li>
-                      {
-                        accounts[key][0]?.plaid?.error_code === 'ITEM_LOGIN_REQUIRED' ?
-                        <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
-                        :
-                        <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="font-semibold text-red-600 hover:text-red-500">
-                          Remove Connection
-                        </button>
-                      }
+                      { renderButton(accounts) }
                     </div>
                   )
                 }
