@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ConfettiExplosion from 'react-confetti-explosion'
 
 const Newsletter = ({ showError }) => {
   const [email, setEmail] = useState('')
@@ -6,7 +7,8 @@ const Newsletter = ({ showError }) => {
 
   const subscribe = async (e) => {
     e.preventDefault()
-
+    setSubscribed(true)
+    setEmail('')
     const res = await fetch(`/api/create_user`, {
       body: JSON.stringify({
         email,
@@ -20,10 +22,6 @@ const Newsletter = ({ showError }) => {
 
     const { error } = await res.json()
     showError(error)
-    if(!error) {
-      setSubscribed(true)
-      setEmail('')
-    }
   }
 
   return (
@@ -55,6 +53,7 @@ const Newsletter = ({ showError }) => {
             >
               { subscribed ? "Subscribed!  🎉" : "Notify me"}
             </button>
+            {subscribed && <ConfettiExplosion />}
           </form>
         </div>
       </div>

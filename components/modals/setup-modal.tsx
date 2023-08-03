@@ -1,8 +1,10 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import PlaidLink from "../plaid-link"
+import ConfettiExplosion from 'react-confetti-explosion'
 
 export default ({ user, open, openSetupModal, showError }) => {
+  console.log(ConfettiExplosion)
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => openSetupModal(false)}>
@@ -36,11 +38,13 @@ export default ({ user, open, openSetupModal, showError }) => {
                   <div className="mt-3 text-center sm:mt-5">
                     <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
                       Welcome to your Dashboard! 🎉
+                      
                     </Dialog.Title>
                     <div className="mt-1">
                       <p className="text-sm text-gray-600">
                         Let's connect a bank or credit card
                       </p>
+                      <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>
                       <p className="text-xs text-gray-400  my-4">
                         The first time you connect it may take a few a minutes to gather your historical data
                       </p>
