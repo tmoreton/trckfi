@@ -2,7 +2,6 @@
 import nodemailer from 'nodemailer'
 import { render } from '@react-email/render'
 import prisma from '../../../lib/prisma'
-import { Emoji } from 'emoji-picker-react';
 import Alert from "../../../emails/alert"
 
 export default async (req, res) => {
@@ -14,8 +13,8 @@ export default async (req, res) => {
       where: {
         active: true,
         alert_date: {
-          lte: end_date,
-          gte: start_date
+          lte: start_date,
+          gte: end_date
         },
       },
       include: {
