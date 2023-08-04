@@ -28,10 +28,10 @@ export default async (req, res) => {
       for (let t in transactions) {
         const emailHtml = render(
           <Alert 
-            transaction={t}
+            transaction={transactions[t]}
           />
         )
-        console.log(t)
+        console.log(transactions[t])
         const message = {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore
