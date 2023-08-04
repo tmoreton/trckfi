@@ -5,7 +5,7 @@ export default async (req, res) => {
   const { user_id, id } = req.body
 
   try {
-    const account = await prisma.accounts.update({
+    const accounts = await prisma.accounts.update({
       where: { 
         user_id, 
         id 
@@ -14,11 +14,12 @@ export default async (req, res) => {
         active: false
       },
     })
-
+    console.log(accounts)
+    
     await prisma.transactions.updateMany({
       where: { 
         user_id, 
-        account_id: account.account_id 
+        account_id: id 
       },
       data: { 
         active: false
