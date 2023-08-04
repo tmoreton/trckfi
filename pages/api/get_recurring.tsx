@@ -54,7 +54,7 @@ export default async (req, res) => {
 
     recurring1.forEach(async (month1) => {
       let tarObj = recurring2.find((obj) => {
-        return month1.name === obj.name;
+        return month1.name === obj.name && month1.amount === obj.amount
       })
       if(tarObj){
         await prisma.transactions.update({
