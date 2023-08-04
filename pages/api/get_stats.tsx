@@ -85,6 +85,7 @@ export default async (req, res) => {
         month_year: 'desc'
       },
     })
+    console.log(groupByMonth)
 
     let this_month = DateTime.now().startOf('month')
     let last_month = DateTime.now().minus({ months: 1 }).startOf('month')
