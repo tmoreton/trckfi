@@ -54,8 +54,7 @@ export default async (req, res) => {
 
     recurring1.forEach((month1) => {
       recurring2.forEach(async (month2) => {
-        console.log(Number(month1.amount), Number(month2.amount))
-        if(month1.name === month2.name && (Number(month1.amount) == Number(month2.amount))){
+        if(month1.name === month2.name && Number(month1.amount) === Number(month2.amount)){
           console.log('matches')
           await prisma.transactions.updateMany({
             where: { 
