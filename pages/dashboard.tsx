@@ -43,6 +43,16 @@ const Dashboard = ({ showError }) => {
     getTransactions()
   }, [dates])
 
+  const getRecurring = async () => {
+    const res = await fetch(`/api/get_recurring`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+  }
+
   const getStats = async () => {
     const res = await fetch(`/api/get_stats`, {
       body: JSON.stringify({ user }),
@@ -93,6 +103,7 @@ const Dashboard = ({ showError }) => {
   }
 
   const refresh = async () => {
+    getRecurring()
     clearLocalStorage()
     setLoading(true)
     const res = await fetch(`/api/sync_accounts`, {
