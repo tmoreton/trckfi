@@ -181,6 +181,9 @@ export default async (req, res) => {
           NOT: [
             { detailed_category: 'CREDIT_CARD_PAYMENT' },
           ],
+          amount: {
+            lte: 0,
+          },
           recurring: true
         },
         orderBy: {
