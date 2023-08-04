@@ -8,8 +8,6 @@ export default async (req, res) => {
   try {
     const start_date = new Date()
     const end_date = new Date(start_date.getTime() + 60 * 60 * 24 * 1000)
-    console.log(start_date)
-    console.log(end_date)
     const transactions = await prisma.transactions.findMany({
       where: {
         active: true,
@@ -25,16 +23,15 @@ export default async (req, res) => {
         date: 'desc'
       },
     })
-    console.log(transactions)
     
     if(transactions.length > 0){
-      transactions.forEach(async (t) => {
+      for (let t in transactions) {
         const emailHtml = render(
           <Alert 
             transaction={t}
           />
         )
-
+        console.log(t)
         const message = {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore
@@ -54,7 +51,7 @@ export default async (req, res) => {
         })
     
         await transporter.sendMail(message)
-      })
+      }
     }
 
     return res.status(200).json({ status: 'OK' })
