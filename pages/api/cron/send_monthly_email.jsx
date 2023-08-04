@@ -24,10 +24,7 @@ export default async (req, res) => {
       const date = DateTime.now()
       const this_month = date.minus({ days: 7 }).toFormat('yyyy-MM')
       const last_month = date.minus({ months: 1, days: 7 }).toFormat('yyyy-MM')
-      // const startDate = DateTime.now().toISO()
-      // const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
-      console.log(this_month)
-      console.log(n)
+
       let linked_user_email;
       if(linked_user_id){
         const res = await prisma.user.findUnique({
