@@ -8,7 +8,8 @@ export default async (req, res) => {
   try {
     const start_date = new Date()
     const end_date = new Date(start_date.getTime() + 60 * 60 * 24 * 1000)
-
+    console.log(start_date)
+    console.log(end_date)
     const transactions = await prisma.transactions.findMany({
       where: {
         active: true,
@@ -18,13 +19,13 @@ export default async (req, res) => {
         },
       },
       include: {
-        // @ts-ignore
         user: true
       },
       orderBy: {
         date: 'desc'
       },
     })
+    console.log(transactions)
     
     if(transactions.length > 0){
       transactions.forEach(async (t) => {
