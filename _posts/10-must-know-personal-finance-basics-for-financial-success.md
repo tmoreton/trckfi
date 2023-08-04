@@ -1,7 +1,7 @@
 ---
 title: '10 Must-Know Personal Finance Basics for Financial Success'
-excerpt: 'Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you are just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here.'
-coverImage: '/assets/blog/assets/10-concepts-finance-cover.png'
+excerpt: 'Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!'
+coverImage: '/assets/blog/10-concepts-finance-cover.png'
 date: '08.15.2023'
 category: 'Personal Finance, Financial Education'
 keywords: 'Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights'
@@ -22,7 +22,7 @@ Are you ready to take control of your financial journey and boost your **money m
 [Conclusion](#Conclusion)
 
 1. <a name="tracking-expense">## Making Expense Tracking a Habit: Your Financial Roadmap</a>
-Tracking your expenses is the first and most essential step in gaining control over your finances. It's like shining a light on where your money is going, helping you understand your spending habits and make meaningful financial decisions. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed [Trckfi](www.trckfi.com) to **automate** and **simplify expense tracking**, intelligently **categorizing** your spending and providing **real-time data**. No more manual data entry or spreadsheet headaches. Trckfi empowers you with a clear picture of your financial health, giving you the confidence to take control of your money and prioritize your expenses effectively.
+Tracking your expenses is the first and most essential step in gaining control over your finances. It's like shining a light on where your money is going, helping you understand your spending habits and make meaningful financial decisions. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed [Trckfi](/) to **automate** and **simplify expense tracking**, intelligently **categorizing** your spending and providing **real-time data**. No more manual data entry or spreadsheet headaches. Trckfi empowers you with a clear picture of your financial health, giving you the confidence to take control of your money and prioritize your expenses effectively.
 
 ![trckfi-demo-image](/assets/blog/trckfi-demo.png)
 
@@ -35,7 +35,7 @@ Now, let's flip the script and explore the magic of compound interest in saving 
 
 Whether you aim to tackle credit card debt or save for your future, understanding compound interest can be a game-changer in achieving your financial goals. Let's unlock the potential of compound interest and pave the way to a brighter financial future.
 
-![compound-interest-calculator-image](/assets/blog/compound-interest.png)
+![compound-interest-calculator-image](/assets/blog/compound-interest-calc.png)
 
 3. ## <a name="credit-score">Why Does Credit Score Matter? Get Tips to Improve Yours</a>
 Your **credit score** is like a financial report card that can greatly impact your ability to access credit and loans. It's essential to understand how it works and why it matters. Your credit score is determined by various factors, such as your **payment history**, the amount of **debt** you owe, the **length of your credit history**, **new credit inquiries**, and the types of credit you have. 
@@ -109,4 +109,4 @@ For instance, if your monthly expenses amount to $2,000, aim to have at least $6
 Having this safety net means you won't have to rely on credit cards or loans when facing unexpected costs. It protects you from falling into debt and keeps you on track with your long-term financial goals. Prioritizing your emergency fund gives you financial peace of mind and the confidence to weather any unexpected storms that come your way.
 
 ## <a name="Conclusion">The Bottom Line: Empowering You on Your Financial Journey</a>
-Gaining a strong grasp of **personal finance** opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/). Let's take control of our money and shape a brighter financial future together!
+Gaining a strong grasp of **personal finance** opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](www.trckfi/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/). Let's take control of our money and shape a brighter financial future together!

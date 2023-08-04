@@ -14,6 +14,8 @@ Take a good look at your money matters. Add up all the cash flowing in from your
 1. ## **Define Your Financial Goals:** 
 Picture your dream future. Is it a family vacation, a new car, or saving for your child's education? Write down all your goals and prioritize them. By having clear objectives, you can align your budgeting efforts with what truly matters to you and your family.
 
+![trckfi-demo-image](/assets/blog/track-all-expenses.png)
+
 2. ## **Categorize Your Expenses:**
 Time to break down your spending into categories. Start with the essentials like housing, utilities, transportation, and food. Then, think about those extra treats like eating out or weekend getaways. Being specific and thorough in your categories will help you see where you can cut back or splurge a little.
 
@@ -32,4 +34,4 @@ Let tech do the heavy lifting! Take advantage of awesome personal finance dashbo
 ## **Key takeway:**
 Creating a **realistic budget** is the key to achieving financial balance as a busy professional and multitasking parent. By following the steps outlined in this guide and adopting a proactive mindset towards your finances, you can take control of your financial well-being. Remember, budgeting doesn't have to be a daunting task. Keep it simple, involve your family, and stay flexible. By being intentional with your spending, you can enjoy quality time with your loved ones while making smart financial decisions. So go ahead, have fun, and let your budget be your guide to a more balanced and fulfilling life!
 
-And if you're looking for an intuitive and effective way to create and track your budget, you check Trckfi. Sign up for a free trial of [<u>**Trckfi today**</u>](www.trckfi.com/) and experience the convenience and power of an **automated personal finance solution**.  With **Trckfi**, you can effortlessly track your finances, and stay on top of your financial goals. Take the stress out of budgeting and start your **journey to financial success** with Trckfi now!
+And if you're looking for an intuitive and effective way to create and track your budget, you check Trckfi. Sign up for a free trial of [**Trckfi**](www.trckfi.com/) today and experience the convenience and power of an **automated personal finance solution**.  With **Trckfi**, you can effortlessly track your finances, and stay on top of your financial goals. Take the stress out of budgeting and start your **journey to financial success** with Trckfi now!
