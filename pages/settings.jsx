@@ -218,7 +218,7 @@ const Settings = ({ showError }) => {
                       <li>
                         { accounts[key].map((a, i) => (
                           <>
-                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1" aria-hidden="true" />}</p>}
+                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>}
                             <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
                               <span className="font-light">{a.official_name}</span> 
                               <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
