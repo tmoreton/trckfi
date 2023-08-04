@@ -176,6 +176,21 @@ export default async (req, res) => {
       })
       const transactions = t.slice(0, 10)
 
+      const recurring = await prisma.transactions.findMany({
+        where: {
+          OR: user_query,
+          active: true,
+          month_year: this_month,
+          NOT: [
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          ],
+          recurring: true
+        },
+        orderBy: {
+          amount: 'asc'
+        }
+      })
+
       const emailHtml = render(
         <MonthlySummary 
           groupByMonth={groupByMonth} 
@@ -183,7 +198,7 @@ export default async (req, res) => {
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 
-          recurring={[]} 
+          recurring={recurring} 
           email={email}
           this_month={this_month}
           last_month={last_month}
