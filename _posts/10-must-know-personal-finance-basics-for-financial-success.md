@@ -1,6 +1,6 @@
 ---
 title: '10 Must-Know Personal Finance Basics for Financial Success'
-excerpt: 'Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!'
+excerpt: 'Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you are just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here.'
 coverImage: '/assets/blog/assets/10-concepts-finance-cover.png'
 date: '08.15.2023'
 category: 'Personal Finance, Financial Education'
