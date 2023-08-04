@@ -35,7 +35,7 @@ export default async (req, res) => {
         const message = {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore
-          to: t.user.email,
+          to: transactions[t].user.email,
           subject: `Trckfi Alert`,
           text: ``,
           html: emailHtml,
