@@ -51,6 +51,9 @@ export default async (req, res) => {
             { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
           ],
+          amount: {
+            lte: 0,
+          },
         },
         _sum: {
           amount: true,
@@ -78,6 +81,9 @@ export default async (req, res) => {
             { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
           ],
+          amount: {
+            lte: 0,
+          },
         },
         _sum: {
           amount: true,
@@ -111,6 +117,9 @@ export default async (req, res) => {
             { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
           ],
+          amount: {
+            lte: 0,
+          },
         },
         _sum: {
           amount: true,

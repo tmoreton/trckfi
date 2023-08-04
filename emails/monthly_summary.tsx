@@ -147,12 +147,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     </Column>
                     <Column align="right">
                       {
-                        item.this_month_amount < 0 ?
                         <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_month_amount))}
-                        </Text>
-                        :
-                        <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
                           ${Math.abs(Math.round(item.this_month_amount))}
                         </Text>
                       }
@@ -196,12 +191,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     </Column>
                     <Column align="right">
                       {
-                        item.this_month_amount < 0 ?
                         <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_month_amount))}
-                        </Text>
-                        :
-                        <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
                           ${Math.abs(Math.round(item.this_month_amount))}
                         </Text>
                       }
@@ -265,12 +255,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                       </Column>
                       <Column align="right">
                         {
-                          item.amount > 0 ?
                           <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                            ${Math.abs(Math.round(item.amount))}
-                          </Text>
-                          :
-                          <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
                             ${Math.abs(Math.round(item.amount))}
                           </Text>
                         }
