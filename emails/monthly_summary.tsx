@@ -147,12 +147,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     </Column>
                     <Column align="right">
                       {
-                        item.this_month_amount < 0 ?
                         <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_month_amount))}
-                        </Text>
-                        :
-                        <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
                           ${Math.abs(Math.round(item.this_month_amount))}
                         </Text>
                       }
@@ -196,12 +191,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     </Column>
                     <Column align="right">
                       {
-                        item.this_month_amount < 0 ?
                         <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_month_amount))}
-                        </Text>
-                        :
-                        <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
                           ${Math.abs(Math.round(item.this_month_amount))}
                         </Text>
                       }
@@ -248,7 +238,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
                 <Section className="mt-0 mb-4">
                   <Text className="text-[#464c63] font-light text-[22px] mb-1">
-                    Monthly Recurring
+                    Recurring Transactions
                   </Text>
                   <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                   {recurring.map((item) => (
@@ -265,12 +255,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                       </Column>
                       <Column align="right">
                         {
-                          item.amount > 0 ?
                           <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                            ${Math.abs(Math.round(item.amount))}
-                          </Text>
-                          :
-                          <Text className="text-green-500 text-[16px] my-0 mr-6 font-semibold">
                             ${Math.abs(Math.round(item.amount))}
                           </Text>
                         }

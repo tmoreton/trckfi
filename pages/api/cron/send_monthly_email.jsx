@@ -24,10 +24,7 @@ export default async (req, res) => {
       const date = DateTime.now()
       const this_month = date.minus({ days: 7 }).toFormat('yyyy-MM')
       const last_month = date.minus({ months: 1, days: 7 }).toFormat('yyyy-MM')
-      // const startDate = DateTime.now().toISO()
-      // const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
-      console.log(this_month)
-      console.log(n)
+
       let linked_user_email;
       if(linked_user_id){
         const res = await prisma.user.findUnique({
@@ -176,6 +173,26 @@ export default async (req, res) => {
       })
       const transactions = t.slice(0, 10)
 
+      const recurring = await prisma.transactions.findMany({
+        where: {
+          OR: user_query,
+          active: true,
+          month_year: this_month,
+          NOT: [
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+          ],
+          amount: {
+            lte: 0,
+          },
+          recurring: true
+        },
+        orderBy: {
+          amount: 'asc'
+        }
+      })
+
       const emailHtml = render(
         <MonthlySummary 
           groupByMonth={groupByMonth} 
@@ -183,7 +200,7 @@ export default async (req, res) => {
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 
-          recurring={[]} 
+          recurring={recurring} 
           email={email}
           this_month={this_month}
           last_month={last_month}
