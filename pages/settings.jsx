@@ -9,6 +9,7 @@ import RemoveAccount from "../components/modals/remove-account-modal"
 import PlaidLink from "../components/plaid-link"
 import CancelModal from '../components/modals/cancel-modal'
 import  { useLocalStorage } from '../utils/useLocalStorage'
+import { ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
