@@ -52,21 +52,21 @@ export default async (req, res) => {
       },
     })
 
-    recurring1.forEach(async (month1) => {
-      let tarObj = recurring2.find((obj) => {
-        console.log(Number(month1.amount), Number(obj.amount))
-        return month1.name === obj.name && ( Number(month1.amount) >= Number(obj.amount)-10 &&  Number(month1.amount) <= Number(obj.amount)+10)
+    recurring1.forEach((month1) => {
+      recurring2.forEach(async (month2) => {
+        console.log(Number(month1.amount), Number(month2.amount))
+        if(month1.name === month2.name && (Number(month1.amount) == Number(month2.amount))){
+          console.log('matches')
+          await prisma.transactions.updateMany({
+            where: { 
+              OR: [{ id: month1.id }, { id: month2.id }]
+            },
+            data: { 
+              recurring: true
+            }
+          })
+        }
       })
-      if(tarObj){
-        await prisma.transactions.update({
-          where: { 
-            id: tarObj.id
-          },
-          data: { 
-            recurring: true
-          }
-        })
-      }
     })
 
     return res.status(200).json({ status: 'ok' })
