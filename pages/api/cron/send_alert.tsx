@@ -14,8 +14,8 @@ export default async (req, res) => {
       where: {
         active: true,
         alert_date: {
-          lte: start_date,
-          gte: end_date
+          lte: end_date,
+          gte: start_date
         },
       },
       include: {
