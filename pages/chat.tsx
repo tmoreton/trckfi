@@ -10,7 +10,8 @@ export default function ({ showError }) {
   const [initialInput, setPrompt] = useLocalStorage('initial_input', null)
 
   useEffect(() => {
-    if(session?.user && !initialInput) startPrompt()
+    // if(session?.user && !initialInput) startPrompt()
+    startPrompt()
   }, [])
 
   const startPrompt = async () => {

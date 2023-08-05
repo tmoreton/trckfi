@@ -3,7 +3,7 @@ import { useChat } from 'ai/react'
 export default function ({ initialInput }) {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     api: '/api/open_ai',
-    // initialInput,
+    initialInput: initialInput,
     initialMessages: [ { role: 'user', content: initialInput } ]
   })
 
