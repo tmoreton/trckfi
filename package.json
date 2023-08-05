@@ -28,6 +28,7 @@
     "emoji-picker-react": "^4.4.9",
     "faker": "^5.5.3",
     "gray-matter": "^4.0.3",
+    "langchain": "^0.0.123",
     "luxon": "^3.3.0",
     "moment": "^2.29.4",
     "next": "latest",

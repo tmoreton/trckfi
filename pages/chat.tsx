@@ -2,14 +2,16 @@ import { useSession } from "next-auth/react"
 import Head from 'next/head'
 import DashboardLayout from "../components/dashboard-layout"
 import ChatPrompt from "../components/chat-prompt"
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import  { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function ({ showError }) {
   const { data: session } = useSession()
-  const [initialInput, setPrompt] = useState(null)
+  const [initialInput, setPrompt] = useLocalStorage('initial_input', null)
 
   useEffect(() => {
-    if(session?.user) startPrompt()
+    if(session?.user && !initialInput) startPrompt()
+    startPrompt()
   }, [])
 
   const startPrompt = async () => {
