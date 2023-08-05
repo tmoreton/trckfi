@@ -6,7 +6,7 @@ import {
     LockClosedIcon,
     BuildingLibraryIcon,
     AdjustmentsHorizontalIcon,
-    InboxArrowDownIcon
+    AtSymbolIcon
   } from '@heroicons/react/20/solid'
   import { Emoji } from 'emoji-picker-react';
 
@@ -49,7 +49,7 @@ import {
     {
       name: 'Email Reminders',
       description: 'Get Monthly & Weekly email recaps to keep up to date with your finances without logging in.',
-      icon: InboxArrowDownIcon,
+      icon: AtSymbolIcon,
     },
   ]
   
