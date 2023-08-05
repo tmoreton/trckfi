@@ -46,5 +46,5 @@ Building an emergency fund requires dedication and consistent effort. Here are s
 ## Conclusion:
 An emergency fund is a financial lifeline that can safeguard your future and protect you from the unexpected. By following these tips and making a commitment to regular savings, you can build a robust emergency fund and gain the peace of mind that comes with financial preparedness. Remember, emergencies can happen at any time, but with an emergency fund in place, you'll be better equipped to face them head-on and stay on track towards your financial goals.
 
-Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/blog). Let's take control of our money and shape a brighter financial future together!
+Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog/) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/blog/). Let's take control of our money and shape a brighter financial future together!
 
