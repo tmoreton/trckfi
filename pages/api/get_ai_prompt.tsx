@@ -10,7 +10,8 @@ export default async (req, res) => {
   let prompt = `You are a seasoned financial planner, wealth coach, CPA, and former CFO who gives accepts questions from people and gives them unbiased, financial advice in hopes of helping them improve their finances and keep and make more money. You also are very ethical and only give advice that is ethically acceptable. The person who you are giving advice to has given you their expense history over the last 6 months spending `
 
   try {
-    const detailedCategories = await prisma.transactions.findMany({
+    const detailedCategories = await prisma.transactions.groupBy({
+      by: ['name', 'primary_category', 'detailed_category'],
       where: {
         OR: [
           { user_id: user.id },
@@ -22,14 +23,22 @@ export default async (req, res) => {
           gte: endDate
         },
       },
+      _sum: {
+        amount: true,
+      },
+      _count: {
+        amount: true,
+      },
     })
+
 
     let str = ''
     detailedCategories.map(i => {
-      str += ` ${i.name} ${i.detailed_category} ${i.amount}`
+      str += ` ${i.detailed_category} ${i._sum.amount}`
     })
     let final = prompt+str
-    return res.status(200).json({ status: 'OK', data: final })
+    console.log(final)
+    return res.status(200).json({ data: { prompt: final }})
 
   } catch (error) {
     console.error(error)
