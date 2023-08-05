@@ -38,7 +38,7 @@ export default async (req, res) => {
     })
     let final = prompt+str
     console.log(final)
-    return res.status(200).json({ data: { prompt: final }})
+    return res.status(200).json({ data: { data: final }})
 
   } catch (error) {
     console.error(error)
