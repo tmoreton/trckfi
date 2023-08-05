@@ -13,7 +13,7 @@ export default function ({ initialInput }) {
         {messages?.length > 1 && messages.map((m) => (
           <li key={m.id} className="relative flex gap-x-2">
             {
-              !m.content.includes('You are a seasoned financial planner') &&
+              !m.content?.includes('You are a seasoned financial planner') &&
               <>
                 <div className="w-px bg-gray-200" />
                 <div className="relative flex h-6 w-6 flex-none items-center justify-center bg-white">
