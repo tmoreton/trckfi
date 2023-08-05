@@ -22,7 +22,7 @@ Are you ready to take control of your financial journey and boost your **money m
 - [Conclusion](#Conclusion)
 
 1. <a name="tracking-expense">## Making Expense Tracking a Habit: Your Financial Roadmap</a>
-Tracking your expenses is the first and most essential step in gaining control over your finances. It's like shining a light on where your money is going, helping you understand your spending habits and make meaningful financial decisions. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed [Trckfi](/blog) to **automate** and **simplify expense tracking**, intelligently **categorizing** your spending and providing **real-time data**. No more manual data entry or spreadsheet headaches. Trckfi empowers you with a clear picture of your financial health, giving you the confidence to take control of your money and prioritize your expenses effectively.
+Tracking your expenses is the first and most essential step in gaining control over your finances. It's like shining a light on where your money is going, helping you understand your spending habits and make meaningful financial decisions. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed [Trckfi](/) to **automate** and **simplify expense tracking**, intelligently **categorizing** your spending and providing **real-time data**. No more manual data entry or spreadsheet headaches. Trckfi empowers you with a clear picture of your financial health, giving you the confidence to take control of your money and prioritize your expenses effectively.
 
 ![trckfi-demo-image](/assets/blog/trckfi-demo.png)
 
