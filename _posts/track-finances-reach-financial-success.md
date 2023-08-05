@@ -51,7 +51,7 @@ As someone who values efficiency and simplicity, I prefer automated solutions fo
 
 ![trckfi-demo-image](/assets/blog/trckfi-demo.png)
 
-[**Trckfi**](/blog/) is an excellent new user-friendly automated solution designed to meet your needs. We created it to provide a clean and easy-to-use platform for tracking wealth and saving money!
+[**Trckfi**](/blog) is an excellent new user-friendly automated solution designed to meet your needs. We created it to provide a clean and easy-to-use platform for tracking wealth and saving money!
 
 #### **Automated Tools Overview**
 ##### **Pros:**
@@ -98,5 +98,5 @@ By integrating expense tracking and budgeting, you **gain control over your fina
 ## <a name="takeaway">**Key Takeaway**</a>
 Mastering the concepts of **expense tracking** and **budgeting** is the key to achieving financial freedom. Take the first step today by tracking your expenses and creating a budget aligned with your goals. Learn from your experiences and embrace the sense of empowerment that comes with taking charge of your financial future.
 
-Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/blog/). Let's take control of our money and shape a brighter financial future together!
+Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/blog). Let's take control of our money and shape a brighter financial future together!
 
