@@ -31,13 +31,11 @@ export default async (req, res) => {
       },
     })
 
-
     let str = ''
     detailedCategories.map(i => {
-      str += `${i.name} ${i.detailed_category} ${i._sum.amount}`
+      str += `Transaction Name: ${i.name} Category: ${i.detailed_category} and Amount: ${i._sum.amount}`
     })
     let final = prompt+str
-    console.log(final)
     return res.status(200).json({ status: 'OK', data: final})
   } catch (error) {
     console.error(error)

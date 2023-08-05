@@ -37,7 +37,7 @@ export default function ({ showError }) {
     })
     const { error, data } = await res.json()
     console.log(data)
-    // setPrompt(data)
+    setPrompt(data)
     showError(error)
   }
 
