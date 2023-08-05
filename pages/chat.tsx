@@ -6,12 +6,7 @@ import { useState, useEffect } from 'react'
 
 export default function ({ showError }) {
   const { data: session } = useSession()
-  const [message, setMessage] = useState('')
-  const [initialInput, setPrompt] = useState('')
-
-  useEffect(() => {
-    if(session?.user) startPrompt()
-  }, [])
+  const [initialInput, setPrompt] = useState(null)
 
   const startPrompt = async () => {
     const res = await fetch(`/api/get_ai_prompt`, {
@@ -28,21 +23,19 @@ export default function ({ showError }) {
     showError(error)
   }
 
-  const send = async (e) => {
-    e.preventDefault()
-    const res = await fetch(`/api/open_ai`, {
+  const getAiAccounts = async () => {
+    const res = await fetch(`/api/get_ai_accounts`, {
       body: JSON.stringify({
-        user: session.user,
-        message
+        user: session?.user,
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
-    const { error } = await res.json()
+    const { error, data } = await res.json()
+    setPrompt(data)
     showError(error)
-    setMessage('Successfully sent!')
   }
 
   return (
@@ -50,6 +43,17 @@ export default function ({ showError }) {
       <Head>
         <title>Trckfi - Chat</title>
       </Head>
+      {
+        !initialInput &&
+        <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
+          <button onClick={startPrompt} className="inline-flex items-center rounded-full bg-pink-50 p-3 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+            Use my transactions data from the last 3 months to ask a question
+          </button>
+          <button onClick={getAiAccounts} className="inline-flex items-center rounded-full bg-pink-50 p-3 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+            Use my current net worth to ask a question
+          </button>
+        </div>
+      }
       <ChatPrompt initialInput={initialInput}/>
     </DashboardLayout>
   )

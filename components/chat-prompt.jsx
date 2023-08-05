@@ -17,7 +17,7 @@ export default function ({ initialInput }) {
               <>
                 <div className="w-px bg-gray-200" />
                 <div className="relative flex h-6 w-6 flex-none items-center justify-center bg-white">
-                  <div className="h-1.5 w-1.5 rounded-full bg-gray-100 ring-1 ring-gray-300" />
+                  <div className="h-4 w-4 rounded-full bg-gray-100 ring-1 ring-gray-300" />
                 </div>
                 <p className="flex-auto py-0.5 text-xs leading-5 text-gray-500">
                   <span className="font-medium text-gray-900">{m.role}</span> {m.content}
@@ -34,9 +34,6 @@ export default function ({ initialInput }) {
       <div className="mt-6 flex gap-x-3">
         <form onSubmit={handleSubmit} className="relative flex-auto">
           <div className="overflow-hidden rounded-lg pb-12 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-0">
-            <label htmlFor="comment" className="sr-only">
-              Add your comment
-            </label>
             <textarea
               rows={2}
               name="comment"
