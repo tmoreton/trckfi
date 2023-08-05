@@ -14,6 +14,7 @@ import {
   } from '@react-email/components';
   import * as React from 'react';
   import { Emoji } from 'emoji-picker-react';
+  import { addComma } from '../lib/lodash'
 
   export const SignInEmail = ({ transaction }) => {
     return (
@@ -38,7 +39,7 @@ import {
               <Text className="text-[#666666] text-[16px] mt-4 leading-[24px] text-center font-bold block mx-auto">
                 <Emoji unified={transaction.unified} size={20}/>
                 <span className="ml-1">{transaction.name}</span>
-                <span className="ml-1">{transaction.amount}</span>
+                <span className="ml-1">{addComma(transaction.amount)}</span>
               </Text>
               <Text className="text-[#666666] text-[12px] my-4 leading-[24px] text-center block">
                 {transaction.notes}
