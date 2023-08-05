@@ -34,10 +34,10 @@ import {
                 />
               </Section>
               <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-                <span className="mr-2" ><Emoji unified='1f6a8' size={20}/></span><strong>Trckfi Alert</strong>                
+                <span className="mr-2" ><Emoji unified='1f6a8' size={25}/></span><strong>Trckfi Alert</strong>                
               </Heading>
               <Text className="text-[#666666] text-[16px] mt-4 leading-[24px] text-center font-bold block mx-auto">
-                <Emoji unified={transaction.unified} size={20}/>
+                <Emoji unified={transaction.unified} size={10}/>
                 <span className="ml-1">{transaction.name}</span>
                 <span className="ml-1">{addComma(transaction.amount)}</span>
               </Text>

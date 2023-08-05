@@ -31,7 +31,6 @@ export default async (req, res) => {
             transaction={transactions[t]}
           />
         )
-        console.log(transactions[t])
         const message = {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore

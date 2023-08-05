@@ -2,7 +2,7 @@
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
 import { DateTime } from "luxon"
-import { formatAmount } from '../../lib/lodash'
+import { formatAmount, getAmount } from '../../lib/lodash'
 import { icons } from '../../lib/categories'
 import { snakeCase } from "snake-case";
 
@@ -83,6 +83,36 @@ export default async (req, res) => {
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
             active: rule?.ruleset?.active && (rule?.ruleset?.active === 'true') || true,
             recurring: rule?.ruleset?.recurring && (rule?.ruleset?.recurring === 'true') || false,
+          },
+        })
+      }
+
+      const accountResponse = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
+      let accounts = accountResponse.data.accounts
+      for (var i in accounts) {
+        await prisma.accounts.upsert({
+          where: { 
+            account_id: accounts[i].account_id
+          },
+          update: {
+            // @ts-ignore
+            details: accounts[i].balances,
+            amount: getAmount(accounts[i]),
+            active: true
+          },
+          create: {
+            item_id: plaidAccount.item_id,
+            account_id: accounts[i].account_id,
+            name: accounts[i].name,
+            // @ts-ignore
+            details: accounts[i].balances,
+            official_name: accounts[i].official_name || accounts[i].name,
+            // @ts-ignore
+            institution:  plaidAccount.institution,
+            subtype: accounts[i].subtype,
+            type: accounts[i].type,
+            user_id: user.id,
+            amount: getAmount(accounts[i]),
           },
         })
       }
