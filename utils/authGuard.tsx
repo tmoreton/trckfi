@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react"
 import LoadingModal from '../components/modals/loading-modal'
 import { DateTime } from "luxon"
-const authenticated_routes = ['/dashboard', '/settings', '/rules', '/net-worth', '/feedback']
+const authenticated_routes = ['/dashboard', '/settings', '/rules', '/net-worth', '/feedback', '/chat']
 
 export default function ({ children }) {
   const router = useRouter();
