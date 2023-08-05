@@ -39,13 +39,12 @@ export default function ({ initialInput }) {
               name="comment"
               id="comment"
               className="block w-full resize-none border-0 bg-transparent p-2 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-none ring-gray-300"
-              placeholder="Ask your AI about your finances..."
+              placeholder="Examples: What will my net worth be in 30 years? How much can I save over the next 3-6 months? etc.."
               defaultValue={''}
               onChange={handleInputChange}
               value={input}
             />
           </div>
-
           <div className="absolute inset-x-0 bottom-0 flex justify-between py-2 pl-3 pr-2">
             <button
               type="submit"
