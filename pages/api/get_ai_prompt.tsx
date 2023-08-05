@@ -72,7 +72,7 @@ export default async (req, res) => {
     expenses.map(i => {
       str += `Name: ${i.name} Category: ${i.detailed_category} with ${i._count.amount} for ${i._sum.amount}`
     })
-    let prompt = `You are a seasoned financial planner, wealth coach, CPA, and former CFO who gives accepts questions from people and gives them unbiased, financial advice in hopes of helping them improve their finances and keep and make more money. You also are very ethical and only give advice that is ethically acceptable. The person who you are giving advice to has given you their expense history over the last 3 months spending ${str} and income of ${income._sum.amount} `
+    let prompt = `You are a seasoned financial planner, wealth coach, CPA, and former CFO who gives accepts questions from people and gives them unbiased, financial advice in hopes of helping them improve their finances and keep and make more money. You also are very ethical and only give advice that is ethically acceptable. The person who you are giving advice to has given you their expense history over the last 3 months spending ${str} with a total Income over the last 3 months of ${income._sum.amount} `
 
     return res.status(200).json({ status: 'OK', data: prompt})
   } catch (error) {
