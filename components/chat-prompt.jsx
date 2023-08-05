@@ -17,7 +17,7 @@ export default function ({ initialInput }) {
               <>
                 <div className="w-px bg-gray-200" />
                 <div className="relative flex h-6 w-6 flex-none items-center justify-center bg-white">
-                  <div className="h-4 w-4 rounded-full bg-gray-100 ring-1 ring-gray-300" />
+                  <div className="h-3 w-3 rounded-full bg-pink-600" />
                 </div>
                 <p className="flex-auto py-0.5 text-xs leading-5 text-gray-500">
                   <span className="font-medium text-gray-900">{m.role}</span> {m.content}
