@@ -14,7 +14,7 @@ const features = [
   },
   {
     name: 'Download CSV',
-    description: 'Data custom search datasets via CSV files',
+    description: 'Create custom search datasets and download your data anytime',
     icon: FolderArrowDownIcon,
   },
 ]
@@ -53,7 +53,7 @@ export default function () {
                 <feature.icon className="absolute left-1 top-1 h-5 w-5 text-pink-600" aria-hidden="true" />
                 {feature.name}
               </dt>{' '}
-              <dd className="inline">{feature.description}</dd>
+              <dd>{feature.description}</dd>
             </div>
           ))}
         </dl>

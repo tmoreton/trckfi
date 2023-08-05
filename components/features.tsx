@@ -1,43 +1,55 @@
 import {
     ArrowPathIcon,
-    CloudArrowUpIcon,
-    Cog6ToothIcon,
+    DevicePhoneMobileIcon,
+    UsersIcon,
     FingerPrintIcon,
     LockClosedIcon,
-    ServerIcon,
+    BuildingLibraryIcon,
+    AdjustmentsHorizontalIcon,
+    InboxArrowDownIcon
   } from '@heroicons/react/20/solid'
   import { Emoji } from 'emoji-picker-react';
 
   const features = [
     {
-      name: 'Push to deploy.',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
-      icon: CloudArrowUpIcon,
+      name: 'At a glance',
+      description: 'All of your accounts are in one clean and easy to read dashboard',
+      icon: DevicePhoneMobileIcon,
     },
     {
-      name: 'SSL certificates.',
-      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+      name: 'Keep your personal data private',
+      description: "Your data is never shared, sold or rented to outside companies.",
       icon: LockClosedIcon,
     },
     {
-      name: 'Simple queues.',
-      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus voluptas blanditiis et.',
-      icon: ArrowPathIcon,
+      name: '10,000+ available bank connections',
+      description: 'Get real-time bank, retirement, loan, stock & crypto price/balance updates on all of your accounts.',
+      icon: BuildingLibraryIcon,
     },
     {
-      name: 'Advanced security.',
-      description: 'Iure sed ab. Aperiam optio placeat dolor facere. Officiis pariatur eveniet atque et dolor.',
+      name: 'Designed for security',
+      description: 'With passwordless login & Multi Factor authtication, your data is safe and secure.',
       icon: FingerPrintIcon,
     },
     {
-      name: 'Powerful API.',
-      description: 'Laudantium tempora sint ut consectetur ratione. Ut illum ut rem numquam fuga delectus.',
-      icon: Cog6ToothIcon,
+      name: 'Shared access',
+      description: "Ability to share access to a partner's data with their own unique login",
+      icon: UsersIcon,
     },
     {
-      name: 'Database backups.',
-      description: 'Culpa dolorem voluptatem velit autem rerum qui et corrupti. Quibusdam quo placeat.',
-      icon: ServerIcon,
+      name: 'Custom rules & reminders',
+      description: 'Create custom rules to auto-categorize any new trnasactions.',
+      icon: AdjustmentsHorizontalIcon,
+    },
+    {
+      name: 'Watch recurring transactions',
+      description: "Today everything is a monthly fee so it's easy to lose track of what your paying for. Well not anymore.",
+      icon: ArrowPathIcon,
+    },
+    {
+      name: 'Email Reminders',
+      description: 'Get Monthly & Weekly email recaps to keep up to date with your finances without logging in.',
+      icon: InboxArrowDownIcon,
     },
   ]
   
@@ -49,7 +61,7 @@ import {
             <h2 className="text-base font-semibold leading-7 text-pink-600">Why Trckfi?</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex">Your Data, For Your Eyes Only <div className="ml-4"><Emoji unified={'1f440'} size={50} /></div></p>
             <p className="mt-6 text-lg leading-8 text-gray-900">
-              Trckfi doesn’t share your data without your permission, and we don’t sell or rent your financial information to outside companies.
+              Today with the average user having 10+ financial accounts with unique passowords for each, it's easy to lose track of your accounts or unkown transactions. With Trckfi, all of your accounts are in one clean and easy to read dashboard.
             </p>
           </div>
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-900 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
@@ -59,7 +71,7 @@ import {
                   <feature.icon className="absolute left-1 top-1 h-5 w-5 text-pink-600" aria-hidden="true" />
                   {feature.name}
                 </dt>{' '}
-                <dd className="inline">{feature.description}</dd>
+                <dd>{feature.description}</dd>
               </div>
             ))}
           </dl>

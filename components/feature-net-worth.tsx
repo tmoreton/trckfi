@@ -1,10 +1,10 @@
-import { ArrowPathIcon, HomeIcon, ServerIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon, HomeIcon, CreditCardIcon } from '@heroicons/react/20/solid'
 import { Emoji } from 'emoji-picker-react'
 
 const features = [
   {
     name: 'Live Price Updates',
-    description: 'Keep up to date with real-time stock & crypto prices',
+    description: 'Keep up to date with real-time bank, retirement, stock & crypto prices',
     icon: ArrowPathIcon,
   },
   {
@@ -13,9 +13,9 @@ const features = [
     icon: HomeIcon,
   },
   {
-    name: 'Download CSV',
-    description: 'Data custom search datasets via CSV files',
-    icon: ServerIcon,
+    name: 'Custom accounts',
+    description: 'Create any type of asset/liability you want to track along with the ability to create virtual cards/accounts for more detailed categorization',
+    icon: CreditCardIcon,
   },
 ]
 
@@ -54,7 +54,7 @@ export default function () {
                   <feature.icon className="absolute left-1 top-1 h-5 w-5 text-pink-600" aria-hidden="true" />
                   {feature.name}
                 </dt>{' '}
-                <dd className="inline">{feature.description}</dd>
+                <dd>{feature.description}</dd>
               </div>
             ))}
           </dl>

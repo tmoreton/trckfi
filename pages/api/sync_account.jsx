@@ -40,7 +40,7 @@ export default async (req, res) => {
     const request = {
       access_token: plaidAccount.access_token,
       cursor: '',
-      count: 200,
+      count: 250,
       options: {
         include_personal_finance_category: true
       }
