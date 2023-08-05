@@ -74,7 +74,6 @@ export default async (req, res) => {
             detailed_category: rule?.ruleset?.detailed_category && snakeCase(rule?.ruleset?.detailed_category).toUpperCase() || detailed_category,
             unified: icons[detailed_category],
             primary_category: rule?.ruleset?.primary_category && snakeCase(rule?.ruleset?.primary_category).toUpperCase() || added[i].personal_finance_category.primary,
-            // @ts-ignore
             location: added[i].location,
             user_id: user.id,
             currency: added[i].iso_currency_code,
@@ -87,28 +86,25 @@ export default async (req, res) => {
         })
       }
 
-      const accountResponse = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
+      const accountResponse = await plaidClient.accountsGet({ access_token: plaid[p].access_token })
       let accounts = accountResponse.data.accounts
-      for (var i in accounts) {
+      for (let i in accounts) {
         await prisma.accounts.upsert({
           where: { 
             account_id: accounts[i].account_id
           },
           update: {
-            // @ts-ignore
             details: accounts[i].balances,
             amount: getAmount(accounts[i]),
             active: true
           },
           create: {
-            item_id: plaidAccount.item_id,
+            item_id: plaid[p].item_id,
             account_id: accounts[i].account_id,
             name: accounts[i].name,
-            // @ts-ignore
             details: accounts[i].balances,
             official_name: accounts[i].official_name || accounts[i].name,
-            // @ts-ignore
-            institution:  plaidAccount.institution,
+            institution:  plaid[p].institution,
             subtype: accounts[i].subtype,
             type: accounts[i].type,
             user_id: user.id,
