@@ -19,6 +19,7 @@ export default async (req, res) => {
     const response = await plaidClient.accountsGet({ access_token: plaidAccount.access_token })
     let accounts = response.data.accounts
     for (var i in accounts) {
+      console.log(accounts[i])
       await prisma.accounts.upsert({
         where: { 
           account_id: accounts[i].account_id
