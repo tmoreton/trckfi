@@ -1,6 +1,6 @@
 ---
 title: 'Unlocking Financial Success: Master Your Spend Tracking and Budgeting'
-excerpt: 'Imagine having complete control over your finances, where budgeting becomes effortless and you have a clear understanding of where your money goes. As someone who values financial stability and the freedom it brings, I have delved into the world of expense tracking and budgeting.'
+excerpt: "Imagine having complete control over your finances, where budgeting becomes effortless and you have a clear understanding of where your money goes. As someone who values financial stability and the freedom it brings, I have delved into the world of expense tracking and budgeting."
 coverImage: '/assets/blog/unlock-financial-success-1.jpg'
 date: '2023-07-16'
 category: 'Tracking and Budgeting'
