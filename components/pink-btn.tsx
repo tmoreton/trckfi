@@ -1,5 +1,3 @@
-
-
 export const PinkBtn = ({ children, onClick }) => {
   return (
     <button

@@ -7,7 +7,8 @@ import {
   UserCircleIcon,
   UsersIcon,
   AdjustmentsHorizontalIcon,
-  ChatBubbleOvalLeftEllipsisIcon
+  ChatBubbleOvalLeftEllipsisIcon,
+  ChatBubbleLeftEllipsisIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -17,6 +18,7 @@ import Image from 'next/image'
 const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
+  { name: 'Ask AI', href: '/chat', icon: ChatBubbleLeftEllipsisIcon },
   { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleOvalLeftEllipsisIcon },
