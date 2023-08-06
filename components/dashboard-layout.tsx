@@ -8,7 +8,8 @@ import {
   UsersIcon,
   AdjustmentsHorizontalIcon,
   ChatBubbleOvalLeftEllipsisIcon,
-  ChatBubbleLeftEllipsisIcon
+  ChatBubbleLeftEllipsisIcon,
+  CloudIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -16,7 +17,7 @@ import { signOut } from "next-auth/react"
 import Image from 'next/image'
 
 const secondaryNavigation = [
-  { name: 'Visionboard', href: '/visionboard', icon: UserCircleIcon },
+  { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
   { name: 'Ask AI', href: '/chat', icon: ChatBubbleLeftEllipsisIcon },

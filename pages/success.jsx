@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
     })
     return {
       redirect: {
-        destination: '/dashboard',
+        destination: '/visionboard',
         permanent: false,
       },
     }
@@ -64,7 +64,7 @@ export async function getServerSideProps(context) {
     })
     return {
       redirect: {
-        destination: '/dashboard',
+        destination: '/visionboard',
         permanent: false,
       },
     }
