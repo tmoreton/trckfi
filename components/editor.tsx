@@ -1,15 +1,10 @@
 import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
 import { useLayoutEffect, useState } from 'react';
-import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
-const PERSISTENCE_KEY = 'example-3'
+import { vision } from '../utils/default-vision'
+const PERSISTENCE_KEY = 'vision_board'
 
 export default function Editor() {
-  // const [store] = useLocalStorage('whiteboard', {})
-  // const [store] = useState(() => createTLStore(defaultShapeUtils))
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
-
-  const [events, setEvents] = useState([])
-  console.log(defaultShapeUtils)
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
 	>({
@@ -20,8 +15,7 @@ export default function Editor() {
 		setLoadingState({ status: 'loading' })
 
 		// Get persisted data from local storage
-		const persistedSnapshot = localStorage.getItem(PERSISTENCE_KEY)
-
+		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || vision
 		if (persistedSnapshot) {
 			try {
 				const snapshot = JSON.parse(persistedSnapshot)
@@ -62,10 +56,10 @@ export default function Editor() {
 				<p>{loadingState.error}</p>
 			</div>
 		)
-	}
+	} 
 
 	return (
-		<div style={{width: '75vw', height: '100vh'}}>
+		<div style={{width: '100%', height: '100vh'}}>
 			<Tldraw store={store} autoFocus />
 		</div>
 	)
