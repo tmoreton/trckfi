@@ -9,7 +9,34 @@ export default async (req, res) => {
   const endDate = DateTime.now().minus({ months: 3 }).startOf('month').toISO()
 
   try {
-    const income = await prisma.transactions.aggregate({
+    // const income = await prisma.transactions.aggregate({
+    //   where: {
+    //     OR: [
+    //       { user_id: user.id },
+    //       { user_id: user?.linked_user_id },
+    //     ],
+    //     active: true,
+    //     authorized_date: {
+    //       lte: startDate,
+    //       gte: endDate
+    //     },
+    //     amount: {
+    //       gte: 50,
+    //     },
+    //     NOT: [
+    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
+    //     ],
+    //   },
+    //   _count: {
+    //     amount: true,
+    //   },
+    //   _sum: {
+    //     amount: true,
+    //   },
+    // })
+
+    const income = await prisma.transactions.groupBy({
+      by: ['detailed_category'],
       where: {
         OR: [
           { user_id: user.id },
@@ -21,7 +48,7 @@ export default async (req, res) => {
           gte: endDate
         },
         amount: {
-          gte: 0,
+          gte: 50,
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
@@ -33,10 +60,16 @@ export default async (req, res) => {
       _sum: {
         amount: true,
       },
+      orderBy: {
+        _sum: {
+          amount: 'asc',
+        },
+      },
+      take: 10
     })
 
     const expenses = await prisma.transactions.groupBy({
-      by: ['name', 'primary_category', 'detailed_category'],
+      by: ['detailed_category'],
       where: {
         OR: [
           { user_id: user.id },
@@ -65,17 +98,20 @@ export default async (req, res) => {
           amount: 'asc',
         },
       },
-      take: 100
+      take: 10
     })
 
     const accts = await prisma.accounts.groupBy({
-      by: ['institution', 'type', 'subtype'],
+      by: [ 'type', 'subtype'],
       where: {
         OR: [
           { user_id: user.id },
           { user_id: user?.linked_user_id },
         ],
         active: true,
+        amount: {
+          gte: 0,
+        },
       },
       _count: {
         amount: true,
@@ -84,18 +120,24 @@ export default async (req, res) => {
         amount: true,
       },
     })
+    console.log(accts)
 
     let acct_str = ''
     accts.map(i => {
-      acct_str += `Bank name: ${i.institution} Account type: ${i.type} ${i.subtype} for ${i._sum.amount}`
+      acct_str += `Asset: Type: ${i.type} subtype: ${i.subtype} for ${i._sum.amount} /n`
+    })
+
+    let income_str = ''
+    income.map(i => {
+      income_str += `Income: Category: ${i.detailed_category} for ${i._sum.amount} /n`
     })
 
     let str = ''
     expenses.map(i => {
-      str += `Name: ${i.name} Category: ${i.detailed_category} with ${i._count.amount} for ${i._sum.amount}`
+      str += `Expense: Category: ${i.detailed_category} for ${i._sum.amount} /n`
     })
-    let prompt = `You are a seasoned financial planner, wealth coach, CPA, and former CFO who gives accepts questions from people and gives them unbiased, financial advice in hopes of helping them improve their finances and keep and make more money. You also are very ethical and only give advice that is ethically acceptable. The person who you are giving advice to has given you their expense history over the last 3 months spending ${str} with a total Income over the last 3 months of ${income._sum.amount}. The person who you are giving advice to has given you their current net worth total of ${acct_str}.`
-
+    let prompt = `You are a seasoned financial planner, wealth coach, CPA, and former CFO who gives accepts questions from people and gives them unbiased, financial advice in hopes of helping them improve their finances and keep and make more money. You also are very ethical and only give advice that is ethically acceptable. The person who you are giving advice to has given you their expense history over the last 3 months spending ${str} with a total Income over the last 3 months of ${income_str}. The person who you are giving advice to has given you their current net worth total of ${acct_str}.`
+    console.log(prompt)
     return res.status(200).json({ status: 'OK', data: prompt})
   } catch (error) {
     console.error(error)
