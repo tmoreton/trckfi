@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signOut } from "next-auth/react"
 import Image from 'next/image'
+import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
@@ -78,6 +79,7 @@ export default function ({ children }) {
                     <button
                       onClick={() => {
                         signOut()
+                        clearLocalStorage()
                       }}
                       className='w-full text-gray-700 hover:text-pink-600 hover:bg-gray-50 group flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold'
                     >
