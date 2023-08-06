@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('@tldraw/editor/editor.css');
+@import url('@tldraw/tldraw/tldraw.css');
 
 .pink-border {
   border: 1px solid #db2777;
@@ -12,4 +15,76 @@ aside.EmojiPickerReact.epr-main {
 }
 a {
   scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	overscroll-behavior: none;
+	touch-action: none;
+	overflow: hidden;
+	min-height: 100vh;
+	/* mobile viewport bug fix */
+	min-height: -webkit-fill-available;
+	height: 100%;
+}
+
+.tldraw__editor {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.custom-layout {
+	position: absolute;
+	inset: 0px;
+	z-index: 300;
+	pointer-events: none;
+}
+
+.custom-toolbar {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+	gap: 8px;
+}
+
+.custom-button {
+	pointer-events: all;
+	padding: 4px 12px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 64px;
+}
+
+.custom-button[data-isactive='true'] {
+	background-color: black;
+	color: white;
+}
+
+.tlui-debug-panel,
+.tlui-navigation-zone,
+.tlui-help-menu {
+  display: none;
+}
+
+.tl-background {
+  background-color: #fff;
 }

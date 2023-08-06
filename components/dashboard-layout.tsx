@@ -16,6 +16,7 @@ import { signOut } from "next-auth/react"
 import Image from 'next/image'
 
 const secondaryNavigation = [
+  { name: 'Visionboard', href: '/visionboard', icon: UserCircleIcon },
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
   { name: 'Ask AI', href: '/chat', icon: ChatBubbleLeftEllipsisIcon },
