@@ -81,10 +81,13 @@ body {
 
 .tlui-debug-panel,
 .tlui-navigation-zone,
-.tlui-help-menu {
+.tlui-help-menu,
+.tlui-menu-zone::before {
   display: none;
 }
 
-.tl-background {
+.tl-background,
+.tlui-menu-zone,
+.tlui-menu-zone::before {
   background-color: #fff;
 }
