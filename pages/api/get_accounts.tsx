@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
   let { user } = req.body
-  if (!user ) return res.status(500)
+  if (!user) return res.status(500)
 
   try {
     const { id, linked_user_id } = user
@@ -15,17 +15,26 @@ export default async (req, res) => {
       })
     }
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-    const accounts = await prisma.accounts.findMany({
+    const a = await prisma.accounts.findMany({
       where: {
         OR: query,
-        active: true,
+      },
+      include: {
+        plaid: true
       },
       orderBy: {
         // @ts-ignore
-        updated_at: 'desc',
+        amount: 'asc'
       },
     })
-  
+
+    const accounts = a.reduce(function (r, a) {
+      r[a.institution] = r[a.institution] || [];
+      r[a.institution].push(a);
+      return r;
+    }, Object.create(null))
+
+    console.log(accounts)
     return res.status(200).json({ status: 'OK', data: accounts})
   } catch (error) {
     console.error(error)

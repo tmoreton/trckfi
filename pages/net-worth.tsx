@@ -33,7 +33,7 @@ const renderImg = (account) => {
       currentTarget.onerror = null;
       currentTarget.src="/assets/banks/bank.png";
     }}
-    className="h-12 w-12 flex-none rounded-md object-cover"
+    className="h-12 w-12 rounded-md object-cover"
   />
 }
 
@@ -49,11 +49,12 @@ const NetWorth = ({ showError }) => {
   const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
   const [stats, setStats] = useLocalStorage('net_worth_stats', [])
-  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts',[])
-
+  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
+  const [removedAccounts, setRemovedAccounts] = useState([])
+  
   useEffect(() => {
-    getNetWorth()
-  }, [user])
+    getAccounts()
+  }, [])
 
   const editAccount = (a) => {
     setAccount(a)
@@ -65,9 +66,8 @@ const NetWorth = ({ showError }) => {
     setOpen(true)
   }
 
-  const getNetWorth = async () => {
-    setLoading(true)
-    const res = await fetch(`/api/get_net_worth`, {
+  const getAccounts = async () => {
+    const res = await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
         user
       }),
@@ -77,14 +77,31 @@ const NetWorth = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
-    if(error){
-      showError(error)
-    } else {
-      setStats(data.net_worth_stats)
-      setAccounts(data.accounts)
-    }
-    setLoading(false)
+    showError(error)
+    setAccounts(data)
+    // if(!error) getSettings()
   }
+
+  // const getNetWorth = async () => {
+  //   setLoading(true)
+  //   const res = await fetch(`/api/get_net_worth`, {
+  //     body: JSON.stringify({
+  //       user
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error, data } = await res.json()
+  //   if(error){
+  //     showError(error)
+  //   } else {
+  //     // setStats(data.net_worth_stats)
+  //     // setAccounts(data)
+  //   }
+  //   setLoading(false)
+  // }
 
   const refresh = async () => {
     setLoading(true)
@@ -118,7 +135,51 @@ const NetWorth = ({ showError }) => {
     setLoading(false)
     const { error } = await res.json()
     showError(error)
-    if(!error) getNetWorth()
+    // if(!error) getNetWorth()
+  }
+
+  const unhideAccount = async (account) => {
+    const res = await fetch(`/api/unhide_account`, {
+      body: JSON.stringify({
+        user, account
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    // if(!error) getSettings()
+  }
+
+  const removeToken = async (account) => {
+    setRemovedAccounts([])
+    const res = await fetch(`/api/remove_access_token`, {
+      body: JSON.stringify({ account }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    // if(!error) getSettings()
+  }
+
+  const syncAccount = async (plaid) => {
+    setLoading(true)
+    setRemovedAccounts([])
+    const res = await fetch(`/api/sync_account`, {
+      body: JSON.stringify({ plaid, user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    // if(!error) getSettings()
   }
 
   return (
@@ -126,12 +187,12 @@ const NetWorth = ({ showError }) => {
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
-      <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getNetWorth}/>
+      {/* <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getNetWorth}/>
       <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getNetWorth}/>
       <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getNetWorth}/>
       <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getNetWorth}/>
       <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getNetWorth} />
-      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getNetWorth} />
+      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getNetWorth} /> */}
       
       <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
@@ -201,7 +262,7 @@ const NetWorth = ({ showError }) => {
         {/* Recent activity table */}
         <div>
           <div className="overflow-hidden border-t border-gray-100">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-0">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                 <table className="w-full text-left">
                   <thead className="sr-only">
@@ -212,52 +273,65 @@ const NetWorth = ({ showError }) => {
                     </tr>
                   </thead>
                   <tbody>
-                  {accounts.map((a) => (
-                    <tr key={a.id}>
-                      <td className="relative py-4 pr-6">
-                        <div className="flex gap-x-6">
-                          <div className="w-20 flex items-center justify-between">
-                            {renderImg(a)}
-                          </div>
-                          <div>
-                            <div className="flex items-start gap-x-3">
-                              <div className="text-md font-bold">
-                                {a.name}
+                    <div role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
+                      {
+                        Object.keys(accounts).map(key => {
+                          if(Object.keys(accounts)?.length > 0){
+                            let error_code = accounts[key][0]?.plaid?.error_code
+                            return (
+                              <div key={key} className="flex justify-between gap-x-6 py-6 items-center">
+                                {renderImg(accounts[key][0])}
+                                <div className="w-[100%]">
+                                  { accounts[key].map((a, i) => (
+                                    <>
+                                      { i <= 0 && 
+                                        <td className="flex items-center mb-2">
+                                          <div>
+                                            <p className="text-lg font-bold text-gray-900 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>
+                                            {/* <div className="flex items-center">
+                                              <p className="text-xs leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
+                                              <p className="text-xs text-gray-400">{DateTime.fromISO(a?.plaid?.updated_at || a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
+                                            </div> */}
+                                          </div>
+                                        </td>
+                                      }
+                                      <tr className="text-sm text-gray-900 pt-1 flex justify-between">
+                                        <td className="w-1/2 font-semibold text-left">{a.name} - <span className="font-light">{a.official_name}</span></td>
+                                        <td className="w-1/6 font-light text-left text-xs">{a.type}</td> 
+                                        <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
+                                        <button className="w-24 text-red-600 text-right">Edit</button> 
+                                        <td><button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button></td>
+                                      </tr>
+                                    </>
+                                  ))}
+                                  <div className="pt-3">
+                                    { error_code === 'ITEM_LOGIN_REQUIRED' && 
+                                      <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
+                                    }
+                                    { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
+                                      <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
+                                        <div className={loading && 'animate-spin'}>
+                                          <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+                                        </div>
+                                        <span className="ml-2">Resync Account</span>
+                                      </button>
+                                    }
+                                    { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
+                                      <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
+                                        <div className={loading && 'animate-spin'}>
+                                          { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
+                                        </div>
+                                        <span>Remove Connection</span>
+                                      </button>
+                                    }
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                            <div className="text-xs font-normal leading-6 text-gray-900">
-                              {a.institution}
-                            </div>
-                            <div className="text-xs text-gray-400">
-                              {a.subtype}
-                            </div>
-                          </div>
-                          {a.plaid?.error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1" aria-hidden="true" />}
-                        </div>
-                        <div className="absolute bottom-0 right-full h-px w-screen bg-gray-100" />
-                        <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
-                      </td>
-                      <td className="hidden py-5 pr-6 sm:table-cell">
-                        <div className="text-md font-bold leading-6 text-gray-900">{addComma(a.amount)}</div>
-                        <div className="mt-1 text-xs leading-5 text-gray-500 font-semibold">
-                        Last Updated:
-                        </div>
-                        <div className="text-xs text-gray-400">
-                          {DateTime.fromISO(a?.plaid?.updated_at || a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}
-                        </div>
-                      </td>
-                      <td className="py-5 text-right">
-                        <div className="flex justify-end">
-                          <button onClick={() => editAccount(a)} className="text-sm font-medium leading-6 text-pink-600 hover:text-pink-500">
-                            Edit
-                          </button>
-                        </div>
-                        <button onClick={() => hideAccount(a)} className="mt-1 text-xs leading-5 text-gray-500">
-                          Hide
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                            )
+                          }
+                        })
+                      }
+                    </div>
                   </tbody>
                 </table>
               </div>
