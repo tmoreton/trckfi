@@ -56,7 +56,7 @@ const NetWorth = ({ showError }) => {
   
   useEffect(() => {
     getAccounts()
-  }, [])
+  }, [showConfetti])
 
   const editAccount = (a) => {
     setAccount(a)

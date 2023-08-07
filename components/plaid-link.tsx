@@ -50,21 +50,20 @@ export default function ({ showError, user, refresh_access_token, setConfetti })
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) syncAccounts()
   }
 
-  const syncAccounts = async () => {
-    const res = await fetch(`/api/sync_accounts`, {
-      body: JSON.stringify({ user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) router.reload()
-  }
+  // const syncAccounts = async () => {
+  //   const res = await fetch(`/api/sync_accounts`, {
+  //     body: JSON.stringify({ user }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error } = await res.json()
+  //   showError(error)
+  //   if(!error) router.reload()
+  // }
 
   const { open, ready } = usePlaidLink({
     token: linkToken,

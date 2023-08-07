@@ -225,7 +225,7 @@ const Dashboard = ({ showError }) => {
           keywords=''
         />
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} setConfetti={setConfetti} />
-        { !showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
+        { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
         <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
