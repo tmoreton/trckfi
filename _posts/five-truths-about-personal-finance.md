@@ -5,6 +5,7 @@ coverImage: '/assets/blog/five-truths-1.jpg'
 date: '07.14.2023'
 category: 'Personal Finance'
 keywords: 'financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances, realistic budget, tracking expenses, investing, wealth-building, good debt, bad debt, side hustles, financial check-ins, automated tools'
+publish: true
 ---
 Get ready to discover some misconceptions about personal finances that can help you unlock the keys to your financial success.
 
