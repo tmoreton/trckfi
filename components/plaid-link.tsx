@@ -3,7 +3,7 @@ import { usePlaidLink } from 'react-plaid-link'
 import { useRouter } from 'next/router'
 import { PlusIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 
-export default function ({ showError, user, refresh_access_token }) {
+export default function ({ showError, user, refresh_access_token, setConfetti }) {
   const [linkToken, setLinkToken] = useState(null)
   const router = useRouter()
 
@@ -69,6 +69,7 @@ export default function ({ showError, user, refresh_access_token }) {
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
+      setConfetti(true)
       if(refresh_access_token){
         getAccounts(refresh_access_token)
       } else {
@@ -82,8 +83,8 @@ export default function ({ showError, user, refresh_access_token }) {
   if(refresh_access_token){
     return (
       <button onClick={() => open()} disabled={!ready} className="flex items-center font-semibold text-red-600 hover:text-red-500">
-        <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
-        Reconnect
+        <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+        <span className="ml-2">Reconnect</span>
       </button>
     )
   }

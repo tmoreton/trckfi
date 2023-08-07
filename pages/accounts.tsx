@@ -16,6 +16,7 @@ import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import ConfettiExplosion from 'react-confetti-explosion'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -51,6 +52,7 @@ const NetWorth = ({ showError }) => {
   const [stats, setStats] = useLocalStorage('net_worth_stats', [])
   const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
   const [removedAccounts, setRemovedAccounts] = useState([])
+  const [showConfetti, setConfetti] = useState(false)
   
   useEffect(() => {
     getAccounts()
@@ -202,7 +204,7 @@ const NetWorth = ({ showError }) => {
         <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getAccounts} />
         <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
-        
+        { !showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
         <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
           <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
@@ -216,7 +218,7 @@ const NetWorth = ({ showError }) => {
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Crypto
           </button>
-          <PlaidLink user={user} showError={showError} refresh_access_token={null}/>
+          <PlaidLink user={user} showError={showError} refresh_access_token={null} setConfetti={setConfetti}/>
           <button  onClick={() => setOpenManually(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
@@ -320,7 +322,7 @@ const NetWorth = ({ showError }) => {
                                       ))}
                                       <div className="pt-3">
                                         { error_code === 'ITEM_LOGIN_REQUIRED' && 
-                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
+                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} setConfetti={setConfetti}/>
                                         }
                                         { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
                                           <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
@@ -333,9 +335,9 @@ const NetWorth = ({ showError }) => {
                                         { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
                                           <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
                                             <div className={loading && 'animate-spin'}>
-                                              { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
+                                              { loading && <ArrowPathIcon className="h-5 w-5" aria-hidden="true" /> }
                                             </div>
-                                            <span>Remove Connection</span>
+                                            <span className="ml-2">Remove Connection</span>
                                           </button>
                                         }
                                       </div>

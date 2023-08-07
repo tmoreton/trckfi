@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import PlaidLink from "../plaid-link"
 import ConfettiExplosion from 'react-confetti-explosion'
 
-export default ({ user, open, openSetupModal, showError }) => {
+export default ({ user, open, openSetupModal, showError, setConfetti }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => openSetupModal(false)}>
@@ -51,7 +51,7 @@ export default ({ user, open, openSetupModal, showError }) => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <PlaidLink user={user} showError={showError} refresh_access_token={null}/>
+                  <PlaidLink user={user} showError={showError} refresh_access_token={null} setConfetti={setConfetti}/>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
