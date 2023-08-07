@@ -22,7 +22,7 @@ const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Accounts', href: '/accounts', icon: ChartBarIcon },
   // { name: 'Ask AI', href: '/chat', icon: ChatBubbleLeftEllipsisIcon },
-  { name: 'Custom Rules', href: '/rules', icon: AdjustmentsHorizontalIcon },
+  { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleOvalLeftEllipsisIcon },
 ]

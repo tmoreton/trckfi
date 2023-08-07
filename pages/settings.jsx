@@ -5,7 +5,6 @@ import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
 import CancelModal from '../components/modals/cancel-modal'
-import  { useLocalStorage } from '../utils/useLocalStorage'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -19,7 +18,6 @@ const Settings = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [linkedUser, setLinkedUser] = useState({})
-  const [accounts, setAccounts] = useLocalStorage('settings_accounts', {})
 
   useEffect(() => {
     getSettings()
@@ -41,24 +39,8 @@ const Settings = ({ showError }) => {
       showError(error)
     } else {
       setLinkedUser(data?.linked_user)
-      setAccounts(data?.accounts)
     }
   }
-
-  // const unhideAccount = async (account) => {
-  //   const res = await fetch(`/api/unhide_account`, {
-  //     body: JSON.stringify({
-  //       user, account
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  //   const { error } = await res.json()
-  //   showError(error)
-  //   if(!error) getSettings()
-  // }
 
   const send = async (e) => {
     e.preventDefault()
@@ -119,7 +101,7 @@ const Settings = ({ showError }) => {
               </dd>
             </div>
 
-            {/* <div className="pt-6 sm:flex">
+            <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Name</dt>
               <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                 <div className="text-gray-900">{user?.name}</div>
@@ -127,7 +109,7 @@ const Settings = ({ showError }) => {
                   Update
                 </button>
               </dd>
-            </div> */}
+            </div>
 
             <div className="pt-6 sm:flex">
               <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Email address</dt>
