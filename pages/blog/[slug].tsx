@@ -52,29 +52,29 @@ type Params = {
   }
 }
 
-// export async function getStaticProps({ params }: Params) {
-//   const post = getPostBySlug(params.slug, [
-//     'title',
-//     'date',
-//     'slug',
-//     'author',
-//     'content',
-//     'excerpt',
-//     'coverImage',
-//     'keywords',
-//     'publish'
-//   ])
-//   const content = await markdownToHtml(post.content || '')
+export async function getStaticProps({ params }: Params) {
+  const post = getPostBySlug(params.slug, [
+    'title',
+    'date',
+    'slug',
+    'author',
+    'content',
+    'excerpt',
+    'coverImage',
+    'keywords',
+    'publish'
+  ])
+  const content = await markdownToHtml(post.content || '')
 
-//   return {
-//     props: {
-//       post: {
-//         ...post,
-//         content,
-//       },
-//     },
-//   }
-// }
+  return {
+    props: {
+      post: {
+        ...post,
+        content,
+      },
+    },
+  }
+}
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
