@@ -13,6 +13,7 @@ import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
+import Menu from '../components/menu'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -212,6 +213,8 @@ const Dashboard = ({ showError }) => {
   }
   
   return (
+    <>
+    <Menu showError={showError}/>
     <DashboardLayout>
       <Head>
         <title>Trckfi - Dashboard</title>
@@ -223,6 +226,7 @@ const Dashboard = ({ showError }) => {
       <Graphs graphData={graphData} />
       { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
     </DashboardLayout>
+    </>
   )
 }
 

@@ -3,7 +3,7 @@ import Head from 'next/head'
 import DashboardLayout from "../components/dashboard-layout"
 import ChatPrompt from "../components/chat-prompt"
 import { useEffect, useState } from 'react'
-import  { useLocalStorage } from '../utils/useLocalStorage'
+import Menu from '../components/menu'
 
 export default function ({ showError }) {
   const { data: session } = useSession()
@@ -45,6 +45,8 @@ export default function ({ showError }) {
   // }
 
   return (
+    <>
+    <Menu showError={showError}/>
     <DashboardLayout>
       <Head>
         <title>Trckfi - Chat</title>
@@ -62,5 +64,6 @@ export default function ({ showError }) {
       } */}
       <ChatPrompt initialInput={initialInput}/>
     </DashboardLayout>
+  </>
   )
 }

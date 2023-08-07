@@ -9,6 +9,7 @@ import { useSession, signOut } from "next-auth/react"
 import CancelModal from './modals/cancel-modal'
 import Image from 'next/image'
 import { PinkBtn } from './pink-btn'
+import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 const navigation = [
   // { name: 'Home', href: '/' },
@@ -61,7 +62,7 @@ export default function ({ showError }) {
                 <div className="flex items-center">
                   { session &&
                     <Link href="/dashboard">
-                      <b>My Dashboard</b>
+                      <b>{session.user.email}</b>
                     </Link>
                   }
                   <Menu as="div" className="relative ml-3">
@@ -115,7 +116,10 @@ export default function ({ showError }) {
                         <Menu.Item>
                           {({ active }) => (
                             <button
-                              onClick={() => signOut()}
+                              onClick={() => {
+                                signOut()
+                                clearLocalStorage()
+                              }}
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700 w-full text-left'
@@ -144,8 +148,8 @@ export default function ({ showError }) {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 border-t border-gray-300 mt-4">
+          <Disclosure.Panel>
+            <div className="space-y-1 px-2 pt-2 border-t border-gray-300 mt-4">
               {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
               {navigation.map((item) => (
                 <Disclosure.Button

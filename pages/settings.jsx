@@ -5,6 +5,7 @@ import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
 import CancelModal from '../components/modals/cancel-modal'
+import Menu from '../components/menu'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -78,6 +79,8 @@ const Settings = ({ showError }) => {
   }
 
   return (
+  <>
+    <Menu showError={showError}/>
     <DashboardLayout>
       <Head>
         <title>Trckfi - Settings</title>
@@ -234,6 +237,7 @@ const Settings = ({ showError }) => {
         </div>
       </div>
     </DashboardLayout>
+  </>
   )
 }
 
