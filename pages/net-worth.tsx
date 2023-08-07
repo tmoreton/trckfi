@@ -78,8 +78,8 @@ const NetWorth = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
-    setAccounts(data)
-    // if(!error) getSettings()
+    setAccounts(data.accounts)
+    setStats(data.net_worth_stats)
   }
 
   // const getNetWorth = async () => {
@@ -187,12 +187,12 @@ const NetWorth = ({ showError }) => {
       <Head>
         <title>Trckfi - Net Worth</title>
       </Head>
-      {/* <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getNetWorth}/>
-      <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getNetWorth}/>
-      <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getNetWorth}/>
-      <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getNetWorth}/>
-      <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getNetWorth} />
-      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getNetWorth} /> */}
+      <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getAccounts}/>
+      <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getAccounts}/>
+      <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getAccounts}/>
+      <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getAccounts}/>
+      <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getAccounts} />
+      <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
       
       <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
@@ -273,7 +273,7 @@ const NetWorth = ({ showError }) => {
                     </tr>
                   </thead>
                   <tbody>
-                    <div role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
+                    <div role="list" className="divide-y divide-gray-100 border-gray-200 text-sm leading-6">
                       {
                         Object.keys(accounts).map(key => {
                           if(Object.keys(accounts)?.length > 0){
