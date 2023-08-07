@@ -24,9 +24,9 @@ function classNames(...classes) {
 const renderImg = (account) => {
   if(account?.subtype === 'rental' || account?.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
   if(account?.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
-  if(account?.subtype === 'crypto') return (<img src={account.details?.image} alt={account.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
-  if(!account.institution) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
-  let image_url = `/assets/banks/${account.institution}.png`
+  if(account?.subtype === 'crypto') return (<img src={account?.details?.image} alt={account?.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
+  if(!account?.institution) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
+  let image_url = `/assets/banks/${account?.institution}.png`
   return <img 
     src={image_url} 
     onError={({ currentTarget }) => {
@@ -287,60 +287,62 @@ const NetWorth = ({ showError }) => {
                           Object.keys(accounts).map(key => {
                             if(Object.keys(accounts)?.length > 0){
                               let error_code = accounts[key][0]?.plaid?.error_code
-                              return (
-                                <div key={key} className="flex justify-between gap-x-6 py-6 items-center">
-                                  {renderImg(accounts[key][0])}
-                                  <div className="w-[100%]">
-                                    { accounts[key].map((a, i) => (
-                                      <>
-                                        { i <= 0 && 
-                                          <td className="flex items-center mb-2">
-                                            <div>
-                                              <p className="text-lg font-bold text-gray-900 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>
-                                              {/* <div className="flex items-center">
-                                                <p className="text-xs leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
-                                                <p className="text-xs text-gray-400">{DateTime.fromISO(a?.plaid?.updated_at || a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
-                                              </div> */}
-                                            </div>
-                                          </td>
+                              if(accounts[key][0]){
+                                return (
+                                  <div key={key} className="flex justify-between gap-x-6 py-6 items-center">
+                                    {renderImg(accounts[key][0])}
+                                    <div className="w-[100%]">
+                                      { accounts[key].map((a, i) => (
+                                        <>
+                                          { i <= 0 && 
+                                            <td className="flex items-center mb-2">
+                                              <div>
+                                                <p className="text-lg font-bold text-gray-900 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>
+                                                {/* <div className="flex items-center">
+                                                  <p className="text-xs leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
+                                                  <p className="text-xs text-gray-400">{DateTime.fromISO(a?.plaid?.updated_at || a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
+                                                </div> */}
+                                              </div>
+                                            </td>
+                                          }
+                                          <tr className="text-sm text-gray-900 pt-1 flex justify-between">
+                                            <td className="w-1/2 font-semibold text-left">
+                                              {a.name} 
+                                              - 
+                                              <span className="font-light">{a.official_name}</span>
+                                              <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
+                                            </td>
+                                            <td className="w-1/6 font-light text-left text-xs">{a.type}</td> 
+                                            <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
+                                            <button onClick={() => editAccount(a)} className="w-24 text-red-600 text-right">Edit</button> 
+                                          </tr>
+                                        </>
+                                      ))}
+                                      <div className="pt-3">
+                                        { error_code === 'ITEM_LOGIN_REQUIRED' && 
+                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
                                         }
-                                        <tr className="text-sm text-gray-900 pt-1 flex justify-between">
-                                          <td className="w-1/2 font-semibold text-left">
-                                            {a.name} 
-                                            - 
-                                            <span className="font-light">{a.official_name}</span>
-                                            <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
-                                          </td>
-                                          <td className="w-1/6 font-light text-left text-xs">{a.type}</td> 
-                                          <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
-                                          <button onClick={() => editAccount(a)} className="w-24 text-red-600 text-right">Edit</button> 
-                                        </tr>
-                                      </>
-                                    ))}
-                                    <div className="pt-3">
-                                      { error_code === 'ITEM_LOGIN_REQUIRED' && 
-                                        <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/>
-                                      }
-                                      { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
-                                        <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
-                                          <div className={loading && 'animate-spin'}>
-                                            <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
-                                          </div>
-                                          <span className="ml-2">Resync Account</span>
-                                        </button>
-                                      }
-                                      { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
-                                        <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
-                                          <div className={loading && 'animate-spin'}>
-                                            { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
-                                          </div>
-                                          <span>Remove Connection</span>
-                                        </button>
-                                      }
+                                        { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
+                                          <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
+                                            <div className={loading && 'animate-spin'}>
+                                              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+                                            </div>
+                                            <span className="ml-2">Resync Account</span>
+                                          </button>
+                                        }
+                                        { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
+                                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
+                                            <div className={loading && 'animate-spin'}>
+                                              { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
+                                            </div>
+                                            <span>Remove Connection</span>
+                                          </button>
+                                        }
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              )
+                                )
+                              }
                             }
                           })
                         }
