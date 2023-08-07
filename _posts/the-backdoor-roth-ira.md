@@ -1,7 +1,7 @@
 ---
 title: 'The Backdoor Roth IRA: A Clever Strategy for High Earners'
 excerpt: "Are you a high earner looking to maximize your retirement savings with a tax-efficient strategy? The Backdoor Roth IRA might be the perfect solution! This blog post explores the ins and outs of the Backdoor Roth IRA and how it can benefit individuals who exceed the income limits for direct Roth IRA contributions. Discover the power of tax-free growth and learn how to unlock this nifty backdoor to secure a brighter financial future."
-coverImage: '/assets/blog/retirement-money'
+coverImage: '/assets/blog/retirement-money.png'
 date: '08.12.2023'
 category: 'Backdoor Roth IRA, Retirement Planning, Financial Independence'
 keywords: 'Backdoor Roth IRA, High-Income Earners, Retirement Savings, Tax-Free Growth, Roth IRA Conversion, Retirement Planning, Investment Strategy, Financial Future, Tax-Efficient Strategy, Backdoor Contribution, Retirement Account, Financial Independence'
