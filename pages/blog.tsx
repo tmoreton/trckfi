@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
     'excerpt',
     'category',
     'date',
-    'publish'
+    ''
   ])
 
   return {

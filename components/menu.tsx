@@ -61,7 +61,7 @@ export default function ({ showError }) {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex items-center">
                   { session &&
-                    <Link href="/dashboard">
+                    <Link href="/visionboard">
                       <b>{session.user.email}</b>
                     </Link>
                   }
