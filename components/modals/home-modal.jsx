@@ -18,7 +18,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
         official_name: account.name,
         institution: account.institution,
         type: 'investment',
-        subtype: 'home',
+        subtype: 'real estate',
         amount: account.amount
       }),
       headers: {
