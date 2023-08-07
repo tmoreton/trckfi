@@ -1,7 +1,7 @@
 ---
 title: 'Backdoor Roth IRA 2023: A Step-by-Step Guide with Vanguard'
 excerpt: "Unlock the power of tax-free growth in 2023 with the Backdoor Roth IRA strategy through Vanguard. This comprehensive step-by-step guide reveals how high-income professionals can contribute to a Roth IRA, even surpassing the income limits. Learn the exact process for non-deductible IRA contributions, converting to a Roth IRA, and strategic investing. Secure your financial future and enjoy tax-efficient benefits with this ultimate Backdoor Roth IRA 2023 guide using Vanguard."
-coverImage: '/assets/blog/'
+coverImage: '/assets/blog/retirement-money.png'
 date: '08.15.2023'
 category: 'Personal Finance, Retirement Planning'
 keywords: 'backdoor roth IRA, 2023, step-by-step guide, Vanguard, high-income professionals, Roth IRA contributions, non-deductible IRA, tax-efficient, financial future'
