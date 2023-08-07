@@ -1,6 +1,6 @@
 ---
 title: 'The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement'
-excerpt: 'Unlock Tax-Free Retirement Growth with a 401(k) Roth. Discover the benefits of contributing after-tax money, tax-free growth, and flexible withdrawal options. Maximize your retirement savings and explore the power of a 401(k) Roth to secure your financial future.'
+excerpt: "Unlock Tax-Free Retirement Growth with a 401(k) Roth. Discover the benefits of contributing after-tax money, tax-free growth, and flexible withdrawal options. Maximize your retirement savings and explore the power of a 401(k) Roth to secure your financial future."
 coverImage: '/assets/blog/roth-401k-plan.png'
 date: '08.22.2023'
 category: 'Retirement Planning, 401(k), Roth IRA, Tax-Advantaged Accounts'

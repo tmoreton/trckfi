@@ -1,6 +1,6 @@
 ---
 title: 'Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future'
-excerpt: 'Planning for retirement is crucial for a financially secure future. Learn about Individual Retirement Accounts (IRAs) and 401(k)s, their tax benefits, and key considerations when choosing the right plan for you.'
+excerpt: "Planning for retirement is crucial for a financially secure future. Learn about Individual Retirement Accounts (IRAs) and 401(k)s, their tax benefits, and key considerations when choosing the right plan for you."
 coverImage: '/assets/blog/retirement-plan'
 date: '08.07.2023'
 category: 'Personal Finance, Retirement Planning'
