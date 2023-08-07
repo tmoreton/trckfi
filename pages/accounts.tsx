@@ -22,10 +22,10 @@ function classNames(...classes) {
 }
 
 const renderImg = (account) => {
-  if(account?.subtype === 'rental' || account?.subtype === 'home' || account?.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account?.subtype === 'rental' || account?.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
   if(account?.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account?.subtype === 'crypto') return (<img src={account.details?.image} alt={account.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
-  if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
+  if(!account.institution) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
   let image_url = `/assets/banks/${account.institution}.png`
   return <img 
     src={image_url} 
