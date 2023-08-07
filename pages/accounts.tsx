@@ -13,7 +13,6 @@ import CryptoModal from '../components/modals/crypto-modal'
 import RemoveAccount from "../components/modals/remove-account-modal"
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
-import { DateTime } from "luxon"
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 
@@ -78,8 +77,32 @@ const NetWorth = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
-    setAccounts(data.accounts)
-    setStats(data.net_worth_stats)
+
+    const accounts = data.reduce(function (r, a) {
+      r[a.institution] = r[a.institution] || [];
+      r[a.institution].push(a);
+      return r;
+    }, Object.create(null))
+    setAccounts(accounts)
+
+    let total_assets = 0
+    let total_liabilities = 0
+    data.forEach(a => {
+      if(a.type === 'loan' || a.type === 'credit'){
+        // @ts-ignore
+        total_liabilities -= Number(a.amount)
+      } else {
+        // @ts-ignore
+        total_assets += Number(a.amount)
+      }
+    })
+  
+    const net_worth_stats = [
+      { name: 'Net Worth', value: addComma(total_assets-total_liabilities), change: '', changeType: 'nuetral' },
+      { name: 'Assets', value: addComma(total_assets), change: '', changeType: 'positive' },
+      { name: 'Liabilities', value: addComma(total_liabilities), change: '', changeType: 'negative' },
+    ]
+    setStats(net_worth_stats)
   }
 
   const refresh = async () => {
