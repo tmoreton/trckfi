@@ -19,7 +19,7 @@ Financial independence is the key to taking control of your life and reducing fi
 - [Manage Your Debt](#debt)
 - [Embrace Smart Saving and Investing](#saving-investing)
 - [Leverage the Power of Compounding](#compounding)
-- [Celebrate Financial Milestones](milestones)
+- [Celebrate Financial Milestones](#milestones)
 - [Stay Committed and Flexible](#flexible)
 - [The Botton Line](#conclusion)
 
@@ -35,7 +35,7 @@ By tracking your finances, you can identify areas where you may be overspending 
 
 Moreover, **tracking your finances** provides insights into your **spending habits** and helps you make informed decisions about how to allocate your resources. Whether it's cutting back on non-essential expenses or increasing contributions to your **investment accounts**, tracking your finances empowers you to take **control of your money** and move closer to **financial independence**.
 
-## <a name="financial-goal">Step 2: Define Your Financial Goals</a>
+## <a name="financial-goals">Step 2: Define Your Financial Goals</a>
 To set yourself on the path to financial independence, start by envisioning your ideal financial future. What does financial independence mean to you? Is it [early retirement](/blog/blog/how-to-retire-early-and-embrace-the-fire-movement), having the flexibility to travel whenever you desire, or starting a business to pursue your passion?
 
 Take the time to identify specific and achievable financial goals. Write them down and keep them visible as a reminder of what you're working towards. Having clear objectives will serve as your North Star, guiding your financial decisions and motivating you throughout the process.
@@ -64,7 +64,7 @@ Saving and investing go hand in hand with financial independence. Cultivate a ha
 
 Consider utilizing tax-advantaged accounts like **IRAs** and **401(k)s** to optimize your savings and reduce tax liabilities. Diversify your investments to manage risk effectively. Consulting with a financial advisor can help you develop a personalized investment strategy that aligns with your goals.
 
-![compound-interest-calculator-image](/assets/blog/compound-interest.png)
+![compound-interest-calculator-image](/assets/blog/compound-interest-calc.png)
 
 ## <a name="compounding">Step 7: Leverage the Power of Compounding</a>
 Compounding is the secret sauce of wealth building. As your investments generate returns, reinvest those earnings to grow your money exponentially over time. The longer you stay invested, the more significant the compounding effect.
@@ -84,4 +84,4 @@ Consistency and adaptability are essential elements of your journey to success. 
 ## <a name="conclusion">The Botton Line</a>
 In conclusion, achieving financial independence requires discipline, patience, and a strategic approach to money management. By defining clear financial goals, creating a solid budget, increasing your income, eliminating debts, and embracing smart saving and investing, you lay the groundwork for a financially secure future.
 
-Leverage the power of [compounding](/blog/10-must-know-personal-finance-basics-for-financial-success), celebrate your financial milestones, and remain committed and adaptable on your path to financial independence. Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/blog). Let's take control of our money and shape a brighter financial future together!
+Leverage the power of [compounding](/blog/10-must-know-personal-finance-basics-for-financial-success), celebrate your financial milestones, and remain committed and adaptable on your path to financial independence. Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog) provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking [here](/). Let's take control of our money and shape a brighter financial future together!

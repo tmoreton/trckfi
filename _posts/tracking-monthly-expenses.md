@@ -32,7 +32,7 @@ Achieving financial success requires effective tools and strategies, and one of 
 
 * **Track All Expenses:** Don't overlook even the smallest expenses. Trckfi allows you to **effortlessly record every purchase**, providing **real-time data** on your spending habits. No matter how insignificant an expense may seem, Trckfi ensures you have a complete picture of your financial transactions. It's the little expenses that can add up over time and impact your overall financial well-being. With **Trckfi's real-time tracking**, you gain valuable insights into your **spending patterns**, empowering you to make informed financial decisions and stay on track with your budgeting goals. Embrace the power of **Trckfi** to track and manage your expenses with ease and precision, and witness how these small yet meaningful steps lead to significant financial progress. To learn more about Trckfi and discover how it can revolutionize your approach to personal finance, click [here](/).
 
-![trckfi-demo-expenses-image](/assets/blog/track-all-expenses.png)
+![trckfi-track-all-expenses](/assets/blog/track-all-expenses.png)
 
 * **Be Consistent:** Cultivate the habit of regularly checking your finances to stay informed and in control. With Trckfi's automated system, you can make this process even easier. Trckfi sends you **weekly** or **monthly summaries** of your financials, **saving you time and effort**. Set aside a few minutes each week or month to review these summaries and update your records as needed. Consistency is key to obtaining accurate insights and making meaningful financial decisions. By incorporating **Trckfi** into your routine, you effortlessly strengthen your financial awareness and discipline, paving the way towards a more secure and prosperous future.
 
