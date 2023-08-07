@@ -1,6 +1,6 @@
 ---
 title: '401(k) Retirement Plans: A Comprehensive Guide for Smart Saving'
-excerpt: 'Unlock the secrets to a comfortable retirement with the powerful 401(k) retirement plan. Whether you're just starting your career or nearing retirement age, understanding the ins and outs of a 401(k) can significantly impact your financial future.'
+excerpt: "Unlock the secrets to a comfortable retirement with the powerful 401(k) retirement plan. Whether you're just starting your career or nearing retirement age, understanding the ins and outs of a 401(k) can significantly impact your financial future."
 coverImage: '/assets/blog/retirement-plan-401k.png'
 date: '08.16.2023'
 category: 'Retirement Planning, 401K'

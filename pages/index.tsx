@@ -1,5 +1,5 @@
 import Container from '../components/container'
-import Hero from '../components/hero-2'
+import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import Newsletter from '../components/newsletter'
