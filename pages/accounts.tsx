@@ -10,7 +10,7 @@ import EditAccountModal from '../components/modals/edit-account-modal'
 import ManualModal from '../components/modals/add-manually-modal'
 import StockModal from '../components/modals/stock-modal'
 import CryptoModal from '../components/modals/crypto-modal'
-
+import RemoveAccount from "../components/modals/remove-account-modal"
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { DateTime } from "luxon"
@@ -82,27 +82,6 @@ const NetWorth = ({ showError }) => {
     setStats(data.net_worth_stats)
   }
 
-  // const getNetWorth = async () => {
-  //   setLoading(true)
-  //   const res = await fetch(`/api/get_net_worth`, {
-  //     body: JSON.stringify({
-  //       user
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  //   const { error, data } = await res.json()
-  //   if(error){
-  //     showError(error)
-  //   } else {
-  //     // setStats(data.net_worth_stats)
-  //     // setAccounts(data)
-  //   }
-  //   setLoading(false)
-  // }
-
   const refresh = async () => {
     setLoading(true)
     fetch(`/api/update_crypto_price`, {
@@ -135,7 +114,7 @@ const NetWorth = ({ showError }) => {
     setLoading(false)
     const { error } = await res.json()
     showError(error)
-    // if(!error) getNetWorth()
+    if(!error) getAccounts()
   }
 
   const unhideAccount = async (account) => {
@@ -150,7 +129,7 @@ const NetWorth = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    // if(!error) getSettings()
+    if(!error) getAccounts()
   }
 
   const removeToken = async (account) => {
@@ -164,7 +143,7 @@ const NetWorth = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    // if(!error) getSettings()
+    if(!error) getAccounts()
   }
 
   const syncAccount = async (plaid) => {
@@ -179,7 +158,7 @@ const NetWorth = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    // if(!error) getSettings()
+    if(!error) getAccounts()
   }
 
   return (
@@ -193,6 +172,7 @@ const NetWorth = ({ showError }) => {
       <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getAccounts}/>
       <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getAccounts} />
       <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
+      <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
       
       <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
         <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
@@ -296,11 +276,15 @@ const NetWorth = ({ showError }) => {
                                         </td>
                                       }
                                       <tr className="text-sm text-gray-900 pt-1 flex justify-between">
-                                        <td className="w-1/2 font-semibold text-left">{a.name} - <span className="font-light">{a.official_name}</span></td>
+                                        <td className="w-1/2 font-semibold text-left">
+                                          {a.name} 
+                                          - 
+                                          <span className="font-light">{a.official_name}</span>
+                                          <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
+                                        </td>
                                         <td className="w-1/6 font-light text-left text-xs">{a.type}</td> 
                                         <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
-                                        <button className="w-24 text-red-600 text-right">Edit</button> 
-                                        <td><button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button></td>
+                                        <button onClick={() => editAccount(a)} className="w-24 text-red-600 text-right">Edit</button> 
                                       </tr>
                                     </>
                                   ))}

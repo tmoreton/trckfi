@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import Head from 'next/head'
-import { ArrowPathIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
-import RemoveAccount from "../components/modals/remove-account-modal"
-import PlaidLink from "../components/plaid-link"
 import CancelModal from '../components/modals/cancel-modal'
 import  { useLocalStorage } from '../utils/useLocalStorage'
-import { ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -22,7 +18,6 @@ const Settings = ({ showError }) => {
   const [openCancelModal, setCancelOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
-  const [removedAccounts, setRemovedAccounts] = useState([])
   const [linkedUser, setLinkedUser] = useState({})
   const [accounts, setAccounts] = useLocalStorage('settings_accounts', {})
 
@@ -50,21 +45,20 @@ const Settings = ({ showError }) => {
     }
   }
 
-  const unhideAccount = async (account) => {
-    const res = await fetch(`/api/unhide_account`, {
-      body: JSON.stringify({
-        user, account
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) getSettings()
-  }
-  
+  // const unhideAccount = async (account) => {
+  //   const res = await fetch(`/api/unhide_account`, {
+  //     body: JSON.stringify({
+  //       user, account
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error } = await res.json()
+  //   showError(error)
+  //   if(!error) getSettings()
+  // }
 
   const send = async (e) => {
     e.preventDefault()
@@ -101,42 +95,13 @@ const Settings = ({ showError }) => {
     if(!error) signOut()
   }
 
-  const removeToken = async (account) => {
-    setRemovedAccounts([])
-    const res = await fetch(`/api/remove_access_token`, {
-      body: JSON.stringify({ account }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) getSettings()
-  }
-
-  const syncAccount = async (plaid) => {
-    setLoading(true)
-    setRemovedAccounts([])
-    const res = await fetch(`/api/sync_account`, {
-      body: JSON.stringify({ plaid, user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) getSettings()
-  }
-
   return (
     <DashboardLayout>
       <Head>
         <title>Trckfi - Settings</title>
       </Head>
       <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
-      <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
+      
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
         <div>
           <h2 className="text-base font-semibold leading-7 text-pink-600">Profile</h2>
@@ -203,62 +168,6 @@ const Settings = ({ showError }) => {
               </div>
             }
           </dl>
-        </div>
-
-        <div>
-          <h2 className="text-base font-semibold leading-7 text-pink-600">Bank accounts</h2>
-          <p className="mt-1 text-sm leading-6 text-gray-500">Connect bank accounts to your account.</p>
-          <ul role="list" className="mt-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
-            {
-              Object.keys(accounts).map(key => {
-                if(Object.keys(accounts)?.length > 0){
-                  let error_code = accounts[key][0]?.plaid?.error_code
-                  return (
-                    <div key={key} className="flex justify-between gap-x-6 py-6">
-                      <li>
-                        { accounts[key].map((a, i) => (
-                          <>
-                            { i <= 0 && <p className="text-lg font-bold text-gray-900 py-1 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>}
-                            <div className="text-xs font-medium text-gray-900 pt-1">{a.name} - 
-                              <span className="font-light">{a.official_name}</span> 
-                              <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
-                            </div>
-                            
-                          </>
-                        ))}
-                      </li>
-                      { error_code === 'ITEM_LOGIN_REQUIRED' && <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token}/> }
-                      { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
-                        <div className='flex items-center'>
-                          <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="flex items-center font-semibold text-red-600 hover:text-red-500">
-                            <div className={loading && 'animate-spin'}>
-                              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
-                            </div>
-                            <span className="ml-2">Resync Account</span>
-                          </button>
-                        </div>
-                      }
-                      { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
-                        <div className='flex items-center'>
-                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="flex items-center  font-semibold text-red-600 hover:text-red-500">
-                            <div className={loading && 'animate-spin'}>
-                              { loading && <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" /> }
-                            </div>
-                            <span>Remove Connection</span>
-                          </button>
-                        </div>
-                      }
-                    </div>
-                  )
-                }
-              })
-            }
-          </ul>
-
-          <div className="flex border-t border-gray-100 pt-6">
-            <PlaidLink user={user} showError={showError} refresh_access_token={null}/>
-            {/* { (Object.keys(accounts)?.length <= 10) ? <PlaidLink user={user} showError={showError} access_token={null} /> : <p className="text-sm leading-6 text-red-600 font-bold">Please remove account link to add more...</p>} */}
-          </div>
         </div>
 
         <div>
