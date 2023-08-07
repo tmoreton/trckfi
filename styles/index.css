@@ -32,3 +32,8 @@ a {
 .tlui-menu-zone::before {
   background-color: #fff;
 }
+
+.tl-background {
+  border: 2px solid #db2777;
+  border-radius: 10px;
+}

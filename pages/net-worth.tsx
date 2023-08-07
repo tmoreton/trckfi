@@ -10,6 +10,7 @@ import EditAccountModal from '../components/modals/edit-account-modal'
 import ManualModal from '../components/modals/add-manually-modal'
 import StockModal from '../components/modals/stock-modal'
 import CryptoModal from '../components/modals/crypto-modal'
+
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
 import { DateTime } from "luxon"
@@ -21,7 +22,7 @@ function classNames(...classes) {
 }
 
 const renderImg = (account) => {
-  if(account.subtype === 'rental' || account.subtype === 'home') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account.subtype === 'rental' || account.subtype === 'home' || account.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
   if(account.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account.subtype === 'crypto') return (<img src={account.details?.image} alt={account.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
   if(account.institution === null) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)

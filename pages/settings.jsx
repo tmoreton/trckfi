@@ -238,7 +238,7 @@ const Settings = ({ showError }) => {
                           </button>
                         </div>
                       }
-                      { !error_code &&
+                      { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
                         <div className='flex items-center'>
                           <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="flex items-center  font-semibold text-red-600 hover:text-red-500">
                             <div className={loading && 'animate-spin'}>
