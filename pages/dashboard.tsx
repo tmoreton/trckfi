@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from "../components/dashboard-layout"
 import Snapshot from "../components/snapshot"
@@ -14,6 +13,7 @@ import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -214,18 +214,21 @@ const Dashboard = ({ showError }) => {
   
   return (
     <>
-    <Menu showError={showError}/>
-    <DashboardLayout>
-      <Head>
-        <title>Trckfi - Dashboard</title>
-      </Head>
-      <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} />
-      <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-      <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
-      <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
-      <Graphs graphData={graphData} />
-      { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
-    </DashboardLayout>
+      <Menu showError={showError}/>
+      <DashboardLayout>
+        <Meta
+          title="Dashboard"
+          description="Your finances all in one platform"
+          image=''
+          keywords=''
+        />
+        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} />
+        <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
+        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
+        <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
+        <Graphs graphData={graphData} />
+        { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
+      </DashboardLayout>
     </>
   )
 }

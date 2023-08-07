@@ -1,7 +1,7 @@
 import Menu from '../components/menu'
 import Container from "../components/container"
 import Layout from "../components/layout"
-import Head from 'next/head'
+import Meta from '../components/meta'
 
 const faqs = [
   {
@@ -15,9 +15,12 @@ const faqs = [
 export default function ({ showError }) {
   return (
     <Layout>
-      <Head>
-        <title>Trckfi - FAQ</title>
-      </Head>
+      <Meta
+        title="FAQ"
+        description="Trckfi is transaparent about how your data is used and stored"
+        image=''
+        keywords=''
+      />
       <Menu showError={showError} />
       <Container>
         <div className="bg-white">

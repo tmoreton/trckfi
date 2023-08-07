@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import DashboardLayout from "../components/dashboard-layout"
-import Head from 'next/head'
 import { useSession } from "next-auth/react"
 import { XCircleIcon } from '@heroicons/react/24/outline'
 import { PinkBtn } from '../components/pink-btn'
 import { DateTime } from "luxon"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 
 const Rules = ({ showError }) => {
   const { data: session } = useSession()
@@ -100,11 +100,14 @@ const Rules = ({ showError }) => {
 
   return(
     <>
-    <Menu showError={showError}/>
+      <Menu showError={showError}/>
       <DashboardLayout>
-        <Head>
-          <title>Trckfi - Rules</title>
-        </Head>
+        <Meta
+          title="Custom Rules"
+          description="Create custom rules for better categorization"
+          image=''
+          keywords=''
+        />
         <main className="px-4 sm:px-6 lg:flex-auto lg:px-0 lg:py-2">
           <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
             <div>

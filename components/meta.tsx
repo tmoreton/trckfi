@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const Meta = () => {
+const Meta = ({ title, description, image, keywords }) => {
   return (
     <Head>
       <link
@@ -31,11 +31,13 @@ const Meta = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <title>{title || 'Trckfi'}</title>
       <meta
         name="description"
-        content="Take control of your wealth journey while keeping your data private & secure with Trckfi"
+        content={description || "Take control of your wealth journey while keeping your data private & secure with Trckfi"}
       />
-      <meta property="og:image" content="/trckfiblack-sm.png" />
+      <meta name="keywords" content={keywords || "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success"}/>
+      <meta property="og:image" content={image || "/trckfi-black-sm.png"} />
     </Head>
   )
 }

@@ -6,9 +6,9 @@ import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Menu from '../../components/menu'
+import Meta from '../../components/meta'
 
 export default function Post({ post, preview, showError }) {
   const router = useRouter()
@@ -24,10 +24,12 @@ export default function Post({ post, preview, showError }) {
         ) : (
           <>
             <article className="mb-32">
-              <Head>
-                <title>{title}</title>
-                <meta property="og:image" content={post.coverImage} />
-              </Head>
+              <Meta
+                title={title}
+                description={post.excerpt}
+                image={post.coverImage}
+                keywords={post.keywords}
+              />
               <Menu showError={showError}/>
               <PostHeader
                 title={post.title}
@@ -57,8 +59,9 @@ export async function getStaticProps({ params }: Params) {
     'slug',
     'author',
     'content',
-    'ogImage',
+    'excerpt',
     'coverImage',
+    'keywords'
   ])
   const content = await markdownToHtml(post.content || '')
 

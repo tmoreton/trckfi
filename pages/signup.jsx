@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import Layout from '../components/layout'
-import Head from 'next/head'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 import { getSession } from 'next-auth/react'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
@@ -20,9 +20,12 @@ export default function ({ showError, user, access_code, csrfToken, error, email
 
   return (
     <Layout>
-      <Head>
-        <title>Trckfi - Sign Up</title>
-      </Head>
+      <Meta
+        title="Sign Up"
+        description="Sign up for Trckfi today!"
+        image=''
+        keywords=''
+      />
       <Container>
         <Menu showError={showError}/>
         <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">

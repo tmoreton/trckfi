@@ -1,9 +1,9 @@
 import { useSession } from "next-auth/react"
 import { useState } from 'react'
 import Container from '../components/container'
-import Head from 'next/head'
 import Menu from '../components/menu'
 import DashboardLayout from "../components/dashboard-layout"
+import Meta from '../components/meta'
 
 export default function ({ showError }) {
   const { data: session } = useSession()
@@ -30,9 +30,12 @@ export default function ({ showError }) {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
-        <Head>
-          <title>Trckfi - Feedback</title>
-        </Head>
+        <Meta
+          title="Feedback"
+          description="We love to improve our paltform with your feedback"
+          image=''
+          keywords=''
+        />
         <Container>
           <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">

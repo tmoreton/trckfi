@@ -1,10 +1,10 @@
 import Menu from '../components/menu'
 import Container from "../components/container"
 import Layout from "../components/layout"
-import Head from 'next/head'
 import { Fragment } from 'react'
 import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import Meta from '../components/meta'
 
 const tiers = [
   {
@@ -53,9 +53,12 @@ function classNames(...classes) {
 export default function ({ showError }) {
   return (
     <Layout>
-      <Head>
-        <title>Trckfi - Pricing</title>
-      </Head>
+      <Meta
+        title="Pricing"
+        description="Transaparent monthly pricing"
+        image=''
+        keywords=''
+      />
       <Menu showError={showError} />
       <Container>
         <div className="bg-white py-16">

@@ -1,9 +1,9 @@
 import { useSession } from "next-auth/react"
-import Head from 'next/head'
 import DashboardLayout from "../components/dashboard-layout"
 import ChatPrompt from "../components/chat-prompt"
 import { useEffect, useState } from 'react'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 
 export default function ({ showError }) {
   const { data: session } = useSession()
@@ -46,11 +46,14 @@ export default function ({ showError }) {
 
   return (
     <>
+    <Meta
+      title="AI Chat"
+      description="Ask AI about your finances"
+      image=''
+      keywords=''
+    />
     <Menu showError={showError}/>
     <DashboardLayout>
-      <Head>
-        <title>Trckfi - Chat</title>
-      </Head>
       {/* {
         !initialInput &&
         <div className="lg:flex justify-center space-x-6 mb-4 sm:block">

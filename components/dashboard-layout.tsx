@@ -1,5 +1,4 @@
 import Footer from './footer'
-import Meta from './meta'
 import Container from './container'
 import {
   ChartBarIcon,
@@ -34,7 +33,6 @@ export default function ({ children }) {
   const currentRoute = router.pathname
   return (
     <>
-      <Meta />
       <div className="min-h-screen">
         <Container>
           <div className="mx-auto lg:flex lg:gap-x-0">

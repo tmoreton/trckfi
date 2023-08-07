@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
-import Head from 'next/head'
 import { ArrowPathIcon, PlusIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
 import { addComma } from '../lib/lodash'
@@ -16,6 +15,7 @@ import PlaidLink from '../components/plaid-link';
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -189,9 +189,12 @@ const NetWorth = ({ showError }) => {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
-        <Head>
-          <title>Trckfi - Net Worth</title>
-        </Head>
+        <Meta
+          title="Net Worth"
+          description="Track your Net Worth in one place"
+          image=''
+          keywords=''
+        />
         <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getAccounts}/>
         <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getAccounts}/>
         <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getAccounts}/>
