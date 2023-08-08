@@ -316,7 +316,8 @@ const NetWorth = ({ showError }) => {
                                             </td>
                                             <td className="w-1/6 font-light text-left text-xs">{a.type}</td> 
                                             <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
-                                            <button onClick={() => editAccount(a)} className="w-24 text-red-600 text-right">Edit</button> 
+                                            <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right">Hide</button> 
+                                            <button onClick={() => editAccount(a)} className="w-20 text-red-600 text-right">Edit</button> 
                                           </tr>
                                         </>
                                       ))}
