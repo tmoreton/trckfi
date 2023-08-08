@@ -29,7 +29,7 @@ export default function () {
               <h2 className="text-base font-semibold leading-7 text-pink-600">At a glance</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Income & Expense Graph</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Check your income & expenses on a monthly & weekly basis to quickly and easily see your progress
+                Check your income & expenses on a monthly & weekly basis to quickly and easily see your progress towards financial freedom
               </p>
               {/* <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (

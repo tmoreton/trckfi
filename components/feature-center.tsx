@@ -9,7 +9,7 @@ const features = [
   },
   {
     name: 'Searchable.',
-    description: 'Quick & easy access to combine varios search vectors',
+    description: 'Quick & easy access to combine various search criteria',
     icon: MagnifyingGlassIcon,
   },
   {
@@ -24,10 +24,10 @@ export default function () {
     <div className="mt-32 mb-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-pink-600">Your data, How you need it</h2>
+          <h2 className="text-base font-semibold leading-7 text-pink-600">Your data, how you need it</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex"><div className="mr-3 mt-1"><Emoji unified={'1f50d'} size={30} /></div> Customizable Search & Categorization</p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            With custom rules and the ability to download your data at anytime you can really track how much money is coming in & out.
+            With custom rules and the ability to download your data at anytime, you can really track how much money is coming in & out.
           </p>
         </div>
       </div>

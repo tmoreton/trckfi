@@ -12,10 +12,10 @@ import { PinkBtn } from './pink-btn'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 const navigation = [
-  // { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
   // { name: 'FAQ', href: '/faq' },
   // { name: 'Pricing', href: '/pricing' },
-  // { name: 'Blog', href: '/blog' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 const classNames = (...classes) => {
