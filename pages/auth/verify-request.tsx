@@ -17,7 +17,7 @@ export default function () {
           </p>
           <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>
           <div className="mt-2 flex items-center justify-center gap-x-6">
-            <a href="mailto:tim@trckfi.com" className="text-sm font-semibold text-gray-900">
+            <a href="mailto:support@trckfi.com" className="text-sm font-semibold text-gray-900">
               Contact support <span aria-hidden="true">&rarr;</span>
             </a>
           </div>

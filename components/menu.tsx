@@ -16,6 +16,7 @@ const navigation = [
   // { name: 'FAQ', href: '/faq' },
   // { name: 'Pricing', href: '/pricing' },
   { name: 'Blog', href: '/blog' },
+  { name: 'FAQ', href: '/faq' },
 ]
 
 const classNames = (...classes) => {

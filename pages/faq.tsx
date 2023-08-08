@@ -6,9 +6,23 @@ import Meta from '../components/meta'
 const faqs = [
   {
     id: 1,
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+    question: "Does Trckfi sell my data?",
+    answer: "Never! This is why we don't have a free tirer, so that we can sustain the application without ever selling your data",
+  },
+  {
+    id: 2,
+    question: "How do you connect to my bank account?",
+    answer: "We use Plaid API to connect to your bank transactions so we don't store any personal information or login details at all",
+  },
+  {
+    id: 3,
+    question: "Can I request a feature?",
+    answer: "Yes! We love feedback and would love to hear what features and/or fixes that would improve the platform",
+  },
+  {
+    id: 4,
+    question: "What information is stored?",
+    answer: "Only single line bank transactions and snapshot's of account's at a point in point and nothing else!",
   },
 ]
 
@@ -29,7 +43,7 @@ export default function ({ showError }) {
               <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
               <p className="mt-6 text-base leading-7 text-gray-600">
                 Have a different question and can’t find the answer you’re looking for? Reach out to our support team by{' '}
-                <a href="#" className="font-semibold text-pink-600 hover:text-pink-500">
+                <a href="mailto:support@trckfi.com" className="font-semibold text-pink-600 hover:text-pink-500">
                   sending us an email
                 </a>{' '}
                 and we’ll get back to you as soon as we can.
