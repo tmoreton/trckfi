@@ -6,6 +6,7 @@ import { signOut, useSession } from "next-auth/react"
 import CancelModal from '../components/modals/cancel-modal'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import { useRouter } from 'next/router'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -19,6 +20,7 @@ const Settings = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [linkedUser, setLinkedUser] = useState({})
+  const router = useRouter()
 
   useEffect(() => {
     getSettings()
@@ -78,6 +80,22 @@ const Settings = ({ showError }) => {
     if(!error) signOut()
   }
 
+  const redirect = async () => {
+    const res = await fetch(`/api/create_bill_portal`, {
+      body: JSON.stringify({
+        customer_id: user.customer_id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    console.log(data)
+    if(!error) router.replace(data)
+  }
+
   return (
     <>
       <Menu showError={showError}/>
@@ -99,12 +117,11 @@ const Settings = ({ showError }) => {
                 <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Subscription</dt>
                 <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                   <div className="text-gray-900">Monthly - Active</div>
-                  <button onClick={() => setCancelOpen(true)} type="button" className="font-semibold text-red-600 hover:text-red-500">
-                    Cancel Subscription
+                  <button onClick={redirect} type="button" className="font-semibold text-red-600 hover:text-red-500">
+                    Manage Subscription
                   </button>
                 </dd>
               </div>
-
               <div className="pt-6 sm:flex">
                 <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Name</dt>
                 <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
