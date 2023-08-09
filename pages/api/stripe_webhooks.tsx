@@ -3,7 +3,7 @@ import Stripe from 'stripe'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
-const endpointSecret = 'we_1NdIOYBJfatAKl0YM8RSTtTM'
+const endpointSecret = 'whsec_5dOCXQufUnNYHpgqfe7KAoFOx5hVVTtI'
 
 export default async (req, res) => {
   try {
