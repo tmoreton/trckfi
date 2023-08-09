@@ -3,12 +3,11 @@ import Stripe from 'stripe'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
-const endpointSecret = 'whsec_5dOCXQufUnNYHpgqfe7KAoFOx5hVVTtI'
 
 export default async (req, res) => {
   try {
     const sig = req.headers['stripe-signature'];
-    let event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+    let event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
     console.log(event)
     switch (event.type) {
       case 'customer.subscription.created':
