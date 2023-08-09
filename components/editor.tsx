@@ -43,7 +43,7 @@ export default function Editor() {
 
 	if (loadingState.status === 'loading') {
 		return (
-      <div style={{width: '75vw', height: '100vh'}}>
+      		<div style={{width: '75vw', height: '100vh'}}>
 				<h2>Loading...</h2>
 			</div>
 		)
@@ -59,8 +59,8 @@ export default function Editor() {
 	} 
 
 	return (
-		<div style={{width: '100%', height: '100vh'}}>
-			<Tldraw store={store} autoFocus />
+		<div style={{width: '100%', height: '85vh'}}>
+			<Tldraw store={store} />
 		</div>
 	)
 }
