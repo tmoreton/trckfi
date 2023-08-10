@@ -1,8 +1,7 @@
 import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
 import { useLayoutEffect, useState, useEffect } from 'react';
-import { vision } from '../utils/default-vision'
+import { vision, new_vision } from '../utils/default-vision'
 const PERSISTENCE_KEY = 'vision_board'
-import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline'
 
 export default function Editor() {
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
@@ -29,7 +28,7 @@ export default function Editor() {
 		setLoadingState({ status: 'loading' })
 
 		// Get persisted data from local storage
-		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || vision
+		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || new_vision
 		if (persistedSnapshot) {
 			try {
 				const snapshot = JSON.parse(persistedSnapshot)
