@@ -17,7 +17,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 //   payload: payloadString,
 //   secret,
 // });
-
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 // const event = stripe.webhooks.constructEvent(payloadString, header, secret);
 export default async (req, res) => {
   try {
