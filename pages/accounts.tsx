@@ -343,7 +343,7 @@ const NetWorth = ({ showError }) => {
                                       ))}
                                       <div className="pt-3">
                                         { error_code === 'ITEM_LOGIN_REQUIRED' && 
-                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} setConfetti={setConfetti}/>
+                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid}/>
                                         }
                                         { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
                                           <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
