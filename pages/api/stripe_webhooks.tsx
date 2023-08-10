@@ -30,6 +30,10 @@ export default async (req, res) => {
         const customerSubscriptionPaused = event.data.object;
         // Then define and call a function to handle the event customer.subscription.paused
         break;
+      case 'customer.subscription.resumed':
+        const customerSubscription = event.data.object;
+        // Then define and call a function to handle the event customer.subscription.paused
+        break;
       default:
         console.log(`Unhandled event type ${event.type}`);
     }
