@@ -30,7 +30,7 @@ export default async (req, res) => {
     //   payload: payloadString,
     //   secret: req.headers['stripe-signature'],
     // })
-    const event = stripe.webhooks.constructEvent(raw, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
+    const event = stripe.webhooks.constructEvent(JSON.stringify(req.rawBody), sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
 
     console.log(event)
     switch (event.type) {
