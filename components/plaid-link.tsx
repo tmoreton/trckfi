@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { usePlaidLink } from 'react-plaid-link'
-import { useRouter } from 'next/router'
 import { PlusIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 
-export default function ({ showError, user, refresh_access_token, setConfetti }) {
+export default function ({ showError, user, refresh_access_token, syncPlaid }) {
   const [linkToken, setLinkToken] = useState(null)
-  const router = useRouter()
 
   useEffect(() => {
     generateToken()
@@ -37,43 +35,14 @@ export default function ({ showError, user, refresh_access_token, setConfetti })
     return access_token
   }
 
-  const getAccounts = async (access_token) => {
-    const res = await fetch(`/api/get_plaid_accounts`, {
-      body: JSON.stringify({
-        user_id: user.id,
-        access_token: access_token
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-  }
-
-  // const syncAccounts = async () => {
-  //   const res = await fetch(`/api/sync_accounts`, {
-  //     body: JSON.stringify({ user }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  //   const { error } = await res.json()
-  //   showError(error)
-  //   if(!error) router.reload()
-  // }
-
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
-      setConfetti(true)
       if(refresh_access_token){
-        getAccounts(refresh_access_token)
+        syncPlaid(refresh_access_token)
       } else {
         let token = await getAccessToken({ public_token, user_id: user.id, metadata })
-        getAccounts(token)
+        syncPlaid(token)
       }
     },
   })

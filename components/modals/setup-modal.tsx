@@ -1,9 +1,8 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import PlaidLink from "../plaid-link"
-import ConfettiExplosion from 'react-confetti-explosion'
 
-export default ({ user, open, openSetupModal, showError, setConfetti }) => {
+export default ({ user, open, openSetupModal, showError, syncPlaid }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => openSetupModal(false)}>
@@ -43,7 +42,6 @@ export default ({ user, open, openSetupModal, showError, setConfetti }) => {
                       <p className="text-sm text-gray-600">
                         Let's connect a bank or credit card
                       </p>
-                      <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>
                       <p className="text-xs text-gray-400  my-4">
                         The first time you connect it may take a few a minutes to gather your historical data
                       </p>
@@ -51,7 +49,7 @@ export default ({ user, open, openSetupModal, showError, setConfetti }) => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <PlaidLink user={user} showError={showError} refresh_access_token={null} setConfetti={setConfetti}/>
+                  <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

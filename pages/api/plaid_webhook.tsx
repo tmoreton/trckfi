@@ -1,5 +1,11 @@
 const nodemailer = require('nodemailer')
 
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
 export default async (req, res) => {
   const { webhook_code: webhookCode, item_id: plaidItemId, } = req.body
 

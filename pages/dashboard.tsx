@@ -22,7 +22,7 @@ const Dashboard = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(false)
+  const [setupModal, openSetupModal] = useState(true)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [t, setTransactions] = useLocalStorage('transactions',[])
@@ -46,8 +46,33 @@ const Dashboard = ({ showError }) => {
     getTransactions()
   }, [dates])
 
+  const syncPlaid = async (access_token) => {
+    openSetupModal(false)
+    setConfetti(true)
+    setTimeout(() => {
+      getStats()
+      getDashboard()
+    }, 2000)
+    setTimeout(() => {
+      getTransactions()
+    }, 5000)
+    const res = await fetch(`/api/sync_plaid`, {
+      body: JSON.stringify({
+        user,
+        access_token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    console.log(data)
+    showError(error)
+  }
+
   const getRecurring = async () => {
-    const res = await fetch(`/api/get_recurring`, {
+    await fetch(`/api/get_recurring`, {
       body: JSON.stringify({ user }),
       headers: {
         'Content-Type': 'application/json',
@@ -224,7 +249,7 @@ const Dashboard = ({ showError }) => {
           image=''
           keywords=''
         />
-        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} setConfetti={setConfetti} />
+        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>

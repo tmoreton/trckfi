@@ -68,6 +68,26 @@ const NetWorth = ({ showError }) => {
     setOpen(true)
   }
 
+  const syncPlaid = async (access_token) => {
+    setConfetti(true)
+    setTimeout(() => {
+      getAccounts()
+    }, 2000)
+    const res = await fetch(`/api/sync_plaid`, {
+      body: JSON.stringify({
+        user,
+        access_token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    console.log(data)
+    showError(error)
+  }
+
   const getAccounts = async () => {
     const res = await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
@@ -218,7 +238,7 @@ const NetWorth = ({ showError }) => {
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Crypto
           </button>
-          <PlaidLink user={user} showError={showError} refresh_access_token={null} setConfetti={setConfetti}/>
+          <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
           <button  onClick={() => setOpenManually(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
