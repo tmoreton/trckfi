@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react'
-import { Cog8ToothIcon  } from '@heroicons/react/24/solid'
+import { Cog8ToothIcon, AdjustmentsHorizontalIcon  } from '@heroicons/react/24/solid'
 import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/outline'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
@@ -28,10 +28,33 @@ const classNames = (...classes) => {
 
 export default function ({ showError }) {
   const [openModal, setOpen] = useState(false)
+  const [controls, showControls] = useState(false)
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
   const currentRoute = router.pathname
+
+  const addControls = () => {
+    if(!controls){
+      showControls(true)
+      document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+        item.classList.remove('hidden');
+      });
+      document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
+        item.classList.remove('hidden');
+      });
+    } else {
+      showControls(false)
+      document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+        item.classList.add('hidden');
+      });
+      document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
+        item.classList.add('hidden');
+      });
+    }
+
+  }
+
   return (
     <Disclosure as="nav" className="container mx-auto px-5 bg-white">
       {({ open }) => (
@@ -72,12 +95,21 @@ export default function ({ showError }) {
                   <Menu as="div" className="relative ml-3">
                     {
                       session ?
-                      <Link href="/settings">
-                        <Menu.Button className="flex items-center">
-                          <span className="sr-only">Open user menu</span>
-                          <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
-                        </Menu.Button>
-                      </Link>
+                      <div className="flex items-center">
+                        <Link href="/settings">
+                          <Menu.Button className="flex items-center">
+                            <span className="sr-only">Open user menu</span>
+                            <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
+                          </Menu.Button>
+                        </Link>
+                        {
+                          currentRoute === '/visionboard' &&
+                          <button onClick={addControls} >
+                            <AdjustmentsHorizontalIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
+                          </button>
+                        }  
+                      </div>
+
                       :
                       
                       <Link href="#get-notified">

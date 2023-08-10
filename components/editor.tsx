@@ -2,6 +2,7 @@ import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldr
 import { useLayoutEffect, useState, useEffect } from 'react';
 import { vision } from '../utils/default-vision'
 const PERSISTENCE_KEY = 'vision_board'
+import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline'
 
 export default function Editor() {
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
@@ -15,6 +16,9 @@ export default function Editor() {
     if(loadingState.status === 'ready'){
       setTimeout(() => {
         document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+          item.classList.add('hidden');
+        });
+        document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
           item.classList.add('hidden');
         });
       }, 50);
