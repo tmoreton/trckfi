@@ -1,5 +1,6 @@
 import Stripe from 'stripe'
 import getRawBody from 'raw-body'
+import prisma from '../../lib/prisma';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -19,20 +20,32 @@ export default async (req, res) => {
     console.log(event)
     switch (event.type) {
       case 'customer.subscription.created':
-        const customerSubscriptionCreated = event.data.object;
-        // Then define and call a function to handle the event customer.subscription.created
+        await prisma.user.update({
+          // @ts-ignore
+          where: { customer_id: event.data.object?.customer },
+          data: { active: true }
+        })
         break;
       case 'customer.subscription.deleted':
-        const customerSubscriptionDeleted = event.data.object;
-        // Then define and call a function to handle the event customer.subscription.deleted
+        await prisma.user.update({
+          // @ts-ignore
+          where: { customer_id: event.data.object?.customer },
+          data: { active: false }
+        })
         break;
       case 'customer.subscription.paused':
-        const customerSubscriptionPaused = event.data.object;
-        // Then define and call a function to handle the event customer.subscription.paused
+        await prisma.user.update({
+          // @ts-ignore
+          where: { customer_id: event.data.object?.customer },
+          data: { active: false }
+        })
         break;
       case 'customer.subscription.resumed':
-        const customerSubscription = event.data.object;
-        // Then define and call a function to handle the event customer.subscription.paused
+        await prisma.user.update({
+          // @ts-ignore
+          where: { customer_id: event.data.object?.customer },
+          data: { active: true }
+        })
         break;
       default:
         console.log(`Unhandled event type ${event.type}`);

@@ -1,13 +1,24 @@
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
-import Container from '../components/container'
 import DashboardLayout from '../components/dashboard-layout'
-import Head from 'next/head'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import ConfettiExplosion from 'react-confetti-explosion'
+import { useSession } from "next-auth/react"
+import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
 
 const Editor = dynamic(() => import('../components/editor'), { ssr: false })
 
 export default function ({ showError }) {
+  const { data: session } = useSession()
+  const user = session?.user
+  const [showConfetti, setConfetti] = useState(false)
+
+  // useEffect(() => {
+  //   // @ts-ignore
+  //   if(user?.login_count <= 1 && count <= 1) setConfetti(false)
+  // }, [])
+
   return (
     <>
       <Menu showError={showError}/>
@@ -18,9 +29,8 @@ export default function ({ showError }) {
           image=''
           keywords=''
         />
-        <Container>
-          <Editor />
-        </Container>
+        <Editor />
+        {/* { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={1000}/>} */}
       </DashboardLayout>
     </>
   )

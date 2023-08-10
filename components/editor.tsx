@@ -21,7 +21,7 @@ export default function Editor() {
         document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
           item.classList.add('hidden');
         });
-      }, 50);
+      }, 250);
     }
   }, [loadingState])
 	
