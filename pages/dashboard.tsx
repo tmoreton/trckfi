@@ -22,7 +22,7 @@ const Dashboard = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(true)
+  const [setupModal, openSetupModal] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [t, setTransactions] = useLocalStorage('transactions',[])
