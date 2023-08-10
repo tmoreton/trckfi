@@ -23,8 +23,8 @@ export default async (req, res) => {
   console.log(req.headers)
   try {
     const sig = req.headers['stripe-signature'];
-    const payloadString = JSON.stringify(req.body, null, 2);
-    const raw = Buffer.from(JSON.stringify(req.body), 'base64').toString('utf8');
+    const payloadString = JSON.stringify(req.rawBody, null, 2);
+    const raw = Buffer.from(JSON.stringify(req.rawBody), 'base64').toString('utf8');
 
     // const header = stripe.webhooks.generateTestHeaderString({
     //   payload: payloadString,
