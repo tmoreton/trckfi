@@ -5,7 +5,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "typecheck": "tsc",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate patch-package"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
