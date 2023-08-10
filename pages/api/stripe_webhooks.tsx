@@ -1,5 +1,5 @@
 import Stripe from 'stripe'
-
+import { buffer } from 'micro'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
@@ -19,18 +19,17 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 // const event = stripe.webhooks.constructEvent(payloadString, header, secret);
 export default async (req, res) => {
-  console.log(req.body)
-  console.log(req.headers)
   try {
     const sig = req.headers['stripe-signature'];
     const payloadString = JSON.stringify(req.rawBody, null, 2);
     const raw = Buffer.from(JSON.stringify(req.rawBody), 'base64').toString('utf8');
-
+    const reqBuffer = await buffer(req)
+    console.log(reqBuffer)
     // const header = stripe.webhooks.generateTestHeaderString({
     //   payload: payloadString,
     //   secret: req.headers['stripe-signature'],
     // })
-    const event = stripe.webhooks.constructEvent(JSON.stringify(req.rawBody), sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
+    const event = stripe.webhooks.constructEvent(reqBuffer, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
 
     console.log(event)
     switch (event.type) {
