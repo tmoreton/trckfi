@@ -32,11 +32,3 @@ a {
 .tlui-menu-zone::before {
   background-color: #fff;
 }
-
-/* .tlui-layout__top__right {
-  visibility: hidden;
-}
-
-.tlui-layout__top__right:hover{
-  visibility:visible;
-} */
