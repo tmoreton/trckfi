@@ -1,3 +1,32 @@
+diff --git a/node_modules/@tldraw/tldraw/src/lib/ui/TldrawUi.tsx b/node_modules/@tldraw/tldraw/src/lib/ui/TldrawUi.tsx
+index d8e6ba7..f57c839 100644
+--- a/node_modules/@tldraw/tldraw/src/lib/ui/TldrawUi.tsx
++++ b/node_modules/@tldraw/tldraw/src/lib/ui/TldrawUi.tsx
+@@ -132,8 +132,8 @@ const TldrawUiContent = React.memo(function TldrawUI({
+ 	return (
+ 		<ToastProvider>
+ 			<main
+-				className={classNames('tlui-layout', {
+-					'tlui-layout__mobile': breakpoint < 5,
++				className={classNames('tlui-layout__mobile', {
++					'tlui-layout__mobile': breakpoint > 5,
+ 				})}
+ 			>
+ 				{isFocusMode ? (
+@@ -159,11 +159,11 @@ const TldrawUiContent = React.memo(function TldrawUI({
+ 							<div className="tlui-layout__top__center">{topZone}</div>
+ 							<div className="tlui-layout__top__right">
+ 								{shareZone}
+-								{breakpoint >= 5 && !isReadonlyMode && (
++								{/* {breakpoint < 5 && !isReadonlyMode && (
+ 									<div className="tlui-style-panel__wrapper">
+ 										<StylePanel />
+ 									</div>
+-								)}
++								)} */}
+ 							</div>
+ 						</div>
+ 						<div className="tlui-layout__bottom">
 diff --git a/node_modules/@tldraw/tldraw/src/lib/ui/components/StylePanel/StylePanel.tsx b/node_modules/@tldraw/tldraw/src/lib/ui/components/StylePanel/StylePanel.tsx
 index 281ab80..556ecac 100644
 --- a/node_modules/@tldraw/tldraw/src/lib/ui/components/StylePanel/StylePanel.tsx
