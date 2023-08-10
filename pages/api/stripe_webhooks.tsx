@@ -24,14 +24,14 @@ export default async (req, res) => {
   console.log(req.headers)
   try {
     const sig = req.headers['stripe-signature'];
-    const payloadString = JSON.stringify(req.body, null, 2);
+    const payloadString = JSON.stringify(req.rawBody, null, 2);
 
     // const header = stripe.webhooks.generateTestHeaderString({
     //   payload: payloadString,
     //   secret: req.headers['stripe-signature'],
     // })
 
-    const event = stripe.webhooks.constructEvent(payloadString, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    const event = stripe.webhooks.constructEvent(req.rawBody, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
 
     console.log(event)
     switch (event.type) {
