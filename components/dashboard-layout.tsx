@@ -18,7 +18,7 @@ const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Accounts', href: '/accounts', icon: ChartBarIcon },
-  { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
+  // { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
 ]
 
