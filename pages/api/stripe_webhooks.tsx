@@ -4,12 +4,35 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
 
+// const payload = {
+//   id: 'evt_test_webhook',
+//   object: 'event',
+// };
+
+// const payloadString = JSON.stringify(payload, null, 2);
+// const secret = 'whsec_test_secret';
+
+// const header = stripe.webhooks.generateTestHeaderString({
+//   payload: payloadString,
+//   secret,
+// });
+
+// const event = stripe.webhooks.constructEvent(payloadString, header, secret);
+
 export default async (req, res) => {
   console.log(req.body)
   console.log(req.headers)
   try {
-    const sig = req.headers['stripe-signature'];
-    let event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    // const sig = req.headers['stripe-signature'];
+    const payloadString = JSON.stringify(req.body, null, 2);
+
+    const header = stripe.webhooks.generateTestHeaderString({
+      payload: payloadString,
+      secret: req.headers['stripe-signature'],
+    })
+
+    const event = stripe.webhooks.constructEvent(payloadString, header, process.env.STRIPE_WEBHOOK_SECRET);
+
     console.log(event)
     switch (event.type) {
       case 'customer.subscription.created':
