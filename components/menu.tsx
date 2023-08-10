@@ -19,6 +19,9 @@ const navigation = [
   { name: 'FAQ', href: '/faq' },
 ]
 
+const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/rules', '/settings']
+
+
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
@@ -52,7 +55,7 @@ export default function ({ showError }) {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {navigation.map((item) => (
+                  {!secondaryNavigation.includes(currentRoute) && navigation.map((item) => (
                     <Link href={item.href} key={item.name} className={currentRoute === item.href ? "text-lg font-bold text-pink-600 px-3 py-2" : "text-lg text-gray-900 px-3 py-2 font-semibold"}>
                       {item.name}
                     </Link>
