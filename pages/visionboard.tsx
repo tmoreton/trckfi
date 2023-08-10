@@ -6,20 +6,21 @@ import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
 import VisionModal from '../components/modals/vision-modal'
+import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
 
 const Editor = dynamic(() => import('../components/editor'), { ssr: false })
 
 export default function ({ showError }) {
   const { data: session } = useSession()
   const user = session?.user
-  const [showConfetti, setConfetti] = useState(false)
-  const [open, openModal] = useState(false)
+  const [showConfetti, setConfetti] = useLocalStorage('showConfetti', '')
+  const [open, openModal] = useLocalStorage('visionModal', '')
 
   useEffect(() => {
     // @ts-ignore
     if(user?.login_count <= 1){
-      setConfetti(true)
-      openModal(true)
+      if(!showConfetti) setConfetti(true)
+      if(!open) openModal(true)
     } 
   }, [])
 

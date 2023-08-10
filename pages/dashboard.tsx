@@ -37,7 +37,7 @@ const Dashboard = ({ showError }) => {
   useEffect(() => {
     getDashboard()
     getStats()
-    if(t.length <=0 ) getTransactions()
+    getTransactions()
     // @ts-ignore
     if(user?.login_count <= 1 && t.length <= 0) openSetupModal(true)
   }, [])
