@@ -1,5 +1,5 @@
 import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, useEffect } from 'react';
 import { vision } from '../utils/default-vision'
 const PERSISTENCE_KEY = 'vision_board'
 
@@ -10,7 +10,17 @@ export default function Editor() {
 	>({
 		status: 'loading',
 	})
-
+	
+	useEffect(() => {
+    if(loadingState.status === 'ready'){
+      setTimeout(() => {
+        document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+          item.classList.add('hidden');
+        });
+      }, 50);
+    }
+  }, [loadingState])
+	
 	useLayoutEffect(() => {
 		setLoadingState({ status: 'loading' })
 
