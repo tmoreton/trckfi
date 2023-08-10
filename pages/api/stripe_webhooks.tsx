@@ -21,15 +21,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async (req, res) => {
   try {
     const sig = req.headers['stripe-signature'];
-    const payloadString = JSON.stringify(req.rawBody, null, 2);
-    const raw = Buffer.from(JSON.stringify(req.rawBody), 'base64').toString('utf8');
-    const reqBuffer = await buffer(req.body)
-    console.log(reqBuffer)
+    const rawBody = await buffer(req)
+    const body = JSON.parse(rawBody.toString())
+    console.log("Yay, we got the body back", {body})
+
     // const header = stripe.webhooks.generateTestHeaderString({
     //   payload: payloadString,
     //   secret: req.headers['stripe-signature'],
     // })
-    const event = stripe.webhooks.constructEvent(req.rawBody, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
+    const event = stripe.webhooks.constructEvent(body, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
 
     console.log(event)
     switch (event.type) {
