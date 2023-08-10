@@ -50,6 +50,7 @@
     "plaid": "^14.1.0",
     "prop-types": "^15.8.1",
     "random-words": "^2.0.0",
+    "raw-body": "^2.5.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-confetti-explosion": "^2.1.2",

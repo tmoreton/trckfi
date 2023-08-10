@@ -1,5 +1,6 @@
 import Stripe from 'stripe'
 import { buffer } from 'micro'
+import getRawBody from 'raw-body'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
@@ -21,17 +22,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async (req, res) => {
   try {
     const sig = req.headers['stripe-signature'];
-    const rawBody = await buffer(req)
-    const body = JSON.parse(rawBody.toString())
-    console.log("Yay, we got the body back", {body})
+    // const rawBody = await buffer(req)
+    // const body = JSON.parse(rawBody.toString())
+    // console.error("Yay, we got the body back", {body})
+    const rawBody = await getRawBody(req);
+    const event = stripe.webhooks.constructEvent(rawBody, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
 
-    // const header = stripe.webhooks.generateTestHeaderString({
-    //   payload: payloadString,
-    //   secret: req.headers['stripe-signature'],
-    // })
-    const event = stripe.webhooks.constructEvent(body, sig, 'whsec_vmD4RnQOmfPQGdeTTheDOGfGNgUEJ2k0');
-
-    console.log(event)
+    console.error(event)
     switch (event.type) {
       case 'customer.subscription.created':
         const customerSubscriptionCreated = event.data.object;
