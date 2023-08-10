@@ -20,32 +20,60 @@ export default async (req, res) => {
     console.log(event)
     switch (event.type) {
       case 'customer.subscription.created':
-        await prisma.user.update({
+        const userCreated = await prisma.user.update({
           // @ts-ignore
           where: { customer_id: event.data.object?.customer },
           data: { active: true }
         })
+        if(userCreated.linked_user_id){
+          await prisma.user.update({
+            // @ts-ignore
+            where: { id: userCreated.linked_user_id },
+            data: { active: true }
+          })
+        }
         break;
       case 'customer.subscription.deleted':
-        await prisma.user.update({
+        const userDeleted = await prisma.user.update({
           // @ts-ignore
           where: { customer_id: event.data.object?.customer },
           data: { active: false }
         })
+        if(userDeleted.linked_user_id){
+          await prisma.user.update({
+            // @ts-ignore
+            where: { id: userDeleted.linked_user_id },
+            data: { active: false }
+          })
+        }
         break;
       case 'customer.subscription.paused':
-        await prisma.user.update({
+        const userPaused = await prisma.user.update({
           // @ts-ignore
           where: { customer_id: event.data.object?.customer },
           data: { active: false }
         })
+        if(userPaused.linked_user_id){
+          await prisma.user.update({
+            // @ts-ignore
+            where: { id: userPaused.linked_user_id },
+            data: { active: false }
+          })
+        }
         break;
       case 'customer.subscription.resumed':
-        await prisma.user.update({
+        const userResumed = await prisma.user.update({
           // @ts-ignore
           where: { customer_id: event.data.object?.customer },
           data: { active: true }
         })
+        if(userResumed.linked_user_id){
+          await prisma.user.update({
+            // @ts-ignore
+            where: { id: userResumed.linked_user_id },
+            data: { active: true }
+          })
+        }
         break;
       default:
         console.log(`Unhandled event type ${event.type}`);
