@@ -7,9 +7,12 @@ export default async (req, res) => {
 
   try {
     const { linked_user_id } = user
-    let linked_user = await prisma.user.findUnique({
-      where: { id: linked_user_id }
-    })
+    let linked_user = null
+    if(linked_user_id){
+      linked_user = await prisma.user.findUnique({
+        where: { id: linked_user_id }
+      })
+    }
     
     return res.status(200).json({ status: 'OK', data: { linked_user }})
   } catch (error) {
