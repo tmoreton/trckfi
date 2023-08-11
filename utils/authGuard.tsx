@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react"
 import LoadingModal from '../components/modals/loading-modal'
 import { DateTime } from "luxon"
+import  { clearLocalStorage } from '../utils/useLocalStorage'
+
 const authenticated_routes = ['/dashboard', '/rules', '/accounts', '/feedback', '/chat', '/visionboard']
 
 export default function ({ children }) {
@@ -19,6 +21,7 @@ export default function ({ children }) {
       // if the user is not authorized, redirect to the login page
       // with a return url to the current page
       if (unAuthorized) {
+        clearLocalStorage()
         router.push({
           pathname: '/auth/email-signin',
         });
