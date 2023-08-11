@@ -34,7 +34,7 @@ export default function ({ children }) {
       <div className="min-h-screen">
         <Container>
           <div className="mx-auto lg:flex lg:gap-x-0">
-            <aside className="hidden lg:flex overflow-x-auto border-b border-gray-900/5 lg:block lg:w-64 lg:flex-none lg:border-0">
+            <aside className="hidden lg:flex overflow-x-auto border-b border-gray-900/5 lg:block lg:flex-none lg:border-0">
               <nav className="flex-none px-4 sm:px-6 lg:px-0 lg:pr-8">
                 <ul role="list" className="flex gap-x-3 gap-y-1 whitespace-nowrap lg:flex-col">
                   {secondaryNavigation.map((item) => (
