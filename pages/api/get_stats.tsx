@@ -4,16 +4,21 @@ import { DateTime } from "luxon";
 
 export default async (req, res) => {
   const { user } = req.body
-  const user_id = user?.id
-  if (!user_id ) return res.status(500)
+  if (!user ) return res.status(500)
 
   try {
+    const { id, linked_user_id } = user
+
+    let linked_user = null
+    if(linked_user_id){
+      linked_user = await prisma.user.findUnique({
+        where: { id: linked_user_id }
+      })
+    }
+    const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
     const account_balance = await prisma.accounts.aggregate({
       where: { 
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         // @ts-ignore
         OR: [
@@ -31,10 +36,7 @@ export default async (req, res) => {
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: DateTime.now().toISO(),
@@ -61,10 +63,7 @@ export default async (req, res) => {
     let groupByMonth = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: DateTime.now().toISO(),
