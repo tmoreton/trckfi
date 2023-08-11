@@ -19,8 +19,8 @@ export default function ({ showError }) {
     // @ts-ignore
     if(user?.login_count <= 1){
       if(show) setConfetti(true)
-      setShow(false)
-    } 
+    }
+    setShow(false)
   }, [])
 
   return (
@@ -33,7 +33,7 @@ export default function ({ showError }) {
           image=''
           keywords=''
         />
-        <Editor />
+        <Editor showIntro={show} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={1000}/>}
       </DashboardLayout>
     </>
