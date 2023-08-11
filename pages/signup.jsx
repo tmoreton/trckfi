@@ -110,16 +110,19 @@ export async function getServerSideProps(context) {
   const { access_code, email } = context.query
   const session = await getSession(context)
   const user = session?.user
-  if(user && access_code !== null && access_code !== undefined) {
+  console.log(access_code)
+  if(user && access_code) {
     const link_token = await prisma.linkTokens.findUnique({ 
       where: { 
         access_code,
         to_email: user.email
       }
     })
+    
+    console.log(link_token)
 
-    if(!link_token) return { props: { csrfToken, user: session?.user, access_code, error: 'Invalid Access Code' } }
-    if (new Date() > link_token?.expires) return { props: { csrfToken, user: session?.user, access_code, error: 'Access Code has expired' } }
+    if(!link_token) return { props: { csrfToken, access_code, error: 'Invalid Access Code' } }
+    if (new Date() > link_token?.expires) return { props: { csrfToken, access_code, error: 'Access Code has expired' } }
 
     const subscribed_user = await prisma.user.upsert({
       where: { id: link_token.user_id },

@@ -3,8 +3,10 @@ import { getCsrfToken } from "next-auth/react"
 import Head from 'next/head'
 import Icon from '../../components/icon';
 import Link from 'next/link'
+import  { clearLocalStorage } from '../../utils/useLocalStorage'
 
 export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  clearLocalStorage()
   return (
     <>
       <Head>
