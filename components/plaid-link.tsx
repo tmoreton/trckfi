@@ -57,7 +57,7 @@ export default function ({ showError, user, refresh_access_token, syncPlaid }) {
     )
   }
   return (
-    <button onClick={() => open()} disabled={!ready} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-20">
+    <button onClick={() => open()} disabled={!ready} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-32">
       <PlusIcon className="h-5 w-5" aria-hidden="true" />
       Add Bank Connection
     </button>
