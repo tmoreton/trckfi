@@ -3,7 +3,7 @@ import { useLayoutEffect, useState, useEffect } from 'react';
 import { vision, new_vision } from '../utils/default-vision'
 const PERSISTENCE_KEY = 'vision_board'
 
-export default function Editor() {
+export default function Editor({ showIntro }) {
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
@@ -26,9 +26,9 @@ export default function Editor() {
 	
 	useLayoutEffect(() => {
 		setLoadingState({ status: 'loading' })
-
+    let defaultVision = showIntro ? new_vision : vision
 		// Get persisted data from local storage
-		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || new_vision
+		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || defaultVision
 		if (persistedSnapshot) {
 			try {
 				const snapshot = JSON.parse(persistedSnapshot)
@@ -56,7 +56,7 @@ export default function Editor() {
 
 	if (loadingState.status === 'loading') {
 		return (
-      		<div style={{width: '75vw', height: '100vh'}}>
+      <div style={{width: '75vw', height: '100vh'}}>
 				<h2>Loading...</h2>
 			</div>
 		)
