@@ -116,7 +116,7 @@ export default function ({ showError }) {
 
                       :
                       
-                      <Link href="#get-notified">
+                      <Link href="/#get-notified">
                         <PinkBtn onClick={() => console.log('close')}>
                           Join Waitlist!
                         </PinkBtn>
@@ -226,7 +226,7 @@ export default function ({ showError }) {
                   </Disclosure.Button>
                 </div>
                 :
-                <Link href="#get-notified">
+                <Link href="/#get-notified">
                   <PinkBtn onClick={() => console.log('close')}>
                     Join Waitlist!
                   </PinkBtn>
