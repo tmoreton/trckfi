@@ -26,6 +26,8 @@ export default async (req, res) => {
       },
     })
 
+    console.log(account_balance)
+
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
