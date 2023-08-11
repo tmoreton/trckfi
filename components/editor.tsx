@@ -35,6 +35,7 @@ export default function Editor() {
 	
 	useLayoutEffect(() => {
 		setLoadingState({ status: 'loading' })
+    // @ts-ignore
     let defaultVision = user?.login_count <= 1 && show ? new_vision : vision
 		// Get persisted data from local storage
 		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || defaultVision

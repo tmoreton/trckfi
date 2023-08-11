@@ -8,11 +8,19 @@ import Meta from '../components/meta'
 
 const tiers = [
   {
-    name: 'Essential',
-    id: 'tier-essential',
+    name: 'Pro',
+    id: 'tier-pro',
     href: '#',
     priceMonthly: '$6.99',
-    description: 'Quis eleifend a tincidunt pellentesque. A tempor in sed.',
+    description: '',
+    mostPopular: false,
+  },
+  {
+    name: 'Family',
+    id: 'tier-family',
+    href: '#',
+    priceMonthly: '$10.99',
+    description: '',
     mostPopular: true,
   },
 ]
@@ -26,24 +34,24 @@ const sections = [
       { name: 'Team members', tiers: { Essential: 'Up to 20 users', Premium: 'Up to 50 users' } },
     ],
   },
-  {
-    name: 'Reporting',
-    features: [
-      { name: 'Advanced analytics', tiers: { Basic: true, Essential: true, Premium: true } },
-      { name: 'Basic reports', tiers: { Essential: true, Premium: true } },
-      { name: 'Professional reports', tiers: { Premium: true } },
-      { name: 'Custom report builder', tiers: { Premium: true } },
-    ],
-  },
-  {
-    name: 'Support',
-    features: [
-      { name: '24/7 online support', tiers: { Basic: true, Essential: true, Premium: true } },
-      { name: 'Quarterly product workshops', tiers: { Essential: true, Premium: true } },
-      { name: 'Priority phone support', tiers: { Essential: true, Premium: true } },
-      { name: '1:1 onboarding tour', tiers: { Premium: true } },
-    ],
-  },
+  // {
+  //   name: 'Reporting',
+  //   features: [
+  //     { name: 'Advanced analytics', tiers: { Basic: true, Essential: true, Premium: true } },
+  //     { name: 'Basic reports', tiers: { Essential: true, Premium: true } },
+  //     { name: 'Professional reports', tiers: { Premium: true } },
+  //     { name: 'Custom report builder', tiers: { Premium: true } },
+  //   ],
+  // },
+  // {
+  //   name: 'Support',
+  //   features: [
+  //     { name: '24/7 online support', tiers: { Basic: true, Essential: true, Premium: true } },
+  //     { name: 'Quarterly product workshops', tiers: { Essential: true, Premium: true } },
+  //     { name: 'Priority phone support', tiers: { Essential: true, Premium: true } },
+  //     { name: '1:1 onboarding tour', tiers: { Premium: true } },
+  //   ],
+  // },
 ]
 
 function classNames(...classes) {
@@ -65,14 +73,14 @@ export default function ({ showError }) {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-base font-semibold leading-7 text-pink-600">Pricing</h2>
-              <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              {/* <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Plans for teams of&nbsp;all&nbsp;sizes
               </p>
             </div>
             <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
               Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
               Explicabo id ut laborum.
-            </p>
+            </p> */}
 
             {/* xs to lg */}
             <div className="mx-auto mt-12 max-w-md space-y-8 sm:mt-16 lg:hidden">
