@@ -4,21 +4,15 @@ import { DateTime } from "luxon";
 
 export default async (req, res) => {
   const { user } = req.body
-  if (!user ) return res.status(500)
+  if (!user) return res.status(500)
 
   try {
     const { id, linked_user_id } = user
-
-    let linked_user = null
-    if(linked_user_id){
-      linked_user = await prisma.user.findUnique({
-        where: { id: linked_user_id }
-      })
-    }
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
+    console.log(id)
     const account_balance = await prisma.accounts.aggregate({
       where: { 
-        OR: query,
+        OR: [{ user_id: id }],
         active: true,
         // @ts-ignore
         OR: [

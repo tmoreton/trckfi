@@ -7,13 +7,6 @@ export default async (req, res) => {
 
   try {
     const { id, linked_user_id } = user
-
-    let linked_user = null
-    if(linked_user_id){
-      linked_user = await prisma.user.findUnique({
-        where: { id: linked_user_id }
-      })
-    }
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
     const accounts = await prisma.accounts.findMany({
       where: {

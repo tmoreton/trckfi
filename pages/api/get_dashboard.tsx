@@ -8,15 +8,14 @@ export default async (req, res) => {
   if (!user_id ) return res.status(500)
   const startDate = DateTime.now().toISO()
   const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
-  
+  const { id, linked_user_id } = user
+  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
+
   try {
     const groupByWeek = await prisma.transactions.groupBy({
       by: ['week_year'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: startDate,
@@ -45,10 +44,7 @@ export default async (req, res) => {
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         amount: {
           gte: 0,
@@ -75,10 +71,7 @@ export default async (req, res) => {
     let groupByMonth = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: startDate,
@@ -105,10 +98,7 @@ export default async (req, res) => {
     const categories = await prisma.transactions.groupBy({
       by: ['primary_category'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: startDate,
@@ -129,10 +119,7 @@ export default async (req, res) => {
     const detailedCategories = await prisma.transactions.groupBy({
       by: ['detailed_category'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: startDate,
@@ -153,10 +140,7 @@ export default async (req, res) => {
     const emojiCategories = await prisma.transactions.groupBy({
       by: ['unified'],
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: startDate,

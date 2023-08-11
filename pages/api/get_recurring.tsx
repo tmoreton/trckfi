@@ -8,13 +8,6 @@ export default async (req, res) => {
   if (!user) return res.status(500).json({ error: 'No user token' })
   
   const { id, linked_user_id } = user
-
-  let linked_user = null
-  if(linked_user_id){
-    linked_user = await prisma.user.findUnique({
-      where: { id: linked_user_id }
-    })
-  }
   const user_query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
   try {

@@ -6,13 +6,12 @@ export default async (req, res) => {
   if (!user) return res.status(500)
 
   try {
+    const { id, linked_user_id } = user
+    const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
     const accts = await prisma.accounts.groupBy({
       by: ['institution', 'type', 'subtype'],
       where: {
-        OR: [
-          { user_id: user.id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
       },
       _count: {
