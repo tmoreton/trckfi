@@ -8,9 +8,10 @@ import { getSession } from 'next-auth/react'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
 
-export default function ({ showError, user, access_code, csrfToken, error, email }) {
+export default function ({ showError, access_code, csrfToken, error, email }) {
   const [updateEmail, setUpdateEmail] = useState('')
-  let url = access_code ? `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?access_code=${access_code}` : `/api/auth/signin/email`
+  let url = access_code ? `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?access_code=${access_code}` : `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/success`
+  console.log(url)
   useEffect(() => {
     setUpdateEmail(email)
   }, [email])
@@ -110,8 +111,7 @@ export async function getServerSideProps(context) {
   const { access_code, email } = context.query
   const session = await getSession(context)
   const user = session?.user
-  console.log(access_code)
-  if(user && access_code !== null) {
+  if(user && access_code !== null && access_code !== undefined) {
     const link_token = await prisma.linkTokens.findUnique({ 
       where: { 
         access_code,
@@ -144,13 +144,13 @@ export async function getServerSideProps(context) {
 
     return {
       redirect: {
-        destination: '/dashboard?new_user=true',
+        destination: '/visionboard',
         permanent: false,
       },
     }
   }
 
   return {
-    props: { csrfToken, user: session?.user, access_code, email },
+    props: { csrfToken },
   }
 }

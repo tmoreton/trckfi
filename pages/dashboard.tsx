@@ -48,14 +48,7 @@ const Dashboard = ({ showError }) => {
 
   const syncPlaid = async (access_token) => {
     openSetupModal(false)
-    setConfetti(true)
-    setTimeout(() => {
-      getStats()
-      getDashboard()
-    }, 2000)
-    setTimeout(() => {
-      getTransactions()
-    }, 5000)
+    setRefreshing(true)
     const res = await fetch(`/api/sync_plaid`, {
       body: JSON.stringify({
         user,
@@ -67,8 +60,13 @@ const Dashboard = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
-    console.log(data)
     showError(error)
+    if(!error) {
+      getDashboard()
+      getTransactions()
+      setRefreshing(false)
+      setConfetti(true)
+    }
   }
 
   const getRecurring = async () => {
@@ -96,7 +94,6 @@ const Dashboard = ({ showError }) => {
 
   const getDashboard = async () => {
     setLoading(true)
-    if(totalStats.length <= 0) setRefreshing(true)
     getStats()
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({ user }),

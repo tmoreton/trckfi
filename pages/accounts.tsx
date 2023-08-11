@@ -8,6 +8,7 @@ import HideAccountModal from '../components/modals/hide-account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'
 import ManualModal from '../components/modals/add-manually-modal'
 import StockModal from '../components/modals/stock-modal'
+import LoadingModal from '../components/modals/loading-modal'
 import CryptoModal from '../components/modals/crypto-modal'
 import RemoveAccount from "../components/modals/remove-account-modal"
 import { Emoji } from 'emoji-picker-react'
@@ -53,6 +54,7 @@ const NetWorth = ({ showError }) => {
   const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
   const [removedAccounts, setRemovedAccounts] = useState([])
   const [showConfetti, setConfetti] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
   
   useEffect(() => {
     getAccounts()
@@ -69,10 +71,7 @@ const NetWorth = ({ showError }) => {
   }
 
   const syncPlaid = async (access_token) => {
-    setConfetti(true)
-    setTimeout(() => {
-      getAccounts()
-    }, 2000)
+    setRefreshing(true)
     const res = await fetch(`/api/sync_plaid`, {
       body: JSON.stringify({
         user,
@@ -83,9 +82,13 @@ const NetWorth = ({ showError }) => {
       },
       method: 'POST',
     })
-    const { error, data } = await res.json()
-    console.log(data)
+    const { error } = await res.json()
     showError(error)
+    if(!error) {
+      getAccounts()
+      setRefreshing(false)
+      setConfetti(true)
+    }
   }
 
   const getAccounts = async () => {
@@ -217,6 +220,7 @@ const NetWorth = ({ showError }) => {
           image=''
           keywords=''
         />
+        <LoadingModal refreshing={refreshing} text='Updating Your Accounts...'/>
         <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getAccounts}/>
         <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getAccounts}/>
         <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getAccounts}/>
@@ -315,7 +319,7 @@ const NetWorth = ({ showError }) => {
                                     {renderImg(accounts[key][0])}
                                     <div className="w-[100%]">
                                       { accounts[key].map((a, i) => (
-                                        <>
+                                        <div key={accounts[key][i].id}>
                                           { i <= 0 && 
                                             <td className="flex items-center mb-2">
                                               <div>
@@ -339,7 +343,7 @@ const NetWorth = ({ showError }) => {
                                             <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right">Hide</button> 
                                             <button onClick={() => editAccount(a)} className="w-20 text-red-600 text-right">Edit</button> 
                                           </tr>
-                                        </>
+                                        </div>
                                       ))}
                                       <div className="pt-3">
                                         { error_code === 'ITEM_LOGIN_REQUIRED' && 

@@ -67,10 +67,9 @@ export default async (req, res) => {
       })
       newAccountArray.push(newAccount)
     }
-
+    console.log(newAccountArray)
     let has_more = true
     let next_cursor = ''
-    let newTransactionArray = []
 
     while (has_more) {
       const request = {
@@ -124,7 +123,6 @@ export default async (req, res) => {
             recurring: rule?.ruleset?.recurring && (rule?.ruleset?.recurring === 'true') || false,
           },
         })
-        newTransactionArray.push(newTransaction)
       }
     }
     
@@ -136,7 +134,7 @@ export default async (req, res) => {
       }
     })
 
-    return res.status(200).json({ status: 'OK', data: { accounts: newAccountArray, transactions: newTransactionArray } })
+    return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
