@@ -1,16 +1,21 @@
 import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
 import { useLayoutEffect, useState, useEffect } from 'react';
 import { vision, new_vision } from '../utils/default-vision'
+import { useSession } from "next-auth/react"
+import  { useLocalStorage } from '../utils/useLocalStorage'
 const PERSISTENCE_KEY = 'vision_board'
 
-export default function Editor({ showIntro }) {
+export default function Editor() {
+  const { data: session } = useSession()
+  const user = session?.user
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
 	>({
 		status: 'loading',
 	})
-	
+  const [show, setShow] = useLocalStorage('showIntroVision', true)
+
 	useEffect(() => {
     if(loadingState.status === 'ready'){
       setTimeout(() => {
@@ -21,12 +26,17 @@ export default function Editor({ showIntro }) {
           item.classList.add('hidden');
         });
       }, 250);
+      // @ts-ignore
+      if(user?.login_count <= 1 && show){
+        setShow(false)
+      }
     }
   }, [loadingState])
 	
 	useLayoutEffect(() => {
 		setLoadingState({ status: 'loading' })
-    let defaultVision = showIntro ? new_vision : vision
+    console.log(show)
+    let defaultVision = show ? new_vision : vision
 		// Get persisted data from local storage
 		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || defaultVision
 		if (persistedSnapshot) {
