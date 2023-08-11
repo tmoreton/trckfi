@@ -45,6 +45,9 @@ export default async (req, res) => {
           })
         }
         break;
+      case 'billing_portal.session.created':
+        console.log(event)
+        break;
       default:
         console.log(`Unhandled event type ${event.type}`);
     }
