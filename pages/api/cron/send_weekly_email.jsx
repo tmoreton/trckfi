@@ -39,12 +39,11 @@ export default async (req, res) => {
       const groupByWeek = await prisma.transactions.groupBy({
         by: ['week_year'],
         where: {
-          OR: user_query,
-          active: true,
-          OR: [
-            { week_year: this_week },
-            { week_year: last_week },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ week_year: this_week }, { week_year: last_week }] } 
           ],
+          active: true,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
@@ -69,12 +68,11 @@ export default async (req, res) => {
       const primary = await prisma.transactions.groupBy({
         by: ['primary_category', 'week_year'],
         where: {
-          OR: user_query,
-          active: true,
-          OR: [
-            { week_year: this_week },
-            { week_year: last_week },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ week_year: this_week }, { week_year: last_week }] } 
           ],
+          active: true,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
@@ -105,12 +103,11 @@ export default async (req, res) => {
       const detailed = await prisma.transactions.groupBy({
         by: ['detailed_category', 'week_year'],
         where: {
-          OR: user_query,
-          active: true,
-          OR: [
-            { week_year: this_week },
-            { week_year: last_week },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ week_year: this_week }, { week_year: last_week }] } 
           ],
+          active: true,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
@@ -142,9 +139,7 @@ export default async (req, res) => {
         where: {
           OR: user_query,
           active: true,
-          OR: [
-            { week_year: this_week },
-          ],
+          week_year: this_week,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },

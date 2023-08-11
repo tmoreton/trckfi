@@ -40,12 +40,11 @@ export default async (req, res) => {
       const groupByMonth = await prisma.transactions.groupBy({
         by: ['month_year'],
         where: {
-          OR: user_query,
-          active: true,
-          OR: [
-            { month_year: this_month },
-            { month_year: last_month },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
+          active: true,
           amount: {
             lte: 0,
           },
@@ -67,12 +66,11 @@ export default async (req, res) => {
       const groupByMonthIncome = await prisma.transactions.groupBy({
         by: ['month_year'],
         where: {
-          OR: user_query,
-          active: true,
-          OR: [
-            { month_year: this_month },
-            { month_year: last_month },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
+          active: true,
           amount: {
             gte: 0,
           },
@@ -93,11 +91,10 @@ export default async (req, res) => {
       const primary = await prisma.transactions.groupBy({
         by: ['primary_category', 'month_year'],
         where: {
-          OR: user_query,
           active: true,
-          OR: [
-            { month_year: this_month },
-            { month_year: last_month },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
           amount: {
             lte: 0,
@@ -127,12 +124,11 @@ export default async (req, res) => {
       const detailed = await prisma.transactions.groupBy({
         by: ['detailed_category', 'month_year'],
         where: {
-          OR: user_query,
-          active: true,
-          OR: [
-            { month_year: this_month },
-            { month_year: last_month },
+          AND: [ 
+            { OR: user_query }, 
+            { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
+          active: true,
           amount: {
             lte: 0,
           },
