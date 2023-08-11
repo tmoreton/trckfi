@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import Layout from '../components/layout'
-import Head from 'next/head'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import { getSession } from 'next-auth/react'
@@ -11,7 +10,7 @@ import prisma from '../lib/prisma'
 export default function ({ showError, access_code, csrfToken, error, email }) {
   const [updateEmail, setUpdateEmail] = useState('')
   let url = access_code ? `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?access_code=${access_code}` : `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/success`
-  console.log(url)
+
   useEffect(() => {
     setUpdateEmail(email)
   }, [email])
@@ -151,6 +150,6 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { csrfToken },
+    props: { csrfToken, email },
   }
 }
