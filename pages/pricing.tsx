@@ -75,9 +75,9 @@ export default function ({ showError }) {
               <h2 className="text-base font-semibold leading-7 text-pink-600">Pricing</h2>
               {/* <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Plans for teams of&nbsp;all&nbsp;sizes
-              </p>
+              </p> */}
             </div>
-            <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
+            {/* <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
               Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
               Explicabo id ut laborum.
             </p> */}
