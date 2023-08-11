@@ -38,8 +38,6 @@ const Dashboard = ({ showError }) => {
     getDashboard()
     getStats()
     getTransactions()
-    // @ts-ignore
-    if(user?.login_count <= 1 && t.length <= 0) openSetupModal(true)
   }, [])
 
   useEffect(() => {
@@ -122,6 +120,9 @@ const Dashboard = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
+    if(data.length <= 0){
+      openSetupModal(true)
+    }
     setTransactions(data)    
     setRefreshing(false)
     setLoading(false)
