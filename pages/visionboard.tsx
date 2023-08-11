@@ -12,12 +12,14 @@ const Editor = dynamic(() => import('../components/editor'), { ssr: false })
 export default function ({ showError }) {
   const { data: session } = useSession()
   const user = session?.user
-  const [showConfetti, setConfetti] = useLocalStorage('showConfetti', '')
+  const [showConfetti, setConfetti] = useState(false)
+  const [show, setShow] = useLocalStorage('show', true)
 
   useEffect(() => {
     // @ts-ignore
     if(user?.login_count <= 1){
-      if(!showConfetti) setConfetti(true)
+      if(show) setConfetti(true)
+      setShow(false)
     } 
   }, [])
 

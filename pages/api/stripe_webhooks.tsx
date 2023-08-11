@@ -61,17 +61,30 @@ export default async (req, res) => {
           })
         }
         break;
-      case 'customer.subscription.resumed':
-        const userResumed = await prisma.user.update({
-          // @ts-ignore
-          where: { customer_id: event.data.object?.customer },
-          data: { active: true }
+      case 'customer.subscription.updated':
+        // @ts-ignore
+        const { customer, status, canceled_at, ended_at, trial_end } = event.data.object
+        const updatedUser = await prisma.user.update({
+          where: { customer_id: customer },
+          data: { 
+            active: ended_at ? false : true,
+            status,
+            canceled_at,
+            ended_at,
+            trial_end
+          }
         })
-        if(userResumed.linked_user_id){
+        if(updatedUser.linked_user_id){
           await prisma.user.update({
             // @ts-ignore
             where: { id: userResumed.linked_user_id },
-            data: { active: true }
+            data: {
+              active: ended_at ? false : true,
+              status,
+              canceled_at,
+              ended_at,
+              trial_end
+            }
           })
         }
         break;
