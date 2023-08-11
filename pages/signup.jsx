@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import Layout from '../components/layout'
+import Head from 'next/head'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import { getSession } from 'next-auth/react'
@@ -9,7 +10,7 @@ import prisma from '../lib/prisma'
 
 export default function ({ showError, user, access_code, csrfToken, error, email }) {
   const [updateEmail, setUpdateEmail] = useState('')
-
+  let url = access_code ? `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?access_code=${access_code}` : `/api/auth/signin/email`
   useEffect(() => {
     setUpdateEmail(email)
   }, [email])
@@ -34,7 +35,7 @@ export default function ({ showError, user, access_code, csrfToken, error, email
             <p className="mt-2 text-lg leading-8 text-gray-600 mb-4">
               Let's get started by creating an account!
             </p>
-            <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?access_code=${access_code}`}>
+            <form className="space-y-6" method="post" action={url}>
               <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
               <div  className="mt-10 relative z-0 w-full mb-6 group inline-flex">
                 <div className="w-full">
@@ -109,8 +110,8 @@ export async function getServerSideProps(context) {
   const { access_code, email } = context.query
   const session = await getSession(context)
   const user = session?.user
-
-  if(user && access_code) {
+  console.log(access_code)
+  if(user && access_code !== null) {
     const link_token = await prisma.linkTokens.findUnique({ 
       where: { 
         access_code,
