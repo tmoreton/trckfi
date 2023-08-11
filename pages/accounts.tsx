@@ -35,7 +35,7 @@ const renderImg = (account) => {
       currentTarget.onerror = null;
       currentTarget.src="/assets/banks/bank.png";
     }}
-    className="h-12 w-12 rounded-md object-cover"
+    className="h-12 w-12 rounded-md object-cover lg:block hidden"
   />
 }
 
@@ -117,16 +117,16 @@ const NetWorth = ({ showError }) => {
       if(a.type === 'loan' || a.type === 'credit'){
         // @ts-ignore
         total_liabilities -= Number(a.amount)
+        
       } else {
         // @ts-ignore
         total_assets += Number(a.amount)
       }
     })
-  
     const net_worth_stats = [
-      { name: 'Net Worth', value: addComma(total_assets-total_liabilities), change: '', changeType: 'nuetral' },
-      { name: 'Assets', value: addComma(total_assets), change: '', changeType: 'positive' },
-      { name: 'Liabilities', value: addComma(total_liabilities), change: '', changeType: 'negative' },
+      { name: 'Net Worth', value: total_assets-total_liabilities, change: '', changeType: 'nuetral' },
+      { name: 'Assets', value: total_assets, change: '', changeType: 'positive' },
+      { name: 'Liabilities', value: -total_liabilities, change: '', changeType: 'negative' },
     ]
     setStats(net_worth_stats)
   }
@@ -229,21 +229,21 @@ const NetWorth = ({ showError }) => {
         <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
-        <div className="lg:flex justify-center space-x-6 mb-4 sm:block">
-          <button onClick={() => setOpenStock(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+        <div className="lg:flex justify-center lg:space-x-6 space-x-0 mb-4 sm:block">
+          <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-1/6">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Stock
           </button>
-          <button onClick={() => setOpenHome(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <button onClick={() => setOpenHome(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-1/6">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Home Value
           </button>
-          <button  onClick={() => setOpenCrypto(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <button  onClick={() => setOpenCrypto(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-1/6">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Crypto
           </button>
           <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
-          <button  onClick={() => setOpenManually(true)} className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100">
+          <button  onClick={() => setOpenManually(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-1/6">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
           </button>
@@ -273,20 +273,12 @@ const NetWorth = ({ showError }) => {
                     )}
                   >
                     <dt className="text-sm font-medium leading-6 text-gray-500">{stat.name}</dt>
-                    <dd
-                      className={classNames(
-                        stat.changeType === 'negative' ? 'text-rose-600' : 'text-gray-700',
-                        'text-xs font-medium'
-                      )}
-                    >
-                      {stat.change}
-                    </dd>
                     <dd className={classNames(
-                        stat.changeType === 'negative' ? 'text-rose-600' : 'text-gray-700',
-                        'w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900'
+                        stat.value < 0 ? 'text-rose-600' : 'text-green-600',
+                        'w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900'
                       )}
                     >
-                      {stat.value}
+                      {addComma(stat.value)}
                     </dd>
                   </div>
                 ))}
@@ -331,21 +323,21 @@ const NetWorth = ({ showError }) => {
                                               </div>
                                             </td>
                                           }
-                                          <tr className="text-sm text-gray-900 pt-1 flex justify-between">
+                                          <tr className="lg:text-sm text-xs text-gray-900 pt-1 flex justify-between">
                                             <td className="w-1/2 font-semibold text-left">
                                               {a.name} 
                                               - 
-                                              <span className="font-light">{a.official_name}</span>
+                                              <span className="font-light hidden lg:inline-flex">{a.official_name}</span>
                                               <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
                                             </td>
-                                            <td className="w-1/6 font-light text-left text-xs">{a.type}</td> 
+                                            <td className="w-1/6 font-light text-left text-xs hidden lg:block">{a.type}</td> 
                                             <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
-                                            <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right">Hide</button> 
+                                            <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right hidden lg:block">Hide</button> 
                                             <button onClick={() => editAccount(a)} className="w-20 text-red-600 text-right">Edit</button> 
                                           </tr>
                                         </div>
                                       ))}
-                                      <div className="pt-3">
+                                      <div className="pt-5">
                                         { error_code === 'ITEM_LOGIN_REQUIRED' && 
                                           <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid}/>
                                         }

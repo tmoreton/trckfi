@@ -59,7 +59,7 @@ const Dashboard = ({ showError }) => {
       },
       method: 'POST',
     })
-    const { error, data } = await res.json()
+    const { error } = await res.json()
     showError(error)
     if(!error) {
       getDashboard()

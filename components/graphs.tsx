@@ -21,9 +21,8 @@ const colors = [
 ]
 
 const tabs = [
-  { name: 'Primary Categories', key: 'primary_category' },
-  { name: 'Detailed Categories', key: 'detailed_category' },
-  { name: 'Emoji Categories', key: 'unified' },
+  { name: 'Primary Category', key: 'primary_category' },
+  { name: 'Detailed Category', key: 'detailed_category' },
 ]
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -96,41 +95,23 @@ export default function ({ graphData }) {
     <div>        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
         <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 lg:mb-0 mb-6">
-          <div>
-            <div className="sm:hidden">
-              <label htmlFor="tabs" className="sr-only">
-                Select a tab
-              </label>
-              <select
-                id="tabs"
-                name="tabs"
-                className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-500 focus:outline-none focus:ring-pink-500 sm:text-sm"
-              >
-                {tabs.map((tab) => (
-                  <option key={tab.name}>{tab.name}</option>
-                ))}
-              </select>
-            </div>
-            <div className="hidden sm:block">
-              <div className="border-b border-gray-200 mb-8">
-                <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.name}
-                      onClick={() => updateKey(tab.key)}
-                      className={classNames(
-                        tab.key === key
-                          ? 'border-pink-500 text-pink-600'
-                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                        'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
-                      )}
-                    >
-                      {tab.name}
-                    </button>
-                  ))}
-                </nav>
-              </div>
-            </div>
+          <div className="border-b border-gray-200 mb-8">
+            <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.name}
+                  onClick={() => updateKey(tab.key)}
+                  className={classNames(
+                    tab.key === key
+                      ? 'border-pink-500 text-pink-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
+                  )}
+                >
+                  {tab.name}
+                </button>
+              ))}
+            </nav>
           </div>
           <div className="gap-x-8 grid grid-cols-1 lg:grid-cols-2">
             <div className="col-span-1">

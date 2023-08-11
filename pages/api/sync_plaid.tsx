@@ -67,7 +67,7 @@ export default async (req, res) => {
       })
       newAccountArray.push(newAccount)
     }
-    console.log(newAccountArray)
+
     let has_more = true
     let next_cursor = ''
 
@@ -125,7 +125,7 @@ export default async (req, res) => {
         })
       }
     }
-    
+
     await prisma.plaid.update({
       where: { item_id: newAccountArray[0].item_id },
       data: { 

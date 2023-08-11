@@ -17,7 +17,7 @@ const Settings = ({ showError }) => {
   const user = session?.user
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
   const [openCancelModal, setCancelOpen] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [sendBtn, setSendBtn] = useState('Send Invite')
   const [email, setEmail] = useState('')
   const [linkedUser, setLinkedUser] = useState({})
   const router = useRouter()
@@ -37,16 +37,13 @@ const Settings = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
-    setLoading(false)
-    if(error){
-      showError(error)
-    } else {
-      setLinkedUser(data?.linked_user)
-    }
+    showError(error)
+    if(!error) setLinkedUser(data?.linked_user)
   }
 
   const send = async (e) => {
     e.preventDefault()
+    setSendBtn('Email Sent! 🎉')
     const res = await fetch(`/api/send_link_token`, {
       body: JSON.stringify({
         // @ts-ignore
@@ -61,7 +58,6 @@ const Settings = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) setEmail('Email Sent! 🎉')
   }
 
   const remove = async (e) => {
@@ -81,19 +77,22 @@ const Settings = ({ showError }) => {
   }
 
   const redirect = async () => {
-    const res = await fetch(`/api/create_bill_portal`, {
-      body: JSON.stringify({
-        customer_id: user.customer_id
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error, data } = await res.json()
-    showError(error)
-    console.log(data)
-    if(!error) router.replace(data)
+    if(!user?.customer_id){
+      showError('Subscription can only be updated by the primary user')
+    } else {
+      const res = await fetch(`/api/create_bill_portal`, {
+        body: JSON.stringify({
+          customer_id: user.customer_id
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      const { error, data } = await res.json()
+      showError(error)
+      if(!error) router.replace(data)
+    }
   }
 
   return (
@@ -164,8 +163,8 @@ const Settings = ({ showError }) => {
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                     />                     
-                    <button onClick={send} type="button" className="w-20 font-semibold text-pink-600 hover:text-pink-500">
-                      Send Invite
+                    <button onClick={send} type="button" className="w-30 font-semibold text-pink-600 hover:text-pink-500">
+                      {sendBtn}
                     </button>
                   </form>
                 </div>

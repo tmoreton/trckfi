@@ -94,41 +94,23 @@ export default function ({ graphData }) {
 
   return (
     <>
-      <div>
-        <div className="sm:hidden">
-          <label htmlFor="tabs" className="sr-only">
-            Select a tab
-          </label>
-          <select
-            id="tabs"
-            name="tabs"
-            className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-500 focus:outline-none focus:ring-pink-500 sm:text-sm"
-          >
-            {tabs.map((tab) => (
-              <option key={tab.name}>{tab.name}</option>
-            ))}
-          </select>
-        </div>
-        <div className="hidden sm:block">
-          <div className="border-b border-gray-200 mb-8">
-            <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.name}
-                  onClick={() => updateKey(tab.key)}
-                  className={classNames(
-                    tab.key === key
-                      ? 'border-pink-500 text-pink-600'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
-                  )}
-                >
-                  {tab.name}
-                </button>
-              ))}
-            </nav>
-          </div>
-        </div>
+      <div className="border-b border-gray-200 mb-8">
+        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+          {tabs.map((tab) => (
+            <button
+              key={tab.name}
+              onClick={() => updateKey(tab.key)}
+              className={classNames(
+                tab.key === key
+                  ? 'border-pink-500 text-pink-600'
+                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
+              )}
+            >
+              {tab.name}
+            </button>
+          ))}
+        </nav>
       </div>
       <Bar options={options} data={data} />
     </>
