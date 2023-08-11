@@ -5,7 +5,7 @@ import LoadingModal from '../components/modals/loading-modal'
 import { DateTime } from "luxon"
 import  { clearLocalStorage } from '../utils/useLocalStorage'
 
-const authenticated_routes = ['/dashboard', '/rules', '/accounts', '/feedback', '/chat', '/visionboard']
+const authenticated_routes = ['/dashboard', '/rules', '/settings', '/accounts', '/feedback', '/chat', '/visionboard']
 
 export default function ({ children }) {
   const router = useRouter();
