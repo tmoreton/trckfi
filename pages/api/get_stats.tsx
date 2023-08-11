@@ -100,7 +100,7 @@ export default async (req, res) => {
       lastMonthString: last_month.monthLong,
       lastMonthIncome: lastMonthIncome?._sum?.amount || 0,
       thisMonthIncome: thisMonthIncome?._sum?.amount || 0,
-      accountBalance: account_balance._sum?.amount
+      accountBalance: account_balance._sum?.amount || 0
     }
 
     return res.status(200).json({ stats })
