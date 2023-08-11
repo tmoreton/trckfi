@@ -59,7 +59,7 @@ export default function ({ children }) {
                       </Link>
                     </li>
                   ))}
-                  <li>
+                  {/* <li>
                     <button
                       onClick={() => {
                         signOut()
@@ -70,7 +70,7 @@ export default function ({ children }) {
                       <UsersIcon className='text-gray-400 group-hover:text-pink-600 h-6 w-6 shrink-0' aria-hidden="true" />
                       Sign Out
                     </button>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </aside>
