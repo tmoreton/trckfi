@@ -36,7 +36,7 @@ export default function () {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <img
               src="/assets/networth-feature.png"
-              alt="App screenshot"
+              alt="Net worth tracker"
               className="mb-[-10%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
               width={2432}
               height={1442}
