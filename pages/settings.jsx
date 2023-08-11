@@ -7,6 +7,7 @@ import CancelModal from '../components/modals/cancel-modal'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import { useRouter } from 'next/router'
+import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -23,7 +24,12 @@ const Settings = ({ showError }) => {
   const router = useRouter()
 
   useEffect(() => {
-    getSettings()
+    if(!user.active) {
+      clearLocalStorage()
+      signOut()
+    } else {
+      getSettings()
+    }
   }, [])
 
   const getSettings = async () => {
@@ -195,7 +201,7 @@ const Settings = ({ showError }) => {
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        !automaticTimezoneEnabled ? 'translate-x-3.5' : 'translate-x-0',
+                        automaticTimezoneEnabled ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />

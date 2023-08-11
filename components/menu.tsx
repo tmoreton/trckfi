@@ -13,7 +13,6 @@ import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  // { name: 'Pricing', href: '/pricing' },
   { name: 'Blog', href: '/blog' },
   { name: 'FAQ', href: '/faq' },
 ]
