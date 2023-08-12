@@ -35,7 +35,7 @@ export default async (req, res) => {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           // @ts-ignore
           to: transactions[t].user.email,
-          subject: `Trckfi Alert`,
+          subject: `Trckfi Reminder`,
           text: ``,
           html: emailHtml,
         }
@@ -48,7 +48,6 @@ export default async (req, res) => {
           pass: process.env.EMAIL_PASSWORD,
           },
         })
-    
         await transporter.sendMail(message)
       }
     }
