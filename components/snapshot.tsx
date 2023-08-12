@@ -18,12 +18,22 @@ export default function ({ totalStats, refresh, loading }) {
           <div className="absolute rounded-md bg-pink-600 p-3">
             <CreditCardIcon className="h-6 w-6 text-white" aria-hidden="true" />
           </div>
-          <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Savings</p>
+          <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Savings Rate</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="items-baseline justify-between">
-            <p className="text-2xl font-semibold text-red-600">{addComma(this_month_savings || 0)}</p>
-            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(last_month_savings || 0)}</span> in {lastMonthString}</p>
+            <p className="text-2xl font-semibold text-red-600">{`${thisMonthTotal/thisMonthIncome || 0}%`}</p>
+            <p className="ml-2 text-xs text-gray-400 font-bold">{addComma(this_month_savings || 0)}</p>
+          </div>
+          <div className={loading && "animate-spin"}>
+            <button
+              onClick={refresh}
+              type="button"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+            >
+              <span className="sr-only">Refresh</span>
+              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+            </button>
           </div>
         </dd>
       </div>
