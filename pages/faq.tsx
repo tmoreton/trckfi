@@ -31,7 +31,7 @@ export default function ({ showError }) {
     <Layout>
       <Meta
         title="FAQ"
-        description="Trckfi is transaparent about how your data is used and stored"
+        description="Trckfi is transparent about how your data is used and stored"
         image=''
         keywords=''
       />

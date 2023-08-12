@@ -4,6 +4,8 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
   { name: 'FAQ', href: '/faq' },
+  { name: 'Privacy', href: '/privacy-policy' },
+  { name: 'Terms', href: '/terms-of-use' },
 ]
 
 const Footer = () => {
