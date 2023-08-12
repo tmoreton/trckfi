@@ -99,7 +99,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                       Last Week
                     </Text>
                   </Column>
-                  <Column align="right">
+                  <Column className="w-18" align="right">
                     <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
                       This Week
                     </Text>
@@ -117,12 +117,10 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                       ${!item.last_week_amount ? '0' : Math.abs(Math.round(item.last_week_amount))}
                     </Text>
                     </Column>
-                    <Column align="right">
-                      {
-                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_week_amount))}
-                        </Text>
-                      }
+                    <Column className="w-18" align="right">
+                      <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
+                        ${Math.abs(Math.round(item.this_week_amount))}
+                      </Text>
                     </Column>
                   </Row>
                 ))}
@@ -143,7 +141,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                       Last Week
                     </Text>
                   </Column>
-                  <Column align="right">
+                  <Column className="w-18" align="right">
                     <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
                       This Week
                     </Text>
@@ -161,12 +159,10 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                         ${!item.last_week_amount ? '0' : Math.abs(Math.round(item.last_week_amount))}
                       </Text>
                     </Column>
-                    <Column align="right">
-                      {
-                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_week_amount))}
-                        </Text>
-                      }
+                    <Column className="w-18" align="right">
+                      <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
+                        ${Math.abs(Math.round(item.this_week_amount))}
+                      </Text>
                     </Column>
                   </Row>
                 ))}

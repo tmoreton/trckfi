@@ -63,6 +63,7 @@ export default async (req, res) => {
           week_year: 'desc'
         },
       })
+      console.log(groupByWeek)
 
       const primary = await prisma.transactions.groupBy({
         by: ['primary_category', 'week_year'],
@@ -144,7 +145,6 @@ export default async (req, res) => {
           amount: 'asc'
         }
       })
-      console.log(t)
       const transactions = t.slice(0, 10)
 
       const emailHtml = render(
