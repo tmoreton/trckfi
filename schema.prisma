@@ -154,9 +154,9 @@ model Rules {
 model Preferences {
   id               String  @id @default(cuid())
   email_newsletter Boolean @default(false)
-  email_weekly     Boolean @default(false)
-  email_monthly    Boolean @default(false)
-  email_alert      Boolean @default(false)
+  email_weekly     Boolean @default(true)
+  email_monthly    Boolean @default(true)
+  email_alert      Boolean @default(true)
   vision_board     Json?
   user_id          String? @map("user_id")
   user             User?   @relation(fields: [user_id], references: [id])
