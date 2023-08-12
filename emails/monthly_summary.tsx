@@ -115,13 +115,13 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
 
             <Section className="bg-[#ffffff] rounded text-center my-5">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
-              <Section className="mt-0 mb-4">
+              <Section className="mt-0 mb-4 w-screen w-full">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
                   Primary Category Spend
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
-                  <Column className="w-40" align="left"></Column>
+                  <Column className="w-64" align="left"></Column>
                   <Column align="right">
                     <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
                       This Month
@@ -130,7 +130,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 </Row>
                 {primaryCategories.map((item) => (
                   <Row key={item.id}>
-                    <Column className="w-40" align="left">
+                    <Column className="w-64" align="left">
                       <Text className="text-[#666666] text-[12px] my-0 mb-1">
                         {item.category}
                       </Text>
@@ -147,13 +147,13 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
 
             <Section className="bg-[#ffffff] rounded text-center my-5">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
-              <Section className="mt-0 mb-4">
+              <Section className="mt-0 mb-4 w-screen w-full">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
                   Detailed Category Spend
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
-                  <Column className="w-40" align="left"></Column>
+                  <Column className="w-64" align="left"></Column>
                   <Column align="right">
                     <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
                       This Month
