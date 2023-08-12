@@ -121,36 +121,24 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
-                  <Column className="w-64" align="left"></Column>
-                  <Column align="left">
-                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
-                      Last Month
-                    </Text>
-                  </Column>
+                  <Column className="w-40" align="left"></Column>
                   <Column align="right">
-                    <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
+                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
                       This Month
                     </Text>
                   </Column>
                 </Row>
                 {primaryCategories.map((item) => (
                   <Row key={item.id}>
-                    <Column className="w-64" align="left">
-                      <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
+                    <Column className="w-40" align="left">
+                      <Text className="text-[#666666] text-[12px] my-0 mb-1">
                         {item.category}
                       </Text>
                     </Column>
-                    <Column align="left">
-                    <Text className="text-gray-500 text-[12px] my-0">
-                      ${!item.last_month_amount ? '0' : Math.abs(Math.round(item.last_month_amount))}
-                    </Text>
-                    </Column>
                     <Column align="right">
-                      {
-                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_month_amount))}
-                        </Text>
-                      }
+                      <Text className="text-red-500 text-[16px] my-0 font-semibold">
+                        ${Math.abs(Math.round(item.this_month_amount))}
+                      </Text>
                     </Column>
                   </Row>
                 ))}
@@ -165,14 +153,9 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
-                  <Column className="w-64" align="left"></Column>
-                  <Column align="left">
-                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
-                      Last Month
-                    </Text>
-                  </Column>
+                  <Column className="w-40" align="left"></Column>
                   <Column align="right">
-                    <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
+                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
                       This Month
                     </Text>
                   </Column>
@@ -184,17 +167,10 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                         {item.category}
                       </Text>
                     </Column>
-                    <Column align="left">
-                      <Text className="text-gray-500 text-[12px] my-0">
-                        ${!item.last_month_amount ? '0' : Math.abs(Math.round(item.last_month_amount))}
-                      </Text>
-                    </Column>
                     <Column align="right">
-                      {
-                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.this_month_amount))}
-                        </Text>
-                      }
+                      <Text className="text-red-500 text-[16px] my-0 font-semibold">
+                        ${Math.abs(Math.round(item.this_month_amount))}
+                      </Text>
                     </Column>
                   </Row>
                 ))}
@@ -222,7 +198,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                         </Text>
                       </Column>
                       <Column align="right">
-                        <Text className="text-red-500 text-[14px] my-0 mr-6 font-semibold">
+                        <Text className="text-red-500 text-[14px] my-0 font-semibold">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
                       </Column>
@@ -254,11 +230,9 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                         </Text>
                       </Column>
                       <Column align="right">
-                        {
-                          <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                            ${Math.abs(Math.round(item.amount))}
-                          </Text>
-                        }
+                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
+                          ${Math.abs(Math.round(item.amount))}
+                        </Text>
                       </Column>
                     </Row>
                   ))}
