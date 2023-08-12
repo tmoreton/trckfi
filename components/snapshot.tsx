@@ -10,7 +10,7 @@ export default function ({ totalStats, refresh, loading }) {
   
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
   let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
-  let last_month_savings = Number(lastMonthIncome) - Number(-lastMonthTotal)
+  let savings_rate = Math.round(thisMonthTotal/thisMonthIncome)
   return (
     <dl className="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
@@ -22,7 +22,7 @@ export default function ({ totalStats, refresh, loading }) {
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="items-baseline justify-between">
-            <p className="text-2xl font-semibold text-red-600">{`${thisMonthTotal/thisMonthIncome || 0}%`}</p>
+            <p className="text-2xl font-semibold text-red-600">{`${savings_rate || 0}%`}</p>
             <p className="ml-2 text-xs text-gray-400 font-bold">{addComma(this_month_savings || 0)}</p>
           </div>
           <div className={loading && "animate-spin"}>
