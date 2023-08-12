@@ -155,14 +155,6 @@ export default async (req, res) => {
           detailedCategories={detailedCategories} 
         />
       )
-      
-      const message = {
-        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-        to: email,
-        subject: `Trckfi - Weekly Summary`,
-        text: '',
-        html: emailHtml,
-      }
 
       let transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
@@ -172,17 +164,24 @@ export default async (req, res) => {
           pass: process.env.EMAIL_PASSWORD,
         },
       })
-      
-      await transporter.sendMail(message)
-      if(linked_user_email){
-        await transporter.sendMail({
-          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-          to: linked_user_email,
-          subject: `Trckfi - Weekly Summary`,
-          text: '',
-          html: emailHtml,
-        })
-      }
+      console.log(email)
+      await transporter.sendMail({
+        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+        to: email,
+        subject: `Trckfi - Weekly Summary`,
+        text: '',
+        html: emailHtml,
+      })
+
+      // if(linked_user_email){
+      //   await transporter.sendMail({
+      //     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+      //     to: linked_user_email,
+      //     subject: `Trckfi - Weekly Summary`,
+      //     text: '',
+      //     html: emailHtml,
+      //   })
+      // }
     }
 
     return res.status(200).json({ status: 'OK' })
