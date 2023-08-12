@@ -10,7 +10,8 @@ export default async (req, res) => {
     const date = DateTime.now()
     const this_week = `${date.year}-${date.minus({ days: 3 }).weekNumber}`
     const last_week = `${date.year}-${date.minus({ days: 9 }).weekNumber}`
-
+    console.log(this_week)
+    console.log(last_week)
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
@@ -45,9 +46,7 @@ export default async (req, res) => {
           ],
           active: true,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
             { primary_category: 'INCOME' },
           ],
           amount: {
@@ -74,9 +73,7 @@ export default async (req, res) => {
           ],
           active: true,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
             { primary_category: 'INCOME' },
           ],
           amount: {
@@ -109,9 +106,7 @@ export default async (req, res) => {
           ],
           active: true,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
             { primary_category: 'INCOME' },
           ],
           amount: {
@@ -141,15 +136,15 @@ export default async (req, res) => {
           active: true,
           week_year: this_week,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { primary_category: 'INCOME' },
           ],
         },
         orderBy: {
           amount: 'asc'
         }
       })
+      console.log(t)
       const transactions = t.slice(0, 10)
 
       const emailHtml = render(
