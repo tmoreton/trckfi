@@ -12,7 +12,6 @@ const Newsletter = ({ showError }) => {
     const res = await fetch(`/api/create_user`, {
       body: JSON.stringify({
         email,
-        subscribed: true
       }),
       headers: {
         'Content-Type': 'application/json',
