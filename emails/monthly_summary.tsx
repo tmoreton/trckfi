@@ -56,7 +56,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   </Text>
                 </Column>
                 <Column align="center">
-                  <Text className="text-[#666666] text-[16px] fold-bold">
+                  <Text className="text-[#666666] text-[12px] fold-bold">
                     VS.
                   </Text>
                 </Column>
@@ -98,7 +98,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   </Text>
                 </Column>
                 <Column align="center">
-                  <Text className="text-[#666666] text-[16px] fold-bold">
+                  <Text className="text-[#666666] text-[12px] fold-bold">
                     VS.
                   </Text>
                 </Column>
@@ -120,14 +120,6 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   Primary Category Spend
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
-                <Row className="w-screen w-full">
-                  <Column className="w-80" align="left"></Column>
-                  <Column align="right">
-                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
-                      This Month
-                    </Text>
-                  </Column>
-                </Row>
                 {primaryCategories.map((item) => (
                   <Row className="w-screen w-full" key={item.id}>
                     <Column className="w-80" align="left">
@@ -152,14 +144,6 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   Detailed Category Spend
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
-                <Row className="w-screen w-full">
-                  <Column className="w-80" align="left"></Column>
-                  <Column align="right">
-                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
-                      This Month
-                    </Text>
-                  </Column>
-                </Row>
                 {detailedCategories.map((item) => (
                   <Row className="w-screen w-full" key={item.id}>
                     <Column className="w-80" align="left">
