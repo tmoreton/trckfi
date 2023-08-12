@@ -19,6 +19,7 @@ export default async (req, res) => {
       subscription_data: {
         trial_period_days: 30,
       },
+      allow_promotion_codes: true,
       success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/getting-started?session_id={CHECKOUT_SESSION_ID}`,
     };
