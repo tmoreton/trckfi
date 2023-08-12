@@ -10,8 +10,7 @@ export default async (req, res) => {
     const date = DateTime.now()
     const this_week = `${date.year}-${date.minus({ days: 3 }).weekNumber}`
     const last_week = `${date.year}-${date.minus({ days: 9 }).weekNumber}`
-    console.log(this_week)
-    console.log(last_week)
+
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
@@ -63,7 +62,6 @@ export default async (req, res) => {
           week_year: 'desc'
         },
       })
-      console.log(groupByWeek)
 
       const primary = await prisma.transactions.groupBy({
         by: ['primary_category', 'week_year'],
@@ -164,7 +162,7 @@ export default async (req, res) => {
           pass: process.env.EMAIL_PASSWORD,
         },
       })
-      console.log(email)
+
       await transporter.sendMail({
         from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
         to: email,
@@ -173,15 +171,15 @@ export default async (req, res) => {
         html: emailHtml,
       })
 
-      // if(linked_user_email){
-      //   await transporter.sendMail({
-      //     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-      //     to: linked_user_email,
-      //     subject: `Trckfi - Weekly Summary`,
-      //     text: '',
-      //     html: emailHtml,
-      //   })
-      // }
+      if(linked_user_email){
+        await transporter.sendMail({
+          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+          to: linked_user_email,
+          subject: `Trckfi - Weekly Summary`,
+          text: '',
+          html: emailHtml,
+        })
+      }
     }
 
     return res.status(200).json({ status: 'OK' })

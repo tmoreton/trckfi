@@ -48,22 +48,23 @@ export async function getServerSideProps({ query }) {
   const date = DateTime.now()
   const this_week = `${date.year}-${date.minus({ days: 3 }).weekNumber}`
   const last_week = `${date.year}-${date.minus({ days: 9 }).weekNumber}`
+  const user_query = linked_user_id ? [{ user_id: user_id }, { user_id: linked_user_id }] : [{ user_id: user_id }]
 
   const groupByWeek = await prisma.transactions.groupBy({
     by: ['week_year'],
     where: {
-      user_id: user_id,
-      active: true,
-      OR: [
-        { week_year: this_week },
-        { week_year: last_week },
+      AND: [ 
+        { OR: user_query }, 
+        { OR: [{ week_year: this_week }, { week_year: last_week }] } 
       ],
+      active: true,
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
         { primary_category: 'INCOME' },
       ],
+      amount: {
+        lte: 0,
+      },
     },
     _sum: {
       amount: true,
@@ -79,18 +80,18 @@ export async function getServerSideProps({ query }) {
   const primary = await prisma.transactions.groupBy({
     by: ['primary_category', 'week_year'],
     where: {
-      user_id: user_id,
-      active: true,
-      OR: [
-        { week_year: this_week },
-        { week_year: last_week },
+      AND: [ 
+        { OR: user_query }, 
+        { OR: [{ week_year: this_week }, { week_year: last_week }] } 
       ],
+      active: true,
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
         { primary_category: 'INCOME' },
       ],
+      amount: {
+        lte: 0,
+      },
     },
     _sum: {
       amount: true,
@@ -112,18 +113,18 @@ export async function getServerSideProps({ query }) {
   const detailed = await prisma.transactions.groupBy({
     by: ['detailed_category', 'week_year'],
     where: {
-      user_id: user_id,
-      active: true,
-      OR: [
-        { week_year: this_week },
-        { week_year: last_week },
+      AND: [ 
+        { OR: user_query }, 
+        { OR: [{ week_year: this_week }, { week_year: last_week }] } 
       ],
+      active: true,
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
         { primary_category: 'INCOME' },
       ],
+      amount: {
+        lte: 0,
+      },
     },
     _sum: {
       amount: true,
@@ -144,15 +145,12 @@ export async function getServerSideProps({ query }) {
 
   const t = await prisma.transactions.findMany({
     where: {
-      user_id: user_id,
+      OR: user_query,
       active: true,
-      OR: [
-        { week_year: this_week },
-      ],
+      week_year: this_week,
       NOT: [
-        { primary_category: 'LOAN_PAYMENTS' },
-        { primary_category: 'TRANSFER_IN' },
-        { primary_category: 'TRANSFER_OUT' },
+        { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        { primary_category: 'INCOME' },
       ],
     },
     orderBy: {

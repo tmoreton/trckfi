@@ -94,11 +94,6 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
                   <Column className="w-64" align="left"></Column>
-                  <Column align="left">
-                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
-                      Last Week
-                    </Text>
-                  </Column>
                   <Column className="w-18" align="right">
                     <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
                       This Week
@@ -112,12 +107,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                         {item.category}
                       </Text>
                     </Column>
-                    <Column align="left">
-                    <Text className="text-gray-500 text-[12px] my-0">
-                      ${!item.last_week_amount ? '0' : Math.abs(Math.round(item.last_week_amount))}
-                    </Text>
-                    </Column>
-                    <Column className="w-18" align="right">
+                    <Column align="right">
                       <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
                         ${Math.abs(Math.round(item.this_week_amount))}
                       </Text>
@@ -136,12 +126,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
                   <Column className="w-64" align="left"></Column>
-                  <Column align="left">
-                    <Text className="text-[#666666] text-[12px] font-bold my-0 mb-1">
-                      Last Week
-                    </Text>
-                  </Column>
-                  <Column className="w-18" align="right">
+                  <Column align="right">
                     <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
                       This Week
                     </Text>
@@ -154,12 +139,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                         {item.category}
                       </Text>
                     </Column>
-                    <Column align="left">
-                      <Text className="text-gray-500 text-[12px] my-0">
-                        ${!item.last_week_amount ? '0' : Math.abs(Math.round(item.last_week_amount))}
-                      </Text>
-                    </Column>
-                    <Column className="w-18" align="right">
+                    <Column align="right">
                       <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
                         ${Math.abs(Math.round(item.this_week_amount))}
                       </Text>
