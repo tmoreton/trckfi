@@ -121,7 +121,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 {primaryCategories.map((item) => (
-                  <Row className="w-screen w-full" key={item.id}>
+                  <Row className="mx-4" key={item.id}>
                     <Column className="w-80" align="left">
                       <Text className="text-[#666666] text-[12px] my-0 mb-1">
                         {item.category}
@@ -145,7 +145,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 {detailedCategories.map((item) => (
-                  <Row className="w-screen w-full" key={item.id}>
+                  <Row className="mx-4" key={item.id}>
                     <Column className="w-80" align="left">
                       <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
                         {item.category}
@@ -170,9 +170,9 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 {transactions.map((item) => {
                   return (
-                    <Row key={item.id}>
+                    <Row className="mx-4" key={item.id}>
                       <Column className="w-44" align="left">
-                        <Text className="text-[#666666] text-[11px] my-0 ml-6 my-0 font-semibold">
+                        <Text className="text-[#666666] text-[11px] my-0 my-0 font-semibold">
                           {item.name.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
@@ -202,9 +202,9 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   </Text>
                   <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                   {recurring.map((item) => (
-                    <Row key={item.id}>
+                    <Row className="mx-4" key={item.id}>
                       <Column className="w-44" align="left">
-                        <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
+                        <Text className="text-[#666666] text-[12px] my-0 mb-1">
                           {item.name}
                         </Text>
                       </Column>
@@ -214,7 +214,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                         </Text>
                       </Column>
                       <Column align="right">
-                        <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
+                        <Text className="text-red-500 text-[16px] my-0 font-semibold">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
                       </Column>
