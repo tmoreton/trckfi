@@ -36,6 +36,7 @@ import {
               <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
                 <span className="mr-2" ><Emoji unified='1f6a8' size={25}/></span><strong>Trckfi Reminder</strong>                
               </Heading>
+              <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Text className="text-[#666666] text-[16px] font-semibold mt-4 mb-0 leading-[24px] text-center block">
                 {transaction.name}
               </Text>
