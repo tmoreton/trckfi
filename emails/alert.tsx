@@ -14,7 +14,6 @@ import {
   } from '@react-email/components';
   import * as React from 'react';
   import { Emoji } from 'emoji-picker-react';
-  import { addComma } from '../lib/lodash'
 
   export const SignInEmail = ({ transaction }) => {
     return (
