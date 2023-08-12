@@ -93,8 +93,8 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                 <Row>
-                  <Column className="w-64" align="left"></Column>
-                  <Column className="w-18" align="right">
+                  <Column align="left"></Column>
+                  <Column align="right">
                     <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
                       This Week
                     </Text>
@@ -102,7 +102,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                 </Row>
                 {primaryCategories.map((item) => (
                   <Row key={item.id}>
-                    <Column className="w-64" align="left">
+                    <Column align="left">
                       <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
                         {item.category}
                       </Text>
@@ -134,7 +134,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                 </Row>
                 {detailedCategories.map((item) => (
                   <Row key={item.id}>
-                    <Column className="w-64" align="left">
+                    <Column align="left">
                       <Text className="text-[#666666] text-[12px] my-0 ml-6 mb-1">
                         {item.category}
                       </Text>
