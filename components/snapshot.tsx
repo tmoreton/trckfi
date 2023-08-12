@@ -8,8 +8,9 @@ const classNames = (...classes) => {
 export default function ({ totalStats, refresh, loading }) {
   if (!totalStats) return null
   
-  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, accountBalance } = totalStats
-
+  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
+  let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
+  let last_month_savings = Number(lastMonthIncome) - Number(-lastMonthTotal)
   return (
     <dl className="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
@@ -17,21 +18,12 @@ export default function ({ totalStats, refresh, loading }) {
           <div className="absolute rounded-md bg-pink-600 p-3">
             <CreditCardIcon className="h-6 w-6 text-white" aria-hidden="true" />
           </div>
-          <p className="ml-16 truncate text-sm font-medium text-gray-500">Credit/Debit Balance</p>
+          <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Savings</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <p className={accountBalance >= 0 ? "text-2xl font-semibold text-green-600" : "text-2xl font-semibold text-red-600"}>
-            {addComma(accountBalance)}
-          </p>
-          <div className={loading && "animate-spin"}>
-            <button
-              onClick={refresh}
-              type="button"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
-            >
-              <span className="sr-only">Refresh</span>
-              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
-            </button>
+          <div className="items-baseline justify-between">
+            <p className="text-2xl font-semibold text-red-600">{addComma(this_month_savings || 0)}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(last_month_savings || 0)}</span> in {lastMonthString}</p>
           </div>
         </dd>
       </div>

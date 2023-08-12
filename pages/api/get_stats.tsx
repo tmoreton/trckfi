@@ -10,19 +10,6 @@ export default async (req, res) => {
     const { id, linked_user_id } = user
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
-    const account_balance = await prisma.accounts.aggregate({
-      where: {
-        AND: [ 
-          { OR: query }, 
-          { OR: [{ type: 'credit' }, { type: 'depository' }] } 
-        ],
-        active: true,
-      },
-      _sum: {
-        amount: true,
-      },
-    })
-
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
@@ -90,8 +77,7 @@ export default async (req, res) => {
       thisMonthString: this_month.monthLong,
       lastMonthString: last_month.monthLong,
       lastMonthIncome: lastMonthIncome?._sum?.amount || 0,
-      thisMonthIncome: thisMonthIncome?._sum?.amount || 0,
-      accountBalance: account_balance._sum?.amount || 0
+      thisMonthIncome: thisMonthIncome?._sum?.amount || 0
     }
 
     return res.status(200).json({ stats })
