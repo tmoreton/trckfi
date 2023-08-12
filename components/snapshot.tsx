@@ -23,7 +23,7 @@ export default function ({ totalStats, refresh, loading }) {
         <dd className="ml-16 flex items-baseline justify-between">
           <div className="items-baseline justify-between">
             <p className="text-2xl font-semibold text-red-600">{`${savings_rate || 0}%`}</p>
-            <p className="ml-2 text-xs text-gray-400 font-bold">{addComma(this_month_savings || 0)}</p>
+            {/* <p className="ml-2 text-xs text-gray-400 font-bold">{addComma(this_month_savings || 0)}</p> */}
           </div>
           <div className={loading && "animate-spin"}>
             <button
