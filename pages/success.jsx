@@ -72,7 +72,7 @@ export async function getServerSideProps(context) {
 
   return {
     redirect: {
-      destination: '/getting-started',
+      destination: '/signup',
       permanent: false,
     },
   }

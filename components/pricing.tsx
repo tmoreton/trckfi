@@ -50,7 +50,7 @@ export default function () {
                   <span className="text-5xl font-bold tracking-tight text-gray-900">$5.99</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">/month</span>
                 </p>
-                <Link href="/getting-started">
+                <Link href="/signup">
                   <PinkBtn onClick={() => {}}>
                     Buy plan
                   </PinkBtn>

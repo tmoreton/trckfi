@@ -48,7 +48,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
-            <Link href="/getting-started" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
+            <Link href="/signup" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
               Get started
             </Link>
           </p>

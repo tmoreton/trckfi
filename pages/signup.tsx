@@ -58,7 +58,7 @@ export default function ({ csrfToken, user, showError }) {
           </div>
         </div>
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-3" method="post" action={`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/getting-started`}>
+          <form className="space-y-3" method="post" action={`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup`}>
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <label htmlFor="email" className="block text-sm font-small leading-6 text-pink-600">
               Email address
