@@ -27,20 +27,20 @@ model User {
   emailVerified   DateTime?
   image           String?
   phone           String?
-  active          Boolean        @default(false)
-  subscription_id String? @unique
-  customer_id     String? @unique
-  subscribed      Boolean        @default(false)
-  linked_user_id  String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
+  active          Boolean        @default(false)
+  linked_user_id  String?
+  subscription_id String?        @unique
+  customer_id     String?        @unique
   login_count     Decimal?       @default(0) @db.Decimal(6, 0)
+  status          String?
   canceled_at     Decimal?       @db.Decimal(15, 0)
   ended_at        Decimal?       @db.Decimal(15, 0)
   start_date      Decimal?       @db.Decimal(15, 0)
-  status          String?
   trial_end       Decimal?       @db.Decimal(15, 0)
   plaid           Plaid[]
+  Preferences     Preferences[]
   Rules           Rules[]
   sessions        Session[]
   transactions    Transactions[]
@@ -85,9 +85,9 @@ model Accounts {
   type          String?
   user_id       String?        @map("user_id")
   item_id       String?
+  active        Boolean?       @default(true)
   created_at    DateTime       @default(now())
   updated_at    DateTime       @updatedAt
-  active        Boolean?       @default(true)
   amount        Decimal?       @db.Decimal(9, 2)
   details       Json?
   institution   String?
@@ -107,8 +107,6 @@ model Transactions {
   location          Json?
   primary_category  String?
   user_id           String?   @map("user_id")
-  created_at        DateTime? @default(now())
-  updated_at        DateTime? @updatedAt
   item_id           String?
   date              String?
   amount            Decimal?  @db.Decimal(9, 2)
@@ -121,6 +119,8 @@ model Transactions {
   unified           String?   @default("1f4b8")
   notes             String?
   alert_date        DateTime?
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
   currency          String?
   account           Accounts? @relation(fields: [account_id], references: [id])
   user              User?     @relation(fields: [user_id], references: [id])
@@ -149,4 +149,17 @@ model Rules {
   user       User?   @relation(fields: [user_id], references: [id])
 
   @@map("rules")
+}
+
+model Preferences {
+  id               String  @id @default(cuid())
+  email_newsletter Boolean @default(false)
+  email_weekly     Boolean @default(false)
+  email_monthly    Boolean @default(false)
+  email_alert      Boolean @default(false)
+  vision_board     Json?
+  user_id          String? @map("user_id")
+  user             User?   @relation(fields: [user_id], references: [id])
+
+  @@map("preferences")
 }
