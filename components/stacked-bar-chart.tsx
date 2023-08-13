@@ -2,24 +2,44 @@ import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
   } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+  import { Bar } from 'react-chartjs-2';
+  import faker from 'faker';
   import { DateTime } from "luxon"
 
   ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend
   );
+  
+  export const options = {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Net Worth History',
+      },
+      legend: {
+        position: 'bottom' as const,
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+  };
   
   const category_colors = {
     auto: { color: '#9966ff', name: 'Automobile'},
@@ -31,19 +51,6 @@ import {
     stocks: { color: '#ffcd56', name: 'Stocks' },
   }
 
-  export const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'bottom' as const,
-      },
-      title: {
-        display: true,
-        text: 'Net Worth History',
-      },
-    },
-  };
-    
   export default function ({ history }) {
     const data = {
       labels: history.map(i => DateTime.fromISO(i.created_at).toFormat('MMMM')),
@@ -92,6 +99,6 @@ import {
         },
       ],
     };
-    return <Line options={options} data={data} />;
+    return <Bar options={options} data={data} />;
   }
   

@@ -9,6 +9,7 @@ import Menu from '../components/menu'
 import Meta from '../components/meta'
 import PieChart from "../components/pie-chart"
 import LineChart from "../components/line-chart"
+import StackedBarChart from "../components/stacked-bar-chart"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -88,7 +89,7 @@ const NetWorth = ({ showError }) => {
               <PieChart data={data}/>
             </div>
             <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
-              <LineChart history={history}/>
+              <StackedBarChart history={history}/>
             </div>
           </div>
         </main>
