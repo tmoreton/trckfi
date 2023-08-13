@@ -90,7 +90,7 @@ export default async (req, res) => {
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
         let rule = rules.find(r => added[i].name.toUpperCase().includes(r.identifier.toUpperCase()))
-        let newTransaction = await prisma.transactions.upsert({
+        await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
           },
@@ -137,6 +137,9 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    await prisma.plaid.update({
+      where: { item_id: newAccountArray[0].item_id },
+      data: { error_code: error.response?.data?.error_code }
+    })
   }
 }
