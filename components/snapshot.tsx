@@ -23,12 +23,12 @@ export default function ({ totalStats, refresh, loading }) {
             thisMonthIncome-(-thisMonthTotal) < 0 ?
             <div className="items-baseline justify-between">
               <p className="text-2xl font-semibold text-red-600">0%</p>
-              <p className="text-xs text-gray-400">You spent <span className="font-bold text-red-600">{addComma(this_month_savings)}</span> more than you made so far</p>
+              <p className="text-xs text-gray-400">You spent <span className="font-bold text-red-600">{addComma(this_month_savings)}</span> more than you made 😕</p>
             </div>
             :
             <div className="items-baseline justify-between">
               <p className="text-2xl font-semibold text-green-600">{`${thisMonthTotal/thisMonthIncome}%`}</p>
-              <p className="text-xs text-gray-400">You have saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month!</p>
+              <p className="text-xs text-gray-400">You have saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month! 🎉</p>
             </div>
           }
           <div className={loading && "animate-spin"}>
