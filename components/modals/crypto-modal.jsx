@@ -78,7 +78,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
         user_id: user.id,
         name: account.name,
         official_name: account.symbol.toUpperCase(),
-        institution: account.symbol.toUpperCase(),
+        institution: 'Crypto',
         type: 'investment',
         subtype: account.subtype,
         amount: account.amount,
