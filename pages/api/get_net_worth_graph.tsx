@@ -38,7 +38,7 @@ export default async (req, res) => {
       { type: 'Cash', amount: 0, color: '#36a2eb'},
       { type: 'Stocks', amount: 0, color: '#9ad0f5'},
       { type: 'Crypto', amount: 0, color: '#ff6384'},
-      { type: 'Real Estate', amount: 0, color: '#ffb1c1'},
+      { type: 'Real Estate Equity', amount: 0, color: '#ffb1c1'},
       { type: 'Retirement', amount: 0, color: '#4bc0c0'},
       { type: 'Other', amount: 0, color: '#a5dfdf'},
     ]

@@ -30,7 +30,7 @@ export default function PieChart({ user }) {
     labels: netWorth.map(i => i.type),
     datasets: [
       {
-        label: 'Net Worth Allocation',
+        label: 'Asset Allocation',
         data: netWorth.map(i => i.amount),
         backgroundColor: netWorth.map(i => i.color)
       },
