@@ -57,7 +57,10 @@ export default async (req, res) => {
         case 'brokerage':
           net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Stocks')].amount += Math.round(Number(a._sum.amount))
           break;
-        case 'stocks':
+        case 'etf':
+          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Stocks')].amount += Math.round(Number(a._sum.amount))
+          break;
+        case 'equity':
           net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Stocks')].amount += Math.round(Number(a._sum.amount))
           break;
         case 'ira':

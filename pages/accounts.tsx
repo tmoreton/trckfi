@@ -287,7 +287,7 @@ const NetWorth = ({ showError }) => {
             </div>
           </div>
           
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-32 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
             <div className="col-span-1 px-4 pb-4 sm:px-6 sm:pt-2">
               <PieChart user={user}/>
             </div>
