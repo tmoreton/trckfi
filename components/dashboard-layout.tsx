@@ -18,7 +18,7 @@ const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
   { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
   { name: 'Accounts', href: '/accounts', icon: UsersIcon },
-  { name: 'Net Worth Tracker', href: '/net-worth', icon: ChartBarIcon },
+  { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
   { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
 ]

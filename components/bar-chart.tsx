@@ -22,8 +22,8 @@ ChartJS.register(
 );
 
 const tabs = [
-  { name: 'Monthly View', key: 'monthly' },
-  { name: 'Weekly View', key: 'weekly' },
+  { name: 'Monthly Income/Expenses', key: 'monthly' },
+  { name: 'Weekly Expenses', key: 'weekly' },
 ]
 
 const options = {

@@ -24,7 +24,7 @@ const dashboardNavigation = [
   { name: 'Settings', href: '/settings' },
 ]
 
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/settings']
+const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/settings', '/net-worth', '/rules']
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')

@@ -42,7 +42,7 @@ export default function PieChart({ data }) {
     labels: array.map(a => a.label),
     datasets: [
       {
-        label: 'Current Asset Allocation',
+        label: '',
         data: array.map(a => a.value),
         backgroundColor: array.map(a => a.color)
       },
