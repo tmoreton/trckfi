@@ -18,13 +18,14 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
+import PieChart from "../components/pie-chart"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 const renderImg = (account) => {
-  if(account?.subtype === 'rental' || account?.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account?.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
   if(account?.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
   if(account?.subtype === 'crypto') return (<img src={account?.details?.image} alt={account?.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
   if(!account?.institution) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
@@ -283,6 +284,15 @@ const NetWorth = ({ showError }) => {
                   </div>
                 ))}
               </dl>
+            </div>
+          </div>
+          
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
+            <div className="col-span-1 px-4 pb-4 sm:px-6 sm:pt-2">
+              <PieChart user={user}/>
+            </div>
+            <div className="col-span-1 px-4 pb-4 sm:px-6 sm:pt-2">
+              <PieChart user={user}/>
             </div>
           </div>
 

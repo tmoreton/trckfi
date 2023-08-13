@@ -7,10 +7,8 @@ const classNames = (...classes) => {
 
 export default function ({ totalStats, refresh, loading }) {
   if (!totalStats) return null
-  
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
   let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
-  let savings_rate = Math.round(thisMonthTotal/thisMonthIncome)
   return (
     <dl className="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
@@ -21,10 +19,18 @@ export default function ({ totalStats, refresh, loading }) {
           <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Savings Rate</p>
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
-          <div className="items-baseline justify-between">
-            <p className="text-2xl font-semibold text-red-600">{`${savings_rate || 0}%`}</p>
-            {/* <p className="ml-2 text-xs text-gray-400 font-bold">{addComma(this_month_savings || 0)}</p> */}
-          </div>
+          {
+            thisMonthIncome-(-thisMonthTotal) < 0 ?
+            <div className="items-baseline justify-between">
+              <p className="text-2xl font-semibold text-red-600">0%</p>
+              <p className="text-xs text-gray-400">You spent <span className="font-bold text-red-600">{addComma(this_month_savings)}</span> more than you made so far</p>
+            </div>
+            :
+            <div className="items-baseline justify-between">
+              <p className="text-2xl font-semibold text-green-600">{`${thisMonthTotal/thisMonthIncome}%`}</p>
+              <p className="text-xs text-gray-400">You have saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month!</p>
+            </div>
+          }
           <div className={loading && "animate-spin"}>
             <button
               onClick={refresh}
