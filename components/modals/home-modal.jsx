@@ -82,23 +82,6 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                             onChange={handleChange}
                           />
                         </div>
-                        {/* <div className="relative z-0 w-full mb-6 group">
-                          <label 
-                            htmlFor="institution" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Institution
-                          </label>
-                          <input 
-                            type="text" 
-                            name="institution"
-                            id="institution" 
-                            value={account?.institution}
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required 
-                            onChange={handleChange}
-                          />
-                        </div> */}
                         <div className="grid md:grid-cols-2 md:gap-6">
                           <div className="relative z-0 w-full mb-6 group">
                             <label 
