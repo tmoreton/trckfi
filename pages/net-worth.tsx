@@ -17,12 +17,12 @@ function classNames(...classes) {
 const NetWorth = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [data, setData] = useState([])
+  const [data, setData] = useLocalStorage('net_worth_data', [])
+  const [history, setHistory] = useLocalStorage('net_worth_history', [])
   const [refreshing, setRefreshing] = useState(false)
   
   useEffect(() => {
     getNetWorth()
-    console.log(data)
   }, [])
 
   const getNetWorth = async () => {
@@ -35,9 +35,10 @@ const NetWorth = ({ showError }) => {
       },
       method: 'POST',
     })
-    const { error, data } = await res.json()
+    const { error, data, netWorthHistory } = await res.json()
     showError(error)
     setData(data)
+    setHistory(netWorthHistory)
   }
 
   return (
@@ -87,7 +88,7 @@ const NetWorth = ({ showError }) => {
               <PieChart data={data}/>
             </div>
             <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
-              <LineChart user={user}/>
+              <LineChart history={history}/>
             </div>
           </div>
         </main>

@@ -77,7 +77,12 @@ export default async (req, res) => {
         OR: user_query,
       },
       orderBy: {
-        created_at: 'desc'
+        created_at: 'asc'
+      },
+      select: {
+        snapshot: true,
+        created_at: true,
+        updated_at: true
       }
     })
 
@@ -85,7 +90,7 @@ export default async (req, res) => {
       // @ts-ignore
       await prisma.netWorth.create({ data })
     }
-    return res.status(200).json({ data })
+    return res.status(200).json({ data: data, netWorthHistory: netWorthHistory })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })
