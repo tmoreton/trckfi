@@ -18,11 +18,6 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
-import PieChart from "../components/pie-chart"
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -40,7 +35,7 @@ const renderImg = (account) => {
   />
 }
 
-const NetWorth = ({ showError }) => {
+const Accounts = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [loading, setLoading] = useState(false)
@@ -51,7 +46,6 @@ const NetWorth = ({ showError }) => {
   const [openCrypto, setOpenCrypto] = useState(false)
   const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
-  const [stats, setStats] = useLocalStorage('net_worth_stats', [])
   const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
   const [removedAccounts, setRemovedAccounts] = useState([])
   const [showConfetti, setConfetti] = useState(false)
@@ -111,25 +105,6 @@ const NetWorth = ({ showError }) => {
       return r;
     }, Object.create(null))
     setAccounts(accounts)
-
-    let total_assets = 0
-    let total_liabilities = 0
-    data.forEach(a => {
-      if(a.type === 'loan' || a.type === 'credit'){
-        // @ts-ignore
-        total_liabilities -= Number(a.amount)
-        
-      } else {
-        // @ts-ignore
-        total_assets += Number(a.amount)
-      }
-    })
-    const net_worth_stats = [
-      { name: 'Net Worth', value: total_assets-total_liabilities, change: '', changeType: 'nuetral' },
-      { name: 'Assets', value: total_assets, change: '', changeType: 'positive' },
-      { name: 'Liabilities', value: -total_liabilities, change: '', changeType: 'negative' },
-    ]
-    setStats(net_worth_stats)
   }
 
   const refresh = async () => {
@@ -216,8 +191,8 @@ const NetWorth = ({ showError }) => {
       <Menu showError={showError}/>
       <DashboardLayout>
         <Meta
-          title="Net Worth"
-          description="Track your Net Worth in one place"
+          title="Accounts"
+          description="A place to organize your accounts"
           image=''
           keywords=''
         />
@@ -261,42 +236,6 @@ const NetWorth = ({ showError }) => {
         </div>
 
         <main>
-          <div className="relative isolate overflow-hidden">
-            {/* Stats */}
-            <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
-              <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
-                {stats.map((stat, statIdx) => (
-                  <div
-                    key={statIdx}
-                    className={classNames(
-                      statIdx % 2 === 1 ? 'sm:border-l' : statIdx === 2 ? 'lg:border-l' : '',
-                      'flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8'
-                    )}
-                  >
-                    <dt className="text-sm font-medium leading-6 text-gray-500">{stat.name}</dt>
-                    <dd className={classNames(
-                        stat.value < 0 ? 'text-rose-600' : 'text-green-600',
-                        'w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900'
-                      )}
-                    >
-                      {addComma(stat.value)}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-          
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-32 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
-            <div className="col-span-1 px-4 pb-4 sm:px-6 sm:pt-2">
-              <PieChart user={user}/>
-            </div>
-            <div className="col-span-1 px-4 pb-4 sm:px-6 sm:pt-2">
-              <PieChart user={user}/>
-            </div>
-          </div>
-
-          {/* Recent activity table */}
           <div>
             <div className="overflow-hidden border-t border-gray-100">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-0">
@@ -388,4 +327,4 @@ const NetWorth = ({ showError }) => {
   )
 }
 
-export default dynamic(() => Promise.resolve(NetWorth), { ssr: false })
+export default dynamic(() => Promise.resolve(Accounts), { ssr: false })

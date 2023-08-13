@@ -44,6 +44,7 @@ model User {
   Rules           Rules[]
   sessions        Session[]
   transactions    Transactions[]
+  NetWorth        NetWorth[]
 
   @@map("users")
 }
@@ -162,4 +163,17 @@ model Preferences {
   user             User?   @relation(fields: [user_id], references: [id])
 
   @@map("preferences")
+}
+
+model NetWorth {
+  id         String    @id @default(cuid())
+  snapshot   Json
+  stats      Json
+  accounts   Json
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
+  user_id    String?   @map("user_id")
+  user       User?     @relation(fields: [user_id], references: [id])
+
+  @@map("net_worth")
 }
