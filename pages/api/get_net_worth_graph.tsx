@@ -44,16 +44,16 @@ export default async (req, res) => {
     ]
 
     accounts.forEach(a => {
+      switch (a.type) {
+        case 'depository':
+          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Cash')].amount += Math.round(Number(a._sum.amount))
+          break;
+        case 'credit':
+          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Cash')].amount += Math.round(Number(a._sum.amount))
+          break;
+      }
+
       switch (a.subtype) {
-        case 'credit card':
-          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Cash')].amount += Math.round(Number(a._sum.amount))
-          break;
-        case 'savings':
-          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Cash')].amount += Math.round(Number(a._sum.amount))
-          break;
-        case 'checking':
-          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Cash')].amount += Math.round(Number(a._sum.amount))
-          break;
         case 'brokerage':
           net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Stocks')].amount += Math.round(Number(a._sum.amount))
           break;
@@ -75,8 +75,6 @@ export default async (req, res) => {
         case 'crypto':
           net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Crypto')].amount += Math.round(Number(a._sum.amount))
           break;
-        default:
-          net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Other')].amount += Math.round(Number(a._sum.amount))
       }
     })
     let updated = net_worth_accounts.filter(i => i.amount > 0 && i)
