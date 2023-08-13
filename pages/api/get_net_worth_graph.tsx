@@ -35,12 +35,12 @@ export default async (req, res) => {
     })
 
     const net_worth_accounts = [
-      { type: 'Cash', amount: 0},
-      { type: 'Stocks', amount: 0},
-      { type: 'Crypto', amount: 0},
-      { type: 'Real Estate', amount: 0},
-      { type: 'Retirement', amount: 0},
-      { type: 'Other', amount: 0},
+      { type: 'Cash', amount: 0, color: '#36a2eb'},
+      { type: 'Stocks', amount: 0, color: '#9ad0f5'},
+      { type: 'Crypto', amount: 0, color: '#ff6384'},
+      { type: 'Real Estate', amount: 0, color: '#ffb1c1'},
+      { type: 'Retirement', amount: 0, color: '#4bc0c0'},
+      { type: 'Other', amount: 0, color: '#a5dfdf'},
     ]
 
     accounts.forEach(a => {
@@ -79,7 +79,8 @@ export default async (req, res) => {
           net_worth_accounts[net_worth_accounts.findIndex(el => el.type === 'Other')].amount += Math.round(Number(a._sum.amount))
       }
     })
-    return res.status(200).json({ data: net_worth_accounts})
+    let updated = net_worth_accounts.filter(i => i.amount > 0 && i)
+    return res.status(200).json({ data: updated})
     
   } catch (error) {
     console.error(error)
