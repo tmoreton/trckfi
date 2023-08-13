@@ -20,7 +20,7 @@ export default function ({ totalStats, refresh, loading }) {
         </dt>
         <dd className="ml-16 flex items-baseline justify-between">
           {
-            thisMonthIncome-(-thisMonthTotal) < 0 ?
+            !thisMonthTotal || !thisMonthIncome || thisMonthIncome-(-thisMonthTotal) <= 0 ?
             <div className="items-baseline justify-between">
               <p className="text-2xl font-semibold text-red-600">0%</p>
               <p className="text-xs text-gray-400">You spent <span className="font-bold text-red-600">{addComma(this_month_savings)}</span> more than you made 😕</p>
