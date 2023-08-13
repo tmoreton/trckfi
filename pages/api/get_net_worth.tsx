@@ -52,7 +52,7 @@ export default async (req, res) => {
       }
 
       // Compare real estate value minus mortgage
-      if (a.subtype === 'mortgage' || a.subtype === 'real estate'){
+      if (a.subtype === 'mortgage' || a.subtype === 'real_estate' || a.subtype === 'real estate'){
         data.snapshot.real_estate += Math.round(Number(a._sum.amount))
       }
 
@@ -64,7 +64,7 @@ export default async (req, res) => {
           data.snapshot.retirement += Math.round(Number(a._sum.amount))
         } else if (a.subtype === 'crypto'){
           data.snapshot.crypto += Math.round(Number(a._sum.amount))
-        } else if (a.subtype !== 'real estate') {
+        } else if (a.subtype !== 'real_estate' && a.subtype !== 'real estate') {
           data.snapshot.other += Math.round(Number(a._sum.amount))
         }
       }
