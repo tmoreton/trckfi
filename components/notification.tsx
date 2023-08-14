@@ -28,7 +28,7 @@ export default function () {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="bg-pink-600 pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="bg-pink-500 pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 pt-0.5">
