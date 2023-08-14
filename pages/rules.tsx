@@ -23,8 +23,9 @@ const Rules = ({ showError }) => {
   const [ruleset, setRuleset] = useState(null)
   const [rules, setRules] = useLocalStorage('rules', [])
   const [alerts, setAlerts] = useLocalStorage('alerts', [])
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
+  const [, updateState] = useState()
+  // @ts-ignore
+  const forceUpdate = useCallback(() => updateState({}), [])
 
   useEffect(() => {
     getRules()
