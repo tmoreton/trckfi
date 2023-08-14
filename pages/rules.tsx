@@ -135,7 +135,7 @@ const Rules = ({ showError }) => {
             <div>
               <h2 className="text-lg font-bold leading-7 text-gray-900">Custom Rules</h2>
               <p className="mt-1 text-sm leading-6 text-gray-500">
-                Create rules to auto categorize or current transactions
+                Create rules to re-categorize current and future transactions
               </p>
 
               <dl className="mt-6 space-y-3 divide-y divide-gray-100 border-gray-200 text-sm leading-6">
@@ -150,13 +150,11 @@ const Rules = ({ showError }) => {
                     <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{rule?.identifier}</dt>
                     <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
                       <div>
-                      {Object.keys(rule?.ruleset)?.map(i => (
-                        <>
+                        {Object.keys(rule?.ruleset)?.map(i => (
                           <div className="text-xs font-medium text-gray-900 pb-1">{i} - 
                             <span className="pl-1 font-light">{rule?.ruleset[i]}</span> 
                           </div>
-                        </>
-                      ))}
+                        ))}
                       </div>
                       <button onClick={() => removeRule(rule?.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
                         Remove
