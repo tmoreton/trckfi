@@ -96,7 +96,9 @@ export default function ({ showError }) {
                       <b>{session.user.email}</b>
                     </Link>
                   }
+                  
                   <Menu as="div" className="relative ml-3">
+                  {/* <Menu as="div" className="ml-3"> */}
                     {
                       session ?
                       <div className="flex items-center">
