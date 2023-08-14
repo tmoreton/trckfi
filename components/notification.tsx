@@ -5,8 +5,8 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 import ConfettiExplosion from 'react-confetti-explosion'
 
 export default function () {
-  // const [show, setShow] = useLocalStorage('show_notification', true)
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useLocalStorage('show_notification', true)
+  // const [show, setShow] = useState(true)
   const [answer, setAnswer] = useState(null)
 
   return (
