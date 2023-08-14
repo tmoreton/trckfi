@@ -7,6 +7,7 @@ import { DateTime } from "luxon"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import Dropdown from '../components/dropdown'
 
 const keys = {
   name: 'Name',
@@ -23,6 +24,8 @@ const Rules = ({ showError }) => {
   const [ruleset, setRuleset] = useState(null)
   const [rules, setRules] = useLocalStorage('rules', [])
   const [alerts, setAlerts] = useLocalStorage('alerts', [])
+  const [primary_categories, setPrimary] = useState([])
+  const [detailed_categories, setDetailed] = useState([])
   const [, updateState] = useState()
   // @ts-ignore
   const forceUpdate = useCallback(() => updateState({}), [])
@@ -30,6 +33,7 @@ const Rules = ({ showError }) => {
   useEffect(() => {
     getRules()
     getAlerts()
+    getCategories()
   }, [])
 
   const getAlerts = async () => {
@@ -78,6 +82,20 @@ const Rules = ({ showError }) => {
     setRuleset(null)
     showError(error)
     if(!error) getRules()
+  }
+  
+  const getCategories = async () => {
+    const res = await fetch(`/api/get_categories`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    setPrimary(data.primary_categories)
+    setDetailed(data.detailed_categories)
   }
 
   const removeRule = async (id) => {
@@ -229,6 +247,14 @@ const Rules = ({ showError }) => {
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                                 />
                               }
+                              {/* { i &&
+                                <Dropdown 
+                                  values={primary_categories.filter(c => c.primary_category)} 
+                                  selected={ruleset[i]} 
+                                  setSelected={e => handleDropdown({ primary_category: e.primary_category })} 
+                                  onChange={e => setRuleset({ ...ruleset, [i]: e })}
+                                />
+                              } */}
                               </>
                             }
                           </div>
