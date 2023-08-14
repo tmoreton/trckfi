@@ -8,7 +8,6 @@ import {
     Legend,
   } from 'chart.js';
   import { Bar } from 'react-chartjs-2';
-  import faker from 'faker';
   import { DateTime } from "luxon"
 
   ChartJS.register(

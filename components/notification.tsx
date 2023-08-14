@@ -1,13 +1,22 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import { XMarkIcon, CheckBadgeIcon, FaceFrownIcon } from '@heroicons/react/20/solid'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import ConfettiExplosion from 'react-confetti-explosion'
+import { useSession } from "next-auth/react"
 
 export default function () {
-  const [show, setShow] = useLocalStorage('show_notification', true)
+  const [show, setShow] = useLocalStorage('show_notification', false)
   // const [show, setShow] = useState(true)
   const [answer, setAnswer] = useState(null)
+  const { data: session } = useSession()
+  const user = session?.user
+
+  useEffect(() => {
+    if(user){
+      setShow(true)
+    }
+  }, [])
 
   return (
     <>
