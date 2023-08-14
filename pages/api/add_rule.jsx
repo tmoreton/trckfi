@@ -7,18 +7,17 @@ export default async (req, res) => {
   if (!ruleset) return res.status(500).json({ error: 'No Rule' })
 
   try {
+    let rules = {}
+    if (ruleset?.name) rules.name = ruleset.name
+    if (ruleset?.primary_category) rules.primary_category = snakeCase(ruleset.primary_category).toUpperCase()
+    if (ruleset?.detailed_category) rules.detailed_category = snakeCase(ruleset.detailed_category).toUpperCase()
+    if (ruleset?.recurring) rules.recurring = (ruleset.recurring === 'true')
+    if (ruleset?.active) rules.active = (ruleset.active === 'true')
     let data = { 
       user_id,
       identifier,
-      ruleset
+      ruleset: rules
     }
-    let rules = {}
-    if (ruleset?.name) rules.name = ruleset.name
-    if (ruleset?.primary_category) snakeCase(rules.primary_category).toUpperCase() = ruleset.primary_category
-    if (ruleset?.detailed_category) snakeCase(rules.detailed_category).toUpperCase() = ruleset.detailed_category
-    if (ruleset?.recurring) rules.recurring = (ruleset.recurring === 'true')
-    if (ruleset?.active) rules.active = (ruleset.active === 'true')
-
     const rule = await prisma.rules.create({ data })
     await prisma.transactions.updateMany({
       where: { 
