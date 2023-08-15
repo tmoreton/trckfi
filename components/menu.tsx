@@ -32,32 +32,10 @@ const classNames = (...classes) => {
 
 export default function ({ showError }) {
   const [openModal, setOpen] = useState(false)
-  const [controls, showControls] = useState(false)
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
   const currentRoute = router.pathname
-
-  const addControls = () => {
-    if(!controls){
-      showControls(true)
-      document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
-        item.classList.remove('hidden');
-      });
-      document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
-        item.classList.remove('hidden');
-      });
-    } else {
-      showControls(false)
-      document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
-        item.classList.add('hidden');
-      });
-      document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
-        item.classList.add('hidden');
-      });
-    }
-
-  }
 
   return (
     <Disclosure as="nav" className="container mx-auto px-5 bg-white">
@@ -108,12 +86,6 @@ export default function ({ showError }) {
                             <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
                           </Menu.Button>
                         </Link>
-                        {
-                          currentRoute === '/visionboard' &&
-                          <button onClick={addControls} >
-                            <AdjustmentsHorizontalIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
-                          </button>
-                        }  
                       </div>
 
                       :
@@ -134,7 +106,7 @@ export default function ({ showError }) {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
                             <Link href="/settings" className={classNames(

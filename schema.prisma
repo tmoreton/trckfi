@@ -159,7 +159,7 @@ model Preferences {
   email_monthly    Boolean @default(true)
   email_alert      Boolean @default(true)
   vision_board     Json?
-  user_id          String? @map("user_id")
+  user_id          String? @unique @map("user_id")
   user             User?   @relation(fields: [user_id], references: [id])
 
   @@map("preferences")
@@ -173,7 +173,7 @@ model NetWorth {
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt
   user_id    String?   @map("user_id")
-  user       User?     @relation(fields: [user_id], references: [id])
+  user       User?     @relation(fields: [user_id], references: [id], onUpdate: Cascade)
 
   @@map("net_worth")
 }

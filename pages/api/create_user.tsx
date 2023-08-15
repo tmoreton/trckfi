@@ -8,10 +8,17 @@ export default async (req, res) => {
   }
 
   try {
-    await prisma.user.upsert({
+    const user = await prisma.user.upsert({
       where: { email: email.toLowerCase() },
       update: { email: email.toLowerCase() },
       create: { email: email.toLowerCase() },
+    })
+
+    await prisma.preferences.upsert({
+      // @ts-ignore
+      where: { user_id: user.id },
+      update: { email_newsletter: true, user_id: user.id },
+      create: { email_newsletter: true, user_id: user.id },
     })
     
     return res.status(200).json({ status: 'OK' })

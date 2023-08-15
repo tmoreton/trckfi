@@ -75,7 +75,7 @@ export default function ({ children }) {
                 </ul>
               </nav>
             </aside>
-            <main className="px-4 sm:px-6 lg:flex-auto lg:px-0">
+            <main className="px-4 sm:px-6 lg:flex-auto lg:px-0 z-10">
               {children}
             </main>
           </div>

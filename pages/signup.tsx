@@ -6,6 +6,7 @@ import { getSession } from 'next-auth/react'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/modals/loading-modal'
 import Meta from '../components/meta'
+import prisma from '../lib/prisma'
 
 export default function ({ csrfToken, user, showError }) {
   const email = user?.email
@@ -91,11 +92,21 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
   const user = session?.user
   // @ts-ignore
-  if(user && user?.active) return {
-    redirect: {
-      destination: '/dashboard',
-      permanent: false,
-    },
+  if(user && user?.active) {
+    await prisma.preferences.upsert({
+      // @ts-ignore
+      where: { user_id: user.id },
+      // @ts-ignore
+      update: { user_id: user.id },
+      // @ts-ignore
+      create: { user_id: user.id },
+    })
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      },
+    }
   }
 
   const csrfToken = await getCsrfToken(context)

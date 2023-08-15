@@ -1,13 +1,17 @@
 import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
 import { useLayoutEffect, useState, useEffect } from 'react';
 import { vision, new_vision } from '../utils/default-vision'
+import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 const PERSISTENCE_KEY = 'vision_board'
 
-export default function Editor() {
+export default function Editor({ showError }) {
   const { data: session } = useSession()
   const user = session?.user
+  const [controls, showControls] = useState(false)
+  const [save, setSave] = useState(false)
+  const [savedVision, setSavedVision] = useState(null)
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
@@ -16,7 +20,39 @@ export default function Editor() {
 	})
   const [show, setShow] = useLocalStorage('showIntroVision', true)
 
+  const updatePreferences = async () => {
+    setSave(true)
+    const persistedSnapshot =  JSON.parse(localStorage.getItem(PERSISTENCE_KEY))
+    const res = await fetch(`/api/update_preferences`, {
+      body: JSON.stringify({ user, payload: persistedSnapshot }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    setTimeout(() => {
+      setSave(false)
+    }, 2000);
+  }
+
+  const getPreferences = async () => {
+    const res = await fetch(`/api/get_preferences`, {
+      body: JSON.stringify({ user }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    store.loadSnapshot(data.vision_board)
+    // setSavedVision(data.vision_board)
+  }
+
 	useEffect(() => {
+    getPreferences()
     if(loadingState.status === 'ready'){
       setTimeout(() => {
         document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
@@ -39,7 +75,14 @@ export default function Editor() {
     // let defaultVision = user?.login_count <= 1 && show ? new_vision : vision
 		// Get persisted data from local storage
 		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || new_vision
-		if (persistedSnapshot) {
+    if(savedVision) {
+			try {
+				store.loadSnapshot(savedVision)
+				setLoadingState({ status: 'ready' })
+			} catch (error: any) {
+				setLoadingState({ status: 'error', error: error.message }) // Something went wrong
+			}
+    } else if (persistedSnapshot) {
 			try {
 				const snapshot = JSON.parse(persistedSnapshot)
 				store.loadSnapshot(snapshot)
@@ -56,13 +99,13 @@ export default function Editor() {
 			throttle(() => {
 				const snapshot = store.getSnapshot()
 				localStorage.setItem(PERSISTENCE_KEY, JSON.stringify(snapshot))
-			}, 500)
+			}, 5000)
 		)
 
 		return () => {
 			cleanupFn()
 		}
-	}, [store])
+	}, [store, savedVision])
 
 	if (loadingState.status === 'loading') {
 		return (
@@ -81,8 +124,43 @@ export default function Editor() {
 		)
 	} 
 
+  const addControls = () => {
+    if(!controls){
+      showControls(true)
+      document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+        item.classList.remove('hidden');
+      });
+      document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
+        item.classList.remove('hidden');
+      });
+    } else {
+      showControls(false)
+      document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+        item.classList.add('hidden');
+      });
+      document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
+        item.classList.add('hidden');
+      });
+    }
+  }
+
 	return (
 		<div style={{width: '100%', height: '85vh'}}>
+      {
+        controls ?
+        <button onClick={addControls} className="mr-2 items-center inline-flex w-full justify-center bg-pink-600 rounded-t-lg px-5 py-1.5 text-sm border-1 border-pink-600 font-semibold text-white shadow-sm hover:bg-pink-600 hover:text-white sm:w-auto">
+          <AdjustmentsHorizontalIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />
+          Hide Controls
+        </button>
+        :
+        <button onClick={addControls} className="mr-2 items-center inline-flex w-full justify-center bg-pink-600 rounded-t-lg px-5 py-1.5 text-sm border-1 border-pink-600 font-semibold text-white shadow-sm hover:bg-pink-600 hover:text-white sm:w-auto">
+          <AdjustmentsHorizontalIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />
+          Show Controls
+        </button>
+      }
+      <button onClick={updatePreferences} className="items-center inline-flex w-full justify-center bg-pink-600 rounded-t-lg px-5 py-1.5 text-sm border-1 border-pink-600 font-semibold text-white shadow-sm hover:bg-pink-600 hover:text-white sm:w-auto">
+        { save ? <><CheckBadgeIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />Saved!</> : <><BookmarkIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />Save</>}
+      </button>
 			<Tldraw store={store} />
 		</div>
 	)
