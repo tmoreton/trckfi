@@ -11,7 +11,6 @@ export default function Editor({ showError }) {
   const user = session?.user
   const [controls, showControls] = useState(false)
   const [save, setSave] = useState(false)
-  const [savedVision, setSavedVision] = useState(null)
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
@@ -48,7 +47,6 @@ export default function Editor({ showError }) {
     const { error, data } = await res.json()
     showError(error)
     store.loadSnapshot(data.vision_board)
-    // setSavedVision(data.vision_board)
   }
 
 	useEffect(() => {
@@ -75,14 +73,7 @@ export default function Editor({ showError }) {
     // let defaultVision = user?.login_count <= 1 && show ? new_vision : vision
 		// Get persisted data from local storage
 		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || new_vision
-    if(savedVision) {
-			try {
-				store.loadSnapshot(savedVision)
-				setLoadingState({ status: 'ready' })
-			} catch (error: any) {
-				setLoadingState({ status: 'error', error: error.message }) // Something went wrong
-			}
-    } else if (persistedSnapshot) {
+    if (persistedSnapshot) {
 			try {
 				const snapshot = JSON.parse(persistedSnapshot)
 				store.loadSnapshot(snapshot)
@@ -105,7 +96,7 @@ export default function Editor({ showError }) {
 		return () => {
 			cleanupFn()
 		}
-	}, [store, savedVision])
+	}, [store])
 
 	if (loadingState.status === 'loading') {
 		return (
