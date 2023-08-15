@@ -175,7 +175,12 @@ const Settings = ({ showError }) => {
                 <div className="pt-6 sm:flex items-center">
                   <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Linked Account</dt>
                   <form onSubmit={remove} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
-                    <div className="text-gray-900">{linkedUser?.email}</div>                 
+                    <div className="text-gray-900">
+                      {
+                        // @ts-ignore
+                        linkedUser?.email
+                      }
+                    </div>                 
                     <button onClick={remove} type="button" className="flex font-semibold text-red-600 hover:text-red-500 justify-end">
                       Unlink
                     </button>
