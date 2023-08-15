@@ -22,6 +22,12 @@ export async function getServerSideProps(context) {
 
     const { ended_at, start_date, status, trial_end, canceled_at } = await stripe.subscriptions.retrieve(subscription)
     const { email, phone } = await stripe.customers.retrieve(customer)
+    
+    await prisma.preferences.upsert({
+      where: { user_id: user.id },
+      update: { user_id: user.id },
+      create: { user_id: user.id },
+    })
 
     await prisma.user.update({
       where: { 
@@ -52,6 +58,12 @@ export async function getServerSideProps(context) {
   }
 
   if(user && user?.active){
+    await prisma.preferences.upsert({
+      where: { user_id: user.id },
+      update: { user_id: user.id },
+      create: { user_id: user.id },
+    })
+
     await prisma.user.update({
       where: { 
         id: user.id

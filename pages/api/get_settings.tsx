@@ -14,7 +14,14 @@ export default async (req, res) => {
       })
     }
     
-    return res.status(200).json({ status: 'OK', data: { linked_user }})
+    const preferences = await prisma.preferences.findUnique({
+      // @ts-ignore
+      where: { 
+        user_id: user.id
+      }
+    })
+
+    return res.status(200).json({ status: 'OK', data: { linked_user, preferences }})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: error.message || error.toString() })

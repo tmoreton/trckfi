@@ -16,7 +16,7 @@ function classNames(...classes) {
 const Settings = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
+  const [preferences, setPreferences] = useState({})
   const [openCancelModal, setCancelOpen] = useState(false)
   const [sendBtn, setSendBtn] = useState('Send Invite')
   const [email, setEmail] = useState('')
@@ -24,6 +24,7 @@ const Settings = ({ showError }) => {
   const router = useRouter()
 
   useEffect(() => {
+    // @ts-ignore
     if(!user.active) {
       clearLocalStorage()
       signOut()
@@ -44,7 +45,27 @@ const Settings = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
-    if(!error) setLinkedUser(data?.linked_user)
+    if(!error) {
+      setPreferences(data?.preferences)
+      setLinkedUser(data?.linked_user)
+    }
+  }
+
+  const updatePreferences = async (key, value) => {
+    let updated = preferences
+    updated[key] = value
+    setPreferences({ ...preferences, [key]: value})
+    const res = await fetch(`/api/update_preferences`, {
+      body: JSON.stringify({
+        user, preferences: updated
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
   }
 
   const send = async (e) => {
@@ -83,11 +104,13 @@ const Settings = ({ showError }) => {
   }
 
   const redirect = async () => {
+    // @ts-ignore
     if(!user?.customer_id){
       showError('Subscription can only be updated by the primary user')
     } else {
       const res = await fetch(`/api/create_bill_portal`, {
         body: JSON.stringify({
+          // @ts-ignore
           customer_id: user.customer_id
         }),
         headers: {
@@ -101,6 +124,8 @@ const Settings = ({ showError }) => {
     }
   }
 
+  // @ts-ignore
+  let { email_weekly, email_monthly, email_alert } = preferences 
   return (
     <>
       <Menu showError={showError}/>
@@ -109,6 +134,7 @@ const Settings = ({ showError }) => {
           title="Settings"
           description="Trckfi settings page"
           image=''
+          keywords=''
         />
         <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
         <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
@@ -187,21 +213,21 @@ const Settings = ({ showError }) => {
             <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
               <Switch.Group as="div" className="flex pt-6">
                 <Switch.Label as="dt" className="w-64 flex-none pr-6 font-medium text-gray-900" passive>
-                  Receive Weekly Emails
+                  Weekly Emails
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={automaticTimezoneEnabled}
-                    onChange={setAutomaticTimezoneEnabled}
+                    checked={email_weekly}
+                    onChange={e => updatePreferences('email_weekly', e)}
                     className={classNames(
-                      automaticTimezoneEnabled ? 'bg-pink-600' : 'bg-gray-200',
+                      email_weekly ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        automaticTimezoneEnabled ? 'translate-x-3.5' : 'translate-x-0',
+                        email_weekly ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
@@ -211,21 +237,21 @@ const Settings = ({ showError }) => {
 
               <Switch.Group as="div" className="flex pt-6">
                 <Switch.Label as="dt" className="w-64 flex-none pr-6 font-medium text-gray-900" passive>
-                  Receive Monthly Emails
+                  Monthly Emails
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={automaticTimezoneEnabled}
-                    onChange={setAutomaticTimezoneEnabled}
+                    checked={email_monthly}
+                    onChange={e => updatePreferences('email_monthly', e)}
                     className={classNames(
-                      automaticTimezoneEnabled ? 'bg-pink-600' : 'bg-gray-200',
+                      email_monthly ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        automaticTimezoneEnabled ? 'translate-x-3.5' : 'translate-x-0',
+                        email_monthly ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
@@ -235,27 +261,28 @@ const Settings = ({ showError }) => {
 
               <Switch.Group as="div" className="flex pt-6">
                 <Switch.Label as="dt" className="w-64 flex-none pr-6 font-medium text-gray-900" passive>
-                  Receive Reminders
+                  Alerts & Reminders
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={automaticTimezoneEnabled}
-                    onChange={setAutomaticTimezoneEnabled}
+                    checked={email_alert}
+                    onChange={e => updatePreferences('email_alert', e)}
                     className={classNames(
-                      automaticTimezoneEnabled ? 'bg-pink-600' : 'bg-gray-200',
+                      email_alert ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        automaticTimezoneEnabled ? 'translate-x-3.5' : 'translate-x-0',
+                        email_alert ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
                   </Switch>
                 </dd>
               </Switch.Group>
+
             </dl>
           </div>
         </div>

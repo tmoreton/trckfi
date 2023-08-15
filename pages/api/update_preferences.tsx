@@ -2,7 +2,7 @@
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
-  const { user, payload } = req.body
+  const { user, preferences } = req.body
   if (!user) return res.status(500).json({ error: 'No User or Payload Info' })
   try {
     await prisma.preferences.update({
@@ -10,9 +10,7 @@ export default async (req, res) => {
       where: { 
         user_id: user.id
       },
-      data: { 
-        vision_board: payload
-      }
+      data: preferences
     })
     return res.status(200).json({ status: 'OK' })
   } catch (error) {

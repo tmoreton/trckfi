@@ -12,11 +12,11 @@ export default function () {
   const { data: session } = useSession()
   const user = session?.user
 
-  useEffect(() => {
-    if(user){
-      setShow(true)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(user){
+  //     setShow(true)
+  //   }
+  // }, [])
 
   return (
     <>

@@ -4,13 +4,14 @@ import { vision, new_vision } from '../utils/default-vision'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
-const PERSISTENCE_KEY = 'vision_board'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
   const user = session?.user
   const [controls, showControls] = useState(false)
+  const [preferences, setPreferences] = useState({})
   const [save, setSave] = useState(false)
+  const [savedVision, setSavedVision] = useLocalStorage('vision_board', null)
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
@@ -21,9 +22,10 @@ export default function Editor({ showError }) {
 
   const updatePreferences = async () => {
     setSave(true)
-    const persistedSnapshot =  JSON.parse(localStorage.getItem(PERSISTENCE_KEY))
+    let updated = preferences
+    updated['vision_board'] = savedVision
     const res = await fetch(`/api/update_preferences`, {
-      body: JSON.stringify({ user, payload: persistedSnapshot }),
+      body: JSON.stringify({ user, preferences: updated }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -46,7 +48,14 @@ export default function Editor({ showError }) {
     })
     const { error, data } = await res.json()
     showError(error)
-    store.loadSnapshot(data.vision_board)
+    setPreferences(data)
+    if(data?.vision_board){
+      store.loadSnapshot(data.vision_board)
+      setSavedVision(data.vision_board)
+    } else {
+      setSavedVision(JSON.parse(new_vision))
+      updatePreferences()
+    }
   }
 
 	useEffect(() => {
@@ -72,11 +81,10 @@ export default function Editor({ showError }) {
     // @ts-ignore
     // let defaultVision = user?.login_count <= 1 && show ? new_vision : vision
 		// Get persisted data from local storage
-		const persistedSnapshot =  localStorage.getItem(PERSISTENCE_KEY) || new_vision
-    if (persistedSnapshot) {
+		// const persistedSnapshot =  savedVision || new_vision
+    if (savedVision) {
 			try {
-				const snapshot = JSON.parse(persistedSnapshot)
-				store.loadSnapshot(snapshot)
+				store.loadSnapshot(savedVision)
 				setLoadingState({ status: 'ready' })
 			} catch (error: any) {
 				setLoadingState({ status: 'error', error: error.message }) // Something went wrong
@@ -89,10 +97,9 @@ export default function Editor({ showError }) {
 		const cleanupFn = store.listen(
 			throttle(() => {
 				const snapshot = store.getSnapshot()
-				localStorage.setItem(PERSISTENCE_KEY, JSON.stringify(snapshot))
-			}, 5000)
+        setSavedVision(snapshot)
+			}, 1000)
 		)
-
 		return () => {
 			cleanupFn()
 		}
