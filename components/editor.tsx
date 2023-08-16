@@ -81,7 +81,9 @@ export default function Editor({ showError }) {
 			try {
         // @ts-ignore
         if(user?.login_count <= 1){
-          store.loadSnapshot(JSON.parse(new_vision))
+          let vision = JSON.parse(new_vision)
+          setSavedVision(vision)
+          store.loadSnapshot(JSON.parse(vision))
         } else {
           store.loadSnapshot(savedVision)
         }
