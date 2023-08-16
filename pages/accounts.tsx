@@ -98,7 +98,7 @@ const Accounts = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
-
+    setRefreshing(false)
     const accounts = data.reduce(function (r, a) {
       r[a.institution] = r[a.institution] || [];
       r[a.institution].push(a);
@@ -137,6 +137,7 @@ const Accounts = ({ showError }) => {
       method: 'POST',
     })
     setLoading(false)
+    setRefreshing(false)
     const { error } = await res.json()
     showError(error)
     if(!error) getAccounts()
