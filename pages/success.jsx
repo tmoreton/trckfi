@@ -62,15 +62,6 @@ export async function getServerSideProps(context) {
   }
 
   if(user && user?.active){
-    await prisma.preferences.upsert({
-      where: { user_id: user.id },
-      update: { user_id: user.id },
-      create: { 
-        user_id: user.id,
-        vision_board: JSON.parse(new_vision)
-      },
-    })
-
     await prisma.user.update({
       where: { 
         id: user.id
