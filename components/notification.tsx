@@ -1,22 +1,67 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import { XMarkIcon, CheckBadgeIcon, FaceFrownIcon } from '@heroicons/react/20/solid'
-import  { useLocalStorage } from '../utils/useLocalStorage'
 import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
 
-export default function () {
-  const [show, setShow] = useLocalStorage('show_notification', false)
-  // const [show, setShow] = useState(true)
+export default function ({ showError }) {
+  const [show, setShow] = useState(false)
   const [answer, setAnswer] = useState(null)
+  const [question, setQuestion] = useState(null)
   const { data: session } = useSession()
   const user = session?.user
 
-  // useEffect(() => {
-  //   if(user){
-  //     setShow(true)
-  //   }
-  // }, [])
+  useEffect(() => {
+    // @ts-ignore
+    if(user && user.login_count > 0) getQuestion()
+  }, [])
+
+  const getQuestion = async () => {
+    const res = await fetch(`/api/get_question`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, data } = await res.json()
+    showError(error)
+    
+    if(data){
+      setQuestion(data)
+      setShow(true)
+    }
+  }
+
+  const addAnswer = async (input) => {
+    setAnswer(input)
+    console.log(question)
+    console.log(input)
+    const res = await fetch(`/api/add_answer`, {
+      body: JSON.stringify({
+        data: {
+          // @ts-ignore
+          user_id: user.id,
+          correct: question?.answer === input,
+          question_id: question.id
+        }
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+  }
+
+  const onClose = async () => {
+    setShow(false)
+    setAnswer(null)
+    setQuestion(null)
+  }
 
   return (
     <>
@@ -51,18 +96,18 @@ export default function () {
                   { answer === null &&
                     <div className="ml-3 w-0 flex-1">
                       <p className="text-md text-white">Question of the day</p>
-                      <p className="py-3 text-md font-semibold text-white">You should check your credit report once every few years?</p>
+                      <p className="py-3 text-md font-semibold text-white">{question?.question}</p>
                       <div className="mt-4 flex">
                         <button
                           type="button"
-                          onClick={() => setAnswer(true)}
+                          onClick={() => addAnswer(true)}
                           className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-md font-semibold text-pink-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
                         >
                           True
                         </button>
                         <button
                           type="button"
-                          onClick={() => setAnswer(false)}
+                          onClick={() => addAnswer(false)}
                           className="ml-3 inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-md font-semibold text-pink-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
                         >
                           False
@@ -71,25 +116,25 @@ export default function () {
                     </div>
                   }
                   {/* Correct Answer */}
-                  { answer &&
+                  { answer !== null && question?.answer === answer &&
                     <div className="ml-3 w-0 flex-1">
                       <p className="text-lg font-semibold text-white flex items-center">Correct! <CheckBadgeIcon className="ml-2 h-5 w-5" aria-hidden="true" /></p>
-                      <p className="py-3 text-md font-normal text-white">Ideally, you should check your credit report once a year. Typically your credit card has a free version to check your credit score to keep you up to date.</p>
+                      <p className="py-3 text-md font-normal text-white">{question?.detail}</p>
                       <ConfettiExplosion />
                     </div>
                   }
                   {/* Wrong Answer */}
-                  { !answer && answer !== null &&
+                  { answer !== null && question?.answer !== answer &&
                     <div className="ml-3 w-0 flex-1">
                       <p className="text-lg font-semibold text-white flex items-center"><FaceFrownIcon className="h-7 w-7" aria-hidden="true" /></p>
-                      <p className="py-3 text-md font-normal text-white">Ideally, you should check your credit report once a year. Typically your credit card has a free version to check your credit score to keep you up to date.</p>
+                      <p className="py-3 text-md font-normal text-white">{question?.detail}</p>
                     </div>
                   }
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
                       className="inline-flex rounded-md text-white hover:text-gray-100"
-                      onClick={() => setShow(false)}
+                      onClick={onClose}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-7 w-7" aria-hidden="true" />

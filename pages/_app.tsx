@@ -25,7 +25,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
               </p>
             </div>
           }
-          <Notification />
+          <Notification showError={showError} />
           <Component {...pageProps} showError={showError} />
         </AuthGuard>
       <Analytics />

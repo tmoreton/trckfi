@@ -45,6 +45,7 @@ model User {
   sessions        Session[]
   transactions    Transactions[]
   NetWorth        NetWorth[]
+  Answers         Answers[]
 
   @@map("users")
 }
@@ -176,4 +177,26 @@ model NetWorth {
   user       User?     @relation(fields: [user_id], references: [id], onUpdate: Cascade)
 
   @@map("net_worth")
+}
+
+model Questions {
+  id       Int       @id @default(autoincrement())
+  question String
+  answer   Boolean
+  detail   String?
+  Answers  Answers[]
+
+  @@map("questions")
+}
+
+model Answers {
+  id          String     @id @default(cuid())
+  correct     Boolean
+  created_at  DateTime?  @default(now())
+  user_id     String?    @map("user_id")
+  question_id Int?       @map("question_id")
+  user        User?      @relation(fields: [user_id], references: [id])
+  question    Questions? @relation(fields: [question_id], references: [id])
+
+  @@map("answers")
 }
