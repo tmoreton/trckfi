@@ -1,9 +1,9 @@
 import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
-import { useLayoutEffect, useState, useEffect } from 'react'
+import { useLayoutEffect, useState, useEffect } from 'react';
+import { vision, new_vision } from '../utils/default-vision'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
-import { new_vision } from '../utils/default-vision'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
@@ -53,6 +53,7 @@ export default function Editor({ showError }) {
       store.loadSnapshot(data.vision_board)
       setSavedVision(data.vision_board)
     } else {
+      setSavedVision(JSON.parse(new_vision))
       updatePreferences()
     }
   }
@@ -77,16 +78,13 @@ export default function Editor({ showError }) {
 	
 	useLayoutEffect(() => {
 		setLoadingState({ status: 'loading' })
+    // @ts-ignore
+    // let defaultVision = user?.login_count <= 1 && show ? new_vision : vision
+		// Get persisted data from local storage
+		// const persistedSnapshot =  savedVision || new_vision
     if (savedVision) {
 			try {
-        // @ts-ignore
-        if(user?.login_count <= 1){
-          let vision = JSON.parse(new_vision)
-          setSavedVision(vision)
-          store.loadSnapshot(JSON.parse(vision))
-        } else {
-          store.loadSnapshot(savedVision)
-        }
+				store.loadSnapshot(savedVision)
 				setLoadingState({ status: 'ready' })
 			} catch (error: any) {
 				setLoadingState({ status: 'error', error: error.message }) // Something went wrong
