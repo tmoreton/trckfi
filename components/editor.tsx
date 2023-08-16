@@ -3,6 +3,7 @@ import { useLayoutEffect, useState, useEffect } from 'react'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
+import { new_vision } from '../utils/default-vision'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
@@ -78,7 +79,12 @@ export default function Editor({ showError }) {
 		setLoadingState({ status: 'loading' })
     if (savedVision) {
 			try {
-				store.loadSnapshot(savedVision)
+        // @ts-ignore
+        if(user?.login_count <= 1){
+          store.loadSnapshot(JSON.parse(new_vision))
+        } else {
+          store.loadSnapshot(savedVision)
+        }
 				setLoadingState({ status: 'ready' })
 			} catch (error: any) {
 				setLoadingState({ status: 'error', error: error.message }) // Something went wrong
