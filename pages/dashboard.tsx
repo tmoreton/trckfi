@@ -35,6 +35,7 @@ const Dashboard = ({ showError }) => {
   })
 
   useEffect(() => {
+    getRecurring()
     getDashboard()
     getStats()
     getTransactions()

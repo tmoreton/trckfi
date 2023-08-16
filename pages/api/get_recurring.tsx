@@ -60,6 +60,41 @@ export default async (req, res) => {
       })
     })
 
+    const duplicates = await prisma.transactions.findMany({
+      where: {
+        OR: user_query, 
+        active: true,
+        detailed_category: 'ACCOUNT_TRANSFER',
+        authorized_date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ weeks: 1 }).toISO(),
+        },
+      },
+      select: {
+        id: true,
+        amount: true
+      }
+    })
+    
+    let duplicateIds = []
+    duplicates.forEach(item => {
+      let found = duplicates.find(e=> Math.abs(Number(e.amount)) === Math.abs(Number(item.amount)) && e.id !== item.id)
+      if(found){
+        duplicateIds.push(found.id)
+      }
+    })
+
+    await prisma.transactions.updateMany({
+      where: {
+        id: {
+          in: duplicateIds,
+        },
+      },
+      data: {
+        active: false,
+      },
+    })
+    
     return res.status(200).json({ status: 'ok' })
   } catch (error) {
     console.error(error)
