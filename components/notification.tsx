@@ -37,8 +37,6 @@ export default function ({ showError }) {
 
   const addAnswer = async (input) => {
     setAnswer(input)
-    console.log(question)
-    console.log(input)
     const res = await fetch(`/api/add_answer`, {
       body: JSON.stringify({
         data: {
@@ -93,10 +91,10 @@ export default function ({ showError }) {
                     />
                   </div>
                   {/* Initial question */}
-                  { answer === null &&
-                    <div className="ml-3 w-0 flex-1">
-                      <p className="text-md text-white">Question of the day</p>
-                      <p className="py-3 text-md font-semibold text-white">{question?.question}</p>
+                  <div className="ml-3 mb-3 w-0 flex-1">
+                    <p className="text-md text-white">Question of the day</p>
+                    <p className="py-3 text-md font-semibold text-white">{question?.question}</p>
+                    { answer === null ?
                       <div className="mt-4 flex">
                         <button
                           type="button"
@@ -113,23 +111,29 @@ export default function ({ showError }) {
                           False
                         </button>
                       </div>
-                    </div>
-                  }
-                  {/* Correct Answer */}
-                  { answer !== null && question?.answer === answer &&
-                    <div className="ml-3 w-0 flex-1">
-                      <p className="text-lg font-semibold text-white flex items-center">Correct! <CheckBadgeIcon className="ml-2 h-5 w-5" aria-hidden="true" /></p>
-                      <p className="py-3 text-md font-normal text-white">{question?.detail}</p>
-                      <ConfettiExplosion />
-                    </div>
-                  }
-                  {/* Wrong Answer */}
-                  { answer !== null && question?.answer !== answer &&
-                    <div className="ml-3 w-0 flex-1">
-                      <p className="text-lg font-semibold text-white flex items-center"><FaceFrownIcon className="h-7 w-7" aria-hidden="true" /></p>
-                      <p className="py-3 text-md font-normal text-white">{question?.detail}</p>
-                    </div>
-                  }
+                      :
+                      <div className="flex">
+                        {/* Correct Answer */}
+                        { answer !== null && question?.answer === answer &&
+                          <div className="w-0 flex-1">
+                            <p className="text-md text-white mb-2">Answer: <span className="font-bold">{JSON.stringify(question?.answer)}</span></p>
+                            <p className="text-lg font-semibold text-white flex items-center">Correct! <CheckBadgeIcon className="ml-2 h-5 w-5" aria-hidden="true" /></p>
+                            <p className="py-3 text-md font-normal text-white">{question?.detail}</p>
+                            <ConfettiExplosion />
+                          </div>
+                        }
+                        {/* Wrong Answer */}
+                        { answer !== null && question?.answer !== answer &&
+                          <div className="w-0 flex-1">
+                            <p className="text-md text-white mb-2">Answer: {JSON.stringify(question?.answer)}</p>
+                            <p className="text-lg font-semibold text-white flex items-center"><FaceFrownIcon className="h-7 w-7" aria-hidden="true" /></p>
+                            <p className="py-3 text-md font-normal text-white">{question?.detail}</p>
+                          </div>
+                        }
+                      </div>
+                    }
+                  </div>
+
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"

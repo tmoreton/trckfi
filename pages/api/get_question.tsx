@@ -5,7 +5,7 @@ import { DateTime } from "luxon"
 export default async (req, res) => {
   const { user } = req.body
   if (!user) return res.status(500).json({ error: 'No User Info' })
-  const endDate = DateTime.now().startOf('day').toISO()
+  const endDate = DateTime.now().startOf('day')
 
   try {
      // @ts-ignore
@@ -25,7 +25,7 @@ export default async (req, res) => {
         where: { id: 1 }
       })
       return res.status(200).json({ status: 'OK', data: question })
-    } else if(a[0]?.created_at < endDate) { 
+    } else if(a[0]?.created_at > endDate) { 
       return res.status(200).json({ status: 'OK', data: null })
     } else {
       let num = Math.abs(Number(a[0].question_id))
