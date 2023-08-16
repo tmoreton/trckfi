@@ -1,6 +1,7 @@
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
+import { new_vision } from '../utils/default-vision'
 
 export default function () {
   return null
@@ -26,7 +27,10 @@ export async function getServerSideProps(context) {
     await prisma.preferences.upsert({
       where: { user_id: user.id },
       update: { user_id: user.id },
-      create: { user_id: user.id },
+      create: { 
+        user_id: user.id,
+        vision_board: JSON.parse(new_vision)
+      },
     })
 
     await prisma.user.update({
@@ -61,7 +65,10 @@ export async function getServerSideProps(context) {
     await prisma.preferences.upsert({
       where: { user_id: user.id },
       update: { user_id: user.id },
-      create: { user_id: user.id },
+      create: { 
+        user_id: user.id,
+        vision_board: JSON.parse(new_vision)
+      },
     })
 
     await prisma.user.update({

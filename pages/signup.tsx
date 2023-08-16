@@ -7,6 +7,7 @@ import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/modals/loading-modal'
 import Meta from '../components/meta'
 import prisma from '../lib/prisma'
+import { new_vision } from '../utils/default-vision'
 
 export default function ({ csrfToken, user, showError }) {
   const email = user?.email
@@ -98,8 +99,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       where: { user_id: user.id },
       // @ts-ignore
       update: { user_id: user.id },
-      // @ts-ignore
-      create: { user_id: user.id },
+      create: { 
+        // @ts-ignore
+        user_id: user.id,
+        // @ts-ignore
+        vision_board: JSON.parse(new_vision)
+      },
     })
     return {
       redirect: {
