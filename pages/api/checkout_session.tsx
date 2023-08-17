@@ -1,12 +1,23 @@
 import Stripe from 'stripe'
+import prisma from '../../lib/prisma'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
 
 export default async (req, res) => {
-  const { email } = req.body
+  const { email, referral_id } = req.body
   try {
+    // Check if user was referred by a friend
+    let discounts = []
+    if(referral_id){
+      const referral_user = await prisma.user.findUnique({
+        // @ts-ignore
+        where: { referral_id },
+      })
+      if(referral_user) discounts = [{ coupon: process.env.STRIPE_COUPON_ID }]
+    }
+
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
         {
@@ -16,11 +27,12 @@ export default async (req, res) => {
       ],
       mode: 'subscription',
       customer_email: email,
-      subscription_data: {
-        trial_period_days: 30,
-      },
-      allow_promotion_codes: true,
-      success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+      // subscription_data: {
+      //   trial_period_days: 30,
+      // },
+      // allow_promotion_codes: true,
+      discounts,
+      success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}`,
       cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
     };
     const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(params);

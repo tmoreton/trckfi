@@ -39,6 +39,7 @@ model User {
   ended_at        Decimal?       @db.Decimal(15, 0)
   start_date      Decimal?       @db.Decimal(15, 0)
   trial_end       Decimal?       @db.Decimal(15, 0)
+  referral_id     String?        @unique
   plaid           Plaid[]
   Preferences     Preferences[]
   Rules           Rules[]
@@ -46,6 +47,7 @@ model User {
   transactions    Transactions[]
   NetWorth        NetWorth[]
   Answers         Answers[]
+  Balances        Balances[]
 
   @@map("users")
 }
@@ -199,4 +201,17 @@ model Answers {
   question    Questions? @relation(fields: [question_id], references: [id])
 
   @@map("answers")
+}
+
+model Balances {
+  id          String    @id @default(cuid())
+  amount      Decimal?  @db.Decimal(9, 2)
+  details     String?
+  customer_id String?
+  balance_id  String?   @unique
+  created_at  DateTime? @default(now())
+  user_id     String?   @map("user_id")
+  user        User?     @relation(fields: [user_id], references: [id])
+
+  @@map("balances")
 }

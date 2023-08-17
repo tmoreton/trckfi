@@ -9,13 +9,14 @@ import Meta from '../components/meta'
 import prisma from '../lib/prisma'
 import { new_vision } from '../utils/default-vision'
 
-export default function ({ csrfToken, user, showError }) {
+export default function ({ csrfToken, user, showError, referral_id }) {
   const email = user?.email
 
   const handleSubmit = async (email) => {
     const res = await fetch(`/api/checkout_session`, {
       body: JSON.stringify({ 
-        email: email
+        email,
+        referral_id
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -90,6 +91,7 @@ export default function ({ csrfToken, user, showError }) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { referral_id } = context.query
   const session = await getSession(context)
   const user = session?.user
   // @ts-ignore
@@ -116,6 +118,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const csrfToken = await getCsrfToken(context)
   return {
-    props: { csrfToken, user },
+    props: { csrfToken, user, referral_id },
   }
 }
