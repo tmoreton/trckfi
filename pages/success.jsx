@@ -2,7 +2,7 @@ import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
 import { new_vision } from '../utils/default-vision'
-import Referral from "../emails/referral-success"
+import Referral from "../emails/referral_success"
 
 export default function () {
   return null
