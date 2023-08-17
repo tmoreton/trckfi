@@ -1,6 +1,7 @@
 import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
+import { render } from '@react-email/render'
 import { new_vision } from '../utils/default-vision'
 import Referral from "../emails/referral_success"
 
