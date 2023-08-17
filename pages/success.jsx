@@ -31,7 +31,7 @@ export async function getServerSideProps(context) {
         where: { referral_id },
       })
       if(referral_user){
-        const balanceTransaction = await stripe.customers.createBalanceTransaction(referral_user.customer_id, { amount: -10, currency: 'usd' })
+        const balanceTransaction = await stripe.customers.createBalanceTransaction(referral_user.customer_id, { amount: -1000, currency: 'usd' })
 
         if(balanceTransaction){
           await prisma.balances.upsert({
