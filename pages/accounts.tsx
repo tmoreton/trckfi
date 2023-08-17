@@ -144,6 +144,7 @@ const Accounts = ({ showError }) => {
   }
 
   const unhideAccount = async (account) => {
+    setRefreshing(true)
     const res = await fetch(`/api/unhide_account`, {
       body: JSON.stringify({
         user, account
@@ -155,6 +156,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
+    setRefreshing(false)
     if(!error) getAccounts()
   }
 
@@ -206,21 +208,21 @@ const Accounts = ({ showError }) => {
         <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
-        <div className="lg:flex justify-center lg:space-x-6 space-x-0 mb-4 sm:block">
-          <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+        <div className="lg:flex justify-center mb-4 sm:block">
+          <button onClick={() => setOpenStock(true)} className="lg:mr-6 mr-0 mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Stock
           </button>
-          <button onClick={() => setOpenHome(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+          <button onClick={() => setOpenHome(true)} className="lg:mr-6 mr-0 mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Home Value
           </button>
-          <button  onClick={() => setOpenCrypto(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+          <button  onClick={() => setOpenCrypto(true)} className="lg:mr-6 mr-0 mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Crypto
           </button>
           <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
-          <button  onClick={() => setOpenManually(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+          <button  onClick={() => setOpenManually(true)} className="lg:mx-6 mx-0 mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
           </button>
@@ -228,10 +230,10 @@ const Accounts = ({ showError }) => {
             <button
               onClick={refresh}
               type="button"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+              className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
             >
               <span className="sr-only">Refresh</span>
-              <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
+              <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
             </button>
           </div>
         </div>
