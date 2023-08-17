@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
               balance_id: balanceTransaction.id,
               user_id: referral_user.id,
               customer_id: balanceTransaction.customer,
-              amount: balanceTransaction.amount,
+              amount: 10,
               details: balanceTransaction.object
             },
           })
