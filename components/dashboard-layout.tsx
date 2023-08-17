@@ -12,7 +12,6 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signOut } from "next-auth/react"
-import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
@@ -32,7 +31,7 @@ export default function ({ children }) {
   const currentRoute = router.pathname
   return (
     <>
-      <div className="min-h-screen">
+      <div>
         <Container>
           <div className="mx-auto lg:flex lg:gap-x-0">
             <aside className="hidden lg:flex overflow-x-auto border-b border-gray-900/5 lg:block lg:flex-none lg:border-0">
