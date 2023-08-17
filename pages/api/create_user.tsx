@@ -38,8 +38,8 @@ export default async (req, res) => {
       },
     })
 
-    await transporter.sendMail(message)
-
+    let emailSent = await transporter.sendMail(message)
+    console.log(emailSent)
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
