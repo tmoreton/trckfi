@@ -30,7 +30,7 @@ export default async (req, res) => {
       // subscription_data: {
       //   trial_period_days: 30,
       // },
-      allow_promotion_codes: discounts.length < 0 ? false : true,
+      allow_promotion_codes: discounts.length <= 0 ? true : false,
       discounts,
       success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}`,
       cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
