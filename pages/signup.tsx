@@ -53,7 +53,7 @@ export default function ({ csrfToken, user, showError, referral_id }) {
           <Icon />
           <div className="mx-auto pt-4 max-w-2xl text-center space-y-3">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-4">
-              Let's create an account
+              { referral_id && <span className="pb-10">Nice! Your friend gave you $10!<br/></span>} Let's create an account
             </h1>
             <p className="text-md text-gray-600">
               With passwordless login we don't use passwords that can be hacked. Instead we will send you a magic link everytime you sign in.
