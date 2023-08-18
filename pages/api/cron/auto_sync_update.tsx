@@ -83,6 +83,7 @@ export default async (req, res) => {
         
       } catch (error) {
         console.error(error)
+throw new Error(error)
         await prisma.plaid.update({
           where: { access_token: plaid[p].access_token },
           data: { error_code: error.response?.data?.error_code }

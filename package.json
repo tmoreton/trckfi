@@ -17,6 +17,7 @@
     "@react-email/components": "^0.0.7",
     "@react-email/html": "^0.0.4",
     "@react-email/render": "^0.0.7",
+    "@sentry/nextjs": "^7.64.0",
     "@stripe/stripe-js": "^1.54.1",
     "@tanstack/react-table": "^8.9.3",
     "@tldraw/assets": "^2.0.0-canary.13ef8be58d15",
