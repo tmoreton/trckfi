@@ -39,7 +39,7 @@ model User {
   ended_at        Decimal?       @db.Decimal(15, 0)
   start_date      Decimal?       @db.Decimal(15, 0)
   trial_end       Decimal?       @db.Decimal(15, 0)
-  referral_id     String?        @unique
+  referral_id     String?        @unique @default(cuid())
   plaid           Plaid[]
   Preferences     Preferences[]
   Rules           Rules[]

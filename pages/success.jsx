@@ -86,7 +86,6 @@ export async function getServerSideProps(context) {
       data: { 
         subscription_id: subscription,
         customer_id: customer,
-        referral_id: email?.toLowerCase()?.split('@')?.[0],
         canceled_at, 
         ended_at, 
         start_date, 

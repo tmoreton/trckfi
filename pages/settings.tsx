@@ -137,6 +137,25 @@ const Settings = ({ showError }) => {
           keywords=''
         />
         <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
+        <div className="bg-pink-100 rounded-2xl">
+          <div className="mx-auto max-w-7xl px-6 py-5 sm:py-10 lg:flex lg:items-center lg:justify-between lg:px-8 mb-6">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl">
+                Give $10, Get $10
+              </h2>
+              <p className="text-lg font-normal pt-2">When you refer a friend, they get a $10 credit when they sign up and you get $10 towards your next bill!</p>
+            </div>
+            <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+              <button
+                // @ts-ignore
+                onClick={() => {navigator.clipboard.writeText(`${process.env['NEXT_PUBLIC_BASE_URL']}/signup?referraL_id=${user?.referral_id}`)}}
+                className="rounded-md bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+              >
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
         <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
           <div>
             <h2 className="text-base font-semibold leading-7 text-pink-600">Profile</h2>

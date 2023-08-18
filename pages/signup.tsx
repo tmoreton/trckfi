@@ -35,7 +35,6 @@ export default function ({ csrfToken, user, showError, referral_id }) {
   }
 
   useEffect(() => {
-    console.log(referral_id)
     if(email){
       handleSubmit(email)
     }

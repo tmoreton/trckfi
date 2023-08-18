@@ -21,7 +21,6 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
         </div>
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" method="post" action={`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/success`}>
-          {/* <form className="space-y-6" method="post" action={`/api/auth/signin/email`}> */}
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <div>
               <label htmlFor="email" className="block text-sm font-small leading-6 text-pink-600">
