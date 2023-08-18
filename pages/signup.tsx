@@ -6,8 +6,6 @@ import { getSession } from 'next-auth/react'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/modals/loading-modal'
 import Meta from '../components/meta'
-import prisma from '../lib/prisma'
-import { new_vision } from '../utils/default-vision'
 
 export default function ({ csrfToken, user, showError, referral_id }) {
   const email = user?.email
@@ -94,27 +92,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { referral_id } = context.query
   const session = await getSession(context)
   const user = session?.user
-  // @ts-ignore
-  // if(user && user?.active) {
-  //   await prisma.preferences.upsert({
-  //     // @ts-ignore
-  //     where: { user_id: user.id },
-  //     // @ts-ignore
-  //     update: { user_id: user.id },
-  //     create: { 
-  //       // @ts-ignore
-  //       user_id: user.id,
-  //       // @ts-ignore
-  //       vision_board: JSON.parse(new_vision)
-  //     },
-  //   })
-  //   return {
-  //     redirect: {
-  //       destination: '/dashboard',
-  //       permanent: false,
-  //     },
-  //   }
-  // }
   
   const csrfToken = await getCsrfToken(context)
   return {
