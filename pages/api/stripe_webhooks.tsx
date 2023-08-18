@@ -34,7 +34,7 @@ export default async (req, res) => {
         if(updatedUser.linked_user_id){
           await prisma.user.update({
             // @ts-ignore
-            where: { id: userResumed.linked_user_id },
+            where: { id: updatedUser.linked_user_id },
             data: {
               active: canceled_at ? false : true,
               status,
