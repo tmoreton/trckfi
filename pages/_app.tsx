@@ -10,9 +10,14 @@ import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
+import Hotjar from '@hotjar/browser'
+
+const siteId = 3619138
+const hotjarVersion = 6
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
+  Hotjar.init(siteId, hotjarVersion);
   return (
     <SessionProvider session={session}>
       <ErrorModal error={error} />
