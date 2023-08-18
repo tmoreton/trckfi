@@ -95,27 +95,27 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context)
   const user = session?.user
   // @ts-ignore
-  if(user && user?.active) {
-    await prisma.preferences.upsert({
-      // @ts-ignore
-      where: { user_id: user.id },
-      // @ts-ignore
-      update: { user_id: user.id },
-      create: { 
-        // @ts-ignore
-        user_id: user.id,
-        // @ts-ignore
-        vision_board: JSON.parse(new_vision)
-      },
-    })
-    return {
-      redirect: {
-        destination: '/dashboard',
-        permanent: false,
-      },
-    }
-  }
-
+  // if(user && user?.active) {
+  //   await prisma.preferences.upsert({
+  //     // @ts-ignore
+  //     where: { user_id: user.id },
+  //     // @ts-ignore
+  //     update: { user_id: user.id },
+  //     create: { 
+  //       // @ts-ignore
+  //       user_id: user.id,
+  //       // @ts-ignore
+  //       vision_board: JSON.parse(new_vision)
+  //     },
+  //   })
+  //   return {
+  //     redirect: {
+  //       destination: '/dashboard',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
+  
   const csrfToken = await getCsrfToken(context)
   return {
     props: { csrfToken, user, referral_id },

@@ -69,17 +69,18 @@ export default function ({ showError }) {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex items-center">
-                  { session &&
+                  { // @ts-ignore
+                    session && session.user?.active &&
                     <Link href="/visionboard">
                       <b>{session.user.email}</b>
                     </Link>
                   }
                   
                   <Menu as="div" className="relative ml-3">
-                  {/* <Menu as="div" className="ml-3"> */}
-                    {
-                      session ?
-                      <div className="flex items-center">
+                    
+                    { // @ts-ignore
+                      session && session.user?.active ?
+                        <div className="flex items-center">
                         <Link href="/settings">
                           <Menu.Button className="flex items-center">
                             <span className="sr-only">Open user menu</span>
@@ -87,9 +88,7 @@ export default function ({ showError }) {
                           </Menu.Button>
                         </Link>
                       </div>
-
                       :
-                      
                       <Link href="/#get-notified">
                         <PinkBtn onClick={() => console.log('close')}>
                           Join Waitlist!
@@ -188,8 +187,8 @@ export default function ({ showError }) {
                   </Disclosure.Button>
                 ))
               }
-              {
-                session ?
+              { // @ts-ignore
+                session && session.user?.active ?
                 <div className="my-2 space-y-1">
                   <Disclosure.Button
                     as="button"
