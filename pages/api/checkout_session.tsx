@@ -17,7 +17,7 @@ export default async (req, res) => {
       ],
       mode: 'subscription',
       customer_email: user?.email,
-      customer: user?.customer_id,
+      // customer: user?.customer_id,
       success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}`,
       cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
     };
