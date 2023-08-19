@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
@@ -17,7 +17,13 @@ const hotjarVersion = 6
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
-  Hotjar.init(siteId, hotjarVersion);
+
+  useEffect(() => {
+    if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost')){
+      Hotjar.init(siteId, hotjarVersion);
+    }
+  }, [])
+  
   return (
     <SessionProvider session={session}>
       <ErrorModal error={error} />
