@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default async (req, res) => {
-  const { email, referral_id } = req.body
+  const { user, referral_id } = req.body
   try {
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
@@ -16,7 +16,8 @@ export default async (req, res) => {
         },
       ],
       mode: 'subscription',
-      customer_email: email,
+      customer_email: user?.email,
+      customer: user?.customer_id,
       success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}`,
       cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
     };

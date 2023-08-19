@@ -22,7 +22,7 @@ export default function ({ csrfToken, user, showError, referral_id }) {
   const checkout = async (email) => {
     const res = await fetch(`/api/checkout_session`, {
       body: JSON.stringify({ 
-        email,
+        user,
         referral_id
       }),
       headers: {
