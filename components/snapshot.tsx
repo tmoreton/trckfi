@@ -28,7 +28,7 @@ export default function ({ totalStats, refresh, loading }) {
             :
             <div className="items-baseline justify-between">
               <p className="text-2xl font-semibold text-green-600">{`${Math.round((thisMonthIncome-thisMonthTotal)/thisMonthIncome)}%`}</p>
-              <p className="text-xs text-gray-400">You have saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month! 🎉</p>
+              <p className="text-xs text-gray-400">You saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month! 🎉</p>
             </div>
           }
           <div className={loading && "animate-spin"}>
