@@ -9,7 +9,7 @@ import LoadingModal from '../components/modals/loading-modal'
 import Meta from '../components/meta'
 
 export default function ({ csrfToken, user, showError, referral_id }) {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(true)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
@@ -87,7 +87,7 @@ export default function ({ csrfToken, user, showError, referral_id }) {
                 PS. Check your spam folder since it's your first email from us.
               </p>
               <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>
-              <div className="mt-2 flex items-center justify-center gap-x-6">
+              <div className="mt-1 flex items-center justify-center gap-x-6">
                 <a href="mailto:support@trckfi.com" className="text-sm font-semibold text-gray-900">
                   Contact support <span aria-hidden="true">&rarr;</span>
                 </a>
@@ -126,7 +126,7 @@ export default function ({ csrfToken, user, showError, referral_id }) {
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                 />
               </div>
-              <fieldset>
+              {/* <fieldset>
                 <legend className="sr-only">Terms of Service</legend>
                 <div className="relative flex items-center justify-center py-2">
                   <div className="flex h-6 items-center">
@@ -148,7 +148,7 @@ export default function ({ csrfToken, user, showError, referral_id }) {
                     </label>
                   </div>
                 </div>
-              </fieldset>
+              </fieldset> */}
               <button
                 onClick={handleSubmit}
                 className="flex text-center justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 mx-auto"
