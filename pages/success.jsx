@@ -31,11 +31,14 @@ export async function getServerSideProps(context) {
       const referral_user = await prisma.user.findUnique({
         where: { referral_id },
       })
-      if(referral_user){
+      const referral =  prisma.referrals.findUnique({
+        where: { referred_email: email },
+      })
+      if(referral_user && !referral){
         const balanceTransaction = await stripe.customers.createBalanceTransaction(referral_user.customer_id, { amount: -1000, currency: 'usd' })
 
         if(balanceTransaction){
-          await prisma.balances.upsert({
+          await prisma.referrals.upsert({
             where: { balance_id: balanceTransaction.id },
             update: {},
             create: { 
@@ -43,7 +46,9 @@ export async function getServerSideProps(context) {
               user_id: referral_user.id,
               customer_id: balanceTransaction.customer,
               amount: 10,
-              details: balanceTransaction.object
+              details: balanceTransaction.object,
+              referred_customer_id: customer,
+              referred_email: email
             },
           })
 
