@@ -166,7 +166,7 @@ const Settings = ({ showError }) => {
               <div className="pt-6 sm:flex">
                 <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Subscription</dt>
                 <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                  <div className="text-gray-900">Monthly - Active</div>
+                  <div className="text-gray-900">Active</div>
                   <button onClick={redirect} type="button" className="font-semibold text-red-600 hover:text-red-500">
                     Manage Subscription
                   </button>
