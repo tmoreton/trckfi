@@ -4,7 +4,7 @@ import {
   ChartBarIcon,
   Cog6ToothIcon,
   UserCircleIcon,
-  UsersIcon,
+  BanknotesIcon,
   AdjustmentsHorizontalIcon,
   ChatBubbleLeftEllipsisIcon,
   CloudIcon
@@ -15,11 +15,11 @@ import { signOut } from "next-auth/react"
 
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
-  { name: 'Dashboard', href: '/dashboard', icon: UserCircleIcon },
-  { name: 'Accounts', href: '/accounts', icon: UsersIcon },
+  { name: 'Dashboard', href: '/dashboard', icon: BanknotesIcon },
+  { name: 'Accounts', href: '/accounts', icon: Cog6ToothIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
   { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
-  { name: 'Profile', href: '/profile', icon: Cog6ToothIcon },
+  { name: 'Profile', href: '/profile', icon: UserCircleIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
 ]
 
