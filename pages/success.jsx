@@ -40,6 +40,18 @@ export async function getServerSideProps(context) {
 
         if(balanceTransaction){
           await prisma.referrals.upsert({
+            where: { referred_email: email },
+            update: {},
+            create: { 
+              user_id: referral_user.id,
+              customer_id: balanceTransaction.customer,
+              amount: 10,
+              referred_customer_id: customer,
+              referred_email: email
+            },
+          })
+
+          await prisma.balances.upsert({
             where: { balance_id: balanceTransaction.id },
             update: {},
             create: { 
@@ -48,8 +60,7 @@ export async function getServerSideProps(context) {
               customer_id: balanceTransaction.customer,
               amount: 10,
               details: balanceTransaction.object,
-              referred_customer_id: customer,
-              referred_email: email
+              type: 'referral'
             },
           })
 

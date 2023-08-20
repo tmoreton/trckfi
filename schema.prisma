@@ -48,6 +48,7 @@ model User {
   NetWorth        NetWorth[]
   Answers         Answers[]
   Referrals       Referrals[]
+  Balances        Balances[]
 
   @@map("users")
 }
@@ -206,14 +207,26 @@ model Answers {
 model Referrals {
   id                   String    @id @default(cuid())
   amount               Decimal?  @db.Decimal(9, 2)
-  details              String?
   customer_id          String
   referred_customer_id String    @unique
   referred_email       String    @unique
-  balance_id           String?   @unique
   created_at           DateTime? @default(now())
   user_id              String?   @map("user_id")
   user                 User?     @relation(fields: [user_id], references: [id])
 
   @@map("referrals")
+}
+
+model Balances {
+  id          String    @id @default(cuid())
+  amount      Decimal?  @db.Decimal(9, 2)
+  details     String?
+  customer_id String
+  balance_id  String?   @unique
+  type        String
+  created_at  DateTime? @default(now())
+  user_id     String?   @map("user_id")
+  user        User?     @relation(fields: [user_id], references: [id])
+
+  @@map("balances")
 }

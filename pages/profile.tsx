@@ -8,6 +8,7 @@ import Menu from '../components/menu'
 import Meta from '../components/meta'
 import { useRouter } from 'next/router'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
+import ConfettiExplosion from 'react-confetti-explosion'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -17,8 +18,12 @@ const Profile = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [preferences, setPreferences] = useState({})
-  const [answers, setAnswers] = useState({})
+  const [answers, setAnswers] = useState({
+    correct: 0,
+    total: 0
+  })
   const [referrals, setReferrals] = useState({})
+  const [showSuccess, setShowSuccess] = useState(false)
   const [openCancelModal, setCancelOpen] = useState(false)
   const [sendBtn, setSendBtn] = useState('Send Invite')
   const [email, setEmail] = useState('')
@@ -128,6 +133,25 @@ const Profile = ({ showError }) => {
     }
   }
 
+  const redeem = async () => {
+    const res = await fetch(`/api/add_balance`, {
+      body: JSON.stringify({
+        // @ts-ignore
+        user_id: user.id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) {
+      setShowSuccess(true)
+      getSettings()
+    }
+  }
+
   // @ts-ignore
   let { email_weekly, email_monthly, email_alert } = preferences
   return (
@@ -164,24 +188,36 @@ const Profile = ({ showError }) => {
         <div className="relative isolate overflow-hidden pb-16 pt-5">
           <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
             <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
-              <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+              <div className="flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                 <dt className="text-md font-medium leading-6 text-gray-600">Saved</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  $0  <span className="text-sm font-normal">since joining Trckfi</span>
+                  $0
+                </dd>
+                <dd className="text-sm font-normal text-gray-700">
+                  since joining Trckfi
                 </dd>
               </div>
-              <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
-                <dt className="text-md font-medium leading-6 text-gray-600">Questions</dt>
-                <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  {/* @ts-ignore */}
-                  {answers?.correct} <span className="text-sm font-normal"> out of {answers?.total} questions</span>
-                </dd>
+              <div className="sm:border-l lg:border-l flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                <div>
+                  <dt className="text-md font-medium leading-6 text-gray-600">Questions</dt>
+                  <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
+                    {/* @ts-ignore */}
+                    {answers?.correct} <span className="text-sm font-normal">of {answers?.total} <span className="mx-2 font-bold">≈</span> <span className="text-md font-bold">${Number(answers?.correct*.1).toFixed(2)}</span></span>
+                  </dd>
+                </div>
+                <button onClick={redeem} type="button" className="font-normal text-pink-600 hover:text-pink-500 mt-4 text-xs w-full">
+                  Redeem Points
+                </button>
+                {showSuccess && <ConfettiExplosion />}
               </div>
-              <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+              <div className="sm:border-l lg:border-l flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                 <dt className="text-md font-medium leading-6 text-gray-600">Earned</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
                   {/* @ts-ignore */}
-                  {`$${referrals?._sum?.amount || 0}`} <span className="text-sm font-normal"> from {referrals?._sum?.count} referrals</span>
+                  {`$${referrals?._sum?.amount || 0}`}
+                </dd>
+                <dd className="text-sm font-normal text-gray-700">
+                  from referrals/points
                 </dd>
               </div>
             </dl>
