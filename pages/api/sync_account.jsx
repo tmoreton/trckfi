@@ -91,13 +91,13 @@ export default async (req, res) => {
       }
     })
     return res.status(200).json({ status: 'OK' })
-  } catch (error) {
+  } catch (error) {    
     console.error(error)
-throw new Error(error)
     await prisma.plaid.update({
       where: { id: plaidAccount.id },
       data: { error_code: error.response?.data?.error_code }
     })
+    throw new Error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

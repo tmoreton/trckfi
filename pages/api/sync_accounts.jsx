@@ -127,12 +127,12 @@ export default async (req, res) => {
       
     } catch (error) {
       console.error(error)
-throw new Error(error)
       await prisma.plaid.update({
         where: { item_id: plaid[p].item_id },
         // @ts-ignore
         data: { error_code: error.response?.data?.error_code }
       })
+      throw new Error(error)
     }
   }
   return res.status(200).json({ status: "Ok" })

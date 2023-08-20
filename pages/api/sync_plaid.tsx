@@ -137,10 +137,10 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-throw new Error(error)
     await prisma.plaid.update({
       where: { item_id: newAccountArray[0].item_id },
       data: { error_code: error.response?.data?.error_code }
     })
+    throw new Error(error)
   }
 }

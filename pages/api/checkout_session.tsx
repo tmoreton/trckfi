@@ -11,7 +11,7 @@ export default async (req, res) => {
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
         {
-          price: process.env.STRIPE_SUBSCRIPTION_ID, 
+          price: process.env.STRIPE_FAMILY_MONTHLY_PRICE_ID, 
           quantity: 1
         },
       ],
