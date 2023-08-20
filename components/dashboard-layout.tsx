@@ -19,7 +19,7 @@ const secondaryNavigation = [
   { name: 'Accounts', href: '/accounts', icon: UsersIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
   { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
-  { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
+  { name: 'Profile', href: '/profile', icon: Cog6ToothIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
 ]
 

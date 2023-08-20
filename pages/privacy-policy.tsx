@@ -70,7 +70,7 @@ export default function ({ showError }) {
                 <br/>
                 <p>IV.           YOUR RIGHTS REGARDING THE USE OF YOUR PERSONAL INFORMATION</p>
                 <br/>
-                <p>You have the right at any time to prevent us from contacting you for marketing purposes.  When we send a promotional communication to a user, the user can opt out of further promotional communications by following the unsubscribe instructions provided in each promotional e-mail. You can also indicate that you do not wish to receive marketing communications from us in the “Settings” section of the Site. Please note that notwithstanding the promotional preferences you indicate by either unsubscribing or opting out in the www.trckfi.com/settings of the Site, we may continue to send you administrative emails including, for example, periodic updates to our Privacy Policy.</p>
+                <p>You have the right at any time to prevent us from contacting you for marketing purposes.  When we send a promotional communication to a user, the user can opt out of further promotional communications by following the unsubscribe instructions provided in each promotional e-mail. You can also indicate that you do not wish to receive marketing communications from us in the “Settings” section of the Site. Please note that notwithstanding the promotional preferences you indicate by either unsubscribing or opting out in the www.trckfi.com/profile of the Site, we may continue to send you administrative emails including, for example, periodic updates to our Privacy Policy.</p>
                 <br/>
                 <p>V.             LINKS TO OTHER WEBSITES</p>
                 <br/>

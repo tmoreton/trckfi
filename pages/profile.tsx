@@ -13,7 +13,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Settings = ({ showError }) => {
+const Profile = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [preferences, setPreferences] = useState({})
@@ -131,7 +131,7 @@ const Settings = ({ showError }) => {
       <Menu showError={showError}/>
       <DashboardLayout>
         <Meta
-          title="Settings"
+          title="Profile"
           description="Trckfi settings page"
           image=''
           keywords=''
@@ -143,7 +143,7 @@ const Settings = ({ showError }) => {
               <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl">
                 Give $10, Get $10
               </h2>
-              <p className="text-lg font-normal pt-2">When you refer a friend, they get a $10 credit when they sign up and you get $10 towards your next bill!</p>
+              <p className="text-lg font-normal pt-2">Give a friend $10 and get $10 when they signup!</p>
             </div>
             <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
               <button
@@ -156,6 +156,32 @@ const Settings = ({ showError }) => {
             </div>
           </div>
         </div>
+
+        <div className="relative isolate overflow-hidden pb-10">
+          <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
+            <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
+              <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                <dt className="text-md font-medium leading-6 text-gray-600">Saved Since Joining Trckfi</dt>
+                <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
+                  $0
+                </dd>
+              </div>
+              <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                <dt className="text-md font-medium leading-6 text-gray-600">Lifetime Questions</dt>
+                <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
+                  0
+                </dd>
+              </div>
+              <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                <dt className="text-md font-medium leading-6 text-gray-600">Earned from Referrals</dt>
+                <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
+                  $0
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
         <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
           <div>
             <h2 className="text-base font-semibold leading-7 text-pink-600">Profile</h2>
@@ -315,4 +341,4 @@ const Settings = ({ showError }) => {
   )
 }
 
-export default dynamic(() => Promise.resolve(Settings), { ssr: false })
+export default dynamic(() => Promise.resolve(Profile), { ssr: false })

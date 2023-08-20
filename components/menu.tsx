@@ -21,10 +21,10 @@ const dashboardNavigation = [
   { name: 'VisionBoard', href: '/visionboard' },
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Accounts', href: '/accounts' },
-  { name: 'Settings', href: '/settings' },
+  { name: 'Profile', href: '/profile' },
 ]
 
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/settings', '/net-worth', '/rules']
+const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/seprofilettings', '/net-worth', '/rules']
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -81,7 +81,7 @@ export default function ({ showError }) {
                     { // @ts-ignore
                       session && session.user?.active ?
                         <div className="flex items-center">
-                        <Link href="/settings">
+                        <Link href="/profile">
                           <Menu.Button className="flex items-center">
                             <span className="sr-only">Open user menu</span>
                             <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
@@ -108,11 +108,11 @@ export default function ({ showError }) {
                       <Menu.Items className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link href="/settings" className={classNames(
+                            <Link href="/profile" className={classNames(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700 w-full text-left'
                               )}>
-                              Settings
+                              Profile
                             </Link>
                           )}
                         </Menu.Item>
