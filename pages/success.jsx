@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
       const referral = await prisma.referrals.findUnique({
         where: { referred_email: email },
       })
-      console.log(referral)
+
       if(referral_user && !referral){
         const balanceTransaction = await stripe.customers.createBalanceTransaction(referral_user.customer_id, { amount: -1000, currency: 'usd' })
 

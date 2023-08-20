@@ -17,6 +17,8 @@ const Profile = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [preferences, setPreferences] = useState({})
+  const [answers, setAnswers] = useState({})
+  const [referrals, setReferrals] = useState({})
   const [openCancelModal, setCancelOpen] = useState(false)
   const [sendBtn, setSendBtn] = useState('Send Invite')
   const [email, setEmail] = useState('')
@@ -46,6 +48,8 @@ const Profile = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     if(!error) {
+      setReferrals(data?.referrals)
+      setAnswers(data?.answers)
       setPreferences(data?.preferences)
       setLinkedUser(data?.linked_user)
     }
@@ -125,7 +129,7 @@ const Profile = ({ showError }) => {
   }
 
   // @ts-ignore
-  let { email_weekly, email_monthly, email_alert } = preferences 
+  let { email_weekly, email_monthly, email_alert } = preferences
   return (
     <>
       <Menu showError={showError}/>
@@ -143,7 +147,7 @@ const Profile = ({ showError }) => {
               <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl">
                 Give $10, Get $10
               </h2>
-              <p className="text-lg font-normal pt-2">Give a friend $10 and get $10 when they signup!</p>
+              <p className="text-lg font-normal pt-2">Give a friend a <b>$10</b> credit and get a <b>$10</b> credit when they signup!</p>
             </div>
             <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
               <button
@@ -157,25 +161,27 @@ const Profile = ({ showError }) => {
           </div>
         </div>
 
-        <div className="relative isolate overflow-hidden pb-10">
+        <div className="relative isolate overflow-hidden pb-16 pt-5">
           <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
             <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
               <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
-                <dt className="text-md font-medium leading-6 text-gray-600">Saved Since Joining Trckfi</dt>
+                <dt className="text-md font-medium leading-6 text-gray-600">Saved</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  $0
+                  $0  <span className="text-sm font-normal">since joining Trckfi</span>
                 </dd>
               </div>
               <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
-                <dt className="text-md font-medium leading-6 text-gray-600">Lifetime Questions</dt>
+                <dt className="text-md font-medium leading-6 text-gray-600">Questions</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  0
+                  {/* @ts-ignore */}
+                  {answers?.correct} <span className="text-sm font-normal"> out of {answers?.total} questions</span>
                 </dd>
               </div>
               <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
-                <dt className="text-md font-medium leading-6 text-gray-600">Earned from Referrals</dt>
+                <dt className="text-md font-medium leading-6 text-gray-600">Earned</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  $0
+                  {/* @ts-ignore */}
+                  {`$${referrals?._sum?.amount || 0}`} <span className="text-sm font-normal"> from {referrals?._sum?.count} referrals</span>
                 </dd>
               </div>
             </dl>

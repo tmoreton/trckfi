@@ -9,32 +9,6 @@ export default async (req, res) => {
   const endDate = DateTime.now().minus({ months: 3 }).startOf('month').toISO()
 
   try {
-    // const income = await prisma.transactions.aggregate({
-    //   where: {
-    //     OR: [
-    //       { user_id: user.id },
-    //       { user_id: user?.linked_user_id },
-    //     ],
-    //     active: true,
-    //     authorized_date: {
-    //       lte: startDate,
-    //       gte: endDate
-    //     },
-    //     amount: {
-    //       gte: 50,
-    //     },
-    //     NOT: [
-    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
-    //     ],
-    //   },
-    //   _count: {
-    //     amount: true,
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    // })
-
     const income = await prisma.transactions.groupBy({
       by: ['detailed_category'],
       where: {

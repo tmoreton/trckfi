@@ -31,7 +31,6 @@ export default function ({ csrfToken, user, showError, referral_id }) {
       method: 'POST',
     })
     const data = await res.json()
-    console.log(data)
     showError(data.error)
     if (data.error) return
 

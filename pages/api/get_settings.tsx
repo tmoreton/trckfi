@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
+import { RiskCheckBehaviorUserInteractionsLabel } from 'plaid';
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
@@ -21,10 +22,40 @@ export default async (req, res) => {
       }
     })
 
-    return res.status(200).json({ status: 'OK', data: { linked_user, preferences }})
+    // @ts-ignore
+    const answers = await prisma.answers.groupBy({
+      by: ['correct'],
+      where: {
+        user_id: user.id,
+      },
+      _count: {
+        correct: true,
+      },
+    })
+    let correct_answer = answers.find(a => a.correct === true)?._count?.correct
+    let incorrect_answer = answers.find(a => a.correct === false)?._count?.correct
+    let total = {
+      correct: correct_answer,
+      total: correct_answer + incorrect_answer
+    }
+
+    // @ts-ignore
+    const referrals = await prisma.referrals.aggregate({
+      where: {
+        user_id: user.id,
+      },
+      _count: {
+        amount: true,
+      },
+      _sum: {
+        amount: true,
+      }
+    })
+
+    return res.status(200).json({ status: 'OK', data: { linked_user, preferences, referrals, answers: total }})
   } catch (error) {
     console.error(error)
-throw new Error(error)
+    throw new Error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }
