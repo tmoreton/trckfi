@@ -33,7 +33,7 @@ export default async (req, res) => {
       amount: true
     }
   })
-  if (balances?._sum?.amount+10 >= correct_answers) return res.status(500).json({ error: 'Not enough points to redeem. Must be in $10 increments.' })
+  if (Number(balances?._sum?.amount)+10 >= correct_answers) return res.status(500).json({ error: 'Not enough points to redeem. Must be in $10 increments.' })
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
