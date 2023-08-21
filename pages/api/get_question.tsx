@@ -25,11 +25,9 @@ export default async (req, res) => {
         where: { id: 1 }
       })
       return res.status(200).json({ status: 'OK', data: question })
-    } 
-    // else if(a[0]?.created_at > endDate) { 
-    //   return res.status(200).json({ status: 'OK', data: null })
-    // } 
-    else {
+    } else if(a[0]?.created_at > endDate) { 
+      return res.status(200).json({ status: 'OK', data: null })
+    } else {
       let num = Math.abs(Number(a[0].question_id))
       num++
       // @ts-ignore
