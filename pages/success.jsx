@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
         where: { referral_id },
       })
 
-      if(!referral_user.customer_id){
+      if(!referral_user?.customer_id){
         referral_user = await prisma.user.findUnique({
           where: { id: referral_user.linked_user_id },
         })
