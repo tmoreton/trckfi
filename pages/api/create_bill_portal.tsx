@@ -7,10 +7,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async (req, res) => {
   const { customer_id } = req.body
   try {
-    const configurations = await stripe.billingPortal.configurations.list({
-      active: true,
-    })
-    console.log(configurations)
     const configuration = await stripe.billingPortal.configurations.create({
       features: {
         customer_update: {

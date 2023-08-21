@@ -16,7 +16,8 @@ export default async (req, res) => {
   try {
     const sig = req.headers['stripe-signature'];
     const rawBody = await getRawBody(req);
-    const event = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    const event = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET)
+    console.log(event.data)
     switch (event.type) {
       case 'customer.subscription.updated':
         // @ts-ignore
