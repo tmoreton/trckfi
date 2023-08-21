@@ -28,9 +28,16 @@ export async function getServerSideProps(context) {
     const { email, phone } = await stripe.customers.retrieve(customer)
 
     if(referral_id){
-      const referral_user = await prisma.user.findUnique({
+      let referral_user = await prisma.user.findUnique({
         where: { referral_id },
       })
+
+      if(!referral_user.customer_id){
+        referral_user = await prisma.user.findUnique({
+          where: { id: referral_user.linked_user_id },
+        })
+      }
+      
       const referral = await prisma.referrals.findUnique({
         where: { referred_email: email },
       })

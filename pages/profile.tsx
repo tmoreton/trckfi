@@ -174,7 +174,7 @@ const Profile = ({ showError, family }) => {
               </h2>
               <p className="text-lg font-normal pt-2">Give a friend a <b>$10</b> credit and get a <b>$10</b> credit when they signup!</p>
             </div>
-            <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+            <div className="mt-10 items-center text-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
               <button
                 // @ts-ignore
                 onClick={() => {navigator.clipboard.writeText(`${process.env['NEXT_PUBLIC_BASE_URL']}/signup?referral_id=${user?.referral_id}`)}}
@@ -182,6 +182,9 @@ const Profile = ({ showError, family }) => {
               >
                 Copy Referral Link
               </button>
+              { // @ts-ignore
+                !user.customer_id && <p className="text-xs text-gray-500 pt-3">Any credits will get added to the account owner</p>
+              }
             </div>
           </div>
         </div>
