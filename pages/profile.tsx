@@ -203,6 +203,9 @@ const Profile = ({ showError }) => {
                   <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
                     {/* @ts-ignore */}
                     {answers?.correct} <span className="text-sm font-normal">of {answers?.total} <span className="mx-2 font-bold">≈</span> <span className="text-md font-bold">${Number(answers?.correct*.1).toFixed(2)}</span></span>
+                    <br/>
+                    {/* @ts-ignore */}
+                    {`$${referrals && referrals.find(a => a.type === 'points')?._sum?.amount || 0 } redeemed`}
                   </dd>
                 </div>
                 <button onClick={redeem} type="button" className="font-normal text-pink-600 hover:text-pink-500 mt-4 text-xs w-full">
@@ -214,7 +217,7 @@ const Profile = ({ showError }) => {
                 <dt className="text-md font-medium leading-6 text-gray-600">Earned</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
                   {/* @ts-ignore */}
-                  {`$${referrals?._sum?.amount || 0}`}
+                  {`$${referrals && referrals.find(a => a.type === 'referrals')?._sum?.amount || 0 }`}
                 </dd>
                 <dd className="text-sm font-normal text-gray-700">
                   from referrals/points

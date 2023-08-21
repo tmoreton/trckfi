@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-import { RiskCheckBehaviorUserInteractionsLabel } from 'plaid';
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
@@ -52,7 +51,6 @@ export default async (req, res) => {
         amount: true,
       }
     })
-    console.log(referrals)
 
     return res.status(200).json({ status: 'OK', data: { linked_user, preferences, referrals, answers: total }})
   } catch (error) {
