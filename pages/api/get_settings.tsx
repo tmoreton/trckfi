@@ -40,7 +40,8 @@ export default async (req, res) => {
     }
 
     // @ts-ignore
-    const referrals = await prisma.balances.aggregate({
+    const referrals = await prisma.balances.groupBy({
+      by: ['type'],
       where: {
         user_id: user.id,
       },
@@ -51,6 +52,7 @@ export default async (req, res) => {
         amount: true,
       }
     })
+    console.log(referrals)
 
     return res.status(200).json({ status: 'OK', data: { linked_user, preferences, referrals, answers: total }})
   } catch (error) {
