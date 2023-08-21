@@ -7,22 +7,22 @@ const faqs = [
   {
     id: 1,
     question: "Does Trckfi sell my data?",
-    answer: "Never! This is why we don't have a free tier, so that we can sustain the application without ever selling your data",
+    answer: "Absolutely not! We prioritize your data privacy. Unlike some free services, we don't compromise your information. Our subscription-based model ensures that we can maintain the application without ever resorting to selling your data.",
   },
   {
     id: 2,
     question: "How do you connect to my bank account?",
-    answer: "We use Plaid API to connect to your bank transactions so we don't store any personal information or login details at all",
+    answer: "We utilize the Plaid API to securely connect with your bank transactions. Rest assured, we never retain any personal information or login credentials. Your privacy is paramount.",
   },
   {
     id: 3,
     question: "Can I request a feature?",
-    answer: "Yes! We love feedback and would love to hear what features and/or fixes that would improve the platform",
+    answer: "Absolutely! We highly value your input and encourage you to share any ideas for enhancing the platform, whether it's new features or fixes. Your feedback is crucial in making Trckfi better.",
   },
   {
     id: 4,
     question: "What information is stored?",
-    answer: "Only single line bank transactions and snapshots of accounts' at a point in point and nothing else!",
+    answer: "We store only concise bank transaction details and snapshots of your accounts at specific points in time. Your data is treated with utmost care, and we focus solely on the necessary information to provide you with a seamless experience.",
   },
 ]
 
