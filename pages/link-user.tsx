@@ -6,6 +6,7 @@ import Meta from '../components/meta'
 import { getSession } from 'next-auth/react'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
+import { new_vision } from '../utils/default-vision'
 
 export default function ({ showError, access_code, csrfToken, error, email }) {
   const [updateEmail, setUpdateEmail] = useState('')
@@ -130,6 +131,18 @@ export async function getServerSideProps(context) {
       create: {},
     })
 
+    await prisma.preferences.upsert({
+      // @ts-ignore
+      where: { user_id: user.id },
+      // @ts-ignore
+      update: { user_id: user.id },
+      create: { 
+        // @ts-ignore
+        user_id: user.id,
+        vision_board: JSON.parse(new_vision)
+      },
+    })
+    
     await prisma.user.upsert({
       // @ts-ignore
       where: { id: user.id },
