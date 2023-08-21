@@ -34,18 +34,30 @@ export default async (req, res) => {
           }
         })
         if(updatedUser.linked_user_id){
-          await prisma.user.update({
-            where: { id: updatedUser.linked_user_id },
-            data: {
-              active: canceled_at ? false : true,
-              status,
-              canceled_at,
-              ended_at,
-              trial_end,
-              // @ts-ignore
-              product_id: plan.product
-            }
-          })
+          if(plan.product === process.env.STRIPE_PRO_SUBSCRIPTION_ID){
+            await prisma.user.update({
+              where: { id: updatedUser.id },
+              data: { linked_user_id: null }
+            })
+            await prisma.user.update({
+              where: { id: updatedUser.linked_user_id },
+              data: {
+                active: false,
+                status : 'unlinked',
+                // @ts-ignore
+                product_id: null,
+                linked_user_id: null
+              }
+            })
+          } else {
+            await prisma.user.update({
+              where: { id: updatedUser.linked_user_id },
+              data: {
+                active: canceled_at ? false : true,
+                status
+              }
+            })
+          }
         }
         break;
       case 'customer.subscription.created':
@@ -83,11 +95,6 @@ export default async (req, res) => {
             data: {
               active: false,
               status,
-              canceled_at,
-              ended_at,
-              trial_end,
-              // @ts-ignore
-              product_id: null,
               linked_user_id: null,
             }
           })
