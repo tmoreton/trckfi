@@ -32,6 +32,7 @@ model User {
   active          Boolean        @default(false)
   linked_user_id  String?
   subscription_id String?        @unique
+  product_id      String?
   customer_id     String?        @unique
   login_count     Decimal?       @default(0) @db.Decimal(6, 0)
   status          String?

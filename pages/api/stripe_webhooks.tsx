@@ -17,11 +17,10 @@ export default async (req, res) => {
     const sig = req.headers['stripe-signature'];
     const rawBody = await getRawBody(req);
     const event = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET)
-    console.log(event.data)
+    // @ts-ignore
+    const { customer, status, canceled_at, ended_at, trial_end, plan } = event.data.object
     switch (event.type) {
       case 'customer.subscription.updated':
-        // @ts-ignore
-        const { customer, status, canceled_at, ended_at, trial_end } = event.data.object
         const updatedUser = await prisma.user.update({
           where: { customer_id: customer },
           data: { 
@@ -29,19 +28,67 @@ export default async (req, res) => {
             status,
             canceled_at,
             ended_at,
-            trial_end
+            trial_end,
+            // @ts-ignore
+            product_id: plan.product
           }
         })
         if(updatedUser.linked_user_id){
           await prisma.user.update({
-            // @ts-ignore
             where: { id: updatedUser.linked_user_id },
             data: {
               active: canceled_at ? false : true,
               status,
               canceled_at,
               ended_at,
-              trial_end
+              trial_end,
+              // @ts-ignore
+              product_id: plan.product
+            }
+          })
+        }
+        break;
+      case 'customer.subscription.created':
+        await prisma.user.update({
+          where: { customer_id: customer },
+          data: { 
+            active: true,
+            status,
+            // @ts-ignore
+            product_id: plan.product
+          }
+        })
+        break;
+      case 'customer.subscription.deleted':
+        const deletedUser = await prisma.user.update({
+          where: { customer_id: customer },
+          data: { 
+            active: false,
+            status,
+            canceled_at,
+            ended_at,
+            trial_end,
+            // @ts-ignore
+            product_id: null,
+            subscription_id: null,
+          }
+        })
+        if(deletedUser.linked_user_id){
+          await prisma.user.update({
+            where: { id: deletedUser.id },
+            data: { linked_user_id: null }
+          })
+          await prisma.user.update({
+            where: { id: deletedUser.linked_user_id },
+            data: {
+              active: false,
+              status,
+              canceled_at,
+              ended_at,
+              trial_end,
+              // @ts-ignore
+              product_id: null,
+              linked_user_id: null,
             }
           })
         }
