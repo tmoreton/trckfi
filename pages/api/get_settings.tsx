@@ -32,8 +32,8 @@ export default async (req, res) => {
         correct: true,
       },
     })
-    let correct_answer = answers.find(a => a.correct === true)?._count?.correct
-    let incorrect_answer = answers.find(a => a.correct === false)?._count?.correct
+    let correct_answer = answers.find(a => a.correct === true)?._count?.correct || 0
+    let incorrect_answer = answers.find(a => a.correct === false)?._count?.correct || 0
     let total = {
       correct: correct_answer || 0,
       total: correct_answer + incorrect_answer || 0
