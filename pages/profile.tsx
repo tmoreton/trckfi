@@ -14,7 +14,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Profile = ({ showError }) => {
+const Profile = ({ showError, family }) => {
+  console.log(family)
   const { data: session } = useSession()
   const user = session?.user
   const [preferences, setPreferences] = useState({})
@@ -261,41 +262,46 @@ const Profile = ({ showError }) => {
                 </dd>
               </div>
 
-              {
-                linkedUser ?
-                <div className="pt-6 sm:flex items-center">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Linked Account</dt>
-                  <form onSubmit={remove} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
-                    <div className="text-gray-900">
-                      {
-                        // @ts-ignore
-                        linkedUser?.email
-                      }
-                    </div>                 
-                    <button onClick={remove} type="button" className="flex font-semibold text-red-600 hover:text-red-500 justify-end">
-                      Unlink
-                    </button>
-                  </form>
-                </div>
-                :
-                <div className="pt-6 sm:flex items-center">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Invite User</dt>
-                  <form onSubmit={send} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
-                    <input 
-                      type="email" 
-                      name="email" 
-                      id="email"
-                      placeholder="Email"
-                      className="w-1/2 text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                      required
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                    />                     
-                    <button onClick={send} type="button" className="w-30 font-semibold text-pink-600 hover:text-pink-500">
-                      {sendBtn}
-                    </button>
-                  </form>
-                </div>
+              { // @ts-ignore
+                user.product_id === family &&
+                <>
+                  {
+                    linkedUser ?
+                    <div className="pt-6 sm:flex items-center">
+                      <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Linked Account</dt>
+                      <form onSubmit={remove} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
+                        <div className="text-gray-900">
+                          {
+                            // @ts-ignore
+                            linkedUser?.email
+                          }
+                        </div>                 
+                        <button onClick={remove} type="button" className="flex font-semibold text-red-600 hover:text-red-500 justify-end">
+                          Unlink
+                        </button>
+                      </form>
+                    </div>
+                    :
+                    <div className="pt-6 sm:flex items-center">
+                      <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Invite User</dt>
+                      <form onSubmit={send} method="POST" className="flex justify-between gap-x-6 sm:flex-auto">
+                        <input 
+                          type="email" 
+                          name="email" 
+                          id="email"
+                          placeholder="Email"
+                          className="w-1/2 text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                          required
+                          value={email}
+                          onChange={e => setEmail(e.target.value)}
+                        />                     
+                        <button onClick={send} type="button" className="w-30 font-semibold text-pink-600 hover:text-pink-500">
+                          {sendBtn}
+                        </button>
+                      </form>
+                    </div>
+                  }
+                </>
               }
             </dl>
           </div>
@@ -385,6 +391,13 @@ const Profile = ({ showError }) => {
       </DashboardLayout>
     </>
   )
+}
+
+
+export async function getServerSideProps() {
+  return {
+    props: { family: process.env.STRIPE_FAMILY_SUBSCRIPTION_ID},
+  }
 }
 
 export default dynamic(() => Promise.resolve(Profile), { ssr: false })
