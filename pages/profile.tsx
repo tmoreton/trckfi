@@ -206,11 +206,10 @@ const Profile = ({ showError }) => {
                       <span className="mx-2 font-bold">≈</span> 
                       <span className="text-md font-bold">${Number(answers?.correct*.1).toFixed(2)}</span>
                     </span>
-                    <br/>
-                    {`$${referrals && referrals.find(a => a.type === 'points')?._sum?.amount || 0 } redeemed`}
                   </dd>
+                  <p className="w-full text-gray-700 text-sm font-normal">{`$${referrals && referrals.find(a => a.type === 'points')?._sum?.amount || 0 } redeemed`}</p>
                 </div>
-                <button onClick={redeem} type="button" className="font-normal text-pink-600 hover:text-pink-500 mt-4 text-xs w-full">
+                <button onClick={redeem} type="button" className="font-normal text-pink-600 hover:text-pink-500 mt-2 text-xs w-full">
                   Redeem Points
                 </button>
                 {showSuccess && <ConfettiExplosion />}
