@@ -7,7 +7,7 @@ const faqs = [
   {
     id: 1,
     question: "Does Trckfi sell my data?",
-    answer: "Never! This is why we don't have a free tirer, so that we can sustain the application without ever selling your data",
+    answer: "Never! This is why we don't have a free tier, so that we can sustain the application without ever selling your data",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const faqs = [
   {
     id: 4,
     question: "What information is stored?",
-    answer: "Only single line bank transactions and snapshot's of account's at a point in point and nothing else!",
+    answer: "Only single line bank transactions and snapshots of accounts' at a point in point and nothing else!",
   },
 ]
 
