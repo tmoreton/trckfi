@@ -13,8 +13,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Profile = ({ showError, family }) => {
-  console.log(family)
+const Profile = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [preferences, setPreferences] = useState({})
@@ -263,7 +262,7 @@ const Profile = ({ showError, family }) => {
               </div>
 
               { // @ts-ignore
-                user.product_id === family &&
+                user.product_id === 'prod_OUAgEdZI2gYrgv' &&
                 <>
                   {
                     linkedUser ?
@@ -391,13 +390,6 @@ const Profile = ({ showError, family }) => {
       </DashboardLayout>
     </>
   )
-}
-
-
-export async function getServerSideProps() {
-  return {
-    props: { family: process.env.STRIPE_FAMILY_SUBSCRIPTION_ID},
-  }
 }
 
 export default dynamic(() => Promise.resolve(Profile), { ssr: false })
