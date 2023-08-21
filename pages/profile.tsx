@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
-import CancelModal from '../components/modals/cancel-modal'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import { useRouter } from 'next/router'
@@ -25,7 +24,6 @@ const Profile = ({ showError, family }) => {
   })
   const [referrals, setReferrals] = useState([])
   const [showSuccess, setShowSuccess] = useState(false)
-  const [openCancelModal, setCancelOpen] = useState(false)
   const [sendBtn, setSendBtn] = useState('Send Invite')
   const [email, setEmail] = useState('')
   const [linkedUser, setLinkedUser] = useState({})
@@ -165,7 +163,6 @@ const Profile = ({ showError, family }) => {
           image=''
           keywords=''
         />
-        <CancelModal showError={showError} open={openCancelModal} setOpen={setCancelOpen} signOut={signOut} user={user}/>
         <div className="bg-pink-100 rounded-2xl">
           <div className="mx-auto max-w-7xl px-6 py-5 sm:py-10 lg:flex lg:items-center lg:justify-between lg:px-8 mb-6">
             <div>

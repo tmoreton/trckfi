@@ -1,12 +1,11 @@
-import { Fragment, useState } from 'react'
-import { Cog8ToothIcon, AdjustmentsHorizontalIcon  } from '@heroicons/react/24/solid'
+import { Fragment } from 'react'
+import { Cog8ToothIcon  } from '@heroicons/react/24/solid'
 import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/outline'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import LoginBtn from './login-btn'
 import { useSession, signOut } from "next-auth/react"
-import CancelModal from './modals/cancel-modal'
 import Image from 'next/image'
 import { PinkBtn } from './pink-btn'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
@@ -31,7 +30,6 @@ const classNames = (...classes) => {
 }
 
 export default function ({ showError }) {
-  const [openModal, setOpen] = useState(false)
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
@@ -42,7 +40,6 @@ export default function ({ showError }) {
       {({ open }) => (
         <>
           <div>
-            <CancelModal showError={showError} open={openModal} setOpen={setOpen} signOut={signOut} user={user}/>
             <div className="flex h-18 items-center justify-between py-4">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
