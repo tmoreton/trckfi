@@ -202,14 +202,14 @@ const Profile = ({ showError }) => {
                   <dt className="text-md font-medium leading-6 text-gray-600">Questions</dt>
                   <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
                     {answers?.correct} 
-                    <span className="text-sm font-normal">of {answers?.total} 
+                    <span className="ml-2 text-sm font-normal">of {answers?.total} 
                       <span className="mx-2 font-bold">≈</span> 
                       <span className="text-md font-bold">${Number(answers?.correct*.1).toFixed(2)}</span>
                     </span>
                   </dd>
-                  <p className="w-full text-gray-700 text-sm font-normal">{`$${referrals && referrals.find(a => a.type === 'points')?._sum?.amount || 0 } redeemed`}</p>
+                  <p className="w-full text-gray-700 text-sm font-normal my-2">{`$${referrals && referrals.find(a => a.type === 'points')?._sum?.amount || 0 } redeemed`}</p>
                 </div>
-                <button onClick={redeem} type="button" className="font-normal text-pink-600 hover:text-pink-500 mt-2 text-xs w-full">
+                <button onClick={redeem} type="button" className="font-normal text-pink-600 hover:text-pink-500 text-xs w-full">
                   Redeem Points
                 </button>
                 {showSuccess && <ConfettiExplosion />}
