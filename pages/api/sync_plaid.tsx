@@ -71,7 +71,7 @@ export default async (req, res) => {
     let has_more = true
     let next_cursor = ''
 
-    while (has_more) {
+    // while (has_more) {
       const request = {
         access_token: plaidAccount.access_token,
         cursor: next_cursor,
@@ -124,7 +124,7 @@ export default async (req, res) => {
           },
         })
       }
-    }
+    // }
 
     await prisma.plaid.update({
       where: { item_id: newAccountArray[0].item_id },
