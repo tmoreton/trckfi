@@ -48,7 +48,7 @@ export default async (req, res) => {
         create: { 
           balance_id: balanceTransaction.id,
           user_id: user.id,
-          customer_id: balanceTransaction.customer,
+          customer_id: user.customer_id,
           amount: 10,
           details: balanceTransaction.object,
           type: 'points'
