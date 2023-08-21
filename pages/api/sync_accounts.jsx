@@ -42,7 +42,7 @@ export default async (req, res) => {
     try {
       let has_more = true
       let next_cursor = plaid[p].cursor || ''
-      while (has_more) {
+      // while (has_more) {
         const request = {
           access_token: plaid[p].access_token,
           cursor: next_cursor,
@@ -88,7 +88,7 @@ export default async (req, res) => {
             },
           })
         }
-      }
+      // }
 
       const accountResponse = await plaidClient.accountsGet({ access_token: plaid[p].access_token })
       let accounts = accountResponse.data.accounts
