@@ -17,7 +17,7 @@ export default async (req, res) => {
       ],
       mode: 'subscription',
       customer_email: email,
-      success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}`,
+      success_url: referral_id ? `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}` : `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
     };
     // Check if user was referred by a friend

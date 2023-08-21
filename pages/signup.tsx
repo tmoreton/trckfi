@@ -45,7 +45,8 @@ export default function ({ csrfToken, user, showError, referral_id }) {
     e.preventDefault()
     if(checked){
       setSubmitted(true)
-      const res = await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?referral_id=${referral_id}`, {
+      let url = referral_id ? `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup?referral_id=${referral_id}` : `/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signup`
+      const res = await fetch(url, {
         body: JSON.stringify({ 
           email,
           csrfToken
