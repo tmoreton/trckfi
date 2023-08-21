@@ -7,10 +7,14 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async (req, res) => {
   const { customer_id } = req.body
   try {
-    await stripe.billingPortal.configurations.create({
+    const configurations = await stripe.billingPortal.configurations.list({
+      active: true,
+    })
+    console.log(configurations)
+    const configuration = await stripe.billingPortal.configurations.create({
       features: {
         customer_update: {
-          allowed_updates: ['email'],
+          allowed_updates: [],
           enabled: false,
         },
         invoice_history: {enabled: true},
@@ -18,7 +22,7 @@ export default async (req, res) => {
         subscription_cancel: {enabled: true},
         subscription_pause: {enabled: false},
         subscription_update: {
-          default_allowed_updates: ["price", "quantity", "promotion_code"],
+          default_allowed_updates: ["price", "promotion_code"],
           enabled: true,
           products: [{
             product: process.env.STRIPE_PRO_SUBSCRIPTION_ID, 
@@ -35,6 +39,7 @@ export default async (req, res) => {
       },
     });
     const session = await stripe.billingPortal.sessions.create({
+      configuration: configuration.id,
       customer: customer_id,
       return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/profile`,
     });
