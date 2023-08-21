@@ -22,7 +22,7 @@ const Profile = ({ showError }) => {
     correct: 0,
     total: 0
   })
-  const [referrals, setReferrals] = useState({})
+  const [referrals, setReferrals] = useState([])
   const [showSuccess, setShowSuccess] = useState(false)
   const [openCancelModal, setCancelOpen] = useState(false)
   const [sendBtn, setSendBtn] = useState('Send Invite')
@@ -201,10 +201,12 @@ const Profile = ({ showError }) => {
                 <div>
                   <dt className="text-md font-medium leading-6 text-gray-600">Questions</dt>
                   <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                    {/* @ts-ignore */}
-                    {answers?.correct} <span className="text-sm font-normal">of {answers?.total} <span className="mx-2 font-bold">≈</span> <span className="text-md font-bold">${Number(answers?.correct*.1).toFixed(2)}</span></span>
+                    {answers?.correct} 
+                    <span className="text-sm font-normal">of {answers?.total} 
+                      <span className="mx-2 font-bold">≈</span> 
+                      <span className="text-md font-bold">${Number(answers?.correct*.1).toFixed(2)}</span>
+                    </span>
                     <br/>
-                    {/* @ts-ignore */}
                     {`$${referrals && referrals.find(a => a.type === 'points')?._sum?.amount || 0 } redeemed`}
                   </dd>
                 </div>
@@ -216,7 +218,6 @@ const Profile = ({ showError }) => {
               <div className="sm:border-l lg:border-l flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                 <dt className="text-md font-medium leading-6 text-gray-600">Earned</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  {/* @ts-ignore */}
                   {`$${referrals && referrals.find(a => a.type === 'referrals')?._sum?.amount || 0 }`}
                 </dd>
                 <dd className="text-sm font-normal text-gray-700">
