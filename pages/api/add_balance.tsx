@@ -40,21 +40,48 @@ export default async (req, res) => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2022-11-15',
     })
-    const balanceTransaction = await stripe.customers.createBalanceTransaction(user.customer_id, { amount: -1000, currency: 'usd' })
-    if(balanceTransaction){
-      // @ts-ignore
-      await prisma.balances.upsert({
-        where: { balance_id: balanceTransaction.id },
-        update: {},
-        create: { 
-          balance_id: balanceTransaction.id,
-          user_id: user.id,
-          customer_id: user.customer_id,
-          amount: 10,
-          details: balanceTransaction.object,
-          type: 'points'
-        },
+
+    if(user.customer_id){
+      const balanceTransaction = await stripe.customers.createBalanceTransaction(user.customer_id, { amount: -1000, currency: 'usd' })
+      if(balanceTransaction){
+        // @ts-ignore
+        await prisma.balances.upsert({
+          where: { balance_id: balanceTransaction.id },
+          update: {},
+          create: { 
+            balance_id: balanceTransaction.id,
+            user_id: user.id,
+            customer_id: user.customer_id,
+            amount: 10,
+            details: balanceTransaction.object,
+            type: 'points'
+          },
+        })
+      }
+    } else {
+      // When a linked user redeems points
+      const linked_user = await prisma.user.findUnique({
+        where: {
+          // @ts-ignore
+          id: user.linked_user_id
+        }
       })
+      const balanceTransaction = await stripe.customers.createBalanceTransaction(linked_user.customer_id, { amount: -1000, currency: 'usd' })
+      if(balanceTransaction){
+        // @ts-ignore
+        await prisma.balances.upsert({
+          where: { balance_id: balanceTransaction.id },
+          update: {},
+          create: { 
+            balance_id: balanceTransaction.id,
+            user_id: user.id,
+            customer_id: linked_user.customer_id,
+            amount: 10,
+            details: balanceTransaction.object,
+            type: 'points'
+          },
+        })
+      }
     }
 
     return res.status(200).json({ status: 'OK' })
