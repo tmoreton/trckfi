@@ -1,5 +1,5 @@
 import Container from '../components/container'
-import Hero from '../components/hero'
+import Hero from '../components/landing-page/hero'
 import Layout from '../components/layout'
 import Newsletter from '../components/newsletter'
 import Features from '../components/features'

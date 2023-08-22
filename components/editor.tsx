@@ -10,7 +10,7 @@ export default function Editor({ showError }) {
   const [controls, showControls] = useState(false)
   const [preferences, setPreferences] = useState({})
   const [save, setSave] = useState(false)
-  const [savedVision, setSavedVision] = useLocalStorage('vision_board', null)
+  const [savedVision, setSavedVision] = useState(null)
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
