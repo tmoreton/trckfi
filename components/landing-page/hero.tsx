@@ -12,9 +12,6 @@ export default function () {
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-16">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
           <div className="mt-16 sm:mt-32 lg:mt-16">
-            {/* <h1 className="mt-10 text-4xl font-bold text-gray-900 sm:text-6xl">
-              Take CONTROL <br/>of Your WEALTH <br/> your DATA your eyes ONLY. 
-            </h1> */}
             <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-tight text-slate-900 sm:text-7xl leading-tight">
               Experience your finances {' '}
               <span className="relative whitespace-nowrap text-pink-600">
@@ -30,9 +27,9 @@ export default function () {
               </span>{' '}
               by visualizing goals
             </h1>
-            <p className="mt-2 text-lg leading-8 text-gray-600 max-w-md">
+            {/* <p className="mt-10 text-2xl font-semibold tracking-tight leading-8 text-gray-600">
               Your online all-in-one user friendly financial hub.
-            </p>
+            </p> */}
             <div className="mt-8 flex items-center gap-x-6">
               <Link href='/#get-notified' className="text-md font-semibold leading-6 text-gray-900">
                 <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
@@ -59,16 +56,14 @@ export default function () {
           </div>
         </div>
         <div className="mt-10 md:hidden">
-          <div className="rounded-md shadow-2xl ring-1 ring-gray-900/10">
-            <img
-              src="/assets/visionboard-new.png"
-              alt="Trckfi finance dashboard"
-              width={2432}
-              height={1442}
-              className="rounded-md"
+          <img
+            src="/assets/visionboard-new.png"
+            alt="Trckfi finance dashboard"
+            width={2432}
+            height={1442}
+            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
             />
           </div>
-        </div>
       </div>
     </div>
   )

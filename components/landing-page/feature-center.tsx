@@ -3,18 +3,23 @@ import { Emoji } from 'emoji-picker-react'
 
 const features = [
   {
-    name: 'Live Price Updates',
-    description: 'Keep up to date with real-time bank, retirement, stock & crypto prices',
+    name: 'SAVE TIME',
+    description: 'Streamline Your Finances Effortlessly – Visualize Everything in One Place.',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Est Home Value',
-    description: 'Our home is one of our biggest investments, we can track its value with the overall net worth',
+    name: 'FEEL EMPOWERED',
+    description: 'Have a place to visualize your financial goals, and connect with yourself',
     icon: HomeIcon,
   },
   {
-    name: 'Custom accounts',
-    description: 'Create any type of asset/liability you want to track along with the ability to create virtual cards/accounts for more detailed categorization',
+    name: 'EARN MORE',
+    description: 'Refer a friend and get money back towards your subscription',
+    icon: CreditCardIcon,
+  },
+  {
+    name: 'SPEND LESS',
+    description: 'Save with alerts on recurring charges',
     icon: CreditCardIcon,
   },
 ]
@@ -22,42 +27,91 @@ const features = [
 export default function () {
   return (
     <>
-      <div className="my-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl sm:text-center justify-between">
-            <h2 className="text-base font-semibold leading-7 text-pink-600">Track your progress</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex justify-center"><div className="mr-3 mt-1"><Emoji unified={'1f4c8'} size={30} /></div> Wealth Tracker</p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Watch as you hit your money goals month-by-month and tracking your progress with live bank, stock market & crypto price updates
+      <div className="bg-white pt-10">
+        <div className="mx-auto px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl lg:text-center">
+            <h2 className="text-base font-semibold leading-7 text-pink-600">What is Trckfi?</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Your online all-in-one user friendly financial hub
             </p>
           </div>
-        </div>
-        <div className="relative overflow-hidden pt-4">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <img
-              src="/assets/networth-feature.png"
-              alt="Net worth tracker"
-              className="mb-[-10%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
-              width={2432}
-              height={1442}
-            />
-            <div className="relative" aria-hidden="true">
-              <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" />
-            </div>
+          <div className="mx-auto mt-6 sm:mt-20 lg:mt-12 mx-12">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-4 lg:gap-y-16">
+              {features.map((feature) => (
+                <div key={feature.name} className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-pink-600">
+                      <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    {feature.name}
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
-        <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
-          <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
-            {features.map((feature) => (
-              <div key={feature.name} className="relative pl-9">
-                <dt className="inline font-semibold text-gray-900">
-                  <feature.icon className="absolute left-1 top-1 h-5 w-5 text-pink-600" aria-hidden="true" />
-                  {feature.name}
-                </dt>{' '}
-                <dd>{feature.description}</dd>
+      </div>  
+      <div className="overflow-hidden bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div className="lg:ml-auto lg:pl-4 lg:pt-4">
+              <div className="lg:max-w-lg">
+                <h2 className="text-base font-semibold leading-7 text-pink-600">Why Trckfi?</h2>
+                <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Unlimited Bank Connections. Smart Automation. Secure. You're in Control.</p>
+                {/* <p className="mt-6 text-xl font-semibold tracking-tight leading-8 text-gray-600">
+                  Unlimited Bank Connections. Smart Automation. Secure. You're in Control.
+                </p> */}
+                <dl className="mt-8 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
+                  <div className="relative pl-12">
+                    <dt className="inline font-semibold text-gray-900">
+                      <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">🚀</div>
+                      Earn as You Learn
+                    </dt>{' '}
+                    <dd className="inline">Elevate Financial Literacy. Get credits towards your subscription through daily question answers.</dd>
+                  </div>
+                </dl>
+                <dl className="mt-5 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
+                  <div className="relative pl-12">
+                    <dt className="inline font-semibold text-gray-900">
+                      <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">🔒</div>
+                      Secure & Private
+                    </dt>{' '}
+                    <dd className="inline">Your financial data stays yours. No sharing, no selling – just confidence in your privacy.</dd>
+                  </div>
+                </dl>
+                <dl className="mt-5 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
+                  <div className="relative pl-12">
+                    <dt className="inline font-semibold text-gray-900">
+                      <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">📷</div>
+                      Comprehensive Snapshot
+                    </dt>{' '}
+                    <dd className="inline">All your accounts in one dashboard. Banks, loans, stocks, crypto – stay informed with ease.</dd>
+                  </div>
+                </dl>
+                <dl className="mt-5 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
+                  <div className="relative pl-12">
+                    <dt className="inline font-semibold text-gray-900">
+                      <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">🎯</div>
+                      Vision Board Magic
+                    </dt>{' '}
+                    <dd className="inline">Discover your financial goals and unlock opportunities to achieving them by making better money choices daily.</dd>
+                  </div>
+                </dl>
               </div>
-            ))}
-          </dl>
+            </div>
+            <div className="flex items-start justify-end lg:order-first">
+            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+              <img
+                src="/assets/dashboard-beta-full.png"
+                alt="Product screenshot"
+                className="w-[75rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[65rem]"
+                width={2432}
+                height={1442}
+              />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
