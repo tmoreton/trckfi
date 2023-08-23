@@ -48,7 +48,6 @@ export default function Editor({ showError }) {
     const { error, data } = await res.json()
     showError(error)
     setPreferences(data)
-    console.log(data?.vision_board)
     if(data?.vision_board){
       store.loadSnapshot(data.vision_board)
       setSavedVision(data.vision_board)

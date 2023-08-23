@@ -89,8 +89,8 @@ export default async (req, res) => {
           let item = primary.filter((i) => i.week_year === last_week && i.primary_category === p.primary_category)[0]
           primaryCategories.push({
             category: p.primary_category.split('_').join(' '),
-            this_week_amount: p._sum.amount,
-            last_week_amount: item?._sum.amount
+            this_week_amount: p?._sum?.amount,
+            last_week_amount: item?._sum?.amount
           })
         }
       })
@@ -122,8 +122,8 @@ export default async (req, res) => {
           let item = detailed.filter((i) => i.week_year === last_week && i.detailed_category === p.detailed_category)[0]
           detailedCategories.push({
             category: p.detailed_category.split('_').join(' '),
-            this_week_amount: p._sum.amount,
-            last_week_amount: item?._sum.amount
+            this_week_amount: p?._sum?.amount,
+            last_week_amount: item?._sum?.amount
           })
         }
       })

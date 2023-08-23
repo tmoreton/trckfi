@@ -52,7 +52,6 @@ const Profile = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     if(!error) {
-      console.log(data?.referrals)
       setReferrals(data?.referrals)
       setAnswers(data?.answers)
       setPreferences(data?.preferences)
@@ -226,7 +225,7 @@ const Profile = ({ showError }) => {
               <div className="sm:border-l lg:border-l flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                 <dt className="text-md font-medium leading-6 text-gray-600">Earned</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
-                  {`$${referrals && referrals.find(a => a.type === 'referrals')?._sum?.amount || 0 }`}
+                  {`$${referrals && referrals.find(a => a.type === 'referral')?._sum?.amount || 0 }`}
                 </dd>
                 <dd className="text-sm font-normal text-gray-700">
                   from referrals

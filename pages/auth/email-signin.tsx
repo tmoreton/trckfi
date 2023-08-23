@@ -28,7 +28,6 @@ export default function SignIn({ csrfToken }) {
       method: 'POST',
     })
     const data = await res.json()
-    console.log(data)
     // showError(error)
   }
 
