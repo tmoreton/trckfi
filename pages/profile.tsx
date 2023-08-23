@@ -52,6 +52,7 @@ const Profile = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     if(!error) {
+      console.log(data?.referrals)
       setReferrals(data?.referrals)
       setAnswers(data?.answers)
       setPreferences(data?.preferences)
