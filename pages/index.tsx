@@ -9,8 +9,10 @@ import FeatureRight from '../components/feature-right'
 import FeatureNetWorth from '../components/feature-net-worth'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import HeroLanding from "../components/landing-page/hero"
+import FeatureCenterLeanding from "../components/landing-page/feature-center"
 
-export default function Index({ showError, host }) {
+export default function Index({ showError }) {
   return (
     <Layout>
       <Meta
@@ -20,13 +22,13 @@ export default function Index({ showError, host }) {
         keywords=''
       />
       <Menu showError={showError}/>
-      <Hero />
+      <HeroLanding />
       <Container>
-        <Features />
-        <FeatureCenter />
+        <FeatureCenterLeanding />
+        {/* <FeatureCenter />
         <FeatureLeft />
         <FeatureRight />
-        <FeatureNetWorth />
+        <FeatureNetWorth /> */}
         <Newsletter showError={showError} />
       </Container>
     </Layout>

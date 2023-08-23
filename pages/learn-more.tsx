@@ -1,4 +1,3 @@
-import Container from '../components/container'
 import Menu from '../components/landing-page/menu'
 import Layout from "../components/layout"
 import Meta from '../components/meta'
