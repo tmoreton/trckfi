@@ -36,7 +36,7 @@ export default function () {
                 <div className="mt-8 flex items-center gap-x-6">
                   <Link href='/#get-notified' className="text-md font-semibold leading-6 text-gray-900">
                     <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                      Get Started!
+                      Join Waitlist!
                     </button>
                   </Link>
                   <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-gray-900 hidden lg:block">
