@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import VideoModal from '../modals/video-modal'
+import Image from 'next/image'
 
 export default function () {
   const [open, setOpen] = useState(false)
@@ -47,7 +48,7 @@ export default function () {
             </div>
           </div>
           <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4 sm:w-[57rem] w-full">
-          <img
+          <Image
             src="/assets/visionboard-new.jpg"
             alt="Goal Visionboard Screenshot"
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] lg:-ml-0 w-full"

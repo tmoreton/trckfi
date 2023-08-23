@@ -3,6 +3,7 @@ import { Transition } from '@headlessui/react'
 import { XMarkIcon, CheckBadgeIcon, FaceFrownIcon } from '@heroicons/react/20/solid'
 import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
+import Image from 'next/image'
 
 export default function ({ showError }) {
   const [show, setShow] = useState(false)
@@ -82,7 +83,7 @@ export default function ({ showError }) {
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 pt-0.5">
-                    <img
+                    <Image
                       className="h-10 w-10 rounded-full"
                       src="/trckfi-icon-white.png"
                       alt="trckfi-icon"

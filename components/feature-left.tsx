@@ -1,4 +1,5 @@
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import Image from 'next/image'
 
 const features = [
   {
@@ -45,7 +46,7 @@ export default function () {
             </div>
           </div>
           <div className="flex items-center justify-end lg:order-first">
-            <img
+            <Image
               src="/assets/pie-chart.png"
               alt="Product screenshot"
               className="w-[48rem] rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"

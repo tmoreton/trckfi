@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ({ posts }) {
   return (
@@ -19,7 +20,7 @@ export default function ({ posts }) {
                 className="hover:underline"
               >
                 <div className="relative w-full">
-                  <img
+                  <Image
                     src={post.coverImage}
                     alt={post.slug}
                     className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"

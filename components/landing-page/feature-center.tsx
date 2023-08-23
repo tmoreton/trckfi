@@ -1,5 +1,4 @@
-import { ArrowPathIcon, HomeIcon, CreditCardIcon } from '@heroicons/react/20/solid'
-import { Emoji } from 'emoji-picker-react'
+import Image from 'next/image'
 
 const features = [
   {
@@ -102,7 +101,7 @@ export default function () {
             </div>
             <div className="flex items-start justify-end lg:order-first">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <img
+              <Image
                 src="/assets/dashboard-beta-full.jpg"
                 alt="Trckfi Finance Dashboard"
                 className="lg:w-[75rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[65rem] w-full"

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import VideoModal from './modals/video-modal'
-import { Emoji } from 'emoji-picker-react';
+import Image from 'next/image'
 
 export default function () {
   const [open, setOpen] = useState(false)
@@ -12,9 +12,6 @@ export default function () {
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-16">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
           <div className="mt-16 sm:mt-32 lg:mt-16">
-            {/* <h1 className="mt-10 text-4xl font-bold text-gray-900 sm:text-6xl">
-              Take CONTROL <br/>of Your WEALTH <br/> your DATA your eyes ONLY. 
-            </h1> */}
             <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-tight text-slate-900 sm:text-7xl">
               Your finances{' '}
               <span className="relative whitespace-nowrap text-pink-600">
@@ -48,7 +45,7 @@ export default function () {
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none hidden md:block">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <img
+              <Image
                 src="/assets/dashboard-beta-full.png"
                 alt="Trckfi finance dashboard"
                 width={2432}
@@ -60,7 +57,7 @@ export default function () {
         </div>
         <div className="mt-10 md:hidden">
           <div className="rounded-md shadow-2xl ring-1 ring-gray-900/10">
-            <img
+            <Image
               src="/assets/dashboard-beta-full.png"
               alt="Trckfi finance dashboard"
               width={2432}
