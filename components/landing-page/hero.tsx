@@ -49,7 +49,7 @@ export default function () {
           </div>
           <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4 sm:w-[57rem] w-full">
           <Image
-            src="/assets/visionboard-new.jpg"
+            src="/assets/visionboard-new.png"
             alt="Goal Visionboard Screenshot"
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] lg:-ml-0 w-full"
             width={2432}
