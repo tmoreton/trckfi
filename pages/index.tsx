@@ -17,20 +17,20 @@ export default function Index({ showError }) {
     <Layout>
       <Meta
         title="Trckfi"
-        description=""
+        description=''
         image=''
         keywords=''
       />
       <Menu showError={showError}/>
       <HeroLanding />
-      <Container>
-        <FeatureCenterLeanding />
-        {/* <FeatureCenter />
+      <FeatureCenterLeanding />
+      <Newsletter showError={showError} />
+      {/* <Container>
+        <FeatureCenter />
         <FeatureLeft />
         <FeatureRight />
-        <FeatureNetWorth /> */}
-        <Newsletter showError={showError} />
-      </Container>
+        <FeatureNetWorth />
+      </Container> */}
     </Layout>
   )
 }
