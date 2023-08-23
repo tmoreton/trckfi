@@ -51,7 +51,7 @@ export default function () {
           <Image
             src="/assets/dashboard-beta-full.png"
             alt="Goal Visionboard Screenshot"
-            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] lg:-ml-0 w-full"
+            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[70rem] lg:-ml-0 w-full"
             width={2432}
             height={1442}
           />
