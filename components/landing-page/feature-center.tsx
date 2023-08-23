@@ -104,6 +104,7 @@ export default function () {
               <Image
                 src="/assets/dashboard-beta-full.jpg"
                 alt="Trckfi Finance Dashboard"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="lg:w-[75rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[65rem] w-full"
                 width={2432}
                 height={1442}
