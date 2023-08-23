@@ -244,16 +244,7 @@ const Profile = ({ showError }) => {
                   </button>}
                 </dd>
               </div>
-              {/* <div className="pt-6 sm:flex">
-                <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Name</dt>
-                <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                  <div className="text-gray-900">{user?.name}</div>
-                  <button type="button" className="font-semibold text-pink-600 hover:text-pink-500">
-                    Update
-                  </button>
-                </dd>
-              </div> */}
-
+              
               <div className="pt-6 sm:flex">
                 <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Email address</dt>
                 <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
@@ -262,7 +253,7 @@ const Profile = ({ showError }) => {
               </div>
 
               { // @ts-ignore
-                user.product_id === 'prod_OUAgEdZI2gYrgv' &&
+                user.product_id === 'prod_OUAgEdZI2gYrgv' || user.product_id === 'prod_OUA9oG9nLFXRFv' &&
                 <>
                   {
                     linkedUser ?
