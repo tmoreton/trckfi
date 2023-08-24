@@ -203,12 +203,12 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
                   {recurring.map((item) => (
                     <Row key={item.id}>
-                      <Column className="w-44" align="left">
+                      <Column className="w-55" align="left">
                         <Text className="text-[#666666] text-[12px] my-0 mb-1 ml-4">
                           {item.name}
                         </Text>
                       </Column>
-                      <Column className="w-32" align="left">
+                      <Column className="w-20" align="left">
                         <Text className="text-[#666666] text-[8px] my-0 ml-6">
                           {item.date}
                         </Text>
