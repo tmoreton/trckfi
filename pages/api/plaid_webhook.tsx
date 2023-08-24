@@ -10,7 +10,7 @@ export default async (req, res) => {
   // const { webhook_code, item_id, } = req.body
   console.log(process.env.NEXT_PUBLIC_BASE_URL)
   let test = 'SYNC_UPDATES_AVAILABLE'
-  console.log(JSON.parse(req.body))
+  console.log(JSON.parse(req))
   switch (test) {
     case 'SYNC_UPDATES_AVAILABLE': {
       break;
