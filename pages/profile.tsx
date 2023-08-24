@@ -261,7 +261,7 @@ const Profile = ({ showError }) => {
               </div>
 
               { // @ts-ignore
-                user.product_id === 'prod_OUAgEdZI2gYrgv' || user.product_id === 'prod_OUA9oG9nLFXRFv' &&
+                user.product_id === 'prod_OUAgEdZI2gYrgv' &&
                 <>
                   {
                     linkedUser ?
