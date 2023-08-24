@@ -1,14 +1,15 @@
 import prisma from '../../lib/prisma';
 import transactionsSync from '../../utils/transactionsSync';
+import accountsSync from '../../utils/accountsSync';
 
 export default async (req, res) => {
   const { webhook_code, item_id } = req.body
+  console.log(webhook_code, item_id)
   switch (webhook_code) {
     case 'SYNC_UPDATES_AVAILABLE':
-      const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
-      const accounts = await prisma.accounts.findMany({ where: { item_id }})
-      const rules = await prisma.rules.findMany({ where: { user_id }})
-      transactionsSync({ access_token, next_cursor: '', accounts, rules, user_id})
+      let { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
+      let accounts = accountsSync({ access_token, item_id, user_id })
+      transactionsSync({ access_token, next_cursor: '', accounts, user_id})
       break;
     case 'DEFAULT_UPDATE':
       break;
