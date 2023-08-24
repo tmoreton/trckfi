@@ -1,24 +1,20 @@
-import getRawBody from 'raw-body'
-
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
+import prisma from '../../lib/prisma';
+import transactionsSync from '../../utils/transactionsSync';
 
 export default async (req, res) => {
   const { webhook_code, item_id } = req.body
-  console.log(process.env.NEXT_PUBLIC_BASE_URL)
-  let test = 'SYNC_UPDATES_AVAILABLE'
-  console.log(webhook_code, item_id)
   switch (webhook_code) {
-    case 'SYNC_UPDATES_AVAILABLE': {
+    case 'SYNC_UPDATES_AVAILABLE':
+      const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
+      const accounts = await prisma.accounts.findMany({ where: { item_id }})
+      const rules = await prisma.rules.findMany({ where: { user_id }})
+      transactionsSync({ access_token, next_cursor: '', accounts, rules, user_id})
       break;
-    }
     case 'DEFAULT_UPDATE':
+      break;
     case 'INITIAL_UPDATE':
+      break;
     case 'HISTORICAL_UPDATE':
-      /* ignore - not needed if using sync endpoint + webhook */
       break;
     default:
       break;
