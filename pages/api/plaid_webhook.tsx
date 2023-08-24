@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer')
+import getRawBody from 'raw-body'
 
 export const config = {
   api: {
@@ -9,7 +9,9 @@ export const config = {
 export default async (req, res) => {
   // const { webhook_code, item_id, } = req.body
   let test = 'SYNC_UPDATES_AVAILABLE'
-  console.log(req.body)
+  console.log('req', req)
+  const rawBody = await getRawBody(req)
+  console.log('rawBody', rawBody)
   switch (test) {
     case 'SYNC_UPDATES_AVAILABLE': {
       break;
