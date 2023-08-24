@@ -7,11 +7,11 @@ import getRawBody from 'raw-body'
 // };
 
 export default async (req, res) => {
-  // const { webhook_code, item_id, } = req.body
+  const { webhook_code, item_id } = req.body
   console.log(process.env.NEXT_PUBLIC_BASE_URL)
   let test = 'SYNC_UPDATES_AVAILABLE'
-  console.log(JSON.parse(req))
-  switch (test) {
+  console.log(webhook_code, item_id)
+  switch (webhook_code) {
     case 'SYNC_UPDATES_AVAILABLE': {
       break;
     }
