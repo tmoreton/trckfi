@@ -204,17 +204,17 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                   {recurring.map((item) => (
                     <Row key={item.id}>
                       <Column className="w-55" align="left">
-                        <Text className="text-[#666666] text-[12px] my-0 mb-1 ml-4">
+                        <Text className="text-[#666666] text-[11px] my-0 mb-1 ml-4">
                           {item.name}
                         </Text>
                       </Column>
                       <Column className="w-20" align="left">
-                        <Text className="text-[#666666] text-[8px] my-0 ml-6">
+                        <Text className="text-[#666666] text-[7px] my-0 ml-6">
                           {item.date}
                         </Text>
                       </Column>
                       <Column align="right">
-                        <Text className="text-red-500 text-[16px] my-0 font-semibold mr-4">
+                        <Text className="text-red-500 text-[14px] my-0 font-semibold mr-4">
                           ${Math.abs(Math.round(item.amount))}
                         </Text>
                       </Column>
