@@ -39,6 +39,7 @@ export default async (req, res) => {
       try {
         const response = await plaidClient.transactionsSync(request)
         let added = response.data.added
+        let removed = response.data.removed
         let next_cursor = response.data.next_cursor
         // let has_more = response.data.has_more
         for (let i in added) {
@@ -61,6 +62,7 @@ export default async (req, res) => {
               category: added[i].category,
               detailed_category: detailed_category,
               unified: icons[detailed_category],
+              pending: added[i].pending,
               primary_category: added[i].personal_finance_category.primary,
               // @ts-ignore
               location: added[i].location,
@@ -69,6 +71,14 @@ export default async (req, res) => {
               item_id: plaid[p].item_id,
               month_year: added[i].date.substring(0,7),
               week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
+            },
+          })
+        }
+
+        for (let r in removed) {
+          await prisma.transactions.delete({
+            where: {
+              transaction_id: removed[r].transaction_id
             },
           })
         }

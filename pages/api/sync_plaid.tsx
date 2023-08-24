@@ -83,6 +83,7 @@ export default async (req, res) => {
   
       const response = await plaidClient.transactionsSync(request)
       let added = response.data.added
+      let removed = response.data.removed
       next_cursor = response.data.next_cursor
       has_more = response.data.has_more
       for (let i in added) {
@@ -112,6 +113,7 @@ export default async (req, res) => {
             primary_category: rule?.ruleset?.primary_category && snakeCase(rule?.ruleset?.primary_category).toUpperCase() || added[i].personal_finance_category.primary,
             // @ts-ignore
             location: added[i].location,
+            pending: added[i].pending,
             user_id: user.id,
             currency: added[i].iso_currency_code,
             item_id: newAccountArray[0].item_id,
@@ -125,6 +127,14 @@ export default async (req, res) => {
         })
       }
     // }
+
+    for (let r in removed) {
+      await prisma.transactions.delete({
+        where: {
+          transaction_id: removed[r].transaction_id
+        },
+      })
+    }
 
     await prisma.plaid.update({
       where: { item_id: newAccountArray[0].item_id },
