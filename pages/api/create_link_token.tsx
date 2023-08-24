@@ -9,7 +9,7 @@ export default async (req, res) => {
     products: ['transactions'],
     language: 'en',
     country_codes: ['US'],
-    webhook: 'https://trckfi.com/api/plaid_webhook'
+    webhook: `${process.env.NEXT_PUBLIC_BASE_URL}/api/plaid_webhook`
   }
 
   if(access_token) params['access_token'] = access_token
