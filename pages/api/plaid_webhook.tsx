@@ -14,15 +14,6 @@ export default async (req, res) => {
     case 'SYNC_UPDATES_AVAILABLE':
       sync(item_id)
       break;
-    case 'DEFAULT_UPDATE':
-      sync(item_id)
-      break;
-    case 'INITIAL_UPDATE': 
-      sync(item_id)
-      break;
-    case 'HISTORICAL_UPDATE': 
-    sync(item_id)
-      break;
     default:
       break;
   }
