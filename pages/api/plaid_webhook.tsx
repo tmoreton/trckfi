@@ -1,16 +1,15 @@
 import getRawBody from 'raw-body'
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
 
 export default async (req, res) => {
   // const { webhook_code, item_id, } = req.body
   let test = 'SYNC_UPDATES_AVAILABLE'
-  const rawBody = await getRawBody(req)
-  console.log(rawBody)
+  console.log(JSON.parse(req.body))
   switch (test) {
     case 'SYNC_UPDATES_AVAILABLE': {
       break;
