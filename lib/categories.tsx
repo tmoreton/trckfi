@@ -32,4 +32,5 @@ export const icons = {
   "ACCOUNT_TRANSFER": "1f4e4",
   "PERSONAL_LOAN_PAYMENT": "1f4b3",
   "CASH_ADVANCES_AND_LOANS": "1f4b3",
+  "HARDWARE": "1f528"
 }

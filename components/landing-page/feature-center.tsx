@@ -2,22 +2,22 @@ import Image from 'next/image'
 
 const features = [
   {
-    name: 'SAVE TIME',
+    name: 'Save Time',
     description: 'Streamline Your Finances Effortlessly – Visualize Everything in One Place.',
     icon: '⏰',
   },
   {
-    name: 'FEEL EMPOWERED',
+    name: 'Feel Empowered',
     description: 'Have a place to visualize your financial goals, and connect with yourself',
     icon: '🚀',
   },
   {
-    name: 'EARN MORE',
+    name: 'Earn More',
     description: 'Refer a friend and get money back towards your subscription',
     icon: '💰',
   },
   {
-    name: 'SPEND LESS',
+    name: 'Spend Less',
     description: 'Save with alerts on recurring charges',
     icon: '💸',
   },
