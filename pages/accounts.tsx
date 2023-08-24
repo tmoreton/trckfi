@@ -66,29 +66,27 @@ const Accounts = ({ showError }) => {
   }
 
   const syncPlaid = async (access_token) => {
-    getAccounts()
-    
-    // const res = await fetch(`/api/sync_plaid`, {
-    //   body: JSON.stringify({
-    //     user,
-    //     access_token
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // const { error } = await res.json()
-    // showError(error)
-    // if(!error) {
-    //   getAccounts()
-    //   setRefreshing(false)
-    //   setConfetti(true)
-    // }
+    setRefreshing(true)
+    const res = await fetch(`/api/sync_plaid`, {
+      body: JSON.stringify({
+        user,
+        access_token
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) {
+      getAccounts()
+      setRefreshing(false)
+      setConfetti(true)
+    }
   }
 
   const getAccounts = async () => {
-    setRefreshing(true)
     const res = await fetch(`/api/get_accounts`, {
       body: JSON.stringify({
         user
@@ -100,14 +98,13 @@ const Accounts = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
+    setRefreshing(false)
     const accounts = data.reduce(function (r, a) {
       r[a.institution] = r[a.institution] || [];
       r[a.institution].push(a);
       return r;
     }, Object.create(null))
     setAccounts(accounts)
-    setRefreshing(false)
-    setConfetti(true)
   }
 
   const refresh = async () => {

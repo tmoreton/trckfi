@@ -3,7 +3,7 @@ import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid';
 import { getAmount } from '../lib/lodash'
 
-const accountsSync = async ({ access_token, item_id, user_id }) => {
+const accountsSync = async ({ access_token, item_id, user_id, institution }) => {
   try {
     let accounts =[]
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
@@ -20,14 +20,13 @@ const accountsSync = async ({ access_token, item_id, user_id }) => {
           active: true
         },
         create: {
-          item_id: item_id,
+          item_id,
+          institution,
           account_id: plaidAccounts[i].account_id,
           name: plaidAccounts[i].name,
           // @ts-ignore
           details: plaidAccounts[i].balances,
           official_name: plaidAccounts[i].official_name || plaidAccounts[i].name,
-          // @ts-ignore
-          institution:  plaidAccount.institution,
           subtype: plaidAccounts[i].subtype,
           type: plaidAccounts[i].type,
           user_id: user_id,
