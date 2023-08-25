@@ -6,7 +6,7 @@ import { snakeCase } from "snake-case";
 import { icons } from '../lib/categories'
 import { DateTime } from "luxon"
 
-const transactionsSync = async ({ access_token, next_cursor, accounts, user_id }) => {
+const transactionsSync = async (access_token, next_cursor, accounts, user_id) => {
   try {
     const rules = await prisma.rules.findMany({ where: { user_id }})
     const request = {

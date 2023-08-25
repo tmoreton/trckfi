@@ -3,7 +3,7 @@ import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid';
 import { getAmount } from '../lib/lodash'
 
-const accountsSync = async ({ access_token, item_id, user_id, institution }) => {
+const accountsSync = async (access_token, item_id, user_id, institution) => {
   try {
     let accounts =[]
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
