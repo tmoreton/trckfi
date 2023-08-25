@@ -67,9 +67,8 @@ const Accounts = ({ showError }) => {
 
   const syncPlaid = async (access_token) => {
     setRefreshing(true)
-    const res = await fetch(`/api/sync_plaid`, {
+    const res = await fetch(`/api/sync_test`, {
       body: JSON.stringify({
-        user,
         access_token
       }),
       headers: {
@@ -84,6 +83,24 @@ const Accounts = ({ showError }) => {
       setRefreshing(false)
       setConfetti(true)
     }
+    // setRefreshing(true)
+    // const res = await fetch(`/api/sync_plaid`, {
+    //   body: JSON.stringify({
+    //     user,
+    //     access_token
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
+    // const { error } = await res.json()
+    // showError(error)
+    // if(!error) {
+    //   getAccounts()
+    //   setRefreshing(false)
+    //   setConfetti(true)
+    // }
   }
 
   const getAccounts = async () => {
