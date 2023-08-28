@@ -14,7 +14,6 @@ import { useSession } from "next-auth/react"
 import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
-import Image from 'next/image'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -22,7 +21,7 @@ const Dashboard = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
-  const [showEmpty, openshowEmpty] = useState(true)
+  const [showEmpty, openshowEmpty] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [t, setTransactions] = useLocalStorage('transactions',[])
@@ -36,6 +35,9 @@ const Dashboard = ({ showError }) => {
   useEffect(() => {
     getDashboard()
     getStats()
+    if(t.length > 0){
+      openshowEmpty(false)
+    }
     // getTransactions()
   }, [])
 
@@ -136,7 +138,7 @@ const Dashboard = ({ showError }) => {
   const renderImg = (account) => {
     if(account){
       let image_url = `/assets/banks/${account.institution}.png`
-      return <Image
+      return <img
         src={image_url}
         alt={account.institution}
         onError={({ currentTarget }) => {
