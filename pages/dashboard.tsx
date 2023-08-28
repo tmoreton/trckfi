@@ -107,7 +107,7 @@ const Dashboard = ({ showError }) => {
   }
 
   const refresh = async () => {
-    getRecurring()
+    // getRecurring()
     clearLocalStorage()
     setLoading(true)
     const res = await fetch(`/api/sync_accounts`, {
