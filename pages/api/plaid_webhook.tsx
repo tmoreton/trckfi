@@ -1,11 +1,14 @@
 import prisma from '../../lib/prisma';
-import transactionsSync from '../../utils/transactionsSync';
 import accountsSync from '../../utils/accountsSync';
+import { client } from "../../trigger";
 
 const sync = async (item_id) => {
   let { access_token, user_id, institution } = await prisma.plaid.findUnique({ where: { item_id: item_id }})
   let accounts = await accountsSync(access_token, item_id, user_id, institution)
-  transactionsSync(access_token, '', accounts, user_id)
+  client.sendEvent({
+    name: "plaid.transactions",
+    payload: { access_token: access_token, next_cursor: '', accounts: accounts, user_id: user_id },
+  });
 }
 
 export default async (req, res) => {
