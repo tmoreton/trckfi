@@ -116,7 +116,6 @@ const transactionsSync = async (access_token, user_id) => {
       where: { item_id: plaid.item_id },
       data: { error_code: error.response?.data?.error_code }
     })
-    throw new Error(error)
   }
 }
 
