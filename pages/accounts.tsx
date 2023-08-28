@@ -101,15 +101,14 @@ const Accounts = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     setRefreshing(false)
+    if(data.length <= 0){
+      openSetupModal(true)
+    }
     const accounts = data.reduce(function (r, a) {
       r[a.institution] = r[a.institution] || [];
       r[a.institution].push(a);
       return r;
-    }, Object.create(null))
-    console.log(accounts)
-    if(accounts.length <= 0){
-      openSetupModal(true)
-    }
+    }, Object.create(null))    
     setAccounts(accounts)
   }
 
