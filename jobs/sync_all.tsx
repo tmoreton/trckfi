@@ -23,10 +23,7 @@ client.defineJob({
     const plaid = await prisma.plaid.findMany({
       where: {
         active: true,
-        user_id: { in: ids },
-        updated_at: {
-          lte: end_date
-        },
+        user_id: { in: ids }
       },
     })
     console.log(plaid)
