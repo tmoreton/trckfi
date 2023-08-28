@@ -14,7 +14,6 @@ import { useSession } from "next-auth/react"
 import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
-import ConfettiExplosion from 'react-confetti-explosion'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -28,14 +27,12 @@ const Dashboard = ({ showError }) => {
   const [t, setTransactions] = useLocalStorage('transactions',[])
   const [graphData, setGraphData] = useLocalStorage('graph_data', {})
   const [totalStats, setStats] = useLocalStorage('dashboard_stats', [])
-  const [showConfetti, setConfetti] = useState(false)
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 3 }).startOf('month').toISO()
   })
 
   useEffect(() => {
-    // getRecurring()
     getDashboard()
     getStats()
     // getTransactions()
@@ -226,7 +223,6 @@ const Dashboard = ({ showError }) => {
           keywords=''
         />
         { showEmpty && <Empty /> }
-        { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
         <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
