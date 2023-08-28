@@ -4,7 +4,7 @@ import accountsSync from '../../utils/accountsSync';
 
 const sync = async (item_id) => {
   let { access_token, user_id, institution } = await prisma.plaid.findUnique({ where: { item_id: item_id }})
-  let accounts = accountsSync(access_token, item_id, user_id, institution)
+  let accounts = await accountsSync(access_token, item_id, user_id, institution)
   transactionsSync(access_token, '', accounts, user_id)
 }
 
