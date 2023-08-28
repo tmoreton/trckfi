@@ -203,7 +203,8 @@ client.defineJob({
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 
-          recurring={recurring} 
+          recurring={recurring}
+          // @ts-ignore
           email={email}
           this_month={this_month}
           last_month={last_month}
