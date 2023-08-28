@@ -5,8 +5,8 @@ import transactionsSync from '../utils/transactionsSync';
 import prisma from '../lib/prisma';
 
 client.defineJob({
-  id: "plaid-transactions-sync",
-  name: "Plaid Transactions",
+  id: "sync-all",
+  name: "Sync All Active Plaid Transactions",
   version: "0.0.1",
   trigger: cronTrigger({
     cron: "0 8 * * *",
