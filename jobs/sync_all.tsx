@@ -28,12 +28,12 @@ client.defineJob({
     })
     console.log(plaid)
     for (let p in plaid) {
-      await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      client.sendEvent({
-        name: "plaid.transactions",
-        payload: { access_token: plaid[p].access_token, user_id: plaid[p].user_id },
-      })
-      // await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
+      // client.sendEvent({
+      //   name: "plaid.transactions",
+      //   payload: { access_token: plaid[p].access_token, user_id: plaid[p].user_id },
+      // })
+      await transactionsSync(plaid[p].access_token, plaid[p].user_id)
     }
   },
 });
