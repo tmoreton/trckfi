@@ -34,7 +34,7 @@ const Dashboard = ({ showError }) => {
   useEffect(() => {
     getDashboard()
     getStats()
-    // getTransactions()
+    getTransactions()
   }, [])
 
   useEffect(() => {
@@ -100,20 +100,12 @@ const Dashboard = ({ showError }) => {
   }
 
   const refresh = async () => {
-    clearLocalStorage()
     setLoading(true)
-    const res = await fetch(`/api/sync_accounts`, {
-      body: JSON.stringify({ user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
+    clearLocalStorage()
     getStats()
     getDashboard()
     getTransactions()
+    setLoading(false)
   }
 
   const updateSelect = (e, value) => {
