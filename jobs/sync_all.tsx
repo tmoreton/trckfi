@@ -25,10 +25,11 @@ client.defineJob({
         active: true,
         user_id: { in: ids },
         updated_at: {
-          lte: end_date
+          gte: end_date
         },
       },
     })
+    console.log(plaid)
     for (let p in plaid) {
       await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
       client.sendEvent({
