@@ -1,12 +1,19 @@
-// eslint-disable-next-line import/no-anonymous-default-export
+import { cronTrigger } from "@trigger.dev/sdk";
+import { client } from "../trigger";
 const nodemailer = require('nodemailer')
 import { render } from '@react-email/render'
-import WeeklySummary from "../../../emails/weekly_summary"
-import prisma from '../../../lib/prisma';
+import WeeklySummary from "../emails/weekly_summary"
+import prisma from '../lib/prisma';
 import { DateTime } from "luxon";
 
-export default async (req, res) => {
-  try {
+client.defineJob({
+  id: "weekly-email",
+  name: "Weekly Email",
+  version: "0.0.1",
+  trigger: cronTrigger({
+    cron: "0 8 * * 1",
+  }),
+  run: async (payload, io, ctx) => {
     const date = DateTime.now()
     const this_week = `${date.year}-${date.minus({ days: 3 }).weekNumber}`
     const last_week = `${date.year}-${date.minus({ days: 9 }).weekNumber}`
@@ -181,11 +188,5 @@ export default async (req, res) => {
         })
       }
     }
-
-    return res.status(200).json({ status: 'OK' })
-  } catch (error) {
-    console.error(error)
-    throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
-  }
-}
+  },
+});

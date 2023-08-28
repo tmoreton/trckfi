@@ -14,9 +14,6 @@ client.defineJob({
     cron: "0 8 1 * *",
   }),
   run: async (payload, io, ctx) => {
-    console.log(payload)
-    console.log(io)
-    console.log(ctx)
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
@@ -123,8 +120,8 @@ client.defineJob({
           let item = primary.filter((i) => i.month_year === last_month && i.primary_category === p.primary_category)[0]
           primaryCategories.push({
             category: p.primary_category.split('_').join(' '),
-            this_month_amount: p._sum.amount,
-            last_month_amount: item?._sum.amount
+            this_month_amount: p?._sum?.amount,
+            last_month_amount: item?._sum?.amount
           })
         }
       })
@@ -156,8 +153,8 @@ client.defineJob({
           let item = detailed.filter((i) => i.month_year === last_month && i.detailed_category === p.detailed_category)[0]
           detailedCategories.push({
             category: p.detailed_category.split('_').join(' '),
-            this_month_amount: p._sum.amount,
-            last_month_amount: item?._sum.amount
+            this_month_amount: p?._sum?.amount,
+            last_month_amount: item?._sum?.amount
           })
         }
       })

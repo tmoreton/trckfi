@@ -49,10 +49,10 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     Last Month
                   </Text>
                   <Text className="text-red-500 text-[28px] font-bold my-0">
-                    {addComma(Math.abs(groupByMonth[1]._sum.amount))}
+                    {addComma(Math.abs(groupByMonth[1]?._sum?.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
-                    {groupByMonth[1]._count.amount} transactions
+                    {groupByMonth[1]?._count?.amount} transactions
                   </Text>
                 </Column>
                 <Column align="center">
@@ -65,21 +65,21 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     This Month
                   </Text>
                   <Text className="text-red-500 text-[28px] font-bold my-0">
-                    {addComma(Math.abs(groupByMonth[0]._sum.amount))}
+                    {addComma(Math.abs(groupByMonth[0]?._sum?.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
-                    {groupByMonth[0]._count.amount} transactions
+                    {groupByMonth[0]?._count?.amount} transactions
                   </Text>
                 </Column>
               </Row>
 
-              { groupByMonth[0]._sum.amount < groupByMonth[1]._sum.amount &&
+              { groupByMonth[0]?._sum?.amount < groupByMonth[1]?._sum?.amount &&
                 <Text className="text-[#464c63] font-semibold text-[12px] mt-1 mb-8 inline-flex items-center">
                   Nice Work! 
                   <span className="px-1"><Emoji unified='1f973' size={20}/></span>
                   You spent 
                   <span className="text-green-500  font-bold text-[16px] px-1">
-                    {addComma(Math.abs(Number(groupByMonth[1]._sum.amount) - Number(groupByMonth[0]._sum.amount)))} 
+                    {addComma(Math.abs(Number(groupByMonth[1]?._sum?.amount) - Number(groupByMonth[0]?._sum?.amount)))} 
                   </span>
                   less this month!
                 </Text>
@@ -94,7 +94,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     Last Month
                   </Text>
                   <Text className="text-green-500 text-[28px] font-bold my-0">
-                    {addComma(Math.abs(groupByMonthIncome[1]._sum.amount))}
+                    {addComma(Math.abs(groupByMonthIncome[1]?._sum?.amount))}
                   </Text>
                 </Column>
                 <Column align="center">
@@ -107,7 +107,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     This Month
                   </Text>
                   <Text className="text-green-500 text-[28px] font-bold my-0">
-                    {addComma(Math.abs(groupByMonthIncome[0]._sum.amount))}
+                    {addComma(Math.abs(groupByMonthIncome[0]?._sum?.amount))}
                   </Text>
                 </Column>
               </Row>
