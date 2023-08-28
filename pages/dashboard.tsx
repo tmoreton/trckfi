@@ -21,7 +21,6 @@ const Dashboard = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
-  const [showEmpty, openshowEmpty] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [t, setTransactions] = useLocalStorage('transactions',[])
@@ -35,9 +34,6 @@ const Dashboard = ({ showError }) => {
   useEffect(() => {
     getDashboard()
     getStats()
-    if(t.length > 0){
-      openshowEmpty(false)
-    }
     // getTransactions()
   }, [])
 
@@ -98,9 +94,6 @@ const Dashboard = ({ showError }) => {
     })
     const { error, data } = await res.json()
     showError(error)
-    if(data.length > 0){
-      openshowEmpty(false)
-    }
     setTransactions(data)    
     setRefreshing(false)
     setLoading(false)
@@ -224,15 +217,13 @@ const Dashboard = ({ showError }) => {
           image=''
           keywords=''
         />
-        { showEmpty ?
-          <Empty />
+        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
+        <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
+        <Graphs graphData={graphData} />
+        { t.length > 1 ? 
+          <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
           :
-          <>
-            <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
-            <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
-            <Graphs graphData={graphData} />
-            { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
-          </>
+          <Empty />
         }
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       </DashboardLayout>

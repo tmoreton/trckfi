@@ -83,6 +83,7 @@ const Accounts = ({ showError }) => {
     showError(error)
     if(!error) {
       getAccounts()
+      openSetupModal(false)
       setRefreshing(false)
       setConfetti(true)
     }
