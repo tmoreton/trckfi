@@ -222,12 +222,17 @@ const Dashboard = ({ showError }) => {
           image=''
           keywords=''
         />
-        { showEmpty && <Empty /> }
+        { showEmpty ?
+          <Empty />
+          :
+          <>
+            <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
+            <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
+            <Graphs graphData={graphData} />
+            { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
+          </>
+        }
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
-        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
-        <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
-        <Graphs graphData={graphData} />
-        { t.length > 1 && <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>}
       </DashboardLayout>
     </>
   )

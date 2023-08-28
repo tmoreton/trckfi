@@ -106,6 +106,7 @@ const Accounts = ({ showError }) => {
       r[a.institution].push(a);
       return r;
     }, Object.create(null))
+    console.log(accounts)
     if(accounts.length <= 0){
       openSetupModal(true)
     }

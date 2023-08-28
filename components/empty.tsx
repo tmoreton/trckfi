@@ -1,4 +1,5 @@
 import { PlusIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 export default function Empty() {
   return (
@@ -21,13 +22,15 @@ export default function Empty() {
       <h3 className="mt-2 text-sm font-semibold text-gray-900">No Connections</h3>
       <p className="mt-1 text-sm text-gray-500">Get started by adding a bank connection to import transactions.</p>
       <div className="mt-6">
-        <button
-          type="button"
-          className="inline-flex items-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-        >
-          <PlusIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
-          Connect Bank
-        </button>
+        <Link href='/accounts'>
+          <button
+            type="button"
+            className="inline-flex items-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+          >
+            <PlusIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
+            Connect Bank
+          </button>
+        </Link>
       </div>
     </div>
   )
