@@ -56,7 +56,9 @@ client.defineJob({
             lte: 0,
           },
           NOT: [
-            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
           ],
         },
         _sum: {
@@ -82,8 +84,11 @@ client.defineJob({
             gte: 0,
           },
           NOT: [
-            { detailed_category: 'CREDIT_CARD_PAYMENT' },
-          ],        },
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+          ],        
+        },
         _sum: {
           amount: true,
         },
@@ -107,7 +112,9 @@ client.defineJob({
             lte: 0,
           },
           NOT: [
-            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
           ],
         },
         _sum: {
@@ -140,7 +147,9 @@ client.defineJob({
             lte: 0,
           },
           NOT: [
-            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
           ],
         },
         _sum: {
@@ -167,7 +176,9 @@ client.defineJob({
           active: true,
           month_year: this_month,
           NOT: [
-            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
           ],
         },
         orderBy: {

@@ -49,10 +49,10 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                     Last Week
                   </Text>
                   <Text className="text-red-500 text-[28px] font-bold my-0">
-                    {addComma(Math.abs(groupByWeek[1]._sum.amount))}
+                    {addComma(Math.abs(groupByWeek[1]?._sum?.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
-                    {groupByWeek[1]._count.amount} transactions
+                    {groupByWeek[1]?._count?.amount} transactions
                   </Text>
                 </Column>
                 <Column align="center">
@@ -65,20 +65,20 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                     This Week
                   </Text>
                   <Text className="text-red-500 text-[28px] font-bold my-0">
-                    {addComma(Math.abs(groupByWeek[0]._sum.amount))}
+                    {addComma(Math.abs(groupByWeek[0]?._sum?.amount))}
                   </Text>
                   <Text className="text-[#888888] text-[8px] mt-0">
-                    {groupByWeek[0]._count.amount} transactions
+                    {groupByWeek[0]?._count?.amount} transactions
                   </Text>
                 </Column>
               </Row>
-              { groupByWeek[0]._sum.amount < groupByWeek[1]._sum.amount &&
+              { groupByWeek[0]?._sum?.amount < groupByWeek[1]?._sum?.amount &&
                 <Text className="text-[#464c63] font-semibold text-[12px] mt-1 mb-2 inline-flex items-center">
                   Nice Work! 
                   <span className="px-1"><Emoji unified='1f973' size={20}/></span>
                   You spent 
                   <span className="text-green-500  font-bold text-[16px] px-1">
-                    {addComma(Math.abs(Number(groupByWeek[1]._sum.amount) - Number(groupByWeek[0]._sum.amount)))} 
+                    {addComma(Math.abs(Number(groupByWeek[1]?._sum?.amount) - Number(groupByWeek[0]?._sum?.amount)))} 
                   </span>
                   less this week!
                 </Text>
