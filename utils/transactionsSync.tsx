@@ -6,9 +6,32 @@ import { snakeCase } from "snake-case";
 import { icons } from '../lib/categories'
 import { DateTime } from "luxon"
 
-const transactionsSync = async (access_token, next_cursor, accounts, user_id) => {
+const transactionsSync = async (access_token, user_id) => {
   try {
-    const rules = await prisma.rules.findMany({ where: { user_id }})
+    const user = await prisma.user.findUnique({
+      where: { id: user_id }
+    })
+
+    const query = user.linked_user_id ? [{ user_id: user.id }, { user_id: user.linked_user_id }] : [{ user_id: user.id }]
+
+    const rules = await prisma.rules.findMany({
+      where: {
+        OR: query,
+      }
+    })
+
+    const plaid = await prisma.plaid.findUnique({
+      where: { 
+        access_token: access_token,
+        active: true
+      },
+      include: {
+        accounts: true
+      }
+    })
+
+    let next_cursor = !plaid.error_code ? plaid.cursor : ''
+
     const request = {
       access_token: access_token,
       cursor: next_cursor,
@@ -26,11 +49,10 @@ const transactionsSync = async (access_token, next_cursor, accounts, user_id) =>
     // Added Transactions
     while(has_more){
       for (let i in added) {
-        let { id, type } = accounts.find(a => a.account_id === added[i].account_id)
+        let { id, type } = plaid.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
         let rule = rules.find(r => added[i].name.toUpperCase().includes(r.identifier.toUpperCase()))
-        console.log(added[i])
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
@@ -54,9 +76,9 @@ const transactionsSync = async (access_token, next_cursor, accounts, user_id) =>
             // @ts-ignore
             location: added[i].location,
             pending: added[i].pending,
-            user_id: user_id,
+            user_id: user.id,
             currency: added[i].iso_currency_code,
-            item_id: accounts[0].item_id,
+            item_id: plaid.item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
             // @ts-ignore
@@ -77,7 +99,7 @@ const transactionsSync = async (access_token, next_cursor, accounts, user_id) =>
     }
 
     await prisma.plaid.update({
-      where: { item_id: accounts[0].item_id },
+      where: { item_id: plaid.item_id },
       data: { 
         cursor: next_cursor,
         error_code: null
@@ -85,8 +107,13 @@ const transactionsSync = async (access_token, next_cursor, accounts, user_id) =>
     })
   } catch (error) {
     console.error(error)
+    const plaid = await prisma.plaid.findUnique({
+      where: { 
+        access_token: access_token 
+      }
+    })
     await prisma.plaid.update({
-      where: { item_id: accounts[0].item_id },
+      where: { item_id: plaid.item_id },
       data: { error_code: error.response?.data?.error_code }
     })
     throw new Error(error)

@@ -10,7 +10,7 @@ client.defineJob({
     name: "plaid.transactions"
   }),
   run: async (payload, io, ctx) => {
-    const { access_token, next_cursor, accounts, user_id } = payload
-    transactionsSync(access_token, next_cursor, accounts, user_id)
+    const { access_token, user_id } = payload
+    transactionsSync(access_token, user_id)
   },
 });

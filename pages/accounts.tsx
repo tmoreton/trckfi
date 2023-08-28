@@ -18,6 +18,7 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
+import SetupModal from '../components/modals/setup-modal'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -50,7 +51,8 @@ const Accounts = ({ showError }) => {
   const [removedAccounts, setRemovedAccounts] = useState([])
   const [showConfetti, setConfetti] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
-  
+  const [setupModal, openSetupModal] = useState(false)
+
   useEffect(() => {
     getAccounts()
   }, [showConfetti])
@@ -67,8 +69,9 @@ const Accounts = ({ showError }) => {
 
   const syncPlaid = async (access_token) => {
     setRefreshing(true)
-    const res = await fetch(`/api/sync_test`, {
+    const res = await fetch(`/api/sync_plaid`, {
       body: JSON.stringify({
+        user,
         access_token
       }),
       headers: {
@@ -83,24 +86,6 @@ const Accounts = ({ showError }) => {
       setRefreshing(false)
       setConfetti(true)
     }
-    // setRefreshing(true)
-    // const res = await fetch(`/api/sync_plaid`, {
-    //   body: JSON.stringify({
-    //     user,
-    //     access_token
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // const { error } = await res.json()
-    // showError(error)
-    // if(!error) {
-    //   getAccounts()
-    //   setRefreshing(false)
-    //   setConfetti(true)
-    // }
   }
 
   const getAccounts = async () => {
@@ -121,6 +106,9 @@ const Accounts = ({ showError }) => {
       r[a.institution].push(a);
       return r;
     }, Object.create(null))
+    if(accounts.length <= 0){
+      openSetupModal(true)
+    }
     setAccounts(accounts)
   }
 
@@ -191,21 +179,6 @@ const Accounts = ({ showError }) => {
     if(!error) getAccounts()
   }
 
-  const syncAccount = async (plaid) => {
-    setLoading(true)
-    setRemovedAccounts([])
-    const res = await fetch(`/api/sync_account`, {
-      body: JSON.stringify({ plaid, user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) getAccounts()
-  }
-
   return (
     <>
       <Menu showError={showError}/>
@@ -224,6 +197,7 @@ const Accounts = ({ showError }) => {
         <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getAccounts} />
         <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
+        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
         <div className="lg:flex justify-center lg:space-x-6 space-x-0 mb-4 block items-center">
           <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
@@ -310,7 +284,7 @@ const Accounts = ({ showError }) => {
                                           <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid}/>
                                         }
                                         { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
-                                          <button onClick={() => syncAccount(accounts[key][0]?.plaid)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
+                                          <button onClick={() => syncPlaid(accounts[key][0]?.plaid?.access_token)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
                                             <div className={loading && 'animate-spin'}>
                                               <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
                                             </div>

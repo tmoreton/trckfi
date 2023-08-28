@@ -5,8 +5,8 @@ import Snapshot from "../components/snapshot"
 import LoadingModal from '../components/modals/loading-modal'
 import Table from '../components/table'
 import TransactionModal from '../components/modals/transaction-modal'
-import SetupModal from '../components/modals/setup-modal'
 import DatePicker from '../components/modals/date-picker-modal'
+import Empty from '../components/empty'
 import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
@@ -22,7 +22,7 @@ const Dashboard = ({ showError }) => {
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
-  const [setupModal, openSetupModal] = useState(false)
+  const [showEmpty, openshowEmpty] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [t, setTransactions] = useLocalStorage('transactions',[])
@@ -35,48 +35,25 @@ const Dashboard = ({ showError }) => {
   })
 
   useEffect(() => {
-    getRecurring()
+    // getRecurring()
     getDashboard()
     getStats()
-    getTransactions()
+    // getTransactions()
   }, [])
 
   useEffect(() => {
     getTransactions()
   }, [dates])
 
-  const syncPlaid = async (access_token) => {
-    openSetupModal(false)
-    setRefreshing(true)
-    const res = await fetch(`/api/sync_plaid`, {
-      body: JSON.stringify({
-        user,
-        access_token
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) {
-      getDashboard()
-      getTransactions()
-      setRefreshing(false)
-      setConfetti(true)
-    }
-  }
-
-  const getRecurring = async () => {
-    await fetch(`/api/get_recurring`, {
-      body: JSON.stringify({ user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-  }
+  // const getRecurring = async () => {
+  //   await fetch(`/api/get_recurring`, {
+  //     body: JSON.stringify({ user }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  // }
 
   const getStats = async () => {
     const res = await fetch(`/api/get_stats`, {
@@ -122,7 +99,7 @@ const Dashboard = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     if(data.length <= 0){
-      openSetupModal(true)
+      openshowEmpty(true)
     }
     setTransactions(data)    
     setRefreshing(false)
@@ -248,7 +225,7 @@ const Dashboard = ({ showError }) => {
           image=''
           keywords=''
         />
-        <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
+        { showEmpty && <Empty /> }
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
