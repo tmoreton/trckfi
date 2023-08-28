@@ -1,4 +1,4 @@
-import { eventTrigger } from "@trigger.dev/sdk";
+import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 const nodemailer = require('nodemailer')
 import { render } from '@react-email/render'
@@ -10,10 +10,13 @@ client.defineJob({
   id: "monthly-email",
   name: "Monthly Email",
   version: "0.0.1",
-  trigger: eventTrigger({
-    name: "monthly_email.event",
+  trigger: cronTrigger({
+    cron: "0 8 1 * *",
   }),
   run: async (payload, io, ctx) => {
+    console.log(payload)
+    console.log(io)
+    console.log(ctx)
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
