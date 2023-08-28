@@ -30,7 +30,7 @@ const transactionsSync = async (access_token, user_id) => {
       }
     })
     console.log(plaid)
-    let next_cursor = !plaid.error_code ? plaid.cursor : ''
+    let next_cursor = !plaid.error_code && plaid.cursor ? plaid.cursor : ''
 
     const request = {
       access_token: access_token,
