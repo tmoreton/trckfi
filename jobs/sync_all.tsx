@@ -25,8 +25,7 @@ client.defineJob({
         active: true,
         user_id: { in: ids },
         updated_at: {
-          lte: end_date,
-          gte: start_date
+          lte: end_date
         },
       },
     })
