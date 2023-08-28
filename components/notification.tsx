@@ -87,6 +87,8 @@ export default function ({ showError }) {
                       className="h-10 w-10 rounded-full"
                       src="/trckfi-icon-white.png"
                       alt="trckfi-icon"
+                      width={100}
+                      height={100}
                     />
                   </div>
                   {/* Initial question */}
