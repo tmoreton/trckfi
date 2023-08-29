@@ -6,7 +6,7 @@ import prisma from '../lib/prisma';
 
 client.defineJob({
   id: "sync-daily",
-  name: "Sync All Active Plaid Transactions",
+  name: "Daily Sync Transactions",
   version: "0.0.1",
   trigger: cronTrigger({
     cron: "0 8 * * *",
