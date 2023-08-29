@@ -5,7 +5,6 @@ import { getAmount } from '../lib/lodash'
 
 const accountsSync = async (access_token, item_id, user_id, institution) => {
   try {
-    let accounts =[]
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
     let plaidAccounts = accountResponse.data.accounts
     for (let i in plaidAccounts) {
@@ -33,7 +32,6 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
           amount: getAmount(plaidAccounts[i]),
         },
       })
-      accounts.push(newAccount)
     }
     return accounts
   } catch (error) {

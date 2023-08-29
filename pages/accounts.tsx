@@ -219,7 +219,7 @@ const Accounts = ({ showError }) => {
             Add Manually
           </button>
           <button
-            onClick={refresh}
+            onClick={syncPlaid}
             type="button"
             className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
           >
