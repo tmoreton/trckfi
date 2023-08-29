@@ -44,9 +44,9 @@ const transactionsSync = async (access_token, user_id) => {
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
     let removed = response.data.removed
-    let has_more = response.data.has_more
+    // let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
-    // Added Transactions
+
     // while(has_more){
       for (let i in added) {
         let { id, type } = plaid.accounts.find(a => a.account_id === added[i].account_id)
