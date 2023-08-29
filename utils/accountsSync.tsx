@@ -8,7 +8,7 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
     let plaidAccounts = accountResponse.data.accounts
     for (let i in plaidAccounts) {
-      console.log('Account Sync: ', plaidAccounts[i].name)
+      console.log('Account Sync: ', plaidAccounts[i].balances)
       await prisma.accounts.upsert({
         where: { 
           account_id: plaidAccounts[i].account_id
@@ -34,8 +34,19 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
         },
       })
     }
+    await prisma.plaid.update({
+      where: { item_id },
+      data: { 
+        cursor: '',
+        error_code: null
+      }
+    })
   } catch (error) {
     console.error(error)
+    await prisma.plaid.update({
+      where: { item_id },
+      data: { error_code: error.response?.data?.error_code }
+    })
     // throw new Error(error)
   }
 }
