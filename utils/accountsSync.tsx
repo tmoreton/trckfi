@@ -37,7 +37,6 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
     await prisma.plaid.update({
       where: { item_id },
       data: { 
-        cursor: '',
         error_code: null
       }
     })
