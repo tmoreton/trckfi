@@ -5,14 +5,13 @@ import transactionsSync from '../utils/transactionsSync';
 import prisma from '../lib/prisma';
 
 client.defineJob({
-  id: "sync-all",
+  id: "sync-daily",
   name: "Sync All Active Plaid Transactions",
   version: "0.0.1",
   trigger: cronTrigger({
     cron: "0 8 * * *",
   }),
   run: async (payload, io, ctx) => {
-    console.log('testinggg')
     const start_date = new Date()
     const end_date = new Date(start_date.getTime() + 60 * 60 * 24 * 1000)
     let users = await prisma.user.findMany({
@@ -30,10 +29,12 @@ client.defineJob({
 
     for (let p in plaid) {
       console.log(plaid[p])
-      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      // await transactionsSync(plaid[p].access_token, plaid[p].user_id)
       client.sendEvent({
-        name: "plaid.transactions",
+        name: "sync.accounts",
+        payload: { access_token: plaid[p].access_token, item_id: plaid[p].item_id, user_id: plaid[p].user_id, institution: plaid[p].institution },
+      })
+      client.sendEvent({
+        name: "sync.transactions",
         payload: { access_token: plaid[p].access_token, user_id: plaid[p].user_id },
       })
     }

@@ -6,9 +6,10 @@ import { getAmount } from '../lib/lodash'
 const accountsSync = async (access_token, item_id, user_id, institution) => {
   try {
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
+    console.log(accountResponse)
     let plaidAccounts = accountResponse.data.accounts
     for (let i in plaidAccounts) {
-      let newAccount = await prisma.accounts.upsert({
+      await prisma.accounts.upsert({
         where: { 
           account_id: plaidAccounts[i].account_id
         },
@@ -33,7 +34,6 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
         },
       })
     }
-    return accounts
   } catch (error) {
     console.error(error)
     // throw new Error(error)
