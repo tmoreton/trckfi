@@ -38,7 +38,7 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
     return accounts
   } catch (error) {
     console.error(error)
-    throw new Error(error)
+    // throw new Error(error)
   }
 }
 
