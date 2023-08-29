@@ -12,5 +12,6 @@ export default async (req, res) => {
   client.sendEvent({
     name: "sync.transactions",
     payload: { access_token, user_id },
-  });
+  })
+  return res.status(200).json({ status: "Ok" })
 }
