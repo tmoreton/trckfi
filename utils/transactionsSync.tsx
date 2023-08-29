@@ -53,6 +53,7 @@ const transactionsSync = async (access_token, user_id) => {
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
         let rule = rules.find(r => added[i].name.toUpperCase().includes(r.identifier.toUpperCase()))
+        console.log('Transactions Sync: ', added[i].name)
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
