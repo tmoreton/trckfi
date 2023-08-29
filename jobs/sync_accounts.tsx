@@ -11,6 +11,6 @@ client.defineJob({
   }),
   run: async (payload, io, ctx) => {
     const { access_token, item_id, user_id, institution } = payload
-    accountsSync(access_token, item_id, user_id, institution)
+    await accountsSync(access_token, item_id, user_id, institution)
   },
 });
