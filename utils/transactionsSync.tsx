@@ -31,7 +31,7 @@ const transactionsSync = async (access_token, user_id) => {
     })
 
     let next_cursor = !plaid.error_code && plaid.cursor ? plaid.cursor : ''
-    console.log(next_cursor)
+
     const request = {
       access_token: access_token,
       cursor: next_cursor,
@@ -46,8 +46,6 @@ const transactionsSync = async (access_token, user_id) => {
     let removed = response.data.removed
     let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
-    console.log(has_more)
-    console.log(next_cursor)
     // Added Transactions
     // while(has_more){
       for (let i in added) {

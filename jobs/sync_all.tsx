@@ -12,6 +12,7 @@ client.defineJob({
     cron: "0 8 * * *",
   }),
   run: async (payload, io, ctx) => {
+    console.log('testinggg')
     const start_date = new Date()
     const end_date = new Date(start_date.getTime() + 60 * 60 * 24 * 1000)
     let users = await prisma.user.findMany({
@@ -29,12 +30,12 @@ client.defineJob({
 
     for (let p in plaid) {
       console.log(plaid[p])
-      await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      await transactionsSync(plaid[p].access_token, plaid[p].user_id)
-      // client.sendEvent({
-      //   name: "plaid.transactions",
-      //   payload: { access_token: plaid[p].access_token, user_id: plaid[p].user_id },
-      // })
+      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
+      // await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+      client.sendEvent({
+        name: "plaid.transactions",
+        payload: { access_token: plaid[p].access_token, user_id: plaid[p].user_id },
+      })
     }
   },
 });
