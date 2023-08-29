@@ -31,7 +31,7 @@ const transactionsSync = async (access_token, user_id) => {
     })
 
     let next_cursor = !plaid.error_code && plaid.cursor ? plaid.cursor : ''
-
+    console.log(next_cursor)
     const request = {
       access_token: access_token,
       cursor: next_cursor,
@@ -46,9 +46,10 @@ const transactionsSync = async (access_token, user_id) => {
     let removed = response.data.removed
     let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
-    console.log(added)
+    console.log(has_more)
+    console.log(next_cursor)
     // Added Transactions
-    while(has_more){
+    // while(has_more){
       for (let i in added) {
         let { id, type } = plaid.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
@@ -89,7 +90,7 @@ const transactionsSync = async (access_token, user_id) => {
           },
         })
       }
-    }
+    // }
     // Removed Transactions
     for (let r in removed) {
       await prisma.transactions.delete({
