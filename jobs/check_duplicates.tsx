@@ -50,30 +50,32 @@ client.defineJob({
 
     transactions1.forEach((t1) => {
       transactions2.forEach(async (t2) => {
-        if(Number(t1.amount) + Number(t2.amount) === 0){
-          console.log('transfer')
-          console.log(t1.name)
-          console.log(t2.name)
-          await prisma.transactions.updateMany({
-            where: { 
-              OR: [{ id: t1.id }, { id: t2.id }]
-            },
-            data: { 
-              active: false
-            }
-          })
-        } else if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
-          console.log('duplicate')
-          console.log(t1.name)
-          console.log(t2.name)
-          await prisma.transactions.updateMany({
-            where: { 
-              id: t2.id
-            },
-            data: { 
-              active: false
-            }
-          })
+        if(t1.transaction_id !== t2.transaction_id){
+          if(Number(t1.amount) + Number(t2.amount) === 0){
+            console.log('transfer')
+            console.log(t1.name)
+            console.log(t2.name)
+            await prisma.transactions.updateMany({
+              where: { 
+                OR: [{ id: t1.id }, { id: t2.id }]
+              },
+              data: { 
+                active: false
+              }
+            })
+          } else if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
+            console.log('duplicate')
+            console.log(t1.name)
+            console.log(t2.name)
+            await prisma.transactions.update({
+              where: { 
+                id: t2.id
+              },
+              data: { 
+                active: false
+              }
+            })
+          }
         }
       })
     })
