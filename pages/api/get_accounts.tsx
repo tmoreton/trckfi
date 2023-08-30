@@ -17,7 +17,7 @@ export default async (req, res) => {
       },
       orderBy: {
         // @ts-ignore
-        amount: 'asc'
+        amount: 'desc'
       },
     })
 
