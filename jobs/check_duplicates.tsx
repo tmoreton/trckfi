@@ -61,19 +61,20 @@ client.defineJob({
                 active: false
               }
             })
-          } else if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
-            console.log('duplicate')
-            console.log(t1.name)
-            console.log(t2.name)
-            await prisma.transactions.update({
-              where: { 
-                id: t2.id
-              },
-              data: { 
-                active: false
-              }
-            })
-          }
+          } 
+          // else if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
+          //   console.log('duplicate')
+          //   console.log(t1.name)
+          //   console.log(t2.name)
+          //   await prisma.transactions.update({
+          //     where: { 
+          //       id: t2.id
+          //     },
+          //     data: { 
+          //       active: false
+          //     }
+          //   })
+          // }
         }
       })
     })
