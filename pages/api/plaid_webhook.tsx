@@ -9,6 +9,9 @@ export default async (req, res) => {
       let { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id: item_id }})
       await transactionsSync(access_token, user_id)
       break;
+    case 'RECURRING_TRANSACTIONS_UPDATE':
+
+      break;
     default:
       break;
   }

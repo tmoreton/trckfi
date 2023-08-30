@@ -234,3 +234,26 @@ model Balances {
 
   @@map("balances")
 }
+
+model Recurring {
+  id                String    @id @default(cuid())
+  average_amount    Decimal?  @db.Decimal(9, 2)
+  last_amount       Decimal?  @db.Decimal(9, 2)
+  account_id        String
+  stream_id         String    @unique
+  description       String
+  merchant_name     String
+  primary_category  String
+  detailed_category String
+  first_date        String
+  last_date         String
+  frequency         String
+  transaction_ids   Json
+  is_active         Boolean
+  status            String
+  type              String?
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @updatedAt
+
+  @@map("recurring")
+}
