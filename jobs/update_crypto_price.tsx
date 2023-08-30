@@ -25,21 +25,24 @@ client.defineJob({
     })
 
     for (let i in accounts) {
-      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${accounts[i].details.id}`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'GET',
-      })
-      const { market_data } = await response.json()
+      if(accounts[i].details){
+         // @ts-ignore
+        const response = await fetch(`https://api.coingecko.com/api/v3/coins/${accounts[i].details.id}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'GET',
+        })
+        const { market_data } = await response.json()
         // @ts-ignore
-      let total = Number(market_data?.current_price?.usd)*Number(accounts[i].details.quantity)
-      await prisma.accounts.update({
-        where: { id: accounts[i].id },
-        data: { 
-          amount: Number(total)
-        }
-      })      
+        let total = Number(market_data?.current_price?.usd)*Number(accounts[i].details.quantity)
+        await prisma.accounts.update({
+          where: { id: accounts[i].id },
+          data: { 
+            amount: Number(total)
+          }
+        })
+      } 
     }
   },
 });
