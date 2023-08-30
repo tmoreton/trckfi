@@ -12,8 +12,6 @@ client.defineJob({
     cron: "0 7 * * *",
   }),
   run: async (payload, io, ctx) => {
-    const start_date = new Date()
-    const end_date = new Date(start_date.getTime() + 60 * 60 * 24 * 1000)
     let users = await prisma.user.findMany({
       where: {
         active: true,
