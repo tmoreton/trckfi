@@ -218,7 +218,7 @@ const Accounts = ({ showError }) => {
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
           </button>
-          <button
+          {/* <button
             onClick={syncPlaid}
             type="button"
             className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
@@ -226,7 +226,7 @@ const Accounts = ({ showError }) => {
             <div className={loading && "animate-spin"}>
               <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
             </div>
-          </button>
+          </button> */}
         </div>
 
         <main>

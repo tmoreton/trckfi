@@ -1,4 +1,3 @@
-
 import { TriggerClient } from "@trigger.dev/sdk";
 
 export const client = new TriggerClient({
