@@ -6,13 +6,13 @@ export default async (req, res) => {
   const user_id = user?.id
   if (!user_id ) return res.status(500)
 
+  const { id, linked_user_id } = user
+  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
+
   try {
     let transactions = await prisma.transactions.findMany({
       where: {
-        OR: [
-          { user_id: user_id },
-          { user_id: user?.linked_user_id },
-        ],
+        OR: query,
         active: true,
         authorized_date: {
           lte: range.startDate,
@@ -32,10 +32,8 @@ export default async (req, res) => {
     transactions = transactions.filter(t => t.account?.active)
     
     return res.status(200).json({ data: transactions })
-
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }

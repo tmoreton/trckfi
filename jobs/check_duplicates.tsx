@@ -1,0 +1,82 @@
+import { cronTrigger } from "@trigger.dev/sdk";
+import { client } from "../trigger";
+import accountsSync from '../utils/accountsSync';
+import transactionsSync from '../utils/transactionsSync';
+import prisma from '../lib/prisma';
+import { DateTime } from "luxon";
+
+client.defineJob({
+  id: "check-duplicates",
+  name: "Check Duplicates",
+  version: "0.0.1",
+  trigger: cronTrigger({
+    cron: "0 9 * * *",
+  }),
+  run: async (payload, io, ctx) => {
+    let users = await prisma.user.findMany({
+      where: {
+        active: true,
+      }
+    })
+    const ids = users.map(user => user.id)
+
+    const transactions1 = await prisma.transactions.findMany({
+      where: {
+        active: true,
+        user_id: { in: ids },
+        authorized_date: {
+          lte: DateTime.now().minus({ days: 1 }).startOf('day').toISO(),
+          gte: DateTime.now().minus({ days: 4 }).startOf('day').toISO(),
+        },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
+      },
+    })
+
+    const transactions2 = await prisma.transactions.findMany({
+      where: {
+        active: true,
+        user_id: { in: ids },
+        authorized_date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ days: 1 }).startOf('day').toISO(),
+        },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
+      },
+    })
+
+    transactions1.forEach((t1) => {
+      transactions2.forEach(async (t2) => {
+        if(Number(t1.amount) + Number(t2.amount) === 0){
+          console.log('transfer')
+          console.log(t1.name)
+          console.log(t2.name)
+          await prisma.transactions.updateMany({
+            where: { 
+              OR: [{ id: t1.id }, { id: t2.id }]
+            },
+            data: { 
+              active: false
+            }
+          })
+        } else if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
+          console.log('duplicate')
+          console.log(t1.name)
+          console.log(t2.name)
+          await prisma.transactions.updateMany({
+            where: { 
+              id: t2.id
+            },
+            data: { 
+              active: false
+            }
+          })
+        }
+      })
+    })
+
+  },
+});
