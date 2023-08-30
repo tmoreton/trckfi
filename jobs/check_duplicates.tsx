@@ -50,7 +50,7 @@ client.defineJob({
       transactions2.forEach(async (t2) => {
         if(t1.transaction_id !== t2.transaction_id){
           if(Number(t1.amount) + Number(t2.amount) === 0){
-            console.log('transfer')
+            console.log('Internal Transfer')
             console.log(t1.name)
             console.log(t2.name)
             await prisma.transactions.updateMany({
