@@ -1,6 +1,7 @@
 import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import prisma from '../lib/prisma';
+const retirement_types = ['roth', 'roth 401k', 'ira', '401k', '401a', '403b', '457b', 'keogh', 'lif', 'lira', 'lrif', 'lrsp', 'prif', 'retirement', 'rrif', 'rrsp', 'sarsep', 'sep ira', 'simple ira', 'tfsa']
 
 client.defineJob({
   id: "add-net-worth",
@@ -51,7 +52,7 @@ client.defineJob({
             data.stats.assets += Number(a.amount)
           }
           
-          if (a.type === 'depository' || a.type === 'credit'){
+          if (a.type === 'depository'){
             data.snapshot.cash += Math.round(Number(a.amount))
           }
   
@@ -64,7 +65,7 @@ client.defineJob({
           if (a.type === 'investment'){
             if(a.subtype === 'brokerage' || a.subtype === 'etf' || a.subtype === 'equity'){
               data.snapshot.stocks += Math.round(Number(a.amount))
-            } else if (a.subtype === 'ira' || a.subtype === '401k'){
+            } else if (retirement_types.includes(a.subtype)){
               data.snapshot.retirement += Math.round(Number(a.amount))
             } else if (a.subtype === 'crypto'){
               data.snapshot.crypto += Math.round(Number(a.amount))
