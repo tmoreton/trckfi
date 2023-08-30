@@ -18,7 +18,7 @@ function classNames(...classes) {
 const NetWorth = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [data, setData] = useLocalStorage('net_worth_data', [])
+  const [stats, setStats] = useLocalStorage('net_worth_stats', {})
   const [history, setHistory] = useLocalStorage('net_worth_history', [])
   const [refreshing, setRefreshing] = useState(false)
   
@@ -36,10 +36,10 @@ const NetWorth = ({ showError }) => {
       },
       method: 'POST',
     })
-    const { error, data, netWorthHistory } = await res.json()
+    const { error, history, stats } = await res.json()
+    setStats(stats)
     showError(error)
-    setData(data)
-    setHistory(netWorthHistory)
+    setHistory(history)
   }
 
   return (
@@ -61,23 +61,23 @@ const NetWorth = ({ showError }) => {
                 <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Net Worth</dt>
                   <dd className={classNames(
-                      data?.stats?.net_worth < 0 ? 'text-rose-600' : 'text-green-600',
+                      stats?.stats?.net_worth < 0 ? 'text-rose-600' : 'text-green-600',
                       'w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900'
                     )}
                   >
-                    {addComma(data?.stats?.net_worth)}
+                    {addComma(stats?.stats?.net_worth)}
                   </dd>
                 </div>
                 <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Assets</dt>
                   <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
-                    {addComma(data?.stats?.assets)}
+                    {addComma(stats?.stats?.assets)}
                   </dd>
                 </div>
                 <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Liabilities</dt>
                   <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-rose-600">
-                    {addComma(data?.stats?.liabilities)}
+                    {addComma(stats?.stats?.liabilities)}
                   </dd>
                 </div>
               </dl>
@@ -86,7 +86,7 @@ const NetWorth = ({ showError }) => {
           
           <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-12">
             <div className="col-span-1 pb-4 lg:px-0 px-6 sm:pt-2">
-              <PieChart data={data}/>
+              <PieChart data={stats}/>
             </div>
             <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
               <StackedBarChart history={history}/>

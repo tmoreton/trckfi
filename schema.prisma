@@ -46,11 +46,12 @@ model User {
   Rules           Rules[]
   sessions        Session[]
   transactions    Transactions[]
+  accounts        Accounts[]
   NetWorth        NetWorth[]
   Answers         Answers[]
   Referrals       Referrals[]
   Balances        Balances[]
-
+  
   @@map("users")
 }
 
@@ -98,6 +99,7 @@ model Accounts {
   details       Json?
   institution   String?
   plaid         Plaid?         @relation(fields: [item_id], references: [item_id])
+  user          User?          @relation(fields: [user_id], references: [id])
   transactions  Transactions[]
 
   @@map("accounts")

@@ -113,41 +113,41 @@ const Accounts = ({ showError }) => {
     setAccounts(accounts)
   }
 
-  const refresh = async () => {
-    setLoading(true)
-    fetch(`/api/update_crypto_price`, {
-      body: JSON.stringify({
-        // @ts-ignore
-        user_id: user.id,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    fetch(`/api/update_stock_price`, {
-      body: JSON.stringify({
-        // @ts-ignore
-        user_id: user.id,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const res = await fetch(`/api/sync_accounts`, {
-      body: JSON.stringify({ user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    setLoading(false)
-    setRefreshing(false)
-    const { error } = await res.json()
-    showError(error)
-    if(!error) getAccounts()
-  }
+  // const refresh = async () => {
+  //   setLoading(true)
+  //   fetch(`/api/update_crypto_price`, {
+  //     body: JSON.stringify({
+  //       // @ts-ignore
+  //       user_id: user.id,
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   fetch(`/api/update_stock_price`, {
+  //     body: JSON.stringify({
+  //       // @ts-ignore
+  //       user_id: user.id,
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const res = await fetch(`/api/sync_accounts`, {
+  //     body: JSON.stringify({ user }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   setLoading(false)
+  //   setRefreshing(false)
+  //   const { error } = await res.json()
+  //   showError(error)
+  //   if(!error) getAccounts()
+  // }
 
   const unhideAccount = async (account) => {
     setRefreshing(true)
