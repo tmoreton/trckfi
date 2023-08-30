@@ -18,12 +18,11 @@ import Meta from '../components/meta'
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
-  const [t, setTransactions] = useLocalStorage('transactions',[])
+  const [transactions, setTransactions] = useLocalStorage('transactions',null)
   const [graphData, setGraphData] = useLocalStorage('graph_data', {})
   const [totalStats, setStats] = useLocalStorage('dashboard_stats', [])
   const [dates, setDates] = useState({
@@ -32,6 +31,9 @@ const Dashboard = ({ showError }) => {
   })
 
   useEffect(() => {
+    if(!transactions){
+      setRefreshing(true)
+    }
     getDashboard()
     getStats()
     getTransactions()
@@ -40,16 +42,6 @@ const Dashboard = ({ showError }) => {
   useEffect(() => {
     getTransactions()
   }, [dates])
-
-  // const getRecurring = async () => {
-  //   await fetch(`/api/get_recurring`, {
-  //     body: JSON.stringify({ user }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  // }
 
   const getStats = async () => {
     const res = await fetch(`/api/get_stats`, {
@@ -61,11 +53,9 @@ const Dashboard = ({ showError }) => {
     })
     const { stats } = await res.json()
     setStats(stats)
-    setLoading(false)
   }
 
   const getDashboard = async () => {
-    setLoading(true)
     getStats()
     const res = await fetch(`/api/get_dashboard`, {
       body: JSON.stringify({ user }),
@@ -96,16 +86,6 @@ const Dashboard = ({ showError }) => {
     showError(error)
     setTransactions(data)    
     setRefreshing(false)
-    setLoading(false)
-  }
-
-  const refresh = async () => {
-    setLoading(true)
-    clearLocalStorage()
-    getStats()
-    getDashboard()
-    getTransactions()
-    setLoading(false)
   }
 
   const updateSelect = (e, value) => {
@@ -210,11 +190,12 @@ const Dashboard = ({ showError }) => {
           keywords=''
         />
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
-        <Snapshot totalStats={totalStats} refresh={refresh} loading={loading}/>
+        <Snapshot totalStats={totalStats} />
         <Graphs graphData={graphData} />
-        { t.length > 1 ? 
-          <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={t} datePicker={datePicker}/>
-          :
+        { transactions && transactions.length > 1 &&
+          <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+        }
+        { transactions && transactions.length < 1 &&
           <Empty />
         }
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>

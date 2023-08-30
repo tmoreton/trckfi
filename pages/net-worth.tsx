@@ -18,12 +18,15 @@ function classNames(...classes) {
 const NetWorth = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [stats, setStats] = useLocalStorage('net_worth_stats', {})
-  const [history, setHistory] = useLocalStorage('net_worth_history', [])
+  const [stats, setStats] = useLocalStorage('net_worth_stats', null)
+  const [history, setHistory] = useLocalStorage('net_worth_history', null)
   const [refreshing, setRefreshing] = useState(false)
   
   useEffect(() => {
     getNetWorth()
+    if(!stats || !history){
+      setRefreshing(true)
+    }
   }, [])
 
   const getNetWorth = async () => {
@@ -37,8 +40,9 @@ const NetWorth = ({ showError }) => {
       method: 'POST',
     })
     const { error, history, stats } = await res.json()
-    setStats(stats)
     showError(error)
+    setRefreshing(false)
+    setStats(stats)
     setHistory(history)
   }
 
@@ -86,10 +90,10 @@ const NetWorth = ({ showError }) => {
           
           <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-12">
             <div className="col-span-1 pb-4 lg:px-0 px-6 sm:pt-2">
-              <PieChart data={stats}/>
+              { stats && <PieChart data={stats}/>}
             </div>
             <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
-              <StackedBarChart history={history}/>
+              { history && <StackedBarChart history={history}/>}
             </div>
           </div>
         </main>

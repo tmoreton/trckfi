@@ -5,7 +5,7 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ({ totalStats, refresh, loading }) {
+export default function ({ totalStats }) {
   if (!totalStats) return null
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString } = totalStats
   let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
@@ -31,7 +31,7 @@ export default function ({ totalStats, refresh, loading }) {
               <p className="text-xs text-gray-400">You saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month! 🎉</p>
             </div>
           }
-          <div className={loading && "animate-spin"}>
+          {/* <div className={loading && "animate-spin"}>
             <button
               onClick={refresh}
               type="button"
@@ -40,7 +40,7 @@ export default function ({ totalStats, refresh, loading }) {
               <span className="sr-only">Refresh</span>
               <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
             </button>
-          </div>
+          </div> */}
         </dd>
       </div>
 

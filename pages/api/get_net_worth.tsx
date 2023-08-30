@@ -21,7 +21,7 @@ export default async (req, res) => {
         created_at: 'desc'
       }
     })
-    let stats = data[0]
+    let stats = data.length > 0 ? data[0] : {}
     let history = data.reverse()
 
     return res.status(200).json({ history, stats })
