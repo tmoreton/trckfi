@@ -1,7 +1,5 @@
 import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
-import accountsSync from '../utils/accountsSync';
-import transactionsSync from '../utils/transactionsSync';
 import prisma from '../lib/prisma';
 import { DateTime } from "luxon";
 
