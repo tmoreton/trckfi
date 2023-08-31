@@ -5,14 +5,20 @@ import DashboardLayout from "../components/dashboard-layout"
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import { addComma } from '../lib/lodash'
+import  { useLocalStorage } from '../utils/useLocalStorage'
+import LoadingModal from '../components/modals/loading-modal'
 
 export default function Recurring({ showError }) {
 	const { data: session } = useSession()
   const user = session?.user
-	const [recurring, setRecurring] = useState([])
+	const [recurring, setRecurring] = useLocalStorage('recurring', null)
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		getRecurring()
+		if(!recurring){
+			setLoading(true)
+		}
   }, [])
 
   const getRecurring = async () => {
@@ -26,9 +32,9 @@ export default function Recurring({ showError }) {
       method: 'POST',
     })
     const { error, data } = await res.json()
+		setLoading(false)
     showError(error)
 		setRecurring(data)
-		console.log(data)
   }
 
   return (
@@ -41,8 +47,9 @@ export default function Recurring({ showError }) {
           image=''
           keywords=''
         />
+				<LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
 				<div className="px-4 sm:px-6 lg:px-8">
-					<div className="mt-8 flow-root">
+					<div className="flow-root">
 						<div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
 							<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
 								<table className="min-w-full">
@@ -63,10 +70,13 @@ export default function Recurring({ showError }) {
 											<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-700">
 												Categories
 											</th>
+											<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-700">
+												Active
+											</th>
 										</tr>
 									</thead>
 									<tbody className="bg-white">
-										{recurring.map((i) => (
+										{recurring && recurring.map((i) => (
 											<Fragment key={i.id}>
 													<tr className="border-gray-300 border-t">
 														<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">
@@ -79,6 +89,7 @@ export default function Recurring({ showError }) {
 															<span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{i.primary_category}</span>
 															<span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{i.detailed_category}</span>
 														</td>
+														<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{JSON.stringify(i.is_active)}</td>
 													</tr>
 											</Fragment>
 										))}
