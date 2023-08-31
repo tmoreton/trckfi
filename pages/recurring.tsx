@@ -12,6 +12,7 @@ export default function Recurring({ showError }) {
 	const { data: session } = useSession()
   const user = session?.user
 	const [recurring, setRecurring] = useLocalStorage('recurring', null)
+	const [inactive, setInactive] = useLocalStorage('inactive', null)
 	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
@@ -35,6 +36,7 @@ export default function Recurring({ showError }) {
 		setLoading(false)
     showError(error)
 		setRecurring(recurring)
+		setInactive(inactive)
   }
 
 	const diff = (date) => {
@@ -171,7 +173,7 @@ export default function Recurring({ showError }) {
 											</tr>
 										</thead>
 										<tbody className="divide-y divide-gray-200 bg-gray-50">
-											{recurring && recurring.map((i) => (
+											{inactive && inactive.map((i) => (
 												<tr key={i.id}>
 													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-6">
 														{i.description.length > 25 ? `${i.description.substring(0, 25)}...` : i.description}
