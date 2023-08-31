@@ -80,7 +80,7 @@ export default function Recurring({ showError }) {
 											<Fragment key={i.id}>
 													<tr className="border-gray-300 border-t">
 														<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">
-															{i.description}
+															{i.description.length > 25 ? `${i.description.substring(0, 25)}...` : i.description}
 														</td>
 														<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
 														<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{addComma(i.last_amount)}</td>
