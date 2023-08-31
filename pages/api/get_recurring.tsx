@@ -14,35 +14,59 @@ export default async (req, res) => {
     const recurring = await prisma.recurring.findMany({
       where: {
         OR: user_query,
-        is_active: true
+        is_active: true,
+        NOT: [
+          { primary_category: 'INCOME' },
+          { primary_category: 'LOAN_PAYMENTS' },
+          { status: 'EARLY_DETECTION' }
+        ],
       },
       include: {
         account: true,
       },
-      orderBy: [
-        {
-          upcoming_date: 'asc',
-        },
-      ],
+      orderBy: [{
+        upcoming_date: 'asc',
+      }],
     })
 
     // @ts-ignore
     const inactive = await prisma.recurring.findMany({
       where: {
         OR: user_query,
-        is_active: false
+        is_active: false,
+        NOT: [
+          { primary_category: 'INCOME' },
+          { primary_category: 'LOAN_PAYMENTS' },
+          { status: 'EARLY_DETECTION' }
+        ],
       },
       include: {
         account: true,
       },
-      orderBy: [
-        {
-          upcoming_date: 'asc',
-        },
-      ],
+      orderBy: [{
+        upcoming_date: 'asc',
+      }],
     })
 
-    return res.status(200).json({ status: 'ok', recurring, inactive })
+    const early = await prisma.recurring.findMany({
+      where: {
+        OR: user_query,
+        is_active: true,
+        status: 'EARLY_DETECTION',
+        NOT: [
+          { primary_category: 'INCOME' },
+          { primary_category: 'LOAN_PAYMENTS' },
+        ],
+      },
+      include: {
+        account: true,
+      },
+      orderBy: [{
+        upcoming_date: 'asc',
+      }],
+    })
+
+    return res.status(200).json({ status: 'ok', recurring, inactive, early })
   } catch (error) {
     console.error(error)
     throw new Error(error)
