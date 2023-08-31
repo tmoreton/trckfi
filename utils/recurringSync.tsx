@@ -113,7 +113,7 @@ const recurringSync = async (access_token) => {
           status: outflowStreams[i].status,
           type: 'outflow',
           user_id,
-          upcoming_date: upcoming(inflowStreams[i])
+          upcoming_date: upcoming(outflowStreams[i])
         },
       })
     }
