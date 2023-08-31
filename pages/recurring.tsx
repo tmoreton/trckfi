@@ -6,7 +6,7 @@ import Meta from '../components/meta'
 import { addComma } from '../lib/lodash'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
-const possible = ['UNKNOWN', 'WEEKLY', 'BIWEEKLY', 'SEMI_MONTHLY', 'MONTHLY', 'ANNUALLY']
+import { DateTime } from "luxon"
 
 export default function Recurring({ showError }) {
 	const { data: session } = useSession()
@@ -37,6 +37,12 @@ export default function Recurring({ showError }) {
 		setRecurring(recurring)
   }
 
+	const diff = (date) => {
+		let today = DateTime.now()
+		let upcoming = DateTime.fromISO(date)
+		let difference = upcoming.diff(today, ['days']).toObject()
+		return Math.round(difference.days)
+	}
 
   const renderImg = (account) => {
     if(account){
@@ -96,7 +102,7 @@ export default function Recurring({ showError }) {
 													Last Date
 												</th>
 												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-													Upcoming Date
+													Upcoming Charge
 												</th>
 												<th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
 													<span className="sr-only">Edit</span>
@@ -106,7 +112,9 @@ export default function Recurring({ showError }) {
 										<tbody className="divide-y divide-gray-200 bg-white">
 											{recurring && recurring.map((i) => (
 												<tr key={i.id}>
-													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{i.description}</td>
+													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+														{i.description.length > 25 ? `${i.description.substring(0, 25)}...` : i.description}
+													</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
 													{
@@ -116,7 +124,11 @@ export default function Recurring({ showError }) {
 														<td className="whitespace-nowrap px-3 py-4 text-sm text-red-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
 													}
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{i.last_date}</td>
-													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 font-bold">{i.upcoming_date}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 italic">
+														<span className="text-xs">approx.</span>
+														<span className="font-bold px-1">{diff(i.upcoming_date)}</span>
+														<span className="text-xs">days</span>
+													</td>
 													<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
 														<a href="#" className="text-pink-600 hover:text-pink-900">
 															Edit<span className="sr-only">, {i.id}</span>
@@ -161,7 +173,9 @@ export default function Recurring({ showError }) {
 										<tbody className="divide-y divide-gray-200 bg-gray-50">
 											{recurring && recurring.map((i) => (
 												<tr key={i.id}>
-													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-300 sm:pl-6">{i.description}</td>
+													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+														{i.description.length > 25 ? `${i.description.substring(0, 25)}...` : i.description}
+													</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-300">{i.frequency}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 font-semibold">{addComma(i.last_amount)}</td>

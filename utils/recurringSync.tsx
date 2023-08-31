@@ -2,7 +2,6 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid'
 import { DateTime } from "luxon"
-const values = ['UNKNOWN', 'WEEKLY', 'BIWEEKLY', 'SEMI_MONTHLY', 'MONTHLY', 'ANNUALLY']
 
 const recurringSync = async (access_token) => {
   try {
