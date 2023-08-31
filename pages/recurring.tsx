@@ -13,6 +13,7 @@ export default function Recurring({ showError }) {
   const user = session?.user
 	const [recurring, setRecurring] = useLocalStorage('recurring', null)
 	const [inactive, setInactive] = useLocalStorage('inactive', null)
+	const [early, setEarly] = useLocalStorage('early', null)
 	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
@@ -32,11 +33,12 @@ export default function Recurring({ showError }) {
       },
       method: 'POST',
     })
-    const { error, recurring, inactive } = await res.json()
+    const { error, recurring, inactive, early } = await res.json()
 		setLoading(false)
     showError(error)
 		setRecurring(recurring)
 		setInactive(inactive)
+		setEarly(early)
   }
 
 	const diff = (date) => {
@@ -141,6 +143,72 @@ export default function Recurring({ showError }) {
 										</tbody>
 									</table>
 								</div>
+
+
+								<div className="max-w-7xl pt-10">
+									<h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
+										Early Detection
+									</h2>
+								</div>
+
+								<div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+									<table className="min-w-full divide-y divide-gray-300">
+										<thead className="bg-gray-50">
+											<tr>
+												<th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+													Name
+												</th>
+												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+													Account
+												</th>
+												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+													Frequency
+												</th>
+												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+													Last Amount
+												</th>
+												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+													Last Date
+												</th>
+												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+													Upcoming Charge
+												</th>
+												<th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+													<span className="sr-only">Edit</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody className="divide-y divide-gray-200 bg-white">
+											{early && early.map((i) => (
+												<tr key={i.id}>
+													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+														{i.description.length > 25 ? `${i.description.substring(0, 25)}...` : i.description}
+													</td>
+													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
+													{
+														i.last_amount > 0 ?
+														<td className="whitespace-nowrap px-3 py-4 text-sm text-green-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
+														:
+														<td className="whitespace-nowrap px-3 py-4 text-sm text-red-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
+													}
+													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{i.last_date}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 italic">
+														<span className="text-xs">approx.</span>
+														<span className="font-bold px-1">{diff(i.upcoming_date)}</span>
+														<span className="text-xs">days</span>
+													</td>
+													<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+														<a href="#" className="text-pink-600 hover:text-pink-900">
+															Edit<span className="sr-only">, {i.id}</span>
+														</a>
+													</td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								</div>
+
 
 								<div className="max-w-7xl pt-10">
 									<h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
