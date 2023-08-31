@@ -48,6 +48,7 @@ export default async (req, res) => {
       }],
     })
 
+    // @ts-ignore
     const early = await prisma.recurring.findMany({
       where: {
         OR: user_query,
