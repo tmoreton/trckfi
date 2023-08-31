@@ -249,6 +249,7 @@ model Recurring {
   detailed_category String
   first_date        String
   last_date         String
+  upcoming_date     String?
   frequency         String
   transaction_ids   Json
   is_active         Boolean

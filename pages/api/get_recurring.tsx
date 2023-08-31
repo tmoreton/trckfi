@@ -14,20 +14,35 @@ export default async (req, res) => {
     const recurring = await prisma.recurring.findMany({
       where: {
         OR: user_query,
+        is_active: true
       },
       include: {
         account: true,
       },
       orderBy: [
         {
-          type: 'desc',
-        },
-        {
-          frequency: 'desc',
+          upcoming_date: 'asc',
         },
       ],
     })
-    return res.status(200).json({ status: 'ok', data: recurring })
+
+    // @ts-ignore
+    const inactive = await prisma.recurring.findMany({
+      where: {
+        OR: user_query,
+        is_active: false
+      },
+      include: {
+        account: true,
+      },
+      orderBy: [
+        {
+          upcoming_date: 'asc',
+        },
+      ],
+    })
+
+    return res.status(200).json({ status: 'ok', recurring, inactive })
   } catch (error) {
     console.error(error)
     throw new Error(error)

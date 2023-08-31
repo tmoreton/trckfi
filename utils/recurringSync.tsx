@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../lib/prisma';
-import plaidClient from '../utils/plaid';
+import plaidClient from '../utils/plaid'
+import { DateTime } from "luxon"
+const values = ['UNKNOWN', 'WEEKLY', 'BIWEEKLY', 'SEMI_MONTHLY', 'MONTHLY', 'ANNUALLY']
 
 const recurringSync = async (access_token) => {
   try {
@@ -23,14 +25,41 @@ const recurringSync = async (access_token) => {
     const response = await plaidClient.transactionsRecurringGet(request)
     let inflowStreams = response.data.inflow_streams
     let outflowStreams = response.data.outflow_streams
-    // @ts-ignore
+
+    const upcoming = (item) => {
+      if(item){
+        switch (item.frequency) {
+          case 'ANNUALLY':
+            return DateTime.fromISO(item.last_date).plus({ years: 1 }).toFormat('yyyy-MM-dd')
+          case 'MONTHLY':
+            return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+          case 'SEMI_MONTHLY':
+            return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
+          case 'BIWEEKLY':
+            return DateTime.fromISO(item.last_date).plus({ weeks: 2 }).toFormat('yyyy-MM-dd')
+          case 'WEEKLY':
+            return DateTime.fromISO(item.last_date).plus({ weeks: 1 }).toFormat('yyyy-MM-dd')
+          default:
+            break;
+        }  
+      }
+    }
+
     for (let i in inflowStreams) {
       // @ts-ignore
       await prisma.recurring.upsert({
         where: { 
           stream_id: inflowStreams[i].stream_id 
         },
-        update: {},
+        update: {
+          average_amount: -(inflowStreams[i].average_amount.amount),
+          last_amount: -(inflowStreams[i].last_amount.amount),
+          last_date: inflowStreams[i].last_date,
+          frequency: inflowStreams[i].frequency,
+          is_active: inflowStreams[i].is_active,
+          status: inflowStreams[i].status,
+          upcoming_date: upcoming(inflowStreams[i])
+        },
         create: {
           stream_id: inflowStreams[i].stream_id,
           average_amount: -(inflowStreams[i].average_amount.amount),
@@ -47,18 +76,27 @@ const recurringSync = async (access_token) => {
           is_active: inflowStreams[i].is_active,
           status: inflowStreams[i].status,
           type: 'inflow',
-          user_id
+          user_id,
+          upcoming_date: upcoming(inflowStreams[i])
         },
       })
     }
-    // @ts-ignore
+
     for (let i in outflowStreams) {
       // @ts-ignore
       await prisma.recurring.upsert({
         where: { 
           stream_id: outflowStreams[i].stream_id 
         },
-        update: {},
+        update: {
+          average_amount: -(outflowStreams[i].average_amount.amount),
+          last_amount: -(outflowStreams[i].last_amount.amount),
+          last_date: outflowStreams[i].last_date,
+          frequency: outflowStreams[i].frequency,
+          is_active: outflowStreams[i].is_active,
+          status: outflowStreams[i].status,
+          upcoming_date: upcoming(outflowStreams[i])
+        },
         create: {
           stream_id: outflowStreams[i].stream_id,
           average_amount: -(outflowStreams[i].average_amount.amount),
@@ -75,12 +113,11 @@ const recurringSync = async (access_token) => {
           is_active: outflowStreams[i].is_active,
           status: outflowStreams[i].status,
           type: 'outflow',
-          user_id
+          user_id,
+          upcoming_date: upcoming(inflowStreams[i])
         },
       })
     }
-    
-
   } catch (error) {
     console.error(error)
     throw new Error(error)
