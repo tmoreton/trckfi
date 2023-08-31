@@ -173,10 +173,10 @@ export default function Recurring({ showError }) {
 										<tbody className="divide-y divide-gray-200 bg-gray-50">
 											{recurring && recurring.map((i) => (
 												<tr key={i.id}>
-													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-6">
 														{i.description.length > 25 ? `${i.description.substring(0, 25)}...` : i.description}
 													</td>
-													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 inline-flex">{i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-300">{i.frequency}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 font-semibold">{addComma(i.last_amount)}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{i.last_date}</td>
