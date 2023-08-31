@@ -25,10 +25,20 @@ export default async (req, res) => {
       },
     })
 
+    // @ts-ignore
+    await prisma.recurring.updateMany({
+      where: { 
+        user_id, 
+        account_id: id 
+      },
+      data: { 
+        is_active: false
+      },
+    })
+
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }

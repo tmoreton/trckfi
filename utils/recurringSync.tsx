@@ -55,7 +55,6 @@ const recurringSync = async (access_token) => {
           last_amount: -(inflowStreams[i].last_amount.amount),
           last_date: inflowStreams[i].last_date,
           frequency: inflowStreams[i].frequency,
-          is_active: inflowStreams[i].is_active,
           status: inflowStreams[i].status,
           upcoming_date: upcoming(inflowStreams[i])
         },
@@ -92,7 +91,6 @@ const recurringSync = async (access_token) => {
           last_amount: -(outflowStreams[i].last_amount.amount),
           last_date: outflowStreams[i].last_date,
           frequency: outflowStreams[i].frequency,
-          is_active: outflowStreams[i].is_active,
           status: outflowStreams[i].status,
           upcoming_date: upcoming(outflowStreams[i])
         },
