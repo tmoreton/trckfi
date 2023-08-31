@@ -18,7 +18,7 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'LOAN_PAYMENTS' },
-          { status: 'EARLY_DETECTION' }
+          { frequency: 'UNKNOWN' }
         ],
       },
       include: {
@@ -37,7 +37,7 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'LOAN_PAYMENTS' },
-          { status: 'EARLY_DETECTION' }
+          { frequency: 'UNKNOWN' }
         ],
       },
       include: {
@@ -53,7 +53,7 @@ export default async (req, res) => {
       where: {
         OR: user_query,
         is_active: true,
-        status: 'EARLY_DETECTION',
+        frequency: 'UNKNOWN',
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'LOAN_PAYMENTS' },
