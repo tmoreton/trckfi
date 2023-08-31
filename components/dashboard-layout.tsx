@@ -7,7 +7,8 @@ import {
   BanknotesIcon,
   AdjustmentsHorizontalIcon,
   ChatBubbleLeftEllipsisIcon,
-  CloudIcon
+  CloudIcon,
+  ArrowPathIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -18,6 +19,7 @@ const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: BanknotesIcon },
   { name: 'Accounts', href: '/accounts', icon: Cog6ToothIcon },
   { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
+  { name: 'Recurring', href: '/recurring', icon: ArrowPathIcon },
   { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
   { name: 'Profile', href: '/profile', icon: UserCircleIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
@@ -81,6 +83,7 @@ export default function ({ children }) {
           </div>
         </Container>
       </div>
+      <Footer/>
     </>
   )
 }
