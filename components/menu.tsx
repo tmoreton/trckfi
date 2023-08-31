@@ -21,11 +21,12 @@ const dashboardNavigation = [
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Accounts', href: '/accounts' },
   { name: 'Net Worth', href: '/net-worth' },
+  { name: 'Recurring', href: '/recurring' },
   { name: 'Custom Rules', href: '/rules' },
   { name: 'Profile', href: '/profile' },
 ]
 
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/net-worth', '/rules', '/profile']
+const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/net-worth', '/rules', '/profile', '/recurring']
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
