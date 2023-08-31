@@ -144,14 +144,14 @@ export default function Recurring({ showError }) {
 									</table>
 								</div>
 
-
+								{/* Early Detection */}
 								<div className="max-w-7xl pt-10">
 									<h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
 										Early Detection
 									</h2>
 								</div>
 
-								<div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+								<div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg mt-4">
 									<table className="min-w-full divide-y divide-gray-300">
 										<thead className="bg-gray-50">
 											<tr>
@@ -209,7 +209,7 @@ export default function Recurring({ showError }) {
 									</table>
 								</div>
 
-
+								{/* Inactive */}
 								<div className="max-w-7xl pt-10">
 									<h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
 										Inactive
