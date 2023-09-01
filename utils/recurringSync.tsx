@@ -2,6 +2,7 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid'
 import { DateTime } from "luxon"
+import * as Sentry from "@sentry/nextjs";
 
 const recurringSync = async (access_token) => {
   try {
@@ -117,7 +118,7 @@ const recurringSync = async (access_token) => {
     }
   } catch (error) {
     console.error(error)
-    throw new Error(error)
+    Sentry.captureException(error)
   }
 }
 
