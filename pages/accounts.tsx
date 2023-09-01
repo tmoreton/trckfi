@@ -19,6 +19,7 @@ import Menu from '../components/menu'
 import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
 import SetupModal from '../components/modals/setup-modal'
+import { classNames } from '../lib/lodash'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -256,12 +257,12 @@ const Accounts = ({ showError }) => {
                                             <span className="ml-2">Resync Account</span>
                                           </button>
                                         }
-                                        { error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
+                                        { accounts[key][0]?.account_id && error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
                                           <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
                                             <div className={loading && 'animate-spin'}>
                                               { loading && <ArrowPathIcon className="h-5 w-5" aria-hidden="true" /> }
                                             </div>
-                                            <span className="ml-2">Remove Connection</span>
+                                            <span className={classNames(loading && 'ml-2')}>Remove Bank Connection</span>
                                           </button>
                                         }
                                       </div>

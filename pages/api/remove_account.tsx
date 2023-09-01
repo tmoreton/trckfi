@@ -2,16 +2,14 @@
 import prisma from '../../lib/prisma';
 
 export default async (req, res) => {
-  const { id } = req.body
+  const { user_id, id } = req.body
   if (!id) return res.status(500)
   
   try {
-    await prisma.transactions.update({
+    await prisma.accounts.delete({
       where: {
+        user_id,
         id
-      },
-      data: { 
-        alert_date: null,
       }
     })
     return res.status(200).json({ status: 'OK' })

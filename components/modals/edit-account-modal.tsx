@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { TrashIcon } from '@heroicons/react/20/solid'
 import { PinkBtn } from '../pink-btn'
 
 export default function ({ showError, open, setOpen, user, account, setAccount, getNetWorth }) {
@@ -14,6 +15,23 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
       body: JSON.stringify({
         user_id: user.id,
         account
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setOpen(false)
+    if(!error) getNetWorth()
+  }
+
+  const remove = async () => {
+    const res = await fetch(`/api/remove_account`, {
+      body: JSON.stringify({
+        user_id: user.id,
+        id: account.id
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -152,17 +170,22 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center justify-between">
+                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
                   <PinkBtn onClick={handleSubmit}>
                     Update
                   </PinkBtn>
                   <button
                     type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                    className="mt-3 mr-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                     onClick={() => setOpen(false)}
                   >
                     Cancel
                   </button>
+                  { !account.account_id &&
+                    <button type="button" onClick={remove}>
+                      <TrashIcon onClick={remove} className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
+                    </button>
+                  }
                 </div>
               </Dialog.Panel>
             </Transition.Child>
