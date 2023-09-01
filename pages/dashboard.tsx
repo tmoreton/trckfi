@@ -98,6 +98,9 @@ const Dashboard = ({ showError }) => {
       let found = arr.filter(( obj ) => obj.id !== value.id)
       setSelected(found)
     }
+    getDashboard()
+    getStats()
+    getTransactions()
   }
 
   const renderImg = (account) => {

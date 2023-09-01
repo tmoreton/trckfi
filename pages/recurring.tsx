@@ -6,6 +6,7 @@ import Meta from '../components/meta'
 import { addComma } from '../lib/lodash'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
+import RecurringModal from '../components/modals/recurring-modal'
 import { DateTime } from "luxon"
 
 export default function Recurring({ showError }) {
@@ -15,6 +16,8 @@ export default function Recurring({ showError }) {
 	const [inactive, setInactive] = useLocalStorage('inactive', null)
 	const [early, setEarly] = useLocalStorage('early', null)
 	const [loading, setLoading] = useState(false)
+  const [item, setItem] = useState({})
+  const [open, setOpen] = useState(false)
 
 	useEffect(() => {
 		getRecurring()
@@ -41,11 +44,34 @@ export default function Recurring({ showError }) {
 		setEarly(early)
   }
 
+  const updateRecurring = async () => {
+    const res = await fetch(`/api/update_recurring`, {
+      body: JSON.stringify({
+        user,
+        item
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setOpen(false)
+    setItem({})
+    if(!error) getRecurring()
+  }
+
 	const diff = (date) => {
 		let today = DateTime.now()
 		let upcoming = DateTime.fromISO(date)
 		let difference = upcoming.diff(today, ['days']).toObject()
 		return Math.round(difference.days)
+	}
+
+  const editItem = (i) => {
+		setOpen(true)
+    setItem(i)
 	}
 
   const renderImg = (account) => {
@@ -68,12 +94,13 @@ export default function Recurring({ showError }) {
       <Menu showError={showError}/>
       <DashboardLayout>
         <Meta
-          title="Recurring Transactions"
+          title="Recurring & Subscriptions"
           description="Find any unknown recurring transactions"
           image=''
           keywords=''
         />
 				<LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
+        <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring}/>
 				<div className="px-4 sm:px-6 lg:px-8">
 					<div className="sm:flex sm:items-center">
 						<div className="sm:flex-auto">
@@ -134,9 +161,7 @@ export default function Recurring({ showError }) {
 														<span className="text-xs">days</span>
 													</td>
 													<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-														<a href="#" className="text-pink-600 hover:text-pink-900">
-															Edit<span className="sr-only">, {i.id}</span>
-														</a>
+														<button onClick={() => editItem(i)} className="text-pink-600 hover:text-pink-900">Edit</button>
 													</td>
 												</tr>
 											))}
@@ -199,9 +224,7 @@ export default function Recurring({ showError }) {
 														<span className="text-xs">days</span>
 													</td>
 													<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-														<a href="#" className="text-pink-600 hover:text-pink-900">
-															Edit<span className="sr-only">, {i.id}</span>
-														</a>
+                            <button onClick={() => editItem(i)} className="text-pink-600 hover:text-pink-900">Edit</button>
 													</td>
 												</tr>
 											))}
@@ -251,9 +274,7 @@ export default function Recurring({ showError }) {
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 font-semibold">{addComma(i.last_amount)}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{i.last_date}</td>
 													<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-														<a href="#" className="text-pink-600 hover:text-pink-900">
-															Edit<span className="sr-only">, {i.id}</span>
-														</a>
+                            <button onClick={() => editItem(i)} className="text-pink-600 hover:text-pink-900">Edit</button>
 													</td>
 												</tr>
 											))}
