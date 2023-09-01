@@ -217,7 +217,7 @@ const Rules = ({ showError }) => {
                         <option value="name" label="Name" />
                         <option value="primary_category" label="Primary Category" />
                         <option value="detailed_category" label="Detailed Category" />
-                        <option value="recurring" label="Recurring" />
+                        {/* <option value="recurring" label="Recurring" /> */}
                         <option value="active" label="Active" />
                       </select>
                       {Object.keys(ruleset).map((i, key) => (
