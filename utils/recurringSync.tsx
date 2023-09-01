@@ -116,9 +116,12 @@ const recurringSync = async (access_token) => {
         },
       })
     }
+    new Error('test 1')
+    Sentry.captureException(new Error('test 2'))
   } catch (error) {
     console.error(error)
-    Sentry.captureException(new Error(error));
+    new Error(error)
+    Sentry.captureException(new Error(error))
   }
 }
 
