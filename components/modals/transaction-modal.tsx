@@ -204,7 +204,6 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
                                 id="account_id"
                                 name="account_id"
                                 onChange={handleChange}
-                                // @ts-ignore
                                 defaultValue={transaction?.account_id}
                                 value={transaction?.account_id}
                                 className="mt-2 w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"

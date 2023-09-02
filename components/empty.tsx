@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Empty() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center my-20">
       <div className="text-center">
         <svg
           className="mx-auto h-12 w-12 text-gray-400"

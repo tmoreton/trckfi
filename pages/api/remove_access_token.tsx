@@ -5,7 +5,6 @@ import prisma from '../../lib/prisma';
 export default async (req, res) => {
   const { account } = req.body
   try {
-
     if(!account?.plaid){
       await prisma.accounts.updateMany({
         where: {
@@ -68,7 +67,6 @@ export default async (req, res) => {
     return res.status(200).json('ok')
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }

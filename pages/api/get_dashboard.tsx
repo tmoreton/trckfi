@@ -12,7 +12,18 @@ export default async (req, res) => {
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
   try {
-    const groupByWeek = await prisma.transactions.groupBy({
+    let activeAccounts = await prisma.accounts.findMany({
+      where: {
+        OR: query,
+        active: true,
+      },
+      select: {
+        id: true,
+      },
+    })
+    let ids = activeAccounts.map(i => i.id)
+
+    let groupByWeek = await prisma.transactions.groupBy({
       by: ['week_year'],
       where: {
         OR: query,
@@ -24,6 +35,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -49,6 +61,7 @@ export default async (req, res) => {
         amount: {
           gte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -80,6 +93,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -107,6 +121,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -128,6 +143,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -149,6 +165,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -169,7 +186,6 @@ export default async (req, res) => {
 
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }

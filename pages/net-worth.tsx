@@ -10,6 +10,8 @@ import Meta from '../components/meta'
 import PieChart from "../components/pie-chart"
 import LineChart from "../components/line-chart"
 import StackedBarChart from "../components/stacked-bar-chart"
+import Empty from '../components/empty'
+import netWorthSync from '../utils/netWorthSync';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -88,14 +90,18 @@ const NetWorth = ({ showError }) => {
             </div>
           </div>
           
-          <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-12">
-            <div className="col-span-1 pb-4 lg:px-0 px-6 sm:pt-2">
-              { stats && <PieChart data={stats}/>}
+          { !history || history.length <=0 ?
+            <Empty />
+            :
+            <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-12">
+              <div className="col-span-1 pb-4 lg:px-0 px-6 sm:pt-2">
+                { stats && <PieChart data={stats}/>}
+              </div>
+              <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
+                { history && <StackedBarChart history={history}/>}
+              </div>
             </div>
-            <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
-              { history && <StackedBarChart history={history}/>}
-            </div>
-          </div>
+          }
         </main>
       </DashboardLayout>
     </>

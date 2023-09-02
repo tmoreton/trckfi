@@ -25,14 +25,13 @@ export default async (req, res) => {
       }
     }
     await prisma.recurring.update({
-      // @ts-ignore
       where: { 
         stream_id: item.stream_id
       },
       data: {
         description: item.description,
         frequency: item.frequency,
-        is_active: item.is_active,
+        is_active: item.is_active === 'true' || false,
         upcoming_date: upcoming(item)
       }
     })

@@ -9,11 +9,6 @@ export default function ({ open, setOpen, item, setItem, updateRecurring }) {
     setItem({ ...item, [name]: value })
   }
 
-  const remove = async () => {
-    // setItem({ ...item, is_active: false })
-    updateRecurring()
-  }
-
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
@@ -64,25 +59,44 @@ export default function ({ open, setOpen, item, setItem, updateRecurring }) {
                             onChange={handleChange}
                           />
                         </div>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <label 
-                            htmlFor="frequency" 
-                            className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Frequency
-                          </label>
-                          <select
-                            name="frequency"
-                            value={item?.frequency}
-                            onChange={handleChange}
-                            className="mt-2 block sm:w-64 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-600 sm:text-sm sm:leading-6"
-                          >
-                            <option value="ANNUALLY" label="Annually" />
-                            <option value="MONTHLY" label="Monthly" />
-                            <option value="SEMI_MONTHLY" label="Semi-Monthly" />
-                            <option value="BIWEEKLY" label="Bi-Weekly" />
-                            <option value="WEEKLY" label="Weekly" />
-                          </select>
+                        <div className="grid md:grid-cols-2 md:gap-6">
+                          <div className="relative z-0 w-full mb-6 group">
+                            <label 
+                              htmlFor="frequency" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Frequency
+                            </label>
+                            <select
+                              name="frequency"
+                              value={item?.frequency}
+                              onChange={handleChange}
+                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-600 sm:text-sm sm:leading-6"
+                            >
+                              <option value="ANNUALLY" label="Annually" />
+                              <option value="MONTHLY" label="Monthly" />
+                              <option value="SEMI_MONTHLY" label="Semi-Monthly" />
+                              <option value="BIWEEKLY" label="Bi-Weekly" />
+                              <option value="WEEKLY" label="Weekly" />
+                            </select>
+                          </div>
+                          <div className="relative z-0 w-full mb-6 group">
+                            <label 
+                              htmlFor="is_active" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Is Active?
+                            </label>
+                            <select
+                              name="is_active"
+                              value={item?.is_active}
+                              onChange={handleChange}
+                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-500 sm:text-sm sm:leading-6"
+                            >
+                              <option value="false" label="False" />
+                              <option value="true" label="True" />
+                            </select>
+                          </div>
                         </div>
                       </form>
                     </div>
@@ -101,13 +115,6 @@ export default function ({ open, setOpen, item, setItem, updateRecurring }) {
                       Update
                     </PinkBtn>
                   </div>
-                  <button
-                    type="button"
-                    className="mt-3 mr-3 inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-red-400 hover:bg-red-400 sm:mt-0 sm:w-auto"
-                    onClick={remove}
-                  >
-                    Deactivate
-                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

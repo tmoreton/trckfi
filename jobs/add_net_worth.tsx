@@ -16,7 +16,6 @@ client.defineJob({
         active: true,
       },
       include: {
-        // @ts-ignore
         accounts: true
       }
     })
@@ -24,7 +23,6 @@ client.defineJob({
     for (let i in users) {
       let data = {
         user_id: users[i].id,
-        // @ts-ignore
         accounts: users[i].accounts,
         stats: {
           net_worth: 0,
@@ -42,9 +40,7 @@ client.defineJob({
         }
       }
 
-      // @ts-ignore
       if(users[i].accounts && users[i].accounts.length > 0){
-        // @ts-ignore
         users[i].accounts.forEach(a => {
           if (a.type === 'loan' || a.type === 'credit'){
             data.stats.liabilities += Number(a.amount)

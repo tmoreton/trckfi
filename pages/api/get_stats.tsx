@@ -10,6 +10,17 @@ export default async (req, res) => {
     const { id, linked_user_id } = user
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
+    let activeAccounts = await prisma.accounts.findMany({
+      where: {
+        OR: query,
+        active: true,
+      },
+      select: {
+        id: true,
+      },
+    })
+    let ids = activeAccounts.map(i => i.id)
+
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
@@ -22,6 +33,7 @@ export default async (req, res) => {
         amount: {
           gte: 0,
         },
+        account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -46,6 +58,7 @@ export default async (req, res) => {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
+        account_id: { in: ids },
         amount: {
           lte: 0,
         },
