@@ -20,7 +20,6 @@ export default function Editor({ showError }) {
   const [show, setShow] = useLocalStorage('showIntroVision', true)
 
   const updatePreferences = async () => {
-    console.log(JSON.stringify(savedVision))
     setSave(true)
     let updated = preferences
     updated['vision_board'] = savedVision

@@ -3,22 +3,22 @@ import Image from 'next/image'
 const features = [
   {
     name: 'Save Time',
-    description: 'Streamline Your Finances Effortlessly – Visualize Everything in One Place.',
+    description: 'Effortlessly Manage Your Finances – Visualize All Your Transactions in One Place.',
     icon: '⏰',
   },
   {
     name: 'Feel Empowered',
-    description: 'Have a place to visualize your financial goals, and connect with yourself',
+    description: 'Take Control of Your Financial Goals and Connect with Your Money.',
     icon: '🚀',
   },
   {
     name: 'Earn More',
-    description: 'Refer a friend and get money back towards your subscription',
+    description: 'Get Rewards When You Refer a Friend, and Use Them to Offset Your Subscription Costs.',
     icon: '💰',
   },
   {
     name: 'Spend Less',
-    description: 'Save with alerts on recurring charges',
+    description: 'Stay Informed with Alerts on Recurring Charges and Save Money.',
     icon: '💸',
   },
 ]
@@ -29,9 +29,9 @@ export default function () {
       <div className="bg-white pt-10 pb-16">
         <div className="mx-auto px-6 lg:px-8">
           <div className="mx-auto max-w-3xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-pink-600">What is Trckfi?</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Your online all-in-one user friendly financial hub
+            <h2 className="text-3xl font-bold leading-7 text-pink-600 my-6">What is Trckfi?</h2>
+            <p className="mt-2 text-xl font-semibold tracking-tight text-gray-900">
+              Trckfi is your online all-in-one, user-friendly personal finance platform.
             </p>
           </div>
           <div className="mx-auto mt-6 sm:mt-20 lg:mt-12 lg:mx-12 mx-0">
@@ -56,18 +56,15 @@ export default function () {
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:ml-auto lg:pl-4 lg:pt-4">
               <div className="lg:max-w-lg">
-                <h2 className="text-base font-semibold leading-7 text-pink-600">Why Trckfi?</h2>
-                <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Unlimited Bank Connections. Smart Automation. Secure. You're in Control.</p>
-                {/* <p className="mt-6 text-xl font-semibold tracking-tight leading-8 text-gray-600">
-                  Unlimited Bank Connections. Smart Automation. Secure. You're in Control.
-                </p> */}
+                <h2 className="text-3xl font-bold leading-7 text-pink-600 my-6">Why Trckfi?</h2>
+                <p className="mt-2 font-semibold tracking-tight text-gray-900 text-xl">Unlimited Bank Connections, Smart Automation, and Total Control of Your Finances.</p>
                 <dl className="mt-10 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
                   <div className="relative pl-12">
                     <dt className="inline font-semibold text-gray-900">
                       <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">✏️</div>
                       Earn as You Learn
                     </dt>{' '}
-                    <dd className="inline">Elevate Financial Literacy. Get credits towards your subscription through daily question answers.</dd>
+                    <dd className="inline">Elevate Financial Literacy and Earn Subscription Credits by Answering Daily Questions.</dd>
                   </div>
                 </dl>
                 <dl className="mt-10 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
@@ -76,7 +73,7 @@ export default function () {
                       <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">🔒</div>
                       Secure & Private
                     </dt>{' '}
-                    <dd className="inline">Your financial data stays yours. No sharing, no selling – just confidence in your privacy.</dd>
+                    <dd className="inline">Your Financial Data Stays Secure and Private – No Sharing, No Selling, Just Confidence in Your Privacy.</dd>
                   </div>
                 </dl>
                 <dl className="mt-10 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
@@ -85,7 +82,7 @@ export default function () {
                       <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">📷</div>
                       Comprehensive Snapshot
                     </dt>{' '}
-                    <dd className="inline">All your accounts in one dashboard. Banks, loans, stocks, crypto – stay informed with ease.</dd>
+                    <dd className="inline">Get a Comprehensive Snapshot of All Your Accounts in One Dashboard, Including Banks, Loans, Stocks, and Cryptocurrency – Stay Informed with Ease.</dd>
                   </div>
                 </dl>
                 <dl className="mt-10 max-w-xl space-y-8 text-lg leading-7 text-gray-600 lg:max-w-none">
@@ -94,7 +91,7 @@ export default function () {
                       <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">🎯</div>
                       Vision Board Magic
                     </dt>{' '}
-                    <dd className="inline">Discover your financial goals and unlock opportunities to achieving them by making better money choices daily.</dd>
+                    <dd className="inline">Discover Your Financial Goals and Unlock Opportunities to Achieve Them by Making Smarter Money Choices Daily with Trckfi's Vision Board.</dd>
                   </div>
                 </dl>
               </div>
@@ -102,7 +99,7 @@ export default function () {
             <div className="flex items-start justify-end lg:order-first">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <Image
-                src="/assets/visionboard-new.png"
+                src="/assets/visionboard.png"
                 alt="Trckfi Finance Dashboard"
                 className="lg:w-[75rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[65rem] w-full"
                 width={2432}
