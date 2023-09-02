@@ -194,9 +194,11 @@ const Dashboard = ({ showError }) => {
         />
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
         <Snapshot totalStats={totalStats} />
-        <Graphs graphData={graphData} />
         { transactions && transactions.length > 1 &&
-          <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+          <>
+            <Graphs graphData={graphData} />
+            <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+          </>
         }
         { transactions && transactions.length < 1 &&
           <Empty />
