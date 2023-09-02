@@ -253,6 +253,7 @@ model Recurring {
   frequency         String
   transaction_ids   Json
   is_active         Boolean
+  active            Boolean   @default(true)
   status            String
   type              String?
   created_at        DateTime? @default(now())

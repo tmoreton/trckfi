@@ -62,6 +62,24 @@ export default function Recurring({ showError }) {
     if(!error) getRecurring()
   }
 
+  const removeRecurring = async () => {
+    const res = await fetch(`/api/remove_recurring`, {
+      body: JSON.stringify({
+        user,
+        item
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setOpen(false)
+    setItem({})
+    if(!error) getRecurring()
+  }
+
 	const diff = (date) => {
 		let today = DateTime.now()
 		let upcoming = DateTime.fromISO(date)
@@ -100,7 +118,7 @@ export default function Recurring({ showError }) {
           keywords=''
         />
 				<LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
-        <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring}/>
+        <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
 				<div className="px-4 sm:px-6 lg:px-8">
 					<div className="sm:flex sm:items-center">
 						<div className="sm:flex-auto">

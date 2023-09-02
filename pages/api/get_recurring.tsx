@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-import prisma from '../../lib/prisma';
+import prisma from '../../lib/prisma'
 
 export default async (req, res) => {
   let { user } = req.body
@@ -15,6 +15,8 @@ export default async (req, res) => {
       where: {
         OR: user_query,
         is_active: true,
+        // @ts-ignore
+        active: true,
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'ACCOUNT_TRANSFER' },
@@ -37,6 +39,8 @@ export default async (req, res) => {
       where: {
         OR: user_query,
         is_active: false,
+        // @ts-ignore
+        active: true,
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'ACCOUNT_TRANSFER' },
@@ -59,6 +63,8 @@ export default async (req, res) => {
       where: {
         OR: user_query,
         is_active: true,
+        // @ts-ignore
+        active: true,
         frequency: 'UNKNOWN',
         NOT: [
           { primary_category: 'INCOME' },

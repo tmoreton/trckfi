@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { PinkBtn } from '../pink-btn'
+import { TrashIcon } from '@heroicons/react/20/solid'
 
-export default function ({ open, setOpen, item, setItem, updateRecurring }) {
+export default function ({ open, setOpen, item, setItem, updateRecurring, removeRecurring }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -105,6 +106,12 @@ export default function ({ open, setOpen, item, setItem, updateRecurring }) {
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center justify-between">
                   <div>
+                    <button
+                      type="button"
+                      onClick={removeRecurring}
+                    >
+                      <TrashIcon className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
+                    </button>
                     <button
                       type="button"
                       className="mt-3 mr-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
