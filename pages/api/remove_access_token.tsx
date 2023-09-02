@@ -24,7 +24,6 @@ export default async (req, res) => {
         }
       })
     }
-    console.log(account)
     netWorthSync(account.user_id)
     return res.status(200).json('ok')
   } catch (error) {
