@@ -78,6 +78,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring }) {
                               <option value="SEMI_MONTHLY" label="Semi-Monthly" />
                               <option value="BIWEEKLY" label="Bi-Weekly" />
                               <option value="WEEKLY" label="Weekly" />
+                              <option value="UNKNOWN" label="Unknown" />
                             </select>
                           </div>
                           <div className="relative z-0 w-full mb-6 group">

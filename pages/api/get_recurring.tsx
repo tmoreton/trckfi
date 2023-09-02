@@ -17,7 +17,7 @@ export default async (req, res) => {
         is_active: true,
         NOT: [
           { primary_category: 'INCOME' },
-          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'ACCOUNT_TRANSFER' },
           { frequency: 'UNKNOWN' }
         ],
       },
@@ -36,7 +36,7 @@ export default async (req, res) => {
         is_active: false,
         NOT: [
           { primary_category: 'INCOME' },
-          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'ACCOUNT_TRANSFER' },
           { frequency: 'UNKNOWN' }
         ],
       },
@@ -56,7 +56,7 @@ export default async (req, res) => {
         frequency: 'UNKNOWN',
         NOT: [
           { primary_category: 'INCOME' },
-          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'ACCOUNT_TRANSFER' },
         ],
       },
       include: {
