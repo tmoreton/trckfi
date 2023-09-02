@@ -39,7 +39,7 @@ export default ({ user, open, openSetupModal, showError, syncPlaid }) => {
                     </Dialog.Title>
                     <div className="mt-1">
                       <p className="text-md text-gray-600 my-4">
-                        It may take a few a minutes to gather your historical data
+                        Please allow 24 hours for all transactions to sync
                       </p>
                     </div>
                   </div>
