@@ -29,7 +29,7 @@ export default function () {
                     <span className="relative">f***ing suck</span>
                   </span>{' '}
                 </h1>
-                <p className="my-10 text-3xl font-semibold text-gray-900">
+                <p className="my-10 text-3xl font-bold text-gray-900 tracking-wide">
                   But it's still important to track where your money is going!
                 </p>
                 <div className="mt-8 flex items-center gap-x-6">
