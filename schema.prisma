@@ -79,7 +79,7 @@ model Plaid {
   created_at     DateTime   @default(now())
   updated_at     DateTime   @default(now()) @updatedAt
   accounts       Accounts[]
-  user           User?      @relation(fields: [user_id], references: [id])
+  user           User?      @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("plaid")
 }
@@ -99,8 +99,8 @@ model Accounts {
   amount        Decimal?       @db.Decimal(9, 2)
   details       Json?
   institution   String?
-  plaid         Plaid?         @relation(fields: [item_id], references: [item_id])
-  user          User?          @relation(fields: [user_id], references: [id])
+  plaid         Plaid?         @relation(fields: [item_id], references: [item_id], onDelete: Cascade)
+  user          User?          @relation(fields: [user_id], references: [id], onDelete: Cascade)
   transactions  Transactions[]
   Recurring     Recurring[]
 
@@ -133,8 +133,8 @@ model Transactions {
   created_at        DateTime? @default(now())
   updated_at        DateTime? @updatedAt
   currency          String?
-  account           Accounts? @relation(fields: [account_id], references: [id])
-  user              User?     @relation(fields: [user_id], references: [id])
+  account           Accounts? @relation(fields: [account_id], references: [id], onDelete: Cascade)
+  user              User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("transactions")
 }
@@ -157,7 +157,7 @@ model Rules {
   identifier String
   ruleset    Json?
   user_id    String? @map("user_id")
-  user       User?   @relation(fields: [user_id], references: [id])
+  user       User?   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("rules")
 }
@@ -170,7 +170,7 @@ model Preferences {
   email_alert      Boolean @default(true)
   vision_board     Json?
   user_id          String? @unique @map("user_id")
-  user             User?   @relation(fields: [user_id], references: [id])
+  user             User?   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("preferences")
 }
@@ -183,7 +183,7 @@ model NetWorth {
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt
   user_id    String?   @map("user_id")
-  user       User?     @relation(fields: [user_id], references: [id])
+  user       User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("net_worth")
 }
@@ -204,8 +204,8 @@ model Answers {
   created_at  DateTime?  @default(now())
   user_id     String?    @map("user_id")
   question_id Int?       @map("question_id")
-  user        User?      @relation(fields: [user_id], references: [id])
-  question    Questions? @relation(fields: [question_id], references: [id])
+  user        User?      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  question    Questions? @relation(fields: [question_id], references: [id], onDelete: Cascade)
 
   @@map("answers")
 }
@@ -218,7 +218,7 @@ model Referrals {
   referred_email       String    @unique
   created_at           DateTime? @default(now())
   user_id              String?   @map("user_id")
-  user                 User?     @relation(fields: [user_id], references: [id])
+  user                 User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("referrals")
 }
@@ -232,7 +232,7 @@ model Balances {
   type        String
   created_at  DateTime? @default(now())
   user_id     String?   @map("user_id")
-  user        User?     @relation(fields: [user_id], references: [id])
+  user        User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("balances")
 }
@@ -258,8 +258,8 @@ model Recurring {
   created_at        DateTime? @default(now())
   updated_at        DateTime? @updatedAt
   user_id           String?   @map("user_id")
-  user              User?     @relation(fields: [user_id], references: [id])
-  account           Accounts? @relation(fields: [account_id], references: [account_id])
+  user              User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  account           Accounts? @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
 
   @@map("recurring")
 }

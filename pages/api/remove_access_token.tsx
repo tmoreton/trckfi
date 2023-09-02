@@ -1,29 +1,15 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import plaidClient from '../../utils/plaid';
 import prisma from '../../lib/prisma';
+import netWorthSync from '../../utils/netWorthSync'
 
 export default async (req, res) => {
   const { account } = req.body
   try {
     if(!account?.plaid){
-      await prisma.accounts.updateMany({
+      await prisma.accounts.deleteMany({
         where: {
           id: account.id
-        },
-        data: {
-          active: false,
-          user_id: null,
-          account_id: null
-        }
-      })
-      await prisma.transactions.updateMany({
-        where: {
-          id: account.id
-        },
-        data: {
-          active: false,
-          user_id: null,
-          transaction_id: null
         }
       })
     } else {
@@ -32,38 +18,13 @@ export default async (req, res) => {
           access_token: account.plaid.access_token
         })
       }
-  
-      await prisma.plaid.updateMany({
+      await prisma.plaid.deleteMany({
         where: {
           item_id: account.item_id
-        },
-        data: {
-          active: false,
-          user_id: null
-        }
-      })
-      await prisma.accounts.updateMany({
-        where: {
-          item_id: account.item_id
-        },
-        data: {
-          active: false,
-          user_id: null,
-          account_id: null
-        }
-      })
-      await prisma.transactions.updateMany({
-        where: {
-          item_id: account.item_id
-        },
-        data: {
-          active: false,
-          user_id: null,
-          transaction_id: null
         }
       })
     }
-    
+    netWorthSync(account.user_id)
     return res.status(200).json('ok')
   } catch (error) {
     console.error(error)

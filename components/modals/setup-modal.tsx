@@ -35,14 +35,11 @@ export default ({ user, open, openSetupModal, showError, syncPlaid }) => {
                   </div>
                   <div className="mt-3 text-center sm:mt-5">
                     <Dialog.Title as="h3" className="text-lg font-semibold leading-6 text-gray-900">
-                      Welcome to your Dashboard! 🎉
+                      Let's connect a bank or credit card
                     </Dialog.Title>
                     <div className="mt-1">
-                      <p className="text-md text-gray-600">
-                        Let's connect a bank or credit card
-                      </p>
-                      <p className="text-sm text-gray-400  my-4">
-                        The first time you connect it may take a few a minutes to gather your historical data
+                      <p className="text-md text-gray-600 my-4">
+                        It may take a few a minutes to gather your historical data
                       </p>
                     </div>
                   </div>

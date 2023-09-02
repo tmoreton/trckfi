@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma'
 import accountsSync from '../../utils/accountsSync'
 import transactionsSync from '../../utils/transactionsSync'
 import recurringSync from '../../utils/recurringSync'
-import netWorthSync from '../../utils/recurringSync'
+import netWorthSync from '../../utils/netWorthSync'
 
 export default async (req, res) => {
   let { access_token } = req.body

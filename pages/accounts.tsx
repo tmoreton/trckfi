@@ -132,6 +132,7 @@ const Accounts = ({ showError }) => {
   }
 
   const removeToken = async (account) => {
+    setRefreshing(true)
     setRemovedAccounts([])
     const res = await fetch(`/api/remove_access_token`, {
       body: JSON.stringify({ account }),

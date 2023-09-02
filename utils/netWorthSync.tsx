@@ -70,8 +70,7 @@ const netWorthSync = async (user_id) => {
           user_id
         }, 
       })
-      console.log(data)
-      if(DateTime.fromJSDate(lastNetWorth.created_at).toISO() > DateTime.now().startOf('day').toISO()){
+      if(lastNetWorth && DateTime.fromJSDate(lastNetWorth.created_at).toISO() > DateTime.now().startOf('day').toISO()){
         await prisma.netWorth.update({
           where: { id: lastNetWorth.id },
           data
@@ -79,7 +78,6 @@ const netWorthSync = async (user_id) => {
       } else {
         await prisma.netWorth.create({ data })
       }
-
     }
   } catch (error) {
     console.error(error)
