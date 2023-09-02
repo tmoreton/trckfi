@@ -20,6 +20,7 @@ export default function Editor({ showError }) {
   const [show, setShow] = useLocalStorage('showIntroVision', true)
 
   const updatePreferences = async () => {
+    console.log(JSON.stringify(savedVision))
     setSave(true)
     let updated = preferences
     updated['vision_board'] = savedVision
@@ -48,13 +49,13 @@ export default function Editor({ showError }) {
     const { error, data } = await res.json()
     showError(error)
     setPreferences(data)
-    console.log(data?.vision_board)
     if(data?.vision_board){
       store.loadSnapshot(data.vision_board)
       setSavedVision(data.vision_board)
-    } else {
-      updatePreferences()
-    }
+    } 
+    // else {
+    //   updatePreferences()
+    // }
   }
 
 	useEffect(() => {
