@@ -195,8 +195,8 @@ const Profile = ({ showError }) => {
 
         <div className="relative isolate overflow-hidden pb-16 pt-5">
           <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
-            <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
-              <div className="flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+            <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:px-2 xl:px-0">
+              {/* <div className="flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                 <dt className="text-md font-medium leading-6 text-gray-600">Saved</dt>
                 <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
                   $0
@@ -204,8 +204,8 @@ const Profile = ({ showError }) => {
                 <dd className="text-sm font-normal text-gray-700">
                   since joining Trckfi
                 </dd>
-              </div>
-              <div className="sm:border-l lg:border-l flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+              </div> */}
+              <div className="flex items-center flex-wrap justify-center text-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                 <div>
                   <dt className="text-md font-medium leading-6 text-gray-600">Questions</dt>
                   <dd className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-700">
