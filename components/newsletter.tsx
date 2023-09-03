@@ -9,7 +9,7 @@ const Newsletter = ({ showError }) => {
     e.preventDefault()
     setSubscribed(true)
     setEmail('')
-    const res = await fetch(`/api/create_user`, {
+    const res = await fetch(`/api/add_email`, {
       body: JSON.stringify({
         email,
       }),
@@ -18,7 +18,6 @@ const Newsletter = ({ showError }) => {
       },
       method: 'POST',
     })
-
     const { error } = await res.json()
     showError(error)
   }

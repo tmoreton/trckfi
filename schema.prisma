@@ -264,3 +264,11 @@ model Recurring {
 
   @@map("recurring")
 }
+
+model Emails {
+  id          String    @id @default(cuid())
+  email       String?   @unique
+  created_at  DateTime? @default(now())
+
+  @@map("emails")
+}

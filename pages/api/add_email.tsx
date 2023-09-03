@@ -11,7 +11,8 @@ export default async (req, res) => {
   }
 
   try {
-    await prisma.user.upsert({
+    // @ts-ignore
+    await prisma.emails.upsert({
       where: { email: email.toLowerCase() },
       update: { email: email.toLowerCase() },
       create: { email: email.toLowerCase() },
@@ -42,7 +43,6 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }
