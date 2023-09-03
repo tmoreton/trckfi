@@ -167,7 +167,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) refresh()
+    refresh()
   }
 
   const removeToken = async (account) => {
@@ -182,7 +182,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) refresh()
+    refresh()
   }
 
   return (
