@@ -182,6 +182,7 @@ model NetWorth {
   accounts   Json
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt
+  date       String?
   user_id    String?   @map("user_id")
   user       User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 

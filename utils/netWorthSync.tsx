@@ -14,10 +14,11 @@ const netWorthSync = async (user_id) => {
         accounts: true
       }
     })
-
+    let today = DateTime.now().toFormat('MM-dd-yyyy')
     let data = {
       user_id: user.id,
       accounts: user.accounts,
+      date: today,
       stats: {
         net_worth: 0,
         assets: 0,
@@ -65,18 +66,22 @@ const netWorthSync = async (user_id) => {
         }
       })
       data.stats.net_worth = Math.round(Number(data.stats.assets - (-data.stats.liabilities)))
-      let lastNetWorth = await prisma.netWorth.findFirst({  
+      const recent_net_worth = await prisma.netWorth.findUnique({
         where: {
-          user_id
-        }, 
+          user_id,
+          // @ts-ignore
+          date: today
+        }
       })
-      if(lastNetWorth && DateTime.fromJSDate(lastNetWorth.created_at).toISO() > DateTime.now().startOf('day').toISO()){
+      if(recent_net_worth?.id){
         await prisma.netWorth.update({
-          where: { id: lastNetWorth.id },
+          where: {
+            id: recent_net_worth.id
+          },
           data
         })
       } else {
-        await prisma.netWorth.create({ data })
+        await prisma.netWorth.create({data})
       }
     }
   } catch (error) {
