@@ -69,14 +69,21 @@ const Accounts = ({ showError }) => {
     }
   }, [])
 
-  useEffect(() => {
-    getAccounts()
-    getNetWorth()
-  }, [showConfetti])
+  // useEffect(() => {
+  //   getAccounts()
+  //   getNetWorth()
+  // }, [showConfetti])
 
   const editAccount = (a) => {
     setAccount(a)
     setOpenEdit(true)
+  }
+
+  const refresh = () => {
+    setTimeout(() => {
+      getAccounts()
+      getNetWorth()
+    }, 5000)
   }
 
   const hideAccount = (a) => {
@@ -119,10 +126,7 @@ const Accounts = ({ showError }) => {
       openSetupModal(false)
       setRefreshing(false)
       setConfetti(true)
-      setTimeout(() => {
-        getAccounts()
-        getNetWorth()
-      }, 4000)
+      refresh()
     }
   }
 
@@ -163,7 +167,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(!error) refresh()
   }
 
   const removeToken = async (account) => {
@@ -178,7 +182,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(!error) refresh()
   }
 
   return (
