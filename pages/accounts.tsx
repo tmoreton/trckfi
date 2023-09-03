@@ -116,13 +116,12 @@ const Accounts = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     if(!error) {
+      openSetupModal(false)
+      setRefreshing(false)
+      setConfetti(true)
       setTimeout(() => {
-        getAccounts()
-        openSetupModal(false)
-        setRefreshing(false)
-        setConfetti(true)
-        getNetWorth()
-      }, 1000)
+        router.reload()
+      }, 2000)
     }
   }
 
