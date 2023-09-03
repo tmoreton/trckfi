@@ -72,7 +72,6 @@ const Accounts = ({ showError }) => {
   useEffect(() => {
     getAccounts()
     getNetWorth()
-    router.reload()
   }, [showConfetti])
 
   const editAccount = (a) => {
