@@ -120,8 +120,9 @@ const Accounts = ({ showError }) => {
       setRefreshing(false)
       setConfetti(true)
       setTimeout(() => {
-        router.reload()
-      }, 2000)
+        getAccounts()
+        getNetWorth()
+      }, 4000)
     }
   }
 
