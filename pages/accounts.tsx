@@ -116,11 +116,7 @@ const Accounts = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     if(!error) {
-      getAccounts()
-      getNetWorth()
-      openSetupModal(false)
-      setRefreshing(false)
-      setConfetti(true)
+      router.reload()
     }
   }
 
