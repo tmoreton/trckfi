@@ -15,7 +15,7 @@ export default function () {
             <div className="lg:max-w-lg">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
               <div className="sm:mt-32 lg:mt-16">
-                <h1 className="mx-auto max-w-5xl font-display text-8xl font-bold tracking-tight text-slate-900 leading-tight">
+                <h1 className="mx-auto max-w-5xl font-display text-8xl font-bold tracking-tighter text-slate-900 leading-tight">
                   Budgets {' '}
                   <span className="hidden sm:block relative whitespace-nowrap text-pink-600">
                     <svg
