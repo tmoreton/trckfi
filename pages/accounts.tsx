@@ -24,6 +24,7 @@ import PieChart from "../components/pie-chart"
 import LineChart from "../components/line-chart"
 import StackedBarChart from "../components/stacked-bar-chart"
 import Empty from '../components/empty'
+import { useRouter } from 'next/router'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -42,6 +43,7 @@ const renderImg = (account) => {
 }
 
 const Accounts = ({ showError }) => {
+  const router = useRouter()
   const { data: session } = useSession()
   const user = session?.user
   const [loading, setLoading] = useState(false)
@@ -160,7 +162,7 @@ const Accounts = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     setRefreshing(false)
-    if(!error) getAccounts()
+    if(!error) router.reload()
   }
 
   const removeToken = async (account) => {
@@ -175,7 +177,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) getAccounts()
+    if(!error) router.reload()
   }
 
   return (
@@ -189,12 +191,12 @@ const Accounts = ({ showError }) => {
           keywords=''
         />
         <LoadingModal refreshing={refreshing} text='Updating Your Accounts...'/>
-        <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={getAccounts}/>
-        <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={getAccounts}/>
-        <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={getAccounts}/>
-        <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={getAccounts}/>
-        <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={getAccounts} />
-        <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={getAccounts} />
+        <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={() => router.reload()}/>
+        <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={() => router.reload()}/>
+        <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={() => router.reload()}/>
+        <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={() => router.reload()}/>
+        <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={() => router.reload()} />
+        <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={() => router.reload()} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}

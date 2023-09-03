@@ -4,6 +4,7 @@ const retirement_types = ['roth', 'roth 401k', 'ira', '401k', '401a', '403b', '4
 import { DateTime } from "luxon"
 
 const netWorthSync = async (user_id) => {
+  console.log('updating net worth', user_id)
   try {
     let user = await prisma.user.findUnique({
       where: {
@@ -66,17 +67,17 @@ const netWorthSync = async (user_id) => {
         }
       })
       data.stats.net_worth = Math.round(Number(data.stats.assets - (-data.stats.liabilities)))
-      const recent_net_worth = await prisma.netWorth.findUnique({
+      const recent_net_worth = await prisma.netWorth.findMany({
         where: {
           user_id,
           // @ts-ignore
           date: today
         }
       })
-      if(recent_net_worth?.id){
+      if(recent_net_worth.length > 0){
         await prisma.netWorth.update({
           where: {
-            id: recent_net_worth.id
+            id: recent_net_worth[0].id
           },
           data
         })
