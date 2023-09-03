@@ -69,6 +69,7 @@ const Accounts = ({ showError }) => {
 
   useEffect(() => {
     getAccounts()
+    getNetWorth()
   }, [showConfetti])
 
   const editAccount = (a) => {
@@ -114,6 +115,7 @@ const Accounts = ({ showError }) => {
     showError(error)
     if(!error) {
       getAccounts()
+      getNetWorth()
       openSetupModal(false)
       setRefreshing(false)
       setConfetti(true)

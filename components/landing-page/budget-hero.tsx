@@ -51,8 +51,8 @@ export default function () {
           </div>
           <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4 sm:w-[100rem] w-full">
             <Image
-              src="/assets/dashboard-beta-full.png"
-              alt="Goal Visionboard Screenshot"
+              src="/assets/dashboard-updated.png"
+              alt="Finance Dashboard"
               className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[70rem] lg:-ml-0 w-full"
               width={2432}
               height={1442}
