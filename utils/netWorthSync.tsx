@@ -4,7 +4,6 @@ const retirement_types = ['roth', 'roth 401k', 'ira', '401k', '401a', '403b', '4
 import { DateTime } from "luxon"
 
 const netWorthSync = async (user_id) => {
-  console.log('updating net worth', user_id)
   try {
     let user = await prisma.user.findUnique({
       where: {
