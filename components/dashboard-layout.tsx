@@ -2,7 +2,6 @@ import Footer from './footer'
 import Container from './container'
 import {
   ChartBarIcon,
-  Cog6ToothIcon,
   UserCircleIcon,
   BanknotesIcon,
   AdjustmentsHorizontalIcon,
@@ -17,10 +16,8 @@ import { signOut } from "next-auth/react"
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
   { name: 'Dashboard', href: '/dashboard', icon: BanknotesIcon },
-  { name: 'Accounts', href: '/accounts', icon: Cog6ToothIcon },
-  { name: 'Wealth Tracker', href: '/net-worth', icon: ChartBarIcon },
-  { name: 'Recurring', href: '/recurring', icon: ArrowPathIcon },
-  { name: 'Rules & Reminders', href: '/rules', icon: AdjustmentsHorizontalIcon },
+  { name: 'Net Worth & Accounts', href: '/accounts', icon: ChartBarIcon },
+  { name: 'Recurring Charges', href: '/recurring', icon: ArrowPathIcon },
   { name: 'Profile', href: '/profile', icon: UserCircleIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
 ]

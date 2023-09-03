@@ -19,10 +19,8 @@ const navigation = [
 const dashboardNavigation = [
   { name: 'VisionBoard', href: '/visionboard' },
   { name: 'Dashboard', href: '/dashboard' },
-  { name: 'Accounts', href: '/accounts' },
-  { name: 'Net Worth', href: '/net-worth' },
-  { name: 'Recurring', href: '/recurring' },
-  { name: 'Custom Rules', href: '/rules' },
+  { name: 'Net Worth & Accounts', href: '/accounts' },
+  { name: 'Recurring Charges', href: '/recurring' },
   { name: 'Profile', href: '/profile' },
 ]
 

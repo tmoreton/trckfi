@@ -9,7 +9,7 @@ import FeatureRight from '../components/feature-right'
 import FeatureNetWorth from '../components/feature-net-worth'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
-import HeroLanding from "../components/landing-page/hero"
+import BudgetHero from "../components/landing-page/budget-hero"
 import FeatureCenterLeanding from "../components/landing-page/feature-center"
 
 export default function Index({ showError }) {
@@ -22,11 +22,11 @@ export default function Index({ showError }) {
         keywords=''
       />
       <Menu showError={showError}/>
-      <HeroLanding />
+      <BudgetHero />
       <FeatureCenterLeanding />
+      <FeatureCenter />
       <Newsletter showError={showError} />
       {/* <Container>
-        <FeatureCenter />
         <FeatureLeft />
         <FeatureRight />
         <FeatureNetWorth />

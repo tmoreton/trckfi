@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import Newsletter from '../components/newsletter'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
-import BudgetHero from "../components/landing-page/budget-hero"
 import FeatureCenterLeanding from "../components/landing-page/feature-center"
 
 export default function Index({ showError }) {
@@ -17,7 +16,7 @@ export default function Index({ showError }) {
         keywords=''
       />
       <Menu showError={showError}/>
-      <BudgetHero />
+      <Hero />
       <FeatureCenterLeanding />
       <Newsletter showError={showError} />
     </Layout>

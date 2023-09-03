@@ -4,6 +4,7 @@ import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
 import Menu from '../components/menu'
+import Rules from '../components/rules'
 import Meta from '../components/meta'
 import { useRouter } from 'next/router'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
@@ -386,6 +387,7 @@ const Profile = ({ showError }) => {
             </dl>
           </div>
         </div>
+        <Rules showError={showError}/>
       </DashboardLayout>
     </>
   )

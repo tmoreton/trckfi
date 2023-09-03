@@ -60,14 +60,17 @@ export default function Editor({ showError }) {
 	useEffect(() => {
     getPreferences()
     if(loadingState.status === 'ready'){
-      setTimeout(() => {
-        document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
-          item.classList.add('hidden');
-        });
-        document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
-          item.classList.add('hidden');
-        });
-      }, 250);
+      // @ts-ignore
+      if(user?.login_count > 1){
+        setTimeout(() => {
+          document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+            item.classList.add('hidden');
+          });
+          document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
+            item.classList.add('hidden');
+          });
+        }, 250)
+      }
       // @ts-ignore
       if(user?.login_count <= 1 && show){
         setShow(false)

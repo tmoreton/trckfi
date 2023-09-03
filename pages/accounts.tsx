@@ -20,6 +20,10 @@ import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
 import SetupModal from '../components/modals/setup-modal'
 import { classNames } from '../lib/lodash'
+import PieChart from "../components/pie-chart"
+import LineChart from "../components/line-chart"
+import StackedBarChart from "../components/stacked-bar-chart"
+import Empty from '../components/empty'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -48,11 +52,20 @@ const Accounts = ({ showError }) => {
   const [openCrypto, setOpenCrypto] = useState(false)
   const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
-  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
   const [removedAccounts, setRemovedAccounts] = useState([])
   const [showConfetti, setConfetti] = useState(false)
-  const [refreshing, setRefreshing] = useState(false)
   const [setupModal, openSetupModal] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
+  const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
+  const [stats, setStats] = useLocalStorage('net_worth_stats', null)
+  const [history, setHistory] = useLocalStorage('net_worth_history', null)
+  
+  useEffect(() => {
+    getNetWorth()
+    if(!stats || !history){
+      setRefreshing(true)
+    }
+  }, [])
 
   useEffect(() => {
     getAccounts()
@@ -66,6 +79,23 @@ const Accounts = ({ showError }) => {
   const hideAccount = (a) => {
     setAccount(a)
     setOpen(true)
+  }
+
+  const getNetWorth = async () => {
+    const res = await fetch(`/api/get_net_worth`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, history, stats } = await res.json()
+    showError(error)
+    setRefreshing(false)
+    setStats(stats)
+    setHistory(history)
   }
 
   const syncPlaid = async (access_token) => {
@@ -184,16 +214,53 @@ const Accounts = ({ showError }) => {
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
           </button>
-          {/* <button
-            onClick={syncPlaid}
-            type="button"
-            className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
-          >
-            <div className={loading && "animate-spin"}>
-              <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
-            </div>
-          </button> */}
         </div>
+
+        {/* Net Worth Page */}
+        <main>
+          <div className="relative isolate overflow-hidden">
+            {/* Stats */}
+            <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
+              <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
+                <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                  <dt className="text-md font-medium leading-6 text-gray-600">Net Worth</dt>
+                  <dd className={classNames(
+                      stats?.stats?.net_worth < 0 ? 'text-rose-600' : 'text-green-600',
+                      'w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900'
+                    )}
+                  >
+                    {addComma(stats?.stats?.net_worth)}
+                  </dd>
+                </div>
+                <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                  <dt className="text-md font-medium leading-6 text-gray-600">Assets</dt>
+                  <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
+                    {addComma(stats?.stats?.assets)}
+                  </dd>
+                </div>
+                <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                  <dt className="text-md font-medium leading-6 text-gray-600">Liabilities</dt>
+                  <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-rose-600">
+                    {addComma(stats?.stats?.liabilities)}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+          
+          { !history || history.length <=0 ?
+            <Empty />
+            :
+            <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-6">
+              <div className="col-span-1 pb-4 lg:px-0 px-6 sm:pt-2">
+                { stats && <PieChart data={stats}/>}
+              </div>
+              <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
+                { history && <StackedBarChart history={history}/>}
+              </div>
+            </div>
+          }
+        </main>
 
         <main>
           <div>
