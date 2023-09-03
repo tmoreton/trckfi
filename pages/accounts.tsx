@@ -83,16 +83,6 @@ const Accounts = ({ showError }) => {
     setAccount(a)
     setOpen(true)
   }
-  
-  const refresh = () => {
-    setTimeout(() => {
-      getAccounts()
-      openSetupModal(false)
-      setRefreshing(false)
-      setConfetti(true)
-      getNetWorth()
-    }, 2000)
-  }
 
   const getNetWorth = async () => {
     const res = await fetch(`/api/get_net_worth`, {
@@ -125,7 +115,15 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) refresh()
+    if(!error) {
+      setTimeout(() => {
+        getAccounts()
+        openSetupModal(false)
+        setRefreshing(false)
+        setConfetti(true)
+        getNetWorth()
+      }, 1000)
+    }
   }
 
   const getAccounts = async () => {
@@ -165,7 +163,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) refresh()
+    if(!error) router.reload()
   }
 
   const removeToken = async (account) => {
@@ -180,7 +178,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) refresh()
+    if(!error) router.reload()
   }
 
   return (
@@ -194,12 +192,12 @@ const Accounts = ({ showError }) => {
           keywords=''
         />
         <LoadingModal refreshing={refreshing} text='Updating Your Accounts...'/>
-        <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={refresh}/>
-        <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={refresh}/>
-        <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={refresh}/>
-        <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={refresh}/>
-        <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={refresh} />
-        <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={refresh} />
+        <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={() => router.reload()}/>
+        <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={() => router.reload()}/>
+        <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={() => router.reload()}/>
+        <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={() => router.reload()}/>
+        <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={() => router.reload()} />
+        <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={() => router.reload()} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
