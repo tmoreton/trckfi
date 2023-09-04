@@ -15,7 +15,6 @@ const netWorthSync = async (user_id) => {
       }
     })
     let today = DateTime.now().toFormat('MM-dd-yyyy')
-    console.log(today)
     let data = {
       user_id: user.id,
       accounts: user.accounts,
@@ -74,7 +73,7 @@ const netWorthSync = async (user_id) => {
           date: today
         }
       })
-      console.log(recent_net_worth)
+
       if(recent_net_worth.length > 0){
         await prisma.netWorth.update({
           where: {

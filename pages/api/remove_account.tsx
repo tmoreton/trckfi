@@ -13,7 +13,7 @@ export default async (req, res) => {
         id
       }
     })
-    netWorthSync(user_id)
+    await netWorthSync(user_id)
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
