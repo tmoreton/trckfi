@@ -21,7 +21,7 @@ client.defineJob({
     })
 
     for (let i in users) {
-      netWorthSync(users[i].id)
+      await netWorthSync(users[i].id)
     }
   },
 });
