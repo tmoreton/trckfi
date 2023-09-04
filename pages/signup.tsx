@@ -165,7 +165,6 @@ export default function ({ csrfToken, user, showError, referral_id }) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { referral_id } = context.query
   const session = await getSession(context)
   const user = session?.user
   // @ts-ignore
@@ -180,6 +179,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   
   const csrfToken = await getCsrfToken(context)
   return {
-    props: { csrfToken, user, referral_id },
+    props: { csrfToken, user, referral_id: context.query?.referral_id || null },
   }
 }
