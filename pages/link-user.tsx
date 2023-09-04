@@ -139,7 +139,7 @@ export async function getServerSideProps(context) {
       create: { 
         // @ts-ignore
         user_id: user.id,
-        vision_board: JSON.parse(new_vision)
+        vision_board: new_vision
       },
     })
     
