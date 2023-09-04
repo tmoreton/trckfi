@@ -116,10 +116,12 @@ const Accounts = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     if(!error) {
-      openSetupModal(false)
-      setRefreshing(false)
-      setConfetti(true)
-      router.reload()
+      setTimeout(() => {
+        openSetupModal(false)
+        setRefreshing(false)
+        setConfetti(true)
+        router.reload()
+      }, 5000)
     }
   }
 

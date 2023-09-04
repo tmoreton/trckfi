@@ -2,7 +2,6 @@ import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldr
 import { useLayoutEffect, useState, useEffect } from 'react'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
-import  { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
@@ -17,7 +16,6 @@ export default function Editor({ showError }) {
 	>({
 		status: 'loading',
 	})
-  const [show, setShow] = useLocalStorage('showIntroVision', true)
 
   const updatePreferences = async () => {
     setSave(true)
@@ -67,11 +65,7 @@ export default function Editor({ showError }) {
       //   document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
       //     item.classList.add('hidden');
       //   });
-      // }, 250);
-      // @ts-ignore
-      // if(user?.login_count <= 1 && show){
-      //   setShow(false)
-      // }
+      // }, 250)
     }
   }, [loadingState])
 	
