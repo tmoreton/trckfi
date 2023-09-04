@@ -11,7 +11,7 @@ export default function () {
 }
 
 export async function getServerSideProps(context) {
-  const { session_id, referral_id } = context.query
+  const { session_id } = context.query
   const session = await getSession(context)
   const user = session?.user
 
@@ -27,9 +27,9 @@ export async function getServerSideProps(context) {
     const { ended_at, start_date, status, trial_end, canceled_at } = await stripe.subscriptions.retrieve(subscription)
     const { email, phone } = await stripe.customers.retrieve(customer)
 
-    if(referral_id){
+    if(context.query?.referral_id){
       let referral_user = await prisma.user.findUnique({
-        where: { referral_id },
+        where: { referral_id: context.query?.referral_id },
       })
 
       if(!referral_user?.customer_id){
@@ -93,14 +93,18 @@ export async function getServerSideProps(context) {
       }
     }
 
-    await prisma.preferences.upsert({
-      where: { user_id: user.id },
-      update: { user_id: user.id },
-      create: { 
-        user_id: user.id,
-        vision_board: JSON.parse(new_vision)
-      },
-    })
+    try {
+      await prisma.preferences.upsert({
+        where: { user_id: user.id },
+        update: { user_id: user.id },
+        create: { 
+          user_id: user.id,
+          vision_board: new_vision
+        },
+      })
+    } catch (error) {
+      console.error(error)
+    }
 
     await prisma.user.update({
       where: { 

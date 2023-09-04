@@ -3,6 +3,7 @@ import { useLayoutEffect, useState, useEffect } from 'react'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
+import { new_vision } from '../utils/default-vision'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
@@ -10,7 +11,7 @@ export default function Editor({ showError }) {
   const [controls, showControls] = useState(false)
   const [preferences, setPreferences] = useState({})
   const [save, setSave] = useState(false)
-  const [savedVision, setSavedVision] = useState(null)
+  const [savedVision, setSavedVision] = useState(new_vision)
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
@@ -48,10 +49,10 @@ export default function Editor({ showError }) {
     const { error, data } = await res.json()
     showError(error)
     setPreferences(data)
-    if(data?.vision_board){
-      store.loadSnapshot(data.vision_board)
-      setSavedVision(data.vision_board)
-    } 
+    // if(data?.vision_board){
+    //   store.loadSnapshot(data.vision_board)
+    //   setSavedVision(data.vision_board)
+    // } 
     // else {
     //   updatePreferences()
     // }

@@ -249,7 +249,7 @@ const Accounts = ({ showError }) => {
             </div>
           </div>
           
-          { !history || history.length <=0 ?
+          { !history || history.length <=0 && Object.keys(accounts)?.length < 0 ?
             <Empty />
             :
             <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-6">
