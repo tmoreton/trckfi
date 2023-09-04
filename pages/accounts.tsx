@@ -121,7 +121,7 @@ const Accounts = ({ showError }) => {
         setRefreshing(false)
         setConfetti(true)
         router.reload()
-      }, 5000)
+      }, 10000)
     }
   }
 
