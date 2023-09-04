@@ -116,12 +116,10 @@ const Accounts = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     if(!error) {
-      setTimeout(() => {
-        openSetupModal(false)
-        setRefreshing(false)
-        setConfetti(true)
-        getNetWorth()
-      }, 10000)
+      openSetupModal(false)
+      setRefreshing(false)
+      setConfetti(true)
+      getNetWorth()
     }
   }
 
