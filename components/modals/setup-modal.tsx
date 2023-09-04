@@ -37,8 +37,8 @@ export default ({ user, open, openSetupModal, showError, syncPlaid }) => {
                     <Dialog.Title as="h3" className="text-lg font-semibold leading-6 text-gray-900">
                       Let's connect a bank or credit card
                     </Dialog.Title>
-                    <div className="mt-1">
-                      <p className="text-md text-gray-600 my-4">
+                    <div className="my-1">
+                      <p className="text-sm text-red-500 text-gray-600 my-4">
                         Please allow 24 hours for all transactions to sync
                       </p>
                     </div>

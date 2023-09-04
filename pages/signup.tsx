@@ -83,7 +83,7 @@ export default function ({ csrfToken, user, showError, referral_id }) {
               <p className="text-md text-gray-600">
                 A magic sign-in link has been sent to your email address.
               </p>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-red-500">
                 PS. Check your spam folder since it's your first email from us.
               </p>
               <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>

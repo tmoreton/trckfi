@@ -12,7 +12,7 @@ export default function () {
           <Icon />
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Check Your Email</h1>
           <p className="mt-6 text-base leading-7 text-gray-600">A magic sign-in link has been sent to your email address.</p>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-red-500">
             PS. Check your spam folder since it's your first email from us.
           </p>
           <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>
