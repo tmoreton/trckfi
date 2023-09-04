@@ -119,6 +119,7 @@ const Accounts = ({ showError }) => {
       openSetupModal(false)
       setRefreshing(false)
       setConfetti(true)
+      router.reload()
     }
   }
 

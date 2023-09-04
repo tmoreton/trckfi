@@ -261,8 +261,7 @@ const Profile = ({ showError }) => {
                 </dd>
               </div>
 
-              { // @ts-ignore
-                user.product_id === 'prod_OUAgEdZI2gYrgv' &&
+                {/* user.product_id === 'prod_OUAgEdZI2gYrgv' && */}
                 <>
                   {
                     linkedUser ?
@@ -301,7 +300,6 @@ const Profile = ({ showError }) => {
                     </div>
                   }
                 </>
-              }
             </dl>
           </div>
 
