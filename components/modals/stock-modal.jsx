@@ -8,6 +8,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
   const [query, setQuery] = useState(null)
   const [selected, setSelected] = useState(null)
   const [account, setAccount] = useState({})
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if(query?.length >= 3){
@@ -48,6 +49,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
   }
 
   const getStock = async (selected) => {
+    setLoading(true)
     setSelected(selected)
     const res = await fetch(`/api/get_stock_price`, {
       body: JSON.stringify({ symbol: selected.symbol }),
@@ -68,6 +70,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
       symbol: data.symbol,
       quantity: null
     })
+    setLoading(false)
   }
 
   const handleSubmit = async () => {
@@ -133,7 +136,13 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                         <Dropdown values={stocks} selected={selected} setSelected={getStock} onChange={setQuery} />
                       </div>
                       {
-                        selected &&
+                        selected && loading &&
+                        <div className="relative z-0 w-full mb-6 group">
+                          <p className="text-center">Loading...</p>
+                        </div>
+                      }
+                      {
+                        selected && !loading &&
                         <form onSubmit={handleSubmit}>
                           <div className="relative z-0 w-full mb-6 group">
                             <label 
