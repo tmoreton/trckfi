@@ -3,7 +3,6 @@ import { useLayoutEffect, useState, useEffect } from 'react'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
-import { new_vision } from '../utils/default-vision'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
@@ -11,7 +10,7 @@ export default function Editor({ showError }) {
   const [controls, showControls] = useState(false)
   const [preferences, setPreferences] = useState({})
   const [save, setSave] = useState(false)
-  const [savedVision, setSavedVision] = useState(new_vision)
+  const [savedVision, setSavedVision] = useState(null)
 	const [store] = useState(() => createTLStore({ shapeUtils: defaultShapeUtils }))
 	const [loadingState, setLoadingState] = useState<
 		{ status: 'loading' } | { status: 'ready' } | { status: 'error'; error: string }
@@ -49,10 +48,10 @@ export default function Editor({ showError }) {
     const { error, data } = await res.json()
     showError(error)
     setPreferences(data)
-    // if(data?.vision_board){
-    //   store.loadSnapshot(data.vision_board)
-    //   setSavedVision(data.vision_board)
-    // } 
+    if(data?.vision_board){
+      store.loadSnapshot(data.vision_board)
+      setSavedVision(data.vision_board)
+    } 
     // else {
     //   updatePreferences()
     // }
@@ -61,21 +60,18 @@ export default function Editor({ showError }) {
 	useEffect(() => {
     getPreferences()
     if(loadingState.status === 'ready'){
+      // setTimeout(() => {
+      //   document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
+      //     item.classList.add('hidden');
+      //   });
+      //   document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
+      //     item.classList.add('hidden');
+      //   });
+      // }, 250);
       // @ts-ignore
-      if(user?.login_count > 1){
-        setTimeout(() => {
-          document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
-            item.classList.add('hidden');
-          });
-          document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
-            item.classList.add('hidden');
-          });
-        }, 250)
-      }
-      // @ts-ignore
-      if(user?.login_count <= 1 && show){
-        setShow(false)
-      }
+      // if(user?.login_count <= 1 && show){
+      //   setShow(false)
+      // }
     }
   }, [loadingState])
 	
