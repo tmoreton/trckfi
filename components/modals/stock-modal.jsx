@@ -138,7 +138,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                       {
                         selected && loading &&
                         <div className="relative z-0 w-full mb-6 group">
-                          <p className="text-center">Loading...</p>
+                          <p className="text-center">Loading Recent Market Data...</p>
                         </div>
                       }
                       {
