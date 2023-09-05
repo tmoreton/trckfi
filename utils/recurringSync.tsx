@@ -105,7 +105,6 @@ const recurringSync = async (access_token) => {
     }
   } catch (error) {
     console.error(error)
-    throw new Error(error)
   }
 }
 

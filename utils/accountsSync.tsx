@@ -45,7 +45,6 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
       where: { item_id },
       data: { error_code: error.response?.data?.error_code }
     })
-    // throw new Error(error)
   }
 }
 
