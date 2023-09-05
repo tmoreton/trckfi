@@ -16,6 +16,9 @@ export default async (req, res) => {
         is_active: true,
         // @ts-ignore
         active: true,
+        last_amount: {
+          lte: 0,
+        },
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'ACCOUNT_TRANSFER' },
@@ -41,6 +44,9 @@ export default async (req, res) => {
         is_active: true,
         // @ts-ignore
         active: true,
+        last_amount: {
+          lte: 0,
+        },
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'ACCOUNT_TRANSFER' },
@@ -64,6 +70,9 @@ export default async (req, res) => {
         is_active: false,
         // @ts-ignore
         active: true,
+        last_amount: {
+          lte: 0,
+        },
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'ACCOUNT_TRANSFER' },
@@ -88,6 +97,9 @@ export default async (req, res) => {
         // @ts-ignore
         active: true,
         frequency: 'UNKNOWN',
+        last_amount: {
+          lte: 0,
+        },
         NOT: [
           { primary_category: 'INCOME' },
           { primary_category: 'ACCOUNT_TRANSFER' },
