@@ -1,8 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
-import { DateTime } from "luxon"
-import netWorthSync from '../../utils/netWorthSync';
-import { el } from 'date-fns/locale';
 
 export default async (req, res) => {
   const { user } = req.body

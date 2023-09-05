@@ -22,11 +22,11 @@ export default async (req, res) => {
       customer_email: email,
       success_url: referral_id ? `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}` : `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
-    };
+    }
+
     // Check if user was referred by a friend
     if(referral_id){
       const referral_user = await prisma.user.findUnique({
-        // @ts-ignore
         where: { referral_id },
       })
 
