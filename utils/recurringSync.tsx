@@ -81,9 +81,9 @@ const recurringSync = async (access_token) => {
             name: item.description,
             merchant_name: item.merchant_name,
             // @ts-ignore
-            primary_category: rule?.ruleset?.primary_category && snakeCase(rule?.ruleset?.primary_category).toUpperCase() || item.personal_finance_category.primary,
+            primary_category: rule?.ruleset?.primary_category || item.personal_finance_category.primary,
             // @ts-ignore
-            detailed_category: rule?.ruleset?.detailed_category && snakeCase(rule?.ruleset?.detailed_category).toUpperCase() || detailed_category,
+            detailed_category: rule?.ruleset?.detailed_category || detailed_category,
             first_date: item.first_date,
             last_date: item.last_date,
             frequency: item.frequency,
