@@ -28,7 +28,7 @@ const tabs = [
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function ({ graphData }) {
-  const { categories, emojiCategories, detailedCategories } = graphData
+  const { categories, detailedCategories } = graphData
   if (!categories) return null
   const [data, setData] = useState({
     labels: [],
@@ -41,8 +41,6 @@ export default function ({ graphData }) {
   useEffect(() => {
     if(key === 'primary_category'){
       updatePie(categories)
-    } else if(key === 'unified') {
-      updatePie(emojiCategories)
     } else {
       updatePie(detailedCategories)
     }

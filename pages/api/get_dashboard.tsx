@@ -33,7 +33,7 @@ export default async (req, res) => {
           gte: endDate
         },
         amount: {
-          lte: 0,
+          lte: 0
         },
         account_id: { in: ids },
         NOT: [
@@ -153,37 +153,35 @@ export default async (req, res) => {
       },
     })
 
-    const emojiCategories = await prisma.transactions.groupBy({
-      by: ['unified'],
-      where: {
-        OR: query,
-        active: true,
-        authorized_date: {
-          lte: startDate,
-          gte: endDate
-        },
-        amount: {
-          lte: 0,
-        },
-        account_id: { in: ids },
-        NOT: [
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
-      },
-      _sum: {
-        amount: true,
-      },
-    })
+    // const emojiCategories = await prisma.transactions.groupBy({
+    //   by: ['unified'],
+    //   where: {
+    //     OR: query,
+    //     active: true,
+    //     authorized_date: {
+    //       lte: startDate,
+    //       gte: endDate
+    //     },
+    //     amount: {
+    //       lte: 0,
+    //     },
+    //     account_id: { in: ids },
+    //     NOT: [
+    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
+    //     ],
+    //   },
+    //   _sum: {
+    //     amount: true,
+    //   },
+    // })
     
     return res.status(200).json({ data: {
       categories,
       detailedCategories,
       groupByMonthIncome,
       groupByMonth,
-      groupByWeek,
-      emojiCategories
+      groupByWeek
     }})
-
   } catch (error) {
     console.error(error)
     throw new Error(error)
