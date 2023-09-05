@@ -14,7 +14,7 @@ const netWorthSync = async (user_id) => {
         accounts: true
       }
     })
-    let today = DateTime.now().toFormat('MM-dd-yyyy')
+    let today = DateTime.now().toFormat('yyyy-MM-dd')
     let data = {
       user_id: user.id,
       accounts: user.accounts,

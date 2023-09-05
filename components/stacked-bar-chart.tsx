@@ -52,7 +52,7 @@ import {
 
   export default function ({ history }) {
     const data = {
-      labels: history.map(i => DateTime.fromISO(i.created_at).toFormat('DD')),
+      labels: history.map(i => DateTime.fromISO(i.date).toFormat('DD')),
       datasets: [
         {
           label: category_colors.auto.name,
