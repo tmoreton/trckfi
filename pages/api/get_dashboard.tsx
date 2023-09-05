@@ -152,28 +152,6 @@ export default async (req, res) => {
         amount: true,
       },
     })
-
-    // const emojiCategories = await prisma.transactions.groupBy({
-    //   by: ['unified'],
-    //   where: {
-    //     OR: query,
-    //     active: true,
-    //     authorized_date: {
-    //       lte: startDate,
-    //       gte: endDate
-    //     },
-    //     amount: {
-    //       lte: 0,
-    //     },
-    //     account_id: { in: ids },
-    //     NOT: [
-    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
-    //     ],
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    // })
     
     return res.status(200).json({ data: {
       categories,
