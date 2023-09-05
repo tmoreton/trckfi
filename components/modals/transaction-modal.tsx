@@ -130,10 +130,7 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
     })
     const { error } = await res.json()
     showError(error)
-    if (!error){
-      getTransactions()
-      setEdit({})
-    }
+    if (!error) router.reload()
   }
 
   const add = async () => {
@@ -149,10 +146,7 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
     })
     const { error } = await res.json()
     showError(error)
-    if (!error){
-      getTransactions()
-      setEdit({})
-    }
+    if (!error) router.reload()
   }
 
   return (
