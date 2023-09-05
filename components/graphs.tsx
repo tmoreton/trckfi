@@ -37,8 +37,8 @@ const colors = [
 ]
 
 const tabs = [
-  { name: 'Primary Category', key: 'primary_category' },
-  { name: 'Detailed Category', key: 'detailed_category' },
+  { name: 'Primary Category Spend', key: 'primary_category' },
+  { name: 'Detailed Category Spend', key: 'detailed_category' },
 ]
 
 ChartJS.register(ArcElement, Tooltip, Legend);
