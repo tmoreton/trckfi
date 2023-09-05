@@ -2,7 +2,6 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid'
 import { DateTime } from "luxon"
-import { snakeCase } from "snake-case";
 
 const recurringSync = async (access_token) => {
   try {
@@ -54,7 +53,6 @@ const recurringSync = async (access_token) => {
       }
       
       const add_transaction = async (item, type) => {
-        console.log(item)
         let transaction_name = item.merchant_name || item.description
         let detailed_category = item.personal_finance_category.detailed.replace(`${item.personal_finance_category.primary}_`, '')
         let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
