@@ -38,7 +38,7 @@ export default async (req, res) => {
 
     // @ts-ignore
     const stats = await prisma.recurring.groupBy({
-      by: ['frequency'],
+      by: ['frequency', 'primary_category'],
       where: {
         OR: user_query,
         is_active: true,
@@ -49,10 +49,10 @@ export default async (req, res) => {
         },
         NOT: [
           { primary_category: 'INCOME' },
-          { primary_category: 'ACCOUNT_TRANSFER' },
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
+          // { primary_category: 'ACCOUNT_TRANSFER' },
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
           { frequency: 'UNKNOWN' }
         ],
       },

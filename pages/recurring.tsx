@@ -8,6 +8,8 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
 import RecurringModal from '../components/modals/recurring-modal'
 import { DateTime } from "luxon"
+import { primary } from '../lib/primary_categories'
+
 
 export default function Recurring({ showError }) {
 	const { data: session } = useSession()
@@ -128,10 +130,11 @@ export default function Recurring({ showError }) {
               <dl className="mx-auto grid max-w-7xl lg:px-2 xl:px-0">
                 <div className="flex items-baseline flex-wrap justify-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 pb-3 sm:px-6 lg:border-t-0 xl:px-8">
                   {stats && stats.map((i) => (
-                    <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 rounded-md border-b border border-gray-200 w-64">
-                      <dt className="text-md font-xs leading-6 text-gray-600 text-center font-semibold">{i.frequency}</dt>
+                    <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 rounded-md border-b border border-gray-200 w-48">
+                      <dt className="text-md font-xs leading-6 text-gray-600 text-center font-semibold">{`${primary[i.primary_category].icon} ${primary[i.primary_category].name}`}</dt>
+											<dt className="text-xs font-xs leading-6 text-gray-600 text-center font-normal">{i.frequency}<span className="text-xs italic font-normal ml-1 text-gray-600">est.</span></dt>
                       <dd className="text-red-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-center">
-                        {addComma(i._sum.last_amount)}
+                        ${Math.abs(Math.round(i._sum.last_amount))}
                       </dd>
                     </div>
                   ))}
