@@ -71,10 +71,10 @@ const transactionsSync = async (access_token, user_id) => {
             merchant_name: added[i].merchant_name,
             category: added[i].category,
             // @ts-ignore
-            detailed_category: rule?.ruleset?.detailed_category && snakeCase(rule?.ruleset?.detailed_category).toUpperCase() || detailed_category,
+            detailed_category: rule?.ruleset?.detailed_category || detailed_category,
             unified: icons[detailed_category],
             // @ts-ignore
-            primary_category: rule?.ruleset?.primary_category && snakeCase(rule?.ruleset?.primary_category).toUpperCase() || added[i].personal_finance_category.primary,
+            primary_category: rule?.ruleset?.primary_category || added[i].personal_finance_category.primary,
             // @ts-ignore
             location: added[i].location,
             pending: added[i].pending,
