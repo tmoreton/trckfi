@@ -160,12 +160,39 @@ client.defineJob({
       })
       const transactions = t.slice(0, 10)
 
+      const recurring = await prisma.recurring.findMany({
+        where: {
+          OR: user_query,
+          // @ts-ignore
+          active: true,
+          is_active: true,
+          NOT: [
+            { primary_category: 'INCOME' },
+            { primary_category: 'ACCOUNT_TRANSFER' },
+            { primary_category: 'LOAN_PAYMENTS' },
+            { primary_category: 'TRANSFER_IN' },
+            { primary_category: 'TRANSFER_OUT' },
+          ],
+          upcoming_date: {
+            lte: DateTime.now().plus({ months: 1 }).toISO(),
+            gte: DateTime.now().toISO()
+          },
+          last_amount: {
+            lte: 0,
+          },
+        },
+        orderBy: {
+          upcoming_date: 'asc'
+        }
+      })
+
       const emailHtml = render(
         <WeeklySummary 
           groupByWeek={groupByWeek} 
           transactions={transactions} 
           primaryCategories={primaryCategories} 
-          detailedCategories={detailedCategories} 
+          detailedCategories={detailedCategories}
+          recurring={recurring}
         />
       )
 

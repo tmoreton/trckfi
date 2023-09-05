@@ -42,6 +42,7 @@ client.defineJob({
         })
         linked_user_email = res.email
       }
+
       const user_query = linked_user_id ? [{ user_id: user_id }, { user_id: linked_user_id }] : [{ user_id: user_id }]
 
       const groupByMonth = await prisma.transactions.groupBy({
@@ -169,7 +170,7 @@ client.defineJob({
       })
       detailedCategories.sort((a, b) => a.this_month_amount-b.this_month_amount)
       detailedCategories = detailedCategories.slice(0, 10)
-
+     
       const t = await prisma.transactions.findMany({
         where: {
           OR: user_query,
@@ -187,23 +188,29 @@ client.defineJob({
       })
       const transactions = t.slice(0, 10)
 
-      const recurring = await prisma.transactions.findMany({
+      const recurring = await prisma.recurring.findMany({
         where: {
           OR: user_query,
+          // @ts-ignore
           active: true,
-          month_year: this_month,
+          is_active: true,
           NOT: [
+            { primary_category: 'INCOME' },
+            { primary_category: 'ACCOUNT_TRANSFER' },
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
             { primary_category: 'TRANSFER_OUT' },
           ],
-          amount: {
+          upcoming_date: {
+            lte: DateTime.now().plus({ months: 1 }).toISO(),
+            gte: DateTime.now().toISO()
+          },
+          last_amount: {
             lte: 0,
           },
-          recurring: true
         },
         orderBy: {
-          amount: 'asc'
+          upcoming_date: 'asc'
         }
       })
 

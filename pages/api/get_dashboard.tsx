@@ -152,7 +152,7 @@ export default async (req, res) => {
         amount: true,
       },
     })
-    
+
     return res.status(200).json({ data: {
       categories,
       detailedCategories,

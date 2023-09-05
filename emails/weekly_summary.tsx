@@ -17,7 +17,7 @@ import * as React from 'react';
 import { addComma } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react';
 
-export default function ({ groupByWeek, primaryCategories, detailedCategories, transactions }) {
+export default function ({ groupByWeek, primaryCategories, detailedCategories, transactions, recurring }) {
   return (
     <Html>
       <Head />
@@ -85,7 +85,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
               }
             </Section>
 
-            <Section className="bg-[#ffffff] rounded text-center my-5">
+            {/* <Section className="bg-[#ffffff] rounded text-center my-5">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
               <Section className="mt-0 mb-4">
                 <Text className="text-[#464c63] font-light text-[22px] mb-1">
@@ -115,7 +115,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                   </Row>
                 ))}
               </Section>
-            </Section>
+            </Section> */}
 
             <Section className="bg-[#ffffff] rounded text-center my-5">
               <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
@@ -179,6 +179,38 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                 })}
               </Section>
             </Section>
+
+            {
+              recurring.length > 0 &&
+              <Section className="bg-[#ffffff] rounded text-center my-5">
+                <Hr className="w-full border-t-3 border-pink-500 mx-auto my-0" />
+                <Section className="mt-0 mb-4">
+                  <Text className="text-[#464c63] font-light text-[22px] mb-1">
+                    Upcoming Recurring Transactions
+                  </Text>
+                  <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
+                  {recurring.map((item) => (
+                    <Row key={item.id}>
+                      <Column className="w-55" align="left">
+                        <Text className="text-[#666666] text-[11px] my-0 mb-1 ml-4">
+                          {item.description}
+                        </Text>
+                      </Column>
+                      <Column className="w-20" align="left">
+                        <Text className="text-[#666666] text-[7px] my-0 ml-6">
+                          {item.upcoming_date}
+                        </Text>
+                      </Column>
+                      <Column align="right">
+                        <Text className="text-red-500 text-[14px] my-0 font-semibold mr-4">
+                          ${Math.abs(Math.round(item.last_amount))}
+                        </Text>
+                      </Column>
+                    </Row>
+                  ))}
+                </Section>
+              </Section>
+            }
             <Hr className="border border-solid border-[#eaeaea] my-[16px] mx-0 w-full" />
             <Text className="text-[#666666] text-[8px] text-center">
               If you were not expecting this email please contact us at support@trckfi.com
