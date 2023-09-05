@@ -6,7 +6,7 @@ import { DateTime } from "luxon";
 export default async (req, res) => {
   const { transaction, user } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { name, unified, primary_category, detailed_category, amount, notes, date, account_id } = transaction
+  const { name, unified, primary_category, detailed_category, amount, notes, date, account_id, custom_name } = transaction
   try {
     let data = { 
       amount: Number(amount).toFixed(2),
@@ -17,6 +17,7 @@ export default async (req, res) => {
       authorized_date: new Date(date),
       merchant_name: 'Trckfi',
       date,
+      custom_name,
       name,
       unified,
       notes,

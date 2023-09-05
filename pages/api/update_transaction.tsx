@@ -6,7 +6,7 @@ import { DateTime } from "luxon"
 export default async (req, res) => {
   const { transaction, ids } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id } = transaction
+  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name } = transaction
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {
@@ -16,6 +16,7 @@ export default async (req, res) => {
         
         let data = {}
         if (name) data['name'] = name
+        if (custom_name) data['custom_name'] = custom_name
         if (notes) data['notes'] = notes
         if (amount) data['amount'] = Number(amount).toFixed(2)
         if (unified && unified !== '1f50d') data['unified'] = unified
@@ -42,6 +43,8 @@ export default async (req, res) => {
           amount: Number(amount).toFixed(2),
           primary_category: snakeCase(primary_category).toUpperCase(),
           detailed_category: snakeCase(detailed_category).toUpperCase(),
+          // @ts-ignore
+          custom_name,
           name,
           unified,
           account_id,
@@ -57,7 +60,6 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-throw new Error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

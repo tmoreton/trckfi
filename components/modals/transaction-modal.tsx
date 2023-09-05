@@ -7,10 +7,12 @@ import { PinkBtn } from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 import Dropdown from '../dropdown'
+import { useRouter } from 'next/router'
 
 export default function ({ item, setEdit, showError, selected, user, getTransactions }) {
   const defaultTransaction = {
     name: null,
+    custom_name: null,
     primary_category: null,
     detailed_category: null,
     amount: null,
@@ -29,6 +31,7 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
   const [accounts, setAccounts] = useState([])
   const [primary_categories, setPrimary] = useState([])
   const [detailed_categories, setDetailed] = useState([])
+  const router = useRouter()
 
   useEffect(() => {
     getAccounts()
@@ -111,7 +114,7 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) getTransactions()
+    if(!error) router.reload()
   }
 
   const remove = async () => {
@@ -248,11 +251,11 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
                             <div className="w-full">
                               <input 
                                 type="text" 
-                                name="name" 
+                                name="custom_name"
                                 id="transaction_name" 
                                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                                 required
-                                value={transaction?.name}
+                                value={transaction?.custom_name || transaction?.name}
                                 onChange={handleChange}
                               />
                               <label 
