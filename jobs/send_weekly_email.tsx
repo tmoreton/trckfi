@@ -174,7 +174,7 @@ client.defineJob({
             { primary_category: 'TRANSFER_OUT' },
           ],
           upcoming_date: {
-            lte: DateTime.now().plus({ months: 1 }).toISO(),
+            lte: DateTime.now().plus({ weeks: 1 }).toISO(),
             gte: DateTime.now().toISO()
           },
           last_amount: {
