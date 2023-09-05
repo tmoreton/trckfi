@@ -124,13 +124,13 @@ export default function Recurring({ showError }) {
 				<div className="px-4 sm:px-6 lg:px-8">
           <div className="relative isolate overflow-hidden">
             {/* Stats */}
-            <div className="border-b border-b-gray-900/10">
+            <div >
               <dl className="mx-auto grid max-w-7xl lg:px-2 xl:px-0">
-                <div className="flex items-baseline flex-wrap justify-center space-x-24 gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 pb-6 sm:px-6 lg:border-t-0 xl:px-8">
+                <div className="flex items-baseline flex-wrap justify-center gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 pb-3 sm:px-6 lg:border-t-0 xl:px-8">
                   {stats && stats.map((i) => (
-                    <div>
-                      <dt className="text-md font-xs leading-6 text-gray-600">{i.frequency} TOTAL</dt>
-                      <dd className="text-red-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight">
+                    <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200 w-64">
+                      <dt className="text-md font-xs leading-6 text-gray-600 text-center">{i.frequency} TOTAL</dt>
+                      <dd className="text-red-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-center">
                         {addComma(i._sum.last_amount)}
                       </dd>
                     </div>
@@ -138,6 +138,11 @@ export default function Recurring({ showError }) {
                 </div>
               </dl>
             </div>
+          </div>
+          <div className="max-w-7xl pb-4">
+            <h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
+              Recurring
+            </h2>
           </div>
 					<div className="flow-root">
 						<div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
