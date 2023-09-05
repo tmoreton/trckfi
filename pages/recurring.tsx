@@ -122,19 +122,11 @@ export default function Recurring({ showError }) {
 				<LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
         <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
 				<div className="px-4 sm:px-6 lg:px-8">
-					<div className="sm:flex sm:items-center">
-						<div className="sm:flex-auto">
-							<h1 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">Recurring & Subscriptions</h1>
-							<p className="mt-2 text-sm text-gray-700">
-								Never forget another subscription or recurring charge again!
-							</p>
-						</div>
-					</div>
           <div className="relative isolate overflow-hidden">
             {/* Stats */}
-            <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
+            <div className="border-b border-b-gray-900/10">
               <dl className="mx-auto grid max-w-7xl lg:px-2 xl:px-0">
-                <div className="flex items-baseline flex-wrap justify-center space-x-24 gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                <div className="flex items-baseline flex-wrap justify-center space-x-24 gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 pb-6 sm:px-6 lg:border-t-0 xl:px-8">
                   {stats && stats.map((i) => (
                     <div>
                       <dt className="text-md font-xs leading-6 text-gray-600">{i.frequency} TOTAL</dt>
