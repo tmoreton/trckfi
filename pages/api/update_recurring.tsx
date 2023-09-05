@@ -29,7 +29,8 @@ export default async (req, res) => {
         stream_id: item.stream_id
       },
       data: {
-        description: item.description,
+        // @ts-ignore
+        custom_name: item.description,
         frequency: item.frequency,
         is_active: item.is_active === 'true' || false,
         upcoming_date: upcoming(item)
