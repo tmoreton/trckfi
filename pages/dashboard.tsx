@@ -134,7 +134,7 @@ const Dashboard = ({ showError }) => {
     {
       Header: "Name",
       id: "name",
-      accessor: "name",
+      accessor: data => data.custom_name || data.merchant_name || data.name,
       style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
     },
     {
@@ -197,7 +197,7 @@ const Dashboard = ({ showError }) => {
         { transactions && transactions.length > 1 &&
           <>
             <Graphs graphData={graphData} />
-            <Table setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+            <Table user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
           </>
         }
         { transactions && transactions.length < 1 &&

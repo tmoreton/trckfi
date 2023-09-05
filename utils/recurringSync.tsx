@@ -2,6 +2,7 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid'
 import { DateTime } from "luxon"
+import { snakeCase } from "snake-case";
 
 const recurringSync = async (access_token) => {
   try {
@@ -15,6 +16,12 @@ const recurringSync = async (access_token) => {
     })
     const accountIds = accounts.map(a => a.account_id && a.account_id)
 
+    const rules = await prisma.rules.findMany({
+      where: {
+        user_id,
+      }
+    })
+
     if(accountIds.length > 0){
       const request = {
         access_token: access_token,
@@ -24,8 +31,8 @@ const recurringSync = async (access_token) => {
         }
       }
       const response = await plaidClient.transactionsRecurringGet(request)
-      let inflowStreams = response.data.inflow_streams
-      let outflowStreams = response.data.outflow_streams
+      let inflow = response.data.inflow_streams
+      let outflows = response.data.outflows_streams
   
       const upcoming = (item) => {
         if(item){
@@ -45,77 +52,56 @@ const recurringSync = async (access_token) => {
           }  
         }
       }
-  
-      for (let i in inflowStreams) {
-        // @ts-ignore
+      
+      const add_transaction = async (item, type) => {
+        let transaction_name = item.merchant_name || item.description
+        let detailed_category = item.personal_finance_category.detailed.replace(`${item.personal_finance_category.primary}_`, '')
+        let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
         await prisma.recurring.upsert({
           where: { 
-            stream_id: inflowStreams[i].stream_id 
+            stream_id: item.stream_id 
           },
           update: {
-            average_amount: -(inflowStreams[i].average_amount.amount),
-            last_amount: -(inflowStreams[i].last_amount.amount),
-            last_date: inflowStreams[i].last_date,
-            frequency: inflowStreams[i].frequency,
-            status: inflowStreams[i].status,
-            upcoming_date: upcoming(inflowStreams[i])
+            average_amount: -(item.average_amount.amount),
+            last_amount: -(item.last_amount.amount),
+            last_date: item.last_date,
+            frequency: item.frequency,
+            status: item.status,
+            upcoming_date: upcoming(item)
           },
           create: {
-            stream_id: inflowStreams[i].stream_id,
-            average_amount: -(inflowStreams[i].average_amount.amount),
-            last_amount: -(inflowStreams[i].last_amount.amount),
-            account_id: inflowStreams[i].account_id,
-            description: inflowStreams[i].description,
-            merchant_name: inflowStreams[i].merchant_name,
-            primary_category: inflowStreams[i].personal_finance_category.primary,
-            detailed_category: inflowStreams[i].personal_finance_category.detailed,
-            first_date: inflowStreams[i].first_date,
-            last_date: inflowStreams[i].last_date,
-            frequency: inflowStreams[i].frequency,
-            transaction_ids: inflowStreams[i].transaction_ids,
-            is_active: inflowStreams[i].is_active,
-            status: inflowStreams[i].status,
-            type: 'inflow',
+            stream_id: item.stream_id,
+            average_amount: -(item.average_amount.amount),
+            last_amount: -(item.last_amount.amount),
+            account_id: item.account_id,
+            // @ts-ignore
+            custom_name: rule?.ruleset?.name || item.merchant_name,
+            // @ts-ignore
+            name: item.description,
+            merchant_name: item.merchant_name,
+            // @ts-ignore
+            primary_category: rule?.ruleset?.primary_category && snakeCase(rule?.ruleset?.primary_category).toUpperCase() || item.personal_finance_category.primary,
+            // @ts-ignore
+            detailed_category: rule?.ruleset?.detailed_category && snakeCase(rule?.ruleset?.detailed_category).toUpperCase() || detailed_category,
+            first_date: item.first_date,
+            last_date: item.last_date,
+            frequency: item.frequency,
+            transaction_ids: item.transaction_ids,
+            is_active: item.is_active,
+            status: item.status,
+            type,
             user_id,
-            upcoming_date: upcoming(inflowStreams[i])
+            upcoming_date: upcoming(item)
           },
         })
       }
-  
-      for (let i in outflowStreams) {
-        // @ts-ignore
-        await prisma.recurring.upsert({
-          where: { 
-            stream_id: outflowStreams[i].stream_id 
-          },
-          update: {
-            average_amount: -(outflowStreams[i].average_amount.amount),
-            last_amount: -(outflowStreams[i].last_amount.amount),
-            last_date: outflowStreams[i].last_date,
-            frequency: outflowStreams[i].frequency,
-            status: outflowStreams[i].status,
-            upcoming_date: upcoming(outflowStreams[i])
-          },
-          create: {
-            stream_id: outflowStreams[i].stream_id,
-            average_amount: -(outflowStreams[i].average_amount.amount),
-            last_amount: -(outflowStreams[i].last_amount.amount),
-            account_id: outflowStreams[i].account_id,
-            description: outflowStreams[i].description,
-            merchant_name: outflowStreams[i].merchant_name,
-            primary_category: outflowStreams[i].personal_finance_category.primary,
-            detailed_category: outflowStreams[i].personal_finance_category.detailed,
-            first_date: outflowStreams[i].first_date,
-            last_date: outflowStreams[i].last_date,
-            frequency: outflowStreams[i].frequency,
-            transaction_ids: outflowStreams[i].transaction_ids,
-            is_active: outflowStreams[i].is_active,
-            status: outflowStreams[i].status,
-            type: 'outflow',
-            user_id,
-            upcoming_date: upcoming(outflowStreams[i])
-          },
-        })
+      
+      for (let i in inflow) {
+        add_transaction(inflow[i], 'outflow')
+      }
+      // @ts-ignore
+      for (let i in outflows) {
+        add_transaction(outflows[i], 'inflow')
       }
     }
   } catch (error) {

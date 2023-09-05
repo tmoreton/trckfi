@@ -111,6 +111,7 @@ model Transactions {
   id                String    @id @default(cuid())
   account_id        String?
   name              String?
+  custom_name       String?
   merchant_name     String?
   transaction_id    String?   @unique
   detailed_category String?
@@ -244,8 +245,9 @@ model Recurring {
   last_amount       Decimal?  @db.Decimal(9, 2)
   account_id        String
   stream_id         String    @unique
-  description       String
-  merchant_name     String
+  name              String?
+  custom_name       String?
+  merchant_name     String?
   primary_category  String
   detailed_category String
   first_date        String

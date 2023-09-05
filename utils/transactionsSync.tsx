@@ -52,7 +52,8 @@ const transactionsSync = async (access_token, user_id) => {
         let { id, type } = plaid.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
-        let rule = rules.find(r => added[i].name.toUpperCase().includes(r.identifier.toUpperCase()))
+        let transaction_name = added[i].merchant_name || added[i].name
+        let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
@@ -64,8 +65,9 @@ const transactionsSync = async (access_token, user_id) => {
             transaction_id: added[i].transaction_id,
             authorized_date: new Date(added[i].date),
             date: added[i].date,
+            name: added[i].name,
             // @ts-ignore
-            name: rule?.ruleset?.name || added[i].name,
+            custom_name: rule?.ruleset?.name || added[i].merchant_name,
             merchant_name: added[i].merchant_name,
             category: added[i].category,
             // @ts-ignore

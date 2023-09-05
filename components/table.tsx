@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
-import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
+import { ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { addComma } from '../lib/lodash'
@@ -8,7 +8,7 @@ import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'
 
-export default function ({ columns, data, selected, setSelected, setEdit, datePicker }) {
+export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState(0)
@@ -213,8 +213,9 @@ export default function ({ columns, data, selected, setSelected, setEdit, datePi
                         <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
                           <span className="flex" >{cell.render("Cell")} 
                           { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
-                          { cell.row.original.alert_date &&  <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
-                          { cell.row.original.recurring &&  <ArrowPathIcon className="h-4 w-4 ml-3" /> }
+                          { cell.row.original.alert_date && <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
+                          { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
+                          { cell.row.original.user_id !== user.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
                           </span>
                         </td>
                       )
