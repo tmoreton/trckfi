@@ -152,7 +152,6 @@ export default async (req, res) => {
         amount: true,
       },
     })
-    console.log(detailedCategories)
 
     return res.status(200).json({ data: {
       categories,
