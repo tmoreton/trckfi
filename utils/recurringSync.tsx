@@ -31,8 +31,8 @@ const recurringSync = async (access_token) => {
       }
       const response = await plaidClient.transactionsRecurringGet(request)
       let inflow = response.data.inflow_streams
-      let outflows = response.data.outflows_streams
-  
+      let outflows = response.data.outflow_streams
+
       const upcoming = (item) => {
         if(item){
           switch (item.frequency) {
