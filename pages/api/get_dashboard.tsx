@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma';
 import { DateTime } from "luxon"
 
 export default async (req, res) => {
-  const { user, range } = req.body
+  const { user } = req.body
   const user_id = user?.id
   if (!user_id ) return res.status(500)
   const startDate = DateTime.now().toISO()
@@ -110,7 +110,7 @@ export default async (req, res) => {
     })
     
     const categories = await prisma.transactions.groupBy({
-      by: ['primary_category'],
+      by: ['primary_category', 'month_year'],
       where: {
         OR: query,
         active: true,
@@ -132,7 +132,7 @@ export default async (req, res) => {
     })
 
     const detailedCategories = await prisma.transactions.groupBy({
-      by: ['detailed_category'],
+      by: ['detailed_category', 'month_year'],
       where: {
         OR: query,
         active: true,
@@ -152,6 +152,7 @@ export default async (req, res) => {
         amount: true,
       },
     })
+    console.log(detailedCategories)
 
     return res.status(200).json({ data: {
       categories,

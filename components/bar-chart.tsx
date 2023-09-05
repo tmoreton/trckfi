@@ -95,7 +95,7 @@ export default function ({ graphData }) {
   return (
     <>
       <div className="border-b border-gray-200 mb-8">
-        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+        <nav className="-mb-px flex" aria-label="Tabs">
           {tabs.map((tab) => (
             <button
               key={tab.name}
@@ -104,7 +104,7 @@ export default function ({ graphData }) {
                 tab.key === key
                   ? 'border-pink-500 text-pink-600'
                   : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
+                'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium w-1/2'
               )}
             >
               {tab.name}

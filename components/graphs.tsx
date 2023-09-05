@@ -4,6 +4,22 @@ import { addComma, classNames } from '../lib/lodash'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Emoji } from 'emoji-picker-react';
+import { DateTime } from "luxon"
+
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec'
+]
 
 const colors = [
   '#36a2eb',
@@ -37,6 +53,16 @@ export default function ({ graphData }) {
   const [filtered, setFiltered] = useState([])
   const [sum, setSum] = useState(0)
   const [key, updateKey] = useState('primary_category')
+  const [current, updateMonth] = useState({
+    name: DateTime.now().toFormat('MMM'),
+    month_year: DateTime.now().toFormat('yyyy-MM')
+  })
+  const [months, setMonths] = useState([])
+
+  useEffect(() => {
+    getMonths()
+  }, [])
+
 
   useEffect(() => {
     if(key === 'primary_category'){
@@ -44,16 +70,31 @@ export default function ({ graphData }) {
     } else {
       updatePie(detailedCategories)
     }
-  }, [categories, key])
+  }, [categories, key, current])
+
+  const getMonths = () => {
+    let x = 0
+    let six_months = []
+    while(x < 6){
+      let dt = DateTime.now().minus({months: x})
+      six_months.push({
+        name: dt.toFormat('MMM'),
+        month_year: dt.toFormat('yyyy-MM')
+      })
+      x++
+    }
+    setMonths(six_months.reverse())
+  }
 
   const updatePie = (categories) => {
     let total = 0
-    let sorted = categories.sort((a,b) => a._sum.amount - b._sum.amount)
+    let cats = categories.filter(i => i.month_year === current.month_year)
+    let sorted = cats.sort((a,b) => a._sum.amount - b._sum.amount)
     let mapped = sorted.map((a, i) => {
       return {
         name: a.primary_category || a.detailed_category || a.unified,
         color: colors[i],
-        amount: a._sum.amount
+        amount: a._sum.amount,
       }
     })
     mapped = mapped.slice(0, 8)
@@ -64,6 +105,7 @@ export default function ({ graphData }) {
     })
     setSum(total)
     setFiltered(filtered)
+
     setData({
       labels: filtered.map(e => e.name),
       datasets: [
@@ -93,23 +135,41 @@ export default function ({ graphData }) {
     <div>        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
         <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 lg:mb-0 mb-6">
-          <div className="border-b border-gray-200 mb-8">
-            <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.name}
-                  onClick={() => updateKey(tab.key)}
-                  className={classNames(
-                    tab.key === key
-                      ? 'border-pink-500 text-pink-600'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
-                  )}
-                >
-                  {tab.name}
-                </button>
-              ))}
-            </nav>
+          <div className="border-b border-gray-200 mb-1">
+              <nav className="-mb-px flex" aria-label="Tabs">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.name}
+                    onClick={() => updateKey(tab.key)}
+                    className={classNames(
+                      tab.key === key
+                        ? 'border-pink-500 text-pink-600'
+                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                      'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium w-1/2'
+                    )}
+                  >
+                    {tab.name}
+                  </button>
+                ))}
+              </nav>
+            </div>
+            <div className="border-b border-gray-200 mb-6">
+              <nav className="flex justify-between" aria-label="Tabs">
+                {months.map((month) => (
+                  <button
+                    key={month.name}
+                    onClick={() => updateMonth(month)}
+                    className={classNames(
+                      month.name === current.name
+                        ? 'border-pink-500 text-pink-600'
+                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                      'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
+                    )}
+                  >
+                    {month.name}
+                  </button>
+                ))}
+              </nav>
           </div>
           <div className="gap-x-8 grid grid-cols-1 lg:grid-cols-2">
             <div className="col-span-1">
