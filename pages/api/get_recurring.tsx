@@ -10,7 +10,6 @@ export default async (req, res) => {
   const user_query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
   try {
-    // @ts-ignore
     const recurring = await prisma.recurring.findMany({
       where: {
         OR: user_query,
@@ -35,6 +34,30 @@ export default async (req, res) => {
     })
 
     // @ts-ignore
+    const stats = await prisma.recurring.groupBy({
+      by: ['frequency'],
+      where: {
+        OR: user_query,
+        is_active: true,
+        // @ts-ignore
+        active: true,
+        NOT: [
+          { primary_category: 'INCOME' },
+          { primary_category: 'ACCOUNT_TRANSFER' },
+          { primary_category: 'LOAN_PAYMENTS' },
+          { primary_category: 'TRANSFER_IN' },
+          { primary_category: 'TRANSFER_OUT' },
+          { frequency: 'UNKNOWN' }
+        ],
+      },
+      _sum: {
+        last_amount: true,
+      },
+      _count: {
+        last_amount: true,
+      },
+    })
+
     const inactive = await prisma.recurring.findMany({
       where: {
         OR: user_query,
@@ -58,7 +81,6 @@ export default async (req, res) => {
       }],
     })
 
-    // @ts-ignore
     const early = await prisma.recurring.findMany({
       where: {
         OR: user_query,
@@ -82,7 +104,7 @@ export default async (req, res) => {
       }],
     })
 
-    return res.status(200).json({ status: 'ok', recurring, inactive, early })
+    return res.status(200).json({ status: 'ok', recurring, inactive, early, stats })
   } catch (error) {
     console.error(error)
     throw new Error(error)

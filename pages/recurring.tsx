@@ -15,6 +15,7 @@ export default function Recurring({ showError }) {
 	const [recurring, setRecurring] = useLocalStorage('recurring', null)
 	const [inactive, setInactive] = useLocalStorage('inactive', null)
 	const [early, setEarly] = useLocalStorage('early', null)
+  const [stats, setStats] = useLocalStorage('recurring_stats', null)
 	const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
   const [open, setOpen] = useState(false)
@@ -36,12 +37,13 @@ export default function Recurring({ showError }) {
       },
       method: 'POST',
     })
-    const { error, recurring, inactive, early } = await res.json()
+    const { error, recurring, inactive, early, stats } = await res.json()
 		setLoading(false)
     showError(error)
 		setRecurring(recurring)
 		setInactive(inactive)
 		setEarly(early)
+    setStats(stats)
   }
 
   const updateRecurring = async () => {
@@ -128,7 +130,24 @@ export default function Recurring({ showError }) {
 							</p>
 						</div>
 					</div>
-					<div className="mt-8 flow-root">
+          <div className="relative isolate overflow-hidden">
+            {/* Stats */}
+            <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
+              <dl className="mx-auto grid max-w-7xl lg:px-2 xl:px-0">
+                <div className="flex items-baseline flex-wrap justify-center space-x-24 gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
+                  {stats && stats.map((i) => (
+                    <div>
+                      <dt className="text-md font-xs leading-6 text-gray-600">{i.frequency} TOTAL</dt>
+                      <dd className="text-red-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight">
+                        {addComma(i._sum.last_amount)}
+                      </dd>
+                    </div>
+                  ))}
+                </div>
+              </dl>
+            </div>
+          </div>
+					<div className="flow-root">
 						<div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
 							<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
 								<div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
