@@ -54,6 +54,7 @@ const recurringSync = async (access_token) => {
       }
       
       const add_transaction = async (item, type) => {
+        console.log(item)
         let transaction_name = item.merchant_name || item.description
         let detailed_category = item.personal_finance_category.detailed.replace(`${item.personal_finance_category.primary}_`, '')
         let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
@@ -97,11 +98,11 @@ const recurringSync = async (access_token) => {
       }
       
       for (let i in inflow) {
-        add_transaction(inflow[i], 'outflow')
+        add_transaction(inflow[i], 'inflow')
       }
       // @ts-ignore
-      for (let i in outflows) {
-        add_transaction(outflows[i], 'inflow')
+      for (let o in outflows) {
+        add_transaction(outflows[o], 'outflow')
       }
     }
   } catch (error) {
