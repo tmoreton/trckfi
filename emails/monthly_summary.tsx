@@ -205,7 +205,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     <Row key={item.id}>
                       <Column className="w-55" align="left">
                         <Text className="text-[#666666] text-[11px] my-0 mb-1 ml-4">
-                          {item.description}
+                          {item.description.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
                       <Column className="w-20" align="left">
