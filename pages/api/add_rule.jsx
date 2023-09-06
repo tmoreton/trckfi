@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma';
 import { snakeCase } from "snake-case";
 
 export default async (req, res) => {
-  const { ruleset, identifier, user_id } = req.body
+  const { ruleset, identifier, user_id, id } = req.body
   if (!ruleset) return res.status(500).json({ error: 'No Rule' })
 
   try {
@@ -19,7 +19,19 @@ export default async (req, res) => {
       identifier,
       ruleset: rules
     }
-    const rule = await prisma.rules.create({ data })
+    let rule = {}
+    if(id){
+      rule = await prisma.rules.update({
+        where: { 
+          user_id,
+          id
+        },
+        data
+      })
+    } else {
+      rule = await prisma.rules.create({ data })
+    }
+
     await prisma.transactions.updateMany({
       where: { 
         user_id,

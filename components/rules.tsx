@@ -6,11 +6,12 @@ import { DateTime } from "luxon"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 
 const keys = {
-  name: 'Name',
+  custom_name: 'Name',
   primary_category: 'Primary Category',
   detailed_category: 'Detailed Category',
+  unified: 'Emoji',
   recurring: 'Recurring',
-  active: 'Active',
+  active: 'Active'
 }
 
 const Rules = ({ showError }) => {
@@ -18,10 +19,9 @@ const Rules = ({ showError }) => {
   const user = session?.user
   const [identifier, setIdentifier] = useState('')
   const [ruleset, setRuleset] = useState(null)
+  const [rulesetId, setRulesetId] = useState(null)
   const [rules, setRules] = useLocalStorage('rules', [])
   const [alerts, setAlerts] = useLocalStorage('alerts', [])
-  // const [primary_categories, setPrimary] = useState([])
-  // const [detailed_categories, setDetailed] = useState([])
   const [, updateState] = useState()
   // @ts-ignore
   const forceUpdate = useCallback(() => updateState({}), [])
@@ -29,7 +29,6 @@ const Rules = ({ showError }) => {
   useEffect(() => {
     getRules()
     getAlerts()
-    // getCategories()
   }, [])
 
   const getAlerts = async () => {
@@ -43,6 +42,18 @@ const Rules = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     setAlerts(data)
+  }
+
+  const cancel = async () => {
+    setRulesetId(null)
+    setRuleset(null)
+    setIdentifier('')
+  }
+
+  const editRule = async (i) => {
+    setRulesetId(i.id)
+    setRuleset(i.ruleset)
+    setIdentifier(i.identifier)
   }
 
   const getRules = async () => {
@@ -64,6 +75,7 @@ const Rules = ({ showError }) => {
     const res = await fetch(`/api/add_rule`, {
       body: JSON.stringify({
         // @ts-ignore
+        id: rulesetId,
         user_id: user?.id,
         identifier,
         ruleset: newRuleset
@@ -73,27 +85,12 @@ const Rules = ({ showError }) => {
       },
       method: 'POST',
     })
-    const { error, data } = await res.json()
-    // setRules(data)
+    const { error } = await res.json()
     setRuleset(null)
     showError(error)
     if(!error) getRules()
   }
   
-  // const getCategories = async () => {
-  //   const res = await fetch(`/api/get_categories`, {
-  //     body: JSON.stringify({ user }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //   })
-  //   const { error, data } = await res.json()
-  //   showError(error)
-  //   setPrimary(data.primary_categories)
-  //   setDetailed(data.detailed_categories)
-  // }
-
   const removeRule = async (id) => {
     const res = await fetch(`/api/remove_rule`, {
       body: JSON.stringify({
@@ -160,9 +157,14 @@ const Rules = ({ showError }) => {
                       </div>
                     ))}
                   </div>
-                  <button onClick={() => removeRule(rule?.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
-                    Remove
-                  </button>
+                  <div className="flex">
+                    <button onClick={() => editRule(rule)} type="button" className="text-xs font-normal text-gray-500 hover:text-gray-400 mr-4">
+                      Edit
+                    </button>
+                    <button onClick={() => removeRule(rule?.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                      Remove
+                    </button>   
+                  </div>
                 </dd>
               </div>
             ))}
@@ -229,18 +231,11 @@ const Rules = ({ showError }) => {
                             <input
                               name={i}
                               onChange={e => setRuleset({ ...ruleset, [i]: e.target.value })}
+                              value={ruleset[i]}
                               required
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                             />
                           }
-                          {/* { i &&
-                            <Dropdown 
-                              values={primary_categories.filter(c => c.primary_category)} 
-                              selected={ruleset[i]} 
-                              setSelected={e => handleDropdown({ primary_category: e.primary_category })} 
-                              onChange={e => setRuleset({ ...ruleset, [i]: e })}
-                            />
-                          } */}
                           </>
                         }
                       </div>
@@ -250,9 +245,14 @@ const Rules = ({ showError }) => {
                     </div>
                   ))}
                 </dd>
-                <PinkBtn onClick={addRule} >
-                  + Add Rule
-                </PinkBtn>
+                <div className="grid">
+                  <PinkBtn onClick={addRule} >
+                    {rulesetId ? 'Update Rule' : '+ Add Rule'}
+                  </PinkBtn>
+                  <button onClick={cancel} type="button" className="text-sm font-normal leading-6 text-gray-500 hover:text-gray-400 pt-4">
+                    Cancel
+                  </button>
+                </div>
               </div>
               :
               <div className="flex pt-6">
