@@ -196,6 +196,7 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
+    setLoading(false)
     if(!error) refresh()
   }
 
