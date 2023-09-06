@@ -2,7 +2,6 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid';
 import { formatAmount } from '../lib/lodash'
-import { snakeCase } from "snake-case";
 import { icons } from '../lib/categories'
 import { DateTime } from "luxon"
 
@@ -58,7 +57,9 @@ const transactionsSync = async (access_token, user_id) => {
           where: { 
             transaction_id: added[i].transaction_id 
           },
-          update: {},
+          update: {
+            pending: added[i].pending
+          },
           create: {
             amount,
             account_id: id,
