@@ -60,7 +60,7 @@ export default function Links() {
           <Image
             src="/trckfi-white.png"
             alt="Trckfi"
-            className="text-center mx-auto mb-10"
+            className="text-center mx-auto my-4 sm:mb-10"
             width={250}
             height={250}
             unoptimized={true}
@@ -68,7 +68,7 @@ export default function Links() {
           <Link href="/">
             <button
               type="button"
-              className="rounded-full bg-white px-4 py-4 text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-3"
+              className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"
             >
               Join our Waitlist!
             </button>
@@ -76,7 +76,7 @@ export default function Links() {
           <Link href="/">
             <button
               type="button"
-              className="rounded-full bg-white px-4 py-4 text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-3"
+              className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"
             >
               Boost Your Financial Literacy
             </button>
@@ -84,7 +84,7 @@ export default function Links() {
           <Link href="/blog/monthly-financial-checkin-routine-for-success">
             <button
               type="button"
-              className="rounded-full bg-white px-4 py-4 text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-3"
+              className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"
             >
               Monthly Financial Routine
             </button>
@@ -92,7 +92,7 @@ export default function Links() {
           <Link href="/blog/how-to-achieve-financial-organization">
             <button
               type="button"
-              className="rounded-full bg-white px-4 py-4 text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-3"
+              className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"
             >
               Financial Organization
             </button>
@@ -100,16 +100,16 @@ export default function Links() {
           <Link href="/blog/tracking-monthly-expenses">
             <button
               type="button"
-              className="rounded-full bg-white px-4 py-4 text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-3"
+              className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"
             >
               Tracking Monthly Expenses
             </button>
           </Link>
-          <div className="flex space-x-6 justify-center">
+          <div className="flex space-x-6 justify-center pb-4">
             {social.map((item) => (
               <a key={item.name} href={item.href} className="text-white hover:text-gray-200">
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="h-10 w-10" aria-hidden="true" />
               </a>
             ))}
           </div>
