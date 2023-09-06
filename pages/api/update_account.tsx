@@ -16,7 +16,7 @@ export default async (req, res) => {
         amount: account.amount
       }
     })
-    netWorthSync(account.user_id)
+    await netWorthSync(account.user_id)
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
