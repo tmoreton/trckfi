@@ -67,7 +67,7 @@ const social = [
 
 export default function Links() {
   return (
-    <div className="flex h-screen bg-pink-500">
+    <div className="flex h-screen bg-pink-600">
       <div className="w-full flex items-center mx-auto justify-center p-5">
         <div className="space-y-5">
           <Image
