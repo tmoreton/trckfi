@@ -10,7 +10,7 @@ client.defineJob({
   name: "Send Alert",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "0 8 * * *",
+    cron: "0 11 * * *",
   }),
   run: async (payload, io, ctx) => {
     const start_date = new Date()

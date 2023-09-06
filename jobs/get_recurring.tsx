@@ -8,7 +8,7 @@ client.defineJob({
   name: "Recurring Transactions",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "0 6 * * *",
+    cron: "0 9 * * *",
   }),
   run: async (payload, io, ctx) => {
     let users = await prisma.user.findMany({

@@ -9,7 +9,7 @@ client.defineJob({
   name: "Daily Sync Transactions",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "0 7 * * *",
+    cron: "0 10 * * *",
   }),
   run: async (payload, io, ctx) => {
     let users = await prisma.user.findMany({

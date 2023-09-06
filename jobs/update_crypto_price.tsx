@@ -7,7 +7,7 @@ client.defineJob({
   name: "Update Crypto Price",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "0 6 * * *",
+    cron: "0 9 * * *",
   }),
   run: async (payload, io, ctx) => {
     const users = await prisma.user.findMany({

@@ -11,7 +11,7 @@ client.defineJob({
   name: "Monthly Email",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "0 8 1 * *",
+    cron: "0 11 1 * *",
   }),
   run: async (payload, io, ctx) => {
     const activeUsers = await prisma.user.findMany({

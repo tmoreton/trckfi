@@ -11,7 +11,7 @@ client.defineJob({
   name: "Weekly Email",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "0 8 * * 1",
+    cron: "0 11 * * 1",
   }),
   run: async (payload, io, ctx) => {
     const date = DateTime.now()
