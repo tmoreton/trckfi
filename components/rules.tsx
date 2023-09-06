@@ -76,6 +76,7 @@ const Rules = ({ showError }) => {
       body: JSON.stringify({
         // @ts-ignore
         id: rulesetId,
+        // @ts-ignore
         user_id: user?.id,
         identifier,
         ruleset: newRuleset
