@@ -109,7 +109,7 @@ export default function Links() {
             {social.map((item) => (
               <a key={item.name} href={item.href} className="text-white hover:text-gray-200">
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="h-10 w-10" aria-hidden="true" />
               </a>
             ))}
           </div>
