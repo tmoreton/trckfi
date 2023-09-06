@@ -9,7 +9,7 @@ import { DateTime } from "luxon"
 import Dropdown from '../dropdown'
 import { useRouter } from 'next/router'
 
-export default function ({ item, setEdit, showError, selected, user, getTransactions }) {
+export default function ({ item, setEdit, showError, selected, user }) {
   const defaultTransaction = {
     name: null,
     custom_name: null,
@@ -100,7 +100,7 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
     setDetailed(data.detailed_categories)
   }
 
-  const update = async () => {
+  const update = async (rule) => {
     setEdit({})
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
@@ -114,7 +114,8 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) router.reload()
+    if(rule) addRule()
+    if(!error && !rule) router.reload()
   }
 
   const remove = async () => {
@@ -147,6 +148,30 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
     const { error } = await res.json()
     showError(error)
     if (!error) router.reload()
+  }
+
+  const addRule = async () => {
+    const res = await fetch(`/api/add_rule`, {
+      body: JSON.stringify({
+        user_id: user?.id,
+        // @ts-ignore
+        identifier: transaction?.merchant_name || transaction?.name,
+        ruleset: {
+          // @ts-ignore
+          name: transaction?.custom_name || transaction?.merchant_name || transaction?.name,
+          primary_category: transaction?.primary_category,
+          detailed_category: transaction?.detailed_category,
+          unified: transaction?.unified
+        }
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) router.reload()
   }
 
   return (
@@ -344,13 +369,23 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
                       Add
                     </PinkBtn>
                     :
-                    <PinkBtn onClick={update}>
-                      { ids.length > 0 ? 'Update Selected' : 'Update'}
-                    </PinkBtn>
+                    <>
+                      <PinkBtn onClick={update}>
+                        { ids.length > 0 ? 'Update Selected' : 'Update'}
+                      </PinkBtn>
+                      <button
+                        type="button"
+                        className="mr-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                        onClick={() => update(true)}
+                      >
+                        Update + Add Rule
+                      </button>
+                    </>
+
                   }
                   <button
                     type="button"
-                    className="mr-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                    className="mt-3 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-gray-900  hover:bg-gray-50 sm:mt-0 sm:w-auto"
                     onClick={() => setEdit({})}
                   >
                     Cancel
@@ -359,7 +394,7 @@ export default function ({ item, setEdit, showError, selected, user, getTransact
                     type="button"
                     onClick={remove}
                   >
-                    <TrashIcon onClick={remove} className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
+                    <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
                   </button>
                 </div>
               </Dialog.Panel>

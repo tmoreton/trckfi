@@ -73,7 +73,8 @@ const transactionsSync = async (access_token, user_id) => {
             category: added[i].category,
             // @ts-ignore
             detailed_category: rule?.ruleset?.detailed_category || detailed_category,
-            unified: icons[detailed_category],
+            // @ts-ignore
+            unified: rule?.ruleset?.unified || icons[detailed_category],
             // @ts-ignore
             primary_category: rule?.ruleset?.primary_category || added[i].personal_finance_category.primary,
             // @ts-ignore

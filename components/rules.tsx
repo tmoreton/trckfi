@@ -20,8 +20,8 @@ const Rules = ({ showError }) => {
   const [ruleset, setRuleset] = useState(null)
   const [rules, setRules] = useLocalStorage('rules', [])
   const [alerts, setAlerts] = useLocalStorage('alerts', [])
-  const [primary_categories, setPrimary] = useState([])
-  const [detailed_categories, setDetailed] = useState([])
+  // const [primary_categories, setPrimary] = useState([])
+  // const [detailed_categories, setDetailed] = useState([])
   const [, updateState] = useState()
   // @ts-ignore
   const forceUpdate = useCallback(() => updateState({}), [])
@@ -29,7 +29,7 @@ const Rules = ({ showError }) => {
   useEffect(() => {
     getRules()
     getAlerts()
-    getCategories()
+    // getCategories()
   }, [])
 
   const getAlerts = async () => {
@@ -80,19 +80,19 @@ const Rules = ({ showError }) => {
     if(!error) getRules()
   }
   
-  const getCategories = async () => {
-    const res = await fetch(`/api/get_categories`, {
-      body: JSON.stringify({ user }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error, data } = await res.json()
-    showError(error)
-    setPrimary(data.primary_categories)
-    setDetailed(data.detailed_categories)
-  }
+  // const getCategories = async () => {
+  //   const res = await fetch(`/api/get_categories`, {
+  //     body: JSON.stringify({ user }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error, data } = await res.json()
+  //   showError(error)
+  //   setPrimary(data.primary_categories)
+  //   setDetailed(data.detailed_categories)
+  // }
 
   const removeRule = async (id) => {
     const res = await fetch(`/api/remove_rule`, {

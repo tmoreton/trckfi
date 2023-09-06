@@ -34,7 +34,6 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK', data: { primary_categories, detailed_categories }})
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }
