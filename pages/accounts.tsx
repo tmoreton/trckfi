@@ -63,7 +63,6 @@ const Accounts = ({ showError }) => {
   const [history, setHistory] = useLocalStorage('net_worth_history', null)
   
   useEffect(() => {
-    getNetWorth()
     if(!stats || !history){
       setRefreshing(true)
     }
