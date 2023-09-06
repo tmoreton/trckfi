@@ -14,7 +14,6 @@ export default async (req, res) => {
           },
           data: { 
             user_id: null,
-            transaction_id: null,
             active: false
           }
         })
@@ -26,7 +25,6 @@ export default async (req, res) => {
         },
         data: { 
           user_id: null,
-          transaction_id: null,
           active: false
         }
       })
@@ -34,7 +32,6 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    throw new Error(error)
   }
 }
