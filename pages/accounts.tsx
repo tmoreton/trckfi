@@ -183,6 +183,22 @@ const Accounts = ({ showError }) => {
     if(!error) refresh()
   }
 
+  const updateNetWorth = async () => {
+    setLoading(true)
+    const res = await fetch(`/api/update_net_worth`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) refresh()
+  }
+
   return (
     <>
       <Menu showError={showError}/>
@@ -220,6 +236,15 @@ const Accounts = ({ showError }) => {
           <button  onClick={() => setOpenManually(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Manually
+          </button>
+          <button
+            onClick={updateNetWorth}
+            type="button"
+            className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
+          >
+            <div className={loading && "animate-spin"}>
+              <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
+            </div>
           </button>
         </div>
 
