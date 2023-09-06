@@ -23,8 +23,8 @@ client.defineJob({
         active: true,
         user_id: { in: ids },
         authorized_date: {
-          lte: DateTime.now().minus({ days: 1 }).startOf('day').toISO(),
-          gte: DateTime.now().minus({ days: 5 }).startOf('day').toISO(),
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ days: 2 }).startOf('day').toISO(),
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
@@ -38,7 +38,7 @@ client.defineJob({
         user_id: { in: ids },
         authorized_date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ days: 1 }).startOf('day').toISO(),
+          gte: DateTime.now().minus({ days: 2 }).startOf('day').toISO(),
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
@@ -50,7 +50,7 @@ client.defineJob({
       transactions2.forEach(async (t2) => {
         if(t1.transaction_id !== t2.transaction_id){
           if(Number(t1.amount) + Number(t2.amount) === 0){
-            console.log('Internal Transfer')
+            console.log('Internal Transfer amount: ', t2.amount)
             console.log(t1.name)
             console.log(t2.name)
             await prisma.transactions.updateMany({
