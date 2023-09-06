@@ -189,7 +189,7 @@ const Dashboard = ({ showError }) => {
           image=''
           keywords=''
         />
-        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} getTransactions={getTransactions}/>
+        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
         <Snapshot totalStats={totalStats} />
         { transactions && transactions.length > 1 &&
           <>
