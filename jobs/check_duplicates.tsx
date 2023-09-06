@@ -24,11 +24,8 @@ client.defineJob({
         user_id: { in: ids },
         authorized_date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ days: 1 }).startOf('day').toISO(),
+          gte: DateTime.now().minus({ days: 10 }).startOf('day').toISO(),
         },
-        NOT: [
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
       },
     })
 
@@ -38,11 +35,8 @@ client.defineJob({
         user_id: { in: ids },
         authorized_date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ days: 1 }).startOf('day').toISO(),
+          gte: DateTime.now().minus({ days: 10 }).startOf('day').toISO(),
         },
-        NOT: [
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
       },
     })
 
