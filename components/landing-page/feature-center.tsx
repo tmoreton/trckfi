@@ -80,7 +80,7 @@ export default function () {
                   <div className="relative pl-12">
                     <dt className="inline font-semibold text-gray-900">
                       <div className="absolute left-1 top-1 text-3xl text-pink-600" aria-hidden="true">📷</div>
-                      Comprehensive Snapshot
+                      Financial Snapshot
                     </dt>{' '}
                     <dd className="inline">Get a Comprehensive Snapshot of All Your Accounts in One Dashboard, Including Banks, Loans, Stocks, and Cryptocurrency – Stay Informed with Ease.</dd>
                   </div>
