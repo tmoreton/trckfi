@@ -25,8 +25,9 @@ export default async (req, res) => {
         created_at: true
       }
     })
+    console.log(data)
     let array = []
-    if(linked_user_id){
+    // if(linked_user_id){
       data.forEach(i => {
          // @ts-ignore
         let index = array.findIndex(e => e.date == i.date)
@@ -37,9 +38,10 @@ export default async (req, res) => {
           array[index].snapshot = Object.assign(array[index].snapshot, i.snapshot)
         }
       })
-    } else {
-      array = data
-    }
+    // } 
+    // else {
+    //   array = data
+    // }
 
     let stats = array.length > 0 ? array[0] : {}
     let history = array.reverse()
