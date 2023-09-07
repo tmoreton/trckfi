@@ -87,6 +87,8 @@ const recurringSync = async (access_token) => {
             frequency: item.frequency,
             transaction_ids: item.transaction_ids,
             is_active: item.is_active,
+            // @ts-ignore
+            active: rule?.ruleset?.active && (rule?.ruleset?.active === 'true') || true,
             status: item.status,
             type,
             user_id,
