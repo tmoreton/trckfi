@@ -159,6 +159,9 @@ export default function Recurring({ showError }) {
 													Frequency
 												</th>
 												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+													Category
+												</th>
+												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
 													Last Amount
 												</th>
 												<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -180,6 +183,10 @@ export default function Recurring({ showError }) {
 													</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">
+														<span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{i.primary_category}</span>
+														{/* <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{i.detailed_category}</span> */}
+													</td>
 													{
 														i.last_amount > 0 ?
 														<td className="whitespace-nowrap px-3 py-4 text-sm text-green-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>

@@ -11,7 +11,7 @@ import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
-import  { useLocalStorage, clearLocalStorage } from '../utils/useLocalStorage'
+import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 

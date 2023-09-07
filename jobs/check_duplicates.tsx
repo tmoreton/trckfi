@@ -20,7 +20,6 @@ client.defineJob({
 
     const transactions1 = await prisma.transactions.findMany({
       where: {
-        active: true,
         user_id: { in: ids },
         authorized_date: {
           lte: DateTime.now().toISO(),
@@ -31,7 +30,6 @@ client.defineJob({
 
     const transactions2 = await prisma.transactions.findMany({
       where: {
-        active: true,
         user_id: { in: ids },
         authorized_date: {
           lte: DateTime.now().toISO(),
