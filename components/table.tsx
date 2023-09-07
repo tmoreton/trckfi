@@ -150,7 +150,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
       <div className="flex h-12 items-center space-x-3 justify-between">
         <div className="lg:block hidden">
         { selected.length > 0 ?
-          <InverseBtn onClick={() => setEdit({
+          <InverseBtn type="button" onClick={() => setEdit({
               name: null,
               primary_category: null,
               detailed_category: null,
@@ -163,7 +163,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
             <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
           </InverseBtn>
           :
-          <InverseBtn onClick={() => setEdit({
+          <InverseBtn type="button" onClick={() => setEdit({
               name: null,
               primary_category: null,
               detailed_category: null,
@@ -180,7 +180,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         {datePicker()}
         <div className="lg:block hidden">
         <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-          <InverseBtn onClick={() => {}}>
+          <InverseBtn type="button" onClick={() => {}}>
             Download CSV
           </InverseBtn>
         </CSVLink>
