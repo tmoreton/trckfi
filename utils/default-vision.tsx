@@ -1,4 +1,4 @@
-export const default_vision = {
+export const new_vision = {
   "store": {
     "asset:-3825504": {
       "id": "asset:-3825504",
