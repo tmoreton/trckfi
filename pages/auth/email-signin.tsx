@@ -6,7 +6,7 @@ import  { clearLocalStorage } from '../../utils/useLocalStorage'
 import ConfettiExplosion from 'react-confetti-explosion'
 import Meta from '../../components/meta'
 
-export default function SignIn({ csrfToken }) {
+export default function SignIn({ csrfToken, showError }) {
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
 
@@ -27,8 +27,8 @@ export default function SignIn({ csrfToken }) {
       },
       method: 'POST',
     })
-    const data = await res.json()
-    // showError(error)
+    const { data, error } = await res.json()
+    showError(error)
   }
 
   return (
@@ -49,7 +49,7 @@ export default function SignIn({ csrfToken }) {
                 Check Your Email
               </h1>
               <p className="text-md text-gray-600">
-                A magic sign-in link has been sent to your email address.
+                A magic sign-in link has been sent to your email: <span className="text-lg font-semibold text-gray-900">{email}</span>
               </p>
               <p className="text-xs text-red-500">
                 PS. Check your spam folder since it's your first email from us.
