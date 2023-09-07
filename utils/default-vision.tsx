@@ -8,7 +8,7 @@ export const new_vision = {
       "props": {
         "h": 200,
         "w": 300,
-        "src": "https://demo.trckfi.com/assets/visionboard/girl_computer.jpg",
+        "src": "https://demo.trckfi.com/assets/visionboard/computer.jpg",
         "name": "girl_computer.jpg",
         "mimeType": "image/jpeg",
         "isAnimated": false
