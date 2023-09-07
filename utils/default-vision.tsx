@@ -68,7 +68,7 @@ export const new_vision = {
       "props": {
         "h": 225,
         "w": 300,
-        "src": "/assets/beach.jpg",
+        "src": "https://demo.trckfi.com/assets/visionboard/beach.jpg",
         "name": "aaron-burden-cEukkv42O40-unsplash (1).jpg",
         "mimeType": "image/jpeg",
         "isAnimated": false
