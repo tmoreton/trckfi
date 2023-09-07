@@ -88,6 +88,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                             type="text" 
                             name="name"
                             id="name" 
+                            readOnly
                             value={account?.name}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                             required 
@@ -123,6 +124,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                               type="text" 
                               name="type" 
                               id="type"
+                              readOnly
                               value={account?.type}
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
                               required
@@ -140,6 +142,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                               type="text" 
                               name="subtype" 
                               id="subtype"
+                              readOnly
                               value={account?.subtype}
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
                               required
