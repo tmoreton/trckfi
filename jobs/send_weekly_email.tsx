@@ -24,9 +24,6 @@ client.defineJob({
         subscription_id: {
           not: null
         }
-      },
-      include: {
-        preferences: true
       }
     })
     console.log(activeUsers)
