@@ -149,7 +149,8 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                             <input 
                               type="text" 
                               name="name"
-                              id="name" 
+                              id="name"
+                              readOnly
                               value={account?.name}
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                               required 
@@ -245,22 +246,22 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                               />
                             </div>
                           </div>
+                          <div className="sm:flex sm:flex-row-reverse items-center justify-between">
+                            <PinkBtn type="submit">
+                              Add
+                            </PinkBtn>
+                            <button
+                              type="button"
+                              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                              onClick={onClose}
+                            >
+                              Cancel
+                            </button>
+                          </div>
                         </form>
                       }
                     </div>
                   </div>
-                </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center justify-between">
-                  <PinkBtn onClick={handleSubmit}>
-                    Add
-                  </PinkBtn>
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={onClose}
-                  >
-                    Cancel
-                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
