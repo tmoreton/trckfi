@@ -9,7 +9,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
     const { name, value } = e.target
     setItem({ ...item, [name]: value })
   }
-
+  console.log(item)
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
@@ -54,7 +54,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                             type="text" 
                             name="description"
                             id="description" 
-                            value={item?.description}
+                            value={item?.custom_name || item?.name}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                             required 
                             onChange={handleChange}

@@ -13,8 +13,12 @@ client.defineJob({
     const users = await prisma.user.findMany({
       where: {
         active: true,
+      },
+      include: {
+        preferences: true
       }
     })
+    console.log(users)
     const ids = users.map(user => user.id)
     const accounts = await prisma.accounts.findMany({
       where: {

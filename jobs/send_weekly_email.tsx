@@ -24,8 +24,12 @@ client.defineJob({
         subscription_id: {
           not: null
         }
+      },
+      include: {
+        preferences: true
       }
     })
+    console.log(activeUsers)
 
     for (let a in activeUsers) {
       const user_id = activeUsers[a].id
