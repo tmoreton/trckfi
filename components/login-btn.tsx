@@ -8,14 +8,14 @@ export default function () {
       <div className="flex items-center">
         <b>{session.user.email}</b>
         <br/>
-        <PinkBtn onClick={signOut}>
+        <PinkBtn type="button" onClick={signOut}>
           Sign Out
         </PinkBtn>
       </div>
     )
   }
   return (
-    <PinkBtn onClick={signIn}>
+    <PinkBtn type="button" onClick={signIn}>
       Sign In
     </PinkBtn>
   )

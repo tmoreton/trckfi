@@ -51,7 +51,7 @@ export default function () {
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">/month</span>
                 </p>
                 <Link href="/signup">
-                  <PinkBtn onClick={() => {}}>
+                  <PinkBtn type="button" onClick={() => {}}>
                     Buy plan
                   </PinkBtn>
                 </Link>

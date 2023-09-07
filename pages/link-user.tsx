@@ -93,7 +93,7 @@ export default function ({ showError, access_code, csrfToken, error, email }) {
                     </label>
                   </div>
                 </div>
-                <PinkBtn onClick={handleSubmit}>
+                <PinkBtn type="button" onClick={handleSubmit}>
                   Link Account
                 </PinkBtn>
               </form>

@@ -119,7 +119,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                     >
                       Cancel
                     </button>
-                    <PinkBtn onClick={updateRecurring}>
+                    <PinkBtn type="button" onClick={updateRecurring}>
                       Update
                     </PinkBtn>
                   </div>

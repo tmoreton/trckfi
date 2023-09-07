@@ -62,7 +62,7 @@ export default function ({ showError }) {
           <Disclosure.Panel>
             <div className="space-y-1 px-2 py-2 my-4">
               <Link href="#get-notified">
-                <PinkBtn onClick={() => console.log('close')}>
+                <PinkBtn type="button" onClick={() => console.log('close')}>
                   Get Started
                 </PinkBtn>
               </Link>

@@ -88,7 +88,7 @@ export default function ({ showError }) {
                       </div>
                       :
                       <Link href="/#get-notified">
-                        <PinkBtn onClick={() => console.log('close')}>
+                        <PinkBtn type="button" onClick={() => console.log('close')}>
                           Join Waitlist!
                         </PinkBtn>
                       </Link>
@@ -198,7 +198,7 @@ export default function ({ showError }) {
                 </div>
                 :
                 <Link href="/#get-notified">
-                  <PinkBtn onClick={() => console.log('close')}>
+                  <PinkBtn type="button" onClick={() => console.log('close')}>
                     Join Waitlist!
                   </PinkBtn>
                 </Link>

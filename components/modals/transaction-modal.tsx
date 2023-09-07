@@ -365,12 +365,12 @@ export default function ({ item, setEdit, showError, selected, user }) {
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
                   {
                     transaction.new ?
-                    <PinkBtn onClick={add}>
+                    <PinkBtn type="button" onClick={add}>
                       Add
                     </PinkBtn>
                     :
                     <>
-                      <PinkBtn onClick={update}>
+                      <PinkBtn type="button" onClick={update}>
                         { ids.length > 0 ? 'Update Selected' : 'Update'}
                       </PinkBtn>
                       <button

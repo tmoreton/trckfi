@@ -247,7 +247,7 @@ const Rules = ({ showError }) => {
                   ))}
                 </dd>
                 <div className="grid">
-                  <PinkBtn onClick={addRule} >
+                  <PinkBtn type="button" onClick={addRule} >
                     {rulesetId ? 'Update Rule' : '+ Add Rule'}
                   </PinkBtn>
                   <button onClick={cancel} type="button" className="text-sm font-normal leading-6 text-gray-500 hover:text-gray-400 pt-4">
