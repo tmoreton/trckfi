@@ -43,6 +43,5 @@ export default async (req, res) => {
   } catch (error) {
     console.error(error)
     throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
   }
 }
