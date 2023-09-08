@@ -72,33 +72,38 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
     })
   }
 
-  const handleSubmit = async () => {
-    const res = await fetch(`/api/add_account`, {
-      body: JSON.stringify({
-        user_id: user.id,
-        name: account.name,
-        official_name: account.symbol.toUpperCase(),
-        institution: 'Crypto',
-        type: 'investment',
-        subtype: account.subtype,
-        amount: account.amount,
-        details: {
-          current_price: account?.current_price,
-          symbol: account?.symbol.toUpperCase(),
-          quantity: account?.quantity,
-          image: account?.image,
-          id: account?.crypto_id
-        }
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    setOpen(false)
-    if(!error) getNetWorth()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if(!account?.quantity || account?.quantity <= 0){
+      showError('Please add quantity')
+    } else {
+      const res = await fetch(`/api/add_account`, {
+        body: JSON.stringify({
+          user_id: user.id,
+          name: account.name,
+          official_name: account.symbol.toUpperCase(),
+          institution: 'Crypto',
+          type: 'investment',
+          subtype: account.subtype,
+          amount: account.amount,
+          details: {
+            current_price: account?.current_price,
+            symbol: account?.symbol.toUpperCase(),
+            quantity: account?.quantity,
+            image: account?.image,
+            id: account?.crypto_id
+          }
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      const { error } = await res.json()
+      showError(error)
+      setOpen(false)
+      if(!error) getNetWorth()
+    }
   }
 
   return (

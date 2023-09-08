@@ -10,7 +10,8 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
     setAccount({ ...account, [name]: value })
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     const res = await fetch(`/api/add_account`, {
       body: JSON.stringify({
         user_id: user.id,

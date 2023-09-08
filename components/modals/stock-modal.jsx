@@ -73,31 +73,36 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
     setLoading(false)
   }
 
-  const handleSubmit = async () => {
-    const res = await fetch(`/api/add_account`, {
-      body: JSON.stringify({
-        user_id: user.id,
-        name: account.name,
-        official_name: account.symbol,
-        institution: 'Stocks',
-        type: 'investment',
-        subtype: account.subtype,
-        amount: account.amount,
-        details: {
-          current_price: account?.regularMarketPrice,
-          symbol: account?.symbol,
-          quantity: account?.quantity
-        }
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    setOpen(false)
-    if(!error) getNetWorth()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if(!account?.quantity || account?.quantity <= 0){
+      showError('Please add quantity')
+    } else {
+      const res = await fetch(`/api/add_account`, {
+        body: JSON.stringify({
+          user_id: user.id,
+          name: account.name,
+          official_name: account.symbol,
+          institution: 'Stocks',
+          type: 'investment',
+          subtype: account.subtype,
+          amount: account.amount,
+          details: {
+            current_price: account?.regularMarketPrice,
+            symbol: account?.symbol,
+            quantity: account?.quantity
+          }
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      const { error } = await res.json()
+      showError(error)
+      setOpen(false)
+      if(!error) getNetWorth()
+    }
   }
 
   return (
