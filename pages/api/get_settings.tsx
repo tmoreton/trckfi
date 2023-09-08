@@ -13,13 +13,6 @@ export default async (req, res) => {
         where: { id: linked_user_id }
       })
     }
-    
-    const preferences = await prisma.preferences.findUnique({
-      // @ts-ignore
-      where: { 
-        user_id: user.id
-      }
-    })
 
     // @ts-ignore
     const answers = await prisma.answers.groupBy({
@@ -52,7 +45,7 @@ export default async (req, res) => {
       }
     })
 
-    return res.status(200).json({ status: 'OK', data: { linked_user, preferences, referrals, answers: total }})
+    return res.status(200).json({ status: 'OK', data: { linked_user, referrals, answers: total }})
   } catch (error) {
     console.error(error)
     throw new Error(error)

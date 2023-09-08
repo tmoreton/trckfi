@@ -17,7 +17,9 @@ function classNames(...classes) {
 const Profile = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const [preferences, setPreferences] = useState({})
+  // @ts-ignore
+  let { email_weekly, email_monthly, email_alert } = user
+  const [preferences, setPreferences] = useState({email_weekly, email_monthly, email_alert})
   const [answers, setAnswers] = useState({
     correct: 0,
     total: 0
@@ -33,7 +35,6 @@ const Profile = ({ showError }) => {
   useEffect(() => {
     // @ts-ignore
     if(!user.active) {
-      console.log(user)
       clearLocalStorage()
       signOut()
     } else {
@@ -56,26 +57,26 @@ const Profile = ({ showError }) => {
     if(!error) {
       setReferrals(data?.referrals)
       setAnswers(data?.answers)
-      setPreferences(data?.preferences)
       setLinkedUser(data?.linked_user)
     }
   }
 
   const updatePreferences = async (key, value) => {
-    // let updated = preferences
-    // updated[key] = value
-    // setPreferences({ ...preferences, [key]: value})
-    // const res = await fetch(`/api/update_preferences`, {
-    //   body: JSON.stringify({
-    //     user, preferences: updated
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // const { error, data } = await res.json()
-    // showError(error)
+    let updated = preferences
+    updated[key] = value
+    setPreferences({ ...preferences, [key]: value})
+    console.log(updated)
+    const res = await fetch(`/api/update_user`, {
+      body: JSON.stringify({
+        user, preferences: updated
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
   }
 
   const send = async (e) => {
@@ -160,8 +161,6 @@ const Profile = ({ showError }) => {
     navigator.clipboard.writeText(url)
   }
 
-  // @ts-ignore
-  let { email_weekly, email_monthly, email_alert } = preferences
   return (
     <>
       <Menu showError={showError}/>
@@ -317,17 +316,17 @@ const Profile = ({ showError }) => {
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={user?.email_weekly}
+                    checked={preferences.email_weekly}
                     onChange={e => updatePreferences('email_weekly', e)}
                     className={classNames(
-                      email_weekly ? 'bg-pink-600' : 'bg-gray-200',
+                      preferences.email_weekly ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        user?.email_weekly ? 'translate-x-3.5' : 'translate-x-0',
+                        preferences.email_weekly ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
@@ -341,17 +340,17 @@ const Profile = ({ showError }) => {
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={user?.email_monthly}
+                    checked={preferences.email_monthly}
                     onChange={e => updatePreferences('email_monthly', e)}
                     className={classNames(
-                      user?.email_monthly ? 'bg-pink-600' : 'bg-gray-200',
+                      preferences.email_monthly ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        email_monthly ? 'translate-x-3.5' : 'translate-x-0',
+                        preferences.email_monthly ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
@@ -365,17 +364,17 @@ const Profile = ({ showError }) => {
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={user?.email_alert}
+                    checked={preferences.email_alert}
                     onChange={e => updatePreferences('email_alert', e)}
                     className={classNames(
-                      user?.email_alert ? 'bg-pink-600' : 'bg-gray-200',
+                      preferences.email_alert ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        user?.email_alert ? 'translate-x-3.5' : 'translate-x-0',
+                        preferences.email_alert ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
