@@ -72,14 +72,14 @@ export default function About({ showError }) {
         <div className="bg-white">
           <main className="isolate">
             {/* Hero section */}
-            <div className="relative isolate -z-10 overflow-hidden pt-14">
+            <div className="relative isolate -z-10 overflow-hidden sm:pt-14 pt-0">
               <div className="mx-auto max-w-7xl px-6 pt-10 pb-20 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-                  <h1 className="max-w-2xl font-bold lg:col-span-2 xl:col-auto text-7xl tracking-tighter text-pink-600 leading-tight">
+                  <h1 className="max-w-2xl font-bold lg:col-span-2 xl:col-auto sm:text-7xl text-5xl tracking-tighter text-pink-600 leading-tight">
                     Making finances feel easier and stress free
                   </h1>
                   <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-                    <p className="text-3xl font-normal text-gray-900 tracking-wide">
+                    <p className="text-xl sm:text-3xl font-normal text-gray-900 tracking-wide">
                       Trckfi, your trusted ally, is dedicated to crafting financial tools that empower individuals to master their money with confidence and ease.
                     </p>
                   </div>
@@ -165,7 +165,7 @@ export default function About({ showError }) {
               >
                 {team.map((person) => (
                   <li key={person.name}>
-                    <img className="mx-auto h-72 w-72 rounded-full" src={person.imageUrl} alt="" />
+                    <img className="mx-auto sm:h-72 sm:w-72 h-36 w-36 rounded-full" src={person.imageUrl} alt="" />
                     <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
                     <p className="text-sm leading-6 text-gray-600">{person.role}</p>
                   </li>
