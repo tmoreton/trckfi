@@ -157,7 +157,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                               id="name"
                               readOnly
                               value={account?.name}
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                               required 
                               onChange={handleChange}
                             />
@@ -192,7 +192,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                                 name="subtype" 
                                 id="subtype"
                                 value={account?.subtype}
-                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                                 required
                                 onChange={handleChange}
                               />
