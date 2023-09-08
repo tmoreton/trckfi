@@ -15,7 +15,7 @@ export default function () {
       <div className="relative overflow-hidden pt-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <video autoPlay loop style={{ width: '100%', height: '100%' }}>
-            <source src="/assets/VisionboardVideoSmaller.mov" type="video/mov" />
+            <source src="/assets/visionboard.mp4" type="video/mp4" />
           </video>
           {/* <Image
             src="/assets/visionboard.gif"
