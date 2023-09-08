@@ -14,7 +14,7 @@ export default function () {
       </div>
       <div className="relative overflow-hidden pt-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <video autoPlay loop style={{ width: '100%', height: '100%' }}>
+          <video autoPlay controls loop style={{ width: '100%', height: '100%' }}>
             <source src="/assets/visionboard.mp4" type="video/mp4" />
           </video>
           {/* <Image
@@ -25,9 +25,9 @@ export default function () {
             height={1442}
             unoptimized={true}
           /> */}
-          <div className="relative" aria-hidden="true">
+          {/* <div className="relative" aria-hidden="true">
             <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
