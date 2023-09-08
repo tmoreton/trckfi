@@ -94,11 +94,11 @@ export default function About({ showError }) {
             </div>
             
             {/* Content section */}
-            <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
+            <div className="mx-auto mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:mt-6">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Story</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Our Story</h2>
                 <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
-                  <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
+                  <div>
                     <p className="text-xl leading-8 text-gray-600">
                       We're Cande and Tim, the minds behind Trckfi. We founded Trckfi because we believe finance management 
                       should be straightforward and stress-free. We were fed up with complex apps that overwhelmed us and 
@@ -110,7 +110,7 @@ export default function About({ showError }) {
                       visualization, making financial success accessible for everyone.
                     </p>
                   </div>
-                  <div className="lg:flex lg:flex-auto lg:justify-center">
+                  {/* <div className="lg:flex lg:flex-auto lg:justify-center">
                     <dl className="w-64 space-y-8 xl:w-80">
                       {stats.map((stat) => (
                         <div key={stat.label} className="flex flex-col-reverse">
@@ -119,22 +119,22 @@ export default function About({ showError }) {
                         </div>
                       ))}
                     </dl>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
 
             {/* Image section */}
-            <div className="mt-12 sm:mt-20 xl:mx-auto xl:max-w-7xl xl:px-8">
+            {/* <div className="mt-12 sm:mt-20 xl:mx-auto xl:max-w-7xl xl:px-8">
               <img
                 src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
                 alt=""
                 className="aspect-[5/2] w-full object-cover xl:rounded-3xl"
               />
-            </div>
+            </div> */}
 
             {/* Values section */}
-            <div className="mx-auto mt-12 sm:mt-20 max-w-7xl px-6 lg:px-8">
+            {/* <div className="mx-auto mt-12 sm:mt-20 max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl lg:mx-0">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our values</h2>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -150,20 +150,18 @@ export default function About({ showError }) {
                   </div>
                 ))}
               </dl>
-            </div>
+            </div> */}
 
             {/* Team section */}
-            <div className="mx-auto max-w-7xl px-6 mt-12 sm:mt-20 lg:px-8">
-              <div className="mx-auto max-w-2xl lg:mx-0">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our team</h2>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+            <div className="mx-auto max-w-7xl px-6 mt-24 sm:mt-24 lg:px-8">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Our team</h2>
+                {/* <p className="mt-6 text-lg leading-8 text-gray-600">
                   Sit facilis neque ab nulla vel. Cum eos in laudantium. Temporibus eos totam in dolorum. Nemo vel facere
                   repellendus ut eos dolores similique.
-                </p>
-              </div>
+                </p> */}
               <ul
                 role="list"
-                className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center lg:mx-0 lg:max-w-none"
+                className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center lg:mx-0 lg:max-w-none"
               >
                 {team.map((person) => (
                   <li key={person.name}>
