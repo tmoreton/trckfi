@@ -13,7 +13,6 @@ export default async (req, res) => {
             id: i
           },
           data: { 
-            user_id: null,
             active: false
           }
         })
@@ -24,7 +23,6 @@ export default async (req, res) => {
           id: transaction.id
         },
         data: { 
-          user_id: null,
           active: false
         }
       })
