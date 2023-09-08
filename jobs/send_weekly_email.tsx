@@ -21,13 +21,15 @@ client.defineJob({
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
+        // @ts-ignore
+        email_weekly: true,
         subscription_id: {
           not: null
         }
       }
     })
-    console.log(activeUsers)
 
+    
     for (let a in activeUsers) {
       const user_id = activeUsers[a].id
       const linked_user_id = activeUsers[a].linked_user_id
@@ -164,7 +166,6 @@ client.defineJob({
       const recurring = await prisma.recurring.findMany({
         where: {
           OR: user_query,
-          // @ts-ignore
           active: true,
           is_active: true,
           NOT: [
