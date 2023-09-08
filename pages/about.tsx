@@ -3,6 +3,7 @@ import Container from '../components/container'
 import Layout from '../components/layout'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import Image from 'next/image'
 
 const stats = [
   { label: 'Transactions every 24 hours', value: '44 million' },
@@ -75,6 +76,13 @@ export default function About({ showError }) {
             <div className="relative isolate -z-10 overflow-hidden sm:pt-14 pt-0">
               <div className="mx-auto max-w-7xl px-6 pt-10 pb-20 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
+                  <Image
+                    src="/assets/mallorca.png"
+                    alt=""
+                    width={512}
+                    height={427}
+                    className="block sm:hidden mb-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
+                  />
                   <h1 className="max-w-2xl font-bold lg:col-span-2 xl:col-auto sm:text-7xl text-5xl tracking-tighter text-pink-600 leading-tight">
                     Making finances feel easier and stress free
                   </h1>
@@ -83,10 +91,12 @@ export default function About({ showError }) {
                       Trckfi, your trusted ally, is dedicated to crafting financial tools that empower individuals to master their money with confidence and ease.
                     </p>
                   </div>
-                  <img
+                  <Image
                     src="/assets/mallorca.png"
                     alt=""
-                    className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
+                    width={512}
+                    height={427}
+                    className="hidden sm:block mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
                   />
                 </div>
               </div>
