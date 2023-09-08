@@ -52,6 +52,9 @@ model User {
   Referrals       Referrals[]
   Balances        Balances[]
   Recurring       Recurring[]
+  email_weekly    Boolean        @default(true)
+  email_monthly   Boolean        @default(true)
+  email_alert     Boolean        @default(true)
 
   @@map("users")
 }
@@ -164,14 +167,10 @@ model Rules {
 }
 
 model Preferences {
-  id               String  @id @default(cuid())
-  email_newsletter Boolean @default(false)
-  email_weekly     Boolean @default(true)
-  email_monthly    Boolean @default(true)
-  email_alert      Boolean @default(true)
-  vision_board     Json?
-  user_id          String? @unique @map("user_id")
-  user             User?   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  id           String  @id @default(cuid())
+  vision_board Json?
+  user_id      String? @unique @map("user_id")
+  user         User?   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@map("preferences")
 }
@@ -269,9 +268,10 @@ model Recurring {
 }
 
 model Emails {
-  id          String    @id @default(cuid())
-  email       String?   @unique
-  created_at  DateTime? @default(now())
+  id               String    @id @default(cuid())
+  email            String?   @unique
+  email_newsletter Boolean   @default(true)
+  created_at       DateTime? @default(now())
 
   @@map("emails")
 }

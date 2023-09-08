@@ -33,6 +33,7 @@ const Profile = ({ showError }) => {
   useEffect(() => {
     // @ts-ignore
     if(!user.active) {
+      console.log(user)
       clearLocalStorage()
       signOut()
     } else {
@@ -61,20 +62,20 @@ const Profile = ({ showError }) => {
   }
 
   const updatePreferences = async (key, value) => {
-    let updated = preferences
-    updated[key] = value
-    setPreferences({ ...preferences, [key]: value})
-    const res = await fetch(`/api/update_preferences`, {
-      body: JSON.stringify({
-        user, preferences: updated
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error, data } = await res.json()
-    showError(error)
+    // let updated = preferences
+    // updated[key] = value
+    // setPreferences({ ...preferences, [key]: value})
+    // const res = await fetch(`/api/update_preferences`, {
+    //   body: JSON.stringify({
+    //     user, preferences: updated
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
+    // const { error, data } = await res.json()
+    // showError(error)
   }
 
   const send = async (e) => {
@@ -316,7 +317,7 @@ const Profile = ({ showError }) => {
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={email_weekly}
+                    checked={user?.email_weekly}
                     onChange={e => updatePreferences('email_weekly', e)}
                     className={classNames(
                       email_weekly ? 'bg-pink-600' : 'bg-gray-200',
@@ -326,7 +327,7 @@ const Profile = ({ showError }) => {
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        email_weekly ? 'translate-x-3.5' : 'translate-x-0',
+                        user?.email_weekly ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
@@ -340,10 +341,10 @@ const Profile = ({ showError }) => {
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={email_monthly}
+                    checked={user?.email_monthly}
                     onChange={e => updatePreferences('email_monthly', e)}
                     className={classNames(
-                      email_monthly ? 'bg-pink-600' : 'bg-gray-200',
+                      user?.email_monthly ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
@@ -364,17 +365,17 @@ const Profile = ({ showError }) => {
                 </Switch.Label>
                 <dd className="flex flex-auto items-center justify-end">
                   <Switch
-                    checked={email_alert}
+                    checked={user?.email_alert}
                     onChange={e => updatePreferences('email_alert', e)}
                     className={classNames(
-                      email_alert ? 'bg-pink-600' : 'bg-gray-200',
+                      user?.email_alert ? 'bg-pink-600' : 'bg-gray-200',
                       'flex w-8 cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={classNames(
-                        email_alert ? 'translate-x-3.5' : 'translate-x-0',
+                        user?.email_alert ? 'translate-x-3.5' : 'translate-x-0',
                         'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
                       )}
                     />
