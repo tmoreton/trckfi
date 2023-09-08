@@ -130,18 +130,6 @@ export async function getServerSideProps(context) {
       },
       create: {},
     })
-
-    await prisma.preferences.upsert({
-      // @ts-ignore
-      where: { user_id: user.id },
-      // @ts-ignore
-      update: { user_id: user.id },
-      create: { 
-        // @ts-ignore
-        user_id: user.id,
-        vision_board: new_vision
-      },
-    })
     
     await prisma.user.upsert({
       // @ts-ignore
