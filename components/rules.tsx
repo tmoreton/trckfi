@@ -7,6 +7,7 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 
 const keys = {
   name: 'Name',
+  custom_name: 'Name',
   primary_category: 'Primary Category',
   detailed_category: 'Detailed Category',
   unified: 'Emoji',
@@ -196,7 +197,7 @@ const Rules = ({ showError }) => {
                     className="mt-2 block sm:w-64 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-600 sm:text-sm sm:leading-6"
                   >
                     <option className="text-gray-500" value="" label="Select Value..." />
-                    <option value="name" label="Name" />
+                    <option value="custom_name" label="Name" />
                     <option value="primary_category" label="Primary Category" />
                     <option value="detailed_category" label="Detailed Category" />
                     <option value="active" label="Active" />

@@ -8,7 +8,7 @@ export default async (req, res) => {
 
   try {
     let rules = {}
-    if (ruleset?.name) rules.custom_name = ruleset.name
+    if (ruleset?.name) rules.custom_name = ruleset.custom_name || ruleset.name
     if (ruleset?.primary_category) rules.primary_category = snakeCase(ruleset.primary_category).toUpperCase()
     if (ruleset?.detailed_category) rules.detailed_category = snakeCase(ruleset.detailed_category).toUpperCase()
     if (ruleset?.unified) rules.unified = ruleset.unified
