@@ -1,15 +1,10 @@
-import Hero from '../components/hero'
 import Layout from '../components/layout'
-import Newsletter from '../components/newsletter'
-import Features from '../components/features'
-import FeatureCenter from '../components/feature-center'
-import FeatureLeft from '../components/feature-left'
-import FeatureRight from '../components/feature-right'
-import FeatureNetWorth from '../components/feature-net-worth'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
-import BudgetHero from "../components/landing-page/budget-hero"
-import FeatureCenterLeading from "../components/landing-page/feature-center"
+import Hero from "../components/homepage/hero"
+import AccountNetworth from "../components/homepage/account-networth"
+import Visonboard from '../components/homepage/visionboard'
+import Newsletter from '../components/newsletter'
 
 export default function Index({ showError }) {
   return (
@@ -21,15 +16,10 @@ export default function Index({ showError }) {
         keywords=''
       />
       <Menu showError={showError}/>
-      <BudgetHero />
-      <FeatureCenterLeading />
-      <FeatureCenter />
+      <Hero />
+      <AccountNetworth />
+      <Visonboard />
       <Newsletter showError={showError} />
-      {/* <Container>
-        <FeatureLeft />
-        <FeatureRight />
-        <FeatureNetWorth />
-      </Container> */}
     </Layout>
   )
 }

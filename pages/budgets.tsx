@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import Newsletter from '../components/newsletter'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
-import FeatureCenterLeanding from "../components/landing-page/feature-center"
+import FeatureCenterLeanding from "../components/homepage/account-networth"
 
 export default function Index({ showError }) {
   return (

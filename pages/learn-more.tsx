@@ -1,8 +1,8 @@
-import Menu from '../components/landing-page/menu'
+import Menu from '../components/homepage/menu'
 import Layout from "../components/layout"
 import Meta from '../components/meta'
-import Hero from "../components/landing-page/hero"
-import FeatureCenter from "../components/landing-page/feature-center"
+import Hero from "../components/homepage/hero"
+import FeatureCenter from "../components/homepage/account-networth"
 import Newsletter from "../components/newsletter"
 
 export default function ({ showError }) {
