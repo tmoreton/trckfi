@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import { social_icons } from '../components/social-icons'
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
+  { name: 'About Us', href: '/about' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Privacy', href: '/privacy-policy' },
   { name: 'Terms', href: '/terms-of-use' },
@@ -22,7 +24,15 @@ const Footer = () => {
             </Link>
           ))}
         </nav>
-        <p className="mt-10 text-center text-xs leading-5 text-gray-500">
+        <div className="flex space-x-6 justify-center py-4">
+          {social_icons.map((item) => (
+            <a key={item.name} href={item.href} target="_blank" className="text-pink-600 hover:text-pink-500">
+              <span className="sr-only">{item.name}</span>
+              <item.icon className="h-10 w-10" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p className="text-center text-xs leading-5 text-gray-500">
           &copy; 2023 Trckfi, Inc. All rights reserved.
         </p>
       </div>

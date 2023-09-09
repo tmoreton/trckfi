@@ -6,7 +6,6 @@ import Meta from '../components/meta'
 import { getSession } from 'next-auth/react'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'
-import { new_vision } from '../utils/default-vision'
 
 export default function ({ showError, access_code, csrfToken, error, email }) {
   const [updateEmail, setUpdateEmail] = useState('')
