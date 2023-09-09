@@ -18,28 +18,18 @@ client.defineJob({
     })
     const ids = users.map(user => user.id)
 
-    const transactions1 = await prisma.transactions.findMany({
+    const transactions = await prisma.transactions.findMany({
       where: {
         user_id: { in: ids },
         authorized_date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ days: 2 }).startOf('day').toISO(),
+          gte: DateTime.now().minus({ days: 10 }).startOf('day').toISO(),
         },
       },
     })
 
-    const transactions2 = await prisma.transactions.findMany({
-      where: {
-        user_id: { in: ids },
-        authorized_date: {
-          lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ days: 2 }).startOf('day').toISO(),
-        },
-      },
-    })
-
-    transactions1.forEach((t1) => {
-      transactions2.forEach(async (t2) => {
+    transactions.forEach((t1) => {
+      transactions.forEach(async (t2) => {
         if(t1.transaction_id !== t2.transaction_id){
           if(Number(t1.amount) + Number(t2.amount) === 0){
             await prisma.transactions.updateMany({
