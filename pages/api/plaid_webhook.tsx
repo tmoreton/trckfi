@@ -4,11 +4,11 @@ import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { webhook_code, item_id } = req.body
-  console.log(webhook_code, item_id)
+  slackMessage(`Plaid Webhook: ${webhook_code} item ID: ${item_id}`)
   switch (webhook_code) {
     case 'SYNC_UPDATES_AVAILABLE':
       const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
-      console.log(access_token, user_id)
+      slackMessage(`Plaid Webhook Access Token: ${access_token} User ID:${user_id}`)
       transactionsSync(access_token, user_id)
       break;
     case 'RECURRING_TRANSACTIONS_UPDATE':

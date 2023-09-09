@@ -18,7 +18,7 @@ export default async (req, res) => {
       update: { email: email.toLowerCase() },
       create: { email: email.toLowerCase() },
     })
-    
+    slackMessage(`${email} Added to Newsletter`)
     const emailHtml = render(
       <Newsletter />
     )
@@ -45,6 +45,6 @@ export default async (req, res) => {
   } catch (error) {
     console.error(error)
     slackMessage(error.message || error.toString())
-throw new Error(error)
+    throw new Error(error)
   }
 }
