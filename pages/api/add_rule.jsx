@@ -37,6 +37,22 @@ export default async (req, res) => {
         user_id,
         name: {
           contains: identifier
+        },
+        merchant_name: {
+          contains: identifier
+        }
+      },
+      data: rules,
+    })
+
+    await prisma.recurring.updateMany({
+      where: { 
+        user_id,
+        name: {
+          contains: identifier
+        },
+        merchant_name: {
+          contains: identifier
         }
       },
       data: rules,
