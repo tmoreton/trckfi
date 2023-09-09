@@ -83,8 +83,8 @@ export default function About({ showError }) {
                     height={427}
                     className="block sm:hidden mb-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
                   />
-                  <h1 className="max-w-2xl font-bold lg:col-span-2 xl:col-auto sm:text-7xl text-5xl tracking-tighter text-pink-600 leading-tight">
-                    Making finances feel easier and stress free
+                  <h1 className="font-bold lg:col-span-2 xl:col-auto sm:text-7xl text-5xl tracking-tighter text-pink-600 leading-tight">
+                    Simplify Your Finances,<br/> Stress Less
                   </h1>
                   <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                     <p className="text-xl sm:text-3xl font-normal text-gray-900 tracking-wide">
