@@ -90,7 +90,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                             id="name" 
                             readOnly
                             value={account?.name}
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                             required 
                             onChange={handleChange}
                           />
@@ -105,9 +105,10 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                           <input 
                             type="text" 
                             name="institution"
-                            id="institution" 
+                            id="institution"
+                            readOnly
                             value={account?.institution}
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                             required 
                             onChange={handleChange}
                           />
@@ -126,7 +127,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                               id="type"
                               readOnly
                               value={account?.type}
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                               required
                               onChange={handleChange}
                             />
@@ -144,7 +145,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
                               id="subtype"
                               readOnly
                               value={account?.subtype}
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                               required
                               onChange={handleChange}
                             />
