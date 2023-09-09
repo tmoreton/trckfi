@@ -30,7 +30,7 @@ export default async (req, res) => {
         where: { referral_id },
       })
 
-      if(referral_user) {
+      if(Object.keys(referral_user).length > 0) {
         params.discounts = [{ coupon: process.env.STRIPE_COUPON_ID }]
       } else {
         params.allow_promotion_codes = true
