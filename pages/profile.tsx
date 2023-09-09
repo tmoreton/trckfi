@@ -65,7 +65,6 @@ const Profile = ({ showError }) => {
     let updated = preferences
     updated[key] = value
     setPreferences({ ...preferences, [key]: value})
-    console.log(updated)
     const res = await fetch(`/api/update_user`, {
       body: JSON.stringify({
         user, preferences: updated

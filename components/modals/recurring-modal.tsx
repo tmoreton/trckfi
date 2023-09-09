@@ -9,7 +9,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
     const { name, value } = e.target
     setItem({ ...item, [name]: value })
   }
-  console.log(item)
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
