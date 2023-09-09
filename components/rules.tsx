@@ -74,7 +74,6 @@ const Rules = ({ showError }) => {
     delete newRuleset['']
     const res = await fetch(`/api/add_rule`, {
       body: JSON.stringify({
-        // @ts-ignore
         id: rulesetId,
         // @ts-ignore
         user_id: user?.id,
@@ -141,12 +140,6 @@ const Rules = ({ showError }) => {
           Create rules to re-categorize current and future transactions
           </p>
           <dl className="mt-6 space-y-3 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
-            {/* <div className="sm:flex">
-              <dt className="font-bold text-pink-600 sm:w-64 sm:flex-none sm:pr-6">Identifier</dt>
-              <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                <div className="font-bold text-pink-600">Rules</div>
-              </dd>
-            </div> */}
             {rules && rules?.map(rule => (
               <div className="pt-3 sm:flex items-center">
                 <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">{rule?.identifier}</dt>
