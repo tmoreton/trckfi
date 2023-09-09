@@ -258,6 +258,7 @@ model Recurring {
   active            Boolean   @default(true)
   status            String
   type              String?
+  unified           String?
   created_at        DateTime? @default(now())
   updated_at        DateTime? @updatedAt
   user_id           String?   @map("user_id")
