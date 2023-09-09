@@ -75,6 +75,12 @@ export default function About({ showError }) {
             {/* Hero section */}
             <div className="relative isolate -z-10 overflow-hidden sm:pt-14 pt-0">
               <div className="mx-auto max-w-7xl px-6 pt-10 pb-20 lg:px-8">
+                <h1 className="font-bold lg:col-span-2 xl:col-auto sm:text-7xl text-5xl tracking-tighter text-pink-600 leading-tight text-center">
+                  Simplify Your Finances, Stress Less
+                </h1>
+                <p className="text-xl sm:text-3xl font-normal text-gray-900 tracking-wide text-center mt-4 mb-10">
+                  Trckfi is on a mission to simplify finances by creating empowering financial tools that help you take control and boost your money-handling confidence
+                </p>
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
                   <Image
                     src="/assets/mallorca.png"
@@ -83,13 +89,20 @@ export default function About({ showError }) {
                     height={427}
                     className="block sm:hidden mb-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
                   />
-                  <h1 className="font-bold lg:col-span-2 xl:col-auto sm:text-7xl text-5xl tracking-tighter text-pink-600 leading-tight">
-                    Simplify Your Finances,<br/> Stress Less
-                  </h1>
                   <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-                    <p className="text-xl sm:text-3xl font-normal text-gray-900 tracking-wide">
-                      Trckfi, your trusted ally, is dedicated to crafting financial tools that empower individuals to master their money with confidence and ease.
-                    </p>
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Our Story</h2>
+                    <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+                      <p className="text-xl leading-8 text-gray-600">
+                        We're Cande and Tim, the minds behind Trckfi. We founded Trckfi because we believe finance management 
+                        should be straightforward and stress-free. We were fed up with complex apps that overwhelmed us and 
+                        compromised our data. 
+                        <br/>
+                        <br/>
+                        So, we created a simplified financial hub, that boosts financial literacy, provides 
+                        clarity on financial situation and empowering users to prioritize what truly matters to them through goal 
+                        visualization, making financial success accessible for everyone.
+                      </p>
+                    </div>
                   </div>
                   <Image
                     src="/assets/mallorca.png"
