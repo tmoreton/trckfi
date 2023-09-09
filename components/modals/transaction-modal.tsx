@@ -367,7 +367,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                                 :
                                 <>
                                   <PinkBtn type="button" onClick={() => update(false)}>
-                                    { ids.length > 0 ? 'Update Selected' : 'Update'}
+                                    <p className="w-[135px]">{ ids.length > 0 ? 'Update Selected' : 'Update'}</p>
                                   </PinkBtn>
                                   { ids.length <= 1 &&
                                     <button
