@@ -213,7 +213,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                       <EmojiPicker onEmojiClick={updateEmoji}/> 
                       :
                       <>
-                        <form>
+                        <form onSubmit={add}>
                           <div className="relative z-0 w-full mb-4 group inline-flex">
                             <div className="w-full">
                             <label 
@@ -225,6 +225,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               <select
                                 id="account_id"
                                 name="account_id"
+                                required
                                 onChange={handleChange}
                                 defaultValue={transaction?.account_id}
                                 value={transaction?.account_id}
@@ -288,7 +289,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                           <div className="grid md:grid-cols-2 md:gap-6">
                             <div className="relative z-0 w-full mb-6 group">
                               <input 
-                                type="text" 
+                                type="number" 
                                 name="amount" 
                                 id="amount" 
                                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
@@ -306,7 +307,8 @@ export default function ({ item, setEdit, showError, selected, user }) {
                             <div className="relative z-0 w-full mb-6 group">
                               <DatePicker 
                                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                                selected={startDate} 
+                                selected={startDate}
+                                required
                                 onChange={(date) => setStartDate(date)}
                               />
                               <label 
@@ -333,71 +335,71 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               Notes
                             </label>
                           </div>
-                        </form>
-                        <div className="relative z-0 w-full group">
-                        { alertDate ?
-                          <div className="inline-flex items-center">
-                            <DatePicker 
-                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                              selected={alertDate} 
-                              onChange={(date) => setAlertDate(date)}
-                            />
-                            <label 
-                              htmlFor="date" 
-                              className="left-0 peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Alert Date
-                            </label>
-                            <XCircleIcon onClick={() => setAlertDate(null)} className="h-5 w-5 text-red-400 mr-4"/>
+                          <div className="sm:flex items-center">
+                            <div className="relative z-0 w-full group">
+                              { alertDate ?
+                              <div className="inline-flex items-center">
+                                <DatePicker 
+                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
+                                  selected={alertDate} 
+                                  onChange={(date) => setAlertDate(date)}
+                                />
+                                <label 
+                                  htmlFor="date" 
+                                  className="left-0 peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:pink:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                                >
+                                  Alert Date
+                                </label>
+                                <XCircleIcon onClick={() => setAlertDate(null)} className="h-5 w-5 text-red-400 mr-4"/>
+                              </div>
+                              :
+                              <button onClick={() => setAlertDate(new Date())} className="text-sm text-gray-500 inline-flex font-semibold">
+                                <BellAlertIcon className="h-5 w-5 text-red-400 mr-4" aria-hidden="true"/> 
+                                Set Alert
+                              </button> }
+                            </div>
+                            <div className="sm:flex sm:flex-row-reverse items-center">
+                              {
+                                transaction.new ?
+                                <PinkBtn type="submit" onClick={() => {}}>
+                                  Add
+                                </PinkBtn>
+                                :
+                                <>
+                                  <PinkBtn type="button" onClick={update}>
+                                    { ids.length > 0 ? 'Update Selected' : 'Update'}
+                                  </PinkBtn>
+                                  { ids.length <= 1 &&
+                                    <button
+                                      type="button"
+                                      className="mr-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                      onClick={() => update(true)}
+                                    >
+                                      <p className="w-[135px]">Update + Add Rule</p>
+                                    </button>
+                                  }
+                                </>
+                              }
+                              <button
+                                type="button"
+                                className="mt-3 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-gray-900  hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                onClick={() => setEdit({})}
+                              >
+                                Cancel
+                              </button>
+                              <button
+                                type="button"
+                                onClick={remove}
+                              >
+                                <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
+                              </button>
+                            </div>
                           </div>
-                          :
-                          <button onClick={() => setAlertDate(new Date())} className="text-sm text-gray-500 inline-flex font-semibold">
-                            <BellAlertIcon className="h-5 w-5 text-red-400 mr-4" aria-hidden="true"/> 
-                            Set Alert
-                          </button>
-                        }
-                        </div>
+                        </form>
                       </>
                       }
                     </div>
                   </div>
-                </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 items-center">
-                  {
-                    transaction.new ?
-                    <PinkBtn type="button" onClick={add}>
-                      Add
-                    </PinkBtn>
-                    :
-                    <>
-                      <PinkBtn type="button" onClick={update}>
-                        { ids.length > 0 ? 'Update Selected' : 'Update'}
-                      </PinkBtn>
-                      { ids.length <= 1 &&
-                        <button
-                          type="button"
-                          className="mr-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                          onClick={() => update(true)}
-                        >
-                          Update + Add Rule
-                        </button>
-                      }
-                    </>
-
-                  }
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-gray-900  hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => setEdit({})}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    onClick={remove}
-                  >
-                    <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
-                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
