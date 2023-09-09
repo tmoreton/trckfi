@@ -355,7 +355,6 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               :
                               <button onClick={() => setAlertDate(new Date())} className="text-sm text-gray-500 inline-flex font-semibold">
                                 <BellAlertIcon className="h-5 w-5 text-red-400 mr-4" aria-hidden="true"/> 
-                                Set Alert
                               </button> }
                             </div>
                             <div className="sm:flex sm:flex-row-reverse items-center">
