@@ -53,7 +53,7 @@ export default function About({ showError }) {
                   className="block sm:hidden my-5 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
                 />
                 <p className="text-xl sm:text-3xl font-normal text-gray-900 tracking-wide text-center mt-4 mb-10">
-                  Trckfi is on a mission to simplify finances by creating empowering financial tools that help you take control and boost your money-handling confidence
+                  Discover how the Trckfi Platform empowers you to take control of your money and build confidence in your financial journey
                 </p>
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8 items-center">
                   <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
