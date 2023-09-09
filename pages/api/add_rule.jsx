@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import { snakeCase } from "snake-case";
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { ruleset, identifier, user_id, id } = req.body
@@ -60,7 +61,8 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK', data: rule })
   } catch (error) {
     console.error(error)
-    // throw new Error(error)
+    // slackMessage(error.message || error.toString())
+throw new Error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

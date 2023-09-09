@@ -2,6 +2,7 @@
 import prisma from '../lib/prisma';
 const retirement_types = ['roth', 'roth 401k', 'ira', '401k', '401a', '403b', '457b', 'keogh', 'lif', 'lira', 'lrif', 'lrsp', 'prif', 'retirement', 'rrif', 'rrsp', 'sarsep', 'sep ira', 'simple ira', 'tfsa']
 import { DateTime } from "luxon"
+import slackMessage from '../utils/slackMessage'
 
 const netWorthSync = async (user_id) => {
   try {
@@ -87,6 +88,7 @@ const netWorthSync = async (user_id) => {
     }
   } catch (error) {
     console.error(error)
+    slackMessage(error.message || error.toString())
     throw new Error(error)
   }
 }

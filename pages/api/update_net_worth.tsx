@@ -4,6 +4,7 @@ import netWorthSync from '../../utils/netWorthSync'
 import accountsSync from '../../utils/accountsSync'
 import transactionsSync from '../../utils/transactionsSync'
 import recurringSync from '../../utils/recurringSync'
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { user } = req.body
@@ -27,6 +28,7 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-    throw new Error(error)
+    slackMessage(error.message || error.toString())
+throw new Error(error)
   }
 }

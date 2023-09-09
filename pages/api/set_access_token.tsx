@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
 import plaidClient from '../../utils/plaid';
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   let { public_token, user_id, metadata } = req.body
@@ -32,7 +33,8 @@ export default async (req, res) => {
     return res.status(500).json({ error: 'No User ID', access_token: null})
   } catch (error) {
     console.error(error)
-    throw new Error(error)
+    slackMessage(error.message || error.toString())
+throw new Error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

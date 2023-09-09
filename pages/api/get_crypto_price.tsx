@@ -1,3 +1,5 @@
+import slackMessage from '../../utils/slackMessage'
+
 export default async (req, res) => {
     const { id } = req.body
     try {
@@ -17,6 +19,7 @@ export default async (req, res) => {
       return res.status(200).json({ status: 'OK', data })
     } catch (error) {
       console.error(error)
-      throw new Error(error)
+      slackMessage(error.message || error.toString())
+throw new Error(error)
     }
   }

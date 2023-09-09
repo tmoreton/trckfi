@@ -1,5 +1,6 @@
 import Stripe from 'stripe'
 import prisma from '../../lib/prisma'
+import slackMessage from '../../utils/slackMessage'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -40,6 +41,7 @@ export default async (req, res) => {
     return res.status(200).json(checkoutSession)
   } catch (error) {
     console.error(error)
-    throw new Error(error)
+    slackMessage(error.message || error.toString())
+throw new Error(error)
   }
 }

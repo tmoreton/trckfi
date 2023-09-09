@@ -2,6 +2,7 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid';
 import { getAmount } from '../lib/lodash'
+import slackMessage from '../utils/slackMessage'
 
 const accountsSync = async (access_token, item_id, user_id, institution) => {
   try {
@@ -41,6 +42,7 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
     })
   } catch (error) {
     console.error(error)
+    slackMessage(error.message || error.toString())
     await prisma.plaid.update({
       where: { item_id },
       data: { error_code: error.response?.data?.error_code }

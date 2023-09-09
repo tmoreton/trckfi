@@ -5,6 +5,7 @@ import { render } from '@react-email/render'
 import prisma from '../../lib/prisma'
 import LinkToken from "../../emails/link_token"
 import { DateTime } from "luxon";
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { user_id, from_email, to_email } = req.body
@@ -65,6 +66,7 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
+slackMessage(error.message || error.toString())
 throw new Error(error)
     return res.status(500).json({ error: error.message || error.toString() })
   }

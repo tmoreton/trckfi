@@ -2,6 +2,7 @@
 import prisma from '../../lib/prisma';
 import { snakeCase } from "snake-case";
 import { DateTime } from "luxon"
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { transaction, ids } = req.body
@@ -60,6 +61,7 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
+    slackMessage(error.message || error.toString())
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

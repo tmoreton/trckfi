@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import plaidClient from '../../utils/plaid';
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { access_token } = req.body
@@ -19,6 +20,7 @@ export default async (req, res) => {
     return res.status(200).json({ link_token: data.link_token })
   } catch (error) {
     console.error(error)
+    slackMessage(error.message || error.toString())
     throw new Error(error)
   }
 }

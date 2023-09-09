@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 import prisma from '../../lib/prisma';
+import slackMessage from '../../utils/slackMessage'
 
 export const config = {
   api: {
@@ -32,6 +33,7 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
+    slackMessage(error.message || error.toString())
     return res.status(500).json({ error: error.message || error.toString() })
   }
 }

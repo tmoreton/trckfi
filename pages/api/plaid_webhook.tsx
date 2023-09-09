@@ -1,5 +1,6 @@
 import prisma from '../../lib/prisma';
 import transactionsSync from '../../utils/transactionsSync'
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { webhook_code, item_id } = req.body

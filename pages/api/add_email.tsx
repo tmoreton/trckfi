@@ -3,6 +3,7 @@ import prisma from '../../lib/prisma';
 import nodemailer from 'nodemailer'
 import { render } from '@react-email/render'
 import Newsletter from "../../emails/newsletter"
+import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { email } = req.body
@@ -43,6 +44,7 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
-    throw new Error(error)
+    slackMessage(error.message || error.toString())
+throw new Error(error)
   }
 }
