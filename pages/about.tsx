@@ -47,7 +47,7 @@ export default function About({ showError }) {
                 </h1>
                 <Image
                   src="/assets/mallorca.png"
-                  alt=""
+                  alt="Tim and Cande in Mallorca"
                   width={512}
                   height={427}
                   className="block sm:hidden my-5 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
@@ -120,7 +120,7 @@ export default function About({ showError }) {
               >
                 {team.map((person) => (
                   <li key={person.name}>
-                    <img className="mx-auto sm:h-72 sm:w-72 h-36 w-36 rounded-full" src={person.imageUrl} alt="" />
+                    <img className="mx-auto sm:h-72 sm:w-72 h-36 w-36 rounded-full" src={person.imageUrl} alt={person.name} />
                     <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
                     <p className="text-sm leading-6 text-gray-600">{person.role}</p>
                   </li>
