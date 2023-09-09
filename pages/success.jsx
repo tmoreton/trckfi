@@ -5,7 +5,7 @@ import { render } from '@react-email/render'
 import { new_vision } from '../utils/default-vision'
 import nodemailer from 'nodemailer'
 import Referral from "../emails/referral_success"
-import slackMessage from '../../utils/slackMessage'
+import slackMessage from '../utils/slackMessage'
 
 export default function () {
   return null
@@ -27,7 +27,9 @@ export async function getServerSideProps(context) {
 
     const { ended_at, start_date, status, trial_end, canceled_at } = await stripe.subscriptions.retrieve(subscription)
     const { email, phone } = await stripe.customers.retrieve(customer)
+    
     slackMessage(`${email} Signed Up`)
+
     if(context.query?.referral_id){
       let referral_user = await prisma.user.findUnique({
         where: { referral_id: context.query?.referral_id },
