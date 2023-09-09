@@ -16,6 +16,7 @@ export default async (req, res) => {
         },
       ],
       mode: 'subscription',
+      allow_promotion_codes: true,
       consent_collection: {
         terms_of_service: 'required'
       },
@@ -32,8 +33,7 @@ export default async (req, res) => {
 
       if(Object.keys(referral_user).length > 0) {
         params.discounts = [{ coupon: process.env.STRIPE_COUPON_ID }]
-      } else {
-        params.allow_promotion_codes = true
+        params.allow_promotion_codes = false
       }
     }
     const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(params);
