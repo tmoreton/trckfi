@@ -24,7 +24,6 @@ import PieChart from "../components/pie-chart"
 import LineChart from "../components/line-chart"
 import StackedBarChart from "../components/stacked-bar-chart"
 import Empty from '../components/empty'
-import { useRouter } from 'next/router'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -43,7 +42,6 @@ const renderImg = (account) => {
 }
 
 const Accounts = ({ showError }) => {
-  const router = useRouter()
   const { data: session } = useSession()
   const user = session?.user
   const [loading, setLoading] = useState(false)

@@ -60,20 +60,16 @@ export default function About({ showError }) {
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Our Story</h2>
                     <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
                       <p className="text-xl leading-8 text-gray-600">
-                        We're Cande and Tim, the minds behind Trckfi. We founded Trckfi because we believe finance management 
-                        should be straightforward and stress-free. We were fed up with complex apps that overwhelmed us and 
-                        compromised our data. 
+                        We're Cande and Tim, the minds behind Trckfi. We founded Trckfi because we believe finance management should be straightforward and stress-free. We were fed up with complex apps that overwhelmed us and compromised our data.
                         <br/>
                         <br/>
-                        So, we created a simplified financial hub, that boosts financial literacy, provides 
-                        clarity on financial situation and empowering users to prioritize what truly matters to them through goal 
-                        visualization, making financial success accessible for everyone.
+                        So, we created Trckfi—a simplified financial hub that not only enhances financial literacy but also provides clarity on your financial situation. Our mission? Empowering you to prioritize what truly matters through goal visualization, making financial success accessible to all.
                       </p>
                     </div>
                   </div>
                   <Image
                     src="/assets/mallorca.png"
-                    alt=""
+                    alt="Tim and Cande in Mallorca"
                     width={512}
                     height={427}
                     className="hidden sm:block mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
