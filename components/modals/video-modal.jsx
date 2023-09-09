@@ -27,8 +27,10 @@ export default ({ open, setOpen }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform rounded-lg text-left shadow-xl">
-                <iframe src="https://player.vimeo.com/video/854200259?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1000" height="557" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Trckfi Walkthrough"></iframe>
+              <Dialog.Panel>
+                <video controls muted loop style={{ width: '75%', height: '75%', margin: 'auto' }}>
+                  <source src="/assets/trckfi-intro.mp4" type="video/mp4" />
+                </video>
               </Dialog.Panel>
             </Transition.Child>
           </div>
