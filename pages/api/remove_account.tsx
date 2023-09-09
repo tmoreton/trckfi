@@ -19,6 +19,6 @@ export default async (req, res) => {
   } catch (error) {
     console.error(error)
     slackMessage(error.message || error.toString())
-throw new Error(error)
+    throw new Error(error)
   }
 }
