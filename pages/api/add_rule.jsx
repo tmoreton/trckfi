@@ -6,7 +6,7 @@ import slackMessage from '../../utils/slackMessage'
 export default async (req, res) => {
   const { ruleset, identifier, user, id } = req.body
   if (!ruleset) return res.status(500).json({ error: 'No Rule' })
-
+  const user_id = user.id
   try {
     let rules = {}
     if (ruleset?.custom_name || ruleset?.name) rules.custom_name = ruleset.custom_name || ruleset.name
@@ -16,7 +16,7 @@ export default async (req, res) => {
     // if (ruleset?.recurring) rules.recurring = (ruleset.recurring === 'true')
     if (ruleset?.active) rules.active = (ruleset.active === 'true')
     let data = { 
-      user_id: user.id,
+      user_id,
       identifier,
       ruleset: rules
     }
@@ -39,7 +39,7 @@ export default async (req, res) => {
         }
       })
       if(existing_rules.length <= 0){
-        rule = await prisma.rules.create(data)
+        rule = await prisma.rules.create({ data })
       } else {
         rule = await prisma.rules.update({
           where: { 
