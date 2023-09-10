@@ -32,18 +32,18 @@ export default async (req, res) => {
         data
       })
     } else {
-      rule = await prisma.rules.findUnique({
+      const existing_rules = await prisma.rules.findMany({
         where: { 
           OR: user_query,
           identifier: data.identifier
         }
       })
-      if(Object.keys(rule).length <= 0){
+      if(existing_rules.length <= 0){
         rule = await prisma.rules.create(data)
       } else {
         rule = await prisma.rules.update({
           where: { 
-            id: rule.id,
+            id: existing_rules[0].id,
           },
           data
         })
