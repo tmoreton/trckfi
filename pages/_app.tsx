@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
 import ErrorModal from '../components/modals/error-modal'
 import AuthGuard from '../utils/authGuard'
-import Notification from '../components/notification'
 
 import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
@@ -48,7 +47,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
                 </p>
               </div>
             }
-            <Notification showError={showError} />
             <Component {...pageProps} showError={showError} />
           </AuthGuard>
         <Analytics />

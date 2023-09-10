@@ -14,6 +14,7 @@ import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
+import Notification from '../components/notification'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
@@ -182,6 +183,7 @@ const Dashboard = ({ showError }) => {
   return (
     <>
       <Menu showError={showError}/>
+      <Notification showError={showError} />
       <DashboardLayout>
         <Meta
           title="Dashboard"
