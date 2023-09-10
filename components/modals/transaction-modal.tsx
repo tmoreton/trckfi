@@ -153,7 +153,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const addRule = async () => {
     const res = await fetch(`/api/add_rule`, {
       body: JSON.stringify({
-        user_id: user?.id,
+        user,
         // @ts-ignore
         identifier: transaction?.merchant_name || transaction?.name,
         ruleset: {

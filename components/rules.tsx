@@ -76,8 +76,7 @@ const Rules = ({ showError }) => {
     const res = await fetch(`/api/add_rule`, {
       body: JSON.stringify({
         id: rulesetId,
-        // @ts-ignore
-        user_id: user?.id,
+        user,
         identifier,
         ruleset: newRuleset
       }),

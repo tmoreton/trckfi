@@ -4,7 +4,7 @@ import { snakeCase } from "snake-case";
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
-  const { ruleset, identifier, user_id, id } = req.body
+  const { ruleset, identifier, user, id } = req.body
   if (!ruleset) return res.status(500).json({ error: 'No Rule' })
 
   try {
@@ -16,11 +16,13 @@ export default async (req, res) => {
     // if (ruleset?.recurring) rules.recurring = (ruleset.recurring === 'true')
     if (ruleset?.active) rules.active = (ruleset.active === 'true')
     let data = { 
-      user_id,
+      user_id: user.id,
       identifier,
       ruleset: rules
     }
     let rule = {}
+    const user_query = user.linked_user_id ? [{ user_id: user.id }, { user_id: user.linked_user_id }] : [{ user_id: user.id }]
+
     if(id){
       rule = await prisma.rules.update({
         where: { 
@@ -34,17 +36,21 @@ export default async (req, res) => {
     }
 
     await prisma.transactions.updateMany({
-      where: { 
-        user_id,
-        OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}],
+      where: {
+        AND: [ 
+          { OR: user_query }, 
+          { OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}] } 
+        ],
       },
       data: rules,
     })
 
     await prisma.recurring.updateMany({
       where: { 
-        user_id,
-        OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}],
+        AND: [ 
+          { OR: user_query }, 
+          { OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}] } 
+        ],
       },
       data: rules,
     })
