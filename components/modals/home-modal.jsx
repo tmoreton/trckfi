@@ -30,6 +30,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
     const { error } = await res.json()
     showError(error)
     setOpen(false)
+    setAccount({})
     if(!error) getNetWorth()
   }
 
