@@ -93,6 +93,7 @@ const recurringSync = async (access_token) => {
             type,
             user_id,
             upcoming_date: upcoming(item),
+            // @ts-ignore
             unified: rule?.ruleset?.unified
           },
         })

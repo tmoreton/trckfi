@@ -1,21 +1,23 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { TrashIcon, BellAlertIcon, XCircleIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { TrashIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
 import { PinkBtn } from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
-import Dropdown from '../dropdown'
 import { useRouter } from 'next/router'
 
 export default function ({ item, setEdit, showError, selected, user }) {
   const defaultGoal = {
     name: null,
-    date: null
+    date: null,
+    unified: null,
+    amount: null
   }
   const [goal, setGoal] = useState(defaultGoal)
   const [date, setDate] = useState(null)
+  const [showEmoji, updateShowEmoji] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -26,6 +28,11 @@ export default function ({ item, setEdit, showError, selected, user }) {
       setDate(null)
     }
   }, [item, selected])
+
+  const updateEmoji = (e) => {
+    setGoal({ ...goal, unified: e.unified })
+    updateShowEmoji(false)
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -83,8 +90,14 @@ export default function ({ item, setEdit, showError, selected, user }) {
                     <div className="mt-3 text-center sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4 flex justify-center">
                         Add Goal!
+                        <span className="ml-4" onClick={() => updateShowEmoji(true)}>
+                          <Emoji unified={goal.unified} size={25} />
+                        </span>
                       </Dialog.Title>
-                      <form onSubmit={add}>
+                      { showEmoji ? 
+                      <EmojiPicker onEmojiClick={updateEmoji}/> 
+                      :
+                      <form onSubmit={addGoal}>
                         <div className="relative z-0 w-full mb-8 group inline-flex">
                           <div className="w-full">
                             <input 
@@ -93,7 +106,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               id="transaction_name" 
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                               required
-                              value={transaction?.custom_name || transaction?.name}
+                              value={goal?.name}
                               onChange={handleChange}
                             />
                             <label 
@@ -112,7 +125,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               id="amount" 
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
                               required
-                              value={transaction?.amount}
+                              value={goal?.amount}
                               onChange={handleChange}
                             />
                             <label 
@@ -125,9 +138,9 @@ export default function ({ item, setEdit, showError, selected, user }) {
                           <div className="relative z-0 w-full mb-6 group">
                             <DatePicker 
                               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer"
-                              selected={startDate}
+                              selected={date}
                               required
-                              onChange={(date) => setStartDate(date)}
+                              onChange={(date) => setDate(date)}
                             />
                             <label 
                               htmlFor="date" 
@@ -157,7 +170,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                             </button>
                           </div>
                         </div>
-                      </form>
+                      </form>}
                     </div>
                   </div>
                 </div>

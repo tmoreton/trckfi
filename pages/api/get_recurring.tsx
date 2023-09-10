@@ -21,11 +21,11 @@ export default async (req, res) => {
           lte: 0,
         },
         NOT: [
-          { primary_category: 'INCOME' },
-          { primary_category: 'ACCOUNT_TRANSFER' },
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
+          // { primary_category: 'INCOME' },
+          // { primary_category: 'ACCOUNT_TRANSFER' },
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
           { frequency: 'UNKNOWN' }
         ],
       },
@@ -49,7 +49,7 @@ export default async (req, res) => {
           lte: 0,
         },
         NOT: [
-          { primary_category: 'INCOME' },
+          // { primary_category: 'INCOME' },
           // { primary_category: 'ACCOUNT_TRANSFER' },
           // { primary_category: 'LOAN_PAYMENTS' },
           // { primary_category: 'TRANSFER_IN' },
@@ -75,11 +75,11 @@ export default async (req, res) => {
           lte: 0,
         },
         NOT: [
-          { primary_category: 'INCOME' },
-          { primary_category: 'ACCOUNT_TRANSFER' },
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
+          // { primary_category: 'INCOME' },
+          // { primary_category: 'ACCOUNT_TRANSFER' },
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
           { frequency: 'UNKNOWN' }
         ],
       },
@@ -103,10 +103,10 @@ export default async (req, res) => {
         },
         NOT: [
           { primary_category: 'INCOME' },
-          { primary_category: 'ACCOUNT_TRANSFER' },
-          { primary_category: 'LOAN_PAYMENTS' },
-          { primary_category: 'TRANSFER_IN' },
-          { primary_category: 'TRANSFER_OUT' },
+          // { primary_category: 'ACCOUNT_TRANSFER' },
+          // { primary_category: 'LOAN_PAYMENTS' },
+          // { primary_category: 'TRANSFER_IN' },
+          // { primary_category: 'TRANSFER_OUT' },
         ],
       },
       include: {
