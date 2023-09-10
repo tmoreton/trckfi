@@ -27,7 +27,7 @@ export default async (req, res) => {
       rule = await prisma.rules.update({
         where: { 
           OR: user_query,
-          id: dd
+          id
         },
         data
       })

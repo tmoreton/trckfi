@@ -49,10 +49,7 @@ export default function Editor({ showError }) {
     if(data?.vision_board){
       store.loadSnapshot(data.vision_board)
       setSavedVision(data.vision_board)
-    } 
-    // else {
-    //   updatePreferences()
-    // }
+    }
   }
 
 	useEffect(() => {
