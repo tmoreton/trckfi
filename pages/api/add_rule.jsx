@@ -26,8 +26,8 @@ export default async (req, res) => {
     if(id){
       rule = await prisma.rules.update({
         where: { 
-          user_id,
-          id
+          OR: user_query,
+          id: dd
         },
         data
       })
@@ -54,6 +54,7 @@ export default async (req, res) => {
       },
       data: rules,
     })
+
     return res.status(200).json({ status: 'OK', data: rule })
   } catch (e) {
     console.error(e)
