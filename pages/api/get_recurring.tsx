@@ -17,9 +17,6 @@ export default async (req, res) => {
         is_active: true,
         // @ts-ignore
         active: true,
-        last_amount: {
-          lte: 0,
-        },
         NOT: [
           // { primary_category: 'INCOME' },
           // { primary_category: 'ACCOUNT_TRANSFER' },
@@ -46,9 +43,6 @@ export default async (req, res) => {
         is_active: true,
         // @ts-ignore
         active: true,
-        last_amount: {
-          lte: 0,
-        },
         NOT: [
           // { primary_category: 'INCOME' },
           // { primary_category: 'ACCOUNT_TRANSFER' },
@@ -67,15 +61,13 @@ export default async (req, res) => {
       },
     })
 
-    const inactive = await prisma.recurring.findMany({
+    const early = await prisma.recurring.findMany({
       where: {
         OR: user_query,
-        is_active: false,
+        is_active: true,
         // @ts-ignore
         active: true,
-        last_amount: {
-          lte: 0,
-        },
+        frequency: 'UNKNOWN',
         NOT: [
           // { primary_category: 'INCOME' },
           // { primary_category: 'ACCOUNT_TRANSFER' },
@@ -83,7 +75,6 @@ export default async (req, res) => {
           // { primary_category: 'TRANSFER_IN' },
           // { primary_category: 'TRANSFER_OUT' },
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
-          { frequency: 'UNKNOWN' }
         ],
       },
       include: {
@@ -94,16 +85,10 @@ export default async (req, res) => {
       }],
     })
 
-    const early = await prisma.recurring.findMany({
+    const inactive = await prisma.recurring.findMany({
       where: {
         OR: user_query,
-        is_active: true,
-        // @ts-ignore
-        active: true,
-        frequency: 'UNKNOWN',
-        last_amount: {
-          lte: 0,
-        },
+        is_active: false,
         NOT: [
           // { primary_category: 'INCOME' },
           // { primary_category: 'ACCOUNT_TRANSFER' },
@@ -111,6 +96,7 @@ export default async (req, res) => {
           // { primary_category: 'TRANSFER_IN' },
           // { primary_category: 'TRANSFER_OUT' },
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { frequency: 'UNKNOWN' }
         ],
       },
       include: {
