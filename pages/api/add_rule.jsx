@@ -36,12 +36,7 @@ export default async (req, res) => {
     await prisma.transactions.updateMany({
       where: { 
         user_id,
-        name: {
-          contains: identifier
-        },
-        merchant_name: {
-          contains: identifier
-        }
+        OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}],
       },
       data: rules,
     })
@@ -49,20 +44,14 @@ export default async (req, res) => {
     await prisma.recurring.updateMany({
       where: { 
         user_id,
-        name: {
-          contains: identifier
-        },
-        merchant_name: {
-          contains: identifier
-        }
+        OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}],
       },
       data: rules,
     })
     return res.status(200).json({ status: 'OK', data: rule })
   } catch (error) {
     console.error(error)
-    // slackMessage(error.message || error.toString())
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+    slackMessage(error.message || error.toString())
+    throw new Error(error)
   }
 }
