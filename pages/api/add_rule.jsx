@@ -32,14 +32,22 @@ export default async (req, res) => {
         data
       })
     } else {
-      rule = await prisma.rules.upsert({
+      rule = await prisma.rules.findUnique({
         where: { 
-          user_id: data.user_id,
+          OR: user_query,
           identifier: data.identifier
-        },
-        update: data,
-        create: data,
+        }
       })
+      if(Object.keys(rule).length <= 0){
+        rule = await prisma.rules.create(data)
+      } else {
+        rule = await prisma.rules.update({
+          where: { 
+            id: rule.id,
+          },
+          data
+        })
+      }
     }
 
     await prisma.transactions.updateMany({
