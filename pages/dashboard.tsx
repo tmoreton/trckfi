@@ -196,9 +196,9 @@ const Dashboard = ({ showError }) => {
         />
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
         <GoalModal user={user} showError={showError} showGoal={showGoal} setShowGoal={setShowGoal}/>
-        <PinkBtn type="button" onClick={() => setShowGoal(true)}>
+        {/* <PinkBtn type="button" onClick={() => setShowGoal(true)}>
           Add Goal
-        </PinkBtn>
+        </PinkBtn> */}
         <Snapshot totalStats={totalStats} />
         { transactions && transactions.length > 1 &&
           <>
