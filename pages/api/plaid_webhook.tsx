@@ -9,7 +9,6 @@ export default async (req, res) => {
     switch (webhook_code) {
       case 'SYNC_UPDATES_AVAILABLE':
         const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
-        slackMessage(`Plaid Webhook Access Token: ${access_token} User ID:${user_id}`)
         transactionsSync(access_token, user_id)
         break;
       case 'RECURRING_TRANSACTIONS_UPDATE':
