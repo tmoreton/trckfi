@@ -74,7 +74,7 @@ const recurringSync = async (access_token) => {
             last_amount: -(item.last_amount.amount),
             account_id: item.account_id,
             // @ts-ignore
-            custom_name: rule?.ruleset?.name || item.merchant_name,
+            custom_name: rule?.ruleset?.custom_name || item.merchant_name,
             // @ts-ignore
             name: item.description,
             merchant_name: item.merchant_name,
@@ -92,7 +92,8 @@ const recurringSync = async (access_token) => {
             status: item.status,
             type,
             user_id,
-            upcoming_date: upcoming(item)
+            upcoming_date: upcoming(item),
+            unified: rule?.ruleset?.unified
           },
         })
       }
