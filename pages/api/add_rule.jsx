@@ -32,7 +32,14 @@ export default async (req, res) => {
         data
       })
     } else {
-      rule = await prisma.rules.create({ data })
+      rule = await prisma.rules.upsert({
+        where: { 
+          user_id: data.user_id,
+          identifier: data.identifier
+        },
+        update: data,
+        create: data,
+      })
     }
 
     await prisma.transactions.updateMany({
