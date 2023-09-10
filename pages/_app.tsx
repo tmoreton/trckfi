@@ -26,14 +26,14 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   
   return (
     <>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-YDKZMNYK8E" />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-LHR2R1YH8Q" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'G-YDKZMNYK8E');
+          gtag('config', 'G-LHR2R1YH8Q');
         `}
       </Script>
       <SessionProvider session={session}>
