@@ -131,7 +131,7 @@ export default function Recurring({ showError }) {
                 <div className="flex items-baseline flex-wrap justify-center gap-y-2 gap-x-4">
                   {stats && stats.map((i) => (
                     <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 rounded-md border-b border border-gray-200 w-48 mb-4">
-                      <dt className="text-md font-xs leading-6 text-gray-600 text-center font-semibold">{`${primary[i.primary_category]?.icon} ${primary[i.primary_category]?.name}`}</dt>
+                      <dt className="text-md font-xs leading-6 text-gray-600 text-center font-semibold">{`${primary[i.primary_category]?.icon || '💸'} ${primary[i.primary_category]?.name || i.primary_category}`}</dt>
 											<dt className="text-xs font-xs leading-6 text-gray-600 text-center font-normal">{i.frequency}<span className="text-xs italic font-normal ml-1 text-gray-600">est.</span></dt>
                       <dd className="text-blue-400 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-center">
                         ${Math.abs(Math.round(i._sum.last_amount))}
