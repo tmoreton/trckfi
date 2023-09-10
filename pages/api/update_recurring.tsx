@@ -25,18 +25,20 @@ export default async (req, res) => {
         }  
       }
     }
+
     await prisma.recurring.update({
       where: { 
         stream_id: item.stream_id
       },
       data: {
         // @ts-ignore
-        custom_name: item.description,
+        custom_name: item.custom_name,
         frequency: item.frequency,
-        is_active: item.is_active === 'true' || false,
+        is_active: item.is_active,
         upcoming_date: upcoming(item)
       }
     })
+    
     return res.status(200).json({ status: 'OK' })
   } catch (error) {
     console.error(error)
