@@ -116,7 +116,7 @@ export default function Recurring({ showError }) {
       <Menu showError={showError}/>
       <DashboardLayout>
         <Meta
-          title="Recurring & Subscriptions"
+          title="Recurring Charges"
           description="Find any unknown recurring transactions"
           image=''
           keywords=''
@@ -305,7 +305,7 @@ export default function Recurring({ showError }) {
 										<tbody className="divide-y divide-gray-200 bg-gray-50">
 											{inactive && inactive.map((i) => (
 												<tr key={i.id}>
-													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-6">
+													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-6 max-w-xs overflow-hidden">
                             { i.custom_name || i.merchant_name || i.name }
 													</td>
 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 inline-flex">{i.account.name.split(' ').slice(0, 3).join(' ')}</td>
