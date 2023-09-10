@@ -36,3 +36,18 @@ a {
 .tl-background {
   border: 2px dashed #db2777;
 }
+
+/* .react-datepicker-popper {
+  position: relative !important;
+} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -180,7 +180,7 @@ export default function Recurring({ showError }) {
 													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 max-w-xs overflow-hidden">
                             { i.custom_name || i.merchant_name || i.name }
 													</td>
-													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500 inline-flex items-center"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">
 														<span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{i.primary_category}</span>
@@ -247,7 +247,7 @@ export default function Recurring({ showError }) {
 													<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 max-w-xs overflow-hidden">
 														{ i.custom_name || i.merchant_name || i.name }
 													</td>
-													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 inline-flex"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
+													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500 inline-flex items-center"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
 													{
 														i.last_amount > 0 ?
