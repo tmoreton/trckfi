@@ -32,10 +32,9 @@ export default async (req, res) => {
   try {
     await transporter.sendMail(body)
     return res.status(200).json({ status: 'OK' })
-  } catch (error) {
-    console.error(error)
-slackMessage(error.message || error.toString())
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error send_email: ' + e.message || e.toString())
+    throw new Error(e)
   }
 }

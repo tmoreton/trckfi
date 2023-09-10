@@ -10,9 +10,10 @@ export default async (req, res) => {
     await prisma.accounts.create({ data })
     await netWorthSync(data.user_id)
     return res.status(200).json({ status: 'OK' })
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-    throw new Error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error add_account: ' + e.message || e.toString())
+    return res.status(500).json({ error: e.message || e.toString() })
+    throw new Error(e)
   }
 }

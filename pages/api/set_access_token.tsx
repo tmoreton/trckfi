@@ -31,11 +31,10 @@ export default async (req, res) => {
     }
 
     return res.status(500).json({ error: 'No User ID', access_token: null})
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error set_access_token: ' + e.message || e.toString())
+    throw new Error(e)
   }
 }
 

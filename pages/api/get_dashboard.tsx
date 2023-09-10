@@ -161,9 +161,10 @@ export default async (req, res) => {
       groupByMonth,
       groupByWeek
     }})
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-    throw new Error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error get_dashboard: ' + e.message || e.toString())
+    return res.status(500).json({ error: e.message || e.toString() })
+    throw new Error(e)
   }
 }

@@ -41,9 +41,9 @@ export default async (req, res) => {
       return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/profile`,
     });
     return res.status(200).json({ data: session.url })
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-throw new Error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error create_bill_portal: ' + e.message || e.toString())
+    throw new Error(e)
   }
 }

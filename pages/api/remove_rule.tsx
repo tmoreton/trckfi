@@ -11,10 +11,10 @@ export default async (req, res) => {
       where: { id }
     })
     return res.status(200).json({ status: 'OK' })
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-throw new Error(error)
-    return res.status(500).json({ error: error.message || error.toString() })
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error remove_rule: ' + e.message || e.toString())
+    return res.status(500).json({ error: e.message || e.toString() })
+    throw new Error(e)
   }
 }

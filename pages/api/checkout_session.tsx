@@ -39,9 +39,9 @@ export default async (req, res) => {
     }
     const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(params);
     return res.status(200).json(checkoutSession)
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-throw new Error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error checkout_session: ' + e.message || e.toString())
+    throw new Error(e)
   }
 }

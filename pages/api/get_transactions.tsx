@@ -34,9 +34,10 @@ export default async (req, res) => {
     transactions = transactions.filter(t => t.account?.active)
     
     return res.status(200).json({ data: transactions })
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-throw new Error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error get_transactions: ' + e.message || e.toString())
+    return res.status(500).json({ error: e.message || e.toString() })
+    throw new Error(e)
   }
 }

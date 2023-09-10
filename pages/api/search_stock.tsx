@@ -8,10 +8,10 @@ export default async (req, res) => {
     const { quotes } = await yahooFinance.search(search)
     const data = quotes.filter(q => q.isYahooFinance)
     return res.status(200).json({ status: 'OK', data })
-  } catch (error) {
-    console.error(error)
-slackMessage(error.message || error.toString())
-throw new Error(error)
-    // return res.status(500).json({ error: error.message || error.toString() })
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error search_stock: ' + e.message || e.toString())
+    return res.status(500).json({ error: e.message || e.toString() })
+    throw new Error(e)
   }
 }

@@ -107,9 +107,9 @@ export default async (req, res) => {
         console.log(`Unhandled event type ${event.type}`);
     }
     return res.status(200).json({ data: event })
-  } catch (error) {
-    console.error(error)
-    slackMessage(error.message || error.toString())
-throw new Error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error stripe_webhook: ' + e.message || e.toString())
+    throw new Error(e)
   }
 }
