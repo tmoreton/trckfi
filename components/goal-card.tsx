@@ -33,9 +33,9 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
         body: formData,
         headers: {
           'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': 'true',
           'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-          'Content-Type': 'application/json',
+          'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
         },
         method: 'POST',
       })
