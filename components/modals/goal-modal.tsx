@@ -26,20 +26,19 @@ export default function ({ showGoal, setShowGoal, showError, user }) {
 
   const addGoal = async (e) => {
     e.preventDefault()
-    console.log(goal)
-    // const res = await fetch(`/api/add_goal`, {
-    //   body: JSON.stringify({
-    //     user,
-    //     goal
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // const { error } = await res.json()
-    // showError(error)
-    // if(!error) router.reload()
+    const res = await fetch(`/api/add_goal`, {
+      body: JSON.stringify({
+        user,
+        goal
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) router.reload()
   }
 
   const remove = async () => {
