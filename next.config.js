@@ -1,16 +1,23 @@
 module.exports = {
-  experimental: {
-    swcPlugins: [
-      [
-        'next-superjson-plugin',
-        {
-          excluded: [],
-        },
-      ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com'
+      },
     ],
   },
+  // experimental: {
+  //   swcPlugins: [
+  //     [
+  //       'next-superjson-plugin',
+  //       {
+  //         excluded: [],
+  //       },
+  //     ],
+  //   ],
+  // },
 }
-
 
 // Injected content via Sentry wizard below
 

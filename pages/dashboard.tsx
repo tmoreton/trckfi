@@ -5,7 +5,6 @@ import Snapshot from "../components/snapshot"
 import LoadingModal from '../components/modals/loading-modal'
 import Table from '../components/table'
 import TransactionModal from '../components/modals/transaction-modal'
-import GoalModal from '../components/modals/goal-modal'
 import DatePicker from '../components/modals/date-picker-modal'
 import Empty from '../components/empty'
 import { DateTime } from "luxon"
@@ -16,14 +15,12 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Meta from '../components/meta'
 import Notification from '../components/notification'
-import { PinkBtn } from '../components/pink-btn'
 
 const Dashboard = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
-  const [showGoal, setShowGoal] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [selected, setSelected] = useState([])
   const [transactions, setTransactions] = useLocalStorage('transactions',null)
@@ -195,10 +192,6 @@ const Dashboard = ({ showError }) => {
           keywords=''
         />
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
-        <GoalModal user={user} showError={showError} showGoal={showGoal} setShowGoal={setShowGoal}/>
-        {/* <PinkBtn type="button" onClick={() => setShowGoal(true)}>
-          Add Goal
-        </PinkBtn> */}
         <Snapshot totalStats={totalStats} />
         { transactions && transactions.length > 1 &&
           <>

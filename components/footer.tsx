@@ -28,7 +28,7 @@ const Footer = () => {
           {social_icons.map((item) => (
             <a key={item.name} href={item.href} target="_blank" className="text-pink-600 hover:text-pink-500">
               <span className="sr-only">{item.name}</span>
-              <item.icon className="h-10 w-10" aria-hidden="true" />
+              <item.icon className="h-8 w-8" aria-hidden="true" />
             </a>
           ))}
         </div>
