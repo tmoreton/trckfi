@@ -71,10 +71,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
             <div className="relative z-0 w-full mb-8 group inline-flex border-b pb-4">
               <div className="text-xl text-gray-900 font-normal w-screen">
                 { goal.image ?
-                  <img
-                    src={goal.image}
-                    className="rounded-lg object-cover"
-                  />
+                  <img src={goal.image} className="rounded-lg object-cover w-full h-[225px]"/>
                   :
                   <button
                     type="button"
