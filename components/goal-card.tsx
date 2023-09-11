@@ -100,7 +100,8 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
             <div className="relative z-0 w-full mb-8 group inline-flex border-b pb-4">
               <div className="text-xl text-gray-900 font-normal w-screen">
                 <CldUploadWidget
-                  secure={true}
+                  // @ts-ignore
+                  secure="true"
                   uploadPreset="g2m9wg7k"
                   onUpload={(result, widget) => {
                     // @ts-ignore
