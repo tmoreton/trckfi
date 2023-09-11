@@ -32,6 +32,9 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
       const res = await fetch(`https://api.cloudinary.com/v1_1/dd2svpjuq/image/upload`, {
         body: formData,
         headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
           'Content-Type': 'application/json',
         },
         method: 'POST',
