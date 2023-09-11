@@ -11,8 +11,6 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const [edited, setEdited] = useState(false)
    // @ts-ignore
   const cld = new Cloudinary({cloud: {cloudName: 'dd2svpjuq', secure: true }, secure: true})
-  const [image, setImage] = useState(null);
-  const [createObjectURL, setCreateObjectURL] = useState(null);
   const [file, setFile] = useState(null);
   const [filename, setFilename] = useState('');
 
@@ -26,41 +24,27 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset','YOUR_UPLOAD_PRESET_NAME');
-
+    formData.append('upload_preset','g2m9wg7k');
+    console.log(file);
+    console.log(formData);
     try {
-      const res = await fetch(`https://api.cloudinary.com/v1_1/dd2svpjuq/image/upload`, {
-        body: formData,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': 'true',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
-        },
-        method: 'POST',
-      })
-      console.log(res);
+      // const response = await axios.post(
+      //   'https://api.cloudinary.com/v1_1/your_cloud_name/image/upload',
+      //   formData
+      // );
+      // const response = await fetch(`https://api.cloudinary.com/v1_1/dd2svpjuq/image/upload`, {
+      //   body: JSON.stringify({
+      //     formData
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   method: 'POST',
+      // })
+      
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const uploadToClient = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const i = event.target.files[0];
-      setImage(i);
-      setCreateObjectURL(URL.createObjectURL(i))
-    }
-  };
-
-  const uploadToServer = async (event) => {
-    const body = new FormData()
-    body.append("file", image)
-    console.log(body)
-    const response = await fetch(`https://api.cloudinary.com/v1_1/dd2svpjuq/image/upload`, {
-      method: "POST",
-      body
-    });
   };
 
   const handleChange = (e) => {
@@ -102,7 +86,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <input type="file" onChange={handleFileChange} />
         <label>{filename}</label>
@@ -115,15 +99,8 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
           <div className="mt-3 text-center sm:mt-0 sm:text-left">
             <div className="relative z-0 w-full mb-8 group inline-flex border-b pb-4">
               <div className="text-xl text-gray-900 font-normal w-screen">
-              <input type="file" name="myImage" onChange={uploadToClient} />
-          <button
-            className="btn btn-primary"
-            type="submit"
-            onClick={uploadToServer}
-          >
-            Send to server
-          </button>
                 <CldUploadWidget
+                  secure={true}
                   uploadPreset="g2m9wg7k"
                   onUpload={(result, widget) => {
                     // @ts-ignore

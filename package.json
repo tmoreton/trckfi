@@ -38,6 +38,7 @@
     "@vercel/postgres": "^0.3.2",
     "chart.js": "^4.3.0",
     "classnames": "^2.3.1",
+    "cloudinary": "^1.40.0",
     "date-fns": "^2.28.0",
     "emoji-picker-react": "^4.4.9",
     "eslint": "8.43.0",
