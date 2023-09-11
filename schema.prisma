@@ -55,6 +55,7 @@ model User {
   email_weekly    Boolean        @default(true)
   email_monthly   Boolean        @default(true)
   email_alert     Boolean        @default(true)
+  Goals           Goals[]
 
   @@map("users")
 }
@@ -275,4 +276,19 @@ model Emails {
   created_at       DateTime? @default(now())
 
   @@map("emails")
+}
+
+model Goals {
+  id             String    @id @default(cuid())
+  name           String?
+  amount         Decimal?  @db.Decimal(9, 2)
+  current_amount Decimal?  @db.Decimal(9, 2)
+  image          String?
+  date           DateTime?
+  updated_at     DateTime? @updatedAt
+  created_at     DateTime? @default(now())
+  user_id        String?   @map("user_id")
+  user           User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("goals")
 }

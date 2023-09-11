@@ -1,4 +1,12 @@
 module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
@@ -7,16 +15,16 @@ module.exports = {
       },
     ],
   },
-  // experimental: {
-  //   swcPlugins: [
-  //     [
-  //       'next-superjson-plugin',
-  //       {
-  //         excluded: [],
-  //       },
-  //     ],
-  //   ],
-  // },
+  experimental: {
+    swcPlugins: [
+      [
+        'next-superjson-plugin',
+        {
+          excluded: [],
+        },
+      ],
+    ],
+  },
 }
 
 // Injected content via Sentry wizard below
