@@ -10,7 +10,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const [goal, setGoal] = useState(defaultGoal)
   const [edited, setEdited] = useState(false)
    // @ts-ignore
-  const cld = new Cloudinary({cloud: {cloudName: 'dd2svpjuq', secure: true }})
+  const cld = new Cloudinary({cloud: {cloudName: 'dd2svpjuq', secure: true }, secure: true})
 
   const handleChange = (e) => {
     setEdited(true)
