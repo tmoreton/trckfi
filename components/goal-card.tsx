@@ -9,7 +9,7 @@ import { DateTime } from "luxon"
 export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const [goal, setGoal] = useState(defaultGoal)
   const [edited, setEdited] = useState(false)
-  const cld = new Cloudinary({cloud: {cloudName: 'dd2svpjuq'}})
+  const cld = new Cloudinary({cloud: {cloudName: 'dd2svpjuq', secure: true }})
 
   const handleChange = (e) => {
     setEdited(true)
@@ -58,7 +58,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
                 uploadPreset="g2m9wg7k"
                 onUpload={(result, widget) => {
                   // @ts-ignore
-                  setGoal({ ...goal, image: result.info?.url })
+                  setGoal({ ...goal, image: result.info?.secure_url })
                   widget.close()
                 }}
               >
