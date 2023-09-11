@@ -15,7 +15,7 @@ const defaultGoal = {
   date: null,
   current_amount: null,
   amount: null,
-  image: '',
+  image: null,
   user_id: null
 }
 
@@ -62,8 +62,7 @@ const Goals = ({ showError }) => {
         />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 pb-12">
           {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} showError={showError}/>)}
-          { goal ? <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} showError={showError}/>
-          :
+          { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} showError={showError}/>}
           <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200">
             <button
               type="button"
@@ -76,7 +75,6 @@ const Goals = ({ showError }) => {
               </div>
             </button>
           </div>
-          }
         </div>
         {/* <GoalModal user={user} showError={showError} showGoal={showGoal} setShowGoal={setShowGoal}/>
         <PinkBtn type="button" onClick={() => setShowGoal(true)}>

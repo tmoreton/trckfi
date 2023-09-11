@@ -3,45 +3,24 @@ import { ArrowUpTrayIcon, TrashIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../lib/lodash'
 import { PinkBtn } from '../components/pink-btn'
 import { useState } from 'react'
-import { Cloudinary } from "@cloudinary/url-gen";
 import { DateTime } from "luxon"
 
 export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const [goal, setGoal] = useState(defaultGoal)
   const [edited, setEdited] = useState(false)
-   // @ts-ignore
-  const cld = new Cloudinary({cloud: {cloudName: 'dd2svpjuq', secure: 'true' }, secure: 'true'})
-  const [file, setFile] = useState(null);
-  const [filename, setFilename] = useState('');
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-    setFilename(event.target.files[0].name);
-  };
-
-  const handleSubmit = async (event) => {
+  const handleFileChange = async (event) => {
     event.preventDefault();
-
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('file', event.target.files[0]);
     formData.append('upload_preset','g2m9wg7k');
-    console.log(file);
-    console.log(formData);
     try {
-      // const response = await axios.post(
-      //   'https://api.cloudinary.com/v1_1/your_cloud_name/image/upload',
-      //   formData
-      // );
-      // const response = await fetch(`https://api.cloudinary.com/v1_1/dd2svpjuq/image/upload`, {
-      //   body: JSON.stringify({
-      //     formData
-      //   }),
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   method: 'POST',
-      // })
-      
+      const res = await fetch(`https://api.cloudinary.com/v1_1/dd2svpjuq/image/upload`, {
+        body: formData,
+        method: 'POST',
+      })
+      let data = await res.json()
+      setGoal({ ...goal, image: data?.secure_url })
     } catch (error) {
       console.error(error);
     }
@@ -86,58 +65,28 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input type="file" onChange={handleFileChange} />
-        <label>{filename}</label>
-      </div>
-      <button type="submit">Upload</button>
-    </form>
-      
       <form onSubmit={addGoal}>
         <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200">
           <div className="mt-3 text-center sm:mt-0 sm:text-left">
             <div className="relative z-0 w-full mb-8 group inline-flex border-b pb-4">
               <div className="text-xl text-gray-900 font-normal w-screen">
-                <CldUploadWidget
-                  // @ts-ignore
-                  secure="true"
-                  uploadPreset="g2m9wg7k"
-                  onUpload={(result, widget) => {
-                    // @ts-ignore
-                    setGoal({ ...goal, image: result.info?.secure_url })
-                    widget.close()
-                  }}
-                >
-                  {({ open }) => {
-                    function handleOnClick(e) {
-                      e.preventDefault();
-                      open();
-                    }
-                    return (
-                      <>
-                        { goal.image ?
-                          <img
-                            onClick={handleOnClick}
-                            src={goal.image}
-                            className="rounded-lg object-cover"
-                          />
-                          :
-                          <button
-                            onClick={handleOnClick}
-                            type="button"
-                            className="hover:text-gray-400 h-25 relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          >
-                            <ArrowUpTrayIcon className="mx-auto h-10 w-10 text-gray-500" aria-hidden="true" />
-                            <div className="flex justify-center items-center mt-3">
-                              <span className="block text-xl font-semibold text-gray-500">Upload Image</span>
-                            </div>
-                          </button>
-                        }
-                      </>
-                    );
-                  }}
-                </CldUploadWidget>
+                { goal.image ?
+                  <img
+                    src={goal.image}
+                    className="rounded-lg object-cover"
+                  />
+                  :
+                  <button
+                    type="button"
+                    className="hover:text-gray-400 h-25 relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    <input type="file" name="photo" className="opacity-0 absolute w-full h-full top-0 left-0" onChange={handleFileChange}/>
+                    <ArrowUpTrayIcon className="mx-auto h-10 w-10 text-gray-500" aria-hidden="true" />
+                    <div className="flex justify-center items-center mt-3">
+                      <span className="block text-xl font-semibold text-gray-500">Upload Image</span>
+                    </div>
+                  </button>
+                }
                 <div className="py-1 pt-5">
                   <p>My goal is to save for: </p>
                   <input 
