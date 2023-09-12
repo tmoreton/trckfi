@@ -5,7 +5,8 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "typecheck": "tsc",
-    "postinstall": "prisma generate patch-package"
+    "postinstall": "prisma generate patch-package",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
@@ -52,6 +53,7 @@
     "next-auth": "^4.22.1",
     "next-cloudinary": "^4.21.0",
     "next-connect": "^1.0.0",
+    "next-sitemap": "^4.2.3",
     "next-superjson-plugin": "^0.5.8",
     "nodemailer": "^6.9.3",
     "npm": "^9.8.1",
