@@ -51,6 +51,13 @@ const recurringSync = async (access_token) => {
           }  
         }
       }
+
+      const checkBool = (rule) => {
+        if(rule?.ruleset?.active !== null){
+          return rule?.ruleset?.active === 'true'
+        } 
+        return true
+      }
       
       const add_transaction = async (item, type) => {
         let transaction_name = item.merchant_name || item.description
@@ -88,7 +95,7 @@ const recurringSync = async (access_token) => {
             transaction_ids: item.transaction_ids,
             is_active: item.is_active,
             // @ts-ignore
-            active: rule?.ruleset?.active && (rule?.ruleset?.active === 'true') || true,
+            active: checkBool(rule),
             status: item.status,
             type,
             user_id,

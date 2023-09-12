@@ -40,6 +40,13 @@ const transactionsSync = async (access_token, user_id) => {
       }
     }
 
+    const checkBool = (rule) => {
+      if(rule?.ruleset?.active !== null){
+        return rule?.ruleset?.active === 'true'
+      } 
+      return true
+    }
+
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
     let removed = response.data.removed
@@ -85,10 +92,9 @@ const transactionsSync = async (access_token, user_id) => {
             item_id: plaid.item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
+            active: checkBool(rule),
             // @ts-ignore
-            active: rule?.ruleset?.active && (rule?.ruleset?.active === 'true') || true,
-            // @ts-ignore
-            recurring: rule?.ruleset?.recurring && (rule?.ruleset?.recurring === 'true') || false,
+            recurring: false,
           },
         })
       }
