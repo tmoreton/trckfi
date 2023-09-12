@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import DashboardLayout from "../components/dashboard-layout"
 import { useSession } from "next-auth/react"
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 import Notification from '../components/notification'
 import GoalCard from '../components/goal-card'
 import { useLocalStorage } from '../utils/useLocalStorage'

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Container from '../components/container'
 import Layout from '../components/layout'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 import Image from 'next/image'
 
 const stats = [

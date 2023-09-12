@@ -16,6 +16,7 @@ import PlaidLink from '../components/plaid-link';
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
+import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
 import SetupModal from '../components/modals/setup-modal'
 import { classNames } from '../lib/lodash'

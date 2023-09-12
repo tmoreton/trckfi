@@ -1,6 +1,7 @@
 import Menu from '../components/menu'
 import Container from "../components/container"
 import Layout from "../components/layout"
+import Meta from '../components/meta'
 
 const faqs = [
   {
