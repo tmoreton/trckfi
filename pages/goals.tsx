@@ -45,8 +45,20 @@ const Goals = ({ showError }) => {
     if(!error) setGoals(data)
   }
 
-  const remove = async () => {
-
+  const remove = async (id) => {
+    const res = await fetch(`/api/remove_goal`, {
+      body: JSON.stringify({
+        id,
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    if(!error) getGoals()
   }
 
   return (
@@ -54,7 +66,7 @@ const Goals = ({ showError }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 pb-12">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 pb-12">
           {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} showError={showError}/>)}
           { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} showError={showError}/>}
           <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200">

@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react'
 import { useSession } from "next-auth/react"
 import DashboardLayout from "../components/dashboard-layout"
 import Menu from '../components/menu'
-import Meta from '../components/meta'
 import { addComma } from '../lib/lodash'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
 import RecurringModal from '../components/modals/recurring-modal'
 import { DateTime } from "luxon"
-import { primary } from '../lib/primary_categories'
 
 export default function Recurring({ showError }) {
 	const { data: session } = useSession()
@@ -19,6 +17,10 @@ export default function Recurring({ showError }) {
   const [stats, setStats] = useLocalStorage('recurring_stats', null)
 	const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
+	const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
+		income: 0,
+		expense: 0
+	})
   const [open, setOpen] = useState(false)
 
 	useEffect(() => {
@@ -38,13 +40,17 @@ export default function Recurring({ showError }) {
       },
       method: 'POST',
     })
-    const { error, recurring, inactive, early, stats } = await res.json()
+    const { error, recurring, inactive, early, stats,  monthly_expense, monthly_income } = await res.json()
 		setLoading(false)
     showError(error)
 		setRecurring(recurring)
 		setInactive(inactive)
 		setEarly(early)
     setStats(stats)
+		setTotals({
+			income: monthly_income._sum.last_amount, 
+			expense: monthly_expense._sum.last_amount
+		})
   }
 
   const updateRecurring = async () => {
@@ -116,14 +122,24 @@ export default function Recurring({ showError }) {
       <DashboardLayout>
 				<LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
         <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
-				<div className="px-4 sm:px-6 lg:px-8">
+				<dl className="grid grid-cols-1 gap-1 overflow-hidden text-center sm:grid-cols-2 lg:grid-cols-2 pb-4">
+					<div className="flex flex-col bg-gray-400/5 p-4">
+						<dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Income<span className="text-xs italic font-normal ml-1">est.</span></dt>
+						<dd className="order-first text-4xl font-semibold text-green-600">${Math.round(totals.income)}</dd>
+					</div>
+					<div className="flex flex-col bg-gray-400/5 p-4">
+						<dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Expense<span className="text-xs italic font-normal ml-1">est.</span></dt>
+						<dd className="order-first text-4xl font-bold text-red-600">${Math.round(Math.abs(totals.expense))}</dd>
+					</div>
+				</dl>
+				<div className="sm:px-6 lg:px-0">
           <div className="relative isolate overflow-hidden">
             {/* Stats */}
             <div >
               <dl className="mx-auto grid max-w-7xl lg:px-2 xl:px-0">
                 <div className="flex items-baseline flex-wrap justify-center gap-y-2 gap-x-4">
                   {stats && stats.map((i) => (
-                    <div className="relative overflow-hidden rounded-lg bg-white py-4 rounded-md border-b border border-gray-200 w-[185px] mb-4 text-gray-600 text-center">
+                    <div className="relative overflow-hidden rounded-lg bg-white py-4 rounded-md border-b border border-gray-200 w-[196px] mb-4 text-gray-600 text-center">
                       <dt className="text-sm font-semibold">{`${i.primary_category.split('_').join(' ')}`}</dt>
 											<dt className="text-xs font-normal">{i.frequency}<span className="text-xs italic font-normal ml-1">est.</span></dt>
                       <dd className="text-blue-400 w-full flex-none text-2xl font-bold tracking-tight">

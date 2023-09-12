@@ -35,6 +35,40 @@ export default async (req, res) => {
       }],
     })
 
+    let monthly_expense = await prisma.recurring.aggregate({
+      where: {
+        OR: user_query,
+        is_active: true,
+        // @ts-ignore
+        last_amount: {
+          lte: 0,
+        },
+        active: true,
+        frequency: 'MONTHLY',
+        NOT: [{ detailed_category: 'CREDIT_CARD_PAYMENT' }],
+      },
+      _sum: {
+        last_amount: true,
+      },
+    })
+
+    let monthly_income = await prisma.recurring.aggregate({
+      where: {
+        OR: user_query,
+        is_active: true,
+        // @ts-ignore
+        last_amount: {
+          gte: 0,
+        },
+        active: true,
+        frequency: 'MONTHLY',
+        NOT: [{ detailed_category: 'CREDIT_CARD_PAYMENT' }],
+      },
+      _sum: {
+        last_amount: true,
+      },
+    })
+
     // @ts-ignore
     const stats = await prisma.recurring.groupBy({
       by: ['frequency', 'primary_category'],
@@ -107,7 +141,7 @@ export default async (req, res) => {
       }],
     })
 
-    return res.status(200).json({ status: 'ok', recurring, inactive, early, stats })
+    return res.status(200).json({ status: 'ok', recurring, inactive, early, stats, monthly_expense, monthly_income })
   } catch (e) {
     console.error(e)
     slackMessage('Error get_recurring: ' + e.message || e.toString())
