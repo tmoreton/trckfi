@@ -14,7 +14,8 @@ export default async (req, res) => {
             id: i
           },
           data: { 
-            active: false
+            active: false,
+            user_id: null
           }
         })
       })
@@ -24,7 +25,8 @@ export default async (req, res) => {
           id: transaction.id
         },
         data: { 
-          active: false
+          active: false,
+          user_id: null
         }
       })
     }
@@ -33,6 +35,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error remove_transaction: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }
