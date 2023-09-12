@@ -4,7 +4,7 @@ import {
   ChartBarIcon,
   UserCircleIcon,
   BanknotesIcon,
-  AdjustmentsHorizontalIcon,
+  SparklesIcon,
   ChatBubbleLeftEllipsisIcon,
   CloudIcon,
   ArrowPathIcon
@@ -18,6 +18,7 @@ const secondaryNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: BanknotesIcon },
   { name: 'Net Worth & Accounts', href: '/accounts', icon: ChartBarIcon },
   { name: 'Recurring Charges', href: '/recurring', icon: ArrowPathIcon },
+  { name: 'Goals', href: '/goals', icon: SparklesIcon },
   { name: 'Profile', href: '/profile', icon: UserCircleIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
 ]

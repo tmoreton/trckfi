@@ -4,6 +4,7 @@ import { PinkBtn } from '../components/pink-btn'
 import { useState } from 'react'
 import { DateTime } from "luxon"
 import { useRouter } from 'next/router'
+import { commaShort } from '../lib/lodash'
 
 export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const [goal, setGoal] = useState(defaultGoal)
@@ -60,7 +61,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
     if(date && amount && current_amount){
       let difference = DateTime.fromISO(goal.date).diff(DateTime.now(), ['months']).toObject()
       let months = Math.round(difference.months)
-      return `You will need to save $${Math.round(goal_amount/difference.months)} over the next ${months} months to hit your goal 🎉`
+      return `You will need to save ${commaShort(goal_amount/difference.months)} over the next ${months} months to hit your goal 🎉`
     }
 	}
 
