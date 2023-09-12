@@ -8,6 +8,7 @@ import Menu from '../components/menu'
 import Notification from '../components/notification'
 import GoalCard from '../components/goal-card'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import { commaShort } from '../lib/lodash'
 
 const defaultGoal = {
   name: null,
@@ -108,12 +109,12 @@ const Goals = ({ showError }) => {
               </select>
               of expenses
               <span className="text-red-600 pl-2 underline font-bold">
-                ${Math.round(Math.abs(suggestion.expenses))}
+                {commaShort(suggestion.expenses)}
                 <span className="text-xs mr-2">/m</span>
               </span>
               and income
               <span className="text-green-600 pl-2 underline font-bold">
-                ${Math.round(suggestion.income)}
+                {commaShort(suggestion.income)}
                 <span className="text-xs mr-2">/m</span>
               </span>
               {
@@ -121,7 +122,7 @@ const Goals = ({ showError }) => {
                 <>
                   you are on pace to hit your goal of 
                   <span className="text-pink-600 pl-2 underline font-bold">
-                    ${Math.round(Math.abs(suggestion.goals))}
+                    {commaShort(suggestion.goals)}
                     <span className="text-xs mr-2">/m</span>
                   </span>
                   towards your goals 🎉
@@ -130,7 +131,7 @@ const Goals = ({ showError }) => {
                 <>
                   you would need to reduce your expenses
                   <span className="text-pink-600 pl-2 underline font-bold">
-                    ${Math.round(Math.abs(suggestion.expenses)-suggestion.income)}
+                    {commaShort(Math.abs(suggestion.expenses)-suggestion.income)}
                     <span className="text-xs mr-2">/m</span>
                   </span>
                   to achieve your goals, you got this!
