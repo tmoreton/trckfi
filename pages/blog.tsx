@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Menu from '../components/menu'
 import Blog from '../components/blog'
-import Meta from '../components/meta'
 
 export default function Index({ allPosts, showError }) {
   return (

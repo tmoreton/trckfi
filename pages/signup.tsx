@@ -6,7 +6,6 @@ import { getSession } from 'next-auth/react'
 import ConfettiExplosion from 'react-confetti-explosion'
 import getStripe from '../utils/get-stripejs'
 import LoadingModal from '../components/modals/loading-modal'
-import Meta from '../components/meta'
 
 export default function ({ csrfToken, user, showError, referral_id }) {
   const [checked, setChecked] = useState(true)

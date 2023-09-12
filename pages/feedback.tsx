@@ -3,7 +3,6 @@ import { useState } from 'react'
 import Container from '../components/container'
 import Menu from '../components/menu'
 import DashboardLayout from "../components/dashboard-layout"
-import Meta from '../components/meta'
 
 export default function ({ showError }) {
   const { data: session } = useSession()

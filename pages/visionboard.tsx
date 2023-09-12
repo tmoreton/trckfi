@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from '../components/dashboard-layout'
 import Menu from '../components/menu'
-import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'

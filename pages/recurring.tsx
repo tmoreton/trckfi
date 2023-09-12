@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useSession } from "next-auth/react"
 import DashboardLayout from "../components/dashboard-layout"
 import Menu from '../components/menu'
-import Meta from '../components/meta'
 import { addComma } from '../lib/lodash'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
