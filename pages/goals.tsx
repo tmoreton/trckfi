@@ -118,7 +118,7 @@ const Goals = ({ showError }) => {
                 <span className="text-xs mr-2">/m</span>
               </span>
               {
-                Math.abs(suggestion.expenses) < suggestion.income ?
+                (Math.abs(suggestion.expenses) + suggestion.goals) < suggestion.income  ?
                 <>
                   you are on pace to hit your goal of 
                   <span className="text-pink-600 pl-2 underline font-bold">
@@ -131,7 +131,7 @@ const Goals = ({ showError }) => {
                 <>
                   you would need to reduce your expenses
                   <span className="text-pink-600 pl-2 underline font-bold">
-                    {commaShort(Math.abs(suggestion.expenses)-suggestion.income)}
+                    {commaShort((Math.abs(suggestion.expenses) + suggestion.goals)-suggestion.income)}
                     <span className="text-xs mr-2">/m</span>
                   </span>
                   to achieve your goals, you got this!
