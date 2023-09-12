@@ -284,7 +284,7 @@ model Goals {
   amount         Decimal?  @db.Decimal(9, 2)
   current_amount Decimal?  @db.Decimal(9, 2)
   image          String?
-  date           DateTime?
+  date           String?
   updated_at     DateTime? @updatedAt
   created_at     DateTime? @default(now())
   user_id        String?   @map("user_id")

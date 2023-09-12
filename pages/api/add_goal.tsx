@@ -7,18 +7,15 @@ export default async (req, res) => {
   if (!goal) return res.status(500).json({ error: 'No goal provided' })
   try {
     if(goal.id){
-      let data = goal
-      data.date = new Date(goal.date)
       // @ts-ignore
       await prisma.goals.update({
         where: { 
           id: goal.id
         },
-        data
+        data: goal
       })
     } else {
       let data = goal
-      data.date = new Date(goal.date)
       // @ts-ignore
       data.user_id = user.id
       // @ts-ignore

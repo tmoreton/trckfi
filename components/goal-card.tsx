@@ -1,13 +1,14 @@
-import { CldUploadWidget } from 'next-cloudinary';
 import { ArrowUpTrayIcon, TrashIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../lib/lodash'
 import { PinkBtn } from '../components/pink-btn'
 import { useState } from 'react'
 import { DateTime } from "luxon"
+import { useRouter } from 'next/router'
 
 export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const [goal, setGoal] = useState(defaultGoal)
   const [edited, setEdited] = useState(false)
+  const router = useRouter()
 
   const handleFileChange = async (event) => {
     event.preventDefault();
@@ -49,7 +50,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
         method: 'POST',
       })
       const { error } = await res.json()
-      if(!error) getGoals()
+      if(!error) router.reload()
     }
   }
 
@@ -59,7 +60,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
     if(date && amount && current_amount){
       let difference = DateTime.fromISO(goal.date).diff(DateTime.now(), ['months']).toObject()
       let months = Math.round(difference.months)
-      return `You will need to save $${Math.round(goal_amount/months)} over the next ${months} months to hit your goal 🎉`
+      return `You will need to save $${Math.round(goal_amount/difference.months)} over the next ${months} months to hit your goal 🎉`
     }
 	}
 
@@ -135,7 +136,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
                     'appearance-none focus:outline-none pl-2 w-[160px] font-bold'
                   )}
                   required
-                  value={DateTime.fromISO(goal?.date).toFormat('yyyy-MM-dd')}
+                  value={goal?.date}
                   onChange={handleChange}
                 />
               </div>
