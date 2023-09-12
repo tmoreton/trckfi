@@ -29,12 +29,6 @@ const team = [
 export default function About({ showError }) {
   return (
     <Layout>
-      <Meta
-        title="About Us"
-        description="About the founders of Trckfi"
-        image=''
-        keywords=''
-      />
       <Menu showError={showError}/>
       <Container>
         <div className="bg-white">

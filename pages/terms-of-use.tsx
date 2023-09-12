@@ -6,12 +6,6 @@ import Meta from '../components/meta'
 export default function ({ showError }) {
   return (
     <Layout>
-      <Meta
-        title="Terms"
-        description="Trckfi is transparent about how your data is used and stored"
-        image=''
-        keywords=''
-      />
       <Menu showError={showError} />
       <Container>
         <div className="bg-white">

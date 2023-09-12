@@ -114,12 +114,6 @@ export default function Recurring({ showError }) {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
-        <Meta
-          title="Recurring Charges"
-          description="Find any unknown recurring transactions"
-          image=''
-          keywords=''
-        />
 				<LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
         <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
 				<div className="px-4 sm:px-6 lg:px-8">

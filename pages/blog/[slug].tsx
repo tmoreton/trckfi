@@ -24,12 +24,6 @@ export default function Post({ post, preview, showError }) {
         ) : (
           <>
             <article className="mb-32">
-              <Meta
-                title={title}
-                description={post.excerpt}
-                image={post.coverImage}
-                keywords={post.keywords}
-              />
               <Menu showError={showError}/>
               <PostHeader
                 title={post.title}

@@ -206,12 +206,6 @@ const Accounts = ({ showError }) => {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
-        <Meta
-          title="Accounts"
-          description="A place to organize your accounts"
-          image=''
-          keywords=''
-        />
         <LoadingModal refreshing={refreshing} text='Updating Your Accounts...'/>
         <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={refresh}/>
         <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={refresh}/>

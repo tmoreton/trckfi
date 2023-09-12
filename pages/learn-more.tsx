@@ -9,12 +9,6 @@ export default function ({ showError }) {
 
   return (
     <Layout>
-      <Meta
-        title="Trckfi"
-        description=""
-        image=''
-        keywords=''
-      />
       <Menu showError={showError}/>
       <Hero />
       <FeatureCenter />

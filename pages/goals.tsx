@@ -54,12 +54,6 @@ const Goals = ({ showError }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
-        <Meta
-          title="Goals"
-          description=""
-          image=''
-          keywords=''
-        />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 pb-12">
           {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} showError={showError}/>)}
           { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} showError={showError}/>}

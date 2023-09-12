@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
 import ErrorModal from '../components/modals/error-modal'
 import AuthGuard from '../utils/authGuard'
+import Meta from '../components/meta'
 
 import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
@@ -26,6 +27,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   
   return (
     <>
+      <Meta />
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-YDKZMNYK8E" />
       <Script id="google-analytics">
         {`

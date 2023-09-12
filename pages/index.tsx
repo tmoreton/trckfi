@@ -9,12 +9,6 @@ import Newsletter from '../components/newsletter'
 export default function Index({ showError }) {
   return (
     <Layout>
-      <Meta
-        title="Trckfi"
-        description=''
-        image=''
-        keywords=''
-      />
       <Menu showError={showError}/>
       <Hero />
       <AccountNetworth />

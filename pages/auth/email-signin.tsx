@@ -33,12 +33,6 @@ export default function SignIn({ csrfToken, showError }) {
 
   return (
     <>
-      <Meta
-        title="Login"
-        description="Trckfi Login"
-        image=''
-        keywords=''
-      />
       {
         submitted ?
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">

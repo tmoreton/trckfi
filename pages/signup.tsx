@@ -65,12 +65,6 @@ export default function ({ csrfToken, user, showError, referral_id }) {
 
   if (!user?.email) return (
     <>
-      <Meta
-        title="Sign Up"
-        description="Sign up for Trckfi today!"
-        image=''
-        keywords=''
-      />
       {
         submitted ?
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">

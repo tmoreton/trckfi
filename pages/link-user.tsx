@@ -20,12 +20,6 @@ export default function ({ showError, access_code, csrfToken, error, email }) {
 
   return (
     <Layout>
-      <Meta
-        title="Sign Up"
-        description="Sign up for Trckfi today!"
-        image=''
-        keywords=''
-      />
       <Container>
         <Menu showError={showError}/>
         <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">

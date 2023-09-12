@@ -185,12 +185,6 @@ const Dashboard = ({ showError }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
-        <Meta
-          title="Dashboard"
-          description="Your finances all in one platform"
-          image=''
-          keywords=''
-        />
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
         <Snapshot totalStats={totalStats} />
         { transactions && transactions.length > 1 &&

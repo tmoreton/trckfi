@@ -8,12 +8,6 @@ import Meta from '../components/meta'
 export default function Index({ allPosts, showError }) {
   return (
     <Layout>
-      <Meta
-        title="Blog"
-        description="Learn about money tips and best practices"
-        image=''
-        keywords=''
-      />
       <Menu showError={showError}/>
       <Container>
         {allPosts.length > 0 && <Blog posts={allPosts.reverse()} />}
