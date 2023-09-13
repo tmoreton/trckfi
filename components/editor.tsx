@@ -2,6 +2,7 @@ import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldr
 import { useLayoutEffect, useState, useEffect } from 'react'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
+import { new_vision } from '../utils/default-vision'
 
 export default function Editor({ showError }) {
   const { data: session } = useSession()
@@ -49,6 +50,10 @@ export default function Editor({ showError }) {
     if(data?.vision_board){
       store.loadSnapshot(data.vision_board)
       setSavedVision(data.vision_board)
+    } else {
+      store.loadSnapshot(new_vision)
+      setSavedVision(new_vision)
+      // updatePreferences()
     }
   }
 

@@ -168,7 +168,7 @@ export default function Pricing ({ showError }) {
                           key={option.value}
                           value={option}
                           className={({ checked }) =>
-                            classNames(checked ? 'bg-pink-500 text-white' : 'text-pink-500 bg-white', 'cursor-pointer rounded-full px-2.5 py-1')
+                            classNames(checked ? 'bg-pink-600 text-white' : 'text-pink-600 bg-white', 'cursor-pointer rounded-full px-2.5 py-1')
                           }
                         >
                           <span>{option.label}</span>
