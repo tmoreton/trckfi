@@ -140,12 +140,11 @@ export default function Pricing ({ showError }) {
                     }
                   </h1>
                 </div>
-                {/* <div className="relative mt-6">
+                <div className="relative mt-6">
                   <p className="mx-auto max-w-2xl text-lg leading-8 text-white">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus
-                    molestiae voluptatum.
+                   Trckfi is your online all-in-one, user-friendly personal finance platform. <br/> Unlimited Bank Connections, Smart Automation, and Total Control of Your Finances.
                   </p>
-                </div> */}
+                </div>
               </div>
               <div className="flow-root bg-white pb-10">
                 <div className="-mt-80">
