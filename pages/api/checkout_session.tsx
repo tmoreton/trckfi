@@ -7,12 +7,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default async (req, res) => {
-  const { email, referral_id } = req.body
+  const { price_id, referral_id } = req.body
   try {
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
         {
-          price: process.env.STRIPE_FAMILY_MONTHLY_PRICE_ID, 
+          price: price_id, 
           quantity: 1
         },
       ],
@@ -21,9 +21,10 @@ export default async (req, res) => {
       consent_collection: {
         terms_of_service: 'required'
       },
-      customer_email: email,
       success_url: referral_id ? `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}&referral_id=${referral_id}` : `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin}/pricing`,
+      // customer_email: email,
+      // cancel_url: `${req.headers.origin}/signup?session_id={CHECKOUT_SESSION_ID}`,
     }
 
     // Check if user was referred by a friend
