@@ -36,7 +36,7 @@ export default function ({ children }) {
         // @ts-ignore
         if (!user.subscription_id && !user.linked_user_id || !user.active) {
           router.push({
-            pathname: '/signup',
+            pathname: '/pricing',
           });
         }
       }

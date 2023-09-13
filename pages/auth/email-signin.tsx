@@ -77,7 +77,7 @@ export default function SignIn({ csrfToken, showError }) {
             </form>
             <p className="mt-5 text-center text-sm text-gray-500">
               Not a member?{' '}
-              <Link href="/signup" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
+              <Link href="/pricing" className="font-semibold leading-6 text-pink-600 hover:text-pink-500">
                 Get started
               </Link>
             </p>
