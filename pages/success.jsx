@@ -2,7 +2,6 @@ import Stripe from 'stripe'
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
 import { render } from '@react-email/render'
-import { new_vision } from '../utils/default-vision'
 import nodemailer from 'nodemailer'
 import Referral from "../emails/referral_success"
 import slackMessage from '../utils/slackMessage'
@@ -32,7 +31,7 @@ export default function ({ email, csrfToken }) {
       },
       method: 'POST',
     })
-    const { data, error } = await res.json()
+    const { error } = await res.json()
     showError(error)
   }
 
@@ -66,19 +65,6 @@ export async function getServerSideProps(context) {
     const { ended_at, start_date, status, trial_end, canceled_at } = await stripe.subscriptions.retrieve(subscription)
     const { email, phone } = await stripe.customers.retrieve(customer)
     
-    // try {
-    //   await prisma.preferences.upsert({
-    //     where: { user_id: user.id },
-    //     update: { user_id: user.id },
-    //     create: { 
-    //       user_id: user.id,
-    //       vision_board: new_vision
-    //     },
-    //   })
-    // } catch (error) {
-    //   console.error(error)
-    // }
-    console.log(email)
     const stripe_data = {
       email,
       subscription_id: subscription,
@@ -93,7 +79,7 @@ export async function getServerSideProps(context) {
       login_count: 0,
     }
 
-    const new_user = await prisma.user.upsert({
+    await prisma.user.upsert({
       where: { email: email.toLowerCase() },
       update: stripe_data,
       create: stripe_data
@@ -168,16 +154,9 @@ export async function getServerSideProps(context) {
     }
     
     // Successfully created new user
-    
     return {
       props: { email, csrfToken },
     }
-    // return {
-    //   redirect: {
-    //     destination: '/visionboard',
-    //     permanent: false,
-    //   },
-    // }
   }
 
   // No checkout so redirect to pricing

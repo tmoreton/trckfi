@@ -18,8 +18,12 @@ export default function Editor({ showError }) {
 		status: 'loading',
 	})
 
+  useEffect(() => {
+    getPreferences()
+  }, [loadingState])
+
   const updatePreferences = async () => {
-    setSave(true)
+    setSave(true)    
     let updated = preferences
     updated['vision_board'] = savedVision
     const res = await fetch(`/api/update_preferences`, {
@@ -33,7 +37,7 @@ export default function Editor({ showError }) {
     showError(error)
     setTimeout(() => {
       setSave(false)
-    }, 2000);
+    }, 1000);
   }
 
   const getPreferences = async () => {
@@ -53,23 +57,13 @@ export default function Editor({ showError }) {
     } else {
       store.loadSnapshot(new_vision)
       setSavedVision(new_vision)
-      // updatePreferences()
+      setPreferences({
+        vision_board: new_vision,
+        // @ts-ignore
+        user_id: user.id
+      })
     }
   }
-
-	useEffect(() => {
-    getPreferences()
-    if(loadingState.status === 'ready'){
-      // setTimeout(() => {
-      //   document.querySelectorAll('.tlui-layout__top__right').forEach(item => {
-      //     item.classList.add('hidden');
-      //   });
-      //   document.querySelectorAll('.tlui-menu-zone__controls').forEach(item => {
-      //     item.classList.add('hidden');
-      //   });
-      // }, 250)
-    }
-  }, [loadingState])
 	
 	useLayoutEffect(() => {
 		setLoadingState({ status: 'loading' })

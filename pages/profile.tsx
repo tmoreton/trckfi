@@ -154,7 +154,7 @@ const Profile = ({ showError }) => {
 
   const copyLink = () => {
     // @ts-ignore
-    let url = `${process.env['NEXT_PUBLIC_BASE_URL']}/signup?referral_id=${user?.referral_id}`
+    let url = `${process.env['NEXT_PUBLIC_BASE_URL']}/pricing?referral_id=${user?.referral_id}`
     setLink(url)
     navigator.clipboard.writeText(url)
   }
