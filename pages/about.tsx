@@ -1,28 +1,18 @@
-import { useState } from 'react'
 import Container from '../components/container'
 import Layout from '../components/layout'
 import Menu from '../components/menu'
-import Meta from '../components/meta'
 import Image from 'next/image'
-
-const stats = [
-  { label: 'Transactions every 24 hours', value: '44 million' },
-  { label: 'Assets under holding', value: '$119 trillion' },
-  { label: 'New users annually', value: '46,000' },
-]
 
 const team = [
   {
     name: 'Tim Moreton',
     role: 'Co-Founder / CTO',
-    imageUrl:
-      '/assets/tim.png',
+    imageUrl: '/assets/tim.png',
   },
   {
     name: 'Candelaria Reyna Moreton',
     role: 'Co-Founder / CEO',
-    imageUrl:
-      '/assets/cande.png',
+    imageUrl: '/assets/cande.png',
   },
 ]
 
