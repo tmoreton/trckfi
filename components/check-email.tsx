@@ -1,7 +1,7 @@
 import Icon from './icon';
 import ConfettiExplosion from 'react-confetti-explosion'
 
-export default function ({ email }) {
+export default function ({ email, text }) {
   return (
     <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
@@ -9,7 +9,7 @@ export default function ({ email }) {
           <Icon />
           <div className="mx-auto pt-4 max-w-2xl text-center space-y-3">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-tight md:leading-none mb-4">
-              Check Your Email
+              {text}
             </h1>
             <p className="text-md text-gray-600">
               A magic sign-in link has been sent to your email: <span className="text-lg font-semibold text-gray-900">{email}</span>
