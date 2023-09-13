@@ -21,6 +21,7 @@ const tiers = [
     name: 'Pro',
     id: 'pro',
     // Demo
+    save: '$18',
     price: {
       monthly: 
         { 
@@ -44,11 +45,16 @@ const tiers = [
     //   },
     // },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
-    features: ['5 products', 'Up to 1,000 subscribers', 'Basic analytics', '48-hour support response time'],
+    features: [
+      'Unlimited Bank Connections',
+      'Unlimited crypto, stock and home accounts',
+      'Weekly & Monthly Email Recaps'
+    ],
   },
   {
     name: 'Family',
     id: 'family',
+    save: '$29',
     // Demo
     price: {
       monthly: 
@@ -74,11 +80,10 @@ const tiers = [
     // },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
-      'Unlimited products',
-      'Unlimited subscribers',
-      'Advanced analytics',
-      '1-hour, dedicated support response time',
-      'Marketing automations',
+      'Unlimited Bank Connections',
+      'Unlimited crypto, stock and home accounts',
+      'Weekly & Monthly Email Recaps',
+      'Link another user to collaborate with on your finances',
     ],
   },
 ]
@@ -135,24 +140,12 @@ export default function Pricing ({ showError }) {
                     }
                   </h1>
                 </div>
-                <div className="relative mt-6">
+                {/* <div className="relative mt-6">
                   <p className="mx-auto max-w-2xl text-lg leading-8 text-white">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus
                     molestiae voluptatum.
                   </p>
-                  {/* <svg
-                    viewBox="0 0 1208 1024"
-                    className="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0"
-                  >
-                    <ellipse cx={604} cy={512} fill="url(#6d1bd035-0dd1-437e-93fa-59d316231eb0)" rx={604} ry={512} />
-                    <defs>
-                      <radialGradient id="6d1bd035-0dd1-437e-93fa-59d316231eb0">
-                        <stop stopColor="#fff" />
-                        <stop offset={1} stopColor="#fff" />
-                      </radialGradient>
-                    </defs>
-                  </svg> */}
-                </div>
+                </div> */}
               </div>
               <div className="flow-root bg-white pb-10">
                 <div className="-mt-80">
@@ -189,9 +182,10 @@ export default function Pricing ({ showError }) {
                             </h3>
                             <div className="mt-4 flex items-baseline gap-x-2">
                               <span className="text-5xl font-bold tracking-tight text-gray-900">{tier.price[frequency.value]?.price}</span>                              
-                              <span className="text-base font-semibold leading-7 text-gray-600">{frequency.priceSuffix}</span>
+                              <span className="text-base font-normal leading-7 text-gray-600">{frequency.priceSuffix}</span>
+                              { frequency.value === 'annually' && <span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span>}
                             </div>
-                            <p className="mt-6 text-base leading-7 text-gray-600">{tier.description}</p>
+                            {/* <p className="mt-6 text-base leading-7 text-gray-600">{tier.description}</p> */}
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (
                                 <li key={feature} className="flex gap-x-3">
