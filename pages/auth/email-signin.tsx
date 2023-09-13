@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Icon from '../../components/icon';
 import Link from 'next/link'
 import  { clearLocalStorage } from '../../utils/useLocalStorage'
-import ConfettiExplosion from 'react-confetti-explosion'
 import CheckEmail from '../../components/check-email'
 
 export default function SignIn({ csrfToken, showError }) {
