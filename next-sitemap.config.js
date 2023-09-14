@@ -17,6 +17,7 @@ const exclude = [
   '/settings*',
   '/accounts*',
   '/signin*',
+  '/signin-success*',
   '/visionboard*',
   '/success*',
   '/goals*',
@@ -24,6 +25,7 @@ const exclude = [
   '/profile*',
   '/recurring*',
   '/feedback*',
+  '/link-user*',
   '/blog/.DS_Store'
 ];
 

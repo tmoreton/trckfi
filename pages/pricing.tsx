@@ -23,32 +23,30 @@ const tiers = [
     // Demo
     save: '$18',
     price: {
-      monthly: 
-        { 
-          id: 'price_1Ng62nBJfatAKl0YqqSyRFtJ', 
-          price: '$8.99'
-        }, 
+      monthly: { 
+        id: process.env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID, 
+        price: '$8.99'
+      }, 
       annually: { 
-        id: 'price_1Ng62nBJfatAKl0YlQLX8Ict', 
+        id: process.env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PRICE_ID, 
         price: '$89.99'
       },
     },
-    // price: {
-    //   monthly: 
-    //     { 
-    //       id: 'price_1NgTvcBJfatAKl0YAb4DRv9E', 
-    //       price: '$8.99'
-    //     }, 
-    //   annually: { 
-    //     id: 'price_1NgTvdBJfatAKl0YD0UfX0aF', 
-    //     price: '$89.99'
-    //   },
-    // },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
-      'Unlimited Bank Connections',
-      'Unlimited crypto, stock and home accounts',
-      'Weekly & Monthly Email Recaps'
+      'Unlimited Bank Connections (Credit Cards, Savings, Checking, Retirement, etc.)',
+      'Unlimited Crypto, Stock, and Home Accounts',
+      'Manage Recurring Expenses',
+      'Monthly Spend Tracking',
+      'Net Worth Analysis',
+      'Custom Categories: Create Your Own Spending Categories and Groups',
+      'Categorization Rules: Define Custom Rules for Tricky Transactions',
+      'Flexible Asset Entry: Easily Include Assets Beyond Digital (e.g., Art, Foreign Bank Accounts, etc.)',
+      'Vision Board for Visualizing and Manifesting Financial Goals',
+      'Goal Setting Tab: Plan and Track Your Financial Goals',
+      'Weekly & Monthly Email Recaps',
+      'Daily Questions/Answers to Earn Money and Boost Your Financial Literacy',
+      'Get Started Today',
     ],
   },
   {
@@ -57,33 +55,31 @@ const tiers = [
     save: '$29',
     // Demo
     price: {
-      monthly: 
-        { 
-          id: 'price_1NhBpCBJfatAKl0Yi1diZDWe', 
-          price: '$11.99'
-        }, 
+      monthly: { 
+        id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_MONTHLY_PRICE_ID, 
+        price: '$11.99'
+      }, 
       annually: { 
-        id: 'price_1NhBpCBJfatAKl0YCO6Lmef8', 
+        id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_YEARLY_PRICE_ID, 
         price: '$114.99'
       },
     },
-    // price: {
-    //   monthly: 
-    //     { 
-    //       id: 'price_1NhCLaBJfatAKl0YT7Ur6IXu', 
-    //       price: '$11.99'
-    //     }, 
-    //   annually: { 
-    //     id: 'price_1NhCLaBJfatAKl0YmKWh1dR3', 
-    //     price: '$114.99'
-    //   },
-    // },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
-      'Unlimited Bank Connections',
-      'Unlimited crypto, stock and home accounts',
+      'Link Another User to Collaborate on Your Finances',
+      'Unlimited Bank Connections (Credit Cards, Savings, Checking, Retirement, etc.)',
+      'Unlimited Crypto, Stock, and Home Accounts',
+      'Manage Recurring Expenses',
+      'Monthly Spend Tracking',
+      'Net Worth Analysis',
+      'Custom Categories: Create Your Own Spending Categories and Groups',
+      'Categorization Rules: Define Custom Rules for Tricky Transactions',
+      'Flexible Asset Entry: Easily Include Assets Beyond Digital (e.g., Art, Foreign Bank Accounts, etc.)',
+      'Vision Board for Visualizing and Manifesting Financial Goals',
+      'Goal Setting Tab: Plan and Track Your Financial Goals',
       'Weekly & Monthly Email Recaps',
-      'Link another user to collaborate with on your finances',
+      'Daily Questions/Answers to Earn Money and Boost Your Financial Literacy',
+      'Get Started Today',
     ],
   },
 ]
