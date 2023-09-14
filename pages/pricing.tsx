@@ -46,7 +46,6 @@ const tiers = [
       'Goal Setting Tab: Plan and Track Your Financial Goals',
       'Weekly & Monthly Email Recaps',
       'Daily Questions/Answers to Earn Money and Boost Your Financial Literacy',
-      'Get Started Today',
     ],
   },
   {
@@ -66,7 +65,6 @@ const tiers = [
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
-      'Link Another User to Collaborate on Your Finances',
       'Unlimited Bank Connections (Credit Cards, Savings, Checking, Retirement, etc.)',
       'Unlimited Crypto, Stock, and Home Accounts',
       'Manage Recurring Expenses',
@@ -79,7 +77,7 @@ const tiers = [
       'Goal Setting Tab: Plan and Track Your Financial Goals',
       'Weekly & Monthly Email Recaps',
       'Daily Questions/Answers to Earn Money and Boost Your Financial Literacy',
-      'Get Started Today',
+      'Link Another User to Collaborate on Your Finances',
     ],
   },
 ]
