@@ -24,6 +24,7 @@ const exclude = [
   '/profile*',
   '/recurring*',
   '/feedback*',
+  '/blog/.DS_Store'
 ];
 
 module.exports = {

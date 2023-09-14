@@ -8,11 +8,9 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Menu from '../../components/menu'
-import Meta from '../../components/meta'
 
 export default function Post({ post, preview, showError }) {
   const router = useRouter()
-  const title = `${post?.title} | Trckfi Blog`
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -72,7 +70,7 @@ export async function getStaticProps({ params }: Params) {
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
-
+  console.log(posts)
   return {
     paths: posts.map((post) => {
       return {
