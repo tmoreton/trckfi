@@ -1,31 +1,44 @@
+// module.exports = {
+//   webpack: (config, { isServer }) => {
+//       require("./scripts/sitemap-generator");
+//     return config;
+//   },
+//   // async rewrites() {
+//   //   return [
+//   //     {
+//   //       source: '/sitemap.xml',
+//   //       destination: '/api/sitemap',
+//   //     },
+//   //   ]
+//   // },
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: 'res.cloudinary.com'
+//       },
+//     ],
+//   },
+//   experimental: {
+//     swcPlugins: [
+//       [
+//         'next-superjson-plugin',
+//         {
+//           excluded: [],
+//         },
+//       ],
+//     ],
+//   },
+// }
+
 module.exports = {
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ]
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require("./scripts/sitemap-generator");
+    }
+    return config;
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com'
-      },
-    ],
-  },
-  experimental: {
-    swcPlugins: [
-      [
-        'next-superjson-plugin',
-        {
-          excluded: [],
-        },
-      ],
-    ],
-  },
-}
+};
 
 // Injected content via Sentry wizard below
 
