@@ -7,7 +7,7 @@ Disallow: /*_ssgManifest.js$
 Disallow: /*.js$
 
 # Host
-Host: http://localhost:3000
+Host: https://trckfi.com
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://trckfi.com/sitemap.xml

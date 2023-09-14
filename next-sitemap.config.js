@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://trckfi.com';
+const SITE_URL = 'https://trckfi.com';
  
 /** @type {import('next-sitemap').IConfig} */
 
