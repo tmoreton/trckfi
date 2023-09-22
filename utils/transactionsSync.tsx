@@ -53,6 +53,7 @@ const transactionsSync = async (access_token, user_id) => {
     let removed = response.data.removed
     // let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
+    slackMessage(`Added ${added.length} New Transactions: ${added}`)
 
     // while(has_more){
       for (let i in added) {
