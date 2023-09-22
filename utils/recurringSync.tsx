@@ -2,6 +2,7 @@
 import prisma from '../lib/prisma';
 import plaidClient from '../utils/plaid'
 import { DateTime } from "luxon"
+import slackMessage from '../utils/slackMessage'
 
 const recurringSync = async (access_token) => {
   try {
@@ -114,8 +115,9 @@ const recurringSync = async (access_token) => {
         add_transaction(outflows[o], 'outflow')
       }
     }
-  } catch (error) {
-    console.error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error recurring_sync: ' + e.message || e.toString())
   }
 }
 
