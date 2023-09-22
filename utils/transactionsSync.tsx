@@ -53,8 +53,7 @@ const transactionsSync = async (access_token, user_id) => {
     let removed = response.data.removed
     // let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
-    slackMessage(`Added ${added.length} New Transactions: ${added}`)
-
+    
     // while(has_more){
       for (let i in added) {
         let { id, type } = plaid.accounts.find(a => a.account_id === added[i].account_id)
@@ -62,13 +61,13 @@ const transactionsSync = async (access_token, user_id) => {
         let { amount } = formatAmount(type, added[i].amount)
         let transaction_name = added[i].merchant_name || added[i].name
         let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
+        slackMessage(`New Transaction: ${rule?.ruleset?.name || added[i].merchant_name} from: ${new Date(added[i].date)} for ${amount}`)
+
         await prisma.transactions.upsert({
           where: { 
             transaction_id: added[i].transaction_id 
           },
-          update: {
-            pending: added[i].pending
-          },
+          update: {},
           create: {
             amount,
             account_id: id,
@@ -94,7 +93,7 @@ const transactionsSync = async (access_token, user_id) => {
             item_id: plaid.item_id,
             month_year: added[i].date.substring(0,7),
             week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
-            active: checkBool(rule),
+            active: true,
             // @ts-ignore
             recurring: false,
           },
