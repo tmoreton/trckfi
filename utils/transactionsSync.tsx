@@ -56,13 +56,13 @@ const transactionsSync = async (access_token, user_id) => {
     
     // while(has_more){
       for (let i in added) {
-        let { id, type } = plaid.accounts.find(a => a.account_id === added[i].account_id)
+        let { id, type, name } = plaid.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
         let { amount } = formatAmount(type, added[i].amount)
         let transaction_name = added[i].merchant_name || added[i].name
         let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
         // @ts-ignore
-        slackMessage(`New Transaction: ${rule?.ruleset?.name || added[i].merchant_name} from: ${new Date(added[i].date)} for ${amount}`)
+        slackMessage(`${added[i].date} ${name} New Transaction: ${rule?.ruleset?.name || added[i].merchant_name} for $${amount}`)
 
         await prisma.transactions.upsert({
           where: { 
