@@ -4,6 +4,7 @@ import plaidClient from '../utils/plaid';
 import { formatAmount } from '../lib/lodash'
 import { icons } from '../lib/categories'
 import { DateTime } from "luxon"
+import slackMessage from '../utils/slackMessage'
 
 const transactionsSync = async (access_token, user_id) => {
   try {
@@ -115,8 +116,9 @@ const transactionsSync = async (access_token, user_id) => {
         error_code: null
       }
     })
-  } catch (error) {
-    console.error(error)
+  } catch (e) {
+    console.error(e)
+    slackMessage('Error transactions_sync: ' + e.message || e.toString())
     const plaid = await prisma.plaid.findUnique({
       where: { 
         access_token: access_token 
@@ -124,7 +126,7 @@ const transactionsSync = async (access_token, user_id) => {
     })
     await prisma.plaid.update({
       where: { item_id: plaid.item_id },
-      data: { error_code: error.response?.data?.error_code }
+      data: { error_code: e.response?.data?.error_code }
     })
   }
 }
