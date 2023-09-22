@@ -62,7 +62,7 @@ const transactionsSync = async (access_token, user_id) => {
         let transaction_name = added[i].merchant_name || added[i].name
         let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
         // @ts-ignore
-        slackMessage(`${added[i].date} ${name} New Transaction: ${rule?.ruleset?.name || added[i].merchant_name} for $${amount}`)
+        slackMessage(`${added[i].date} ${name} New Transaction: ${rule?.ruleset?.name || added[i].merchant_name || added[i].name} for $${amount}`)
 
         await prisma.transactions.upsert({
           where: { 
