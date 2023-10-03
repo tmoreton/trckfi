@@ -29,7 +29,7 @@ export default ({ open, setOpen }) => {
             >
               <Dialog.Panel>
                 <video controls muted loop style={{ width: '75%', height: '75%', margin: 'auto' }}>
-                  <source src="/assets/trckfi-intro.mp4" type="video/mp4" />
+                  <source src="/assets/trckfi-intro-animated.mp4" type="video/mp4" />
                 </video>
               </Dialog.Panel>
             </Transition.Child>
