@@ -20,7 +20,6 @@ const tiers = [
   {
     name: 'Pro',
     id: 'pro',
-    // Demo
     save: '$18',
     price: {
       monthly: { 
@@ -52,7 +51,6 @@ const tiers = [
     name: 'Family',
     id: 'family',
     save: '$29',
-    // Demo
     price: {
       monthly: { 
         id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_MONTHLY_PRICE_ID, 
