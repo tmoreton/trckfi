@@ -173,7 +173,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     <Row key={item.id}>
                       <Column className="w-44" align="left">
                         <Text className="text-[#666666] text-[11px] my-0 my-0 font-semibold pl-4">
-                          {item.name.substring(0, 15).toUpperCase().replace('.',' ')}
+                          {item.name?.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
                       <Column className="w-40" align="left">
@@ -205,7 +205,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     <Row key={item.id}>
                       <Column className="w-44" align="left">
                         <Text className="text-[#666666] text-[11px] my-0 ml-6 my-0 font-semibold">
-                          {item.description.substring(0, 15).toUpperCase().replace('.',' ')}
+                          {item.description?.substring(0, 15).toUpperCase().replace('.',' ')}
                         </Text>
                       </Column>
                       <Column className="w-40" align="left">
