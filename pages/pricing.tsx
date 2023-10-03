@@ -34,7 +34,7 @@ const tiers = [
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
-      'Unlimited Bank Connections (Credit Cards, Savings, Checking, Retirement, etc.)',
+      '5 Bank Connections (Credit Cards, Savings, Checking, Retirement, etc.)',
       'Unlimited Crypto, Stock, and Home Accounts',
       'Manage Recurring Expenses',
       'Monthly Spend Tracking',
