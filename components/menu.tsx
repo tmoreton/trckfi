@@ -13,7 +13,8 @@ import  { clearLocalStorage } from '../utils/useLocalStorage'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
-  { name: 'About Us', href: '/about' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
 ]
 
@@ -25,7 +26,7 @@ const dashboardNavigation = [
   { name: 'Profile', href: '/profile' },
 ]
 
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/net-worth', '/rules', '/profile', '/recurring', '/goals']
+const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/profile', '/recurring', '/goals']
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
