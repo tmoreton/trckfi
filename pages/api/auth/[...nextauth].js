@@ -11,12 +11,12 @@ export const authOptions = {
   providers: [
     EmailProvider({
       server: {
-        host: process.env.EMAIL_HOST,
+        host: process.env.SMTP_HOST,
         port: 587,
         auth: {
-          user: process.env.EMAIL_ADDRESS,
-          pass: process.env.EMAIL_PASSWORD
-        }
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
+        },
       },
       from: process.env.EMAIL_ADDRESS,
       async sendVerificationRequest({

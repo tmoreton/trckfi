@@ -199,11 +199,11 @@ client.defineJob({
       )
 
       let transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
+        host: process.env.SMTP_HOST,
         secure: false,
         auth: {
-          user: process.env.EMAIL_ADDRESS,
-          pass: process.env.EMAIL_PASSWORD,
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
         },
       })
 
