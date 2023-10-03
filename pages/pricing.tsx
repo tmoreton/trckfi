@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import Menu from '../components/menu'
 import getStripe from '../utils/get-stripejs'
 import { useRouter } from 'next/router'
+import EmailModal from '../components/modals/email-modal'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -82,8 +83,9 @@ const tiers = [
 
 export default function Pricing ({ showError }) {
   const router = useRouter()
-  const { referral_id } = router.query
+  const { referral_id, beta_user } = router.query
   const [frequency, setFrequency] = useState(frequencies[0])
+  const [open, setOpen] = useState(false)
   
   useEffect(() => {
     setFrequency(frequencies[0])
@@ -114,6 +116,7 @@ export default function Pricing ({ showError }) {
   return (
     <Layout>
       <Menu showError={showError}/>
+      <EmailModal open={open} setOpen={setOpen} showError={showError}/>
       <Container>
         <div className="bg-white">
           <main className="isolate">
@@ -186,13 +189,23 @@ export default function Pricing ({ showError }) {
                               ))}
                             </ul>
                           </div>
-                          <button
-                            onClick={() => checkout(tier.price[frequency.value]?.id)}
-                            aria-describedby={tier.id}
-                            className="mt-8 block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-                          >
-                            Get started today
-                          </button>
+                          {
+                            beta_user ?
+                            <button
+                              onClick={() => checkout(tier.price[frequency.value]?.id)}
+                              aria-describedby={tier.id}
+                              className="mt-8 block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                            >
+                              Get started today
+                            </button>
+                            :
+                            <button
+                              onClick={() => setOpen(true)}
+                              className="mt-8 block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                            >
+                              Get Early Access
+                            </button>
+                          }
                         </div>
                       ))}
                     </div>
