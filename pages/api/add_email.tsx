@@ -26,7 +26,7 @@ export default async (req, res) => {
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       to: email.toLowerCase(),
-      subject: `Thanks for subscribing!`,
+      subject: `You are Awesome!`,
       text: '',
       html: emailHtml,
     }
@@ -46,6 +46,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error add_email: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }
