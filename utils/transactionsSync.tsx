@@ -100,6 +100,13 @@ const transactionsSync = async (access_token, user_id) => {
           },
         })
       }
+      await prisma.plaid.update({
+        where: { item_id: plaid.item_id },
+        data: { 
+          cursor: next_cursor,
+          error_code: null
+        }
+      })
     }
     // Removed Transactions
     for (let r in removed) {
@@ -110,13 +117,7 @@ const transactionsSync = async (access_token, user_id) => {
       })
     }
 
-    await prisma.plaid.update({
-      where: { item_id: plaid.item_id },
-      data: { 
-        cursor: next_cursor,
-        error_code: null
-      }
-    })
+
   } catch (e) {
     console.error(e)
     slackMessage('Error transactions_sync: ' + e.message || e.toString())

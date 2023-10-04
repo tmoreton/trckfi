@@ -19,6 +19,21 @@ const frequencies = [
 
 const tiers = [
   {
+    name: 'Early Adopter',
+    id: 'beta',
+    save: '',
+    price: {
+      monthly: { 
+        id: process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID, 
+        price: '$0'
+      },
+    },
+    description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
+    features: [
+      'All features of pro and family plans with unlimited connections',
+    ],
+  },
+  {
     name: 'Pro',
     id: 'pro',
     save: '$18',
@@ -86,9 +101,15 @@ export default function Pricing ({ showError }) {
   const { referral_id, beta_user } = router.query
   const [frequency, setFrequency] = useState(frequencies[0])
   const [open, setOpen] = useState(false)
+  const [products, setProducts] = useState([])
   
   useEffect(() => {
     setFrequency(frequencies[0])
+    if(beta_user){
+      setProducts(tiers)
+    } else {
+      setProducts(tiers.filter((item) => item.id !== 'beta' ))
+    }
   }, [])
 
   const checkout = async (price_id) => {
@@ -164,8 +185,8 @@ export default function Pricing ({ showError }) {
                     </RadioGroup>
                   </div>
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
-                      {tiers.map((tier) => (
+                    <div className={classNames(beta_user ? "lg:grid-cols-3" : "lg:grid-cols-2", "mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                      {products.map((tier) => (
                         <div
                           key={tier.id}
                           className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"
@@ -174,11 +195,17 @@ export default function Pricing ({ showError }) {
                             <h3 id={tier.id} className="text-base font-semibold leading-7 text-pink-600">
                               {tier.name}
                             </h3>
-                            <div className="mt-4 flex items-baseline gap-x-2">
-                              <span className="text-5xl font-bold tracking-tight text-gray-900">{tier.price[frequency.value]?.price}</span>                              
-                              <span className="text-base font-normal leading-7 text-gray-600">{frequency.priceSuffix}</span>
-                              { frequency.value === 'annually' && <span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span>}
-                            </div>
+                            {
+                              tier.price[frequency.value]?.price &&
+                              <>
+                                <div className="mt-4 flex items-baseline gap-x-2">
+                                  <span className="text-5xl font-bold tracking-tight text-gray-900">{tier.price[frequency.value]?.price}</span>                              
+                                  <span className="text-base font-normal leading-7 text-gray-600">{frequency.priceSuffix}</span>
+                                </div>
+                                { frequency.value === 'annually' && tier.id !== 'beta' && <span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span>}
+                              </>
+                            }
+
                             {/* <p className="mt-6 text-base leading-7 text-gray-600">{tier.description}</p> */}
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (
@@ -190,7 +217,7 @@ export default function Pricing ({ showError }) {
                             </ul>
                           </div>
                           {
-                            beta_user ?
+                            tier.id === 'beta' ?
                             <button
                               onClick={() => checkout(tier.price[frequency.value]?.id)}
                               aria-describedby={tier.id}
@@ -201,7 +228,7 @@ export default function Pricing ({ showError }) {
                             :
                             <button
                               onClick={() => setOpen(true)}
-                              className="mt-8 block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                              className="border-2 border-pink-500 mt-8 block rounded-md bg-white px-3.5 py-2 text-center text-sm font-semibold leading-6 text-pink-600 shadow-sm hover:text-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
                             >
                               Get Early Access
                             </button>
