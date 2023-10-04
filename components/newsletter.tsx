@@ -1,25 +1,30 @@
 import { useState } from 'react'
 import ConfettiExplosion from 'react-confetti-explosion'
+import  { useLocalStorage } from '../utils/useLocalStorage'
 
 const Newsletter = ({ showError }) => {
   const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
+  const [subscribed, setSubscribed] = useLocalStorage('subscribed', false)
 
   const subscribe = async (e) => {
     e.preventDefault()
-    setSubscribed(true)
-    setEmail('')
-    const res = await fetch(`/api/add_email`, {
-      body: JSON.stringify({
-        email,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
+    if(!subscribed){
+      setSubscribed(true)
+      setEmail('')
+      const res = await fetch(`/api/add_email`, {
+        body: JSON.stringify({
+          email,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      const { error } = await res.json()
+      showError(error)
+    } else {
+      alert("You're already on the waitlist!")
+    }
   }
 
   return (
@@ -29,7 +34,7 @@ const Newsletter = ({ showError }) => {
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Success! 🎉
           </h2>
-          <p className="text-white mt-4">We are hard at work and will reach our with an <br/>access code when the platform is ready!</p>
+          <p className="text-white mt-4 text-center">We are hard at work and will reach our with an <br/>access code when the platform is ready!</p>
           <ConfettiExplosion />
         </a>
         :
