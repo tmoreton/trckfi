@@ -15,7 +15,6 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
-        pending: false,
         authorized_date: {
           lte: range.startDate,
           gte: range.endDate
@@ -38,6 +37,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error get_transactions: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }
