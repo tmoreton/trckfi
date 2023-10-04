@@ -15,7 +15,7 @@ export default function Links() {
             height={250}
             unoptimized={true}
           />
-          <Link href="/">
+          <Link href="/?access=true">
             <button
               type="button"
               className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"
