@@ -18,7 +18,7 @@ export default function (){
   return (
     <Html>
       <Head />
-      <Preview>Trckfi</Preview>
+      <Preview>Thanks for joining Trckfi!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
