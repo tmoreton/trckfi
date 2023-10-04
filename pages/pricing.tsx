@@ -30,6 +30,7 @@ const tiers = [
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
+      '3 months free with Promo code: EARLYADOPTER',
       'All features of pro and family plans with unlimited connections',
     ],
   },
