@@ -23,8 +23,8 @@ const Newsletter = ({ showError }) => {
   }
 
   return (
-    <div className="relative isolate overflow-hidden bg-pink-600 px-6 py-18 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-28">
-      { subscribed ? 
+      <div className="relative isolate overflow-hidden bg-pink-600 px-6 py-24 shadow-2xl rounded-3xl sm:px-24 xl:py-32">
+        { subscribed ? 
         <a id="get-notified">
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Success! 🎉
