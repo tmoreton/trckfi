@@ -58,7 +58,7 @@ export default function (){
               Want more? Follow us on Instagram <strong><Link href="https://www.instagram.com/trckfi/">@Trckfi</Link></strong> for daily doses of financial tips and motivation. 
             </Text>
             <Text className="text-black text-[17px] leading-[24px] mb-[6px]">
-              Love, <br/> Tim & Cande
+              Love, <br/> Trckfi Team
             </Text>
             <Text className="text-black text-[17px] leading-[24px]">
               <strong>P.S. What could I write to provide value to you?</strong>
