@@ -28,7 +28,7 @@ export default ({ open, setOpen }) => {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel>
-                <video controls muted loop style={{ width: '75%', height: '75%', margin: 'auto' }}>
+                <video autoPlay controls muted loop style={{ width: '75%', height: '75%', margin: 'auto' }}>
                   <source src="/assets/trckfi-intro-animated.mp4" type="video/mp4" />
                 </video>
               </Dialog.Panel>
