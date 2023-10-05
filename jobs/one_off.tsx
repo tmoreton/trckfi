@@ -1,9 +1,8 @@
 import { eventTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
-import prisma from '../lib/prisma';
-const nodemailer = require('nodemailer')
 import { render } from '@react-email/render'
 import BetaEmail from "../emails/beta_email"
+const nodemailer = require('nodemailer')
 
 client.defineJob({
   id: "one-off",
@@ -14,16 +13,13 @@ client.defineJob({
   }),
   run: async (payload, io, ctx) => {
     const { email } = payload
-    const emailHtml = render(
-      <BetaEmail />
-    )
     
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       to: email,
       subject: `Welcome to Trckfi Beta!`,
       text: '',
-      html: emailHtml,
+      html: render(<BetaEmail />),
     }
 
     let transporter = nodemailer.createTransport({
