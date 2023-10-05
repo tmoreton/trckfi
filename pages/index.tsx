@@ -26,13 +26,13 @@ export default function Index({ showError }) {
   return (
     <Layout>
       <Menu showError={showError}/>
-      <EmailModal open={open} setOpen={setOpen} showError={showError}/>
+      {/* <EmailModal open={open} setOpen={setOpen} showError={showError}/> */}
       <Hero />
       <AccountNetworth />
       <Visonboard />
       <div className="bg-white py-16">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <Newsletter showError={showError} />
+          {/* <Newsletter showError={showError} /> */}
         </div>
       </div>
     </Layout>
