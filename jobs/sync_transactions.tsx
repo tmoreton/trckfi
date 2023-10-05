@@ -10,7 +10,6 @@ client.defineJob({
     name: "sync.transactions"
   }),
   run: async (payload, io, ctx) => {
-    console.log('syncing transactions with event trigger')
     const { access_token, user_id } = payload
     await transactionsSync(access_token, user_id)
   },
