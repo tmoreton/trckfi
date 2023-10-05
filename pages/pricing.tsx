@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Container from '../components/container'
@@ -104,15 +104,20 @@ export default function Pricing ({ showError }) {
   const [open, setOpen] = useState(false)
   const [products, setProducts] = useState([])
   
+  const redirect = useCallback(async () => {
+    await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
+  }, [])
+
   useEffect(() => {
     setFrequency(frequencies[0])
     if(beta_user === 'true'){
       setProducts(tiers)
       // await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
+      redirect()
     } else {
       setProducts(tiers.filter((item) => item.id !== 'beta' ))
     }
-  }, [])
+  }, [redirect])
 
   const checkout = async (price_id) => {
     const res = await fetch(`/api/checkout_session`, {
