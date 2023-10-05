@@ -20,7 +20,7 @@ export default async (req, res) => {
         subscription_pause: {enabled: false},
         subscription_update: {
           default_allowed_updates: ["price", "promotion_code"],
-          enabled: true,
+          enabled: false,
           products: [{
             product: 'prod_OTQn41lBjC2ZJD', 
             prices: ['price_1NgTvdBJfatAKl0YD0UfX0aF', 'price_1NgTvcBJfatAKl0YAb4DRv9E']
@@ -29,7 +29,7 @@ export default async (req, res) => {
             prices: ['price_1NhCLaBJfatAKl0YmKWh1dR3', 'price_1NhCLaBJfatAKl0YT7Ur6IXu']
           }, {
             product: 'prod_Ol1euWJq7XXYBd', 
-            prices: []
+            prices: ['price_1NxVatBJfatAKl0YOYT8WPLy']
           }]
         },
       },
