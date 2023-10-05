@@ -29,7 +29,7 @@ export default async (req, res) => {
             prices: ['price_1NhCLaBJfatAKl0YmKWh1dR3', 'price_1NhCLaBJfatAKl0YT7Ur6IXu']
           }, {
             product: 'prod_Ol1euWJq7XXYBd', 
-            prices: ['price_1NxVatBJfatAKl0YOYT8WPLy']
+            prices: []
           }]
         },
       },
