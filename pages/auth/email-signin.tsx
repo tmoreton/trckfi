@@ -6,8 +6,9 @@ import  { clearLocalStorage } from '../../utils/useLocalStorage'
 import CheckEmail from '../../components/check-email'
 
 export default function SignIn({ csrfToken, showError }) {
-  const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
+  const [text, setText] = useState(null)
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
     clearLocalStorage()
@@ -15,26 +16,38 @@ export default function SignIn({ csrfToken, showError }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
-    const res = await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
+    const res = await fetch(`/api/get_user`, {
       body: JSON.stringify({ 
         email,
-        csrfToken
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
-    const { data, error } = await res.json()
-    showError(error)
+    const { text, active } = await res.json()
+    setText(text)
+    setActive(active)
+
+    if(active){
+      await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
+        body: JSON.stringify({ 
+          email,
+          csrfToken
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+    }
   }
 
   return (
     <>
       {
-        submitted ?
-        <CheckEmail email={email} text='Check Your Email'/>
+        text ?
+        <CheckEmail email={email} text={text} active={active}/>
         :
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
           <div className="sm:mx-auto sm:w-full mb-4">

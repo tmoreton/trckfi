@@ -89,12 +89,7 @@ export default function ({ showError }) {
                         </Link>
                       </div>
                       :
-                      <Link href="/#get-notified">
-                        <PinkBtn type="button" onClick={() => console.log('close')}>
-                          Join Waitlist!
-                        </PinkBtn>
-                      </Link>
-                      // <LoginBtn />
+                      <LoginBtn />
                     }
                     <Transition
                       as={Fragment}
