@@ -27,6 +27,9 @@ export default async (req, res) => {
           },{
             product: process.env.STRIPE_FAMILY_SUBSCRIPTION_ID, 
             prices: [process.env.STRIPE_FAMILY_MONTHLY_PRICE_ID, process.env.STRIPE_FAMILY_YEARLY_PRICE_ID]
+          }, {
+            product: 'prod_Ol1euWJq7XXYBd', 
+            prices: ['price_1NxVatBJfatAKl0YOYT8WPLy']
           }]
         },
       },
