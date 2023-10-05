@@ -51,10 +51,10 @@ const transactionsSync = async (access_token, user_id) => {
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
     let removed = response.data.removed
-    let has_more = response.data.has_more
+    // let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
     
-    while(has_more){
+    // while(has_more){
       for (let i in added) {
         let { id, type, name } = plaid.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
@@ -100,24 +100,24 @@ const transactionsSync = async (access_token, user_id) => {
           },
         })
       }
-      await prisma.plaid.update({
-        where: { item_id: plaid.item_id },
-        data: { 
-          cursor: next_cursor,
-          error_code: null
-        }
-      })
-    }
+    // }
+
     // Removed Transactions
-    for (let r in removed) {
-      await prisma.transactions.delete({
-        where: {
-          transaction_id: removed[r].transaction_id
-        },
-      })
-    }
+    // for (let r in removed) {
+    //   await prisma.transactions.delete({
+    //     where: {
+    //       transaction_id: removed[r].transaction_id
+    //     },
+    //   })
+    // }
 
-
+    await prisma.plaid.update({
+      where: { item_id: plaid.item_id },
+      data: { 
+        cursor: next_cursor,
+        error_code: null
+      }
+    })
   } catch (e) {
     console.error(e)
     slackMessage('Error transactions_sync: ' + e.message || e.toString())
