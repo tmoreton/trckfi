@@ -108,8 +108,8 @@ export default function Pricing ({ showError }) {
   useEffect(async () => {
     setFrequency(frequencies[0])
     if(beta_user === 'true'){
-      await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
       setProducts(tiers)
+      await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
     } else {
       setProducts(tiers.filter((item) => item.id !== 'beta' ))
     }
