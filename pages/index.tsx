@@ -15,13 +15,13 @@ export default function Index({ showError }) {
   const [open, setOpen] = useState(false)
   const [subscribed, setSubscribed] = useLocalStorage('subscribed', false)
 
-  useEffect(() => {
-    if(access && !subscribed){
-      setTimeout(() => {
-        setOpen(true)
-      }, 2000)
-    }
-  }, [access])
+  // useEffect(() => {
+  //   if(access && !subscribed){
+  //     setTimeout(() => {
+  //       setOpen(true)
+  //     }, 2000)
+  //   }
+  // }, [access])
 
   return (
     <Layout>
