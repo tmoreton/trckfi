@@ -13,26 +13,24 @@ export default function Index({ showError }) {
   const router = useRouter()
   const { access } = router.query
   const [open, setOpen] = useState(false)
-  const [subscribed, setSubscribed] = useLocalStorage('subscribed', false)
+  const [subscribed] = useLocalStorage('subscribed', false)
 
-  // useEffect(() => {
-  //   if(access && !subscribed){
-  //     setTimeout(() => {
-  //       setOpen(true)
-  //     }, 2000)
-  //   }
-  // }, [access])
+  useEffect(() => {
+    if(access && !subscribed){
+      setOpen(true)
+    }
+  }, [access])
 
   return (
     <Layout>
       <Menu showError={showError}/>
-      {/* <EmailModal open={open} setOpen={setOpen} showError={showError}/> */}
+      <EmailModal open={open} setOpen={setOpen} showError={showError}/>
       <Hero />
       <AccountNetworth />
       <Visonboard />
       <div className="bg-white py-16">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          {/* <Newsletter showError={showError} /> */}
+          <Newsletter showError={showError} />
         </div>
       </div>
     </Layout>

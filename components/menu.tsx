@@ -79,7 +79,7 @@ export default function ({ showError }) {
                   <Menu as="div" className="relative ml-3">
                     
                     { // @ts-ignore
-                      session && session.user?.active &&
+                      session && session.user?.active ?
                         <div className="flex items-center">
                         <Link href="/profile">
                           <Menu.Button className="flex items-center">
@@ -88,6 +88,8 @@ export default function ({ showError }) {
                           </Menu.Button>
                         </Link>
                       </div>
+                      :
+                      <LoginBtn />
                     }
                     <Transition
                       as={Fragment}
@@ -192,12 +194,7 @@ export default function ({ showError }) {
                   </Disclosure.Button>
                 </div>
                 :
-                <Link href="/#get-notified">
-                  <PinkBtn type="button" onClick={() => console.log('close')}>
-                    Join Waitlist!
-                  </PinkBtn>
-                </Link>
-                // <LoginBtn />
+                <LoginBtn />
               }
             </div>
           </Disclosure.Panel>
