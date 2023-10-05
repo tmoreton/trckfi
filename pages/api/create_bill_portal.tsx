@@ -7,7 +7,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export default async (req, res) => {
   const { customer_id } = req.body
-  console.log(customer_id)
   try {
     const configuration = await stripe.billingPortal.configurations.create({
       features: {
@@ -23,11 +22,11 @@ export default async (req, res) => {
           default_allowed_updates: ["price", "promotion_code"],
           enabled: true,
           products: [{
-            product: process.env.NEXT_PUBLIC_STRIPE_PRO_SUBSCRIPTION_ID, 
-            prices: [process.env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID, process.env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PRICE_ID]
+            product: 'prod_OTQn41lBjC2ZJD', 
+            prices: ['price_1NgTvdBJfatAKl0YD0UfX0aF', 'price_1NgTvcBJfatAKl0YAb4DRv9E']
           },{
-            product: process.env.NEXT_PUBLIC_STRIPE_FAMILY_SUBSCRIPTION_ID, 
-            prices: [process.env.NEXT_PUBLIC_STRIPE_FAMILY_MONTHLY_PRICE_ID, process.env.NEXT_PUBLIC_STRIPE_FAMILY_YEARLY_PRICE_ID]
+            product: 'prod_OUAgEdZI2gYrgv', 
+            prices: ['price_1NhCLaBJfatAKl0YmKWh1dR3', 'price_1NhCLaBJfatAKl0YT7Ur6IXu']
           }, {
             product: 'prod_Ol1euWJq7XXYBd', 
             prices: ['price_1NxVatBJfatAKl0YOYT8WPLy']
