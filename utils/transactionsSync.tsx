@@ -103,13 +103,13 @@ const transactionsSync = async (access_token, user_id) => {
     // }
 
     // Removed Transactions
-    for (let r in removed) {
-      await prisma.transactions.delete({
-        where: {
-          transaction_id: removed[r].transaction_id
-        },
-      })
-    }
+    // for (let r in removed) {
+    //   await prisma.transactions.delete({
+    //     where: {
+    //       transaction_id: removed[r].transaction_id
+    //     },
+    //   })
+    // }
 
     await prisma.plaid.update({
       where: { item_id: plaid.item_id },
