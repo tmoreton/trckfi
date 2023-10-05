@@ -13,13 +13,11 @@ export default function Index({ showError }) {
   const router = useRouter()
   const { access } = router.query
   const [open, setOpen] = useState(false)
-  const [subscribed, setSubscribed] = useLocalStorage('subscribed', false)
+  const [subscribed] = useLocalStorage('subscribed', false)
 
   useEffect(() => {
     if(access && !subscribed){
-      setTimeout(() => {
-        setOpen(true)
-      }, 2000)
+      setOpen(true)
     }
   }, [access])
 

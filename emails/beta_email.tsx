@@ -38,7 +38,7 @@ export default function (){
             <Section>
               <Text className="text-[20px]"><strong>Step 1: Create Your Account</strong></Text>
               <Text className="text-[18px] my-[5px]">To kick things off, follow these simple steps:</Text>
-              <Text className="text-[15px] ml-[10px] my-[5px]">- Click here to access the link. (Don't worry, we've already applied a discount code for a 90-day free trial.)</Text>
+              <Text className="text-[15px] ml-[10px] my-[5px]">- <Link href="https://www.trckfi.com/pricing?beta_user=true">Click here to access the link.</Link> (Don't worry, we've already applied a discount code for a 90-day free trial.)</Text>
               <Text className="text-[15px] ml-[10px] my-[5px]">- Fill out your information (rest assured, you won't be charged!)</Text>
               <Text className="text-[15px] ml-[10px] my-[5px] pb-[10px]">- Look out for an email that will grant you access to your account.</Text>
             </Section>
@@ -79,7 +79,7 @@ export default function (){
             </Section>
 
             <Section>
-              <Text className="text-[18px]">We'll also provide a step-by-step video to make everything crystal clear.</Text>
+              <Text className="text-[18px]">We'll also provide a <Link href="https://youtu.be/BChUkULTuCs">step-by-step video</Link> to make everything crystal clear.</Text>
               <Text className="text-[18px]">Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. If you have any questions or need assistance along the way, feel free to reach out to our friendly support team at support@trckfi.com.</Text>
               <Text className="text-[18px]">Thank you for being a part of this exciting journey with us. Together, we're going to transform the way we manage our finances.</Text>
               <Text className="text-[18px]"><strong>Let's get started!</strong></Text>
