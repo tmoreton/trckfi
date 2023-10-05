@@ -105,15 +105,15 @@ export default function Pricing ({ showError }) {
   const [products, setProducts] = useState([])
   
   // @ts-ignore
-  useEffect(async () => {
-    setFrequency(frequencies[0])
-    if(beta_user === 'true'){
-      setProducts(tiers)
-      await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
-    } else {
-      setProducts(tiers.filter((item) => item.id !== 'beta' ))
-    }
-  }, [])
+  // useEffect(async () => {
+  //   setFrequency(frequencies[0])
+  //   if(beta_user === 'true'){
+  //     setProducts(tiers)
+  //     await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
+  //   } else {
+  //     setProducts(tiers.filter((item) => item.id !== 'beta' ))
+  //   }
+  // }, [])
 
   const checkout = async (price_id) => {
     const res = await fetch(`/api/checkout_session`, {
@@ -188,7 +188,7 @@ export default function Pricing ({ showError }) {
                     </RadioGroup>
                   </div>
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className={classNames(beta_user === 'true' ? "lg:grid-cols-3" : "lg:grid-cols-2", "mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                    <div className={classNames(beta_user ? "lg:grid-cols-3" : "lg:grid-cols-2", "mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
                       {products.map((tier) => (
                         <div
                           key={tier.id}
