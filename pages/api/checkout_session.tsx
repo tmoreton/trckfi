@@ -26,6 +26,11 @@ export default async (req, res) => {
       // customer_email: email,
     }
 
+    if(price_id === process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID){
+      params.discounts = [{ coupon: 'vcf6c5Zr' }]
+      delete params.allow_promotion_codes 
+    }
+
     // Check if user was referred by a friend
     if(referral_id){
       const referral_user = await prisma.user.findUnique({
