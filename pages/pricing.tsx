@@ -116,7 +116,6 @@ export default function Pricing ({ showError }) {
   }, [])
 
   const checkout = async (price_id) => {
-    console.log(price_id)
     const res = await fetch(`/api/checkout_session`, {
       body: JSON.stringify({ 
         price_id,
