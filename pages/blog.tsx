@@ -28,6 +28,6 @@ export const getStaticProps = async () => {
   ])
   let posts = allPosts.filter(post => post?.title)
   return {
-    props: { allPosts: posts.filter(post => post?.status !== 'draft') },
+    props: { allPosts: posts },
   }
 }
