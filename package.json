@@ -59,6 +59,7 @@
     "next-superjson-plugin": "^0.5.8",
     "nodemailer": "^6.9.3",
     "npm": "^9.8.1",
+    "outstatic": "^0.0.41",
     "plaid": "^14.1.0",
     "prop-types": "^15.8.1",
     "random-words": "^2.0.0",
