@@ -1,6 +1,6 @@
 {
-  "commit": "695de09e4d621579041f74feb8643f83ad36fd16",
-  "generated": "2023-10-06T14:49:52.552Z",
+  "commit": "bb1c0df304f53d60b040f2c06b5bad4c56e97197",
+  "generated": "2023-10-06T15:09:35.380Z",
   "metadata": [
     {
       "__outstatic": {
@@ -33,22 +33,6 @@
       "publish": true,
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
-    },
-    {
-      "__outstatic": {
-        "commit": "3cda473234ccae2b2fd72e56e9f8b58bb61d49c5",
-        "hash": "3701542993",
-        "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
-      },
-      "category": "Personal Finance, Financial Education",
-      "collection": "posts",
-      "coverImage": "/assets/blog/10-concepts-finance-cover.png",
-      "date": "08.15.2023",
-      "description": "Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!",
-      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
-      "publish": true,
-      "slug": "10-must-know-personal-finance-basics-for-financial-success",
-      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     },
     {
       "__outstatic": {
@@ -383,6 +367,26 @@
       "slug": "test",
       "status": "draft",
       "title": "TEST"
+    },
+    {
+      "__outstatic": {
+        "commit": "bb1c0df304f53d60b040f2c06b5bad4c56e97197",
+        "hash": "850169101",
+        "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Personal Finance, Financial Education",
+      "collection": "posts",
+      "coverImage": "/assets/blog/10-concepts-finance-cover.png",
+      "date": "08.15.2023",
+      "description": "Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "10-must-know-personal-finance-basics-for-financial-success",
+      "status": "draft",
+      "title": "TEST10 Must-Know Personal Finance Basics for Financial Success"
     }
   ]
 }
