@@ -1,6 +1,6 @@
 ---
 title: 'Financial Success with Spend Tracking & Budgeting'
-excerpt: "Are you ready to achieve financial success? Take charge of your financial future by tracking expenses, setting goals, and making informed decisions. Combine expense tracking with budget planning for a holistic view of your financial health. Discover the tips and tools that will empower you to build a brighter financial future. Start your journey today and unlock the path to financial freedom!"
+description: "Are you ready to achieve financial success? Take charge of your financial future by tracking expenses, setting goals, and making informed decisions. Combine expense tracking with budget planning for a holistic view of your financial health. Discover the tips and tools that will empower you to build a brighter financial future. Start your journey today and unlock the path to financial freedom!"
 coverImage: '/assets/blog/unlock-financial-success.jpg'
 date: '08.01.2023'
 category: 'Tracking Expenses'

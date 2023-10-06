@@ -1,6 +1,6 @@
 ---
 title: '5 Truths About Personal Finances That Everyone Should Know About'
-excerpt: "Discover the five essential truths about personal finances that can help you achieve financial success. Learn about setting a realistic budget, accurate expense tracking, building wealth with a low income, managing good and bad debt, and efficient financial management. Get valuable insights and tips for better financial control."
+description: "Discover the five essential truths about personal finances that can help you achieve financial success. Learn about setting a realistic budget, accurate expense tracking, building wealth with a low income, managing good and bad debt, and efficient financial management. Get valuable insights and tips for better financial control."
 coverImage: '/assets/blog/five-truths-1.jpg'
 date: '07.14.2023'
 category: 'Personal Finance'

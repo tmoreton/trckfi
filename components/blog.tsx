@@ -43,7 +43,7 @@ export default function ({ posts }) {
                       <span className="absolute inset-0" />
                       {post.title}
                     </h3>
-                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.excerpt}</p>
+                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
                   </div>
                 </div>
               </Link>

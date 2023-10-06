@@ -1,6 +1,6 @@
 ---
 title: 'The Power of Saving: Your Financial Safety Net'
-excerpt: "Saving empowers you to turn aspirations into achievements. Whether it's the dream of homeownership, a long-awaited vacation, or a new laptop, saving allows you to set and conquer financial goals. The journey begins by starting small and cultivating a saving habit that aligns with your dreams."
+description: "Saving empowers you to turn aspirations into achievements. Whether it's the dream of homeownership, a long-awaited vacation, or a new laptop, saving allows you to set and conquer financial goals. The journey begins by starting small and cultivating a saving habit that aligns with your dreams."
 coverImage: '/assets/blog/savings.png'
 date: '09.11.2023'
 category: 'Personal Finance, Financial Management, Saving Money'

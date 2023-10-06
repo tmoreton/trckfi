@@ -1,6 +1,6 @@
 ---
 title: 'Get Out of Debt: Your Path to Financial Freedom'
-excerpt: "Do you have debt weighing you down, and you're yearning for financial freedom? You're not alone, and there's a clear way to find debt relief. This comprehensive guide will provide you with practical strategies and valuable tips to help you break free from the clutches of debt and start on the path to a brighter financial future. Explore how to assess your debt, create a realistic budget, select effective debt payoff strategies, and take charge of your financial destiny. It's time to begin your journey to financial freedom—one step at a time."
+description: "Do you have debt weighing you down, and you're yearning for financial freedom? You're not alone, and there's a clear way to find debt relief. This comprehensive guide will provide you with practical strategies and valuable tips to help you break free from the clutches of debt and start on the path to a brighter financial future. Explore how to assess your debt, create a realistic budget, select effective debt payoff strategies, and take charge of your financial destiny. It's time to begin your journey to financial freedom—one step at a time."
 coverImage: '/assets/blog/get-out-of-debt.png'
 date: '08.16.2023'
 category: 'Tips to Get Out of Debt, Debt Management, Financial Freedom'

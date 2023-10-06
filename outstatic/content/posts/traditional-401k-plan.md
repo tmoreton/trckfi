@@ -1,6 +1,6 @@
 ---
 title: 'What is a Traditional 401(k) Plan?'
-excerpt: 'Planning for retirement? Discover the power of a Traditional 401(k) account. Learn how to maximize pre-tax contributions, benefit from employer matches, and explore the tax-deferred growth advantages. Secure your financial future with this comprehensive guide to Traditional 401(k) accounts.'
+description: 'Planning for retirement? Discover the power of a Traditional 401(k) account. Learn how to maximize pre-tax contributions, benefit from employer matches, and explore the tax-deferred growth advantages. Secure your financial future with this comprehensive guide to Traditional 401(k) accounts.'
 coverImage: '/assets/blog/traditional-401k-plan.png'
 date: '08.18.2023'
 category: 'Retirement Planning, 401(k), Retirement Accounts, Employee Benefits'

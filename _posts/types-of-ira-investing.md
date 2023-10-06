@@ -1,6 +1,6 @@
 ---
 title: "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
-excerpt: "Join us on a journey into the world of IRAs, where Traditional and Roth IRAs take center stage as the king and queen of retirement accounts. But don't stop there! Unveil the hidden gems like Spousal, SEP, SIMPLE, and more. We'll walk you through each type's unique features and benefits, ensuring you find the perfect match for your financial goals. Get ready to navigate the exciting realm of IRAs and build your path to a secure retirement."
+description: "Join us on a journey into the world of IRAs, where Traditional and Roth IRAs take center stage as the king and queen of retirement accounts. But don't stop there! Unveil the hidden gems like Spousal, SEP, SIMPLE, and more. We'll walk you through each type's unique features and benefits, ensuring you find the perfect match for your financial goals. Get ready to navigate the exciting realm of IRAs and build your path to a secure retirement."
 coverImage: "/assets/blog/easy-guide-understand-iras-type.png"
 date: "08.07.2023"
 category: "Personal Finance, Retirement Planning, Investment Strategies"

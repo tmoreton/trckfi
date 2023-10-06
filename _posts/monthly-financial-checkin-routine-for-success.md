@@ -1,6 +1,6 @@
 ---
 title: 'Simple  Monthly Financial Check-In Routine for Success'
-excerpt: "Welcome to the beginning of a new month, a perfect opportunity to take control of your finances and set yourself up for success. Your monthly financial check-in can be the game-changer you need. It's not just about tracking expenses; it's a powerful tool for financial awareness and growth."
+description: "Welcome to the beginning of a new month, a perfect opportunity to take control of your finances and set yourself up for success. Your monthly financial check-in can be the game-changer you need. It's not just about tracking expenses; it's a powerful tool for financial awareness and growth."
 coverImage: '/assets/blog/monthly-routine.png'
 date: '09.04.2023'
 category: 'Financial Awareness, Monthly Financial Routine'

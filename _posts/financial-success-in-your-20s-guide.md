@@ -1,6 +1,6 @@
 ---
 title: "Financial Success in Your 20s: Building a Strong Foundation"
-excerpt: "Are you in your 20s and wondering how to navigate the complex world of personal finance? Look no further! This comprehensive guide is tailored to help you build a strong financial foundation, from setting clear goals to understanding the power of compound interest. Don't miss out on the key steps to financial success in your 20s."
+description: "Are you in your 20s and wondering how to navigate the complex world of personal finance? Look no further! This comprehensive guide is tailored to help you build a strong financial foundation, from setting clear goals to understanding the power of compound interest. Don't miss out on the key steps to financial success in your 20s."
 coverImage: "/assets/blog/genz-financial-success-20s.png"
 date: "9.19.2023"
 category: "Personal Finance, Financial Management, Financial Goals, Debt Management, Financial Education"

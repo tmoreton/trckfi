@@ -1,6 +1,6 @@
 ---
 title: 'Budgeting Made Easy: Balancing Family Fun and Smart Money Moves'
-excerpt: "Striking the perfect balance between cherishing family moments and making wise financial choices can feel like a juggling act. But fear not! Discover how to create a realistic budget that empowers you to enjoy life while managing finances effectively. Say goodbye to stress and embrace a fulfilling, financially stable future for you and your loved ones."
+description: "Striking the perfect balance between cherishing family moments and making wise financial choices can feel like a juggling act. But fear not! Discover how to create a realistic budget that empowers you to enjoy life while managing finances effectively. Say goodbye to stress and embrace a fulfilling, financially stable future for you and your loved ones."
 coverImage: '/assets/blog/budgeting-made-easy.jpg'
 date: '07.16.2023'
 category: 'Budgeting'
