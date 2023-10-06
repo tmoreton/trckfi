@@ -27,7 +27,7 @@ export default async (req, res) => {
     }
 
     if(price_id === process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID){
-      params.discounts = [{ coupon: 'vcf6c5Zr' }]
+      params.discounts = [{ coupon: process.env.STRIPE_BETA_COUPON_ID }]
       delete params.allow_promotion_codes 
     }
 
