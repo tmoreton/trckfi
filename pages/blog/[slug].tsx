@@ -26,7 +26,7 @@ export default function Post({ post, preview, showError }) {
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
-                date={post.date}
+                date={post.publishedAt}
                 author={post.author}
               />
               <PostBody content={post.content} />
@@ -54,7 +54,8 @@ export async function getStaticProps({ params }: Params) {
     'description',
     'coverImage',
     'keywords',
-    'publish'
+    'status',
+    'publishedAt'
   ])
   const content = await markdownToHtml(post.content || '')
 
@@ -70,7 +71,6 @@ export async function getStaticProps({ params }: Params) {
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
-  console.log(posts)
   return {
     paths: posts.map((post) => {
       return {

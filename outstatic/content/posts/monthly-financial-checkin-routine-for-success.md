@@ -5,7 +5,8 @@ coverImage: '/assets/blog/monthly-routine.png'
 date: '09.04.2023'
 category: 'Financial Awareness, Monthly Financial Routine'
 keywords: 'Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions'
-publish: true
+status: 'draft'
+publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
 Welcome to the beginning of a new month, a perfect opportunity to take control of your finances and set yourself up for [success](/blog/track-finances-reach-financial-success). Your monthly financial check-in can be the game-changer you need. It's not just about [tracking expenses](/blog/tracking-monthly-expenses); it's a powerful tool for financial awareness and growth.

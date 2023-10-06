@@ -5,7 +5,8 @@ coverImage: '/assets/blog/get-out-of-debt.png'
 date: '08.16.2023'
 category: 'Tips to Get Out of Debt, Debt Management, Financial Freedom'
 keywords: 'Get Out of Debt, Debt Management, Debt Repayment, Financial Freedom, Budgeting, Emergency Fund, Debt Payoff Strategies, Credit Counseling, Debt Consolidation, Financial Discipline'
-publish: true
+status: 'draft'
+publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
 # Get Out of Debt: Your Path to Financial Freedom

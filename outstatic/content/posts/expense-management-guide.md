@@ -5,7 +5,8 @@ coverImage: '/assets/blog/couple-managing-finances-pay-check-to-pay-check.png'
 date: '09.14.2023'
 category: 'Personal Finance, Financial Awareness, Spend Tracking, Saving Money'
 keywords: 'Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Spend Analysis'
-publish: true
+status: 'draft'
+publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
 

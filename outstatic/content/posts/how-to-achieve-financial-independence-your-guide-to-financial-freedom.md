@@ -5,7 +5,8 @@ coverImage: '/assets/blog/financial-freedom.png'
 date: '08.09.2023'
 category: 'Financial Independence'
 keyword: 'Financial Independence, Achieve Financial Independence, Financial Freedom, Financial Goals, Budgeting, Increasing Income, Managing Debt, Smart Saving, Investing, Compounding, Financial Milestones, Flexibility, Personal Finance, Financial Guide.'
-publish: true
+status: 'draft'
+publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
 ## Why Financial Independence is Important

@@ -5,7 +5,8 @@ coverImage: '/assets/blog/track-receipt.jpg'
 date: '07.10-2023'
 category: 'Personal Finance, Expense Tracking'
 keywords: 'Expense Tracking, Financial Success, Budgeting, Financial Goals, Savings, Investments, Financial Awareness, Financial Discipline, Analysing Expenses'
-publish: true
+status: 'draft'
+publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
 Achieving financial success requires effective tools and strategies, and one of the most valuable tools is **expense tracking**(/). Keeping a close eye on your personal expenses empowers you to make informed financial decisions, create accurate [budgets](/blog/budgeting-made-easy), and work towards your financial goals. In this article, we will explore why tracking and analysing expenses is essential, provide practical tips for expense tracking, and demonstrate how it can positively impact your finances.
