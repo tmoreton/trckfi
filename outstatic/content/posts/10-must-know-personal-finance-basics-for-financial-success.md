@@ -5,7 +5,7 @@ coverImage: '/assets/blog/10-concepts-finance-cover.png'
 date: '08.15.2023'
 category: 'Personal Finance, Financial Education'
 keywords: 'Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights'
-status: 'draft'
+status: 'published'
 slug: '10-must-know-personal-finance-basics-for-financial-success'
 author:
   name: 'Tim Moreton Jr'

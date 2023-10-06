@@ -1,6 +1,6 @@
 {
   "commit": "bb1c0df304f53d60b040f2c06b5bad4c56e97197",
-  "generated": "2023-10-06T15:09:35.380Z",
+  "generated": "2023-10-06T15:10:03.065Z",
   "metadata": [
     {
       "__outstatic": {
@@ -371,7 +371,7 @@
     {
       "__outstatic": {
         "commit": "bb1c0df304f53d60b040f2c06b5bad4c56e97197",
-        "hash": "850169101",
+        "hash": "3954957438",
         "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
       },
       "author": {
@@ -385,7 +385,7 @@
       "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
       "publishedAt": "2023-10-06T14:25:45.491Z",
       "slug": "10-must-know-personal-finance-basics-for-financial-success",
-      "status": "draft",
+      "status": "published",
       "title": "TEST10 Must-Know Personal Finance Basics for Financial Success"
     }
   ]
