@@ -5,7 +5,7 @@ coverImage: '/assets/blog/financial-organization.png'
 date: '08.26.2023'
 category: 'Financial Organization, Money Management, Personal Finance'
 keywords: 'financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

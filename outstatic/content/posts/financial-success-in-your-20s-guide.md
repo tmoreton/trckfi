@@ -5,7 +5,7 @@ coverImage: "/assets/blog/genz-financial-success-20s.png"
 date: "9.19.2023"
 category: "Personal Finance, Financial Management, Financial Goals, Debt Management, Financial Education"
 keywords: "goals, managing debt, credit history, investing for beginners, compound interest, Health Savings Accounts (HSAs), Renter's insurance, Financial education for young adults"
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

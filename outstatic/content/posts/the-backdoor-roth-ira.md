@@ -5,7 +5,7 @@ coverImage: '/assets/blog/retirement-money.png'
 date: '08.12.2023'
 category: 'Backdoor Roth IRA, Retirement Planning, Financial Independence'
 keywords: 'Backdoor Roth IRA, High-Income Earners, Retirement Savings, Tax-Free Growth, Roth IRA Conversion, Retirement Planning, Investment Strategy, Financial Future, Tax-Efficient Strategy, Backdoor Contribution, Retirement Account, Financial Independence'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

@@ -5,7 +5,7 @@ coverImage: '/assets/blog/unlock-financial-success.jpg'
 date: '08.01.2023'
 category: 'Tracking Expenses'
 keywords: 'financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

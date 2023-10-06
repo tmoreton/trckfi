@@ -5,7 +5,7 @@ coverImage: '/assets/blog/401k-guide.png'
 date: '08.16.2023'
 category: 'Retirement Planning, 401K'
 keywords: '401(k) retirement plan, employer matching contributions, traditional 401(k), Roth 401(k), contribution limits, investment options, vesting, portability, withdrawal rules, retirement savings'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

@@ -7,8 +7,6 @@ category: 'Personal Finance, Financial Education'
 keywords: 'Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights'
 status: 'published'
 slug: '10-must-know-personal-finance-basics-for-financial-success'
-author:
-  name: 'Tim Moreton Jr'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

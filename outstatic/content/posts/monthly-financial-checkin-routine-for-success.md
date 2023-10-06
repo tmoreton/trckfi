@@ -5,7 +5,7 @@ coverImage: '/assets/blog/monthly-routine.png'
 date: '09.04.2023'
 category: 'Financial Awareness, Monthly Financial Routine'
 keywords: 'Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

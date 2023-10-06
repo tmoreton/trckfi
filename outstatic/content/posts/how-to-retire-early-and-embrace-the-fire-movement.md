@@ -5,7 +5,7 @@ coverImage: '/assets/blog/early-retirement-cover.png'
 date: '08.01.2023'
 category: 'Retirement Planning, FIRE movement'
 keywords: 'Financial Independence, Retire Early, FIRE Movement, Aggressive Saving, Compound Interest, Tax-Advantaged Accounts, Mindful Spending, Minimalism, 4% Rule, Safe Withdrawal Rate, Alternative Income Streams, Community Support, Financial Freedom'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

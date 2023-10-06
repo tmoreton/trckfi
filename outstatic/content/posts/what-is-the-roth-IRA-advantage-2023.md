@@ -5,7 +5,7 @@ coverImage: '/assets/blog/retirement-roth-ira.png'
 date: '08.10.2023'
 category: 'Personal Finance, Retirement Planning, Roth IRA'
 keywords: 'Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

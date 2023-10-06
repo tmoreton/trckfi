@@ -5,7 +5,7 @@ coverImage: "/assets/blog/easy-guide-understand-iras-type.png"
 date: "08.07.2023"
 category: "Personal Finance, Retirement Planning, Investment Strategies"
 keywords: "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings"
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

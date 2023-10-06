@@ -5,7 +5,7 @@ coverImage: '/assets/blog/retirement-plan-roth-ira.png'
 date: '08.07.2023'
 category: 'Personal Finance, Retirement Planning'
 keywords: 'traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

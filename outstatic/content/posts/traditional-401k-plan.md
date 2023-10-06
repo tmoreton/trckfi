@@ -5,7 +5,7 @@ coverImage: '/assets/blog/traditional-401k-plan.png'
 date: '08.18.2023'
 category: 'Retirement Planning, 401(k), Retirement Accounts, Employee Benefits'
 keywords: 'Traditional 401(k), retirement savings, pre-tax contributions, employer match, tax-deferred growth, retirement planning, retirement accounts, financial future'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 

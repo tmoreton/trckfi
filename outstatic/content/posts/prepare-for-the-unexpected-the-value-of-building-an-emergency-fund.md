@@ -5,7 +5,7 @@ coverImage: '/assets/blog/emergency-fund-cover.png'
 date: "7.25.2023"
 category: 'Personal Finance, Financial Planning, Emergency Fund'
 keywords: 'eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind'
-status: 'draft'
+status: 'published'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
