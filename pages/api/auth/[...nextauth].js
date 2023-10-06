@@ -68,7 +68,6 @@ export const authOptions = {
       return session
     },
     async signIn({ user, account, profile, email, credentials }) {
-      // if(!user.active) return false
       return true
     },
     async redirect({ url, baseUrl }) {
