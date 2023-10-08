@@ -7,8 +7,8 @@ export default async (req, res) => {
   try{
     switch (webhook_code) {
       case 'SYNC_UPDATES_AVAILABLE':
-        const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
-        transactionsSync(access_token, user_id)
+        // const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
+        // transactionsSync(access_token, user_id)
         break;
       case 'RECURRING_TRANSACTIONS_UPDATE':
         break;
