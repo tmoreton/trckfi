@@ -31,7 +31,7 @@ export default function (){
             </Section>
             <Section>
               <Text className="text-[20px]">Hi 👋,</Text>
-              <Text className="text-[18px]"><strong>Welcome to the Trckfi Beta community! We're excited to have you on board as one of our valued beta testers. Get ready to start your journey towards financial empowerment and smarter money management.</strong></Text>
+              <Text className="text-[18px]">Welcome to the <strong>Trckfi Beta community</strong>! We're excited to have you on board as one of our valued beta testers. Get ready to start your journey towards financial empowerment and smarter money management.</Text>
               <Text className="text-[18px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party <Link href="https://plaid.com/en-eu/security/">plaid</Link> to <u>securely encrypt</u> and connect accounts to our platform.</Text>
             </Section>
 
@@ -79,7 +79,7 @@ export default function (){
             </Section>
 
             <Section>
-              <Text className="text-[18px]">We'll also provide a <Link href="https://youtu.be/BChUkULTuCs">step-by-step video</Link> to make everything crystal clear.</Text>
+              <Text className="text-[18px]">We'll also provide a <Link href="https://youtu.be/uDkEiNo8P7E">step-by-step video</Link> to make everything crystal clear.</Text>
               <Text className="text-[18px]">Remember, <strong>your feedback</strong> is invaluable as we fine-tune Trckfi to make it the best it can be. If you have any questions or need assistance along the way, feel free to reach out to our friendly support team at support@trckfi.com.</Text>
               <Text className="text-[18px]">Thank you for being a part of this exciting journey with us. Together, we're going to transform the way we manage our finances.</Text>
               <Text className="text-[18px]"><strong>Let's get started!</strong></Text>
