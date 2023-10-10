@@ -132,7 +132,7 @@ const Rules = ({ showError }) => {
   }
 
   return(
-    <main className="px-4 sm:px-6 lg:flex-auto lg:px-0 lg:py-2 mt-16">
+    <main className="lg:flex-auto lg:px-0 lg:py-2 mt-16">
       <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
         <div>
           <h2 className="text-base font-semibold leading-7 text-pink-600">Custom Rules</h2>
