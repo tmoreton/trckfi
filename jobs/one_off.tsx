@@ -20,10 +20,10 @@ client.defineJob({
       },
     })
 
-    emails.forEach(async (email) => {
+    emails.forEach(async (i) => {
       const message = {
         from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-        to: email,
+        to: i.email,
         subject: `Welcome to Trckfi Beta!`,
         text: '',
         html: render(<BetaEmail />),
@@ -39,6 +39,11 @@ client.defineJob({
       })
 
       await transporter.sendMail(message)
+      await prisma.emails.update({
+        where: { id: i.id },
+        // @ts-ignore
+        data: { beta_sent: true }
+      })
     })
   },
 });
