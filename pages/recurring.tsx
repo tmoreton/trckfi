@@ -139,7 +139,7 @@ export default function Recurring({ showError }) {
               <dl className="mx-auto grid max-w-7xl lg:px-2 xl:px-0">
                 <div className="flex items-baseline flex-wrap justify-center gap-y-2 gap-x-4">
                   {stats && stats.map((i) => (
-                    <div className="relative overflow-hidden rounded-lg bg-white py-4 rounded-md border-b border border-gray-200 w-[196px] mb-4 text-gray-600 text-center">
+                    <div className="relative overflow-hidden rounded-lg bg-white py-4 rounded-md border-b border border-gray-200 md:w-[196px] w-[150px] mb-4 text-gray-600 text-center">
                       <dt className="text-sm font-semibold">{`${i.primary_category.split('_').join(' ')}`}</dt>
 											<dt className="text-xs font-normal">{i.frequency}<span className="text-xs italic font-normal ml-1">est.</span></dt>
                       <dd className="text-blue-400 w-full flex-none text-2xl font-bold tracking-tight">

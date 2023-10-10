@@ -215,7 +215,7 @@ const Accounts = ({ showError }) => {
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
-        <div className="lg:flex justify-center lg:space-x-6 space-x-0 mb-4 block items-center">
+        <div className="lg:flex justify-center lg:space-x-6 space-x-0 mb-4 hidden md:block items-center">
           <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
             <PlusIcon className="h-5 w-5" aria-hidden="true" />
             Add Stock
@@ -279,11 +279,11 @@ const Accounts = ({ showError }) => {
           { !history || history.length <=0 && Object.keys(accounts)?.length <= 0 ?
             <Empty />
             :
-            <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-6">
+            <div className="mx-auto max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-3 py-6 hidden md:grid">
               <div className="col-span-1 pb-4 lg:px-0 px-6 sm:pt-2">
                 { stats && <PieChart data={stats}/>}
               </div>
-              <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2">
+              <div className="col-span-2 lg:px-0 lg:pl-12 pl-0 pb-4 pl-32 px-6 sm:pt-2 hidden md:block">
                 { history && <StackedBarChart history={history}/>}
               </div>
             </div>
@@ -311,8 +311,10 @@ const Accounts = ({ showError }) => {
                               let error_code = accounts[key][0]?.plaid?.error_code
                               if(accounts[key][0]){
                                 return (
-                                  <div key={key} className="flex justify-between gap-x-6 py-6 items-center">
-                                    {renderImg(accounts[key][0])}
+                                  <div key={key} className="flex justify-between md:gap-x-6 md:py-6 py-4 items-center">
+                                    <div className="hidden md:block">
+                                      {renderImg(accounts[key][0])}
+                                    </div>
                                     <div className="w-[100%]">
                                       { accounts[key].map((a, i) => (
                                         <div key={accounts[key][i].id}>
@@ -336,14 +338,14 @@ const Accounts = ({ showError }) => {
                                             </td>
                                             <td className="w-1/6 font-light text-left text-xs hidden lg:block">{a.type}</td> 
                                             <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
-                                            <>
+                                            <div className="hidden md:flex">
                                               <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right hidden lg:block">Hide</button> 
                                               <button onClick={() => editAccount(a)} className="w-20 text-red-600 text-right">Edit</button> 
-                                            </>
+                                            </div>
                                           </tr>
                                         </div>
                                       ))}
-                                      <div className="pt-5">
+                                      <>
                                         { error_code === 'ITEM_LOGIN_REQUIRED' && 
                                           <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid}/>
                                         }
@@ -356,14 +358,14 @@ const Accounts = ({ showError }) => {
                                           </button>
                                         }
                                         { accounts[key][0]?.account_id && error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
-                                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
+                                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="pt-4 text-xs flex items-center text-red-600 hover:text-red-500">
                                             <div className={loading && 'animate-spin'}>
                                               { loading && <ArrowPathIcon className="h-5 w-5" aria-hidden="true" /> }
                                             </div>
                                             <span className={classNames(loading && 'ml-2')}>Remove Bank Connection</span>
                                           </button>
                                         }
-                                      </div>
+                                      </>
                                     </div>
                                   </div>
                                 )

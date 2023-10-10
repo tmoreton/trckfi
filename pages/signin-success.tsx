@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
     })
     return {
       redirect: {
-        destination: '/visionboard',
+        destination: '/dashboard',
         permanent: false,
       },
     }

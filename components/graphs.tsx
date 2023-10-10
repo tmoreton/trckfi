@@ -37,8 +37,8 @@ const colors = [
 ]
 
 const tabs = [
-  { name: 'Primary Category Spend', key: 'primary_category' },
-  { name: 'Detailed Category Spend', key: 'detailed_category' },
+  { name: 'Primary Category', key: 'primary_category' },
+  { name: 'Detailed Category', key: 'detailed_category' },
 ]
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -133,7 +133,7 @@ export default function ({ graphData }) {
 
   return (
     <div>        
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 pb-12">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 md:pb-12 pb-2">
         <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 lg:mb-0 mb-6">
           <div className="border-b border-gray-200 mb-1">
               <nav className="-mb-px flex" aria-label="Tabs">
@@ -192,12 +192,12 @@ export default function ({ graphData }) {
                 )
               })}
             </div>
-            <div className="col-span-1">
+            <div className="col-span-1 hidden md:block">
               <Doughnut data={data} options={options}/>
             </div>
           </div>
         </div>
-        <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6  sm:pt-2 rounded-md border border-gray-200">
+        <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 hidden md:block">
           <BarChart graphData={graphData} />
         </div>
       </div>
