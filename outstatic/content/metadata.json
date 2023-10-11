@@ -1,6 +1,6 @@
 {
-  "commit": "9e7ee7990ba8bbf733d942da8b2d351fa4ae47a6",
-  "generated": "2023-10-06T15:22:32.326Z",
+  "commit": "ca2ee478d90540ecb252c6e9575cb7f6596e0649",
+  "generated": "2023-10-11T13:38:28.057Z",
   "metadata": [
     {
       "__outstatic": {
@@ -370,8 +370,8 @@
     },
     {
       "__outstatic": {
-        "commit": "9e7ee7990ba8bbf733d942da8b2d351fa4ae47a6",
-        "hash": "2024438688",
+        "commit": "ca2ee478d90540ecb252c6e9575cb7f6596e0649",
+        "hash": "1154859274",
         "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
       },
       "author": {
