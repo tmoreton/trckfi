@@ -1,6 +1,6 @@
 {
-  "commit": "ca2ee478d90540ecb252c6e9575cb7f6596e0649",
-  "generated": "2023-10-11T13:38:28.057Z",
+  "commit": "a249b579c29d8018fcaab54c52265a779a0bf6fe",
+  "generated": "2023-10-11T13:39:05.820Z",
   "metadata": [
     {
       "__outstatic": {
@@ -17,22 +17,6 @@
       "publish": true,
       "slug": "budgeting-made-easy",
       "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
-    },
-    {
-      "__outstatic": {
-        "commit": "e7e78067da15dcf65920773c3a32ca032f694e16",
-        "hash": "4130913569",
-        "path": "outstatic/content/posts/401k-retirement-plans-guide-for-smart-saving.md"
-      },
-      "category": "Retirement Planning, 401K",
-      "collection": "posts",
-      "coverImage": "/assets/blog/401k-guide.png",
-      "date": "08.16.2023",
-      "description": "Unlock the secrets to a comfortable retirement with the powerful 401(k) retirement plan. Whether you're just starting your career or nearing retirement age, understanding the ins and outs of a 401(k) can significantly impact your financial future.",
-      "keywords": "401(k) retirement plan, employer matching contributions, traditional 401(k), Roth 401(k), contribution limits, investment options, vesting, portability, withdrawal rules, retirement savings",
-      "publish": true,
-      "slug": "401k-retirement-plans-guide-for-smart-saving",
-      "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
     },
     {
       "__outstatic": {
@@ -387,6 +371,26 @@
       "slug": "10-must-know-personal-finance-basics-for-financial-success",
       "status": "published",
       "title": "10 Must-Know Personal Finance Basics for Financial Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "a249b579c29d8018fcaab54c52265a779a0bf6fe",
+        "hash": "1699587889",
+        "path": "outstatic/content/posts/401k-retirement-plans-guide-for-smart-saving.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Retirement Planning, 401K",
+      "collection": "posts",
+      "coverImage": "/assets/blog/401k-guide.png",
+      "date": "08.16.2023",
+      "description": "Unlock the secrets to a comfortable retirement with the powerful 401(k) retirement plan. Whether you're just starting your career or nearing retirement age, understanding the ins and outs of a 401(k) can significantly impact your financial future.",
+      "keywords": "401(k) retirement plan, employer matching contributions, traditional 401(k), Roth 401(k), contribution limits, investment options, vesting, portability, withdrawal rules, retirement savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "401k-retirement-plans-guide-for-smart-saving",
+      "status": "published",
+      "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
     }
   ]
 }
