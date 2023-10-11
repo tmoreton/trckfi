@@ -1,23 +1,7 @@
 {
-  "commit": "a249b579c29d8018fcaab54c52265a779a0bf6fe",
-  "generated": "2023-10-11T13:39:05.820Z",
+  "commit": "ff6261985ea634908b5567153a414942dc8e6ed4",
+  "generated": "2023-10-11T13:39:53.493Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "52312c3ad98c2e9215a31e8de7375b540701da95",
-        "hash": "710200757",
-        "path": "outstatic/content/posts/budgeting-made-easy.md"
-      },
-      "category": "Budgeting",
-      "collection": "posts",
-      "coverImage": "/assets/blog/budgeting-made-easy.jpg",
-      "date": "07.16.2023",
-      "description": "Striking the perfect balance between cherishing family moments and making wise financial choices can feel like a juggling act. But fear not! Discover how to create a realistic budget that empowers you to enjoy life while managing finances effectively. Say goodbye to stress and embrace a fulfilling, financially stable future for you and your loved ones.",
-      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances",
-      "publish": true,
-      "slug": "budgeting-made-easy",
-      "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
-    },
     {
       "__outstatic": {
         "commit": "c3f53ab6cdd4abc1ed8f1bc1d23290da2612f3be",
@@ -391,6 +375,26 @@
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "status": "published",
       "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
+    },
+    {
+      "__outstatic": {
+        "commit": "ff6261985ea634908b5567153a414942dc8e6ed4",
+        "hash": "2589393163",
+        "path": "outstatic/content/posts/budgeting-made-easy.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Budgeting",
+      "collection": "posts",
+      "coverImage": "/assets/blog/budgeting-made-easy.jpg",
+      "date": "07.16.2023",
+      "description": "Striking the perfect balance between cherishing family moments and making wise financial choices can feel like a juggling act. But fear not! Discover how to create a realistic budget that empowers you to enjoy life while managing finances effectively. Say goodbye to stress and embrace a fulfilling, financially stable future for you and your loved ones.",
+      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances",
+      "publishedAt": "2023-10-07T14:25:45.000Z",
+      "slug": "budgeting-made-easy",
+      "status": "published",
+      "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
     }
   ]
 }
