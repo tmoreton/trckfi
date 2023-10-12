@@ -125,16 +125,27 @@ const transactionsSync = async (access_token, user_id) => {
 
   } catch (e) {
     console.error(e)
-    slackMessage('Error transactions_sync: ' + e.message || e.toString())
+    slackMessage('Error transactions_sync: ' + e.response?.data?.error_code)
     const plaid = await prisma.plaid.findUnique({
       where: { 
         access_token: access_token 
       }
     })
-    await prisma.plaid.update({
-      where: { item_id: plaid.item_id },
-      data: { error_code: e.response?.data?.error_code }
-    })
+    if(e.response?.data?.error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION'){
+      await prisma.plaid.update({
+        where: { item_id: plaid.item_id },
+        data: { 
+          error_code: e.response?.data?.error_code,
+          cursor: ''
+        }
+      })
+    } else {
+      await prisma.plaid.update({
+        where: { item_id: plaid.item_id },
+        data: { error_code: e.response?.data?.error_code }
+      })
+    }
+    
   }
 }
 
