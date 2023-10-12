@@ -1,6 +1,6 @@
 {
-  "commit": "45fb1628d66e1c74b71c9733a2a2dd245a1099d1",
-  "generated": "2023-10-12T17:25:16.980Z",
+  "commit": "df5168547d727e5052a6f5fbe1695fcbc855920f",
+  "generated": "2023-10-12T17:25:49.955Z",
   "metadata": [
     {
       "__outstatic": {
@@ -289,22 +289,6 @@
     },
     {
       "__outstatic": {
-        "commit": "65a8741c0bd4f3187328f15790f804a34834bfe3",
-        "hash": "3123996052",
-        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
-      },
-      "category": "Zero-Based Budgeting",
-      "collection": "posts",
-      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
-      "date": "07.16.2023",
-      "description": "Learn about the practical way to take charge of your money and make every dollar count with zero-based budgeting (ZBB). By assigning a specific purpose to every dollar you earn, you gain control over your money and stay laser-focused on your financial goals. This approach enhances financial awareness, improves decision-making, and allows you to adjust your budget for consistent overages or unexpected expenses. However, zero-based budgeting may not suit everyone due to its time-consuming nature and demand for self-control. Consider automated budgeting tools as alternatives for more streamlined and efficient budget management, ensuring you achieve your financial success while having the flexibility to suit your lifestyle.",
-      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
-      "publish": true,
-      "slug": "what-is-zero-based-budgeting",
-      "title": "What is zero-based budgeting, and is it right for you?"
-    },
-    {
-      "__outstatic": {
         "commit": "38c55909fd879ccb1926e218d44cc15e74c620fd",
         "hash": "1661057855",
         "path": "outstatic/content/posts/types-of-ira-investing.md"
@@ -377,6 +361,26 @@
       "slug": "budgeting-made-easy",
       "status": "published",
       "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
+    },
+    {
+      "__outstatic": {
+        "commit": "df5168547d727e5052a6f5fbe1695fcbc855920f",
+        "hash": "2698741979",
+        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Zero-Based Budgeting",
+      "collection": "posts",
+      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
+      "date": "07.16.2023",
+      "description": "Learn about the practical way to take charge of your money and make every dollar count with zero-based budgeting (ZBB). By assigning a specific purpose to every dollar you earn, you gain control over your money and stay laser-focused on your financial goals. This approach enhances financial awareness, improves decision-making, and allows you to adjust your budget for consistent overages or unexpected expenses. However, zero-based budgeting may not suit everyone due to its time-consuming nature and demand for self-control. Consider automated budgeting tools as alternatives for more streamlined and efficient budget management, ensuring you achieve your financial success while having the flexibility to suit your lifestyle.",
+      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "what-is-zero-based-budgeting",
+      "status": "published",
+      "title": "What is zero-based budgeting, and is it right for you?"
     }
   ]
 }
