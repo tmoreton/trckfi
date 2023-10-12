@@ -151,14 +151,13 @@ export default function Pricing ({ showError }) {
             <div className="isolate overflow-hidden bg-pink-600 rounded-2xl">
               <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center lg:px-8">
                 <div className="mx-auto max-w-4xl">
-                  <h2 className="text-base font-semibold leading-7 text-white">Pricing</h2>
+                  <h2 className="text-base font-semibold leading-7 text-white">Trckfi Pricing</h2>
                   <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-tight md:leading-none mb-4 text-white">
                     { referral_id ? 
                       <span className="pb-10">Your friend gave you $10! 🎉<br/></span>
                       :
                       <span className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                        The right price for you, <br className="hidden sm:inline lg:hidden" />
-                        whoever you are
+                        Your Money's Best Friend, No Exceptions!
                       </span>
                     }
                   </h1>
