@@ -212,6 +212,24 @@ export default function Pricing ({ showError }) {
                               </>
                             }
 
+                            {
+                              tier.id === 'beta' ?
+                              <button
+                                onClick={() => checkout(tier.price[frequency.value]?.id)}
+                                aria-describedby={tier.id}
+                                className="mt-8 block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                              >
+                                Get started today
+                              </button>
+                              :
+                              <button
+                                onClick={() => setOpen(true)}
+                                className="border-2 border-pink-500 mt-8 block rounded-md bg-white px-3.5 py-2 text-center text-sm font-semibold leading-6 text-pink-600 shadow-sm hover:text-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                              >
+                                Get Early Access
+                              </button>
+                            }
+
                             {/* <p className="mt-6 text-base leading-7 text-gray-600">{tier.description}</p> */}
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (
@@ -222,23 +240,6 @@ export default function Pricing ({ showError }) {
                               ))}
                             </ul>
                           </div>
-                          {
-                            tier.id === 'beta' ?
-                            <button
-                              onClick={() => checkout(tier.price[frequency.value]?.id)}
-                              aria-describedby={tier.id}
-                              className="mt-8 block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-                            >
-                              Get started today
-                            </button>
-                            :
-                            <button
-                              onClick={() => setOpen(true)}
-                              className="border-2 border-pink-500 mt-8 block rounded-md bg-white px-3.5 py-2 text-center text-sm font-semibold leading-6 text-pink-600 shadow-sm hover:text-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-                            >
-                              Get Early Access
-                            </button>
-                          }
                         </div>
                       ))}
                     </div>
