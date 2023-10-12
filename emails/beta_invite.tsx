@@ -43,7 +43,7 @@ export const BetaInvite = () => {
                 pX={20}
                 pY={12}
                 className="bg-pink-600 rounded-2xl text-white text-[21px] font-semibold no-underline text-center"
-                href='https://www.trckfi.com/pricing?beta_user=true'
+                href='https://www.trckfi.com/beta'
               >
                 Accept Invitation
               </Button>
