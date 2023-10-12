@@ -22,16 +22,16 @@ export const BetaInvite = () => {
       <Preview>Trckfi - You've Been Invited to Join!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="py-[20px] w-[465px]">
+          <Container className="py-[20px] w-[650px] mx-auto">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi-black-sm.png'
                 height="50"
                 alt="Trckfi Logo"
-                className="my-0"
+                className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[36px] font-bold text-center p-0 my-[30px] mx-0 leading-[40px]">
+            <Heading className="text-black text-[36px] font-bold text-center p-0 my-[36px] mx-0 leading-[40px]">
               You've been invited to become a Trckfi early adopter!
             </Heading>
             {/* <Text className="text-[#666666] text-[12px] leading-[12px]">
