@@ -13,6 +13,7 @@ import {
   Text,
 } from '@react-email/components';
 import * as React from 'react';
+import { Link } from '@react-email/link';
 
 export const BetaInvite = () => {
   return (
@@ -38,12 +39,14 @@ export const BetaInvite = () => {
               If you are concerned about your account's safety, please reply 
               to this email to get in touch with us.
             </Text> */}
-            <Img
+            <Link href="https://youtu.be/uDkEiNo8P7E">
+              <Img
                 src='https://www.trckfi.com/assets/email-video-gray.png'
                 width="465"
                 alt="Trckfi Intro Video"
                 className="my-0 mx-auto"
               />
+            </Link>
             <Section className="text-center mt-[32px] mb-[32px]">
               <Button
                 pX={20}
