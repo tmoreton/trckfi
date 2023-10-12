@@ -26,7 +26,7 @@ export const BetaInvite = () => {
               <Img
                 src='https://www.trckfi.com/trckfi-black-sm.png'
                 height="50"
-                alt="Trckfi"
+                alt="Trckfi Logo"
                 className="my-0"
               />
             </Section>
@@ -38,6 +38,12 @@ export const BetaInvite = () => {
               If you are concerned about your account's safety, please reply 
               to this email to get in touch with us.
             </Text> */}
+            <Img
+                src='https://www.trckfi.com/assets/email-video-gray.png'
+                width="465"
+                alt="Trckfi Intro Video"
+                className="my-0 mx-auto"
+              />
             <Section className="text-center mt-[32px] mb-[32px]">
               <Button
                 pX={20}
