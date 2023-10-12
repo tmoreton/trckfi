@@ -11,15 +11,20 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function Index({ showError }) {
   const router = useRouter()
-  const { access } = router.query
   const [open, setOpen] = useState(false)
   const [subscribed] = useLocalStorage('subscribed', false)
 
   useEffect(() => {
-    if(access && !subscribed){
-      setOpen(true)
+    if(!subscribed){
+      showPopup()
     }
-  }, [access])
+  }, [])
+
+  const showPopup = () => {
+    setTimeout(() => {
+      setOpen(true)
+    }, 5000)
+  }
 
   return (
     <Layout>
