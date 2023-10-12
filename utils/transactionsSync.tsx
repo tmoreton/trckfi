@@ -36,7 +36,7 @@ const transactionsSync = async (access_token, user_id) => {
     } else if(plaid.error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION'){
       next_cursor = ''
     }
-    console.log(plaid.error_code)
+
     const request = {
       access_token: access_token,
       cursor: next_cursor,
