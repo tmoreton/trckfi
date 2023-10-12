@@ -29,7 +29,7 @@ const tiers = [
       }, 
       annually: { 
         id: process.env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PRICE_ID, 
-        price: '$89.99'
+        price: '$74.99'
       },
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
