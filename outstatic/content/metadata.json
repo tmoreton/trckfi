@@ -1,6 +1,6 @@
 {
-  "commit": "ff6261985ea634908b5567153a414942dc8e6ed4",
-  "generated": "2023-10-11T13:39:53.493Z",
+  "commit": "45fb1628d66e1c74b71c9733a2a2dd245a1099d1",
+  "generated": "2023-10-12T17:25:16.980Z",
   "metadata": [
     {
       "__outstatic": {
@@ -317,24 +317,6 @@
       "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
       "slug": "types-of-ira-investing",
       "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
-    },
-    {
-      "__outstatic": {
-        "commit": "695de09e4d621579041f74feb8643f83ad36fd16",
-        "hash": "423064915",
-        "path": "outstatic/content/posts/test.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr",
-        "picture": "https://avatars.githubusercontent.com/u/5090418?v=4"
-      },
-      "collection": "posts",
-      "coverImage": "",
-      "description": "",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "test",
-      "status": "draft",
-      "title": "TEST"
     },
     {
       "__outstatic": {
