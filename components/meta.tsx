@@ -36,6 +36,7 @@ const Meta = () => {
       <meta property="og:image" content="/trckfi-og-image.png" />
       <meta property="og:title" content='Trckfi - Take control of your wealth journey while keeping your data private & secure with Trckfi' />
       <meta property="og:description" content="Trckfi is your all-in-one online personal finance platform. We provide you with the tools and insights you need to take control of your finances. Our platform seamlessly connects to your bank accounts, credit cards, investments, and more, giving you a comprehensive view of your financial landscape. We categorize your transactions, visualize your spending, and offer smart suggestions to help you make informed financial decisions. Plus, we're all about making finances fun and engaging with features like our Vision Board Magic." />
+      <meta name="facebook-domain-verification" content="4edjuvyb4b7cwp99i13jbjOttzammg" />
     </Head>
   )
 }
