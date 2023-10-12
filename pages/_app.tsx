@@ -18,16 +18,17 @@ const hotjarVersion = 6
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
-
+  const { post } = pageProps
   useEffect(() => {
     if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost')){
       Hotjar.init(siteId, hotjarVersion);
     }
+    console.log(post)
   }, [])
   
   return (
     <>
-      <Meta />
+      <Meta post={post} />
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-YDKZMNYK8E" />
       <Script id="google-analytics">
         {`
