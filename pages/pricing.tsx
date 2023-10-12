@@ -19,25 +19,9 @@ const frequencies = [
 
 const tiers = [
   {
-    name: 'Early Adopter',
-    id: 'beta',
-    save: '',
-    price: {
-      monthly: { 
-        id: process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID, 
-        price: '$0'
-      },
-    },
-    description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
-    features: [
-      '3 months free with Promo code: EARLYADOPTER',
-      'All features of pro and family plans with unlimited connections',
-    ],
-  },
-  {
     name: 'Pro',
     id: 'pro',
-    save: '$18',
+    save: '$33',
     price: {
       monthly: { 
         id: process.env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID, 
@@ -67,7 +51,7 @@ const tiers = [
   {
     name: 'Family',
     id: 'family',
-    save: '$29',
+    save: '$49',
     price: {
       monthly: { 
         id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_MONTHLY_PRICE_ID, 
@@ -75,7 +59,7 @@ const tiers = [
       }, 
       annually: { 
         id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_YEARLY_PRICE_ID, 
-        price: '$114.99'
+        price: '$94.99'
       },
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
@@ -102,7 +86,6 @@ export default function Pricing ({ showError }) {
   const { referral_id, beta_user } = router.query
   const [frequency, setFrequency] = useState(frequencies[0])
   const [open, setOpen] = useState(false)
-  const [products, setProducts] = useState([])
   
   // const redirect = useCallback(async () => {
   //   await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
@@ -110,13 +93,6 @@ export default function Pricing ({ showError }) {
 
   useEffect(() => {
     setFrequency(frequencies[0])
-    if(beta_user === 'true'){
-      setProducts(tiers)
-      // await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
-      // redirect()
-    } else {
-      setProducts(tiers.filter((item) => item.id !== 'beta' ))
-    }
   }, [])
 
   const checkout = async (price_id) => {
@@ -191,8 +167,8 @@ export default function Pricing ({ showError }) {
                     </RadioGroup>
                   </div>
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className={classNames(beta_user === 'true' ? "lg:grid-cols-3" : "lg:grid-cols-2", "mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
-                      {products.map((tier) => (
+                    <div className={classNames("lg:grid-cols-2 mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                      {tiers.map((tier) => (
                         <div
                           key={tier.id}
                           className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"

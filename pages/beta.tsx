@@ -37,7 +37,7 @@ const tiers = [
   {
     name: 'Pro',
     id: 'pro',
-    save: '$18',
+    save: '$33',
     price: {
       monthly: { 
         id: process.env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID, 
@@ -67,7 +67,7 @@ const tiers = [
   {
     name: 'Family',
     id: 'family',
-    save: '$29',
+    save: '$49',
     price: {
       monthly: { 
         id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_MONTHLY_PRICE_ID, 
@@ -75,7 +75,7 @@ const tiers = [
       }, 
       annually: { 
         id: process.env.NEXT_PUBLIC_STRIPE_FAMILY_YEARLY_PRICE_ID, 
-        price: '$114.99'
+        price: '$94.99'
       },
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',

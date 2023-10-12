@@ -38,7 +38,7 @@ export default function (){
             <Section>
               <Text className="text-[20px]"><strong>Step 1: Create Your Account</strong></Text>
               <Text className="text-[18px] my-[5px]">To kick things off, follow these simple steps:</Text>
-              <Text className="text-[15px] ml-[10px] my-[5px]">- <Link href="https://www.trckfi.com/pricing?beta_user=true">Click here to access the link.</Link> (Don't worry, we've already applied a discount code for a 90-day free trial.) 🙌</Text>
+              <Text className="text-[15px] ml-[10px] my-[5px]">- <Link href="https://www.trckfi.com/beta">Click here to access the link.</Link> (Don't worry, we've already applied a discount code for a 90-day free trial.) 🙌</Text>
               <Text className="text-[15px] ml-[10px] my-[5px]">- Fill out your information (rest assured, you won't be charged!)</Text>
               <Text className="text-[15px] ml-[10px] my-[5px] pb-[10px]">- Look out for an email that will grant you access to your account. 🎉</Text>
             </Section>
