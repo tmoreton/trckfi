@@ -135,7 +135,7 @@ const transactionsSync = async (access_token, user_id) => {
       await prisma.plaid.update({
         where: { item_id: plaid.item_id },
         data: { 
-          error_code: e.response?.data?.error_code,
+          error_code: null,
           cursor: ''
         }
       })
