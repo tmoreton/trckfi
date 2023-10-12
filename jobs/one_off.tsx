@@ -13,9 +13,11 @@ client.defineJob({
     name: "one.off"
   }),
   run: async (payload, io, ctx) => {
+    const { email } = payload
+
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-      to: 'tmoreton89@gmail.com',
+      to: email,
       subject: `You've Been Invited!`,
       text: '',
       html: render(<BetaInvite />),
