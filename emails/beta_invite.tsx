@@ -41,7 +41,7 @@ export const BetaInvite = () => {
             </Text> */}
             <Link href="https://youtu.be/uDkEiNo8P7E">
               <Img
-                src='https://www.trckfi.com/assets/email-video-gray.png'
+                src='https://www.trckfi.com/email-video-gray.png'
                 width="465"
                 alt="Trckfi Intro Video"
                 className="my-0 mx-auto"
