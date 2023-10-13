@@ -3,6 +3,7 @@ import { usePlaidLink } from 'react-plaid-link'
 import { PlusIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 
 export default function ({ showError, user, refresh_access_token, syncPlaid }) {
+  console.log(refresh_access_token)
   const [linkToken, setLinkToken] = useState(null)
 
   useEffect(() => {

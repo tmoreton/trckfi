@@ -146,8 +146,9 @@ const Accounts = ({ showError }) => {
       openSetupModal(true)
     }
     const accounts = data.reduce(function (r, a) {
-      r[a.institution] = r[a.institution] || [];
-      r[a.institution].push(a);
+      let key = `${a.institution}-${a.user_id}`
+      r[key] = r[key] || [];
+      r[key].push(a);
       return r;
     }, Object.create(null))    
     setAccounts(accounts)
