@@ -13,7 +13,6 @@ import {
   Text,
 } from '@react-email/components';
 import * as React from 'react';
-import { Link } from '@react-email/link';
 
 export const BetaInvite = () => {
   return (
@@ -36,14 +35,14 @@ export const BetaInvite = () => {
             </Heading>
 
             <Section>
-              <Text className="text-[20px] text-center">This means you will be able to use our personal finance for <strong>free</strong> for a period of <strong>3 months</strong>! All we ask is for you to provide your honest feedback. You can cancel anytime.</Text>
+              <Text className="text-[16px] text-center">This means you will be able to use our personal finance for <strong>free</strong> for a period of <strong>3 months</strong>! All we ask is for you to provide your honest feedback. You can cancel anytime.</Text>
             </Section>
 
-            <Section className="my-[32px]">
+            <Section className="my-[32px] mx-auto text-center">
               <Button
                 pX={20}
                 pY={12}
-                className="bg-pink-600 rounded-2xl text-white text-[21px] font-semibold no-underline text-center"
+                className="bg-pink-600 rounded-2xl text-white text-[32px] font-semibold no-underline mx-auto text-center"
                 href='https://www.trckfi.com/beta'
               >
                 Accept Invitation
@@ -51,13 +50,13 @@ export const BetaInvite = () => {
             </Section>
 
             <Section>
-              <Text className="text-[20px] text-center my-[8px]">After accepting the invitation, you'll land on a pricing page. Simply click the <strong>'EARLY ADOPTER'</strong> button, and you'll be directed to the Plaid checkout page, where we've already <strong>added a discount code for a 90-day free trial.</strong> </Text>
-              <Text className="text-[20px] text-center my-[8px]">Complete your information (no charges will be incurred), hit <strong>'subscribe'</strong>, and you'll receive an email granting access to your account. 🎉</Text>
-              <Text className="text-[20px] text-center my-[8px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party plaid to securely encrypt and connect accounts to our platform.</Text>
-              <Text className="text-[20px] text-center my-[8px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
+              <Text className="text-[16px] text-center my-[20px]">After accepting the invitation, you'll land on a pricing page. Simply click the <strong>'EARLY ADOPTER'</strong> button, and you'll be directed to the Plaid checkout page, where we've already <strong>added a discount code for a 90-day free trial.</strong> </Text>
+              <Text className="text-[16px] text-center my-[20px]">Complete your information (no charges will be incurred), hit <strong>'subscribe'</strong>, and you'll receive an email granting access to your account. 🎉</Text>
+              <Text className="text-[16px] text-center my-[20px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party plaid to securely encrypt and connect accounts to our platform.</Text>
+              <Text className="text-[16px] text-center my-[20px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
             </Section>
 
-            <Text className="text-black text-[18px] leading-[24px]">
+            <Text className="text-black text-[16px] leading-[24px]">
               Love, <br/> Trckfi Team
             </Text>  
           </Container>
