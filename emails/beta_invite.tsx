@@ -30,7 +30,7 @@ export const BetaInvite = () => {
                 className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[32px] font-bold text-center p-0 my-[32px] mx-0 leading-[40px]">
+            <Heading className="text-black text-[32px] font-bold text-center p-0 mt-[36px] mx-0 leading-[40px]">
               You've been invited to become a Trckfi early adopter!
             </Heading>
 
