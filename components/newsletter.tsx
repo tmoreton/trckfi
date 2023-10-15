@@ -2,8 +2,9 @@ import { useState } from 'react'
 import ConfettiExplosion from 'react-confetti-explosion'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 
-const Newsletter = ({ showError }) => {
+const Newsletter = () => {
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
   const [subscribed, setSubscribed] = useLocalStorage('subscribed', false)
 
   const subscribe = async (e) => {
@@ -11,24 +12,23 @@ const Newsletter = ({ showError }) => {
     if(!subscribed){
       setSubscribed(true)
       setEmail('')
-      const res = await fetch(`/api/add_email`, {
+      await fetch(`/api/add_email`, {
         body: JSON.stringify({
           email,
+          name
         }),
         headers: {
           'Content-Type': 'application/json',
         },
         method: 'POST',
       })
-      const { error } = await res.json()
-      showError(error)
     } else {
       alert("You're already on the waitlist!")
     }
   }
 
   return (
-      <div className="relative isolate overflow-hidden bg-pink-600 px-6 py-24 shadow-2xl rounded-3xl sm:px-24 xl:py-32">
+      <div className="relative isolate overflow-hidden bg-pink-600 p-10 shadow-2xl rounded-3xl sm:px-12">
         { subscribed ? 
         <a id="get-notified">
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -39,30 +39,42 @@ const Newsletter = ({ showError }) => {
         </a>
         :
         <>
-          <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            <a id="get-notified">Get Early Access!</a>
+          <h2 className="text-xl font-bold tracking-tight text-white sm:text-3xl mb-6 text-center">
+            Get Early Access <br/> <span className="font-normal">+ 3 Months Free</span>
           </h2>
-          <form className="mx-auto mt-10 flex max-w-md gap-x-4" onSubmit={subscribe}>
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
-            <input
-              autoComplete="email"
-              id="email"
-              name="email"
-              value={email}
-              placeholder={'Enter your email'}
-              onChange={e => setEmail(e.target.value)}
-              required
-              type="email"
-              disabled={subscribed}
-              className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
-            />
+          {/* <p className="text-white my-4">Sign up today, and gain early access when we launch Trckfi along with <b>3 months free</b>!</p> */}
+          <form onSubmit={subscribe}>
+            <div className="mx-auto flex max-w-md gap-x-4" >
+              <input
+                autoComplete="name"
+                id="name"
+                name="name"
+                value={name}
+                placeholder="Name"
+                onChange={e => setName(e.target.value)}
+                required
+                type="name"
+                disabled={subscribed}
+                className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
+              />
+              <input
+                autoComplete="email"
+                id="email"
+                name="email"
+                value={email}
+                placeholder="Email"
+                onChange={e => setEmail(e.target.value)}
+                required
+                type="email"
+                disabled={subscribed}
+                className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
+              />
+            </div>
             <button
               type="submit"
-              className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="flex-none w-full rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Join Waitlist
+              Get Early Access
             </button>
             
           </form>

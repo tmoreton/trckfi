@@ -12,11 +12,11 @@ export default function Index({ showError }) {
   const [open, setOpen] = useState(false)
   const [subscribed] = useLocalStorage('subscribed', false)
 
-  useEffect(() => {
-    if(!subscribed){
-      showPopup()
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(!subscribed){
+  //     showPopup()
+  //   }
+  // }, [])
 
   const showPopup = () => {
     setTimeout(() => {
@@ -31,11 +31,6 @@ export default function Index({ showError }) {
       <Hero />
       <AccountNetworth />
       <Visonboard />
-      <div className="bg-white py-16">
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <Newsletter showError={showError} />
-        </div>
-      </div>
     </Layout>
   )
 }

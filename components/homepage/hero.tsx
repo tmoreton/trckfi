@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import VideoModal from '../modals/video-modal'
 import Image from 'next/image'
+import Newsletter from '../newsletter'
 
 export default function () {
   const [open, setOpen] = useState(false)
@@ -11,10 +12,10 @@ export default function () {
       <VideoModal setOpen={setOpen} open={open} />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-8 lg:pt-4">
+          <div className="lg:pt-4">
             <div className="lg:max-w-lg">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
-              <div className="sm:mt-32 lg:mt-16">
+              <div className="sm:mt-32 lg:mt-6">
                 <h1 className="mx-auto max-w-5xl font-display text-7xl sm:text-8xl font-bold tracking-tighter text-slate-900 leading-tight">
                   Budgets {' '}
                   <span className="hidden sm:block relative whitespace-nowrap text-pink-600">
@@ -35,7 +36,8 @@ export default function () {
                 <p className="my-10 text-3xl font-bold text-gray-900 tracking-wide">
                   But it's still important to track where your money is going!
                 </p>
-                <div className="mt-8 flex items-center gap-x-6">
+                <Newsletter />
+                {/* <div className="mt-8 flex items-center gap-x-6">
                   <Link href='/#get-notified' className="text-md font-semibold leading-6 text-gray-900">
                     <button className="rounded-md bg-pink-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                       Join Waitlist!
@@ -44,7 +46,7 @@ export default function () {
                   <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-gray-900 hidden lg:block">
                     Watch how Trckfi works <span aria-hidden="true">→</span>
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
             </div>

@@ -6,7 +6,7 @@ import Newsletter from "../../emails/newsletter"
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
-  const { email } = req.body
+  const { email, name } = req.body
   if (!email) {
     return res.status(400).json({ error: 'Email Is Required' })
   }
@@ -16,7 +16,11 @@ export default async (req, res) => {
     await prisma.emails.upsert({
       where: { email: email.toLowerCase() },
       update: { email: email.toLowerCase() },
-      create: { email: email.toLowerCase() },
+      create: { 
+        email: email.toLowerCase(),
+        // @ts-ignore
+        name
+      },
     })
     slackMessage(`${email} Added to Newsletter`)
     const emailHtml = render(
