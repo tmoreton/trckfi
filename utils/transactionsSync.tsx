@@ -40,7 +40,7 @@ const transactionsSync = async (access_token, user_id) => {
     const request = {
       access_token: access_token,
       cursor: next_cursor,
-      count: 250,
+      count: 500,
       options: {
         include_personal_finance_category: true
       }
@@ -59,7 +59,7 @@ const transactionsSync = async (access_token, user_id) => {
     let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
     
-    while(has_more){
+    // while(has_more){
       for (let i in added) {
         let { id, type, name } = plaid.accounts.find(a => a.account_id === added[i].account_id)
         let detailed_category = added[i].personal_finance_category.detailed.replace(`${added[i].personal_finance_category.primary}_`, '')
@@ -112,7 +112,7 @@ const transactionsSync = async (access_token, user_id) => {
           error_code: null
         }
       })
-    }
+    // }
 
     // Removed Transactions
     // for (let r in removed) {
