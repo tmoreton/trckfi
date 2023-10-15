@@ -18,7 +18,7 @@ client.defineJob({
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       to: email,
-      subject: `You've Been Invited!`,
+      subject: `Welcome to Trckfi Beta!`,
       text: '',
       html: render(<BetaInvite />),
     }

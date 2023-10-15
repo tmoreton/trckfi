@@ -8,6 +8,7 @@ import {
   Section,
   Tailwind,
   Text,
+
 } from '@react-email/components';
 import * as React from 'react';
 import { Link } from '@react-email/link';
@@ -29,6 +30,7 @@ export default function (){
                 className="my-0 mx-auto"
               />
             </Section>
+            
             <Section>
               <Text className="text-[20px]">Hi 👋,</Text>
               <Text className="text-[18px]">Welcome to the <strong>Trckfi Beta community</strong>! We're excited to have you on board as one of our valued beta testers. Get ready to start your journey towards financial empowerment and smarter money management.</Text>

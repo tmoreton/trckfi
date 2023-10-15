@@ -31,23 +31,15 @@ export const BetaInvite = () => {
                 className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[36px] font-bold text-center p-0 my-[36px] mx-0 leading-[40px]">
+            <Heading className="text-black text-[32px] font-bold text-center p-0 my-[36px] mx-0 leading-[40px]">
               You've been invited to become a Trckfi early adopter!
             </Heading>
-            {/* <Text className="text-[#666666] text-[12px] leading-[12px]">
-              If you were not expecting this invitation, you can ignore this email.
-              If you are concerned about your account's safety, please reply 
-              to this email to get in touch with us.
-            </Text> */}
-            <Link href="https://youtu.be/uDkEiNo8P7E">
-              <Img
-                src='https://www.trckfi.com/email-video-gray.png'
-                width="465"
-                alt="Trckfi Intro Video"
-                className="my-0 mx-auto"
-              />
-            </Link>
-            <Section className="text-center mt-[32px] mb-[32px]">
+
+            <Section>
+              <Text className="text-[20px] text-center">This means you will be able to use our personal finance for <strong>free</strong> for a period of <strong>3 months</strong>! All we ask is for you to provide your honest feedback. You can cancel anytime.</Text>
+            </Section>
+
+            <Section className="my-[32px]">
               <Button
                 pX={20}
                 pY={12}
@@ -56,7 +48,18 @@ export const BetaInvite = () => {
               >
                 Accept Invitation
               </Button>
-            </Section>            
+            </Section>
+
+            <Section>
+              <Text className="text-[20px] text-center my-[8px]">After accepting the invitation, you'll land on a pricing page. Simply click the <strong>'EARLY ADOPTER'</strong> button, and you'll be directed to the Plaid checkout page, where we've already <strong>added a discount code for a 90-day free trial.</strong> </Text>
+              <Text className="text-[20px] text-center my-[8px]">Complete your information (no charges will be incurred), hit <strong>'subscribe'</strong>, and you'll receive an email granting access to your account. 🎉</Text>
+              <Text className="text-[20px] text-center my-[8px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party plaid to securely encrypt and connect accounts to our platform.</Text>
+              <Text className="text-[20px] text-center my-[8px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
+            </Section>
+
+            <Text className="text-black text-[18px] leading-[24px]">
+              Love, <br/> Trckfi Team
+            </Text>  
           </Container>
         </Body>
       </Tailwind>
@@ -65,3 +68,12 @@ export const BetaInvite = () => {
 };
 
 export default BetaInvite;
+
+{/* <Link href="https://youtu.be/uDkEiNo8P7E">
+  <Img
+    src='https://www.trckfi.com/email-video-gray.png'
+    width="465"
+    alt="Trckfi Intro Video"
+    className="my-0 mx-auto"
+  />
+</Link> */}
