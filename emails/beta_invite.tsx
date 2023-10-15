@@ -32,11 +32,12 @@ export const BetaInvite = () => {
               />
             </Section>
             <Heading className="text-black text-[32px] font-bold text-center p-0 mt-[36px] mx-0 leading-[40px]">
-              You've been invited to become a Trckfi early adopter!
+              You're invited to be a Trckfi early adopter!
             </Heading>
 
             <Section>
               <Text className="text-[15px] text-center">This means you will be able to use our personal finance for <strong>free</strong> for a period of <strong>3 months</strong>! All we ask is for you to provide your honest feedback. You can cancel anytime.</Text>
+              <Text className="text-[15px] text-center mt-[20px]">Once you accept the invitation, click <strong>'EARLY ADOPTER'</strong> on the pricing page. You'll be taken to our Plaid checkout with a <strong>90-day free trial</strong> discount applied. Fill in your information, click <strong>'subscribe'</strong>, and you'll soon receive an email with a link to access your account. 🎉</Text>
             </Section>
 
             <Section className="my-[32px] mx-auto text-center">
@@ -51,7 +52,6 @@ export const BetaInvite = () => {
             </Section>
 
             <Section>
-              <Text className="text-[15px] text-center my-[20px]">Once you accept the invitation, click <strong>'EARLY ADOPTER'</strong> on the pricing page. You'll be taken to our Plaid checkout with a <strong>90-day free trial</strong> discount applied. Fill in your information, click <strong>'subscribe'</strong>, and you'll soon receive an email with a link to access your account. 🎉</Text>
               <Text className="text-[12px] text-center my-[20px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trckfi uses a third party <Link href="https://plaid.com/safety/">Plaid</Link> to securely encrypt and connect accounts to our platform.</Text>
               <Text className="text-[15px] text-center mt-[30px] mb-[20px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
             </Section>
