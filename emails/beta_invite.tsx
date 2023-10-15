@@ -30,12 +30,12 @@ export const BetaInvite = () => {
                 className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[32px] font-bold text-center p-0 my-[36px] mx-0 leading-[40px]">
+            <Heading className="text-black text-[32px] font-bold text-center p-0 my-[32px] mx-0 leading-[40px]">
               You've been invited to become a Trckfi early adopter!
             </Heading>
 
             <Section>
-              <Text className="text-[16px] text-center">This means you will be able to use our personal finance for <strong>free</strong> for a period of <strong>3 months</strong>! All we ask is for you to provide your honest feedback. You can cancel anytime.</Text>
+              <Text className="text-[15px] text-center">This means you will be able to use our personal finance for <strong>free</strong> for a period of <strong>3 months</strong>! All we ask is for you to provide your honest feedback. You can cancel anytime.</Text>
             </Section>
 
             <Section className="my-[32px] mx-auto text-center">
@@ -50,13 +50,12 @@ export const BetaInvite = () => {
             </Section>
 
             <Section>
-              <Text className="text-[16px] text-center my-[20px]">After accepting the invitation, you'll land on a pricing page. Simply click the <strong>'EARLY ADOPTER'</strong> button, and you'll be directed to the Plaid checkout page, where we've already <strong>added a discount code for a 90-day free trial.</strong> </Text>
-              <Text className="text-[16px] text-center my-[20px]">Complete your information (no charges will be incurred), hit <strong>'subscribe'</strong>, and you'll receive an email granting access to your account. 🎉</Text>
-              <Text className="text-[16px] text-center my-[20px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party plaid to securely encrypt and connect accounts to our platform.</Text>
-              <Text className="text-[16px] text-center my-[20px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
+              <Text className="text-[15px] text-center my-[20px]">Once you accept the invitation, click <strong>'EARLY ADOPTER'</strong> on the pricing page. You'll be taken to our Plaid checkout with a 90-day free trial discount applied. Fill in your information, click <strong>'subscribe'</strong>, and you'll soon receive an email for account access. 🎉</Text>
+              <Text className="text-[15px] text-center my-[20px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party plaid to securely encrypt and connect accounts to our platform.</Text>
+              <Text className="text-[15px] text-center my-[20px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
             </Section>
 
-            <Text className="text-black text-[16px] leading-[24px]">
+            <Text className="text-black text-[15px] leading-[24px]">
               Love, <br/> Trckfi Team
             </Text>  
           </Container>
