@@ -50,7 +50,7 @@ export const BetaInvite = () => {
             </Section>
 
             <Section>
-              <Text className="text-[15px] text-center my-[20px]">Once you accept the invitation, click <strong>'EARLY ADOPTER'</strong> on the pricing page. You'll be taken to our Plaid checkout with a 90-day free trial discount applied. Fill in your information, click <strong>'subscribe'</strong>, and you'll soon receive an email for account access. 🎉</Text>
+              <Text className="text-[15px] text-center my-[20px]">Once you accept the invitation, click <strong>'EARLY ADOPTER'</strong> on the pricing page. You'll be taken to our Plaid checkout with a <strong>90-day free trial</strong> discount applied. Fill in your information, click <strong>'subscribe'</strong>, and you'll soon receive an email with a link to access your account. 🎉</Text>
               <Text className="text-[15px] text-center my-[20px]"><strong>Data Security:</strong> Your Privacy Matters. We never retain any personal information, login credentials or private transaction details. Trackfi uses a third party plaid to securely encrypt and connect accounts to our platform.</Text>
               <Text className="text-[15px] text-center my-[20px]">Have any questions or need assistance along the way? Please reach out to our friendly support team at support@trckfi.com. Remember, your feedback is invaluable as we fine-tune Trckfi to make it the best it can be. </Text>
             </Section>
