@@ -2,7 +2,6 @@ import { eventTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import { render } from '@react-email/render'
 import BetaInvite from "../emails/beta_invite"
-import prisma from '../lib/prisma';
 const nodemailer = require('nodemailer')
 
 client.defineJob({
@@ -18,7 +17,7 @@ client.defineJob({
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       to: email,
-      subject: `Welcome to Trckfi Beta!`,
+      subject: `You're invited to be a Trckfi early adopter!`,
       text: '',
       html: render(<BetaInvite />),
     }
