@@ -3,6 +3,7 @@ import prisma from '../../lib/prisma';
 import nodemailer from 'nodemailer'
 import { render } from '@react-email/render'
 import Newsletter from "../../emails/newsletter"
+import BetaInvite from "../../emails/beta_invite"
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
@@ -22,17 +23,14 @@ export default async (req, res) => {
         name
       },
     })
-    slackMessage(`${email} Added to Newsletter`)
-    const emailHtml = render(
-      <Newsletter />
-    )
+    slackMessage(`${email} Recieved Beta Invite Email`)
 
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       to: email.toLowerCase(),
-      subject: `You are Awesome!`,
+      subject: `Welcome to Trckfi!`,
       text: '',
-      html: emailHtml,
+      html: render(<BetaInvite />),
     }
 
     let transporter = nodemailer.createTransport({

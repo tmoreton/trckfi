@@ -2,6 +2,8 @@ import { eventTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import { render } from '@react-email/render'
 import BetaInvite from "../emails/beta_invite"
+import Welcome from "../emails/welcome_email"
+
 const nodemailer = require('nodemailer')
 
 client.defineJob({
@@ -19,7 +21,7 @@ client.defineJob({
       to: email,
       subject: `You're invited to be a Trckfi early adopter!`,
       text: '',
-      html: render(<BetaInvite />),
+      html: render(<Welcome />),
     }
 
     let transporter = nodemailer.createTransport({
