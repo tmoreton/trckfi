@@ -28,8 +28,8 @@ const Newsletter = () => {
   }
 
   return (
-      <div className="relative isolate overflow-hidden bg-pink-600 p-10 shadow-2xl rounded-3xl sm:px-12">
-        { subscribed ? 
+    <div className="relative isolate overflow-hidden bg-pink-600 p-10 shadow-2xl rounded-3xl sm:px-12 max-w-4xl mx-auto">
+      { subscribed ? 
         <a id="get-notified">
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Success! 🎉
@@ -39,7 +39,7 @@ const Newsletter = () => {
         </a>
         :
         <>
-          <h2 className="text-xl font-bold tracking-tight text-white sm:text-3xl mb-6 text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6 text-center">
             Get Early Access <br/> <span className="font-normal">+ 3 Months Free</span>
           </h2>
           {/* <p className="text-white my-4">Sign up today, and gain early access when we launch Trckfi along with <b>3 months free</b>!</p> */}
@@ -70,13 +70,14 @@ const Newsletter = () => {
                 className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
               />
             </div>
+            <div className="mx-auto flex max-w-md gap-x-4" >
             <button
               type="submit"
               className="flex-none w-full rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Get Early Access
             </button>
-            
+            </div>
           </form>
         </>
       }

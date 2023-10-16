@@ -7,22 +7,19 @@ import Visonboard from '../components/homepage/visionboard'
 import Newsletter from '../components/newsletter'
 import EmailModal from '../components/modals/email-modal'
 import  { useLocalStorage } from '../utils/useLocalStorage'
+import { useRouter } from 'next/router'
 
 export default function Index({ showError }) {
   const [open, setOpen] = useState(false)
   const [subscribed] = useLocalStorage('subscribed', false)
+  const router = useRouter()
+  const { asPath } = router
 
-  // useEffect(() => {
-  //   if(!subscribed){
-  //     showPopup()
-  //   }
-  // }, [])
-
-  const showPopup = () => {
-    setTimeout(() => {
+  useEffect(() => {
+    if(!subscribed && asPath === "/#get-notified"){
       setOpen(true)
-    }, 5000)
-  }
+    }
+  }, [])
 
   return (
     <Layout>
@@ -31,6 +28,7 @@ export default function Index({ showError }) {
       <Hero />
       <AccountNetworth />
       <Visonboard />
+      <Newsletter />
     </Layout>
   )
 }

@@ -50,7 +50,7 @@ export default function (){
             <Text className="text-[15px] text-black text-center" >Welcome to our Beta community! We're thrilled to have you on board.</Text>
             
             <Section>
-              <Text className="text-[15px]"><strong>Your Privacy Matters: </strong> We never retain any personal information, login credentials or private transaction details. Trckfi uses a third party <Link href="https://plaid.com/en-eu/security/">Plaid</Link> to securely encrypt and connect accounts to our platform.</Text>
+              <Text className="text-[12px]"><strong>Your Privacy Matters: </strong> We never retain any personal information, login credentials or private transaction details. Trckfi uses a third party <Link href="https://plaid.com/en-eu/security/">Plaid</Link> to securely encrypt and connect accounts to our platform.</Text>
               <Text className="text-[18px] pt-[15px]"><strong>Getting Started:</strong></Text>
               <Text className="text-[15px] mt-0">Now, let's dive into making the most of the platform. You can visit <Link href="https://www.youtube.com/watch?v=q1vrfbfnGlA&list=PLhdVvRlgkCzp0gkEEcJ3ATvroEViP_sgn">Trckfi YouTube Library</Link> with quick tutorials to get started or follow these simple steps:</Text>
               <Text className="text-[18px] pt-[15px]"><strong>Step 1: Connect Your Bank Accounts</strong></Text>
