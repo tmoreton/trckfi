@@ -1,5 +1,6 @@
 import prisma from '../lib/prisma'
 import { getSession } from 'next-auth/react'
+import sendEmail from '../utils/sendEmail'
 
 export default function () {
   return null
@@ -11,6 +12,10 @@ export async function getServerSideProps(context) {
 
   // @ts-ignore
   if(user && user?.active){
+    // @ts-ignore
+    if(user?.login_count < 1){
+      sendEmail(user.email)
+    }
     await prisma.user.update({
       where: { 
         // @ts-ignore
