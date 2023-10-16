@@ -34,7 +34,7 @@ const Newsletter = () => {
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Success! 🎉
           </h2>
-          <p className="text-white mt-4 text-center">We are hard at work and will reach our with an <br/>access code when the platform is ready!</p>
+          <p className="text-white mt-4 text-center">Check your email, we are ready for you to test the platform!</p>
           <ConfettiExplosion />
         </a>
         :
