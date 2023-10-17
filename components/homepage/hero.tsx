@@ -33,9 +33,14 @@ export default function () {
                   </span>{' '}
                   <span className="block sm:hidden text-pink-600">f**king suck</span>
                 </h1>
-                <p className="my-10 text-3xl font-bold text-gray-900 tracking-wide">
+                <p className="mt-8 mb-2 text-3xl font-bold text-gray-900 tracking-wide">
                   But it's still important to track where your money is going!
                 </p>
+                <div className="mb-8 flex items-center gap-x-6">
+                  <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-pink-600 hidden lg:block">
+                    Watch how Trckfi works <span aria-hidden="true">→</span>
+                  </button>
+                </div>
                 <Newsletter />
                 {/* <div className="mt-8 flex items-center gap-x-6">
                   <Link href='/#get-notified' className="text-md font-semibold leading-6 text-gray-900">
