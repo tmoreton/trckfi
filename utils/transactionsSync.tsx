@@ -46,12 +46,12 @@ const transactionsSync = async (access_token, user_id) => {
       }
     }
 
-    const checkBool = (rule) => {
-      if(rule?.ruleset?.active !== null){
-        return rule?.ruleset?.active === 'true'
-      } 
-      return true
-    }
+    // const checkBool = (rule) => {
+    //   if(rule?.ruleset?.active !== null){
+    //     return rule?.ruleset?.active === 'true'
+    //   } 
+    //   return true
+    // }
 
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
