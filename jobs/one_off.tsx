@@ -3,6 +3,7 @@ import { client } from "../trigger";
 import { render } from '@react-email/render'
 import BetaInvite from "../emails/beta_invite"
 import Welcome from "../emails/welcome_email"
+import prisma from '../lib/prisma';
 
 const nodemailer = require('nodemailer')
 
@@ -34,6 +35,10 @@ client.defineJob({
     })
 
     await transporter.sendMail(message)
+    await prisma.emails.update({
+      where: { email },
+      data: { beta_sent: true }
+    })
   },
 });
 
