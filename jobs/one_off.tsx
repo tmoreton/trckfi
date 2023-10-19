@@ -15,14 +15,25 @@ client.defineJob({
     name: "one.off"
   }),
   run: async (payload, io, ctx) => {
-    const { email } = payload
+    const { email, welcome } = payload
 
-    const message = {
-      from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-      to: email,
-      subject: `Welcome to Trckfi!`,
-      text: '',
-      html: render(<Welcome />),
+    let message
+    if(welcome){
+      message = {
+        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+        to: email,
+        subject: `Welcome to Trckfi!`,
+        text: '',
+        html: render(<Welcome />),
+      }
+    } else {
+      message = {
+        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+        to: email,
+        subject: `You're invited to be a Trckfi early adopter!`,
+        text: '',
+        html: render(<BetaInvite />),
+      }
     }
 
     let transporter = nodemailer.createTransport({
