@@ -60,16 +60,17 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
       return `You will need to save ${commaShort(goal_amount/difference.months)} over the next ${months} months to hit your goal 🎉`
     }
 	}
-
+  console.log(goal)
   return (
     <form onSubmit={addGoal}>
       <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200 h-full">
         <div className="mt-3 text-center sm:mt-0 sm:text-left">
           <div className="relative z-0 w-full mb-4 group inline-flex border-b pb-4">
             <div className="text-xl text-gray-900 font-normal w-screen">
-              { goal.image ?
+              { goal.image && goal.id &&
                 <img src={goal.image} className="rounded-lg object-cover w-full h-[225px]"/>
-                :
+              }
+              { !goal.image && !goal.id &&
                 <button
                   type="button"
                   className="hover:text-gray-400 h-25 relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
