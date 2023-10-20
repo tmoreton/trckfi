@@ -36,23 +36,19 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
 
   const addGoal = async (e) => {
     e.preventDefault()
-    if(!goal.image){
-      showError('Missing Image')
-    } else {
-      setEdited(false)
-      const res = await fetch(`/api/add_goal`, {
-        body: JSON.stringify({
-          goal,
-          user
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      })
-      const { error } = await res.json()
-      if(!error) router.reload()
-    }
+    setEdited(false)
+    const res = await fetch(`/api/add_goal`, {
+      body: JSON.stringify({
+        goal,
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    if(!error) router.reload()
   }
 
   const snippet = () => {
