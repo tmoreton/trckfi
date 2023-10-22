@@ -15,6 +15,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
       },
       orderBy: {
         primary_category: 'asc'
@@ -26,6 +27,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
       },
       orderBy: {
         detailed_category: 'asc'

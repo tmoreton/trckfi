@@ -55,6 +55,7 @@ client.defineJob({
             { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
           active: true,
+          pending: false,
           amount: {
             lte: 0,
           },
@@ -83,6 +84,7 @@ client.defineJob({
             { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
           active: true,
+          pending: false,
           amount: {
             gte: 0,
           },
@@ -107,6 +109,7 @@ client.defineJob({
         by: ['primary_category', 'month_year'],
         where: {
           active: true,
+          pending: false,
           AND: [ 
             { OR: user_query }, 
             { OR: [{ month_year: this_month }, { month_year: last_month }] } 
@@ -146,6 +149,7 @@ client.defineJob({
             { OR: [{ month_year: this_month }, { month_year: last_month }] } 
           ],
           active: true,
+          pending: false,
           amount: {
             lte: 0,
           },
@@ -177,6 +181,7 @@ client.defineJob({
         where: {
           OR: user_query,
           active: true,
+          pending: false,
           month_year: this_month,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },

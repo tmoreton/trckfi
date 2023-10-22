@@ -13,6 +13,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         alert_date: {
           not: null
         }
