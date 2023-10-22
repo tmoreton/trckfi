@@ -171,7 +171,6 @@ client.defineJob({
         where: {
           OR: user_query,
           active: true,
-          pending: false,
           is_active: true,
           NOT: [
             { primary_category: 'INCOME' },
