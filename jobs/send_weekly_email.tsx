@@ -54,6 +54,7 @@ client.defineJob({
             { OR: [{ week_year: this_week }, { week_year: last_week }] } 
           ],
           active: true,
+          pending: false,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
@@ -83,6 +84,7 @@ client.defineJob({
             { OR: [{ week_year: this_week }, { week_year: last_week }] } 
           ],
           active: true,
+          pending: false,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
@@ -118,6 +120,7 @@ client.defineJob({
             { OR: [{ week_year: this_week }, { week_year: last_week }] } 
           ],
           active: true,
+          pending: false,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
             { primary_category: 'TRANSFER_IN' },
@@ -149,6 +152,7 @@ client.defineJob({
         where: {
           OR: user_query,
           active: true,
+          pending: false,
           week_year: this_week,
           NOT: [
             { primary_category: 'LOAN_PAYMENTS' },
@@ -167,6 +171,7 @@ client.defineJob({
         where: {
           OR: user_query,
           active: true,
+          pending: false,
           is_active: true,
           NOT: [
             { primary_category: 'INCOME' },

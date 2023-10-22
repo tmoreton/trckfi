@@ -60,7 +60,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
       return `You will need to save ${commaShort(goal_amount/difference.months)} over the next ${months} months to hit your goal 🎉`
     }
 	}
-  console.log(goal)
+
   return (
     <form onSubmit={addGoal}>
       <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200 h-full">

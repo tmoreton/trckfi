@@ -27,6 +27,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         authorized_date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
@@ -55,6 +56,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         authorized_date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
@@ -99,6 +101,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error get_stats: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }

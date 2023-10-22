@@ -29,6 +29,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         authorized_date: {
           lte: startDate,
           gte: endDate
@@ -59,6 +60,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         amount: {
           gte: 0,
         },
@@ -87,6 +89,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         authorized_date: {
           lte: startDate,
           gte: endDate
@@ -115,6 +118,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         authorized_date: {
           lte: startDate,
           gte: endDate
@@ -137,6 +141,7 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
+        pending: false,
         authorized_date: {
           lte: startDate,
           gte: endDate
