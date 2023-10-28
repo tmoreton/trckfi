@@ -10,11 +10,9 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import Menu from '../../components/menu'
 import Newsletter from '../../components/newsletter'
 
-export default function Post({ post, preview, showError }) {
+export default function Preview({ post, preview, showError }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
+  console.log('testing')
   return (
     <Layout preview={preview}>
       <Container>
@@ -22,20 +20,10 @@ export default function Post({ post, preview, showError }) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
-              <Menu showError={showError}/>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.publishedAt}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
+            <p>Testing</p>
           </>
         )}
       </Container>
-      <Newsletter />
     </Layout>
   )
 }
@@ -47,6 +35,7 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
+  console.log(params)
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
@@ -58,10 +47,10 @@ export async function getStaticProps({ params }: Params) {
     'keywords',
     'status',
     'publishedAt'
-  ], 
-  'posts')
+  ],
+  'newsletters')
   const content = await markdownToHtml(post.content || '')
-
+  
   return {
     props: {
       post: {
@@ -73,7 +62,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'], 'posts')
+  const posts = getAllPosts(['slug'], 'newsletters')
   return {
     paths: posts.map((post) => {
       return {

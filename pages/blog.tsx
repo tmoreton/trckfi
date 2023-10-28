@@ -25,7 +25,8 @@ export const getStaticProps = async () => {
     'date',
     'status',
     'publishedAt'
-  ])
+  ], 
+  'posts')
   let posts = allPosts.filter(post => post?.title)
   return {
     props: { allPosts: posts.filter(post => post.status === 'published') },

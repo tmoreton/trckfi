@@ -23,7 +23,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
     if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost')){
       Hotjar.init(siteId, hotjarVersion);
     }
-    console.log(post)
   }, [])
   
   return (
