@@ -1,30 +1,17 @@
 import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
 import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import markdownToHtml from '../../lib/markdownToHtml'
-import Menu from '../../components/menu'
-import Newsletter from '../../components/newsletter'
+import Newsletter from '../../emails/newsletter'
 
 export default function Preview({ post, preview, showError }) {
   const router = useRouter()
-  console.log('testing')
+  console.log(post)
   return (
-    <Layout preview={preview}>
       <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <p>Testing</p>
-          </>
-        )}
+        <Newsletter post={post}/>
       </Container>
-    </Layout>
   )
 }
 
@@ -35,7 +22,6 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  console.log(params)
   const post = getPostBySlug(params.slug, [
     'title',
     'date',

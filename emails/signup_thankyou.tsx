@@ -21,7 +21,7 @@ export default function (){
       <Preview>Thanks for joining Trckfi!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[40px] mx-auto p-[20px] w-[465px]">
+          <Container className="my-[40px] mx-auto p-[20px] w-[650px]">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi.png'
