@@ -1,6 +1,6 @@
 {
-  "commit": "14feb1596c16c64daf26e277a8a95b120ef23127",
-  "generated": "2023-10-28T13:46:23.594Z",
+  "commit": "f773c7638ad055145d3b3f5d79878c7e4a63c66d",
+  "generated": "2023-10-28T14:20:43.135Z",
   "metadata": [
     {
       "__outstatic": {
@@ -388,8 +388,8 @@
     },
     {
       "__outstatic": {
-        "commit": "14feb1596c16c64daf26e277a8a95b120ef23127",
-        "hash": "1867449710",
+        "commit": "f773c7638ad055145d3b3f5d79878c7e4a63c66d",
+        "hash": "3526415781",
         "path": "outstatic/content/newsletters/first-newsletter.md"
       },
       "author": {
