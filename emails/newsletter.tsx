@@ -12,12 +12,10 @@ import {
   Text,
 } from '@react-email/components';
 import * as React from 'react';
-import PostBody from '../components/post-body'
 import { Link } from '@react-email/link';
 import markdownStyles from '../components/markdown-styles.module.css'
 
-export default function ({ post }){
-  console.log(post)
+export default function ({ content }){
   return (
     <Html>
       <Head />
@@ -38,10 +36,9 @@ export default function ({ post }){
               Newsletter
             </Heading>
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
-            <PostBody content={post.content} />
             <div
               className={markdownStyles['markdown']}
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: content }}
             />
           </Container>
         </Body>
