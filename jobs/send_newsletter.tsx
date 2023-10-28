@@ -8,11 +8,11 @@ import markdownToHtml from '../lib/markdownToHtml'
 const nodemailer = require('nodemailer')
 
 client.defineJob({
-  id: "one-off",
-  name: "One Off",
+  id: "send-newsletter",
+  name: "Send Newsletter",
   version: "0.0.1",
   trigger: eventTrigger({
-    name: "one.off"
+    name: "send.newsletter"
   }),
   run: async (payload, io, ctx) => {
     const { email, slug } = payload
