@@ -10,8 +10,6 @@ coverImage: ''
 publishedAt: '2023-10-28T13:22:06.927Z'
 ---
 
-![](/images/unnamed-E2ND.png)
-
 *Estimated read time: 3 minutes and 47 seconds*
 
 🇰🇭 Cambodia opened a new airport, the Siem Reap-Angkor International Airport, to serve Angkor Wat. Located just 25 miles east of Angkor Wat in the northwestern province of Siem Reap, it’s Cambodia's newest and biggest airport! Read more [here](https://flight.beehiiv.net/v2/clicks/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL3d3dy50cmF2ZWx3ZWVrbHkuY29tL1RyYXZlbC1OZXdzL0FpcmxpbmUtTmV3cy9DYW1ib2RpYS1vcGVucy1uZXctYWlycG9ydC1zZXJ2aW5nLUFuZ2tvci1XYXQ_dXRtX3NvdXJjZT1kYWlseS1kcm9wJnV0bV9tZWRpdW09cmVmZXJyYWwmdXRtX2NhbXBhaWduPXdvYWgtamV0Ymx1ZS1qdXN0LWdvdC1hLXdob2xlLWxvdC1tb3JlLWV4Y2l0aW5nIiwicG9zdF9pZCI6IjFmMTU1OWQxLTllOWItNGY0OS04YjMxLWM5MmM3YWNhMTVhOSIsInB1YmxpY2F0aW9uX2lkIjoiOGNmZTVkMjctOGY4My00OWNhLWE5ZmYtNDE1ZWIyN2UxMTI1IiwidmlzaXRfdG9rZW4iOiJjMjMzZWY4Ni1lODlhLTRhOGEtYTExZC02MWE2YTIwNjBjNGYiLCJpYXQiOjE2OTg1MDA0NDcsImlzcyI6Im9yY2hpZCJ9.RecyYrQJLXZawnG3x8v7f8k6nztOCnPdNM0GYliuGzM).
@@ -34,7 +32,7 @@ I don’t know about you, but I’ve always pictured JetBlue as the little broth
 
 But over the last couple of years, JetBlue has been working its way up the ranks, launching all kinds of interesting international flights.
 
-And yesterday, **they continued that trend by **[**announcing even more European flights**](https://flight.beehiiv.net/v2/clicks/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL25ld3MuamV0Ymx1ZS5jb20vbGF0ZXN0LW5ld3MvcHJlc3MtcmVsZWFzZS1kZXRhaWxzLzIwMjMvQS1DZWx0aWMtQ29tYm8tSmV0Qmx1ZS1Bbm5vdW5jZXMtU2Vhc29uYWwtRmxpZ2h0cy10by1EdWJsaW4tYW5kLUVkaW5idXJnaC1vbi1TYWxlLVRvZGF5L2RlZmF1bHQuYXNweD91dG1fc291cmNlPWRhaWx5LWRyb3AmdXRtX21lZGl1bT1yZWZlcnJhbCZ1dG1fY2FtcGFpZ249d29haC1qZXRibHVlLWp1c3QtZ290LWEtd2hvbGUtbG90LW1vcmUtZXhjaXRpbmciLCJwb3N0X2lkIjoiMWYxNTU5ZDEtOWU5Yi00ZjQ5LThiMzEtYzkyYzdhY2ExNWE5IiwicHVibGljYXRpb25faWQiOiI4Y2ZlNWQyNy04ZjgzLTQ5Y2EtYTlmZi00MTVlYjI3ZTExMjUiLCJ2aXNpdF90b2tlbiI6ImMyMzNlZjg2LWU4OWEtNGE4YS1hMTFkLTYxYTZhMjA2MGM0ZiIsImlhdCI6MTY5ODUwMDQ0NywiaXNzIjoib3JjaGlkIn0.H37aD8mqaIFRHFmaWcHPzbkcSpsSKwI8JhjKY8_bvTE)** that will launch next year.**
+And yesterday, \*\*they continued that trend by \*[***announcing even more European flights***](https://flight.beehiiv.net/v2/clicks/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL25ld3MuamV0Ymx1ZS5jb20vbGF0ZXN0LW5ld3MvcHJlc3MtcmVsZWFzZS1kZXRhaWxzLzIwMjMvQS1DZWx0aWMtQ29tYm8tSmV0Qmx1ZS1Bbm5vdW5jZXMtU2Vhc29uYWwtRmxpZ2h0cy10by1EdWJsaW4tYW5kLUVkaW5idXJnaC1vbi1TYWxlLVRvZGF5L2RlZmF1bHQuYXNweD91dG1fc291cmNlPWRhaWx5LWRyb3AmdXRtX21lZGl1bT1yZWZlcnJhbCZ1dG1fY2FtcGFpZ249d29haC1qZXRibHVlLWp1c3QtZ290LWEtd2hvbGUtbG90LW1vcmUtZXhjaXRpbmciLCJwb3N0X2lkIjoiMWYxNTU5ZDEtOWU5Yi00ZjQ5LThiMzEtYzkyYzdhY2ExNWE5IiwicHVibGljYXRpb25faWQiOiI4Y2ZlNWQyNy04ZjgzLTQ5Y2EtYTlmZi00MTVlYjI3ZTExMjUiLCJ2aXNpdF90b2tlbiI6ImMyMzNlZjg2LWU4OWEtNGE4YS1hMTFkLTYxYTZhMjA2MGM0ZiIsImlhdCI6MTY5ODUwMDQ0NywiaXNzIjoib3JjaGlkIn0.H37aD8mqaIFRHFmaWcHPzbkcSpsSKwI8JhjKY8_bvTE)\* that will launch next year.\*\*
 
 [![](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/63c6dfbd-c6ed-417a-8f87-433ff18517c5/JetBlue.jpeg)](https://flight.beehiiv.net/v2/clicks/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL25ld3MuamV0Ymx1ZS5jb20vbGF0ZXN0LW5ld3MvcHJlc3MtcmVsZWFzZS1kZXRhaWxzLzIwMjMvQS1DZWx0aWMtQ29tYm8tSmV0Qmx1ZS1Bbm5vdW5jZXMtU2Vhc29uYWwtRmxpZ2h0cy10by1EdWJsaW4tYW5kLUVkaW5idXJnaC1vbi1TYWxlLVRvZGF5L2RlZmF1bHQuYXNweD91dG1fc291cmNlPWRhaWx5LWRyb3AmdXRtX21lZGl1bT1yZWZlcnJhbCZ1dG1fY2FtcGFpZ249d29haC1qZXRibHVlLWp1c3QtZ290LWEtd2hvbGUtbG90LW1vcmUtZXhjaXRpbmciLCJwb3N0X2lkIjoiMWYxNTU5ZDEtOWU5Yi00ZjQ5LThiMzEtYzkyYzdhY2ExNWE5IiwicHVibGljYXRpb25faWQiOiI4Y2ZlNWQyNy04ZjgzLTQ5Y2EtYTlmZi00MTVlYjI3ZTExMjUiLCJ2aXNpdF90b2tlbiI6ImMyMzNlZjg2LWU4OWEtNGE4YS1hMTFkLTYxYTZhMjA2MGM0ZiIsImlhdCI6MTY5ODUwMDQ0NywiaXNzIjoib3JjaGlkIn0.H37aD8mqaIFRHFmaWcHPzbkcSpsSKwI8JhjKY8_bvTE)
 
@@ -43,8 +41,6 @@ Here are the details:
 **Starting in March 2024, JetBlue will begin operating flights to Dublin, Ireland from both Boston and New York City, and flights to Edinburgh from New York City.**
 
 With the addition of these two cities, JetBlue will serve five European cities and a total of **13 daily transatlantic flight**s between the U.S. and Europe.
-
-
 
 ![](https://ci6.googleusercontent.com/proxy/eZqbdXEeqB79JZBqrDR89_BHGxuM5QhsWJV5UwS65igEVOYb_p1uJWzyVOAXJLMb5LSYSIB0NJPDqpj1ZHiMqP7Xo9ZuMS-A19ptMoBYl2fa3ubnFYVS3LIW461pklaPmAR5fn8pGBbE4eOgwJ74eNLCKnG8maRmHAcU-smQ2eKdFs8EGIpbYtHpcVo_9V7lPxWUCY8FRx3RmjgBqBLhdumkRsnKQKx5xVn0Nguv1Y0afxeuxnw=s0-d-e1-ft#https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/a58fa6ae-6ddb-44ba-bd9f-8ecb66be805a/hr-6-16.png)
 
@@ -90,7 +86,7 @@ Here are the details:
 
 Overall, this is a super easy way to rack up some valuable Bilt points.
 
-I know a lot of people (myself included) who subscribe to multiple services listed above. If you have Netflix, Spotify, Hulu, a cable plan with Comcast, and a phone plan with Sprint or Verizon or something, **you’re already looking at 5,000 bonus points just for switching over your payment method to the **[**Bilt card.**](https://l.dailydrop.com/ss/c/C4d02R2fqr2NBk_oUgFtnLTg7_8gC18HpUopu3kzAuKKbKfEC4nxHeVqQstY_RSmcB5fGgCQXdSPFqyEjkJsZVRA-yHpbjnzQUmXMEVBeCPeHADAySysJ30bAjTR5qtsyEashHyS4RsGPtqCBNAoPNOdxItnkxjHQdPDS47ZJ5LjA5QTdHG8YIa1dkAXgbB-RzRKIOIzEG9zgXXyPNUBbqeal-WJZ5zxPYt3vNuikr8/40r/jGVEWPQcTa2ii5ifBAyvZQ/h11/3218pNfPhUAA_Lff_pfBipv3hWIcFbuAvIXIEQhHvGg)
+I know a lot of people (myself included) who subscribe to multiple services listed above. If you have Netflix, Spotify, Hulu, a cable plan with Comcast, and a phone plan with Sprint or Verizon or something, \*\*you’re already looking at 5,000 bonus points just for switching over your payment method to the \*\*[**Bilt card.**](https://l.dailydrop.com/ss/c/C4d02R2fqr2NBk_oUgFtnLTg7_8gC18HpUopu3kzAuKKbKfEC4nxHeVqQstY_RSmcB5fGgCQXdSPFqyEjkJsZVRA-yHpbjnzQUmXMEVBeCPeHADAySysJ30bAjTR5qtsyEashHyS4RsGPtqCBNAoPNOdxItnkxjHQdPDS47ZJ5LjA5QTdHG8YIa1dkAXgbB-RzRKIOIzEG9zgXXyPNUBbqeal-WJZ5zxPYt3vNuikr8/40r/jGVEWPQcTa2ii5ifBAyvZQ/h11/3218pNfPhUAA_Lff_pfBipv3hWIcFbuAvIXIEQhHvGg)
 
 And 5,000 points is not something to turn your nose up at, given how valuable they can be…
 
@@ -107,8 +103,4 @@ If you had 5,000 Bilt points, **you could’ve turned them into 10,000 Virgin mi
 So as you can see, 5,000 points could go a long way if you get creative and take advantage of Bilt’s transfer partners.
 
 **So go check your email to see if you’re eligible.** If you are, make sure you use your [Bilt card](https://l.dailydrop.com/ss/c/C4d02R2fqr2NBk_oUgFtnLTg7_8gC18HpUopu3kzAuKKbKfEC4nxHeVqQstY_RSmcB5fGgCQXdSPFqyEjkJsZVRA-yHpbjnzQUmXMEVBeCPeHADAySysJ30bAjTR5qtsyEashHyS4RsGPtqCBNAoPNOdxItnkxjHQdPDS47ZJ5LjA5QTdHG8YIa1dkAXgbB-RzRKIOIzEG9zgXXyPNUBbqeal-WJZ5zxPYt3vNuikr8/40r/jGVEWPQcTa2ii5ifBAyvZQ/h14/AbENMpI0aJ0zYcgX3QuTV0lbfifFhOgAR5feVyUcIi0) to pay your streaming, phone, and internet bills to rack up a few thousand bonus points.
-
-
-
-
 
