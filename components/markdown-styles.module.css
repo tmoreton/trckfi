@@ -35,5 +35,5 @@
 }
 
 .markdown img {
-  width: '100%'
+  @apply w-48
 }

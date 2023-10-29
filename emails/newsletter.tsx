@@ -35,23 +35,12 @@ export default function ({ content }){
             <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
               Trckfi Weekly
             </Heading>
-            <Section className="mt-[32px] mb-[32px] w-100">
-              <Markdown
-                markdownCustomStyles={{
-                  h1: { color: "red" },
-                  h2: { color: "blue" },
-                  codeInline: { background: "grey" },
-                  image: { maxWidth: "650px"}                  
-                }}
-                markdownContainerStyles={{
-                  padding: "12px",
-                  maxWidth: "650px"
-                }}
-              >{content}</Markdown>
-              {/* <div
+            <Section className="max-w-3xl mx-auto">
+              <div
+                style={{maxWidth: "650px"}}
                 className={markdownStyles['markdown']}
                 dangerouslySetInnerHTML={{ __html: content }}
-              /> */}
+              />
             </Section>
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Text className="text-[#666666] text-[12px] leading-[24px]">
