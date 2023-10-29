@@ -24,6 +24,10 @@ Good morning from beautiful Inverness, Scotland! Before I go visit Nessie, I’v
 
 - 😆 Meme
 
+### <hr/>
+
+
+
 ![](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/9e5fff27-94c9-4b47-8ba0-7c79a15245aa/hr-3-16.png)
 
 ## ✈️ JetBlue introduces more European routes
