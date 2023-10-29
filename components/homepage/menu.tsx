@@ -1,16 +1,9 @@
-import { Fragment } from 'react'
-import { Cog8ToothIcon  } from '@heroicons/react/24/solid'
 import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/outline'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure, Menu } from '@headlessui/react'
 import Link from 'next/link'
 import { useSession, signOut } from "next-auth/react"
 import Image from 'next/image'
 import { PinkBtn } from '../pink-btn'
-import  { clearLocalStorage } from '../../utils/useLocalStorage'
-
-const classNames = (...classes) => {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function ({ showError }) {
   const { data: session } = useSession()
