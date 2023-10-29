@@ -1,6 +1,6 @@
 {
   "commit": "1b9684527744ec502f7dd37b4537d6c93451b47c",
-  "generated": "2023-10-29T14:24:48.613Z",
+  "generated": "2023-10-29T14:32:21.033Z",
   "metadata": [
     {
       "__outstatic": {
@@ -389,7 +389,7 @@
     {
       "__outstatic": {
         "commit": "1b9684527744ec502f7dd37b4537d6c93451b47c",
-        "hash": "741973400",
+        "hash": "3857930026",
         "path": "outstatic/content/newsletters/first-newsletter.md"
       },
       "author": {
