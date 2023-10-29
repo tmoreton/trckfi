@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckCircleIcon } from '@heroicons/react/24/outline'
+import { CheckCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
@@ -148,33 +148,17 @@ export default function () {
               the Business Coaching Bundle, I’ll email it to you totally 
               free of charge. 
             </p>
-            {/* <div className="mt-8 sm:mx-auto sm:max-w-lg sm:text-center lg:mx-0 lg:text-left">
-              <p className="text-base font-medium text-gray-900">Sign up to get notified when it’s ready.</p>
-              <form action="#" method="POST" className="mt-3 sm:flex">
-                <label htmlFor="email" className="sr-only">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="block w-full rounded-md border-gray-300 p-3 text-base placeholder-gray-500 shadow-sm border-pink-500 sm:flex-1"
-                  placeholder="Enter your email"
-                />
-                
-              </form>
-            </div> */}
-            <ul role="list" className="mt-6 space-y-3 text-lg leading-6 text-gray-600">
+            <ul role="list" className="mt-6 space-y-3 text-xl leading-6 text-gray-600">
               <li className="flex items-center gap-x-3">
-                <CheckCircleIcon className="h-8 w-8 text-pink-600" aria-hidden="true" />
+                <CheckCircleIcon className="h-7 w-7 text-pink-600" aria-hidden="true" />
                 Test
               </li>
               <li className="flex items-center gap-x-3">
-                <CheckCircleIcon className="h-8 w-8 text-pink-600" aria-hidden="true" />
+                <CheckCircleIcon className="h-7 w-7 text-pink-600" aria-hidden="true" />
                 Test
               </li>
               <li className="flex items-center gap-x-3">
-                <CheckCircleIcon className="h-8 w-8 text-pink-600" aria-hidden="true" />
+                <CheckCircleIcon className="h-7 w-7 text-pink-600" aria-hidden="true" />
                 Test
               </li>
             </ul>
@@ -187,7 +171,6 @@ export default function () {
             </button>
           </div>
           
-
           <div className="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
             <svg viewBox="0 0 366 729" role="img" className="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
               <title>App screenshot</title>
