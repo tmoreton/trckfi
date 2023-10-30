@@ -33,7 +33,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
         institution: account.institution,
         type: account.type,
         subtype: account.subtype,
-        amount: account.amount.replace(/[, ]+/g, " ").trim()
+        amount: account.amount.replace(/[, ]+/g, "").trim()
       }),
       headers: {
         'Content-Type': 'application/json',
