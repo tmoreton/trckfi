@@ -8,6 +8,10 @@
   border: 1px solid #db2777;
 }
 
+.react-email-custom-markdown {
+  width: 650px !important;
+}
+
 aside.EmojiPickerReact.epr-main {
   border: none !important;
   width: 100% !important;
