@@ -16,7 +16,9 @@ const subtypes = [
 ]
 
 export default function ({ showError, open, setOpen, user, getNetWorth }) {
-  const [account, setAccount] = useState({})
+  const [account, setAccount] = useState({
+    subtype: 'mortgage', type: 'loan'
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +43,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
       method: 'POST',
     })
     const { error } = await res.json()
+    setAccount({ subtype: 'mortgage', type: 'loan' })
     showError(error)
     setOpen(false)
     if(!error) getNetWorth()
