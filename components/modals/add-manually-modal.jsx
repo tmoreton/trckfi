@@ -20,7 +20,11 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setAccount({ ...account, [name]: value })
+    if(name === 'amount'){
+      setAccount({ ...account, [name]: value.replace(/[, ]+/g, " ").trim() })
+    } else {
+      setAccount({ ...account, [name]: value })
+    }
   }
 
   const handleSubmit = async (e) => {
