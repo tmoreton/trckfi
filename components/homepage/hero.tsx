@@ -8,7 +8,7 @@ export default function () {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="overflow-hidden bg-white py-12 sm:py-32">
+    <div className="overflow-hidden bg-white py-12 sm:py-22">
       <VideoModal setOpen={setOpen} open={open} />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
