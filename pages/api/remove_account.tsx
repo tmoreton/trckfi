@@ -20,6 +20,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error remove_account: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }

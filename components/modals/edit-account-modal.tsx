@@ -28,7 +28,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
   }
 
   const remove = async () => {
-    const res = await fetch(`/api/remove_account`, {
+    fetch(`/api/remove_account`, {
       body: JSON.stringify({
         user_id: user.id,
         id: account.id
@@ -38,10 +38,8 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    showError(error)
     setOpen(false)
-    if(!error) getNetWorth()
+    getNetWorth()
   }
 
   return (
