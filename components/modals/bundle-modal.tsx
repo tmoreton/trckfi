@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useState } from 'react'
 import ConfettiExplosion from 'react-confetti-explosion'
 import  { useLocalStorage } from '../../utils/useLocalStorage'
-import { CheckCircleIcon } from '@heroicons/react/24/solid'
+import { CheckCircleIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
 export default ({ open, setOpen }) => {
@@ -26,6 +26,11 @@ export default ({ open, setOpen }) => {
       method: 'POST',
     })
   }
+
+  // const onClose = () => {
+  //   setSubscribed(true)
+  //   setOpen(false)
+  // }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -55,38 +60,11 @@ export default ({ open, setOpen }) => {
               <Dialog.Panel>
                 <div className="relative isolate overflow-hidden bg-white p-10 shadow-2xl rounded-2xl sm:px-12 max-w-4xl mx-auto">
                   <div className="relative isolate">
-                    <svg
-                      className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-                      aria-hidden="true"
-                    >
-                      <defs>
-                        <pattern
-                          id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
-                          width={200}
-                          height={200}
-                          x="50%"
-                          y={-1}
-                          patternUnits="userSpaceOnUse"
-                        >
-                          <path d="M100 200V.5M.5 .5H200" fill="none" />
-                        </pattern>
-                      </defs>
-                      <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
-                        <path
-                          d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                          strokeWidth={0}
-                        />
-                      </svg>
-                      <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
-                    </svg>
+                    <div className="flex justify-end" onClick={() => setOpen(false)}>
+                      <XMarkIcon className="h-10 w-10" />
+                    </div>
                     <div className="mx-auto max-w-7xl px-6 py-6 lg:flex lg:items-center lg:gap-x-10 lg:px-10">
-                      <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto min-w-[350px]">
-                        {/* <Image
-                          src='/trckfi-logo-beta.png'
-                          alt='Trckfi'
-                          width={150}
-                          height={100}
-                        /> */}
+                      <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto w-80 lg:min-w-[350px]">
                         <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-4xl leading-tight">
                           Start Tracking Your Expenses Today!
                         </h1>
@@ -149,12 +127,15 @@ export default ({ open, setOpen }) => {
                               Get Tracker
                             </button>
                             :
-                            <a 
-                              href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/edit?usp=sharing"
-                              target="_blank"
-                              className="flex-none w-full text-center border-2 border-pink-600 rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-pink-600 shadow-sm focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white">
-                              Download Today!
-                            </a>
+                            <>
+                              <a 
+                                href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/edit?usp=sharing"
+                                target="_blank"
+                                className="flex-none w-full text-center border-2 border-pink-600 rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-pink-600 shadow-sm focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white">
+                                Download Today!
+                              </a>
+                              <ConfettiExplosion />
+                            </>
                           }                        
                           </div>
                         </form>
