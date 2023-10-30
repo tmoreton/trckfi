@@ -129,7 +129,7 @@ export default ({ open, setOpen }) => {
                             :
                             <>
                               <a 
-                                href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/edit?usp=sharing"
+                                href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/copy"
                                 target="_blank"
                                 className="flex-none w-full text-center border-2 border-pink-600 rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-pink-600 shadow-sm focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white">
                                 Download Today!
