@@ -6,6 +6,8 @@ import AccountNetworth from "../components/homepage/account-networth"
 import Visonboard from '../components/homepage/visionboard'
 import Newsletter from '../components/newsletter'
 import EmailModal from '../components/modals/email-modal'
+import BundleModal from '../components/modals/bundle-modal'
+
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import { useRouter } from 'next/router'
 
@@ -16,15 +18,26 @@ export default function Index({ showError }) {
   const { asPath } = router
 
   useEffect(() => {
-    if(!subscribed && asPath === "/#get-notified"){
-      setOpen(true)
+    if(!subscribed){
+      if(asPath === "/#get-notified"){
+        setOpen(true)
+      } else {
+        showBundle()
+      }
     }
   }, [])
+
+  const showBundle = () => {
+    setTimeout(() => {
+      setOpen(true)
+    }, 5000)
+  }
 
   return (
     <Layout>
       <Menu showError={showError}/>
-      <EmailModal open={open} setOpen={setOpen} showError={showError}/>
+      {/* <EmailModal open={open} setOpen={setOpen} showError={showError}/> */}
+      <BundleModal open={open} setOpen={setOpen} />
       <Hero />
       <AccountNetworth />
       <Visonboard />
