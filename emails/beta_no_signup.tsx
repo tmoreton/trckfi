@@ -31,21 +31,21 @@ export default function (){
             </Section>
 
             <Section>
-              <Text className="text-[15px] mt-[10px]"><b>Does this sound familiar?</b></Text>
+              <Text className="text-[15px] mt-[20px]"><b>Does this sound familiar?</b></Text>
               <Text className="text-[15px] ml-[10px] my-0">- You make good money but don't know where it should go</Text>
               <Text className="text-[15px] ml-[10px] my-0">- You don't feel you're saving or investing enough</Text>
               <Text className="text-[15px] ml-[10px] my-0">- You're unsure if you can afford big life decisions</Text>
-              <Text className="text-[15px] ml-[10px] my-0">- You feel overwhelmed and stressed out about finances</Text>
+              <Text className="text-[15px] ml-[10px] mt-0">- You feel overwhelmed and stressed out about finances</Text>
             </Section>
 
             <Section>
               <Text className="text-[15px]">Let's get real. Personal finance is like a secret club we're not taught to join. If you've ever felt like you're just winging it with money, you're in good company.</Text>
               <Text className="text-[15px]">But here's the deal: Trckfi is here to change the game.</Text>
-              <Text className="text-[15px] mb-0"><b>With Trckfi, you can:</b></Text>
+              <Text className="text-[15px]"><b>With Trckfi, you can:</b></Text>
               <Text className="text-[15px] ml-[10px] my-0">🔍 See exactly where every dollar goes</Text>
               <Text className="text-[15px] ml-[10px] my-0">💰 Gain control of your cash flow</Text>
               <Text className="text-[15px] ml-[10px] my-0">🤓 Make smart money decisions</Text>
-              <Text className="text-[15px] ml-[10px] my-0">🎉 Reduce financial stress!</Text>
+              <Text className="text-[15px] ml-[10px] mt-0">🎉 Reduce financial stress!</Text>
             </Section>
 
             <Text className="text-[15px]">Ready to take control of your money? Join us now and take advantage of a <b>90-day free trial!</b></Text>
