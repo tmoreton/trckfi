@@ -31,7 +31,7 @@ export default function (){
             </Section>
 
             <Section>
-              <Text className="text-[15px] mt-[20px]"><b>Does this sound familiar?</b></Text>
+              <Text className="text-[15px] mt-[50px]"><b>Does this sound familiar?</b></Text>
               <Text className="text-[15px] ml-[10px] my-0">- You make good money but don't know where it should go</Text>
               <Text className="text-[15px] ml-[10px] my-0">- You don't feel you're saving or investing enough</Text>
               <Text className="text-[15px] ml-[10px] my-0">- You're unsure if you can afford big life decisions</Text>

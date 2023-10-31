@@ -31,7 +31,7 @@ export default function ({ name }){
             </Section>
 
             <Section>
-              <Text className="text-[18px] mt-[20px]"><b>Hi {name} 👋</b></Text>
+              <Text className="text-[18px] mt-[50px]"><b>Hi {name} 👋</b></Text>
               <Text className="text-[15px]">Awesome, you’re here! The Expense Tracker is yours! </Text>
               <Text className="text-[15px]">It’s time for you to make the most of your hard-earned money by first tracking it! You work way too hard to feel this stressed about money!</Text>
               <Text className="text-[15px]">Ready to get started?</Text>
