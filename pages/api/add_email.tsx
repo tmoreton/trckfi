@@ -20,7 +20,7 @@ export default async (req, res) => {
         email: email.toLowerCase(),
         name,
         // @ts-ignore
-        type
+        source: type
       },
     })
 
