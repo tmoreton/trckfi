@@ -32,7 +32,7 @@ export default function ({ name }){
 
             <Section>
               <Text className="text-[18px] mt-[50px]"><b>Hi {name} 👋</b></Text>
-              <Text className="text-[15px]">Awesome, you’re here! The Expense Tracker is yours! </Text>
+              <Text className="text-[15px]">Awesome, you’re here! <b>The Expense Tracker is yours!</b></Text>
               <Text className="text-[15px]">It’s time for you to make the most of your hard-earned money by first tracking it! You work way too hard to feel this stressed about money!</Text>
               <Text className="text-[15px]">Ready to get started?</Text>
               <Text className="text-[15px]"><Link href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/copy">Click Here</Link> to make your own copy of the Expense Tracker and…</Text>
@@ -67,7 +67,7 @@ export default function ({ name }){
                 className="bg-pink-600 rounded-2xl text-white text-[32px] font-semibold no-underline mx-auto text-center"
                 href='https://trckfi.com/beta'
               >
-                Access Now!
+                Access Trckfi Now!
               </Button>
             </Section>
 
