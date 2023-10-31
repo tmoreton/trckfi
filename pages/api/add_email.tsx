@@ -18,8 +18,9 @@ export default async (req, res) => {
       update: { email: email.toLowerCase() },
       create: { 
         email: email.toLowerCase(),
+        name,
         // @ts-ignore
-        name
+        type
       },
     })
 
