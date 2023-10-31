@@ -63,7 +63,7 @@ export async function getServerSideProps(context) {
     if(!customer || !subscription) return { props: {} }
 
     const { ended_at, start_date, status, trial_end, canceled_at } = await stripe.subscriptions.retrieve(subscription)
-    const { email, phone } = await stripe.customers.retrieve(customer)
+    const { email, phone, name } = await stripe.customers.retrieve(customer)
     
     const stripe_data = {
       email,
@@ -77,12 +77,27 @@ export async function getServerSideProps(context) {
       phone,
       active: true,
       login_count: 0,
+      name
     }
 
     await prisma.user.upsert({
       where: { email: email.toLowerCase() },
       update: stripe_data,
       create: stripe_data
+    })
+
+    await prisma.emails.upsert({
+      where: { email: email.toLowerCase() },
+      update: { 
+        email: email.toLowerCase(),
+        name,
+        source: 'stripe'
+      },
+      create: { 
+        email: email.toLowerCase(),
+        name,
+        source: 'stripe'
+      },
     })
     
     slackMessage(`${email} Signed Up`)
