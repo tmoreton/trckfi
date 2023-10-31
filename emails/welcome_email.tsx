@@ -22,7 +22,7 @@ export default function (){
       <Preview>Welcome to Trckfi!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[10px] mx-auto p-[20px] w-[650px]">
+          <Container className="my-[10px] mx-auto p-[20px] max-w-2xl">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi.png'

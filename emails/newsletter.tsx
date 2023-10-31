@@ -22,7 +22,7 @@ export default function ({ content }){
       <Preview>Trckfi - Weekly</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[40px] mx-auto p-[20px] w-[650px]">
+          <Container className="my-[40px] mx-auto p-[20px] max-w-2xl">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi-black-sm.png'

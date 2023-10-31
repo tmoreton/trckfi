@@ -3,6 +3,7 @@ import prisma from '../../lib/prisma';
 import nodemailer from 'nodemailer'
 import { render } from '@react-email/render'
 import BetaInvite from "../../emails/beta_invite"
+import Bundle from "../../emails/bundle"
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
@@ -47,28 +48,28 @@ export default async (req, res) => {
       await transporter.sendMail(message)
     }
 
-    // if(type === 'bundle'){
-    //   slackMessage(`${email} Recieved Bundle Email`)
+    if(type === 'bundle'){
+      slackMessage(`${email} Recieved Bundle Email`)
 
-    //   const message = {
-    //     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-    //     to: email.toLowerCase(),
-    //     subject: `Welcome to Trckfi!`,
-    //     text: '',
-    //     html: render(<BetaInvite />),
-    //   }
+      const message = {
+        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+        to: email.toLowerCase(),
+        subject: `The Expense Tracker is yours!`,
+        text: '',
+        html: render(<Bundle name={name} />),
+      }
   
-    //   let transporter = nodemailer.createTransport({
-    //     host: process.env.SMTP_HOST,
-    //     secure: false,
-    //     auth: {
-    //       user: process.env.SMTP_USER,
-    //       pass: process.env.SMTP_PASSWORD,
-    //     },
-    //   })
+      let transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        secure: false,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
+        },
+      })
   
-    //   await transporter.sendMail(message)
-    // }
+      await transporter.sendMail(message)
+    }
 
     return res.status(200).json({ status: 'OK' })
   } catch (e) {

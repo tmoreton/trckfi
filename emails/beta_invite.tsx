@@ -21,7 +21,7 @@ export const BetaInvite = () => {
       <Preview>You're invited to be a Trckfi early adopter!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="py-[20px] w-[650px] mx-auto">
+          <Container className="py-[20px] max-w-2xl mx-auto">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi-black-sm.png'
