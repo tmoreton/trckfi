@@ -2,12 +2,11 @@
 import prisma from '../../lib/prisma';
 import nodemailer from 'nodemailer'
 import { render } from '@react-email/render'
-import Newsletter from "../../emails/newsletter"
 import BetaInvite from "../../emails/beta_invite"
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
-  const { email, name } = req.body
+  const { email, name, type } = req.body
   if (!email) {
     return res.status(400).json({ error: 'Email Is Required' })
   }
@@ -23,26 +22,53 @@ export default async (req, res) => {
         name
       },
     })
-    slackMessage(`${email} Recieved Beta Invite Email`)
 
-    const message = {
-      from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-      to: email.toLowerCase(),
-      subject: `Welcome to Trckfi!`,
-      text: '',
-      html: render(<BetaInvite />),
+    if(type === 'beta'){
+      slackMessage(`${email} Recieved Beta Invite Email`)
+
+      const message = {
+        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+        to: email.toLowerCase(),
+        subject: `Welcome to Trckfi!`,
+        text: '',
+        html: render(<BetaInvite />),
+      }
+  
+      let transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        secure: false,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
+        },
+      })
+  
+      await transporter.sendMail(message)
     }
 
-    let transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
-    })
+    // if(type === 'bundle'){
+    //   slackMessage(`${email} Recieved Bundle Email`)
 
-    await transporter.sendMail(message)
+    //   const message = {
+    //     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+    //     to: email.toLowerCase(),
+    //     subject: `Welcome to Trckfi!`,
+    //     text: '',
+    //     html: render(<BetaInvite />),
+    //   }
+  
+    //   let transporter = nodemailer.createTransport({
+    //     host: process.env.SMTP_HOST,
+    //     secure: false,
+    //     auth: {
+    //       user: process.env.SMTP_USER,
+    //       pass: process.env.SMTP_PASSWORD,
+    //     },
+    //   })
+  
+    //   await transporter.sendMail(message)
+    // }
+
     return res.status(200).json({ status: 'OK' })
   } catch (e) {
     console.error(e)

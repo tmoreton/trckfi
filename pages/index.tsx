@@ -4,7 +4,7 @@ import Menu from '../components/menu'
 import Hero from "../components/homepage/hero"
 import AccountNetworth from "../components/homepage/account-networth"
 import Visonboard from '../components/homepage/visionboard'
-import Newsletter from '../components/newsletter'
+import EarlyAccess from '../components/early_access'
 import EmailModal from '../components/modals/email-modal'
 import BundleModal from '../components/modals/bundle-modal'
 

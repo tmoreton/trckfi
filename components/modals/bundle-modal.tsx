@@ -18,7 +18,8 @@ export default ({ open, setOpen }) => {
     await fetch(`/api/add_email`, {
       body: JSON.stringify({
         email,
-        name
+        name,
+        type: 'bundle'
       }),
       headers: {
         'Content-Type': 'application/json',

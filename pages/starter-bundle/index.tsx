@@ -15,7 +15,8 @@ export default function () {
     fetch(`/api/add_email`, {
       body: JSON.stringify({
         email,
-        name
+        name,
+        type: 'bundle'
       }),
       headers: {
         'Content-Type': 'application/json',

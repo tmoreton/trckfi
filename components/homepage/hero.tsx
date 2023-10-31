@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import VideoModal from '../modals/video-modal'
 import Image from 'next/image'
-import Newsletter from '../newsletter'
+import Newsletter from '../early_access'
 
 export default function () {
   const [open, setOpen] = useState(false)
