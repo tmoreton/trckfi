@@ -13,10 +13,14 @@ export default async (req, res) => {
   }
 
   try {
-    // @ts-ignore
     await prisma.emails.upsert({
       where: { email: email.toLowerCase() },
-      update: { email: email.toLowerCase() },
+      update: { 
+        email: email.toLowerCase(),
+        name,
+        // @ts-ignore
+        source: type
+      },
       create: { 
         email: email.toLowerCase(),
         name,
