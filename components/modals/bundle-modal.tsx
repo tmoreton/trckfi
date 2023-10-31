@@ -129,7 +129,7 @@ export default ({ open, setOpen }) => {
                             </button>
                             :
                             <>
-                              <p className="mt-6 text-md leading-8 text-gray-600">
+                              <p className="text-center mt-6 text-lg font-bold leading-8 text-gray-600">
                                 Check your email! 🎉
                               </p>
                               <ConfettiExplosion />

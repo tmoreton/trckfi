@@ -49,7 +49,7 @@ export default function ({ name }){
                 className="bg-pink-600 rounded-2xl text-white text-[32px] font-semibold no-underline mx-auto text-center"
                 href='https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE'
               >
-                Download Expense Tracker Here
+                Download Tracker Here
               </Button>
             </Section>
 
