@@ -273,8 +273,7 @@ model Emails {
   id               String    @id @default(cuid())
   email            String?   @unique
   name             String?
-  email_newsletter Boolean   @default(true)
-  beta_sent        Boolean   @default(false)
+  source           String?
   created_at       DateTime? @default(now())
 
   @@map("emails")
