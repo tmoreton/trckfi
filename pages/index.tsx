@@ -41,7 +41,7 @@ export default function Index({ showError }) {
       <Hero />
       <AccountNetworth />
       <Visonboard />
-      <Newsletter />
+      <EarlyAccess />
     </Layout>
   )
 }
