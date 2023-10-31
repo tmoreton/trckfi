@@ -66,12 +66,3 @@ export const BetaInvite = () => {
 };
 
 export default BetaInvite;
-
-{/* <Link href="https://youtu.be/uDkEiNo8P7E">
-  <Img
-    src='https://www.trckfi.com/email-video-gray.png'
-    width="465"
-    alt="Trckfi Intro Video"
-    className="my-0 mx-auto"
-  />
-</Link> */}
