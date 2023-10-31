@@ -35,7 +35,7 @@ export default function ({ name }){
               <Text className="text-[15px]">Awesome, you’re here! The Expense Tracker is yours! </Text>
               <Text className="text-[15px]">It’s time for you to make the most of your hard-earned money by first tracking it! You work way too hard to feel this stressed about money!</Text>
               <Text className="text-[15px]">Ready to get started?</Text>
-              <Text className="text-[15px]"><Link href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE">Click Here</Link> to make your own copy of the Expense Tracker and…</Text>
+              <Text className="text-[15px]"><Link href="https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/copy">Click Here</Link> to make your own copy of the Expense Tracker and…</Text>
               <Text className="text-[15px]">If you're interested in automation, explore our <Link href="https://trckfi.com/beta">Personal Finance web app</Link></Text>
               <Text className="text-[15px]">If you’ve been feeling like you’re just winging it when it comes to the money, you’re not alone!</Text>
               <Text className="text-[15px]">Here’s the good news…using this expense tracker to figure out where your money is going and what your cash flow is a great first step.</Text>
@@ -46,10 +46,10 @@ export default function ({ name }){
               <Button
                 pX={20}
                 pY={12}
-                className="bg-pink-600 rounded-2xl text-white text-[32px] font-semibold no-underline mx-auto text-center"
-                href='https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE'
+                className="bg-pink-600 rounded-2xl text-white text-[21px] font-semibold no-underline mx-auto text-center"
+                href='https://docs.google.com/spreadsheets/d/1VHDJ4gsCkQCCZX8q4wD8AOdYv2prU3Du2A0iGzEiJjE/copy'
               >
-                Download Tracker Here
+                Download Finance Tracker Here
               </Button>
             </Section>
 
