@@ -46,10 +46,6 @@ client.defineJob({
     })
 
     await transporter.sendMail(message)
-    await prisma.emails.update({
-      where: { email },
-      data: { beta_sent: true }
-    })
   },
 });
 
