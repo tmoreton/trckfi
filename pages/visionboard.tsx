@@ -6,7 +6,7 @@ import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import 'intro.js/introjs.css';
-import { Steps, Hints } from 'intro.js-react';
+import { Steps } from 'intro.js-react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
