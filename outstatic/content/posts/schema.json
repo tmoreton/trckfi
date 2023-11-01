@@ -8,6 +8,13 @@
       "fieldType": "String",
       "dataType": "string",
       "title": "keywords"
+    },
+    "category": {
+      "required": true,
+      "description": "category",
+      "fieldType": "String",
+      "dataType": "string",
+      "title": "category"
     }
   }
 }
