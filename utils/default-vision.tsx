@@ -171,7 +171,7 @@ export const new_vision = {
       "meta": {
       },
       "name": "Template - Goals",
-      "index": "a3",
+      "index": "Zz",
       "typeName": "page"
     },
     "page:oNggD6Q2h-Jc2kdNWDxZq": {
@@ -2227,7 +2227,7 @@ export const new_vision = {
         "h": 302.7524617536591,
         "w": 170.2982597364332,
         "url": "",
-        "time": 0.000702,
+        "time": 0.000939,
         "assetId": "asset:-549533067",
         "playing": true
       },

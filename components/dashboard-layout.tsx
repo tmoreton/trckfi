@@ -81,7 +81,7 @@ export default function ({ children }) {
           </div>
         </Container>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }
