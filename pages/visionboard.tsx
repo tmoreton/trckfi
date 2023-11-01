@@ -45,10 +45,10 @@ export default function ({ showError }) {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
-        <Joyride steps={steps} />
-          <div className="hidden md:block my-first-step">
-            <Editor showError={showError} />
-          </div>
+        {/* <Joyride steps={steps} /> */}
+        <div className="hidden md:block my-first-step">
+          <Editor showError={showError} />
+        </div>
         <div className="md:hidden text-center">
           <p><strong>For best experience, please use Desktop view</strong></p>
         </div>
