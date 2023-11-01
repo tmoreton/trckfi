@@ -6,6 +6,7 @@ import Meta from '../components/meta'
 import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
 import  { useLocalStorage } from '../utils/useLocalStorage'
+import Joyride from 'react-joyride';
 
 const Editor = dynamic(() => import('../components/editor'), { ssr: false })
 
@@ -14,6 +15,23 @@ export default function ({ showError }) {
   const user = session?.user
   const [showConfetti, setConfetti] = useState(false)
   const [show, setShow] = useLocalStorage('show', true)
+  const [steps] = useState([
+    {
+      target: '.my-first-step',
+      title: 'test title',
+      content: 'These are our super awesome projects!',
+      // placement: 'top',
+      styles: {
+        options: {
+          width: 300,
+        },
+      },
+      floaterProps: {
+        disableAnimation: false,
+      },
+      spotlightPadding: -1,
+    },
+  ])
 
   useEffect(() => {
     // @ts-ignore
@@ -27,9 +45,10 @@ export default function ({ showError }) {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
-        <div className="hidden md:block">
-          <Editor showError={showError} />
-        </div>
+        <Joyride steps={steps} />
+          <div className="hidden md:block my-first-step">
+            <Editor showError={showError} />
+          </div>
         <div className="md:hidden text-center">
           <p><strong>For best experience, please use Desktop view</strong></p>
         </div>
