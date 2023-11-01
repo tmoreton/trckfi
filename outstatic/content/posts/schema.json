@@ -1,5 +1,13 @@
 {
   "title": "posts",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "keywords": {
+      "required": true,
+      "description": "SEO keywords",
+      "fieldType": "String",
+      "dataType": "string",
+      "title": "keywords"
+    }
+  }
 }
