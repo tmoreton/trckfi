@@ -1,13 +1,5 @@
 {
   "title": "posts",
   "type": "object",
-  "properties": {
-    "keywords": {
-      "required": true,
-      "description": "keywords",
-      "fieldType": "String",
-      "dataType": "string",
-      "title": "keywords"
-    }
-  }
+  "properties": {}
 }
