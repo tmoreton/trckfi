@@ -31,8 +31,8 @@ export default function ({ posts }) {
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
                 <div className="max-w-xl">
-                  <div className="mt-4 flex col-2 items-center gap-x-4 text-xs">
-                    <time dateTime={post.publishedAt} className="text-gray-500 no-underline w-[250px]">
+                  <div className="mt-4 flex col-2 items-center justify-between gap-x-4 text-xs">
+                    <time dateTime={post.publishedAt} className="text-gray-500 no-underline min-w-[150px]">
                       {DateTime.fromISO(post.publishedAt).toLocaleString(DateTime.DATE_FULL)}
                     </time>
                     <p className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 no-underline">
