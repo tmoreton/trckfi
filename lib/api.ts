@@ -2,7 +2,6 @@ import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 
-
 export function getPostSlugs(folder) {
   const postsDirectory = join(process.cwd(), `outstatic/content/${folder}`)
   return fs.readdirSync(postsDirectory)
@@ -40,11 +39,11 @@ export function getPostBySlug(slug: string, fields: string[] = [], folder: strin
 
 export function getAllPosts(fields: string[] = [], folder: string) {
   const slugs = getPostSlugs(folder)
-  const result = slugs.filter((data, idx) => data !== 'schema.json' )
+  const result = slugs.filter((data) => data !== 'schema.json' )
   const posts = result
     .map((slug) => getPostBySlug(slug, fields, folder))
     .filter((post) => post.status === 'published' )
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .sort((post1, post2) => (post1.publishedAt > post2.publishedAt ? -1 : 1))
   return posts
 }
