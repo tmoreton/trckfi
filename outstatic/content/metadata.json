@@ -1,6 +1,6 @@
 {
   "commit": "1dcf7a57c58f7e6a2999498ccdaef4c2b2492bff",
-  "generated": "2023-11-01T15:15:00.415Z",
+  "generated": "2023-11-01T15:17:38.297Z",
   "metadata": [
     {
       "__outstatic": {
@@ -391,7 +391,7 @@
     {
       "__outstatic": {
         "commit": "1dcf7a57c58f7e6a2999498ccdaef4c2b2492bff",
-        "hash": "4292421294",
+        "hash": "3592154254",
         "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
       },
       "author": {
@@ -405,7 +405,7 @@
       "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
       "publishedAt": "2023-10-13T14:25:45.000Z",
       "slug": "how-to-achieve-financial-organization",
-      "status": "draft",
+      "status": "published",
       "title": "Financial Organization Made Easy: Your Route to Financial Success"
     }
   ]
