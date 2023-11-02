@@ -14,7 +14,7 @@ export default function ({ showError }) {
 
   useEffect(() => {
     // @ts-ignore
-    if(user && user.login_count > 0) getQuestion()
+    if(user && user.login_count > 1) getQuestion()
   }, [])
 
   const getQuestion = async () => {

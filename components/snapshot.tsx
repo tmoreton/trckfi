@@ -44,7 +44,7 @@ export default function ({ totalStats }) {
         </dd>
       </div>
 
-      <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
+      <div className="expenses-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
         <dt>
           <div className="absolute rounded-md bg-pink-600 p-3">
             <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true" />
@@ -68,7 +68,7 @@ export default function ({ totalStats }) {
         </dd>
       </div>
 
-      <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
+      <div className="income-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
         <dt>
           <div className="absolute rounded-md bg-pink-600 p-3">
             <CalendarIcon className="h-6 w-6 text-white" aria-hidden="true" />

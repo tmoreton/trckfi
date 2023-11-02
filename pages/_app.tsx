@@ -12,7 +12,6 @@ import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import Hotjar from '@hotjar/browser'
 import Script from 'next/script'
-import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic' 
 
 const Steps = dynamic(() => import('intro.js-react').then(mod => mod.Steps), {
@@ -26,7 +25,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const [error, showError] = useState(null)
   const [enabled, setEnabled] = useState(false)
   const [steps, setSteps] = useState([])
-  const router = useRouter()
   const { post } = pageProps
 
   const showIntro = (page) => {
@@ -45,7 +43,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
         setEnabled(true)
         break;
       case 'dashboard':
-      case 'Papayas':
         setSteps([{
           element: '.dashboard',
           hideNext: false,
@@ -56,23 +53,43 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
             </div>,
           position: 'top',
         },
-        {
-          element: '.question-step',
-          hideNext: false,
-          intro: 
-            <div className="text-center">
-              <p className="text-pink-600"><b>Question of the Day ✏️</b></p>
-              <p className="text-md my-3">Elevate Financial Literacy and Earn Subscription Credits by Answering Daily Questions.</p>
-            </div>,
-          position: 'right',
-        },
+        // {
+        //   element: '.question-step',
+        //   hideNext: false,
+        //   intro: 
+        //     <div className="text-center">
+        //       <p className="text-pink-600"><b>Question of the Day ✏️</b></p>
+        //       <p className="text-md my-3">Elevate Financial Literacy and Earn Subscription Credits by Answering Daily Questions.</p>
+        //     </div>,
+        //   position: 'bottom',
+        // },
         {
           element: '.savings-step',
           hideNext: false,
           intro: 
             <div className="text-center">
-              <p className="text-pink-600"><b>Check to how much you save</b></p>
-              <p className="text-md my-3">Elevate Financial Literacy and Earn Subscription Credits by Answering Daily Questions.</p>
+              <p className="text-pink-600"><b>Savings!</b></p>
+              <p className="text-md my-3"></p>
+            </div>,
+          position: 'top',
+        },
+        {
+          element: '.expenses-step',
+          hideNext: false,
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Expenses!</b></p>
+              <p className="text-md my-3"></p>
+            </div>,
+          position: 'top',
+        },
+        {
+          element: '.income-step',
+          hideNext: false,
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Income!</b></p>
+              <p className="text-md my-3"></p>
             </div>,
           position: 'top',
         }])
@@ -81,11 +98,10 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
       default:
         console.log('nope');
     }
-
   }
 
   useEffect(() => {
-    if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost')){
+    if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost') && !process.env['NEXT_PUBLIC_BASE_URL'].includes('demo')){
       Hotjar.init(siteId, hotjarVersion);
     }
   }, [])

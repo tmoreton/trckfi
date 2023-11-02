@@ -37,6 +37,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
   const addGoal = async (e) => {
     e.preventDefault()
     setEdited(false)
+    console.log(goal)
     const res = await fetch(`/api/add_goal`, {
       body: JSON.stringify({
         goal,
@@ -47,8 +48,8 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    if(!error) router.reload()
+    // const { error } = await res.json()
+    // if(!error) router.reload()
   }
 
   const snippet = () => {
@@ -146,7 +147,7 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
           </div>}
           <div className="sm:flex sm:flex-row-reverse justify-between">
             <div className="sm:flex sm:flex-row-reverse items-center">
-              { edited && <PinkBtn type="submit" onClick={() => console.log('adding')}>
+              { edited && <PinkBtn type="submit" onClick={addGoal}>
                 <p className="text-md">Update Goal</p>
               </PinkBtn>}
             </div>

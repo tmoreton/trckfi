@@ -20,8 +20,6 @@ export default async (req, res) => {
     const event = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET)
     // @ts-ignore
     const { customer, status, canceled_at, ended_at, trial_end, plan } = event.data.object
-    console.log('event_type: ', event.type)
-    console.log('customer_id: ', customer)
     switch (event.type) {
       case 'customer.subscription.updated':
         const updatedUser = await prisma.user.update({

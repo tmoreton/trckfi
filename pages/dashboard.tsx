@@ -38,9 +38,9 @@ const Dashboard = ({ showError, showIntro }) => {
     getDashboard()
     getStats()
     getTransactions()
-    setTimeout(() => {
-      showIntro('dashboard')
-    }, 1000);
+    // setTimeout(() => {
+    //   showIntro('dashboard')
+    // }, 1000);
   }, [])
 
   useEffect(() => {
