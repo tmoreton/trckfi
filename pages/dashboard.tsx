@@ -14,7 +14,6 @@ import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Notification from '../components/notification'
-import Link from 'next/link'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
