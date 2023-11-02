@@ -13,10 +13,10 @@ import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
-import Meta from '../components/meta'
 import Notification from '../components/notification'
+import Link from 'next/link'
 
-const Dashboard = ({ showError }) => {
+const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [refreshing, setRefreshing] = useState(false)
@@ -38,6 +38,9 @@ const Dashboard = ({ showError }) => {
     getDashboard()
     getStats()
     getTransactions()
+    setTimeout(() => {
+      showIntro('dashboard')
+    }, 1000);
   }, [])
 
   useEffect(() => {
@@ -181,8 +184,9 @@ const Dashboard = ({ showError }) => {
   }
   
   return (
-    <>
+    <div>
       <Menu showError={showError}/>
+]     <div className="question-step absolute top-0 right-0 w-[425px] h-[250px]" />
       <Notification showError={showError} />
       <DashboardLayout>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
@@ -196,21 +200,6 @@ const Dashboard = ({ showError }) => {
         { transactions && transactions.length < 1 &&
           <div className="flex justify-center items-center my-20">
             <div className="text-center">
-              {/* <svg
-                className="mx-auto h-12 w-12 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  vectorEffect="non-scaling-stroke"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-                />
-              </svg> */}
               <h3 className="mt-2 text-lg font-semibold text-gray-900">No Transactions Yet</h3>
               <p className="mt-1 text-lg text-gray-500">Get started by adding a bank connection to import transactions on the <b>Net Worth & Accounts</b> page.</p>
             </div>
@@ -218,7 +207,7 @@ const Dashboard = ({ showError }) => {
         }
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       </DashboardLayout>
-    </>
+    </div>
   )
 }
 

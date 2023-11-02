@@ -5,26 +5,100 @@ import { SessionProvider } from "next-auth/react"
 import ErrorModal from '../components/modals/error-modal'
 import AuthGuard from '../utils/authGuard'
 import Meta from '../components/meta'
-
+import 'intro.js/introjs.css';
 import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import Hotjar from '@hotjar/browser'
 import Script from 'next/script'
+import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic' 
+
+const Steps = dynamic(() => import('intro.js-react').then(mod => mod.Steps), {
+  ssr: false
+});
 
 const siteId = 3619138
 const hotjarVersion = 6
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
+  const [enabled, setEnabled] = useState(false)
+  const [steps, setSteps] = useState([])
+  const router = useRouter()
   const { post } = pageProps
+
+  const showIntro = (page) => {
+    switch (page) {
+      case 'visionboard':
+        setSteps([{
+          element: '.visionboard-step',
+          hideNext: true,
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Welcome to your personal Visionboard 🤩</b></p>
+              <p className="text-md my-3">Here you can add text, images and goals to align with where you see yourself long term</p>
+            </div>,
+          position: 'top',
+        }])
+        setEnabled(true)
+        break;
+      case 'dashboard':
+      case 'Papayas':
+        setSteps([{
+          element: '.dashboard',
+          hideNext: false,
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Custom Dashboard 📷</b></p>
+              <p className="text-md my-3">Here you can add text, images and goals to align with where you see yourself long term</p>
+            </div>,
+          position: 'top',
+        },
+        {
+          element: '.question-step',
+          hideNext: false,
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Question of the Day ✏️</b></p>
+              <p className="text-md my-3">Elevate Financial Literacy and Earn Subscription Credits by Answering Daily Questions.</p>
+            </div>,
+          position: 'right',
+        },
+        {
+          element: '.savings-step',
+          hideNext: false,
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Check to how much you save</b></p>
+              <p className="text-md my-3">Elevate Financial Literacy and Earn Subscription Credits by Answering Daily Questions.</p>
+            </div>,
+          position: 'top',
+        }])
+        setEnabled(true)
+        break;
+      default:
+        console.log('nope');
+    }
+
+  }
+
   useEffect(() => {
     if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost')){
       Hotjar.init(siteId, hotjarVersion);
     }
   }, [])
   
+  // const onBeforeChange = nextStepIndex => {
+  //   if (nextStepIndex === 1) {
+  //     setEnabled(false)
+  //     router.push({
+  //       pathname: '/dashboard',
+  //     })
+  //   }
+  // }
+
   return (
     <>
       <Meta post={post} />
@@ -40,6 +114,13 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
       </Script>
       <SessionProvider session={session}>
         <ErrorModal error={error} />
+          <Steps
+            enabled={enabled}
+            steps={steps}
+            initialStep={0}
+            // onBeforeChange={onBeforeChange}
+            onExit={() => console.log('done')}
+          />
           <AuthGuard>
             {
               process.env['NEXT_PUBLIC_BASE_URL'].includes('demo') &&
@@ -49,7 +130,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
                 </p>
               </div>
             }
-            <Component {...pageProps} showError={showError} />
+            <Component {...pageProps} showError={showError} showIntro={showIntro}/>
           </AuthGuard>
         <Analytics />
       </SessionProvider>
