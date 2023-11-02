@@ -6,7 +6,6 @@ import LoadingModal from '../components/modals/loading-modal'
 import Table from '../components/table'
 import TransactionModal from '../components/modals/transaction-modal'
 import DatePicker from '../components/modals/date-picker-modal'
-import Empty from '../components/empty'
 import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
 import Graphs from '../components/graphs'
