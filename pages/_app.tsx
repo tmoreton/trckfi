@@ -32,7 +32,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
       case 'visionboard':
         setSteps([{
           element: '.visionboard-step',
-          hideNext: true,
           intro: 
             <div className="text-center">
               <p className="text-pink-600"><b>Welcome to your personal Visionboard 🤩</b></p>
@@ -45,17 +44,15 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
       case 'dashboard':
         setSteps([{
           element: '.dashboard',
-          hideNext: false,
           intro: 
             <div className="text-center">
-              <p className="text-pink-600"><b>Custom Dashboard 📷</b></p>
-              <p className="text-md my-3">Here you can add text, images and goals to align with where you see yourself long term</p>
+              <p className="text-pink-600"><b>Dashboard 📷</b></p>
+              <p className="text-md my-3">A snapshot of your finances in one place</p>
             </div>,
           position: 'top',
         },
         // {
         //   element: '.question-step',
-        //   hideNext: false,
         //   intro: 
         //     <div className="text-center">
         //       <p className="text-pink-600"><b>Question of the Day ✏️</b></p>
@@ -65,30 +62,51 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
         // },
         {
           element: '.savings-step',
-          hideNext: false,
           intro: 
             <div className="text-center">
-              <p className="text-pink-600"><b>Savings!</b></p>
-              <p className="text-md my-3"></p>
+              <p className="text-pink-600"><b>Savings Rate</b></p>
+              <p className="text-md my-3">Track what percentage of money your saving each month</p>
             </div>,
-          position: 'top',
+          position: 'bottom',
         },
         {
           element: '.expenses-step',
-          hideNext: false,
           intro: 
             <div className="text-center">
-              <p className="text-pink-600"><b>Expenses!</b></p>
-              <p className="text-md my-3"></p>
+              <p className="text-pink-600"><b>Expenses</b></p>
+              <p className="text-md my-3">Compare how much you spent vs. previous months</p>
             </div>,
-          position: 'top',
+          position: 'bottom',
         },
         {
           element: '.income-step',
-          hideNext: false,
           intro: 
             <div className="text-center">
-              <p className="text-pink-600"><b>Income!</b></p>
+              <p className="text-pink-600"><b>Income</b></p>
+              <p className="text-md my-3">Compare how much you earned vs. previous months</p>
+            </div>,
+          position: 'bottom',
+        },{
+          element: '.pie-step',
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Categories</b></p>
+              <p className="text-md my-3">See what categories you spend most in</p>
+            </div>,
+          position: 'top',
+        },{
+          element: '.bar-step',
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Historical</b></p>
+              <p className="text-md my-3">Check your overall financial trends over time</p>
+            </div>,
+          position: 'top',
+        },{
+          element: '.transaction-step',
+          intro: 
+            <div className="text-center">
+              <p className="text-pink-600"><b>Transactions</b></p>
               <p className="text-md my-3"></p>
             </div>,
           position: 'top',

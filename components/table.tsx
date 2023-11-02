@@ -187,7 +187,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
       </div>
 
-      <div className="w-full mt-4 overflow-scroll sm:overflow-auto">
+      <div className="w-full mt-4 overflow-scroll sm:overflow-auto transaction-step">
         <table className="lg:table-auto sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (

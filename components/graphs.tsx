@@ -120,7 +120,7 @@ export default function ({ graphData }) {
   return (
     <div>        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 md:pb-12 pb-2">
-        <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 lg:mb-0 mb-6">
+        <div className="pie-step col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 lg:mb-0 mb-6">
           <div className="border-b border-gray-200 mb-1">
               <nav className="-mb-px flex" aria-label="Tabs">
                 {tabs.map((tab) => (
@@ -191,7 +191,7 @@ export default function ({ graphData }) {
             </div>
           }
         </div>
-        <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 hidden md:block">
+        <div className="bar-step col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 hidden md:block">
           <BarChart graphData={graphData} />
         </div>
       </div>
