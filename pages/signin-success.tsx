@@ -27,11 +27,21 @@ export async function getServerSideProps(context) {
         },
       }
     })
-    return {
-      redirect: {
-        destination: '/visionboard',
-        permanent: false,
-      },
+    // @ts-ignore
+    if(user?.login_count <= 1){
+      return {
+        redirect: {
+          destination: '/intro',
+          permanent: false,
+        },
+      }
+    } else {
+      return {
+        redirect: {
+          destination: '/visionboard',
+          permanent: false,
+        },
+      }
     }
   }
 }
