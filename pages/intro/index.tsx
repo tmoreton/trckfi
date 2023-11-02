@@ -13,18 +13,7 @@ export default function () {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    console.log(e.target)
-    // fetch(`/api/add_email`, {
-    //   body: JSON.stringify({
-    //     email,
-    //     name,
-    //     type: 'bundle'
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
+    // Save data from checkboxes
     router.push({
       pathname: '/intro/setup-account',
     })
