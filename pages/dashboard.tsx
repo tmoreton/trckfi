@@ -13,10 +13,13 @@ import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Notification from '../components/notification'
+import { useRouter } from 'next/router'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
   const user = session?.user
+  const router = useRouter()
+  const { intro } = router.query
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [openDatePicker, setDatePicker] = useState(false)
@@ -28,17 +31,19 @@ const Dashboard = ({ showError, showIntro }) => {
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 3 }).startOf('month').toISO()
   })
-
+  
   useEffect(() => {
+    if(intro === 'true'){
+      setTimeout(() => {
+        showIntro('dashboard')
+      }, 1000)
+    }
     if(!transactions){
       setRefreshing(true)
     }
     getDashboard()
     getStats()
     getTransactions()
-    setTimeout(() => {
-      showIntro('dashboard')
-    }, 1000);
   }, [])
 
   useEffect(() => {

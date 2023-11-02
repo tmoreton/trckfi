@@ -40,11 +40,11 @@ export default function ({ showError }) {
                 <p className="mb-10 text-2xl text-gray-600">
                   soemthing else should go here but not sure yet....
                 </p>
-                <Link href="/visionboard" className="mt-7 rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                <Link href="/visionboard?intro=true" className="mt-7 rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Go To Visionboard
                 </Link>
                 <p className="my-4 text-sm text-gray-600">
-                  or add more
+                  or
                 </p>
                 <AddAccounts refresh={() => console.log("refresh")} syncPlaid={syncPlaid}/>
                 <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>
