@@ -15,7 +15,6 @@ export default function ({ showError, showIntro }) {
   const [show, setShow] = useLocalStorage('show', true)
 
   useEffect(() => {
-    
     // @ts-ignore
     if(user?.login_count <= 1 && show){
       // setEnabled(true)
