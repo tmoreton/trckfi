@@ -186,7 +186,7 @@ const Dashboard = ({ showError, showIntro }) => {
   return (
     <div>
       <Menu showError={showError}/>
-]     <div className="question-step absolute top-0 right-0 w-[425px] h-[250px]" />
+      <div className="question-step absolute top-0 right-0 w-[425px] h-[250px]" />
       <Notification showError={showError} />
       <DashboardLayout>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />

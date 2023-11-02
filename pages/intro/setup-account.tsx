@@ -5,13 +5,17 @@ import { useSession } from "next-auth/react"
 import { ChevronDoubleDownIcon } from '@heroicons/react/20/solid'
 import ConfettiExplosion from 'react-confetti-explosion'
 import Link from 'next/link'
+import LoadingModal from '../../components/modals/loading-modal'
 
 export default function ({ showError }) {
-  const [success, showSuccess] = useState(true)
+  const [success, showSuccess] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
   const { data: session } = useSession()
   const user = session?.user
   
   const syncPlaid = async (access_token) => {
+    showSuccess(false)
+    setRefreshing(true)
     const res = await fetch(`/api/sync_plaid`, {
       body: JSON.stringify({
         user,
@@ -26,11 +30,13 @@ export default function ({ showError }) {
     showError(error)
     if(!error){
       showSuccess(true)
+      setRefreshing(false)
     }
   }
 
   return (
     <div className="bg-white">
+      <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       <div className="w-full bg-gray-100 h-2.5 mb-4 fixed">
         <div className="bg-pink-600 h-2.5" style={{width: '66%'}}></div>
       </div> 
