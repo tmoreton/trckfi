@@ -5,21 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Emoji } from 'emoji-picker-react';
 import { DateTime } from "luxon"
-
-const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
-]
+import { FaceFrownIcon } from '@heroicons/react/20/solid'
 
 const colors = [
   '#36a2eb',
@@ -130,7 +116,7 @@ export default function ({ graphData }) {
       },
     },
   }
-
+  console.log(data)
   return (
     <div>        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 md:pb-12 pb-2">
@@ -171,31 +157,39 @@ export default function ({ graphData }) {
                 ))}
               </nav>
           </div>
-          <div className="gap-x-8 grid grid-cols-1 lg:grid-cols-2">
-            <div className="col-span-1">
-              { filtered.map(i => {
-                return (
-                  <>
-                    <div className="flex justify-between pb-1 text-xs text-gray-500">
-                      {
-                        key === 'unified' ?
-                        <Emoji unified={i.name} size={20}/>
-                        :
-                        <p>{i?.name?.split('_').join(' ').slice(0, 22)}</p>
-                      }
-                      <p className="font-semibold">{addComma(i.amount)}</p>
-                    </div>
-                    <div className="mb-2 w-full bg-white rounded h-1">
-                      <div className="h-1 rounded" style={{width: `${Number(i.amount)/sum*100}%`, backgroundColor: i.color}}></div>
-                    </div>
-                  </>
-                )
-              })}
+          {
+            data?.labels?.length > 0 ?
+            <div className="gap-x-8 grid grid-cols-1 lg:grid-cols-2">
+              <div className="col-span-1">
+                { filtered.map(i => {
+                  return (
+                    <>
+                      <div className="flex justify-between pb-1 text-xs text-gray-500">
+                        {
+                          key === 'unified' ?
+                          <Emoji unified={i.name} size={20}/>
+                          :
+                          <p>{i?.name?.split('_').join(' ').slice(0, 22)}</p>
+                        }
+                        <p className="font-semibold">{addComma(i.amount)}</p>
+                      </div>
+                      <div className="mb-2 w-full bg-white rounded h-1">
+                        <div className="h-1 rounded" style={{width: `${Number(i.amount)/sum*100}%`, backgroundColor: i.color}}></div>
+                      </div>
+                    </>
+                  )
+                })}
+              </div>
+              <div className="col-span-1 hidden md:block">
+                <Doughnut data={data} options={options}/>
+              </div>
             </div>
-            <div className="col-span-1 hidden md:block">
-              <Doughnut data={data} options={options}/>
+            :
+            <div className="text-gray-400 w-full text-center">
+              <FaceFrownIcon className="h-20 w-20 mx-auto"/>
+              <p className="text-xl font-semibold">No data for this month yet</p>
             </div>
-          </div>
+          }
         </div>
         <div className="col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 hidden md:block">
           <BarChart graphData={graphData} />
