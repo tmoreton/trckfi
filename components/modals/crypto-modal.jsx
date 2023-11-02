@@ -2,6 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { PinkBtn } from '../pink-btn'
 import Dropdown from '../dropdown'
+import { commaShort } from '../../lib/lodash'
 
 export default function ({ showError, open, setOpen, user, getNetWorth }) {
   const [stocks, setCoins] = useState([])
@@ -144,61 +145,25 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                       {
                         selected &&
                         <form onSubmit={handleSubmit}>
-                          <div className="relative z-0 w-full mb-6 group">
+                          <div className="grid md:grid-cols-2 md:gap-6">
+                            <div className="relative z-0 w-full mb-6 group">
                             <label 
-                              htmlFor="name" 
-                              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Name
-                            </label>
-                            <input 
-                              type="text" 
-                              name="name"
-                              id="name"
-                              readOnly
-                              value={account?.name}
-                              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
-                              required 
-                              onChange={handleChange}
-                            />
-                          </div>
-                          <div className="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-6 group">
-                              <label 
-                                htmlFor="type" 
+                                htmlFor="name" 
                                 className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                               >
-                                Type
+                                Name
                               </label>
                               <input 
                                 type="text" 
-                                name="type" 
-                                id="type"
+                                name="name"
+                                id="name"
                                 readOnly
-                                value={account?.type}
-                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+                                value={account?.name}
+                                className="block py-2.5 px-0 w-full font-bold text-sm text-gray-500 bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 peer"
+                                required 
                                 onChange={handleChange}
                               />
                             </div>
-                            <div className="relative z-0 w-full mb-6 group">
-                              <label 
-                                htmlFor="subtype" 
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                              >
-                                Subtype
-                              </label>
-                              <input 
-                                type="text" 
-                                name="subtype" 
-                                id="subtype"
-                                value={account?.subtype}
-                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
-                                required
-                                onChange={handleChange}
-                              />
-                            </div>
-                          </div>
-                          <div className="grid md:grid-cols-2 md:gap-6">
                             <div className="relative z-0 w-full mb-6 group">
                               <label 
                                 htmlFor="current_price" 
@@ -212,9 +177,53 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                                 id="current_price"
                                 readOnly
                                 value={account?.current_price}
-                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+                                className="hidden py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 font-bold appearance-none focus:outline-none focus:ring-0 peer"
+                              />
+                              <p className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 font-bold appearance-none focus:outline-none focus:ring-0 peer">
+                                {commaShort(account?.current_price)}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="grid md:grid-cols-2 md:gap-6 hidden">
+                            <div className="relative z-0 w-full mb-6 group">
+                              <label 
+                                htmlFor="type" 
+                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Type
+                              </label>
+                              <input 
+                                type="text" 
+                                name="type" 
+                                id="type"
+                                readOnly
+                                value={account?.type}
+                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 font-bold appearance-none focus:outline-none focus:ring-0 peer"
+                                onChange={handleChange}
                               />
                             </div>
+                            <div className="relative z-0 w-full mb-6 group hidden">
+                              <label 
+                                htmlFor="subtype" 
+                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Subtype
+                              </label>
+                              <input 
+                                type="text" 
+                                name="subtype" 
+                                id="subtype"
+                                value={account?.subtype}
+                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 font-bold appearance-none focus:outline-none focus:ring-0 peer"
+                                required
+                                onChange={handleChange}
+                              />
+                            </div>
+                          </div>
+                          <div className="grid md:grid-cols-2 md:gap-6">
+
+                          </div>
+                          <div className="grid md:grid-cols-2 md:gap-6">
                             <div className="relative z-0 w-full mb-6 group">
                               <label 
                                 htmlFor="quantity" 
@@ -232,24 +241,28 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
                                 onChange={updateQuantity}
                               />
                             </div>
-                          </div>
-                          <div className="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-6 group">
-                              <label 
-                                htmlFor="amount" 
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                              >
-                                Total Value
-                              </label>
-                              <input 
-                                type="text" 
-                                name="amount" 
-                                id="amount"
-                                readOnly
-                                value={account?.amount}
-                                className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
-                              />
-                            </div>
+                            {
+                              account?.amount &&
+                              <div className="relative z-0 w-full mb-6 group">
+                                <label 
+                                  htmlFor="amount" 
+                                  className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                                >
+                                  Total Value
+                                </label>
+                                <input 
+                                  type="text" 
+                                  name="amount" 
+                                  id="amount"
+                                  readOnly
+                                  value={account?.amount}
+                                  className="hidden py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 font-bold appearance-none focus:outline-none focus:ring-0 peer"
+                                />
+                                <p className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 font-bold appearance-none focus:outline-none focus:ring-0 peer">
+                                  {commaShort(account?.amount)}
+                                </p>
+                              </div>
+                            }
                           </div>
                           <div className="sm:flex sm:flex-row-reverse items-center justify-between">
                             <PinkBtn type="submit">

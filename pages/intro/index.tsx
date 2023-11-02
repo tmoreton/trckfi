@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import ProgressNav from '../../components/progress-nav'
+
 const items = [
   { text: 'Keep track of my transactions' },
   { text: 'Track and grow my net worth to financial independence' },
@@ -21,19 +23,11 @@ export default function () {
   
   return (
     <div className="bg-white">
-      <div className="w-full bg-gray-100 h-2.5 mb-4 fixed">
-        <div className="bg-pink-600 h-2.5" style={{width: '33%'}}></div>
-      </div> 
-      <div className="relative isolate pt-14">
+      <ProgressNav width={'33%'} />
+      <div className="relative isolate">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
-            <Image
-              src='/trckfi-logo-beta.png'
-              alt='Trckfi'
-              width={150}
-              height={100}
-            />
-            <h1 className="mt-20 text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
               Welcome to Trckfi! 🎉
             </h1>
             <p className="mt-6 pb-2 text-3xl text-gray-600">

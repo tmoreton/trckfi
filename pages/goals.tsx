@@ -92,54 +92,6 @@ const Goals = ({ showError }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
-        <div className="mx-auto pb-10 text-center">
-          <div className="rounded-2xl bg-gray-50 p-10">
-            <p className="font-display text-2xl sm:text-3xl font-semibold text-slate-900">
-              Based the average of your last
-              <select
-                name="timeframe"
-                value={suggestion.timeframe}
-                onChange={e => getSuggestions(e.target.value)}
-                className="bg-gray-50 appearance-none focus:outline-none focus:ring-0 text-pink-600 px-2 underline w-fit text-center font-bold"
-              >
-                <option value="1" label="month" />
-                <option value="3" label="3 months" />
-                <option value="6" label="6 months" />
-                <option value="12" label="year" />
-              </select>
-              of expenses
-              <span className="text-red-600 pl-2 underline font-bold">
-                {commaShort(suggestion.expenses)}
-                <span className="text-xs mr-2">/m</span>
-              </span>
-              and income
-              <span className="text-green-600 pl-2 underline font-bold">
-                {commaShort(suggestion.income)}
-                <span className="text-xs mr-2">/m</span>
-              </span>
-              {
-                (Math.abs(suggestion.expenses) + suggestion.goals) < suggestion.income  ?
-                <>
-                  you are on pace to hit your goal of 
-                  <span className="text-pink-600 pl-2 underline font-bold">
-                    {commaShort(suggestion.goals)}
-                    <span className="text-xs mr-2">/m</span>
-                  </span>
-                  towards your goals 🎉
-                </>
-                :
-                <>
-                  you would need to reduce your expenses
-                  <span className="text-pink-600 pl-2 underline font-bold">
-                    {commaShort((Math.abs(suggestion.expenses) + suggestion.goals)-suggestion.income)}
-                    <span className="text-xs mr-2">/m</span>
-                  </span>
-                  to achieve your goals, you got this!
-                </>
-              }
-            </p>
-          </div>
-        </div>
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 pb-12">
           {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} showError={showError}/>)}
           { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} showError={showError}/>}
@@ -166,3 +118,52 @@ const Goals = ({ showError }) => {
 }
 
 export default dynamic(() => Promise.resolve(Goals), { ssr: false })
+
+{/* <div className="mx-auto pb-10 text-center">
+<div className="rounded-2xl bg-gray-50 p-10">
+  <p className="font-display text-2xl sm:text-3xl font-semibold text-slate-900">
+    Based the average of your last
+    <select
+      name="timeframe"
+      value={suggestion.timeframe}
+      onChange={e => getSuggestions(e.target.value)}
+      className="bg-gray-50 appearance-none focus:outline-none focus:ring-0 text-pink-600 px-2 underline w-fit text-center font-bold"
+    >
+      <option value="1" label="month" />
+      <option value="3" label="3 months" />
+      <option value="6" label="6 months" />
+      <option value="12" label="year" />
+    </select>
+    of expenses
+    <span className="text-red-600 pl-2 underline font-bold">
+      {commaShort(suggestion.expenses)}
+      <span className="text-xs mr-2">/m</span>
+    </span>
+    and income
+    <span className="text-green-600 pl-2 underline font-bold">
+      {commaShort(suggestion.income)}
+      <span className="text-xs mr-2">/m</span>
+    </span>
+    {
+      (Math.abs(suggestion.expenses) + suggestion.goals) < suggestion.income  ?
+      <>
+        you are on pace to hit your goal of 
+        <span className="text-pink-600 pl-2 underline font-bold">
+          {commaShort(suggestion.goals)}
+          <span className="text-xs mr-2">/m</span>
+        </span>
+        towards your goals 🎉
+      </>
+      :
+      <>
+        you would need to reduce your expenses
+        <span className="text-pink-600 pl-2 underline font-bold">
+          {commaShort((Math.abs(suggestion.expenses) + suggestion.goals)-suggestion.income)}
+          <span className="text-xs mr-2">/m</span>
+        </span>
+        to achieve your goals, you got this!
+      </>
+    }
+  </p>
+</div>
+</div> */}

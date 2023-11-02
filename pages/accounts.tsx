@@ -9,7 +9,6 @@ import EditAccountModal from '../components/modals/edit-account-modal'
 import ManualModal from '../components/modals/add-manually-modal'
 import StockModal from '../components/modals/stock-modal'
 import LoadingModal from '../components/modals/loading-modal'
-import CryptoModal from '../components/modals/crypto-modal'
 import RemoveAccount from "../components/modals/remove-account-modal"
 import { Emoji } from 'emoji-picker-react'
 import PlaidLink from '../components/plaid-link';
@@ -23,6 +22,7 @@ import PieChart from "../components/pie-chart"
 import LineChart from "../components/line-chart"
 import StackedBarChart from "../components/stacked-bar-chart"
 import Empty from '../components/empty'
+import AddAccounts from '../components/add-accounts'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
@@ -208,42 +208,12 @@ const Accounts = ({ showError }) => {
       <DashboardLayout>
         <LoadingModal refreshing={refreshing} text='Updating Your Accounts...'/>
         <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={refresh}/>
-        <StockModal showError={showError} open={openStock} setOpen={setOpenStock} user={user} getNetWorth={refresh}/>
-        <CryptoModal showError={showError} open={openCrypto} setOpen={setOpenCrypto} user={user} getNetWorth={refresh}/>
-        <HomeModal showError={showError} open={openHome} setOpen={setOpenHome} user={user} getNetWorth={refresh}/>
-        <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={refresh} />
         <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={refresh} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
         { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
-        <div className="lg:flex justify-center lg:space-x-6 space-x-0 mb-4 hidden md:block items-center">
-          <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
-            <PlusIcon className="h-5 w-5" aria-hidden="true" />
-            Add Stock
-          </button>
-          <button onClick={() => setOpenHome(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
-            <PlusIcon className="h-5 w-5" aria-hidden="true" />
-            Add Home Value
-          </button>
-          <button  onClick={() => setOpenCrypto(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
-            <PlusIcon className="h-5 w-5" aria-hidden="true" />
-            Add Crypto
-          </button>
-          <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
-          <button  onClick={() => setOpenManually(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-xs font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
-            <PlusIcon className="h-5 w-5" aria-hidden="true" />
-            Add Manually
-          </button>
-          <button
-            onClick={updateNetWorth}
-            type="button"
-            className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500"
-          >
-            <div className={loading && "animate-spin"}>
-              <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
-            </div>
-          </button>
-        </div>
+        
+        <AddAccounts refresh={refresh} syncPlaid={syncPlaid}/>
 
         {/* Net Worth Page */}
         <main>
