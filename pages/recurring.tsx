@@ -220,7 +220,7 @@ export default function Recurring({ showError }) {
 								{/* Early Detection */}
 								<div className="max-w-7xl pt-10">
 									<h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
-										Early Detection
+										Possible Subscriptions
 									</h2>
 								</div>
 
@@ -281,7 +281,7 @@ export default function Recurring({ showError }) {
 								</div>
 
 								{/* Inactive */}
-								<div className="max-w-7xl pt-10">
+								{/* <div className="max-w-7xl pt-10">
 									<h2 className="max-w-3xl text-2xl font-bold leading-6 text-gray-900">
 										Inactive
 									</h2>
@@ -328,7 +328,8 @@ export default function Recurring({ showError }) {
 											))}
 										</tbody>
 									</table>
-								</div>
+								</div> */}
+
 							</div>
 						</div>
 					</div>

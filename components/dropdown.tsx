@@ -8,7 +8,7 @@ function classNames(...classes) {
 export default function ({ values, selected, onChange, setSelected }) {
   return (
     <Combobox as="div" value={selected} onChange={setSelected}>
-      <Combobox.Label className="block text-xs text-gray-500 mt-2">Search symbol:</Combobox.Label>
+      <Combobox.Label className="block text-xs text-gray-500 my-1">Search symbol:</Combobox.Label>
       <div className="relative">
         <Combobox.Input
           className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
@@ -21,7 +21,7 @@ export default function ({ values, selected, onChange, setSelected }) {
           <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
         </Combobox.Button>
 
-        {values.length > 0 && (
+        {values?.length > 0 && (
           <Combobox.Options className="z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
             {values.map((value, key) => (
               <Combobox.Option

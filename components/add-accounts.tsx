@@ -27,19 +27,19 @@ export default function ({ refresh, syncPlaid }) {
       <ManualModal showError={showError} open={openManually} setOpen={setOpenManually} user={user} getNetWorth={refresh} />
       <div className="lg:flex justify-center lg:space-x-6 space-x-0 items-center">
         <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
-        <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-md font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+        <button onClick={() => setOpenStock(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[15px] font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
           <PlusIcon className="h-6 w-6 mr-1 font-semibold" aria-hidden="true" />
           Stock
         </button>
-        <button onClick={() => setOpenHome(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-md font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+        <button onClick={() => setOpenHome(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[15px] font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
           <PlusIcon className="h-6 w-6 mr-1 font-semibold" aria-hidden="true" />
           Home Value
         </button>
-        <button  onClick={() => setOpenCrypto(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-md font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+        <button  onClick={() => setOpenCrypto(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[15px] font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
           <PlusIcon className="h-6 w-6 mr-1 font-semibold" aria-hidden="true" />
           Crypto
         </button>
-        <button  onClick={() => setOpenManually(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-md font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
+        <button  onClick={() => setOpenManually(true)} className="mb-4 inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[15px] font-semibold text-pink-600 text-lg hover:bg-pink-100 justify-center w-[100%] lg:w-52">
           <PlusIcon className="h-6 w-6 mr-1 font-semibold" aria-hidden="true" />
           Manually
         </button>

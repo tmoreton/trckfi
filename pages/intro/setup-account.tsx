@@ -8,7 +8,7 @@ import ProgressNav from '../../components/progress-nav'
 import AddAccounts from '../../components/add-accounts'
 
 export default function ({ showError }) {
-  const [success, showSuccess] = useState(true)
+  const [success, showSuccess] = useState(false)
   const { data: session } = useSession()
   const user = session?.user
   
@@ -35,18 +35,18 @@ export default function ({ showError }) {
             { success ?
               <div className="text-center">
                 <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
-                  Success!
+                  Successfully added!
                 </h1>
-                <p className="mb-10 text-2xl text-gray-600">
-                  soemthing else should go here but not sure yet....
-                </p>
-                <Link href="/visionboard?intro=true" className="mt-7 rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                    Go To Visionboard
-                </Link>
-                <p className="my-4 text-sm text-gray-600">
-                  or
+                <p className="mt-5 mb-10 text-2xl text-gray-600">
+                  While your transactions are syncing do you want to add more?
                 </p>
                 <AddAccounts refresh={() => console.log("refresh")} syncPlaid={syncPlaid}/>
+                <p className="pb-10 text-sm text-gray-600">
+                  or
+                </p>
+                <Link href="/visionboard?intro=true" className="mt-7 rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  Go To Visionboard
+                </Link>
                 <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>
               </div>
               :
