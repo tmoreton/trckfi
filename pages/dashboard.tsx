@@ -13,7 +13,6 @@ import Graphs from '../components/graphs'
 import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
-import Meta from '../components/meta'
 import Notification from '../components/notification'
 
 const Dashboard = ({ showError }) => {
