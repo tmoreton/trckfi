@@ -4,10 +4,13 @@ import recurringSync from '../../utils/recurringSync'
 
 export default async (req, res) => {
   const { webhook_code, item_id } = req.body
+  const data = {
+    webhook_code,
+    item_id
+  }
   // const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
   try {
-    // @ts-ignore
-    await prisma.webhooks.create({ webhook_code, item_id })
+    await prisma.webhooks.create({ data })
     // switch (webhook_code) {
     //   case 'SYNC_UPDATES_AVAILABLE':
     //     // await transactionsSync(access_token, user_id)        
