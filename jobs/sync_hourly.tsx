@@ -21,26 +21,28 @@ client.defineJob({
         created_at: 'asc'
       }
     })
-    const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id: webhook.item_id }})
-    switch (webhook.webhook_code) {
-      case 'SYNC_UPDATES_AVAILABLE':
-        await prisma.webhooks.delete({
-          where: {
-            id: webhook.id
-          }
-        })
-        await transactionsSync(access_token, user_id)  
-        break;
-      case 'RECURRING_TRANSACTIONS_UPDATE':
-        await prisma.webhooks.delete({
-          where: {
-            id: webhook.id
-          }
-        })
-        await recurringSync(access_token)
-        break;
-      default:
-        break;
+    if(webhook?.item_id){
+      const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id: webhook.item_id }})
+      switch (webhook.webhook_code) {
+        case 'SYNC_UPDATES_AVAILABLE':
+          await prisma.webhooks.delete({
+            where: {
+              id: webhook.id
+            }
+          })
+          await transactionsSync(access_token, user_id)  
+          break;
+        case 'RECURRING_TRANSACTIONS_UPDATE':
+          await prisma.webhooks.delete({
+            where: {
+              id: webhook.id
+            }
+          })
+          await recurringSync(access_token)
+          break;
+        default:
+          break;
+      }
     }
   },
 });
