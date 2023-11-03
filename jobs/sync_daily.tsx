@@ -26,9 +26,8 @@ client.defineJob({
     })
 
     for (let p in plaid) {
-      console.log(plaid[p].access_token)
-      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+      accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
+      transactionsSync(plaid[p].access_token, plaid[p].user_id)
     }
   },
 });
