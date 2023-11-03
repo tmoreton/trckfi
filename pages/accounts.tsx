@@ -211,8 +211,7 @@ const Accounts = ({ showError }) => {
         <HideAccountModal showError={showError} open={open} setOpen={setOpen} user={user} account={account} getNetWorth={refresh} />
         <RemoveAccount setRemovedAccounts={setRemovedAccounts} removeToken={removeToken} removedAccounts={removedAccounts} />
         <SetupModal user={user} showError={showError} open={setupModal} openSetupModal={openSetupModal} syncPlaid={syncPlaid} />
-        { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}
-        
+        { showConfetti && <ConfettiExplosion force={0.5} duration={3000} particleCount={500} width={3500} zIndex={100}/>}        
         <AddAccounts refresh={refresh} syncPlaid={syncPlaid}/>
 
         {/* Net Worth Page */}

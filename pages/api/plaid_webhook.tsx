@@ -1,16 +1,17 @@
 import prisma from '../../lib/prisma';
 import transactionsSync from '../../utils/transactionsSync'
-import slackMessage from '../../utils/slackMessage'
+import recurringSync from '../../utils/recurringSync'
 
 export default async (req, res) => {
   const { webhook_code, item_id } = req.body
+  const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
   try{
     switch (webhook_code) {
       case 'SYNC_UPDATES_AVAILABLE':
-        const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id }})
         await transactionsSync(access_token, user_id)
         break;
       case 'RECURRING_TRANSACTIONS_UPDATE':
+        await recurringSync(access_token)
         break;
       default:
         break;
