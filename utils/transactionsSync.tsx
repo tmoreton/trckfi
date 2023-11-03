@@ -56,7 +56,7 @@ const transactionsSync = async (access_token, user_id) => {
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
     // let removed = response.data.removed
-    // let has_more = response.data.has_more
+    let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
     
     for (let i in added) {
@@ -102,6 +102,12 @@ const transactionsSync = async (access_token, user_id) => {
         },
       })
     }
+
+    if(has_more){
+      const data = { webhook_code: 'SYNC_UPDATES_AVAILABLE', item_id: plaid.item_id }
+      await prisma.webhooks.create({ data })
+    }
+    
     await prisma.plaid.update({
       where: { item_id: plaid.item_id },
       data: { 

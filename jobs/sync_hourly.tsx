@@ -26,7 +26,7 @@ client.defineJob({
             id: webhook.id
           }
         })
-        await transactionsSync(access_token, user_id)        
+        await transactionsSync(access_token, user_id)  
         break;
       case 'RECURRING_TRANSACTIONS_UPDATE':
         await prisma.webhooks.delete({
