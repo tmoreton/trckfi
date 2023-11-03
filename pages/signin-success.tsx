@@ -28,7 +28,7 @@ export async function getServerSideProps(context) {
       }
     })
     // @ts-ignore
-    if(user?.login_count <= 1){
+    if(user?.login_count < 1){
       return {
         redirect: {
           destination: '/intro',
