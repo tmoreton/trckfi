@@ -40,7 +40,7 @@ const transactionsSync = async (access_token, user_id) => {
     const request = {
       access_token: access_token,
       cursor: next_cursor,
-      count: 500,
+      count: 100,
       options: {
         include_personal_finance_category: true
       }
