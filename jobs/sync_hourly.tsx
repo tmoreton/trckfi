@@ -14,6 +14,9 @@ client.defineJob({
   }),
   run: async (payload, io, ctx) => {
     const webhook = await prisma.webhooks.findFirst({
+      where: {
+        webhook_code: { in: ['SYNC_UPDATES_AVAILABLE', 'RECURRING_TRANSACTIONS_UPDATE'] },
+      },
       orderBy: {
         created_at: 'asc'
       }
