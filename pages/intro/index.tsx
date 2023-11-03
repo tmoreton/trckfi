@@ -5,7 +5,8 @@ const items = [
   { text: 'Keep track of my transactions' },
   { text: 'Track and grow my net worth to financial independence' },
   { text: 'Learn more about finance and improve my overall financal knowledge' },
-  { text: 'Help pay off my debt' }
+  { text: 'Help pay off my debt' },
+  { text: 'Feel motivated to reach my goal of buying/investing' }
 ]
 
 export default function () {
