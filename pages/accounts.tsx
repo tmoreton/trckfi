@@ -242,6 +242,7 @@ const Accounts = ({ showError }) => {
             <div className={loading && "animate-spin"}>
               <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
             </div>
+            Refresh Data
           </button>
         </div>
 
