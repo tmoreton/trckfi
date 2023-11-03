@@ -293,3 +293,13 @@ model Goals {
 
   @@map("goals")
 }
+
+model Webhooks {
+  id             String    @id @default(cuid())
+  webhook_code   String?
+  item_id        String?
+  updated_at     DateTime? @updatedAt
+  created_at     DateTime? @default(now())
+
+  @@map("webhooks")
+}
