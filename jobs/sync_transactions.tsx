@@ -11,6 +11,7 @@ client.defineJob({
   }),
   run: async (payload, io, ctx) => {
     const { access_token, user_id } = payload
-    await transactionsSync(access_token, user_id)
+    await io.logger.log("syncing transaction", { access_token });
+    transactionsSync(access_token, user_id)
   },
 });

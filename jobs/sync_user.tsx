@@ -18,9 +18,16 @@ client.defineJob({
         user_id
       },
     })
-    for (let p in plaid) {
-      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      await transactionsSync(plaid[p].access_token, plaid[p].user_id)
-    }
+    await io.sendEvent("sync.transactions", {
+      name: "sync.transactions",
+      payload: { 
+        access_token: plaid[0].access_token, 
+        user_id: plaid[0].user_id 
+      },
+    });
+    // for (let p in plaid) {
+    //   await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
+    //   await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+    // }
   },
 });
