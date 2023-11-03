@@ -15,10 +15,12 @@ export default async (req, res) => {
 
   const body = {
     from: process.env.EMAIL_ADDRESS,
-    to: 'tmoreton89@gmail.com',
+    to: 'support@trckfi.com',
     subject: `Feedback From: ${email}`,
     html: `<p>${message}</p>`,
   }
+
+  slackMessage(`Feedback From: ${email} Message: ${message}`)
 
   let transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
