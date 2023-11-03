@@ -55,7 +55,7 @@ const transactionsSync = async (access_token, user_id) => {
 
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
-    // let removed = response.data.removed
+    let removed = response.data.removed
     let has_more = response.data.has_more
     next_cursor = response.data.next_cursor
     
@@ -117,13 +117,17 @@ const transactionsSync = async (access_token, user_id) => {
     })
 
     // Removed Transactions
-    // for (let r in removed) {
-    //   await prisma.transactions.delete({
-    //     where: {
-    //       transaction_id: removed[r].transaction_id
-    //     },
-    //   })
-    // }
+    for (let r in removed) {
+      await prisma.transactions.upsert({
+        where: { 
+          transaction_id: removed[r].transaction_id 
+        },
+        update: {
+          active: false
+        },
+        create: {}
+      })
+    }
 
   } catch (e) {
     console.error(e)
