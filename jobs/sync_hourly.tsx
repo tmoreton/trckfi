@@ -10,7 +10,7 @@ client.defineJob({
   name: "Hourly Sync",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "* * * * *",
+    cron: "*/10 * * * *",
   }),
   run: async (payload, io, ctx) => {
     const webhook = await prisma.webhooks.findFirst({
@@ -18,15 +18,23 @@ client.defineJob({
         created_at: 'asc'
       }
     })
-    console.log(webhook.webhook_code)
-    // const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id: webhook.item_id }})
-
+    const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id: webhook.item_id }})
     switch (webhook.webhook_code) {
       case 'SYNC_UPDATES_AVAILABLE':
-        // await transactionsSync(access_token, user_id)        
+        await prisma.webhooks.delete({
+          where: {
+            id: webhook.id
+          }
+        })
+        await transactionsSync(access_token, user_id)        
         break;
       case 'RECURRING_TRANSACTIONS_UPDATE':
-        // await recurringSync(access_token)
+        await prisma.webhooks.delete({
+          where: {
+            id: webhook.id
+          }
+        })
+        await recurringSync(access_token)
         break;
       default:
         break;
