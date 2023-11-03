@@ -14,7 +14,11 @@ client.defineJob({
     // const { access_token, item_id, user_id, institution } = payload
     // await accountsSync(access_token, item_id, user_id, institution)
     const { webhook_code, item_id } = payload
+    const data = {
+      webhook_code,
+      item_id
+    }
     // @ts-ignore
-    await prisma.webhooks.create({ webhook_code, item_id })
+    await prisma.webhooks.create({ data })
   },
 });
