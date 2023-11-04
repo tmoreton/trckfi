@@ -16,6 +16,14 @@ export default async (req, res) => {
           custom_name: null
         },
       })
+      await prisma.recurring.updateMany({
+        where: { 
+          custom_name: rule.ruleset.custom_name
+        },
+        data: { 
+          custom_name: null
+        },
+      })
     }
 
     await prisma.rules.delete({
