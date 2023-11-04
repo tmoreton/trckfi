@@ -82,7 +82,6 @@ const transactionsSync = async (access_token, user_id) => {
           custom_name: rule?.ruleset?.custom_name || rule?.ruleset?.name || added[i].merchant_name,
           merchant_name: added[i].merchant_name,
           category: added[i].category,
-          // @ts-ignore
           detailed_category: rule?.ruleset?.detailed_category || detailed_category,
           // @ts-ignore
           unified: rule?.ruleset?.unified || icons[detailed_category],
