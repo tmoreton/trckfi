@@ -3,9 +3,7 @@ import { ClockIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
 import DashboardMenu from '../components/menu'
 import { DateTime, Interval } from "luxon"
-
 import { useSession } from "next-auth/react"
-import Menu from '../components/menu'
 import { commaShort } from '../lib/lodash'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
@@ -26,6 +24,16 @@ const days_of_week = [
 ]
 
 export default function ({ showError }) {
+  const { data: session } = useSession()
+  const user = session?.user
+	const [recurring, setRecurring] = useLocalStorage('recurring', null)
+	const [loading, setLoading] = useState(false)
+  const [item, setItem] = useState({})
+	const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
+		income: 0,
+		expense: 0
+	})
+  const [open, setOpen] = useState(false)
   const today = DateTime.now()
   let startDate = today.startOf('month')
   let endDate = today.endOf('month')
@@ -47,6 +55,10 @@ export default function ({ showError }) {
       method: 'POST',
     })
     const { error, recurring, inactive, early, stats,  monthly_expense, monthly_income } = await res.json()
+    setTotals({
+			income: monthly_income._sum.last_amount, 
+			expense: monthly_expense._sum.last_amount
+		})
     return recurring.concat(early)
   }
 
@@ -75,27 +87,10 @@ export default function ({ showError }) {
     setLoading(false)
   }
 
-  useEffect(() => {
-    setLoading(true)
-    setCal()
-  }, [])
-
-  const { data: session } = useSession()
-  const user = session?.user
-	const [recurring, setRecurring] = useLocalStorage('recurring', null)
-	const [inactive, setInactive] = useLocalStorage('inactive', null)
-	const [early, setEarly] = useLocalStorage('early', null)
-  const [stats, setStats] = useLocalStorage('recurring_stats', null)
-	const [loading, setLoading] = useState(false)
-  const [item, setItem] = useState({})
-	const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
-		income: 0,
-		expense: 0
-	})
-  const [open, setOpen] = useState(false)
-
 	useEffect(() => {
 		getRecurring()
+    setLoading(true)
+    setCal()
 		if(!recurring){
 			setLoading(true)
 		}
