@@ -7,13 +7,18 @@ export default async (req, res) => {
   const { user, item } = req.body
   if (!user || !item) return res.status(500).json({ error: 'No User or Payload Info' })
   try {
+    const two_months_ago = DateTime.now().minus({ months: 2 }).toFormat('MM')
     const upcoming = (item) => {
       if(item){
         switch (item.frequency) {
           case 'ANNUALLY':
             return DateTime.fromISO(item.last_date).plus({ years: 1 }).toFormat('yyyy-MM-dd')
           case 'MONTHLY':
-            return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+            if(two_months_ago === DateTime.fromISO(item.last_date).toFormat('MM')){
+              return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
+            } else {
+              return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+            }
           case 'SEMI_MONTHLY':
             return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
           case 'BIWEEKLY':
@@ -21,7 +26,11 @@ export default async (req, res) => {
           case 'WEEKLY':
             return DateTime.fromISO(item.last_date).plus({ weeks: 1 }).toFormat('yyyy-MM-dd')
           case 'UNKNOWN':
-            return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+            if(two_months_ago === DateTime.fromISO(item.last_date).toFormat('MM')){
+              return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
+            } else {
+              return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+            }
           default:
             break;
         }  
