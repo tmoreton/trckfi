@@ -26,18 +26,18 @@ const days_of_week = [
 export default function ({ showError }) {
   const { data: session } = useSession()
   const user = session?.user
-	const [recurring, setRecurring] = useLocalStorage('recurring', null)
+  const [days, setDays] = useLocalStorage('days', [])
 	const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
-	const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
+  const [open, setOpen] = useState(false)
+  const today = DateTime.now()
+  const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
 		income: 0,
 		expense: 0
 	})
-  const [open, setOpen] = useState(false)
-  const today = DateTime.now()
   let startDate = today.startOf('month')
   let endDate = today.endOf('month')
-  const [days, setDays] = useState([])
+  
   const [selectedDay, setSelected] = useState({ 
     date: today.toFormat('yyyy-LL-dd'),
     isCurrentMonth: true,
@@ -89,9 +89,8 @@ export default function ({ showError }) {
 
 	useEffect(() => {
 		getRecurring()
-    setLoading(true)
     setCal()
-		if(!recurring){
+		if(!days){
 			setLoading(true)
 		}
   }, [])
