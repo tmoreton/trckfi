@@ -142,21 +142,6 @@ export default function ({ showError }) {
 		setOpen(true)
     setItem(i)
 	}
-
-  const renderImg = (account) => {
-    if(account){
-      let image_url = `/assets/banks/${account.institution}.png`
-      return <img
-        src={image_url}
-        alt={account.institution}
-        onError={({ currentTarget }) => {
-          currentTarget.onerror = null;
-          currentTarget.src="/assets/banks/bank.png";
-        }}
-        className="h-5 w-5 flex-none rounded-md object-cover"
-      />
-    }
-  }
   
   return (
     <>
@@ -233,11 +218,11 @@ export default function ({ showError }) {
                           <a onClick={() => editItem(event)} className="cursor-pointer group flex items-center">
                             { event.frequency === 'UNKNOWN' ?
                               <p className="flex-auto truncate font-medium text-[10px] text-gray-600 rounded-full my-1 px-2 py-0.5">
-                                {event.name}
+                                {event.custom_name || event.merchant_name || event.name}
                               </p>
                               :
                               <p className="flex-auto truncate font-medium text-[10px] text-pink-600 rounded-full bg-pink-50 ring-1 ring-inset ring-pink-600/10 my-1 px-2 py-0.5">
-                                {event.name}
+                                {event.custom_name || event.merchant_name || event.name}
                               </p>
                             }
                             {
