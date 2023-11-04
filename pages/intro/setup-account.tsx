@@ -54,7 +54,7 @@ export default function ({ showError }) {
                 <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
                   Now Let's Add an Account!
                 </h1>
-                <p className="my-6 pb-2 text-2xl text-gray-600">
+                <p className="my-6 pb-2 text-xl lg:text-2xl text-gray-600">
                   Trckfi works best when your accounts are connected to be able to best track your finances in one place.
                 </p>
                 <ChevronDoubleDownIcon className="animate-bounce h-12 w-12 text-pink-600 text-center mx-auto my-5" aria-hidden="true" />

@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
 
 export default function ({ width }) {
   return (
-    <div className="bg-white w-full z-10 mb-20">
+    <div className="bg-white w-full z-10 mb-10 lg:mb-20">
       <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
         <Image
           src='/trckfi-logo-beta.png'

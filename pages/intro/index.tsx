@@ -29,10 +29,10 @@ export default function () {
             <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
               Welcome to Trckfi! 🎉
             </h1>
-            <p className="mt-6 pb-2 text-3xl text-gray-600">
+            <p className="mt-6 pb-2 text-xl lg:text-3xl text-gray-600">
               We want to be there along your side on your path to financial success! 
             </p>
-            <p className="mb-10 text-3xl text-gray-600">
+            <p className="mb-10 text-xl lg:text-3xl text-gray-600">
               How can Trckfi help you along the way?
             </p>
             <form onSubmit={onSubmit}>
@@ -40,7 +40,7 @@ export default function () {
                 {items.map((i, id) => (
                   <li key={id} className="gap-x-3">
                     <div className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
-                      <label className="select-none container block relative cursor-pointer text-xl pl-10">{i.text}
+                      <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
                         <input name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
                         <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
                       </label>
@@ -50,7 +50,7 @@ export default function () {
               </ul>
               <button
                 type="submit"
-                className="mt-7 rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
               >
                 Setup Account
               </button>
