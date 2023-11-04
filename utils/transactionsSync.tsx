@@ -138,6 +138,8 @@ const transactionsSync = async (access_token, user_id) => {
       }
     })
     if(e.response?.data?.error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION'){
+      const data = { webhook_code: 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION', item_id: plaid.item_id }
+      await prisma.webhooks.create({ data })
       await prisma.plaid.update({
         where: { item_id: plaid.item_id },
         data: { 
