@@ -34,20 +34,30 @@ const recurringSync = async (access_token) => {
       const response = await plaidClient.transactionsRecurringGet(request)
       let inflow = response.data.inflow_streams
       let outflows = response.data.outflow_streams
-
+      const two_months_ago = DateTime.now().minus({ months: 2 }).toFormat('MM')
       const upcoming = (item) => {
         if(item){
           switch (item.frequency) {
             case 'ANNUALLY':
               return DateTime.fromISO(item.last_date).plus({ years: 1 }).toFormat('yyyy-MM-dd')
             case 'MONTHLY':
-              return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+              if(two_months_ago === DateTime.fromISO(item.last_date).toFormat('MM')){
+                return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
+              } else {
+                return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+              }
             case 'SEMI_MONTHLY':
               return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
             case 'BIWEEKLY':
               return DateTime.fromISO(item.last_date).plus({ weeks: 2 }).toFormat('yyyy-MM-dd')
             case 'WEEKLY':
               return DateTime.fromISO(item.last_date).plus({ weeks: 1 }).toFormat('yyyy-MM-dd')
+            case 'UNKNOWN':
+              if(two_months_ago === DateTime.fromISO(item.last_date).toFormat('MM')){
+                return DateTime.fromISO(item.last_date).plus({ months: 2 }).toFormat('yyyy-MM-dd')
+              } else {
+                return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+              }
             default:
               break;
           }  
@@ -75,10 +85,27 @@ const recurringSync = async (access_token) => {
           update: {
             average_amount: -(item.average_amount.amount),
             last_amount: -(item.last_amount.amount),
+            account_id: item.account_id,
+            // @ts-ignore
+            custom_name: rule?.ruleset?.custom_name || item.merchant_name,
+            // @ts-ignore
+            name: item.description,
+            merchant_name: item.merchant_name,
+            // @ts-ignore
+            primary_category: rule?.ruleset?.primary_category || item.personal_finance_category.primary,
+            detailed_category: custom_detailed_category,
+            first_date: item.first_date,
             last_date: item.last_date,
             frequency: item.frequency,
+            transaction_ids: item.transaction_ids,
+            is_active: item.is_active,
+            active: true,
             status: item.status,
-            upcoming_date: upcoming(item)
+            type,
+            user_id,
+            upcoming_date: upcoming(item),
+            // @ts-ignore
+            unified: rule?.ruleset?.unified || icons[custom_detailed_category]
           },
           create: {
             stream_id: item.stream_id,

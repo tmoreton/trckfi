@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react'
 import { ClockIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
-import InspireMenu from '../components/menu'
+import DashboardMenu from '../components/menu'
 import { DateTime, Interval } from "luxon"
+
+import { useSession } from "next-auth/react"
+import Menu from '../components/menu'
+import { addComma } from '../lib/lodash'
+import  { useLocalStorage } from '../utils/useLocalStorage'
+import LoadingModal from '../components/modals/loading-modal'
+import RecurringModal from '../components/modals/recurring-modal'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -28,35 +35,167 @@ export default function ({ showError }) {
     isCurrentMonth: true,
     events: []
   })
-  
-  useEffect(() => {
+
+  const getRecurring = async () => {
+    const res = await fetch(`/api/get_recurring`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, recurring, inactive, early, stats,  monthly_expense, monthly_income } = await res.json()
+    console.log(early)
+    return recurring.concat(early)
+  }
+
+  const setCal = async () => {
+    const recurring = await getRecurring()
     let minus = days_of_week.find(i => i.day === startDate.toFormat('ccc')).start
     let add = days_of_week.find(i => i.day === endDate.toFormat('ccc')).end
     let intervals = Interval.fromDateTimes(startDate.minus({ days: minus }).startOf("day"), endDate.plus({ days: add }).endOf("day")).splitBy({ day: 1 }).map(d => {
+      let events = recurring.filter(i => i.upcoming_date === d.start.toFormat('yyyy-LL-dd'))
       if(today.toFormat('LLLL') !== d.start.toFormat('LLLL')){
         return { 
           date: d.start.toFormat('yyyy-LL-dd'),
           isCurrentMonth: false,
-          events: [],
+          events: events || [],
         }
       } else {
         return { 
           date: d.start.toFormat('yyyy-LL-dd'),
           isCurrentMonth: true,
           isToday: d.start.toFormat('yyyy-LL-dd') === today.toFormat('yyyy-LL-dd') ? true : false,
-          events: [
-            { id: 1, name: 'Design review', time: '', datetime: '', href: '#' },
-          ],
+          events: events || [],
         }
       }
     })
     setDays(intervals)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    setLoading(true)
+    setCal()
   }, [])
 
+  const { data: session } = useSession()
+  const user = session?.user
+	const [recurring, setRecurring] = useLocalStorage('recurring', null)
+	const [inactive, setInactive] = useLocalStorage('inactive', null)
+	const [early, setEarly] = useLocalStorage('early', null)
+  const [stats, setStats] = useLocalStorage('recurring_stats', null)
+	const [loading, setLoading] = useState(false)
+  const [item, setItem] = useState({})
+	const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
+		income: 0,
+		expense: 0
+	})
+  const [open, setOpen] = useState(false)
+
+	useEffect(() => {
+		getRecurring()
+		if(!recurring){
+			setLoading(true)
+		}
+  }, [])
+
+  // const getRecurring = async () => {
+  //   const res = await fetch(`/api/get_recurring`, {
+  //     body: JSON.stringify({
+  //       user
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error, recurring, inactive, early, stats,  monthly_expense, monthly_income } = await res.json()
+	// 	setLoading(false)
+  //   showError(error)
+	// 	setRecurring(recurring)
+	// 	setInactive(inactive)
+	// 	setEarly(early)
+  //   setStats(stats)
+	// 	setTotals({
+	// 		income: monthly_income._sum.last_amount, 
+	// 		expense: monthly_expense._sum.last_amount
+	// 	})
+
+  //   console.log(recurring)
+  // }
+
+  const updateRecurring = async () => {
+    const res = await fetch(`/api/update_recurring`, {
+      body: JSON.stringify({
+        user,
+        item
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setOpen(false)
+    setItem({})
+    if(!error) getRecurring()
+  }
+
+  const removeRecurring = async () => {
+    const res = await fetch(`/api/remove_recurring`, {
+      body: JSON.stringify({
+        user,
+        item
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setOpen(false)
+    setItem({})
+    if(!error) getRecurring()
+  }
+
+	const diff = (date) => {
+		let today = DateTime.now()
+		let upcoming = DateTime.fromISO(date)
+		let difference = upcoming.diff(today, ['days']).toObject()
+		return Math.round(difference.days)
+	}
+
+  const editItem = (i) => {
+		setOpen(true)
+    setItem(i)
+	}
+
+  const renderImg = (account) => {
+    if(account){
+      let image_url = `/assets/banks/${account.institution}.png`
+      return <img
+        src={image_url}
+        alt={account.institution}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src="/assets/banks/bank.png";
+        }}
+        className="h-5 w-5 flex-none rounded-md object-cover"
+      />
+    }
+  }
+  
   return (
     <>
-      <InspireMenu showError={showError}/>
+      <DashboardMenu showError={showError}/>
       <DashboardLayout>
+      <LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
+      <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
       <div className="lg:flex lg:h-full lg:flex-col">
         <header className="flex items-center justify-center border-b border-gray-200 py-4 lg:flex-none text-center">
           <h1 className="text-2xl font-semibold leading-6 text-gray-900">
@@ -95,7 +234,7 @@ export default function ({ showError }) {
                   key={day.date}
                   className={classNames(
                     day.isCurrentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500',
-                    'relative px-3 py-2'
+                    'relative px-4 py-3'
                   )}
                 >
                   <time

@@ -20,6 +20,8 @@ export default async (req, res) => {
             return DateTime.fromISO(item.last_date).plus({ weeks: 2 }).toFormat('yyyy-MM-dd')
           case 'WEEKLY':
             return DateTime.fromISO(item.last_date).plus({ weeks: 1 }).toFormat('yyyy-MM-dd')
+          case 'UNKNOWN':
+            return DateTime.fromISO(item.last_date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
           default:
             break;
         }  
