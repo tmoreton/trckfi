@@ -66,7 +66,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                             >
                               Account
                             </label>
-                            <p className="whitespace-nowrap py-3 text-xs text-gray-500 inline-flex items-center"><span className="mr-2">{renderImg(item.account)}</span> {item?.account?.name && item.account.name.split(' ').slice(0, 3).join(' ')}</p>
+                            <p className="whitespace-nowrap py-3 text-xs text-gray-500 flex items-center"><span className="mr-2">{renderImg(item.account)}</span> {item?.account?.name && item.account.name.split(' ').slice(0, 3).join(' ')}</p>
 
                           </div>
                           <div className="relative z-0 w-full group">
@@ -76,7 +76,7 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                             >
                               Categories
                             </label>
-                            <div className="flex py-3">
+                            <div className="block py-1">
                               <p><span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{item.primary_category}</span></p>
                               <p><span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{item.detailed_category}</span></p>
                             </div>
