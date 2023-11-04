@@ -166,7 +166,7 @@ export default function ({ showError }) {
       <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
       <dl className="grid grid-cols-1 gap-1 overflow-hidden text-center sm:grid-cols-1 lg:grid-cols-3 pb-4">
         
-        <div className="">
+        <div className="hidden sm:block">
           <dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Income<span className="text-xs italic font-normal ml-1">est.</span></dt>
           <dd className="order-first text-4xl font-semibold text-green-600">${Math.round(totals.income)}</dd>
         </div>
@@ -175,7 +175,7 @@ export default function ({ showError }) {
             {today.toFormat('LLLL yyyy')}
           </h1>
         </header>
-        <div className="">
+        <div className="hidden sm:block">
           <dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Expense<span className="text-xs italic font-normal ml-1">est.</span></dt>
           <dd className="order-first text-4xl font-bold text-red-600">${Math.round(Math.abs(totals.expense))}</dd>
         </div>
