@@ -54,12 +54,12 @@ export default function ({ showError }) {
       },
       method: 'POST',
     })
-    const { error, recurring, inactive, early, stats,  monthly_expense, monthly_income } = await res.json()
+    const { error, recurring,  monthly_expense, monthly_income } = await res.json()
     setTotals({
 			income: monthly_income._sum.last_amount, 
 			expense: monthly_expense._sum.last_amount
 		})
-    return recurring.concat(early)
+    return recurring
   }
 
   const setCal = async () => {
