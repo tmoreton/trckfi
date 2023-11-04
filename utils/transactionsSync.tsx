@@ -89,7 +89,7 @@ const transactionsSync = async (access_token, user_id) => {
           // @ts-ignore
           primary_category: rule?.ruleset?.primary_category || added[i].personal_finance_category.primary,
           // @ts-ignore
-          location: added[i].location,
+          counterparties: added[i]?.counterparties[0],
           pending: added[i].pending,
           user_id: user.id,
           currency: added[i].iso_currency_code,

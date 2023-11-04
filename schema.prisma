@@ -119,7 +119,7 @@ model Transactions {
   merchant_name     String?
   transaction_id    String?   @unique
   detailed_category String?
-  location          Json?
+  counterparties    Json?
   primary_category  String?
   user_id           String?   @map("user_id")
   item_id           String?
