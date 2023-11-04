@@ -5,12 +5,13 @@ import slackMessage from '../../utils/slackMessage'
 export default async (req, res) => {
   let { rule } = req.body
   if (!rule?.id) return res.status(500)
-  
+
   try {
+    console.log(rule)
     if(rule?.custom_name){
       await prisma.transactions.updateMany({
         where: { 
-          custom_name: rule?.custom_name
+          custom_name: rule.custom_name
         },
         data: { 
           custom_name: null
