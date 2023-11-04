@@ -12,7 +12,9 @@ export default async (req, res) => {
       },
       data: {
         // @ts-ignore
-        active: false
+        active: false,
+        is_active: false
+        
       }
     })
     return res.status(200).json({ status: 'OK' })

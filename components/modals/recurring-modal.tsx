@@ -83,21 +83,6 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                             </select>
                           </div>
                           <div className="relative z-0 w-full mb-6 group">
-                            <label 
-                              htmlFor="is_active" 
-                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                            >
-                              Is Active?
-                            </label>
-                            <select
-                              name="is_active"
-                              value={item?.is_active}
-                              onChange={handleChange}
-                              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-pink-500 sm:text-sm sm:leading-6"
-                            >
-                              <option value="false" label="False" />
-                              <option value="true" label="True" />
-                            </select>
                           </div>
                         </div>
                       </form>
