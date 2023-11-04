@@ -65,7 +65,8 @@ const transactionsSync = async (access_token, user_id) => {
       let { amount } = formatAmount(type, added[i].amount)
       let transaction_name = added[i].merchant_name || added[i].name
       let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
-
+      // @ts-ignore
+      let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
       await prisma.transactions.upsert({
         where: { 
           transaction_id: added[i].transaction_id 
@@ -82,9 +83,10 @@ const transactionsSync = async (access_token, user_id) => {
           custom_name: rule?.ruleset?.custom_name || rule?.ruleset?.name || added[i].merchant_name,
           merchant_name: added[i].merchant_name,
           category: added[i].category,
-          detailed_category: rule?.ruleset?.detailed_category || detailed_category,
           // @ts-ignore
-          unified: rule?.ruleset?.unified || icons[detailed_category],
+          detailed_category: custom_detailed_category,
+          // @ts-ignore
+          unified: rule?.ruleset?.unified || icons[custom_detailed_category],
           // @ts-ignore
           primary_category: rule?.ruleset?.primary_category || added[i].personal_finance_category.primary,
           // @ts-ignore
