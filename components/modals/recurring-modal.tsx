@@ -10,6 +10,21 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
     setItem({ ...item, [name]: value })
   }
 
+  const renderImg = (account) => {
+    if(account){
+      let image_url = `/assets/banks/${account.institution}.png`
+      return <img
+        src={image_url}
+        alt={account.institution}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src="/assets/banks/bank.png";
+        }}
+        className="h-5 w-5 flex-none rounded-md object-cover"
+      />
+    }
+  }
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
@@ -43,25 +58,49 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                         Edit Recurring
                       </Dialog.Title>
                       <form onSubmit={updateRecurring}>
-                        <div className="relative z-0 w-full mb-6 group">
-                          <label 
-                            htmlFor="name" 
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          >
-                            Name
-                          </label>
-                          <input 
-                            type="text" 
-                            name="custom_name"
-                            id="name" 
-                            value={item?.custom_name || item?.name}
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
-                            required 
-                            onChange={handleChange}
-                          />
+                        <div className="grid md:grid-cols-2 md:gap-6 flex pb-4">
+                          <div className="relative z-0 w-full group">
+                            <label 
+                              htmlFor="frequency" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Account
+                            </label>
+                            <p className="whitespace-nowrap py-3 text-xs text-gray-500 inline-flex items-center"><span className="mr-2">{renderImg(item.account)}</span> {item?.account?.name && item.account.name.split(' ').slice(0, 3).join(' ')}</p>
+
+                          </div>
+                          <div className="relative z-0 w-full group">
+                            <label 
+                              htmlFor="frequency" 
+                              className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Categories
+                            </label>
+                            <div className="flex py-3">
+                              <p><span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{item.primary_category}</span></p>
+                              <p><span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{item.detailed_category}</span></p>
+                            </div>
+                          </div>
                         </div>
-                        <div className="grid md:grid-cols-2 md:gap-6">
-                          <div className="relative z-0 w-full mb-6 group">
+                        <div className="grid md:grid-cols-2 md:gap-6 flex pb-4">
+                          <div className="relative z-0 w-full group flex items-end">
+                            <label 
+                              htmlFor="name" 
+                              className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                            >
+                              Name
+                            </label>
+                            <input 
+                              type="text" 
+                              name="custom_name"
+                              id="name" 
+                              value={item?.custom_name || item?.merchant_name || item?.name}
+                              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                              required 
+                              onChange={handleChange}
+                            />
+                          </div>
+                          <div className="relative z-0 w-full group">
                             <label 
                               htmlFor="frequency" 
                               className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
@@ -81,8 +120,6 @@ export default function ({ open, setOpen, item, setItem, updateRecurring, remove
                               <option value="WEEKLY" label="Weekly" />
                               <option value="UNKNOWN" label="Unknown" />
                             </select>
-                          </div>
-                          <div className="relative z-0 w-full mb-6 group">
                           </div>
                         </div>
                       </form>
