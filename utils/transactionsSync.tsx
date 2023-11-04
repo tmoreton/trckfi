@@ -79,7 +79,7 @@ const transactionsSync = async (access_token, user_id) => {
           date: added[i].date,
           name: added[i].name,
           // @ts-ignore
-          custom_name: rule?.ruleset?.name || added[i].merchant_name,
+          custom_name: rule?.ruleset?.custom_name || rule?.ruleset?.name || added[i].merchant_name,
           merchant_name: added[i].merchant_name,
           category: added[i].category,
           // @ts-ignore
