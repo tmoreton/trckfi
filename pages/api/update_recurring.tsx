@@ -45,7 +45,7 @@ export default async (req, res) => {
         // @ts-ignore
         custom_name: item.custom_name,
         frequency: item.frequency,
-        is_active: (item.is_active === 'true'),
+        is_active: item?.is_active || false,
         upcoming_date: upcoming(item)
       }
     })
