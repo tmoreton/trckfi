@@ -3,18 +3,25 @@ import prisma from '../../lib/prisma';
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
-  let { id } = req.body
-  if (!id) return res.status(500)
+  let { rule } = req.body
+  if (!rule?.id) return res.status(500)
   try {
-    // @ts-ignore
+    await prisma.transactions.updateMany({
+      where: { 
+        id: rule?.id
+      },
+      data: { 
+        custom_name: null
+      },
+    })
+
     await prisma.rules.delete({
-      where: { id }
+      where: { id: rule?.id }
     })
     return res.status(200).json({ status: 'OK' })
   } catch (e) {
     console.error(e)
     slackMessage('Error remove_rule: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }

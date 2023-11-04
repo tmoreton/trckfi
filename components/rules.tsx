@@ -91,11 +91,11 @@ const Rules = ({ showError }) => {
     if(!error) getRules()
   }
   
-  const removeRule = async (id) => {
+  const removeRule = async (rule) => {
     const res = await fetch(`/api/remove_rule`, {
       body: JSON.stringify({
         user,
-        id
+        rule
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ const Rules = ({ showError }) => {
                     <button onClick={() => editRule(rule)} type="button" className="text-xs font-normal text-gray-500 hover:text-gray-400 mr-4">
                       Edit
                     </button>
-                    <button onClick={() => removeRule(rule?.id)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
+                    <button onClick={() => removeRule(rule)} type="button" className="font-semibold text-pink-600 hover:text-pink-500">
                       Remove
                     </button>   
                   </div>
