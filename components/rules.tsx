@@ -105,6 +105,7 @@ const Rules = ({ showError }) => {
     const { error } = await res.json()
     showError(error)
     if(!error) getRules()
+    showError('Rule Successully Deleted')
   }
   
   const removeItem = async (key) => {
