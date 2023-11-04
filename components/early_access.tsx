@@ -41,7 +41,7 @@ const Newsletter = () => {
         :
         <>
           <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6 text-center">
-            Get Early Access <br/> <span className="font-normal">+ 3 Months Free</span>
+            Get Early Access <br/> <span className="font-normal">+ 2 Months Free</span>
           </h2>
           {/* <p className="text-white my-4">Sign up today, and gain early access when we launch Trckfi along with <b>3 months free</b>!</p> */}
           <form onSubmit={subscribe}>

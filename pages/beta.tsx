@@ -164,7 +164,7 @@ export default function Pricing ({ showError }) {
                               <span className="text-5xl font-bold tracking-tight text-gray-900">$0</span>                              
                               <span className="text-base font-normal leading-7 text-gray-600">/month</span>
                             </div>
-                            <span className="text-sm italic font-normal text-black">$5.99/month after 3 months. <br/> Cancel anytime!</span>
+                            <span className="text-sm italic font-normal text-black">$5.99/month after 2 months. <br/> Cancel anytime!</span>
                           </>
                           <button
                             onClick={() => checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)}
@@ -175,7 +175,7 @@ export default function Pricing ({ showError }) {
                           <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               <li className="flex gap-x-3">
                                 <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
-                                <b>3 months free with Promo code: EARLYADOPTER</b>
+                                <b>3 months free with Promo code: 2MONTHSFREE</b>
                               </li>
                               <li className="flex gap-x-3">
                                 <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
