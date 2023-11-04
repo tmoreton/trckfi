@@ -88,7 +88,6 @@ export default function ({ showError }) {
   }
 
 	useEffect(() => {
-		getRecurring()
     setCal()
 		if(!days){
 			setLoading(true)
@@ -110,7 +109,7 @@ export default function ({ showError }) {
     showError(error)
     setOpen(false)
     setItem({})
-    if(!error) getRecurring()
+    if(!error) setCal()
   }
 
   const removeRecurring = async () => {
@@ -128,15 +127,8 @@ export default function ({ showError }) {
     showError(error)
     setOpen(false)
     setItem({})
-    if(!error) getRecurring()
+    if(!error) setCal()
   }
-
-	const diff = (date) => {
-		let today = DateTime.now()
-		let upcoming = DateTime.fromISO(date)
-		let difference = upcoming.diff(today, ['days']).toObject()
-		return Math.round(difference.days)
-	}
 
   const editItem = (i) => {
 		setOpen(true)
@@ -150,7 +142,6 @@ export default function ({ showError }) {
       <LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
       <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
       <dl className="grid grid-cols-1 gap-1 overflow-hidden text-center sm:grid-cols-1 lg:grid-cols-3 pb-4">
-        
         <div className="hidden sm:block">
           <dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Income<span className="text-xs italic font-normal ml-1">est.</span></dt>
           <dd className="order-first text-4xl font-semibold text-green-600">${Math.round(totals.income)}</dd>
