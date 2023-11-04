@@ -34,7 +34,7 @@ const tiers = [
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
-      '5 Connections (Credit Cards, Savings/Checking, Retirement, Crypto, Stocks, etc.)',
+      '<b>5 Connections</b> (Credit Cards, Savings/Checking, Retirement, Crypto, Stocks, etc.)',
       'Daily Questions/Answer to Earn Money',
       'Find Recurring Expenses before they get charged',
       'Net Worth Analysis',
@@ -59,14 +59,14 @@ const tiers = [
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
-      'Unlimited Connections (Credit Cards, Savings/Checking, Retirement, Crypto, Stocks, etc.)',
+      '<b>Unlimited Connections</b> (Credit Cards, Savings/Checking, Retirement, Crypto, Stocks, etc.)',
       'Daily Questions/Answer to Earn Money',
       'Find Recurring Expenses before they get charged',
       'Net Worth Analysis',
       'Define Custom Rules for Tricky Transactions',
       'Weekly & Monthly Spend Recaps',
       'Vision Board & Goal Setting for Manifesting Financial Goals',
-      'Link User to Collaborate on Your Finances',
+      '<b>Link User to Collaborate on Your Finances</b>',
     ],
   },
 ]
