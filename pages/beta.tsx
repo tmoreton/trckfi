@@ -175,7 +175,7 @@ export default function Pricing ({ showError }) {
                           <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               <li className="flex gap-x-3">
                                 <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
-                                3 months free with Promo code: EARLYADOPTER
+                                <b>3 months free with Promo code: EARLYADOPTER</b>
                               </li>
                               <li className="flex gap-x-3">
                                 <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
@@ -214,7 +214,7 @@ export default function Pricing ({ showError }) {
                               {tier.features.map((feature) => (
                                 <li key={feature} className="flex gap-x-3">
                                   <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
-                                  {feature}
+                                  <p dangerouslySetInnerHTML={{ __html: feature }} />
                                 </li>
                               ))}
                             </ul>
