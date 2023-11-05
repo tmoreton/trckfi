@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router'
+import { useSession } from "next-auth/react"
+import { useState } from 'react'
 import ProgressNav from '../../components/progress-nav'
 
 const items = [
@@ -11,10 +13,33 @@ const items = [
 
 export default function () {
   const router = useRouter()
+  const { data: session } = useSession()
+  const user = session?.user
+  const [feedback, addFeedback] = useState([])
+
+  const handleChange = (i) => {
+    let new_feedback = feedback
+    if(!new_feedback.includes(i.text)){
+      new_feedback.push(i.text)
+    } else {
+      new_feedback = new_feedback.filter(text => text !== i.text)
+    }
+    addFeedback(new_feedback)
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    // Save data from checkboxes
+    fetch(`/api/add_feedback`, {
+      body: JSON.stringify({
+        question: "How can Trckfi help you along the way?",
+        answers: feedback,
+        email: user?.email
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
     router.push({
       pathname: '/intro/setup-account',
     })
@@ -41,7 +66,7 @@ export default function () {
                   <li key={id} className="gap-x-3">
                     <div className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
                       <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
-                        <input name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
+                        <input onClick={() => handleChange(i)} name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
                         <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
                       </label>
                     </div>
