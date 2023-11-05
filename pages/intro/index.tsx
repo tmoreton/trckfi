@@ -21,8 +21,8 @@ export default function () {
   }
   
   return (
-    <div className="bg-white">
-      <ProgressNav width={'33%'} />
+    <>
+      <ProgressNav width={'40%'} />
       <div className="relative isolate">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
@@ -58,6 +58,6 @@ export default function () {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

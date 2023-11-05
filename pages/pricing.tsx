@@ -1,12 +1,13 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Container from '../components/container'
 import Layout from '../components/layout'
 import Menu from '../components/menu'
-import getStripe from '../utils/get-stripejs'
 import { useRouter } from 'next/router'
 import EmailModal from '../components/modals/email-modal'
+// import getStripe from '../utils/get-stripejs'
+import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -73,7 +74,7 @@ const tiers = [
 
 export default function Pricing ({ showError }) {
   const router = useRouter()
-  const { referral_id, beta_user } = router.query
+  const { referral_id } = router.query
   const [frequency, setFrequency] = useState(frequencies[0])
   const [open, setOpen] = useState(false)
   
@@ -86,25 +87,25 @@ export default function Pricing ({ showError }) {
   }, [])
 
   const checkout = async (price_id) => {
-    const res = await fetch(`/api/checkout_session`, {
-      body: JSON.stringify({ 
-        price_id,
-        referral_id
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const data = await res.json()
-    showError(data.error)
-    if (data.error) return
+    // const res = await fetch(`/api/checkout_session`, {
+    //   body: JSON.stringify({ 
+    //     price_id,
+    //     referral_id
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
+    // const data = await res.json()
+    // showError(data.error)
+    // if (data.error) return
 
-    const stripe = await getStripe()
-    const { error } = await stripe!.redirectToCheckout({
-      sessionId: data.id,
-    })
-    showError(error)
+    // const stripe = await getStripe()
+    // const { error } = await stripe!.redirectToCheckout({
+    //   sessionId: data.id,
+    // })
+    // showError(error)
   }
 
   return (
@@ -177,15 +178,11 @@ export default function Pricing ({ showError }) {
                                 { frequency.value === 'annually' && tier.id !== 'beta' && <span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span>}
                               </>
                             }
-
-                              <button
-                                onClick={() => checkout(tier.price[frequency.value]?.id)}
-                                aria-describedby={tier.id}
-                                className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-                              >
+                            <Link href={`/intro/create-account?price_id=${tier.price[frequency.value]?.id}&referral_id=${referral_id}`}>
+                              <button className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                                 Get started today
                               </button>
-             
+                            </Link>
                             {/* <p className="mt-6 text-base leading-7 text-gray-600">{tier.description}</p> */}
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (

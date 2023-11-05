@@ -7,7 +7,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 
 export default async (req, res) => {
-  const { price_id, referral_id } = req.body
+  const { price_id, referral_id, email } = req.body
+  console.log(price_id)
   try {
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
@@ -23,7 +24,10 @@ export default async (req, res) => {
       },
       success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/pricing?session_id={CHECKOUT_SESSION_ID}`,
-      // customer_email: email,
+    }
+    
+    if(email && email !== 'undefined') {
+      params.customer_email = email
     }
 
     if(price_id === process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID){
@@ -32,7 +36,7 @@ export default async (req, res) => {
     }
 
     // Check if user was referred by a friend
-    if(referral_id){
+    if(referral_id && referral_id !== 'undefined'){
       const referral_user = await prisma.user.findUnique({
         where: { referral_id },
       })
