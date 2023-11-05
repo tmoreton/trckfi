@@ -40,23 +40,24 @@ export default function ({ graphData }) {
   const [sum, setSum] = useState(0)
   const [key, updateKey] = useState('primary_category')
   const [current, updateMonth] = useState({
+    year: DateTime.now().toFormat('yyyy'),
     name: DateTime.now().toFormat('MMM'),
     month_year: DateTime.now().toFormat('yyyy-MM')
   })
   const [months, setMonths] = useState([])
+  const [type, setType] = useState('month_year')
 
   useEffect(() => {
     getMonths()
   }, [])
 
-
   useEffect(() => {
     if(key === 'primary_category'){
-      updatePie(categories)
+      updatePie(categories, type)
     } else {
-      updatePie(detailedCategories)
+      updatePie(detailedCategories, type)
     }
-  }, [categories, key, current])
+  }, [categories, key, current, type])
 
   const getMonths = () => {
     let x = 0
@@ -65,16 +66,23 @@ export default function ({ graphData }) {
       let dt = DateTime.now().minus({months: x})
       six_months.push({
         name: dt.toFormat('MMM'),
-        month_year: dt.toFormat('yyyy-MM')
+        month_year: dt.toFormat('yyyy-MM'),
+        year: dt.toFormat('yyyy')
       })
       x++
     }
     setMonths(six_months.reverse())
   }
 
-  const updatePie = (categories) => {
+  const updatePie = (categories, type) => {
     let total = 0
-    let cats = categories.filter(i => i.month_year === current.month_year)
+    let cats;
+    if(type === 'month_year'){
+      cats = categories.filter(i => i.month_year === current.month_year)
+    } else {
+      cats = categories.filter(i => i.year === current.year)
+    }
+    console.log(cats)
     let sorted = cats.sort((a,b) => a._sum.amount - b._sum.amount)
     let mapped = sorted.map((a, i) => {
       return {
@@ -141,6 +149,17 @@ export default function ({ graphData }) {
             </div>
             <div className="border-b border-gray-200 mb-6">
               <nav className="flex justify-between" aria-label="Tabs">
+                {/* <button
+                  onClick={() => setType('year')}
+                  className={classNames(
+                    'This Year' === current.name
+                      ? 'border-pink-500 text-pink-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
+                  )}
+                >
+                  This Year
+                </button> */}
                 {months.map((month) => (
                   <button
                     key={month.name}
