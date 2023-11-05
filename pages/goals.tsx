@@ -8,8 +8,9 @@ import Menu from '../components/menu'
 import Notification from '../components/notification'
 import GoalCard from '../components/goal-card'
 import { useLocalStorage } from '../utils/useLocalStorage'
-import { commaShort } from '../lib/lodash'
-
+import LoadingModal from '../components/modals/loading-modal'
+import { useRouter } from 'next/router'
+  
 const defaultGoal = {
   name: null,
   date: null,
@@ -22,19 +23,13 @@ const defaultGoal = {
 const Goals = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
+  const [refreshing, setRefreshing] = useState(false)
   const [goal, setGoal] = useState(null)
   const [goals, setGoals] = useLocalStorage('goals', [])
-  const [suggestion, setSuggestion] = useLocalStorage('suggestion', {
-    timeframe: 3,
-    expenses: 0,
-    income: 0,
-    goals: 0,
-    recurring: 0
-  })
+  const router = useRouter()
 
   useEffect(() => {
     getGoals()
-    getSuggestions(suggestion.timeframe)
   }, [user])
 
   const getGoals = async () => {
@@ -51,40 +46,21 @@ const Goals = ({ showError }) => {
     const { error, data } = await res.json()
     showError(error)
     if(!error) setGoals(data)
-  }
-
-  const getSuggestions = async (timeframe) => {
-    setSuggestion({ ...suggestion, timeframe})
-    const res = await fetch(`/api/get_suggestions`, {
-      body: JSON.stringify({
-        user,
-        timeframe
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error, data } = await res.json()
-    console.log(data)
-    showError(error)
-    if(!error) setSuggestion(data)
+    setRefreshing(false)
   }
 
   const remove = async (id) => {
-    const res = await fetch(`/api/remove_goal`, {
+    setRefreshing(true)
+    await fetch(`/api/remove_goal`, {
       body: JSON.stringify({
-        id,
-        user
+        id
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) getGoals()
+    router.reload()
   }
 
   return (
@@ -92,9 +68,10 @@ const Goals = ({ showError }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
+        <LoadingModal refreshing={refreshing} text='Refreshing Goals...'/>
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 pb-12">
-          {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} showError={showError}/>)}
-          { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} showError={showError}/>}
+          {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} setRefreshing={setRefreshing}/>)}
+          { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} setRefreshing={setRefreshing}/>}
           <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200">
             <button
               type="button"

@@ -45,11 +45,7 @@ const Accounts = ({ showError }) => {
   const user = session?.user
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
-  const [openHome, setOpenHome] = useState(false)
   const [openEdit, setOpenEdit] = useState(false)
-  const [openStock, setOpenStock] = useState(false)
-  const [openCrypto, setOpenCrypto] = useState(false)
-  const [openManually, setOpenManually] = useState(false)
   const [account, setAccount] = useState({})
   const [removedAccounts, setRemovedAccounts] = useState([])
   const [showConfetti, setConfetti] = useState(false)

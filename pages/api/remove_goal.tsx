@@ -3,14 +3,13 @@ import prisma from '../../lib/prisma';
 import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
-  const { user_id, id } = req.body
+  const { id } = req.body
   if (!id) return res.status(500)
   
   try {
     // @ts-ignore
     await prisma.goals.delete({
       where: {
-        user_id,
         id
       }
     })

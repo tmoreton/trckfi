@@ -3,13 +3,11 @@ import { classNames } from '../lib/lodash'
 import { PinkBtn } from '../components/pink-btn'
 import { useState } from 'react'
 import { DateTime } from "luxon"
-import { useRouter } from 'next/router'
 import { commaShort } from '../lib/lodash'
 
-export default function ({ user, defaultGoal, remove, getGoals, showError }) {
+export default function ({ user, defaultGoal, remove, getGoals, setRefreshing }) {
   const [goal, setGoal] = useState(defaultGoal)
   const [edited, setEdited] = useState(false)
-  const router = useRouter()
 
   const handleFileChange = async (event) => {
     event.preventDefault();
@@ -36,8 +34,8 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
 
   const addGoal = async (e) => {
     e.preventDefault()
-    setEdited(false)
-    const res = await fetch(`/api/add_goal`, {
+    setRefreshing(true)
+    await fetch(`/api/add_goal`, {
       body: JSON.stringify({
         goal,
         user
@@ -47,8 +45,9 @@ export default function ({ user, defaultGoal, remove, getGoals, showError }) {
       },
       method: 'POST',
     })
-    // const { error } = await res.json()
-    // if(!error) router.reload()
+    setGoal(defaultGoal)
+    getGoals()
+    setRefreshing(false)
   }
 
   const snippet = () => {
