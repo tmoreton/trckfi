@@ -11,8 +11,8 @@ client.defineJob({
     name: "backfill"
   }),
   run: async (payload, io, ctx) => {
-    const startDate = DateTime.now().minus({ year: 1 }).startOf('year').toISO()
-    const endDate = DateTime.now().minus({ year: 1 }).endOf('year').toISO()
+    const startDate = DateTime.now().minus({ year: 1 }).endOf('year').toISO()
+    const endDate = DateTime.now().minus({ year: 1 }).startOf('year').toISO()
     console.log(startDate)
     console.log(endDate)
     await prisma.transactions.updateMany({
