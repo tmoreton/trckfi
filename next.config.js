@@ -1,4 +1,13 @@
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/beta',
+        destination: '/pricing',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
