@@ -1,13 +1,4 @@
 module.exports = {
-  async redirects() {
-    return [
-      {
-        source: '/beta',
-        destination: '/pricing',
-        permanent: true,
-      },
-    ]
-  },
   images: {
     remotePatterns: [
       {
@@ -68,3 +59,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 module.exports = withBundleAnalyzer({})
+
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/beta',
+        destination: '/pricing',
+        permanent: true,
+      },
+    ]
+  },
+}
