@@ -130,6 +130,7 @@ model Transactions {
   authorized_date   DateTime?
   month_year        String?
   week_year         String?
+  year              String?
   recurring         Boolean   @default(false)
   pending           Boolean   @default(false)
   unified           String?   @default("1f4b8")

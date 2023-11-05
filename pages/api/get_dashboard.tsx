@@ -8,7 +8,7 @@ export default async (req, res) => {
   const user_id = user?.id
   if (!user_id ) return res.status(500)
   const startDate = DateTime.now().toISO()
-  const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
+  const endDate = DateTime.now().minus({ months: 24 }).startOf('month').toISO()
   const { id, linked_user_id } = user
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 

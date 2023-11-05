@@ -4,7 +4,6 @@ import { render } from '@react-email/render'
 import BetaInvite from "../emails/beta_invite"
 import Welcome from "../emails/welcome_email"
 import BetaNoSignup from "../emails/beta_no_signup"
-import prisma from '../lib/prisma';
 
 const nodemailer = require('nodemailer')
 

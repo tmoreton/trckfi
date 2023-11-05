@@ -29,7 +29,6 @@ client.defineJob({
       }
     })
 
-    
     for (let a in activeUsers) {
       const user_id = activeUsers[a].id
       const linked_user_id = activeUsers[a].linked_user_id
