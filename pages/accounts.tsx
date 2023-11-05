@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
-import { ArrowPathIcon, PlusIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
-import { addComma } from '../lib/lodash'
-import HomeModal from '../components/modals/home-modal'
+import { commaShort, addComma } from '../lib/lodash'
 import HideAccountModal from '../components/modals/hide-account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'
-import ManualModal from '../components/modals/add-manually-modal'
-import StockModal from '../components/modals/stock-modal'
 import LoadingModal from '../components/modals/loading-modal'
 import RemoveAccount from "../components/modals/remove-account-modal"
 import { Emoji } from 'emoji-picker-react'
@@ -234,19 +231,19 @@ const Accounts = ({ showError }) => {
                       'w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900'
                     )}
                   >
-                    {addComma(stats?.stats?.net_worth)}
+                    {commaShort(stats?.stats?.net_worth)}
                   </dd>
                 </div>
                 <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Assets</dt>
                   <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
-                    {addComma(stats?.stats?.assets)}
+                    {commaShort(stats?.stats?.assets)}
                   </dd>
                 </div>
                 <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Liabilities</dt>
                   <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-rose-600">
-                    {addComma(stats?.stats?.liabilities)}
+                    {commaShort(stats?.stats?.liabilities)}
                   </dd>
                 </div>
               </dl>
@@ -314,7 +311,7 @@ const Accounts = ({ showError }) => {
                                               <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
                                             </td>
                                             <td className="w-1/6 font-light text-left text-xs hidden lg:block">{a.type}</td> 
-                                            <td className="w-1/4 font-semibold text-left">{addComma(a.amount)}</td> 
+                                            <td className="w-1/4 font-semibold text-left">{commaShort(a.amount)}</td> 
                                             <div className="hidden md:flex">
                                               <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right hidden lg:block">Hide</button> 
                                               <button onClick={() => editAccount(a)} className="w-20 text-red-600 text-right">Edit</button> 
