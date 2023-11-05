@@ -116,7 +116,7 @@ export default function ({ graphData }) {
       },
     },
   }
-  console.log(data)
+
   return (
     <div>        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 md:pb-12 pb-2">

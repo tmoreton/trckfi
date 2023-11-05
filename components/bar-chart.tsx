@@ -22,6 +22,7 @@ ChartJS.register(
 );
 
 const tabs = [
+  { name: 'Yearly', key: 'yearly' },
   { name: 'Monthly', key: 'monthly' },
   { name: 'Weekly', key: 'weekly' },
 ]
@@ -40,7 +41,7 @@ const options = {
 };
 
 export default function ({ graphData }) {
-  const { groupByMonthIncome, groupByMonth, groupByWeek } = graphData
+  const { groupByMonthIncome, groupByMonth, groupByWeek, groupByYearIncome, groupByYear } = graphData
   if (!groupByMonthIncome || !groupByMonth) return null
   if (groupByMonthIncome.length < 1 && groupByMonth.length < 1) return null
 
@@ -51,7 +52,9 @@ export default function ({ graphData }) {
   })
 
   useEffect(() => {
-    if(key === 'monthly'){
+    if(key === 'yearly'){
+      updateBar(groupByYear, key)
+    } else if(key === 'monthly'){
       updateBar(groupByMonth, key)
     } else {
       updateBar(groupByWeek, key)
@@ -60,7 +63,17 @@ export default function ({ graphData }) {
 
   const updateBar = (expenses, key) => {
     const monthlySum = groupByMonthIncome.map(a => Math.abs(a._sum.amount))
-    const labels = key === 'monthly' ? expenses.map(a => a.month_year) : expenses.map(a => a.week_year)
+    const yearlySum = groupByYearIncome?.map(a => Math.abs(a._sum.amount))
+    console.log(groupByYearIncome)
+    let labels;
+    if(key === 'monthly'){
+      labels = expenses.map(a => a.month_year)
+    } else if (key === 'yearly'){
+      labels = expenses.map(a => a.year)
+    } else {
+      labels = expenses.map(a => a.week_year)
+    }
+    // const labels = key === 'monthly' ? expenses.map(a => a.month_year) : expenses.map(a => a.week_year)
     const sums = expenses.map(a => Math.abs(a._sum.amount))
 
     if(key === 'weekly' || monthlySum <= 0){
@@ -68,6 +81,21 @@ export default function ({ graphData }) {
         labels: labels.reverse(),
         datasets: [
           {
+            label: 'Expenses',
+            data: sums.reverse(),
+            backgroundColor: '#ff6384'
+          }
+        ],
+      })
+    } else if(key === 'yearly'){
+      setData({
+        labels: labels.reverse(),
+        datasets: [
+          {
+            label: 'Income',
+            data: yearlySum.reverse(),
+            backgroundColor: '#009c7b'
+          },{
             label: 'Expenses',
             data: sums.reverse(),
             backgroundColor: '#ff6384'

@@ -112,6 +112,64 @@ export default async (req, res) => {
         month_year: 'desc'
       },
     })
+
+    let groupByYearIncome = await prisma.transactions.groupBy({
+      by: ['year'],
+      where: {
+        OR: query,
+        active: true,
+        pending: false,
+        amount: {
+          gte: 0,
+        },
+        account_id: { in: ids },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
+        authorized_date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ months: 13 }).startOf('year').toISO()
+        },
+      },
+      _sum: {
+        amount: true,
+      },
+      _count: {
+        amount: true,
+      },
+      orderBy: {
+        year: 'desc'
+      },
+    })
+
+    let groupByYear = await prisma.transactions.groupBy({
+      by: ['year'],
+      where: {
+        OR: query,
+        active: true,
+        pending: false,
+        authorized_date: {
+          lte: DateTime.now().toISO(),
+          gte: DateTime.now().minus({ months: 13 }).startOf('year').toISO()
+        },
+        amount: {
+          lte: 0,
+        },
+        account_id: { in: ids },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+      _count: {
+        amount: true,
+      },
+      orderBy: {
+        year: 'desc'
+      },
+    })
     
     const categories = await prisma.transactions.groupBy({
       by: ['primary_category', 'month_year'],
@@ -164,7 +222,9 @@ export default async (req, res) => {
       detailedCategories,
       groupByMonthIncome,
       groupByMonth,
-      groupByWeek
+      groupByWeek,
+      groupByYearIncome,
+      groupByYear
     }})
   } catch (e) {
     console.error(e)
