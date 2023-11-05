@@ -30,7 +30,7 @@ const tabs = [
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function ({ graphData }) {
-  const { categories, detailedCategories } = graphData
+  const { categories, detailedCategories, yearCategories, yearDetailedCategories } = graphData
   if (!categories) return null
   const [data, setData] = useState({
     labels: [],
@@ -53,11 +53,19 @@ export default function ({ graphData }) {
 
   useEffect(() => {
     if(key === 'primary_category'){
-      updatePie(categories, type)
+      if(type === 'year'){
+        updatePie(yearCategories, type)
+      } else {
+        updatePie(categories, type)
+      }
     } else {
-      updatePie(detailedCategories, type)
+      if(type === 'year'){
+        updatePie(yearDetailedCategories, type)
+      } else {
+        updatePie(detailedCategories, type)
+      }
     }
-  }, [categories, key, current, type])
+  }, [key, current, type])
 
   const getMonths = () => {
     let x = 0
@@ -82,7 +90,7 @@ export default function ({ graphData }) {
     } else {
       cats = categories.filter(i => i.year === current.year)
     }
-    console.log(cats)
+
     let sorted = cats.sort((a,b) => a._sum.amount - b._sum.amount)
     let mapped = sorted.map((a, i) => {
       return {
@@ -124,7 +132,7 @@ export default function ({ graphData }) {
       },
     },
   }
-
+  console.log(current)
   return (
     <div>        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 md:pb-12 pb-2">
@@ -149,23 +157,26 @@ export default function ({ graphData }) {
             </div>
             <div className="border-b border-gray-200 mb-6">
               <nav className="flex justify-between" aria-label="Tabs">
-                {/* <button
+                <button
                   onClick={() => setType('year')}
                   className={classNames(
-                    'This Year' === current.name
+                    'year' === type
                       ? 'border-pink-500 text-pink-600'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                     'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'
                   )}
                 >
-                  This Year
-                </button> */}
+                  Last 12 Months
+                </button>
                 {months.map((month) => (
                   <button
                     key={month.name}
-                    onClick={() => updateMonth(month)}
+                    onClick={() => {
+                      setType('month_year')
+                      updateMonth(month)
+                    }}
                     className={classNames(
-                      month.name === current.name
+                      month.name === current.name && 'month_year' === type
                         ? 'border-pink-500 text-pink-600'
                         : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                       'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'

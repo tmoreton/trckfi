@@ -217,6 +217,52 @@ export default async (req, res) => {
       },
     })
 
+    const yearCategories = await prisma.transactions.groupBy({
+      by: ['primary_category', 'year'],
+      where: {
+        OR: query,
+        active: true,
+        pending: false,
+        authorized_date: {
+          lte: startDate,
+          gte: endDate
+        },
+        amount: {
+          lte: 0,
+        },
+        account_id: { in: ids },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+    })
+
+    const yearDetailedCategories = await prisma.transactions.groupBy({
+      by: ['detailed_category', 'year'],
+      where: {
+        OR: query,
+        active: true,
+        pending: false,
+        authorized_date: {
+          lte: startDate,
+          gte: endDate
+        },
+        amount: {
+          lte: 0,
+        },
+        account_id: { in: ids },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+        ],
+      },
+      _sum: {
+        amount: true,
+      },
+    })
+
     return res.status(200).json({ data: {
       categories,
       detailedCategories,
@@ -224,7 +270,9 @@ export default async (req, res) => {
       groupByMonth,
       groupByWeek,
       groupByYearIncome,
-      groupByYear
+      groupByYear,
+      yearCategories,
+      yearDetailedCategories
     }})
   } catch (e) {
     console.error(e)
