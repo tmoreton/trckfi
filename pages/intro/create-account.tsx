@@ -57,7 +57,7 @@ export default function CreateAccount({ showError }) {
         <div className="sm:mx-auto sm:w-full mb-4">
           <div className="mx-auto pt-4 max-w-2xl text-center space-y-3">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-tight md:leading-none mb-4">
-              Create Your New Account
+              Let's Create Your Account!
             </h1>
             <p className="text-md text-gray-600">
               No passwords to remember. Instead we will send you a magic link everytime you sign in.

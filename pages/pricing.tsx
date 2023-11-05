@@ -7,6 +7,7 @@ import Menu from '../components/menu'
 import getStripe from '../utils/get-stripejs'
 import { useRouter } from 'next/router'
 import EmailModal from '../components/modals/email-modal'
+import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -166,12 +167,11 @@ export default function Pricing ({ showError }) {
                             </div>
                             <span className="text-sm italic font-normal text-black">$5.99/month after 2 months. <br/> Cancel anytime!</span>
                           </>
-                          <button
-                            onClick={() => checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)}
-                            className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-                          >
-                            Get started today
-                          </button>
+                          <Link href={`/intro/create-account?price_id=${process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID}&referral_id=${referral_id}`}>
+                            <button className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600" >
+                              Get started today
+                            </button>
+                          </Link>
                           <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               <li className="flex gap-x-3">
                                 <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
@@ -203,13 +203,11 @@ export default function Pricing ({ showError }) {
                                 { frequency.value === 'annually' && tier.id !== 'beta' && <span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span>}
                               </>
                             }
-                            <button
-                              onClick={() => checkout(tier.price[frequency.value]?.id)}
-                              aria-describedby={tier.id}
-                              className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-                            >
-                              Get started today
-                            </button>
+                            <Link href={`/intro/create-account?price_id=${tier.price[frequency.value]?.id}&referral_id=${referral_id}`}>
+                              <button className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                                Get started today
+                              </button>
+                            </Link>
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (
                                 <li key={feature} className="flex gap-x-3">
