@@ -64,7 +64,7 @@ export default function ({ graphData }) {
   const updateBar = (expenses, key) => {
     const monthlySum = groupByMonthIncome.map(a => Math.abs(a._sum.amount))
     const yearlySum = groupByYearIncome?.map(a => Math.abs(a._sum.amount))
-    console.log(groupByYearIncome)
+
     let labels;
     if(key === 'monthly'){
       labels = expenses.map(a => a.month_year)
