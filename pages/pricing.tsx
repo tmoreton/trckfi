@@ -1,13 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Container from '../components/container'
 import Layout from '../components/layout'
 import Menu from '../components/menu'
+import getStripe from '../utils/get-stripejs'
 import { useRouter } from 'next/router'
 import EmailModal from '../components/modals/email-modal'
-// import getStripe from '../utils/get-stripejs'
-import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -74,38 +73,34 @@ const tiers = [
 
 export default function Pricing ({ showError }) {
   const router = useRouter()
-  const { referral_id } = router.query
+  const { referral_id, beta_user } = router.query
   const [frequency, setFrequency] = useState(frequencies[0])
   const [open, setOpen] = useState(false)
-  
-  // const redirect = useCallback(async () => {
-  //   await checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)
-  // }, [])
 
   useEffect(() => {
     setFrequency(frequencies[0])
   }, [])
 
   const checkout = async (price_id) => {
-    // const res = await fetch(`/api/checkout_session`, {
-    //   body: JSON.stringify({ 
-    //     price_id,
-    //     referral_id
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // const data = await res.json()
-    // showError(data.error)
-    // if (data.error) return
+    const res = await fetch(`/api/checkout_session`, {
+      body: JSON.stringify({ 
+        price_id,
+        referral_id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const data = await res.json()
+    showError(data.error)
+    if (data.error) return
 
-    // const stripe = await getStripe()
-    // const { error } = await stripe!.redirectToCheckout({
-    //   sessionId: data.id,
-    // })
-    // showError(error)
+    const stripe = await getStripe()
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: data.id,
+    })
+    showError(error)
   }
 
   return (
@@ -158,7 +153,37 @@ export default function Pricing ({ showError }) {
                     </RadioGroup>
                   </div>
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className={classNames("lg:grid-cols-2 mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                    <div className={classNames("lg:grid-cols-3 mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                      <div className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
+                        <div>
+                          <h3 className="text-base font-semibold leading-7 text-pink-600">
+                            Early Adopter
+                          </h3>
+                          <>
+                            <div className="mt-4 flex items-baseline gap-x-2">
+                              <span className="text-5xl font-bold tracking-tight text-gray-900">$0</span>                              
+                              <span className="text-base font-normal leading-7 text-gray-600">/month</span>
+                            </div>
+                            <span className="text-sm italic font-normal text-black">$5.99/month after 2 months. <br/> Cancel anytime!</span>
+                          </>
+                          <button
+                            onClick={() => checkout(process.env.NEXT_PUBLIC_STRIPE_BETA_MONTHLY_PRICE_ID)}
+                            className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                          >
+                            Get started today
+                          </button>
+                          <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
+                              <li className="flex gap-x-3">
+                                <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
+                                <b>2 months free with Promo code: 2MONTHSFREE</b>
+                              </li>
+                              <li className="flex gap-x-3">
+                                <CheckIcon className="h-6 w-5 flex-none text-pink-600" aria-hidden="true" />
+                                All features of pro and family plans with unlimited connections
+                              </li>
+                          </ul>
+                        </div>
+                      </div>
                       {tiers.map((tier) => (
                         <div
                           key={tier.id}
@@ -178,12 +203,13 @@ export default function Pricing ({ showError }) {
                                 { frequency.value === 'annually' && tier.id !== 'beta' && <span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span>}
                               </>
                             }
-                            <Link href={`/intro/create-account?price_id=${tier.price[frequency.value]?.id}&referral_id=${referral_id}`}>
-                              <button className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                                Get started today
-                              </button>
-                            </Link>
-                            {/* <p className="mt-6 text-base leading-7 text-gray-600">{tier.description}</p> */}
+                            <button
+                              onClick={() => checkout(tier.price[frequency.value]?.id)}
+                              aria-describedby={tier.id}
+                              className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                            >
+                              Get started today
+                            </button>
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (
                                 <li key={feature} className="flex gap-x-3">
@@ -206,17 +232,3 @@ export default function Pricing ({ showError }) {
     </Layout>
   )
 }
-
-//   'Unlimited Bank Connections (Credit Cards, Savings, Checking, Retirement, etc.)',
-//   'Unlimited Crypto, Stock, and Home Accounts',
-//   'Manage Recurring Expenses',
-//   'Monthly Spend Tracking',
-//   'Net Worth Analysis',
-//   'Custom Categories: Create Your Own Spending Categories and Groups',
-//   'Categorization Rules: Define Custom Rules for Tricky Transactions',
-//   'Flexible Asset Entry: Easily Include Assets Beyond Digital (e.g., Art, Foreign Bank Accounts, etc.)',
-//   'Vision Board for Visualizing and Manifesting Financial Goals',
-//   'Goal Setting Tab: Plan and Track Your Financial Goals',
-//   'Weekly & Monthly Email Recaps',
-//   'Daily Questions/Answers to Earn Money and Boost Your Financial Literacy',
-//   'Link Another User to Collaborate on Your Finances',

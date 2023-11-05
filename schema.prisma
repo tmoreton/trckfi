@@ -303,3 +303,13 @@ model Webhooks {
 
   @@map("webhooks")
 }
+
+model CustomerFeedback {
+  id              String    @id @default(cuid())
+  question        String?
+  email           String?
+  answers         Json?
+  created_at      DateTime? @default(now())
+
+  @@map("customer_feedback")
+}

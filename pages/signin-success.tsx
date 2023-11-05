@@ -31,7 +31,7 @@ export async function getServerSideProps(context) {
     if(user?.login_count < 1){
       return {
         redirect: {
-          destination: '/intro',
+          destination: '/intro/question-1',
           permanent: false,
         },
       }
