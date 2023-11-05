@@ -54,6 +54,7 @@ export default async (req, res) => {
           alert_date,
           authorized_date: new Date(date),
           month_year: date.substring(0,7),
+          year: date.substring(0,4),
           week_year: `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
         }
       })

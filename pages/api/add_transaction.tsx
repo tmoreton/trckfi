@@ -14,6 +14,7 @@ export default async (req, res) => {
       primary_category: snakeCase(primary_category).toUpperCase(),
       detailed_category: snakeCase(detailed_category).toUpperCase(),
       month_year: date.substring(0,7),
+      year: date.substring(0,4),
       week_year: `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`,
       authorized_date: new Date(date),
       merchant_name: 'Trckfi',

@@ -97,6 +97,7 @@ const transactionsSync = async (access_token, user_id) => {
           item_id: plaid.item_id,
           month_year: added[i].date.substring(0,7),
           week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
+          year: added[i].date.substring(0,4),
           active: true,
           // @ts-ignore
           recurring: false,

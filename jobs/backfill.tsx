@@ -11,8 +11,10 @@ client.defineJob({
     name: "backfill"
   }),
   run: async (payload, io, ctx) => {
-    const startDate = DateTime.now().toISO()
-    const endDate = DateTime.now().startOf('year').toISO()
+    const startDate = DateTime.now().minus({ year: 1 }).startOf('year').toISO()
+    const endDate = DateTime.now().minus({ year: 1 }).endOf('year').toISO()
+    console.log(startDate)
+    console.log(endDate)
     await prisma.transactions.updateMany({
       where: {
         authorized_date: {
@@ -21,7 +23,7 @@ client.defineJob({
         },
       },
       data: {
-        year: '2023'
+        year: "2022"
       },
     })
   },
