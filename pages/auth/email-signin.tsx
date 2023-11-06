@@ -1,5 +1,6 @@
 import { getCsrfToken } from "next-auth/react"
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
 import Icon from '../../components/icon';
 import Link from 'next/link'
 import  { clearLocalStorage } from '../../utils/useLocalStorage'
@@ -9,6 +10,7 @@ export default function SignIn({ csrfToken, showError }) {
   const [email, setEmail] = useState('')
   const [text, setText] = useState(null)
   const [active, setActive] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     clearLocalStorage()
@@ -26,10 +28,10 @@ export default function SignIn({ csrfToken, showError }) {
       method: 'POST',
     })
     const { text, active } = await res.json()
-    setText(text)
     setActive(active)
 
     if(active){
+      setText(text)
       await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
         body: JSON.stringify({ 
           email,
@@ -39,6 +41,10 @@ export default function SignIn({ csrfToken, showError }) {
           'Content-Type': 'application/json',
         },
         method: 'POST',
+      })
+    } else {
+      router.push({
+        pathname: '/intro/setup-account',
       })
     }
   }
