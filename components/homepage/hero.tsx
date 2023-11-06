@@ -40,7 +40,7 @@ export default function () {
                   Watch how Trckfi works
                 </button>
                 <div className="mb-8 flex items-center gap-x-6">
-                  <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-xl font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Get Started Today <span aria-hidden="true">→</span>
                   </Link>
                 </div>

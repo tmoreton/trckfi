@@ -125,7 +125,7 @@ export default ({ open, setOpen }) => {
                               type="submit"
                               className="flex-none w-full rounded-3xl mt-4 bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
-                              Download Tracker
+                              Download
                             </button>
                             :
                             <>
