@@ -24,7 +24,7 @@ const Dashboard = ({ showError, showIntro }) => {
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [openDatePicker, setDatePicker] = useState(false)
-  const [showImport, setShowImport] = useState(true)
+  const [showImport, setShowImport] = useState(false)
   const [selected, setSelected] = useState([])
   const [transactions, setTransactions] = useLocalStorage('transactions',null)
   const [graphData, setGraphData] = useLocalStorage('graph_data', {})
@@ -200,7 +200,7 @@ const Dashboard = ({ showError, showIntro }) => {
         { transactions && transactions.length > 1 &&
           <>
             <Graphs graphData={graphData} />
-            <Table user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+            <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
           </>
         }
         { transactions && transactions.length < 1 &&

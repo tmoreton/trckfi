@@ -39,11 +39,11 @@ export default function ({ showError, open, setOpen, user }) {
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="w-full">
                     <div className="mt-3 text-center sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-center text-base font-semibold leading-6 text-gray-900 mb-4 flex justify-center">
+                      <Dialog.Title as="h3" className="text-center text-2xl font-semibold text-pink-600">
                         Import Transactions
                       </Dialog.Title>
 
-                      <div className="mx-auto mt-10 text-center">
+                      <div className="mx-auto mt-2 text-center">
                         <Importer
                           dataHandler={async (rows) => {
                             // required, receives a list of parsed objects based on defined fields and user column mapping;

@@ -8,7 +8,7 @@ import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'
 
-export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker }) {
+export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker, setShowImport }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
   const [sum, setSum] = useState(0)
@@ -178,12 +178,15 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         }
         </div>
         {datePicker()}
-        <div className="lg:block hidden">
-        <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-          <InverseBtn type="button" onClick={() => {}}>
-            Download CSV
+        <div className="lg:block hidden space-x-4">
+          <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+            <InverseBtn type="button" onClick={() => {}}>
+              Download CSV
+            </InverseBtn>
+          </CSVLink>
+          <InverseBtn type="button" onClick={() => setShowImport(true)}>
+            Import Data
           </InverseBtn>
-        </CSVLink>
         </div>
       </div>
 
