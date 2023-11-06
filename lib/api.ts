@@ -2,14 +2,14 @@ import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 
-export function getPostSlugs(folder) {
-  const postsDirectory = join(process.cwd(), `outstatic/content/${folder}`)
+export function getPostSlugs() {
+  const postsDirectory = join(process.cwd(), `outstatic/content/posts`)
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostBySlug(slug: string, fields: string[] = [], folder: string) {
+export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
-  const postsDirectory = join(process.cwd(), `outstatic/content/${folder}`)
+  const postsDirectory = join(process.cwd(), `outstatic/content/posts`)
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
@@ -37,13 +37,13 @@ export function getPostBySlug(slug: string, fields: string[] = [], folder: strin
   return items
 }
 
-export function getAllPosts(fields: string[] = [], folder: string) {
-  const slugs = getPostSlugs(folder)
+export function getAllPosts(fields: string[] = []) {
+  const slugs = getPostSlugs()
   const result = slugs.filter((data) => data !== 'schema.json' )
   const posts = result
-    .map((slug) => getPostBySlug(slug, fields, folder))
-    .filter((post) => post.status === 'published' )
+    .map((slug) => getPostBySlug(slug, fields))
+    // .filter((post) => post.status === 'published' )
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.publishedAt > post2.publishedAt ? -1 : 1))
+    // .sort((post1, post2) => (post1.publishedAt > post2.publishedAt ? -1 : 1))
   return posts
 }
