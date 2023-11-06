@@ -39,7 +39,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs()
-  const result = slugs.filter((data) => data !== 'schema.json' )
+  const result = slugs.filter((data) => data !== 'schema.json' && data !== '.DS_Store' )
   const posts = result
     .map((slug) => getPostBySlug(slug, fields))
     // .filter((post) => post.status === 'published' )
