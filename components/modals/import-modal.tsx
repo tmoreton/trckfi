@@ -5,9 +5,20 @@ import 'react-csv-importer/dist/index.css'
 
 export default function ({ showError, open, setOpen, user }) {
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
+  const upload = async (rows) => {
+    const res = await fetch(`/api/import_csv`, {
+      body: JSON.stringify({
+        rows,
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error } = await res.json()
+    showError(error)
+    setOpen(false)
   }
 
   return (
@@ -50,7 +61,7 @@ export default function ({ showError, open, setOpen, user }) {
                             // may be called several times if file is large
                             // (if this callback returns a promise, the widget will wait for it before parsing more data)
                             console.log("received batch of rows", rows);
-
+                            await upload(rows)
                             // mock timeout to simulate processing
                             await new Promise((resolve) => setTimeout(resolve, 500));
                           }}
@@ -72,13 +83,16 @@ export default function ({ showError, open, setOpen, user }) {
                             setOpen(false)
                           }}
                         >
-                          <ImporterField name="name" label="Name" />
-                          <ImporterField name="email" label="Email" />
-                          <ImporterField name="dob" label="Date of Birth" optional />
-                          <ImporterField name="postalCode" label="Postal Code" optional />
+                          <ImporterField name="name" label="Description" />
+                          <ImporterField name="primary_category" label="Category" />
+                          <ImporterField name="detailed_category" label="Detailed Category" optional />
+                          <ImporterField name="date" label="Date" />
+                          <ImporterField name="account_name" label="Account Name" optional/>
+                          <ImporterField name="amount" label="Amount" />
+                          <ImporterField name="notes" label="Notes" optional/>
+                          <ImporterField name="labels" label="Labels" optional/>
                         </Importer>
                       </div>
-
                     </div>
                   </div>
                 </div>

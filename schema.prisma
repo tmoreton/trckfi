@@ -114,6 +114,7 @@ model Accounts {
 model Transactions {
   id                String    @id @default(cuid())
   account_id        String?
+  account_name      String?
   name              String?
   custom_name       String?
   merchant_name     String?
@@ -127,6 +128,7 @@ model Transactions {
   amount            Decimal?  @db.Decimal(9, 2)
   active            Boolean?  @default(true)
   category          Json?
+  tags              Json?
   authorized_date   DateTime?
   month_year        String?
   week_year         String?

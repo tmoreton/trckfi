@@ -85,3 +85,7 @@ input[type=number] {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.CSVImporter_ImporterFrame {
+  border: 0 !important;
+}
