@@ -9,14 +9,14 @@ export default function () {
         <b>{session.user.email}</b>
         <br/>
         <PinkBtn type="button" onClick={signOut}>
-          Sign Out
+          Log Out
         </PinkBtn>
       </div>
     )
   }
   return (
     <PinkBtn type="button" onClick={signIn}>
-      Sign In
+      Login
     </PinkBtn>
   )
 }

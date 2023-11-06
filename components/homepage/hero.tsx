@@ -36,10 +36,13 @@ export default function () {
                 <p className="mt-8 mb-2 text-3xl font-bold text-gray-900 tracking-wide">
                   But it's still important to track where your money is going!
                 </p>
+                <button onClick={() => setOpen(true)} className="py-2.5 text-lg font-semibold text-pink-600">
+                  Watch how Trckfi works
+                </button>
                 <div className="mb-8 flex items-center gap-x-6">
-                  <button onClick={() => setOpen(true)} className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                    Watch how Trckfi works <span aria-hidden="true">→</span>
-                  </button>
+                  <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-xl font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Get Started Today <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
               </div>
             </div>

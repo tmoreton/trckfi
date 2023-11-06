@@ -7,7 +7,6 @@ import Link from 'next/link'
 import LoginBtn from './login-btn'
 import { useSession, signOut } from "next-auth/react"
 import Image from 'next/image'
-import { PinkBtn } from './pink-btn'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 const navigation = [
@@ -78,7 +77,6 @@ export default function ({ showError }) {
                   }
                   
                   <Menu as="div" className="relative ml-3">
-                    
                     { // @ts-ignore
                       session && session.user?.active ?
                         <div className="flex items-center">
@@ -90,7 +88,15 @@ export default function ({ showError }) {
                         </Link>
                       </div>
                       :
-                      <LoginBtn />
+                      <div className="flex space-x-4">
+                        <Link href="/auth/email-signin" className="items-center rounded-3xl inline-flex w-full justify-center bg-white px-4 py-2 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 sm:w-auto">
+                          Login
+                        </Link>
+                        <Link href="/pricing" className="items-center rounded-3xl inline-flex w-full justify-center bg-pink-600 px-4 py-2 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 sm:w-auto">
+                          Signup
+                        </Link>
+                      </div>
+                      
                     }
                     <Transition
                       as={Fragment}
