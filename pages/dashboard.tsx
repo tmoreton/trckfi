@@ -14,6 +14,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Notification from '../components/notification'
 import { useRouter } from 'next/router'
+import ImportModal from '../components/modals/import-modal'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
@@ -23,6 +24,7 @@ const Dashboard = ({ showError, showIntro }) => {
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [openDatePicker, setDatePicker] = useState(false)
+  const [showImport, setShowImport] = useState(true)
   const [selected, setSelected] = useState([])
   const [transactions, setTransactions] = useLocalStorage('transactions',null)
   const [graphData, setGraphData] = useLocalStorage('graph_data', {})
@@ -193,6 +195,7 @@ const Dashboard = ({ showError, showIntro }) => {
       <Notification showError={showError} />
       <DashboardLayout>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
+        <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} />
         <Snapshot totalStats={totalStats} />
         { transactions && transactions.length > 1 &&
           <>
