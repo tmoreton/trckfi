@@ -6,10 +6,11 @@ import ProgressNav from '../../components/progress-nav'
 
 const items = [
   { text: 'Help me keep track of my progress' },
-  { text: 'Remind me to allocate 10 minutes weekly for my financial check-in to stay motivated and make informed money decisions.' },
-  { text: 'Offer me a community and ways to develop a money mindset' },
+  { text: 'Remind me to allocate 10 minutes weekly for my financial check-in' },
+  { text: 'Give me a community and ways to develop a money mindset' },
   { text: 'Offer short-form courses to understand the basics of personal finances' },
   { text: 'Offer long-form courses to become a pro in personal finances' },
+  { text: 'Provide advisor consultations to review my unique financial situation' },
 ]
 
 export default function () {
@@ -56,19 +57,31 @@ export default function () {
               How can I help you stay motivated?
             </h1>
             <form onSubmit={onSubmit}>
-              <ul role="list" className="my-10 space-y-8 text-xl leading-6 text-gray-600">
-                {items.map((i, id) => (
-                  <li key={id} className="gap-x-3">
-                    <div className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
-                      <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
-                        <input onClick={() => handleChange(i)} name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
-                        <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
-                      </label>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              
+              <div className="flex">
+                <div className="flex-3">
+                  <ul role="list" className="my-10 space-y-8 text-xl leading-6 text-gray-600">
+                    {items.map((i, id) => (
+                      <li key={id} className="gap-x-3">
+                        <div className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
+                          <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
+                            <input onClick={() => handleChange(i)} name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
+                            <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
+                          </label>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex flex-1 items-center justify-center">
+                  <Image
+                    src="/assets/got-cheers.gif"
+                    alt="Cheers"
+                    width={250}
+                    height={250}
+                    className="block my-5 rounded-2xl aspect-[6/5] w-full max-w-sm object-cover lg:mt-0 mx-auto xl:row-span-2 xl:row-end-2 p-8"
+                  />
+                </div>
+              </div>
               <button
                 type="submit"
                 className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
@@ -76,13 +89,6 @@ export default function () {
                 Finish
               </button>
             </form>
-            <Image
-              src="/assets/got-cheers.gif"
-              alt="Cheers"
-              width={250}
-              height={250}
-              className="block my-5 aspect-[6/5] w-full max-w-sm object-cover lg:mt-0 mx-auto xl:row-span-2 xl:row-end-2"
-            />
           </div>
         </div>
       </div>

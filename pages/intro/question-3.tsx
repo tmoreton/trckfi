@@ -4,13 +4,14 @@ import { useState } from 'react'
 import ProgressNav from '../../components/progress-nav'
 
 const items = [
-  { text: '🏡 Buy a Home' },
-  { text: '💰 Save for Retirement' },
-  { text: '💸 Invest and build wealth' },
-  { text: '🙌 Financial Freedom' },
-  { text: '👶 Start to save for your kid' },
-  { text: '💻 Start a business' },
-  { text: '🌎 Travel' },
+  { text: '🏡  Buy a Home' },
+  { text: '💰  Save for Retirement' },
+  { text: '💸  Invest and build wealth' },
+  { text: '🙌  Financial Freedom' },
+  { text: '👶  Start to save for your kid' },
+  { text: '💻  Start a business' },
+  { text: '🌎  Travel' },
+  { text: 'Other' },
 ]
 
 export default function () {
@@ -60,15 +61,13 @@ export default function () {
               What financial dream do you want to achieve?
             </p>
             <form onSubmit={onSubmit}>
-              <ul role="list" className="my-10 space-y-8 text-xl leading-6 text-gray-600">
+              <ul role="list" className="grid grid-cols-1 gap-6 my-4 lg:grid-cols-3">
                 {items.map((i, id) => (
-                  <li key={id} className="gap-x-3">
-                    <div className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
+                  <li key={id} className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
                       <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
                         <input onClick={() => handleChange(i)} name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
                         <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
                       </label>
-                    </div>
                   </li>
                 ))}
               </ul>

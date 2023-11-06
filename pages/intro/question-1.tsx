@@ -4,11 +4,11 @@ import { useState } from 'react'
 import ProgressNav from '../../components/progress-nav'
 
 const items = [
-  { text: 'Keep track of my transactions' },
-  { text: 'Track and grow my net worth to financial independence' },
-  { text: 'Learn more about finance and improve my overall financal knowledge' },
-  { text: 'Help pay off my debt' },
-  { text: 'Feel motivated to reach my goal of buying/investing' }
+  { text: 'Keep track of all my transactions' },
+  { text: 'Show me my net worth' },
+  { text: 'Help me identify recurring charges' },
+  { text: 'Learn more about my finances' },
+  { text: 'Visualize and reach a specific financial goal' }
 ]
 
 export default function () {
@@ -54,10 +54,10 @@ export default function () {
             <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
               Welcome to Trckfi! 🎉
             </h1>
-            <p className="mt-6 pb-2 text-xl lg:text-3xl text-gray-600">
+            {/* <p className="mt-6 pb-2 text-xl lg:text-3xl text-gray-600">
               We want to be there along your side on your path to financial success! 
-            </p>
-            <p className="mb-10 text-xl lg:text-3xl text-gray-600">
+            </p> */}
+            <p className="mb-10 mt-5 text-xl lg:text-3xl text-gray-600">
               How can Trckfi help you along the way?
             </p>
             <form onSubmit={onSubmit}>

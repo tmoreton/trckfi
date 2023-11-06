@@ -4,10 +4,10 @@ import { useState } from 'react'
 import ProgressNav from '../../components/progress-nav'
 
 const items = [
-  { text: 'Just getting started, can use support' },
+  { text: 'Just getting started, I can use support' },
   { text: 'Got some way to go, but I already have a money routine set up' },
   { text: "I’m mostly on track to save money and invest, but life happened" },
-  { text: "I’m making moves - Trying to maximize my money" },
+  { text: "I’m making moves - trying to maximize my money" },
 ]
 
 export default function () {
@@ -51,7 +51,7 @@ export default function () {
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
             <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
-              Let’s get to know you better, {user.name.split(' ')[0]}!
+              Let’s get to know you better{user?.name ? `, ${user?.name.split(' ')[0]}!` : `!`}
             </h1>
             <p className="mt-6 pb-2 text-xl lg:text-3xl text-gray-600">
               Where are you currently in your personal finance journey?
