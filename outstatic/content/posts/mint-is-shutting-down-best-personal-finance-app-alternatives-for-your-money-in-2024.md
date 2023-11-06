@@ -1,6 +1,6 @@
 ---
 title: 'Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024'
-status: 'published'
+status: 'draft'
 author:
   name: 'Trckfi'
   picture: ''
