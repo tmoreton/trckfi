@@ -14,11 +14,12 @@ import { useRouter } from 'next/router'
 export default function Index({ showError }) {
   const [open, setOpen] = useState(false)
   const [subscribed] = useLocalStorage('subscribed', false)
+  const [show, setShow] = useLocalStorage('show_modal', false)
   const router = useRouter()
   const { asPath } = router
 
   useEffect(() => {
-    if(!subscribed){
+    if(!subscribed && !show){
       if(asPath === "/#get-notified"){
         setOpen(true)
       } else {

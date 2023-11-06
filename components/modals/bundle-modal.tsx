@@ -10,10 +10,12 @@ export default ({ open, setOpen }) => {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [subscribed, setSubscribed] = useLocalStorage('subscribed', false)
+  const [show, setShow] = useLocalStorage('show_modal', false)
 
   const subscribe = async (e) => {
     e.preventDefault()
     setSubscribed(true)
+    setShow(true)
     setEmail('')
     await fetch(`/api/add_email`, {
       body: JSON.stringify({
@@ -28,14 +30,14 @@ export default ({ open, setOpen }) => {
     })
   }
 
-  // const onClose = () => {
-  //   setSubscribed(true)
-  //   setOpen(false)
-  // }
+  const onClose = () => {
+    setOpen(false)
+    setShow(true)
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
+      <Dialog as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -61,7 +63,7 @@ export default ({ open, setOpen }) => {
               <Dialog.Panel>
                 <div className="relative isolate overflow-hidden bg-white p-10 shadow-2xl rounded-2xl sm:px-12 max-w-4xl mx-auto">
                   <div className="relative isolate">
-                    <div className="flex justify-end" onClick={() => setOpen(false)}>
+                    <div className="flex justify-end" onClick={onClose}>
                       <XMarkIcon className="h-10 w-10" />
                     </div>
                     <div className="mx-auto max-w-7xl px-6 py-6 lg:flex lg:items-center lg:gap-x-10 lg:px-10">
