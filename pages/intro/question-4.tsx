@@ -1,14 +1,15 @@
 import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react"
 import { useState } from 'react'
+import Image from 'next/image'
 import ProgressNav from '../../components/progress-nav'
 
 const items = [
-  { text: 'Keep track of my transactions' },
-  { text: 'Track and grow my net worth to financial independence' },
-  { text: 'Learn more about finance and improve my overall financal knowledge' },
-  { text: 'Help pay off my debt' },
-  { text: 'Feel motivated to reach my goal of buying/investing' }
+  { text: 'Help me keep track of my progress' },
+  { text: 'Remind me to allocate 10 minutes weekly for my financial check-in to stay motivated and make informed money decisions.' },
+  { text: 'Offer me a community and ways to develop a money mindset' },
+  { text: 'Offer short-form courses to understand the basics of personal finances' },
+  { text: 'Offer long-form courses to become a pro in personal finances' },
 ]
 
 export default function () {
@@ -31,7 +32,7 @@ export default function () {
     e.preventDefault()
     fetch(`/api/add_feedback`, {
       body: JSON.stringify({
-        question: "How can Trckfi help you along the way?",
+        question: "How can I help you stay motivated?",
         answers: feedback,
         email: user?.email
       }),
@@ -41,25 +42,19 @@ export default function () {
       method: 'POST',
     })
     router.push({
-      pathname: '/intro/question-2',
+      pathname: '/visionboard',
     })
   }
   
   return (
     <>
-      <ProgressNav width={'40%'} />
+      <ProgressNav width={'90%'} />
       <div className="relative isolate">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
             <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
-              Welcome to Trckfi! 🎉
+              How can I help you stay motivated?
             </h1>
-            <p className="mt-6 pb-2 text-xl lg:text-3xl text-gray-600">
-              We want to be there along your side on your path to financial success! 
-            </p>
-            <p className="mb-10 text-xl lg:text-3xl text-gray-600">
-              How can Trckfi help you along the way?
-            </p>
             <form onSubmit={onSubmit}>
               <ul role="list" className="my-10 space-y-8 text-xl leading-6 text-gray-600">
                 {items.map((i, id) => (
@@ -73,13 +68,21 @@ export default function () {
                   </li>
                 ))}
               </ul>
+              
               <button
                 type="submit"
                 className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
               >
-                Setup Account
+                Finish
               </button>
             </form>
+            <Image
+              src="/assets/got-cheers.gif"
+              alt="Cheers"
+              width={250}
+              height={250}
+              className="block my-5 aspect-[6/5] w-full max-w-sm object-cover lg:mt-0 mx-auto xl:row-span-2 xl:row-end-2"
+            />
           </div>
         </div>
       </div>
