@@ -41,7 +41,7 @@ export default function () {
       method: 'POST',
     })
     router.push({
-      pathname: '/intro/question-2',
+      pathname: '/intro/setup-account',
     })
   }
   
