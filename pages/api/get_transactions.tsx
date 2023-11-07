@@ -31,7 +31,7 @@ export default async (req, res) => {
         date: 'desc'
       },
     })
-    transactions = transactions.filter(t => t.account?.active)
+    // transactions = transactions.filter(t => t.account?.active)
     
     return res.status(200).json({ data: transactions })
   } catch (e) {

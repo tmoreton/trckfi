@@ -37,7 +37,7 @@ export default async (req, res) => {
         amount: {
           lte: 0
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -53,7 +53,7 @@ export default async (req, res) => {
       },
     })
     // @ts-ignore
-    groupByWeek.sort((a, b) => b.week_year.split('-')[1] - a.week_year.split('-')[1])
+    groupByWeek.sort((a, b) => b.week_year?.split('-')[1] - a.week_year?.split('-')[1])
 
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
@@ -64,7 +64,7 @@ export default async (req, res) => {
         amount: {
           gte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -97,7 +97,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -122,7 +122,7 @@ export default async (req, res) => {
         amount: {
           gte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -155,7 +155,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -184,7 +184,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -207,7 +207,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -230,7 +230,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -253,7 +253,7 @@ export default async (req, res) => {
         amount: {
           lte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],

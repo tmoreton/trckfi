@@ -16,6 +16,7 @@ export default function ({ showError, open, setOpen, user }) {
       },
       method: 'POST',
     })
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     const { error } = await res.json()
     showError(error)
     setOpen(false)
@@ -60,10 +61,9 @@ export default function ({ showError, open, setOpen, user }) {
                             // required, receives a list of parsed objects based on defined fields and user column mapping;
                             // may be called several times if file is large
                             // (if this callback returns a promise, the widget will wait for it before parsing more data)
-                            console.log("received batch of rows", rows);
-                            await upload(rows)
-                            // mock timeout to simulate processing
-                            await new Promise((resolve) => setTimeout(resolve, 500));
+                            console.log("received batch of rows", rows)
+                            
+                            await upload(rows)                            
                           }}
                           chunkSize={10000} // optional, internal parsing chunk size in bytes
                           defaultNoHeader={false} // optional, keeps "data has headers" checkbox off by default

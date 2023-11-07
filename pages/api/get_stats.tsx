@@ -35,7 +35,7 @@ export default async (req, res) => {
         amount: {
           gte: 0,
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
         ],
@@ -61,7 +61,7 @@ export default async (req, res) => {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
-        account_id: { in: ids },
+        // account_id: { in: ids },
         amount: {
           lte: 0,
         },

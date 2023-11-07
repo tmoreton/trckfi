@@ -147,7 +147,13 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "Account",
       id: "account.name",
       accessor: data => data?.account?.name,
-      Cell: ({ cell: value }) => value.row.original.account && <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>,
+      Cell: ({ cell: value }) => {
+        console.log(value.row.original)
+        if(value.row.original.account){
+          return <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>
+        }
+        return value.row.original.account_name
+      },
       style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
     },
     {
