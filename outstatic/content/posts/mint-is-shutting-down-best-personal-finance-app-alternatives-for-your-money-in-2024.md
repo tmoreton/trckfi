@@ -54,9 +54,11 @@ With Mint's departure, it's an opportunity to **explore** **alternatives** that 
 
 If you've relied on Mint, their shutdown is a disappointment but also a fresh start. Here are the \*\*top alternatives to consider \*\*based on your financial needs and values:
 
+![](/images/home-IwNT.jpeg)
+
 ### 1\. [Trckfi](www.trckfi.com/pricing)
 
-Best For: Hands-off spending and networth & investment monitoring, money mindset & education
+Best For: Hands-off spending and networth & investment monitoring, money mindset & education.
 
 [Trckfi](www.trckfi.com) combines automated personal finance tracking (income, expense, current transactions and net worth) with money mindset and education. Their educational approach is ideal for building long-term money skills.
 
