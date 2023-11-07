@@ -3,28 +3,10 @@ import Head from 'next/head'
 const Meta = ({ post }) => {
   return (
     <Head>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/favicon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon.png"
-      />
-      <link
-        rel="mask-icon"
-        href="/favicon.png"
-        color="#000000"
-      />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+      <link rel="mask-icon" href="/favicon.png" color="#db2777" />
       <link rel="shortcut icon" href="/favicon/favicon.png" />
       <meta name="msapplication-TileColor" content="#db2777" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
