@@ -15,6 +15,13 @@
       "fieldType": "String",
       "dataType": "string",
       "title": "category"
+    },
+    "title": {
+      "required": true,
+      "description": "SEO Title",
+      "fieldType": "String",
+      "dataType": "string",
+      "title": "title"
     }
   }
 }
