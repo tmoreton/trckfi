@@ -148,7 +148,6 @@ const Dashboard = ({ showError, showIntro }) => {
       id: "account.name",
       accessor: data => data?.account?.name,
       Cell: ({ cell: value }) => {
-        console.log(value.row.original)
         if(value.row.original.account){
           return <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>
         }
@@ -197,11 +196,10 @@ const Dashboard = ({ showError, showIntro }) => {
   return (
     <div>
       <Menu showError={showError}/>
-      {/* <div className="question-step absolute top-0 right-0 w-[425px] h-[250px]" /> */}
       <Notification showError={showError} />
       <DashboardLayout>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
-        <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} />
+        <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} setRefreshing={setRefreshing} getTransactions={getTransactions} />
         <Snapshot totalStats={totalStats} />
         { transactions &&
           <>

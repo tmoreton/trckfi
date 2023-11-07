@@ -20,7 +20,7 @@ export default async (req, res) => {
         category: [i.primary_category],
         date,
         authorized_date: DateTime.fromFormat(i.date, 'D').toISO(),
-        amount: Number(i.amount),
+        amount: i.type === 'credit' ? Number(-i.amount) : Number(i.amount),
         notes: i?.notes,
         tags: i?.labels ? [i.labels.split(" ")] : null,
         user_id: user.id,
@@ -42,7 +42,7 @@ export default async (req, res) => {
       }
     })
 
-    return res.status(200).json({ status: 'OK' })
+    return res.status(200).json({ status: 'OK', complete: true })
   } catch (e) {
     console.error(e)
     slackMessage('Error import_csv: ' + e.message || e.toString())

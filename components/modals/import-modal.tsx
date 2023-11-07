@@ -2,11 +2,14 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Importer, ImporterField } from 'react-csv-importer'
 import 'react-csv-importer/dist/index.css'
+import { useRouter } from 'next/router'
 
-export default function ({ showError, open, setOpen, user }) {
+export default function ({ showError, open, setOpen, user, setRefreshing }) {
+  const router = useRouter()
 
   const upload = async (rows) => {
-    const res = await fetch(`/api/import_csv`, {
+    setRefreshing(true)
+    await fetch(`/api/import_csv`, {
       body: JSON.stringify({
         rows,
         user
@@ -16,10 +19,9 @@ export default function ({ showError, open, setOpen, user }) {
       },
       method: 'POST',
     })
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-    const { error } = await res.json()
-    showError(error)
-    setOpen(false)
+    setTimeout(() => {
+      router.reload()
+    }, 25000)
   }
 
   return (
@@ -91,6 +93,7 @@ export default function ({ showError, open, setOpen, user }) {
                           <ImporterField name="amount" label="Amount" />
                           <ImporterField name="notes" label="Notes" optional/>
                           <ImporterField name="labels" label="Labels" optional/>
+                          <ImporterField name="type" label="Transaction Type" optional/>
                         </Importer>
                       </div>
                     </div>
