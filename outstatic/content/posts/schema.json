@@ -11,14 +11,14 @@
     },
     "seoTitle": {
       "required": true,
-      "description": "SEO Title",
+      "description": "",
       "fieldType": "String",
       "dataType": "string",
       "title": "SEO Title"
     },
     "keywords": {
       "required": true,
-      "description": "SEO keywords",
+      "description": "",
       "fieldType": "String",
       "dataType": "string",
       "title": "SEO keywords"
