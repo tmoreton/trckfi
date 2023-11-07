@@ -184,12 +184,9 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
               Download CSV
             </InverseBtn>
           </CSVLink>
-          <InverseBtn type="button" onClick={() => {
-              // console.log(DateTime.fromFormat("3/07/2023", 'D').toISO())
-              setShowImport(true)
-            }}>
+          {/* <InverseBtn type="button" onClick={() => setShowImport(true)}>
             Import Data
-          </InverseBtn>
+          </InverseBtn> */}
         </div>
       </div>
 

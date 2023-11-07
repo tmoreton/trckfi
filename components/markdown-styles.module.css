@@ -33,7 +33,3 @@
 .markdown li {
   @apply ml-10
 }
-
-.markdown img {
-  @apply w-48
-}

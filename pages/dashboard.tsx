@@ -199,7 +199,7 @@ const Dashboard = ({ showError, showIntro }) => {
       <Notification showError={showError} />
       <DashboardLayout>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
-        <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} setRefreshing={setRefreshing} getTransactions={getTransactions} />
+        <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} setRefreshing={setRefreshing} />
         <Snapshot totalStats={totalStats} />
         { transactions &&
           <>
