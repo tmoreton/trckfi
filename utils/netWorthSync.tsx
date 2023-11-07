@@ -15,11 +15,11 @@ const netWorthSync = async (user_id) => {
         accounts: true
       }
     })
-    let today = DateTime.now().toFormat('yyyy-MM-dd')
+    let this_month = DateTime.now().toFormat('LLL yy')
     let data = {
       user_id: user.id,
       accounts: user.accounts,
-      date: today,
+      date: this_month,
       stats: {
         net_worth: 0,
         assets: 0,
@@ -71,7 +71,7 @@ const netWorthSync = async (user_id) => {
         where: {
           user_id,
           // @ts-ignore
-          date: today
+          date: this_month
         }
       })
 
