@@ -21,7 +21,7 @@ export default function ({ showError, open, setOpen, user, setRefreshing }) {
     })
     setTimeout(() => {
       router.reload()
-    }, 25000)
+    }, 10000)
   }
 
   return (
