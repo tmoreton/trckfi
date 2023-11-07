@@ -22,7 +22,7 @@ client.defineJob({
         merchant_name: i.name,
         account_name: i.account_name,
         primary_category: category,
-        detailed_category: category,
+        detailed_category: 'CSV_IMPORT',
         category: [i.primary_category],
         date,
         authorized_date: DateTime.fromFormat(i.date, 'D').toISO(),
