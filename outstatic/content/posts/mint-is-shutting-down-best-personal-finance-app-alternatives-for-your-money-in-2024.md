@@ -9,6 +9,7 @@ description: 'With Mint shutting down in 2024, review the top 7 paid alternative
 coverImage: ''
 keywords: 'mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint'
 category: 'Finance, Fintech, Money Management, Personal Finance'
+seoTitle: 'this is test title'
 publishedAt: '2023-11-06T13:03:51.632Z'
 ---
 
@@ -54,7 +55,7 @@ With Mint's departure, it's an opportunity to **explore** **alternatives** that 
 
 If you've relied on Mint, their shutdown is a disappointment but also a fresh start. Here are the \*\*top alternatives to consider \*\*based on your financial needs and values:
 
-![](/images/home-IwNT.jpeg)
+[![](/images/home-IwNT.jpeg)](/pricing)
 
 ### 1\. [Trckfi](www.trckfi.com/pricing)
 
