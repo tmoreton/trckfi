@@ -203,20 +203,20 @@ const Dashboard = ({ showError, showIntro }) => {
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
         <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} />
         <Snapshot totalStats={totalStats} />
-        { transactions && transactions.length > 1 &&
+        { transactions &&
           <>
             <Graphs graphData={graphData} />
             <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
           </>
         }
-        { transactions && transactions.length < 1 &&
+        {/* { transactions && transactions.length < 1 &&
           <div className="flex justify-center items-center my-20">
             <div className="text-center">
               <h3 className="mt-2 text-lg font-semibold text-gray-900">No Transactions Yet</h3>
               <p className="mt-1 text-lg text-gray-500">Get started by adding a bank connection to import transactions on the <b>Net Worth & Accounts</b> page.</p>
             </div>
           </div>
-        }
+        } */}
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       </DashboardLayout>
     </div>

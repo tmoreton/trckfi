@@ -261,7 +261,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               Detailed Category
                             </label>
                             <Dropdown 
-                              values={detailed_categories.filter(c => c.detailed_category.includes(transaction.detailed_category?.toUpperCase()))} 
+                              values={detailed_categories.filter(c => c.detailed_category?.includes(transaction.detailed_category?.toUpperCase()))} 
                               selected={transaction.detailed_category} 
                               setSelected={e => handleDropdown({ detailed_category: e.detailed_category })} 
                               onChange={e => setTransaction({ ...transaction, detailed_category: e })}
