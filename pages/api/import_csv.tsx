@@ -10,10 +10,11 @@ export default async (req, res) => {
   try {
     rows.map(async i => {
       let date = i.date.replaceAll('/', '-')
+      let date_array = i.date.split('/')
       let category = i.primary_category.replaceAll(' ', '_').toUpperCase()
       let data = {
         name: i.name,
-        custom_name: i.name,
+        merchant_name: i.name,
         account_name: i.account_name,
         primary_category: category,
         detailed_category: category,
@@ -26,7 +27,9 @@ export default async (req, res) => {
         user_id: user.id,
         pending: false,
         active: true,
-        currency: 'USD'
+        currency: 'USD',
+        year: date_array[2],
+        month_year: `${date_array[0]}-${date_array[2]}`
       }
 
       const transaction = await prisma.transactions.findFirst({
