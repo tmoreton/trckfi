@@ -2,13 +2,6 @@
   "title": "posts",
   "type": "object",
   "properties": {
-    "keywords": {
-      "required": true,
-      "description": "SEO keywords",
-      "fieldType": "String",
-      "dataType": "string",
-      "title": "keywords"
-    },
     "category": {
       "required": true,
       "description": "category",
@@ -16,12 +9,19 @@
       "dataType": "string",
       "title": "category"
     },
-    "title": {
+    "seoTitle": {
       "required": true,
       "description": "SEO Title",
       "fieldType": "String",
       "dataType": "string",
-      "title": "seoTitle"
+      "title": "SEO Title"
+    },
+    "keywords": {
+      "required": true,
+      "description": "SEO keywords",
+      "fieldType": "String",
+      "dataType": "string",
+      "title": "SEO keywords"
     }
   }
 }
