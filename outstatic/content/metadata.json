@@ -1,6 +1,6 @@
 {
-  "commit": "8d62884f472f7d063e4d7bf7439116ebee0ac8a1",
-  "generated": "2023-11-07T01:34:55.974Z",
+  "commit": "2e4b14578f7d0ac1f28f75f7b9689f4651cc45fd",
+  "generated": "2023-11-07T03:04:23.274Z",
   "metadata": [
     {
       "__outstatic": {
@@ -410,8 +410,8 @@
     },
     {
       "__outstatic": {
-        "commit": "8d62884f472f7d063e4d7bf7439116ebee0ac8a1",
-        "hash": "1998932662",
+        "commit": "2e4b14578f7d0ac1f28f75f7b9689f4651cc45fd",
+        "hash": "1029389025",
         "path": "outstatic/content/posts/mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024.md"
       },
       "author": {
@@ -420,13 +420,13 @@
       },
       "category": "Finance, Fintech, Money Management, Personal Finance",
       "collection": "posts",
-      "coverImage": "",
+      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
       "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
       "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
       "publishedAt": "2023-11-06T13:03:51.632Z",
-      "seoTitle": "this is test title",
+      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
       "slug": "mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024",
-      "status": "draft",
+      "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
     }
   ]
