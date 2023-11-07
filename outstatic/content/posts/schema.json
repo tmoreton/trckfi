@@ -21,7 +21,7 @@
       "description": "SEO Title",
       "fieldType": "String",
       "dataType": "string",
-      "title": "title"
+      "title": "seoTitle"
     }
   }
 }
