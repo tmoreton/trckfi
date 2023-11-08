@@ -2,6 +2,7 @@ import { eventTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import prisma from '../lib/prisma';
 import { DateTime } from "luxon"
+import { icons } from '../lib/categories'
 
 client.defineJob({
   id: "import-csv",
@@ -21,8 +22,8 @@ client.defineJob({
         name: i.name,
         merchant_name: i.name,
         account_name: i.account_name,
-        primary_category: category,
-        detailed_category: 'CSV_IMPORT',
+        primary_category: 'CSV_IMPORT',
+        detailed_category: category,
         category: [i.primary_category],
         date,
         authorized_date: dt.toISO(),
@@ -36,6 +37,7 @@ client.defineJob({
         year: dt.toFormat('yyyy'),
         month_year: dt.toFormat('yyyy-MM'),
         week_year: `${dt.toFormat('yyyy')}-${dt.weekNumber}`,
+        unified: icons[category] || '1f4e4'
       }
 
       const transaction = await prisma.transactions.findFirst({
