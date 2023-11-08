@@ -36,8 +36,8 @@ client.defineJob({
         pending: false,
         active: true,
         currency: 'USD',
-        year: date_array[2],
-        month_year: `${date_array[2]}-${date_array[0]}`,
+        // year: date_array[2],
+        // month_year: `${date_array[2]}-${date_array[0]}`,
         // week_year: `${date_array[2]}-${new_date.weekNumber}`,
       }
 
