@@ -13,7 +13,6 @@ client.defineJob({
   }),
   run: async (payload, io, ctx) => {
     const { rows, user } = payload
-
     rows.map(async i => {      
       let category = i.primary_category?.replaceAll(' ', '_').toUpperCase()
       let dt = DateTime.fromFormat(i.date, 'D')
