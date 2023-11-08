@@ -85,6 +85,10 @@ const Goals = ({ showError }) => {
             </button>
           </div>
         </div>
+        {/* <GoalModal user={user} showError={showError} showGoal={showGoal} setShowGoal={setShowGoal}/>
+        <PinkBtn type="button" onClick={() => setShowGoal(true)}>
+          Add Goal
+        </PinkBtn> */}
       </DashboardLayout>
     </>
   )

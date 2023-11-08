@@ -22,7 +22,7 @@ const dashboardNavigation = [
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Net Worth & Accounts', href: '/accounts' },
   { name: 'Recurring Charges', href: '/recurring' },
-  // { name: 'Goals', href: '/goals'},
+  { name: 'Goals', href: '/goals'},
   { name: 'Profile', href: '/profile' },
 ]
 
