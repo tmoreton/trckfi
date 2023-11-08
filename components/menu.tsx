@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Cog8ToothIcon  } from '@heroicons/react/24/solid'
+import { UserCircleIcon  } from '@heroicons/react/24/solid'
 import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/outline'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
@@ -22,11 +22,11 @@ const dashboardNavigation = [
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Net Worth & Accounts', href: '/accounts' },
   { name: 'Recurring Charges', href: '/recurring' },
-  { name: 'Goals', href: '/goals'},
+  // { name: 'Goals', href: '/goals'},
   { name: 'Profile', href: '/profile' },
 ]
 
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/profile', '/recurring', '/goals', '/calendar']
+const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/profile', '/recurring', '/goals', '/calendar', '/transactions']
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -83,7 +83,7 @@ export default function ({ showError }) {
                         <Link href="/profile">
                           <Menu.Button className="flex items-center">
                             <span className="sr-only">Open user menu</span>
-                            <Cog8ToothIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
+                            <UserCircleIcon className="ml-4 h-8 w-8 text-pink-600" aria-hidden="true" />
                           </Menu.Button>
                         </Link>
                       </div>

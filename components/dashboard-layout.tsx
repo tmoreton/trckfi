@@ -14,9 +14,10 @@ import { useRouter } from 'next/router'
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
   { name: 'Dashboard', href: '/dashboard', icon: BanknotesIcon },
+  { name: 'Transactions', href: '/transactions', icon: SparklesIcon },
   { name: 'Net Worth & Accounts', href: '/accounts', icon: ChartBarIcon },
   { name: 'Recurring Charges', href: '/recurring', icon: ArrowPathIcon },
-  { name: 'Goals', href: '/goals', icon: SparklesIcon },
+  // { name: 'Goals', href: '/goals', icon: SparklesIcon },
   { name: 'Profile', href: '/profile', icon: UserCircleIcon },
   { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
 ]
