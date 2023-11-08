@@ -11,7 +11,7 @@ export default async (req, res) => {
   try {
     await client.sendEvent({
       name: "import.csv",
-      payload: { rows, user_id: user.id },
+      payload: { rows, user },
     })
     
     return res.status(200).json({ status: 'OK', complete: true })
