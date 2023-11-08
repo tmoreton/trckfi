@@ -35,13 +35,16 @@ const tiers = [
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
-      '<b>5 Connections</b> (Credit Cards, Savings/Checking, Retirement, Crypto, Stocks, etc.)',
-      'Daily Questions/Answer to Earn Money',
-      'Find Recurring Expenses before they get charged',
+      '<b>5 Connections</b> (financial relationship with a specific bank: credit cards, savings/checking, retirement, loans, mortgage, etc.)',
+      'Add crypto and individual stocks and get automated daily price updates',
+      'Earn rewards by answering daily financial literacy questions and cut your subscription costs',
       'Net Worth Analysis',
-      'Define Custom Rules for Tricky Transactions',
-      'Weekly & Monthly Spend Recaps',
-      'Vision Board & Goal Setting for Manifesting Financial Goals',
+      'Spending insights & transactions lists',
+      'Unlimited custom rules & categories for tricky transactions',
+      'Find recurring expenses before they get charged',
+      'Visualize and track your financial dreams with the Vision Board and Goal Setting Tab',
+      'Manual entry: home value, and non-digital assets (e.g., art, foreign bank accounts, etc.)',
+      'Weekly & monthly spending recaps'
     ],
   },
   {
@@ -60,14 +63,17 @@ const tiers = [
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
-      '<b>Unlimited Connections</b> (Credit Cards, Savings/Checking, Retirement, Crypto, Stocks, etc.)',
-      'Daily Questions/Answer to Earn Money',
-      'Find Recurring Expenses before they get charged',
+      '<b>Unlimited connections</b> (financial relationship with a specific bank: credit cards, savings/checking, retirement, loans, mortgage, etc.)',
+      'Add crypto and individual stocks and get automated daily price updates',
+      'Earn rewards by answering daily financial literacy questions and cut your subscription costs',
       'Net Worth Analysis',
-      'Define Custom Rules for Tricky Transactions',
-      'Weekly & Monthly Spend Recaps',
-      'Vision Board & Goal Setting for Manifesting Financial Goals',
-      '<b>Link User to Collaborate on Your Finances</b>',
+      'Spending insights & transactions lists',
+      'Unlimited custom rules & categories for tricky transactions',
+      'Find recurring expenses before they get charged',
+      'Visualize and track your financial dreams with the Vision Board and Goal Setting Tab',
+      'Manual entry: home value, and non-digital assets (e.g., art, foreign bank accounts, etc.)',
+      'Weekly & monthly spending recaps',
+      '<b>Link collaborators to view your finances</b>',
     ],
   },
 ]
@@ -153,8 +159,8 @@ export default function Pricing ({ showError }) {
                       ))}
                     </RadioGroup>
                   </div>
-                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className={classNames("lg:grid-cols-3 mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                  <div className="mx-auto px-6 lg:px-8">
+                    <div className={classNames("lg:grid-cols-3 mx-auto grid grid-cols-1 gap-8")}>
                       <div className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
                         <div>
                           <h3 className="text-base font-semibold leading-7 text-pink-600">

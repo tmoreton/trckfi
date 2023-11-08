@@ -9,6 +9,7 @@ import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import BarChart from '../pages/transactions/bar-chart'
 
 export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker, setShowImport }) {
   if (!data || !columns) return null
@@ -148,6 +149,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
   }
   return (
     <>
+      
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="flex h-12 items-center space-x-3 justify-center">
         { !selected.length && datePicker()}
@@ -235,6 +237,8 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         }
         </div>
       </div>
+      
+      <BarChart rows={rows}/>
 
       <div className="w-full overflow-scroll sm:overflow-auto transaction-step">
         <table className="lg:table-auto sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>

@@ -51,6 +51,7 @@ import {
   }
 
   export default function ({ history }) {
+    
     const data = {
       labels: history.map(i => i.date),
       datasets: [
@@ -98,6 +99,7 @@ import {
         },
       ],
     };
+    console.log(data)
     return <Bar options={options} data={data} />;
   }
   
