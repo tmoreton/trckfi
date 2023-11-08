@@ -11,7 +11,7 @@ client.defineJob({
     name: "import.csv"
   }),
   run: async (payload, io, ctx) => {
-    const { rows, user_id } = payload
+    const { rows, user } = payload
 
     rows.map(async i => {      
       let category = i.primary_category?.replaceAll(' ', '_').toUpperCase()
@@ -29,7 +29,7 @@ client.defineJob({
         amount: i.type === 'credit' ? Number(-i.amount) : Number(i.amount),
         notes: i?.notes,
         tags: i?.labels ? [i.labels.split(" ")] : null,
-        user_id: user_id,
+        user_id: user.id,
         pending: false,
         active: true,
         currency: 'USD',
@@ -42,7 +42,7 @@ client.defineJob({
         where: { 
           date: date,
           amount: Number(i.amount),
-          user_id: user_id
+          user_id: user.id,
         }
       })
 
