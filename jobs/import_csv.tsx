@@ -55,7 +55,7 @@ client.defineJob({
       })
     } catch (e) {
       console.error(e)
-      await io.logger.log('error importing: ', JSON.stringify(e))
+      await io.logger.log('error importing: ', e)
     }
   },
 });
