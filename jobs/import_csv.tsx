@@ -18,6 +18,8 @@ client.defineJob({
       let date = date_array.reverse().join('-')
       let category = i.primary_category.replaceAll(' ', '_').toUpperCase()
       let new_date = DateTime.fromFormat(i.date, 'D')
+      console.log(new_date)
+      console.log(date)
       let data = {
         name: i.name,
         merchant_name: i.name,
@@ -36,7 +38,7 @@ client.defineJob({
         currency: 'USD',
         year: date_array[2],
         month_year: `${date_array[2]}-${date_array[0]}`,
-        week_year: `${date_array[2]}-${new_date.weekNumber}`,
+        // week_year: `${date_array[2]}-${new_date.weekNumber}`,
       }
 
       const transaction = await prisma.transactions.findFirst({
