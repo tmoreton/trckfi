@@ -13,11 +13,10 @@ client.defineJob({
   run: async (payload, io, ctx) => {
     const { rows, user_id } = payload
 
-    rows.map(async i => {
-      let date_array = i.date.split('/')
-      let date = date_array.reverse().join('-')
+    rows.map(async i => {      
       let category = i.primary_category?.replaceAll(' ', '_').toUpperCase()
-      let new_date = DateTime.fromFormat(i.date, 'D')
+      let dt = DateTime.fromFormat(i.date, 'D')
+      let date = dt.toFormat('yyyy-MM-dd')
       let data = {
         name: i.name,
         merchant_name: i.name,
@@ -26,7 +25,7 @@ client.defineJob({
         detailed_category: 'CSV_IMPORT',
         category: [i.primary_category],
         date,
-        authorized_date: new_date.toISO(),
+        authorized_date: dt.toISO(),
         amount: i.type === 'credit' ? Number(-i.amount) : Number(i.amount),
         notes: i?.notes,
         tags: i?.labels ? [i.labels.split(" ")] : null,
@@ -34,9 +33,9 @@ client.defineJob({
         pending: false,
         active: true,
         currency: 'USD',
-        year: date_array[2],
-        month_year: `${date_array[2]}-${date_array[0]}`,
-        week_year: `${date_array[2]}-${new_date.weekNumber}`,
+        year: dt.toFormat('yyyy'),
+        month_year: dt.toFormat('yyyy-MM'),
+        week_year: `${dt.toFormat('yyyy')}-${dt.weekNumber}`,
       }
 
       const transaction = await prisma.transactions.findFirst({
