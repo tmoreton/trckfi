@@ -13,46 +13,50 @@ client.defineJob({
   run: async (payload, io, ctx) => {
     const { rows, user_id } = payload
 
-    rows.map(async i => {
-      let date_array = i.date.split('/')
-      let date = date_array.reverse().join('-')
-      let category = i.primary_category.replaceAll(' ', '_').toUpperCase()
-      let new_date = DateTime.fromFormat(i.date, 'D')
-      console.log(new_date)
-      console.log(date)
-      let data = {
-        name: i.name,
-        merchant_name: i.name,
-        account_name: i.account_name,
-        primary_category: category,
-        detailed_category: 'CSV_IMPORT',
-        category: [i.primary_category],
-        date,
-        authorized_date: new_date.toISO(),
-        amount: i.type === 'credit' ? Number(-i.amount) : Number(i.amount),
-        notes: i?.notes,
-        tags: i?.labels ? [i.labels.split(" ")] : null,
-        user_id: user_id,
-        pending: false,
-        active: true,
-        currency: 'USD',
-        // year: date_array[2],
-        // month_year: `${date_array[2]}-${date_array[0]}`,
-        // week_year: `${date_array[2]}-${new_date.weekNumber}`,
-      }
-
-      const transaction = await prisma.transactions.findFirst({
-        where: { 
-          date: date,
-          amount: Number(i.amount),
-          user_id: user_id
+    try {
+      rows.map(async i => {
+        let date_array = i.date.split('/')
+        let date = date_array.reverse().join('-')
+        let category = i.primary_category?.replaceAll(' ', '_').toUpperCase()
+        console.log(date)
+        await io.logger.log(date_array)
+        let data = {
+          name: i.name,
+          merchant_name: i.name,
+          account_name: i.account_name,
+          primary_category: category,
+          detailed_category: 'CSV_IMPORT',
+          category: [i.primary_category],
+          date,
+          authorized_date: DateTime.fromFormat(i.date, 'D').toISO(),
+          amount: i.type === 'credit' ? Number(-i.amount) : Number(i.amount),
+          notes: i?.notes,
+          tags: i?.labels ? [i.labels?.split(" ")] : null,
+          user_id: user_id,
+          pending: false,
+          active: true,
+          currency: 'USD',
+          // year: date_array[2],
+          // month_year: `${date_array[2]}-${date_array[0]}`,
+          // week_year: `${date_array[2]}-${new_date.weekNumber}`,
+        }
+  
+        const transaction = await prisma.transactions.findFirst({
+          where: { 
+            date: date,
+            amount: Number(i.amount),
+            user_id: user_id
+          }
+        })
+  
+        if(!transaction?.id) {
+          await prisma.transactions.create({ data })
         }
       })
-
-      if(!transaction?.id) {
-        await prisma.transactions.create({ data })
-      }
-    })
+    } catch (e) {
+      console.error(e)
+      await io.logger.log('error importing: ', JSON.stringify(e))
+    }
   },
 });
 
