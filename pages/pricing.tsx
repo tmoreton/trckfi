@@ -159,8 +159,8 @@ export default function Pricing ({ showError }) {
                       ))}
                     </RadioGroup>
                   </div>
-                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className={classNames("lg:grid-cols-3 mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-5xl")}>
+                  <div className="mx-auto px-6 lg:px-8">
+                    <div className={classNames("lg:grid-cols-3 mx-auto grid grid-cols-1 gap-8")}>
                       <div className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
                         <div>
                           <h3 className="text-base font-semibold leading-7 text-pink-600">
