@@ -51,9 +51,16 @@ import {
   }
 
   export default function ({ history }) {
-    
+    let labels = history.map(i => i.date)
+    // let future = [1, 5, 10, 15, 20, 25, 30, 35, 40]
+    // const compoundInterest = (p, t, r, n) => {
+    //   const amount = p * (Math.pow((1 + (r / n)), (n * t)));
+    //   const interest = amount - p;
+    //   return interest;
+    // };
+
     const data = {
-      labels: history.map(i => i.date),
+      labels: labels,
       datasets: [
         {
           label: category_colors.auto.name,
@@ -99,7 +106,6 @@ import {
         },
       ],
     };
-    console.log(data)
     return <Bar options={options} data={data} />;
   }
   

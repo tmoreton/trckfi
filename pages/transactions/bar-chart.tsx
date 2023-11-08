@@ -8,8 +8,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { DateTime } from "luxon"
-import { transaction } from '@tldraw/tldraw';
 
 ChartJS.register(
   CategoryScale,
