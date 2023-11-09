@@ -150,7 +150,7 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "Amount",
       id: "amount",
       accessor: "amount",
-      Cell: ({ cell: { value } }) => value > 0 ? <span className="text-green-600 text-md">{addComma(value)}</span> : <span className="text-red-600 font-semibold text-md">{addComma(value)}</span>,
+      Cell: ({ cell: { value } }) => value > 0 ? <span className="text-green-600 font-bold">{addComma(value)}</span> : <span className="text-red-600 font-semibold text-md">{addComma(value)}</span>,
       style: "w-1/12 py-3.5 text-left font-semibold px-2",
       Filter: TextSearchFilter
     }, 
