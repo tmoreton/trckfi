@@ -20,7 +20,6 @@ const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
-  const { intro } = router.query
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [openDatePicker, setDatePicker] = useState(false)
@@ -29,7 +28,7 @@ const Dashboard = ({ showError, showIntro }) => {
   const [transactions, setTransactions] = useLocalStorage('transactions',null)
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
-    endDate: DateTime.now().minus({ months: 3 }).startOf('month').toISO()
+    endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
   
   useEffect(() => {
