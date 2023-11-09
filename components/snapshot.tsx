@@ -1,5 +1,5 @@
 import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChartBarIcon, BanknotesIcon } from '@heroicons/react/20/solid'
-import { addComma, diffNum } from '../lib/lodash'
+import { addComma, diffNum, commaShort } from '../lib/lodash'
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -77,9 +77,9 @@ export default function ({ totalStats }) {
           </dt>
           <dd className="ml-16 flex items-baseline justify-between">
               <div>
-                <p className="text-sm font-semibold pb-1.5 text-gray-500">Current Balance: <span className="text-red-600 text-md">${accountBalance?.current}</span></p>
-                <p className="text-sm font-semibold pb-1.5 text-gray-500">Available Credit: <span className="text-green-600 text-md">${accountBalance?.available}</span></p>
-                <p className="text-sm font-semibold text-gray-500">Total Credit Limit: <span className="text-red-600 text-md">${accountBalance?.limit}</span></p>
+                <p className="text-sm font-semibold pb-1.5 text-gray-500">Current Balance: <span className="text-red-600 text-md">{accountBalance?.current && commaShort(accountBalance?.current)}</span></p>
+                <p className="text-sm font-semibold pb-1.5 text-gray-500">Available Credit: <span className="text-green-600 text-md">{accountBalance?.available && commaShort(accountBalance?.available)}</span></p>
+                <p className="text-sm font-semibold text-gray-500">Total Credit Limit: <span className="text-red-600 text-md">{accountBalance?.limit && commaShort(accountBalance?.limit)}</span></p>
               </div>
           </dd>
         </div>
