@@ -133,8 +133,8 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         return (
           <>
             <div className="flex">
-              <p className="font-bold">{column.render("Header")}</p>
-              <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200 text-xs">
+              <p className="font-bold text-sm">{column.render("Header")}</p>
+              <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                 <ChevronDownIcon 
                   {...column.getHeaderProps(column.getSortByToggleProps())} 
                   className="h-5 w-5" 
