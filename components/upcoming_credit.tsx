@@ -20,7 +20,7 @@ export default function ({ payments }) {
       <div className="grid grid-cols-4 text-sm font-semibold text-gray-500 mt-5">
         <div className="col-span-2">Bank</div>
         <div>Last Amount</div>
-        <div className="col text-left">Upcoming In</div>
+        <div className="col text-left">Upcoming</div>
       </div>
       <hr className="my-2"/>
       {payments && payments.map((r, eventIdx) => (
@@ -35,7 +35,7 @@ export default function ({ payments }) {
               : 'text-red-600',
             'font-bold col-span-1'
           )}>{commaShort(r.average_amount)}</div>
-          <div className="col-span-1 text-left"><b>{diff(r.upcoming_date)}</b> days</div>
+          <div className="col-span-1 text-left"><span className="text-xs pr-1">approx.</span><b>{diff(r.upcoming_date)}</b> days</div>
         </div>
       ))}
     </div>
