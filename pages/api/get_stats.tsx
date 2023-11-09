@@ -105,13 +105,20 @@ export default async (req, res) => {
       },
     })
 
-    // let accountBalance ={}
-    // accounts.map(item => {
-    //   console.log(item)
-    //   net_worth = {...accountBalance, item?.details};
-    // })
-    // console.log(accountBalance)
-
+    let accountBalance ={
+      limit: 0,
+      current: 0,
+      available: 0
+    }
+    accounts.map(item => {
+      // @ts-ignore
+      let { limit, current, available} = item?.details
+      if(limit > 0){
+        accountBalance.limit += Number(limit)
+        accountBalance.current += Number(current)
+        accountBalance.available += Number(available)
+      }
+    })
 
     let this_month = DateTime.now().startOf('month')
     let last_month = DateTime.now().minus({ months: 1 }).startOf('month')
@@ -127,7 +134,8 @@ export default async (req, res) => {
       lastMonthString: last_month.monthLong,
       lastMonthIncome: lastMonthIncome?._sum?.amount || 0,
       thisMonthIncome: thisMonthIncome?._sum?.amount || 0,
-      netWorth: net_worth
+      netWorth: net_worth,
+      accountBalance
     }
 
     return res.status(200).json({ stats })

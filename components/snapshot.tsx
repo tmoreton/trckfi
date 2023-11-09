@@ -7,7 +7,7 @@ const classNames = (...classes) => {
 
 export default function ({ totalStats }) {
   if (!totalStats) return null
-  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, netWorth } = totalStats
+  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, netWorth, accountBalance } = totalStats
   let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
 
   return (
@@ -68,7 +68,21 @@ export default function ({ totalStats }) {
             </div> */}
           </dd>
         </div>
-        
+        <div className="savings-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-4 rounded-md border-b border border-gray-200">
+          <dt>
+            <div className="absolute">
+              <BanknotesIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
+            </div>
+            {/* <p className="ml-16 truncate text-sm font-medium text-gray-500">Total Credit</p> */}
+          </dt>
+          <dd className="ml-16 flex items-baseline justify-between">
+              <div>
+                <p className="text-sm font-semibold pb-1.5 text-gray-500">Current Balance: <span className="text-red-600 text-md">${accountBalance.current}</span></p>
+                <p className="text-sm font-semibold pb-1.5 text-gray-500">Available Credit: <span className="text-green-600 text-md">${accountBalance.available}</span></p>
+                <p className="text-sm font-semibold text-gray-500">Total Credit Limit: <span className="text-red-600 text-md">${accountBalance.limit}</span></p>
+              </div>
+          </dd>
+        </div>
 
       </dl>
 
