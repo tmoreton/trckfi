@@ -11,10 +11,20 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import BarChart from '../pages/transactions/bar-chart'
 
+const stats = [
+  { name: 'Revenue', value: '$405,091.00', change: '+4.75%', changeType: 'positive' },
+  { name: 'Overdue invoices', value: '$12,787.00', change: '+54.02%', changeType: 'negative' },
+  { name: 'Expenses', value: '$30,156.00', change: '+10.18%', changeType: 'negative' },
+]
+
 export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker, setShowImport }) {
   if (!data || !columns) return null
   const today = DateTime.now().toFormat('yyyy-LL-dd')
-  const [sum, setSum] = useState(0)
+  const [total, setSum] = useState({
+    sum: 0,
+    income: 0,
+    expenses: 0
+  })
   const [count, setCount] = useState(0)
   const [showEmoji, setShowEmoji] = useState(false)
   const [emoji, setEmoji] = useState('1f50d')
@@ -56,11 +66,23 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
   useEffect(() => {
     if(rows.length !== count){
       let total = 0
+      let expenses = 0
+      let income = 0
       rows.map((row) => {
+        if(row.values.amount > 0){
+          income += Number(row.values.amount)
+        }
+        if(row.values.amount < 0){
+          expenses += Number(row.values.amount)
+        }
         total += Number(row.values.amount)
       })
       setPagination({start: 0, end: 20})
-      setSum(total)
+      setSum({
+        sum: total,
+        expenses,
+        income
+      })
       setCount(rows.length)
     }
   }, [rows])
@@ -107,26 +129,36 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           </div>
         )
       case 'Download': return null
+      case 'Date': return (
+        <div className="flex">
+          <p className="font-bold">{column.render("Header")}</p>
+          <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+            <ChevronDownIcon
+              {...column.getHeaderProps(column.getSortByToggleProps())} 
+              className="h-5 w-5" 
+              aria-hidden="true"
+            />
+          </span>
+        </div>
+      )
       case 'Amount':
         return (
-          <div className="min-w-[110px]">
-            <div className="flex">
-              <p className="font-bold">{column.render("Header")}</p>
-              <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                <ChevronDownIcon
-                  {...column.getHeaderProps(column.getSortByToggleProps())} 
-                  className="h-5 w-5" 
-                  aria-hidden="true"
-                />
-              </span>
-            </div>
-            <p className="text-lg font-semibold text-pink-600 mt-5">{addComma(sum)}</p>
-            <p className="text-xs font-gray-300 font-extralight pt-1">({rows.length} items)</p>
+          <div className="flex">
+            <div></div>
+            <p className="font-bold">{column.render("Header")}</p>
+            <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+              <ChevronDownIcon
+                {...column.getHeaderProps(column.getSortByToggleProps())} 
+                className="h-5 w-5" 
+                aria-hidden="true"
+              />
+            </span>
           </div>
         )
       default:
         return (
           <>
+            <div>{column.canFilter ? column.render("Filter") : null}</div>
             <div className="flex">
               <p className="font-bold">{column.render("Header")}</p>
               <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
@@ -137,12 +169,13 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                 />
               </span>
             </div>
-            <input
+            
+            {/* <input
               onChange={(e) => setFilter(column.id, e.target.value)}
               placeholder={`Filter ${column.render("Header")}`}
               className="w-full font-normal rounded p-2 my-4 focus:outline-none pink-border"
               value={column.filterValue}
-            />
+            /> */}
           </>
         )
     }    
@@ -150,7 +183,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
   return (
     <>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
-      <div className="flex h-12 items-center space-x-3 justify-center">
+      <div className="flex h-12 items-center space-x-3 justify-center pb-6">
         { !selected.length && datePicker()}
         <div>
         { selected.length ?
@@ -237,8 +270,50 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto">
-        <BarChart rows={rows}/>
+      <div className="mx-auto grid max-w-2xl grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
+        <div className="col-span-3 px-3 shadow-sm rounded-md border border-gray-200">
+          <BarChart rows={rows}/>
+        </div>
+        <div className="col-span-1 shadow-sm rounded-md border border-gray-200">
+
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
+            <p className="text-md font-medium leading-6 text-gray-500">Total</p>
+            <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
+              {addComma(total.sum)}
+            </p>
+          </div>
+
+          <div className="px-5">
+            <hr />
+          </div>
+          
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
+            <p className="text-md font-medium leading-6 text-gray-500">Income</p>
+            <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-green-600">
+              {addComma(total.income)}
+            </p>
+          </div>
+
+          <div className="px-5">
+            <hr />
+          </div>
+
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
+            <p className="text-md font-medium leading-6 text-gray-500">Expenses</p>
+            <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-red-600">
+              {addComma(total.expenses)}
+            </p>
+          </div>
+
+          <div className="px-5">
+            <hr />
+          </div>
+
+          <div className="gap-x-4 gap-y-2 bg-white px-4 py-5 sm:px-6 xl:px-8 rounded-md">
+            <p className="text-md font-medium leading-6 text-gray-900">{rows.length} Transactions</p>
+          </div>
+
+        </div>
       </div>
 
       <div className="w-full overflow-scroll sm:overflow-auto transaction-step">

@@ -79,6 +79,7 @@
     "react-dom": "^18.2.0",
     "react-plaid-link": "^3.4.0",
     "react-table": "^7.8.0",
+    "react-tag-input": "^6.8.1",
     "recharts": "^2.7.2",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",

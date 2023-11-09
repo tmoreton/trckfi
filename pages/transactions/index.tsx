@@ -12,6 +12,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage'
 import Menu from '../../components/menu'
 import Notification from '../../components/notification'
 import ImportModal from '../../components/modals/import-modal'
+import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
@@ -89,19 +90,22 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "sort",
       accessor: data => data,
       Cell: ({ cell: { value } }) => <input className="mr-3" checked={selected?.find(e => e.id === value.id)} onChange={e => updateSelect(e, value)} type="checkbox"/>,
-      style: ""
+      style: "",
+      Filter: TextSearchFilter,
     },
     {
       Header: "unified",
       accessor: data => data.unified,
       Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
-      style: ""
+      style: "",
+      Filter: DropdownFilter
     },
     {
       Header: "Name",
       id: "name",
       accessor: data => data.custom_name || data.merchant_name || data.name,
-      style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
+      style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      Filter: TextSearchFilter
     },
     {
       Header: "Account",
@@ -113,39 +117,60 @@ const Dashboard = ({ showError, showIntro }) => {
         }
         return value.row.original.account_name
       },
-      style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
+      style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      Filter: DropdownFilter
     },
     {
-      Header: "Category",
-      id: "category",
-      accessor: data => data.primary_category+'+'+data.detailed_category,
-      Cell: ({ cell: { value } }) => (
-        <>
-          <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[0]}</span>
-          <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[1]}</span>
-        </>
-      ),
-      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2"
+      Header: "Primary Category",
+      id: "primary_category",
+      accessor: data => data.primary_category,
+      Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
+      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      Filter: DropdownFilter
     },
+    {
+      Header: "Detailed Category",
+      id: "detailed_category",
+      accessor: data => data.detailed_category,
+      Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
+      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      Filter: DropdownFilter
+    },
+    // {
+    //   Header: "Category",
+    //   id: "category",
+    //   accessor: data => data.primary_category+'+'+data.detailed_category,
+    //   Cell: ({ cell: { value } }) => (
+    //     <>
+    //       <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[0]}</span>
+    //       <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[1]}</span>
+    //     </>
+    //   ),
+    //   style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+    //   Filter: DropdownFilter
+    // },
     {
       Header: "Date",
       id: "date",
       accessor: "date",
-      style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+      style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      Filter: TextSearchFilter
     },
     {
       Header: "Amount",
       id: "amount",
       accessor: "amount",
       Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2),
-      style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900 px-2"
+      style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      Filter: DropdownFilter
     }, 
     {
       Header: 'Download',
       id: 'id',
       accessor: data => data,
       Cell: ({ cell: { value } }) => selected.length <= 0 && <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
-      style: "text-center w-8"
+      style: "text-center w-8",
+      Filter: DropdownFilter
     }
   ]
 
