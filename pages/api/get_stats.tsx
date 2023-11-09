@@ -98,6 +98,21 @@ export default async (req, res) => {
       net_worth = netWorth[0].stats
     }
 
+    let accounts = await prisma.accounts.findMany({
+      where: {
+        OR: query,
+        subtype: 'credit card',
+      },
+    })
+
+    // let accountBalance ={}
+    // accounts.map(item => {
+    //   console.log(item)
+    //   net_worth = {...accountBalance, item?.details};
+    // })
+    // console.log(accountBalance)
+
+
     let this_month = DateTime.now().startOf('month')
     let last_month = DateTime.now().minus({ months: 1 }).startOf('month')
     let thisMonthTotal = groupByMonth.find(m => m.month_year === this_month.toFormat('yyyy-LL'))
