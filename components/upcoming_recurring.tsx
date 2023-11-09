@@ -35,7 +35,7 @@ export default function ({ recurring }) {
                 ? 'text-green-600'
                 : 'text-red-600',
               'font-bold col-span-1'
-            )}>{commaShort(r.average_amount)}</div>
+            )}>≈ {commaShort(r.average_amount)}</div>
             <div className="col-span-1 text-left"><b>{diff(r.upcoming_date)}</b> days</div>
           </div>
         ))}
