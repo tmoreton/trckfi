@@ -126,14 +126,10 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
       default:
         return (
           <>
-            <div className="flex">
+            <div className="flex" {...column.getHeaderProps(column.getSortByToggleProps())} >
               <p className="font-bold text-sm">{column.render("Header")}</p>
               <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                <ChevronDownIcon 
-                  {...column.getHeaderProps(column.getSortByToggleProps())} 
-                  className="h-5 w-5" 
-                  aria-hidden="true"
-                />
+                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
               </span>
             </div>
             <div>{column.canFilter ? column.render("Filter") : null}</div>
@@ -303,9 +299,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map(cell => {
-                    if(cell.column.Header === 'Amount' && cell.value > 0){
-                      return (<td className="overflow-hidden px-1 py-2 text-xs font-semibold text-green-600" {...cell.getCellProps()}>{cell.render("Cell")}</td>);
-                    } else if (cell.column.Header === 'Name'){
+                    if (cell.column.Header === 'Name'){
                       return (
                         <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
                           <span className="flex" >{cell.render("Cell")} 
