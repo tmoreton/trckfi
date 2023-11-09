@@ -7,7 +7,7 @@ import { addComma } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import BarChart from '../pages/transactions/bar-chart'
 
@@ -129,39 +129,26 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           </div>
         )
       case 'Download': return null
-      case 'Date': return (
-        <div className="flex">
-          <p className="font-bold">{column.render("Header")}</p>
-          <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-            <ChevronDownIcon
-              {...column.getHeaderProps(column.getSortByToggleProps())} 
-              className="h-5 w-5" 
-              aria-hidden="true"
-            />
-          </span>
-        </div>
-      )
-      case 'Amount':
-        return (
-          <div className="flex">
-            <div></div>
-            <p className="font-bold">{column.render("Header")}</p>
-            <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-              <ChevronDownIcon
-                {...column.getHeaderProps(column.getSortByToggleProps())} 
-                className="h-5 w-5" 
-                aria-hidden="true"
-              />
-            </span>
-          </div>
-        )
+      // case 'Amount':
+      //   return (
+      //     <div className="flex">
+      //       <div></div>
+      //       <p className="font-bold">{column.render("Header")}</p>
+      //       <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+      //         <ChevronDownIcon
+      //           {...column.getHeaderProps(column.getSortByToggleProps())} 
+      //           className="h-5 w-5" 
+      //           aria-hidden="true"
+      //         />
+      //       </span>
+      //     </div>
+      //   )
       default:
         return (
           <>
-            <div>{column.canFilter ? column.render("Filter") : null}</div>
             <div className="flex">
               <p className="font-bold">{column.render("Header")}</p>
-              <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+              <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200 text-xs">
                 <ChevronDownIcon 
                   {...column.getHeaderProps(column.getSortByToggleProps())} 
                   className="h-5 w-5" 
@@ -169,6 +156,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                 />
               </span>
             </div>
+            <div>{column.canFilter ? column.render("Filter") : null}</div>
             
             {/* <input
               onChange={(e) => setFilter(column.id, e.target.value)}

@@ -7,7 +7,7 @@ export function TextSearchFilter({
   return (
     <input
       value={filterValue || ""}
-      className="w-full font-normal rounded p-2 my-3 focus:outline-none pink-border"
+      className="w-full font-normal rounded p-2 my-3 focus:outline-none pink-border text-xs"
       onChange={(e) => {
         setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
       }}

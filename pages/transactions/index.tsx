@@ -13,6 +13,8 @@ import Menu from '../../components/menu'
 import Notification from '../../components/notification'
 import ImportModal from '../../components/modals/import-modal'
 import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
+import { addComma } from '../../lib/lodash'
+import { PencilSquareIcon } from '@heroicons/react/20/solid'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
@@ -104,7 +106,7 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "Name",
       id: "name",
       accessor: data => data.custom_name || data.merchant_name || data.name,
-      style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: TextSearchFilter
     },
     {
@@ -117,7 +119,7 @@ const Dashboard = ({ showError, showIntro }) => {
         }
         return value.row.original.account_name
       },
-      style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     {
@@ -125,7 +127,7 @@ const Dashboard = ({ showError, showIntro }) => {
       id: "primary_category",
       accessor: data => data.primary_category,
       Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
-      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     {
@@ -133,7 +135,7 @@ const Dashboard = ({ showError, showIntro }) => {
       id: "detailed_category",
       accessor: data => data.detailed_category,
       Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
-      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
+      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     // {
@@ -153,6 +155,7 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "Date",
       id: "date",
       accessor: "date",
+      Cell: ({ cell: { value } }) => <span>{DateTime.fromISO(value).toFormat('MMM d yyyy')}</span>,
       style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: TextSearchFilter
     },
@@ -160,15 +163,15 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "Amount",
       id: "amount",
       accessor: "amount",
-      Cell: ({ cell: { value } }) => '$' + Number(value).toFixed(2),
-      style: "w-1/12 py-3.5 text-left text-sm font-light text-gray-900 px-2",
-      Filter: DropdownFilter
+      Cell: ({ cell: { value } }) => value > 0 ? <span className="text-green-600 text-md">{addComma(value)}</span> : <span className="text-red-600 font-semibold text-md">{addComma(value)}</span>,
+      style: "w-1/12 py-3.5 text-left font-semibold px-2",
+      Filter: TextSearchFilter
     }, 
     {
       Header: 'Download',
       id: 'id',
       accessor: data => data,
-      Cell: ({ cell: { value } }) => selected.length <= 0 && <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900">Edit</button>,
+      Cell: ({ cell: { value } }) => selected.length <= 0 && <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900"><PencilSquareIcon className="h-4 w-4" /></button>,
       style: "text-center w-8",
       Filter: DropdownFilter
     }
