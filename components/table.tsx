@@ -237,7 +237,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <BarChart rows={rows}/>
       </div>
 
