@@ -8,7 +8,7 @@ export default async (req, res) => {
   const user_id = user?.id
   if (!user_id ) return res.status(500)
   const startDate = DateTime.now().toISO()
-  const endDate = DateTime.now().minus({ months: 12 }).startOf('month').toISO()
+  const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   const { id, linked_user_id } = user
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
@@ -128,7 +128,7 @@ export default async (req, res) => {
         ],
         authorized_date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 13 }).startOf('year').toISO()
+          gte: DateTime.now().minus({ months: 12 }).startOf('year').toISO()
         },
       },
       _sum: {
@@ -150,7 +150,7 @@ export default async (req, res) => {
         pending: false,
         authorized_date: {
           lte: DateTime.now().toISO(),
-          gte: DateTime.now().minus({ months: 13 }).startOf('year').toISO()
+          gte: DateTime.now().minus({ months: 12 }).startOf('year').toISO()
         },
         amount: {
           lte: 0,

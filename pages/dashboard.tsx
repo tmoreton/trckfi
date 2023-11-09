@@ -28,6 +28,9 @@ const Dashboard = ({ showError, showIntro }) => {
         showIntro('dashboard')
       }, 1000)
     }
+    if(!graphData || !totalStats){
+      setRefreshing(true)
+    }
     getDashboard()
     getStats()
   }, [])
@@ -42,6 +45,7 @@ const Dashboard = ({ showError, showIntro }) => {
     })
     const { stats } = await res.json()
     setStats(stats)
+    setRefreshing(false)
   }
 
   const getDashboard = async () => {
@@ -54,6 +58,7 @@ const Dashboard = ({ showError, showIntro }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
+    setRefreshing(false)
     showError(error)
     setGraphData(data)
   }
