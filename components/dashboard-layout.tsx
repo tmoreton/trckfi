@@ -2,18 +2,20 @@ import Container from './container'
 import {
   ChartBarIcon,
   UserCircleIcon,
-  BanknotesIcon,
+  HomeIcon,
   SparklesIcon,
   ChatBubbleLeftEllipsisIcon,
   CloudIcon,
-  ArrowPathIcon
+  ArrowPathIcon,
+  CreditCardIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
-  { name: 'Dashboard', href: '/dashboard', icon: BanknotesIcon },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
+  { name: 'Transactions', href: '/transactions', icon: CreditCardIcon },
   { name: 'Net Worth & Accounts', href: '/accounts', icon: ChartBarIcon },
   { name: 'Recurring Charges', href: '/recurring', icon: ArrowPathIcon },
   { name: 'Goals', href: '/goals', icon: SparklesIcon },

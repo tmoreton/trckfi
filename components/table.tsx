@@ -238,7 +238,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
       </div>
       
-      {/* <BarChart rows={rows}/> */}
+      <BarChart rows={rows}/>
 
       <div className="w-full overflow-scroll sm:overflow-auto transaction-step">
         <table className="lg:table-auto sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>

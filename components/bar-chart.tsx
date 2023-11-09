@@ -119,7 +119,7 @@ export default function ({ graphData }) {
       })
     }
   }
-
+  console.log(data)
   return (
     <>
       <div className="border-b border-gray-200 mb-8">
@@ -143,5 +143,4 @@ export default function ({ graphData }) {
       <Bar options={options} data={data} />
     </>
   )
-  
 }

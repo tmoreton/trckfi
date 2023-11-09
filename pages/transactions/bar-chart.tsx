@@ -39,49 +39,57 @@ export const options = {
   },
 };
 
-const colors = [
-  '#36a2eb',
-  '#9ad0f5',
-  '#ff6384',
-  '#ffb1c1',
-  '#4bc0c0',
-  '#a5dfdf',
-  '#ffcd56',
-  '#ffe19a',
-  '#9966ff',
-  '#b199e7',
-  '#bdb2db',
-  '#c9cbcf'
-]
+const months = {
+  '01': 'Jan',
+  '02': 'Feb',
+  '03': 'Mar',
+  '04': 'Apr',
+  '05': 'May',
+  '06': 'Jun',
+  '07': 'Jul',
+  '08': 'Aug',
+  '09': 'Sep',
+  '10': 'Oct',
+  '11': 'Nov',
+  '12': 'Dec',
+}
 export default function ({ rows }) {
-  let datasets = []
-  // @ts-ignore
-  const grouped_by_date = Object.groupBy(rows, (t) => t?.original?.month_year)
-  const labels = Object.keys(grouped_by_date)
-  // @ts-ignore
-  const grouped_by_category = Object.groupBy(rows, (t) => t?.original?.detailed_category)
-  const detailed_category = Object.keys(grouped_by_category)
+  let income_array = []
+  let expense_array = []
 
-
-  datasets = detailed_category.map((e, key) => {
-    let arr = []
-    grouped_by_category[e].map(t => {
-      if(t.original && t.original.detailed_category === e){
-        arr.push(t.original.amount)
-      }
-      arr.push(0)
-    })
-    return {
-      label: e,
-      data: arr,
-      backgroundColor: colors[key]
-    }
+  // @ts-ignore
+  const grouped_by_date = Object.groupBy(rows, (t) => {
+    let arr = t?.original?.month_year.split('-')
+    return `${months[arr[1]]} ${arr[0]}`
   })
+  const labels = Object.keys(grouped_by_date)
 
-  console.log(datasets)
+  Object.keys(grouped_by_date).forEach(row => {
+    let income = 0
+    let expense = 0
+    grouped_by_date[row].forEach(i => {
+      if(i.original.amount > 0){
+        income += Number(i.original.amount)
+      } else {
+        expense += Number(i.original.amount)
+      }
+    })
+    income_array.push(income)
+    expense_array.push(expense)
+  })
 
   return <Bar options={options} data={{
     labels: labels.reverse(),
-    datasets
+    datasets: [
+      {
+        label: 'Income',
+        data: income_array,
+        backgroundColor: '#009c7b'
+      },{
+        label: 'Expenses',
+        data: expense_array,
+        backgroundColor: '#ff6384'
+      }
+    ]
   }} />;
 }
