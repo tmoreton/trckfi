@@ -13,16 +13,16 @@ export default async (req, res) => {
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
   try {
-    let activeAccounts = await prisma.accounts.findMany({
-      where: {
-        OR: query,
-        active: true,
-      },
-      select: {
-        id: true,
-      },
-    })
-    let ids = activeAccounts.map(i => i.id)
+    // let activeAccounts = await prisma.accounts.findMany({
+    //   where: {
+    //     OR: query,
+    //     active: true,
+    //   },
+    //   select: {
+    //     id: true,
+    //   },
+    // })
+    // let ids = activeAccounts.map(i => i.id)
 
     let groupByWeek = await prisma.transactions.groupBy({
       by: ['week_year'],
@@ -263,6 +263,56 @@ export default async (req, res) => {
       },
     })
 
+    let recurring = await prisma.recurring.findMany({
+      where: {
+        OR: query,
+        active: true,
+        is_active: true,
+        status: 'MATURE',
+        upcoming_date: {
+          gte: startDate
+        },
+        NOT: [
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { upcoming_date : null }
+        ],
+      },
+      orderBy: {
+        upcoming_date: 'asc'
+      },
+      take: 5,
+      select: {
+        unified: true,
+        average_amount: true,
+        custom_name: true,
+        merchant_name: true,
+        name: true,
+        upcoming_date: true,
+      },
+    })
+
+    let creditPayments = await prisma.recurring.findMany({
+      where: {
+        OR: query,
+        active: true,
+        is_active: true,
+        upcoming_date: {
+          gte: startDate
+        },
+        primary_category: 'LOAN_PAYMENTS',
+        NOT: [
+          { upcoming_date : null }
+        ],
+      },
+      include: {
+        account: true
+      },
+      orderBy: {
+        upcoming_date: 'asc'
+      },
+      take: 5
+    })
+
     return res.status(200).json({ data: {
       categories,
       detailedCategories,
@@ -272,12 +322,13 @@ export default async (req, res) => {
       groupByYearIncome,
       groupByYear,
       yearCategories,
-      yearDetailedCategories
+      yearDetailedCategories,
+      recurring,
+      creditPayments
     }})
   } catch (e) {
     console.error(e)
     slackMessage('Error get_dashboard: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }

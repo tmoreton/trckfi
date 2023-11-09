@@ -10,6 +10,8 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import Menu from '../components/menu'
 import Notification from '../components/notification'
 import { useRouter } from 'next/router'
+import UpcomingRecurring from '../components/upcoming_recurring'
+import UpcomingCredit from '../components/upcoming_credit'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
@@ -17,26 +19,14 @@ const Dashboard = ({ showError, showIntro }) => {
   const router = useRouter()
   const { intro } = router.query
   const [refreshing, setRefreshing] = useState(false)
-  const [item, setEdit] = useState({})
-  const [openDatePicker, setDatePicker] = useState(false)
-  const [showImport, setShowImport] = useState(false)
-  const [selected, setSelected] = useState([])
-  const [transactions, setTransactions] = useLocalStorage('transactions',null)
   const [graphData, setGraphData] = useLocalStorage('graph_data', {})
   const [totalStats, setStats] = useLocalStorage('dashboard_stats', [])
-  const [dates, setDates] = useState({
-    startDate: DateTime.now().toISO(),
-    endDate: DateTime.now().minus({ months: 3 }).startOf('month').toISO()
-  })
   
   useEffect(() => {
     if(intro === 'true'){
       setTimeout(() => {
         showIntro('dashboard')
       }, 1000)
-    }
-    if(!transactions){
-      setRefreshing(true)
     }
     getDashboard()
     getStats()
@@ -75,6 +65,14 @@ const Dashboard = ({ showError, showIntro }) => {
       <DashboardLayout>
         <Snapshot totalStats={totalStats} />
         <Graphs graphData={graphData} />
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
+          <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
+            <UpcomingRecurring recurring={graphData.recurring}/>
+          </div>
+          <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
+            <UpcomingCredit payments={graphData.creditPayments}/>
+          </div>
+        </div>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       </DashboardLayout>
     </div>

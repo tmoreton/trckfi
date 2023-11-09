@@ -32,25 +32,6 @@ export default async (req, res) => {
       },
     })
     // transactions = transactions.filter(t => t.account?.active)
-    
-    // const barData = await prisma.transactions.groupBy({
-    //   by: ['month_year', 'detailed_category'],
-    //   where: {
-    //     OR: query,
-    //     active: true,
-    //     pending: false,
-    //     authorized_date: {
-    //       lte: range.startDate,
-    //       gte: range.endDate
-    //     },
-    //     NOT: [
-    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
-    //     ],
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    // })
 
     return res.status(200).json({ data: transactions })
   } catch (e) {

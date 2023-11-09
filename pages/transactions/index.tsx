@@ -1,25 +1,21 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from "../../components/dashboard-layout"
-import Snapshot from "../../components/snapshot"
 import LoadingModal from '../../components/modals/loading-modal'
 import Table from '../../components/table'
 import TransactionModal from '../../components/modals/transaction-modal'
 import DatePicker from '../../components/modals/date-picker-modal'
 import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
-import Graphs from '../../components/graphs'
 import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../../utils/useLocalStorage'
 import Menu from '../../components/menu'
 import Notification from '../../components/notification'
-import { useRouter } from 'next/router'
 import ImportModal from '../../components/modals/import-modal'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
   const user = session?.user
-  const router = useRouter()
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
   const [openDatePicker, setDatePicker] = useState(false)
