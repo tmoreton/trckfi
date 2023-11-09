@@ -312,7 +312,7 @@ export default async (req, res) => {
       },
       take: 5
     })
-
+    
     return res.status(200).json({ data: {
       categories,
       detailedCategories,
@@ -324,7 +324,7 @@ export default async (req, res) => {
       yearCategories,
       yearDetailedCategories,
       recurring,
-      creditPayments
+      creditPayments,
     }})
   } catch (e) {
     console.error(e)

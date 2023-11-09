@@ -80,6 +80,24 @@ export default async (req, res) => {
       },
     })
 
+    let netWorth = await prisma.netWorth.findMany({
+      where: {
+        OR: query,
+      },
+      orderBy: {
+        created_at: 'asc'
+      },
+      take: 2
+    })    
+
+    let net_worth = {}
+    if(netWorth[0].user_id !== netWorth[1].user_id){
+      // @ts-ignore
+      net_worth = {...netWorth[0].stats, ...netWorth[1].stats};
+    } else {
+      net_worth = netWorth[0].stats
+    }
+
     let this_month = DateTime.now().startOf('month')
     let last_month = DateTime.now().minus({ months: 1 }).startOf('month')
     let thisMonthTotal = groupByMonth.find(m => m.month_year === this_month.toFormat('yyyy-LL'))
@@ -93,7 +111,8 @@ export default async (req, res) => {
       thisMonthString: this_month.monthLong,
       lastMonthString: last_month.monthLong,
       lastMonthIncome: lastMonthIncome?._sum?.amount || 0,
-      thisMonthIncome: thisMonthIncome?._sum?.amount || 0
+      thisMonthIncome: thisMonthIncome?._sum?.amount || 0,
+      netWorth: net_worth
     }
 
     return res.status(200).json({ stats })
