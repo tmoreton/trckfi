@@ -32,9 +32,15 @@ export const options = {
   scales: {
     x: {
       stacked: true,
+      grid: {
+        display: false
+      }
     },
     y: {
       stacked: true,
+      grid: {
+        display: false
+      }
     },
   },
 };
@@ -57,8 +63,13 @@ export default function ({ rows }) {
   let income_array = []
   let expense_array = []
 
+  let sorted = rows.sort((a,b) => {
+    // @ts-ignore
+    return new Date(b.original.date) - new Date(a.original.date);
+  });
+
   // @ts-ignore
-  const grouped_by_date = Object.groupBy(rows, (t) => {
+  const grouped_by_date = Object.groupBy(sorted, (t) => {
     let arr = t?.original?.month_year.split('-')
     return `${months[arr[1]]} ${arr[0]}`
   })
@@ -90,6 +101,6 @@ export default function ({ rows }) {
         data: expense_array,
         backgroundColor: '#ff6384'
       }
-    ]
+    ],
   }} />;
 }

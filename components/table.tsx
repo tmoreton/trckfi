@@ -149,7 +149,6 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
   }
   return (
     <>
-      
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="flex h-12 items-center space-x-3 justify-center">
         { !selected.length && datePicker()}
@@ -237,8 +236,10 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         }
         </div>
       </div>
-      
-      <BarChart rows={rows}/>
+
+      <div className="max-w-4xl mx-auto">
+        <BarChart rows={rows}/>
+      </div>
 
       <div className="w-full overflow-scroll sm:overflow-auto transaction-step">
         <table className="lg:table-auto sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
