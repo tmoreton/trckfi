@@ -129,20 +129,6 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           </div>
         )
       case 'Download': return null
-      // case 'Amount':
-      //   return (
-      //     <div className="flex">
-      //       <div></div>
-      //       <p className="font-bold">{column.render("Header")}</p>
-      //       <span className="ml-2 rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-      //         <ChevronDownIcon
-      //           {...column.getHeaderProps(column.getSortByToggleProps())} 
-      //           className="h-5 w-5" 
-      //           aria-hidden="true"
-      //         />
-      //       </span>
-      //     </div>
-      //   )
       default:
         return (
           <>

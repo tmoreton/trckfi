@@ -127,7 +127,7 @@ const Dashboard = ({ showError, showIntro }) => {
       id: "primary_category",
       accessor: data => data.primary_category,
       Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
-      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      style: "min-w-[200px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     {
@@ -135,27 +135,14 @@ const Dashboard = ({ showError, showIntro }) => {
       id: "detailed_category",
       accessor: data => data.detailed_category,
       Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
-      style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      style: "min-w-[200px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
-    // {
-    //   Header: "Category",
-    //   id: "category",
-    //   accessor: data => data.primary_category+'+'+data.detailed_category,
-    //   Cell: ({ cell: { value } }) => (
-    //     <>
-    //       <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[0]}</span>
-    //       <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value.split('+')[1]}</span>
-    //     </>
-    //   ),
-    //   style: "min-w-[250px] w-1/3 pr-4 py-3.5 text-left text-xs font-light text-gray-900 px-2",
-    //   Filter: DropdownFilter
-    // },
     {
       Header: "Date",
       id: "date",
       accessor: "date",
-      Cell: ({ cell: { value } }) => <span>{DateTime.fromISO(value).toFormat('MMM d yyyy')}</span>,
+      // Cell: ({ cell: { value } }) => <span>{DateTime.fromISO(value).toFormat('MMM d, yyyy')}</span>,
       style: "w-1/12 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: TextSearchFilter
     },
