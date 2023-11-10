@@ -72,10 +72,10 @@ const Dashboard = ({ showError, showIntro }) => {
         <Graphs graphData={graphData} />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
           <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
-            <UpcomingRecurring recurring={graphData.recurring}/>
+            { graphData?.recurring && <UpcomingRecurring recurring={graphData?.recurring}/>}
           </div>
           <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
-            <UpcomingCredit payments={graphData.creditPayments}/>
+          { graphData?.creditPayments && <UpcomingCredit payments={graphData?.creditPayments}/>}
           </div>
         </div>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
