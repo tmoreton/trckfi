@@ -28,7 +28,7 @@ client.defineJob({
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
             
             // Check for DUPLICATES
-            if(t1.detailed_category === 'ACCOUNT_TRANSFER' && t1.detailed_category === 'ACCOUNT_TRANSFER'){
+            if(t1.primary_category === 'TRANSFER_IN' && t2.primary_category === 'TRANSFER_OUT' || t1.primary_category === 'TRANSFER_OUT' && t2.primary_category === 'TRANSFER_IN'){
               const dt1 = DateTime.fromISO(t1.date)
               const dt2 = DateTime.fromISO(t2.date)
               const diff = Interval.fromDateTimes(dt1, dt2).length('days')
