@@ -94,11 +94,11 @@ export default function ({ rows }) {
     datasets: [
       {
         label: 'Income',
-        data: income_array,
+        data: income_array.reverse(),
         backgroundColor: '#009c7b'
       },{
         label: 'Expenses',
-        data: expense_array,
+        data: expense_array.reverse(),
         backgroundColor: '#ff6384'
       }
     ],
