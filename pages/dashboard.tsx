@@ -20,7 +20,9 @@ const Dashboard = ({ showError, showIntro }) => {
   const [refreshing, setRefreshing] = useState(false)
   const [graphData, setGraphData] = useLocalStorage('graph_data', {})
   const [totalStats, setStats] = useLocalStorage('dashboard_stats', [])
-  
+  const [netWorth, setNetWorth] = useLocalStorage('net_worth_stats', [])
+  const [history, setHistory] = useLocalStorage('net_worth_history', null)
+
   useEffect(() => {
     if(intro === 'true'){
       setTimeout(() => {
@@ -32,6 +34,7 @@ const Dashboard = ({ showError, showIntro }) => {
     }
     getDashboard()
     getStats()
+    getNetWorth()
   }, [])
 
   const getStats = async () => {
@@ -45,6 +48,23 @@ const Dashboard = ({ showError, showIntro }) => {
     const { stats } = await res.json()
     setStats(stats)
     setRefreshing(false)
+  }
+
+  const getNetWorth = async () => {
+    const res = await fetch(`/api/get_net_worth`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, stats, history } = await res.json()
+    showError(error)
+    setRefreshing(false)
+    setNetWorth(stats)
+    setHistory(history)
   }
 
   const getDashboard = async () => {
@@ -67,7 +87,7 @@ const Dashboard = ({ showError, showIntro }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
-        <Snapshot totalStats={totalStats} />
+        <Snapshot totalStats={totalStats} netWorth={netWorth} history={history}/>
         <Graphs graphData={graphData} />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
           <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">

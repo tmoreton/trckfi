@@ -80,24 +80,6 @@ export default async (req, res) => {
       },
     })
 
-    let netWorth = await prisma.netWorth.findMany({
-      where: {
-        OR: query,
-      },
-      orderBy: {
-        created_at: 'asc'
-      },
-      take: 2
-    })    
-
-    let net_worth = {}
-    if(netWorth[0].user_id !== netWorth[1].user_id){
-      // @ts-ignore
-      net_worth = {...netWorth[0].stats, ...netWorth[1].stats};
-    } else {
-      net_worth = netWorth[0].stats
-    }
-
     let accounts = await prisma.accounts.findMany({
       where: {
         OR: query,
@@ -134,7 +116,6 @@ export default async (req, res) => {
       lastMonthString: last_month.monthLong,
       lastMonthIncome: lastMonthIncome?._sum?.amount || 0,
       thisMonthIncome: thisMonthIncome?._sum?.amount || 0,
-      netWorth: net_worth,
       accountBalance
     }
 

@@ -53,7 +53,6 @@ export default async (req, res) => {
     }
     let stats = array.length > 0 ? array[0] : {}
     let history = array.reverse()
-
     return res.status(200).json({ history, stats })
   } catch (e) {
     console.error(e)

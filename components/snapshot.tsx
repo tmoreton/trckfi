@@ -5,11 +5,12 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ({ totalStats }) {
+export default function ({ totalStats, netWorth, history }) {
   if (!totalStats) return null
-  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, netWorth, accountBalance } = totalStats
+  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, accountBalance } = totalStats
   let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
-
+  const this_month_net_worth = netWorth?.stats?.net_worth
+  const last_month_net_worth = history.reverse()[1]?.stats.net_worth
   return (
     <>
       <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mt-4">
@@ -22,18 +23,18 @@ export default function ({ totalStats }) {
           </dt>
           <dd className="ml-16 flex items-baseline justify-between">
             <div className="items-baseline justify-between">
-              <p className="text-2xl font-semibold text-green-600">{addComma(netWorth?.net_worth || 0)}</p>
-              {/* <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthTotal)}</span> in {lastMonthString}</p> */}
+              <p className="text-2xl font-semibold text-green-600">{commaShort(this_month_net_worth || 0)}</p>
+              <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{commaShort(last_month_net_worth)}</span> in {lastMonthString}</p>
             </div>
-            {/* <p className={classNames(Number(lastMonthTotal) <= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
+            <p className={classNames(Number(last_month_net_worth) <= Number(this_month_net_worth) ? 'text-green-600' : 'text-red-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
               {
-                Number(lastMonthTotal) <= Number(thisMonthTotal) ?
-                <ArrowDownIcon className='text-green-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
+                Number(last_month_net_worth) <= Number(this_month_net_worth) ?
+                <ArrowUpIcon className='text-green-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
                 :
-                <ArrowUpIcon className='text-red-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
+                <ArrowDownIcon className='text-red-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
               }
-              {diffNum(thisMonthTotal, lastMonthTotal)}%
-            </p> */}
+              {diffNum(this_month_net_worth, last_month_net_worth)}%
+            </p>
           </dd>
         </div>
         <div className="savings-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
