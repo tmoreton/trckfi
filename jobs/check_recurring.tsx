@@ -24,8 +24,8 @@ client.defineJob({
     const between = (t1, t2) => {
       let a = Number(t1.amount)
       let b = Number(t2.amount)
-      let min = a*.1 - a
-      let max = a*.1 + a
+      let min = a*.05 - a
+      let max = a*.05 + a
       return b >= min && b <= max;
     }
 

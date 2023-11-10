@@ -268,15 +268,17 @@ export default async (req, res) => {
       where: {
         OR: query,
         pending: false,
+        active: true,
         upcoming_date: {
           gte: startDate
         },
+        amount: {
+          gte: 1,
+          lte: -1
+        },
         NOT: [
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { primary_category: 'LOAN_PAYMENTS' },
         ],
-      },
-      include: {
-        account: true
       },
       orderBy: {
         date: 'asc'
