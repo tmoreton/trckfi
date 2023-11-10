@@ -32,11 +32,11 @@ export default function ({ recurring }) {
               <span className="ml-4">{r.custom_name?.substring(0, 20) || r.merchant_name?.substring(0, 15) || r.name?.substring(0, 15)}</span>
             </div>
             <div className={classNames(
-              r.average_amount > 0
+              r.amount > 0
                 ? 'text-green-600'
                 : 'text-red-600',
               'font-bold col-span-1'
-            )}>≈ {commaShort(r.amount)}</div>
+            )}><span className="text-xs pr-1 font-light italic">≈</span>{commaShort(r.amount)}</div>
             <div className="col-span-1 text-left"><span className="text-xs pr-1 font-light italic">approx.</span><b>{diff(r.upcoming_date)}</b> days</div>
           </div>
         ))}
