@@ -33,7 +33,7 @@ client.defineJob({
       where: {
         pending: false,
         date: {
-          gte:  startDate
+          gte: startDate
         },
       }
     })
