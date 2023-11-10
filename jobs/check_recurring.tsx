@@ -6,7 +6,7 @@ import { DateTime, Interval } from "luxon"
 client.defineJob({
   id: "check-recurring",
   name: "check-recurring",
-  version: "0.0.1",
+  version: "0.0.2",
   trigger: eventTrigger({
     name: "check.recurring"
   }),
@@ -21,13 +21,13 @@ client.defineJob({
       }
     }
 
-    const between = (t1, t2) => {
-      let a = Number(t1.amount)
-      let b = Number(t2.amount)
-      let min = a*.05 - a
-      let max = a*.05 + a
-      return b >= min && b <= max;
-    }
+    // const between = (t1, t2) => {
+    //   let a = Number(t1.amount)
+    //   let b = Number(t2.amount)
+    //   let min = a*.05 - a
+    //   let max = a*.05 + a
+    //   return b >= min && b <= max;
+    // }
 
     const transactions = await prisma.transactions.findMany({
       where: {
@@ -38,8 +38,8 @@ client.defineJob({
       }
     })
 
-    transactions.forEach((t1) => {
-      transactions.forEach(async (t2) => {
+    transactions.forEach(async t1 => {
+      transactions.forEach(async t2 => {
         if(t1.user_id === t2.user_id){
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
             
@@ -62,20 +62,26 @@ client.defineJob({
             
             // Check for RECURRING TRANSACTIONS
             if(t1.month_year !== t2.month_year && checkName(t1, t2)){
-              await prisma.transactions.update({
-                where: { id: t1.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
-              await prisma.transactions.update({
-                where: { id: t2.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
+              console.log(t1.date > t2.date)
+              console.log(t1.id)
+              console.log(DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd'))
+              if(t1.date > t2.date){
+                prisma.transactions.update({
+                  where: { id: t1.id },
+                  data: {
+                    recurring: true,
+                    upcoming_date: DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+                  },
+                })
+              } else {
+                prisma.transactions.update({
+                  where: { id: t2.id },
+                  data: {
+                    recurring: true,
+                    upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+                  },
+                })
+              }
             }
           }
         }
