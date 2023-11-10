@@ -234,11 +234,11 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-2xl grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 lg:grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
         <div className="col-span-3 px-3 shadow-sm rounded-md border border-gray-200">
           <BarChart rows={rows}/>
         </div>
-        <div className="col-span-1 shadow-sm rounded-md border border-gray-200">
+        <div className="shadow-sm rounded-md border border-gray-200">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Cash Flow</p>
             <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">

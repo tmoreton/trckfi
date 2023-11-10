@@ -22,6 +22,23 @@ client.defineJob({
       }
     })
 
+    const updateItems = async (a, b) => {
+      await prisma.transactions.update({
+        where: { id: a.id },
+        data: {
+          recurring: true,
+          upcoming_date: DateTime.fromISO(a.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+        },
+      })
+      await prisma.transactions.update({
+        where: { id: b.id },
+        data: {
+          recurring: true,
+          upcoming_date: DateTime.fromISO(b.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+        },
+      })
+    }
+
     transactions.forEach((t1) => {
       transactions.forEach(async (t2) => {
         if(t1.user_id === t2.user_id){
@@ -45,21 +62,14 @@ client.defineJob({
             }
             
             // Check for RECURRING TRANSACTIONS
-            if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name && t1.month_year !== t2.month_year){
-              await prisma.transactions.update({
-                where: { id: t1.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
-              await prisma.transactions.update({
-                where: { id: t2.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
+            if(t1.month_year !== t2.month_year){
+              if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
+                await updateItems(t1, t2)
+              } else if(t1?.custom_name){
+                if(t1?.custom_name === t2?.custom_name){
+                  await updateItems(t1, t2)
+                }
+              }
             }
           }
         }
