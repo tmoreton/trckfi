@@ -272,10 +272,10 @@ export default async (req, res) => {
         upcoming_date: {
           gte: startDate
         },
-        amount: {
-          gte: 1,
-          lte: -1
-        },
+        // amount: {
+        //   gte: 1,
+        //   lte: -1
+        // },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
         ],
