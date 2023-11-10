@@ -43,7 +43,6 @@ const Dashboard = ({ showError, showIntro }) => {
       method: 'POST',
     })
     const { stats } = await res.json()
-    console.log(stats)
     setStats(stats)
     setRefreshing(false)
   }

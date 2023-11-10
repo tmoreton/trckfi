@@ -264,38 +264,35 @@ export default async (req, res) => {
       },
     })
 
-    let recurring = await prisma.recurring.findMany({
+    let recurring = await prisma.transactions.findMany({
       where: {
         OR: query,
-        active: true,
-        is_active: true,
-        status: 'MATURE',
+        pending: false,
         upcoming_date: {
           gte: startDate
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
-          { upcoming_date : null }
         ],
       },
-      orderBy: {
-        upcoming_date: 'asc'
+      include: {
+        account: true
       },
-      take: 5,
-      select: {
-        unified: true,
-        average_amount: true,
-        custom_name: true,
-        merchant_name: true,
-        name: true,
-        upcoming_date: true,
+      orderBy: {
+        date: 'asc'
       },
     })
+
+    const uniq = (a) => {
+      var seen = {};
+      return a.filter(function(item) {
+        return seen.hasOwnProperty(item.name) ? false : (seen[item.name] = true);
+      });
+    }
 
     let creditPayments = await prisma.transactions.findMany({
       where: {
         OR: query,
-        active: true,
         pending: false,
         date: {
           gte: one_month_ago
@@ -324,7 +321,7 @@ export default async (req, res) => {
       groupByYear,
       yearCategories,
       yearDetailedCategories,
-      recurring,
+      recurring: uniq(recurring).slice(0, 6),
       creditPayments,
     }})
   } catch (e) {

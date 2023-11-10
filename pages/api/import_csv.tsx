@@ -1,7 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-import prisma from '../../lib/prisma';
 import slackMessage from '../../utils/slackMessage'
-import { DateTime } from "luxon"
 import { client } from "../../trigger";
 
 export default async (req, res) => {

@@ -20,13 +20,13 @@ export default function ({ recurring }) {
         <div className="col-span-2">
           <p className="text-xl font-bold text-pink-600">Upcoming Recurring</p>
         </div>
-        <div>Average Amount</div>
+        <div><span className="text-xs pr-1 font-light italic">est.</span>Amount</div>
         <div className="col text-left">Upcoming</div>
       </div>
       <hr className="my-2"/>
       <ul role="list">
         {recurring && recurring.map((r, eventIdx) => (
-          <div key={eventIdx} className="grid grid-cols-4 text-md text-gray-500 py-3">
+          <div key={eventIdx} className="grid grid-cols-4 text-md text-gray-500 py-2">
             <div className="col-span-2 flex">
               <Emoji unified={r.unified} size={22} />
               <span className="ml-4">{r.custom_name?.substring(0, 20) || r.merchant_name?.substring(0, 15) || r.name?.substring(0, 15)}</span>
@@ -36,8 +36,8 @@ export default function ({ recurring }) {
                 ? 'text-green-600'
                 : 'text-red-600',
               'font-bold col-span-1'
-            )}>≈ {commaShort(r.average_amount)}</div>
-            <div className="col-span-1 text-left"><span className="text-xs pr-1">approx.</span><b>{diff(r.upcoming_date)}</b> days</div>
+            )}>≈ {commaShort(r.amount)}</div>
+            <div className="col-span-1 text-left"><span className="text-xs pr-1 font-light italic">approx.</span><b>{diff(r.upcoming_date)}</b> days</div>
           </div>
         ))}
       </ul>

@@ -17,11 +17,8 @@ export default async (req, res) => {
       unique_filename: false,
       overwrite: true,
     };
-    console.log(file)
     const result = await cloudinary.v2.uploader.upload(file, options);
-    console.log(result);
     return result.public_id;
-    return res.status(200).json({ status: 'OK' })
   } catch (e) {
     console.error(e)
     // slackMessage('Error update_user: ' + e.message || e.toString())

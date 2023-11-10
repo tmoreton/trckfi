@@ -8,7 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export default async (req, res) => {
   const { price_id, referral_id, email } = req.body
-  console.log(price_id)
   try {
     const params: Stripe.Checkout.SessionCreateParams = {
       line_items: [
