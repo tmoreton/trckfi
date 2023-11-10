@@ -6,7 +6,7 @@ import { DateTime, Interval } from "luxon"
 client.defineJob({
   id: "check-recurring",
   name: "check-recurring",
-  version: "0.0.2",
+  version: "0.0.1",
   trigger: eventTrigger({
     name: "check.recurring"
   }),
@@ -42,7 +42,7 @@ client.defineJob({
       transactions.forEach(async t2 => {
         if(t1.user_id === t2.user_id){
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
-            
+            console.log('new code')
             // Check for DUPLICATES
             if(t1.detailed_category === 'ACCOUNT_TRANSFER' && t2.detailed_category === 'ACCOUNT_TRANSFER'){
               const dt1 = DateTime.fromISO(t1.date)
@@ -62,9 +62,6 @@ client.defineJob({
             
             // Check for RECURRING TRANSACTIONS
             if(t1.month_year !== t2.month_year && checkName(t1, t2)){
-              console.log(t1.date > t2.date)
-              console.log(t1.id)
-              console.log(DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd'))
               if(t1.date > t2.date){
                 prisma.transactions.update({
                   where: { id: t1.id },
