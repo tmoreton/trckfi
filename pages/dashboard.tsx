@@ -27,7 +27,7 @@ const Dashboard = ({ showError, showIntro }) => {
         showIntro('dashboard')
       }, 1000)
     }
-    if(!graphData || !totalStats){
+    if(!Object.keys(graphData) || totalStats.length < 1){
       setRefreshing(true)
     }
     getDashboard()

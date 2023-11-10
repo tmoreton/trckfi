@@ -8,6 +8,7 @@ export default async (req, res) => {
   const user_id = user?.id
   if (!user_id ) return res.status(500)
   const startDate = DateTime.now().toISO()
+  const one_month_ago = DateTime.now().minus({ months: 1 }).toISO()
   const endDate = DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   const { id, linked_user_id } = user
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
@@ -291,28 +292,28 @@ export default async (req, res) => {
       },
     })
 
-    let creditPayments = await prisma.recurring.findMany({
+    let creditPayments = await prisma.transactions.findMany({
       where: {
         OR: query,
         active: true,
-        is_active: true,
-        upcoming_date: {
-          gte: startDate
+        pending: false,
+        date: {
+          gte: one_month_ago
         },
         primary_category: 'LOAN_PAYMENTS',
-        NOT: [
-          { upcoming_date : null }
-        ],
+        amount: {
+          gte: 0
+        },
       },
       include: {
         account: true
       },
       orderBy: {
-        upcoming_date: 'asc'
+        date: 'asc'
       },
-      take: 5
+      take: 5,
     })
-    
+
     return res.status(200).json({ data: {
       categories,
       detailedCategories,

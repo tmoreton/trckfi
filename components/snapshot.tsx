@@ -83,9 +83,7 @@ export default function ({ totalStats }) {
               </div>
           </dd>
         </div>
-
       </dl>
-
 
 
       <dl className="grid grid-cols-1 gap-5 lg:grid-cols-2 mt-4">
