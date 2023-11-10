@@ -66,7 +66,7 @@ client.defineJob({
               if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
                 await updateItems(t1, t2)
               } else if(t1?.custom_name){
-                if(t1?.custom_name === t2?.custom_name){
+                if(Number(t1.amount) === Number(t2.amount) && t1?.custom_name === t2?.custom_name){
                   await updateItems(t1, t2)
                 }
               }
