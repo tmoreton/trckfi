@@ -272,10 +272,6 @@ export default async (req, res) => {
         upcoming_date: {
           gte: startDate
         },
-        // amount: {
-        //   gte: 1,
-        //   lte: -1
-        // },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
         ],
@@ -288,7 +284,7 @@ export default async (req, res) => {
     const uniq = (a) => {
       var seen = {};
       return a.filter(function(item) {
-        return seen.hasOwnProperty(item.name) ? false : (seen[item.name] = true);
+        return seen.hasOwnProperty(item.name) ? false : (seen[item.name] = true)
       });
     }
 
@@ -323,7 +319,7 @@ export default async (req, res) => {
       groupByYear,
       yearCategories,
       yearDetailedCategories,
-      recurring: uniq(recurring),
+      recurring: uniq(recurring).slice(0, 6),
       creditPayments,
     }})
   } catch (e) {
