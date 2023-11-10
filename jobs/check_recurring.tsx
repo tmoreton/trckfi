@@ -13,12 +13,20 @@ client.defineJob({
   run: async (payload, io, ctx) => {
     const startDate = DateTime.now().minus({ months: 2 }).startOf('month').toISO()
 
-    const checkName = (a,b) => {
+    const checkName = (a, b) => {
       if(a.name === b.name){
         return true
       } else if(a.custom_name && b.custom_name && a.custom_name === b.custom_name) {
         return true
       }
+    }
+
+    const between = (t1, t2) => {
+      let a = Number(t1.amount)
+      let b = Number(t2.amount)
+      let min = a*.1 - a
+      let max = a*.1 + a
+      return b >= min && b <= max;
     }
 
     const transactions = await prisma.transactions.findMany({
@@ -53,7 +61,7 @@ client.defineJob({
             }
             
             // Check for RECURRING TRANSACTIONS
-            if(Number(t1.amount) === Number(t2.amount) && t1.month_year !== t2.month_year){
+            if(between(t1, t2) && t1.month_year !== t2.month_year){
               if(checkName(t1, t2)){
                 await prisma.transactions.update({
                   where: { id: t1.id },
