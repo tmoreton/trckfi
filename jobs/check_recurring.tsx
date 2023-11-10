@@ -13,6 +13,14 @@ client.defineJob({
   run: async (payload, io, ctx) => {
     const startDate = DateTime.now().minus({ months: 2 }).startOf('month').toISO()
 
+    const checkName = (a,b) => {
+      if(a.name === b.name){
+        return true
+      } else if(a.custom_name && b.custom_name && a.custom_name === b.custom_name) {
+        return true
+      }
+    }
+
     const transactions = await prisma.transactions.findMany({
       where: {
         pending: false,
@@ -28,7 +36,7 @@ client.defineJob({
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
             
             // Check for DUPLICATES
-            if(t1.primary_category === 'TRANSFER_IN' && t2.primary_category === 'TRANSFER_OUT' || t1.primary_category === 'TRANSFER_OUT' && t2.primary_category === 'TRANSFER_IN'){
+            if(t1.detailed_category === 'ACCOUNT_TRANSFER' && t2.detailed_category === 'ACCOUNT_TRANSFER'){
               const dt1 = DateTime.fromISO(t1.date)
               const dt2 = DateTime.fromISO(t2.date)
               const diff = Interval.fromDateTimes(dt1, dt2).length('days')
@@ -45,21 +53,24 @@ client.defineJob({
             }
             
             // Check for RECURRING TRANSACTIONS
-            if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name && t1.month_year !== t2.month_year){
-              await prisma.transactions.update({
-                where: { id: t1.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
-              await prisma.transactions.update({
-                where: { id: t2.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
+            if(Number(t1.amount) === Number(t2.amount) && t1.month_year !== t2.month_year){
+              if(checkName(t1, t2)){
+                await prisma.transactions.update({
+                  where: { id: t1.id },
+                  data: {
+                    recurring: true,
+                    upcoming_date: DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+                  },
+                })
+                await prisma.transactions.update({
+                  where: { id: t2.id },
+                  data: {
+                    recurring: true,
+                    upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+                  },
+                })
+              }
+              
             }
           }
         }
