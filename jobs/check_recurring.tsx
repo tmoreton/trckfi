@@ -4,8 +4,8 @@ import prisma from '../lib/prisma';
 import { DateTime, Interval } from "luxon"
 
 client.defineJob({
-  id: "check-recurring",
-  name: "check-recurring",
+  id: "sync-recurring",
+  name: "sync-recurring",
   version: "0.0.1",
   trigger: cronTrigger({
     cron: "0 9 * * *",
