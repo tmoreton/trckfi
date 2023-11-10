@@ -321,7 +321,7 @@ export default async (req, res) => {
       groupByYear,
       yearCategories,
       yearDetailedCategories,
-      recurring: uniq(recurring).slice(0, 6),
+      recurring: uniq(recurring),
       creditPayments,
     }})
   } catch (e) {

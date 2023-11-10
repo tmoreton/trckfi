@@ -14,6 +14,7 @@ const diff = (date) => {
 }
 
 export default function ({ recurring }) {
+  console.log(recurring)
   return (
     <>
       <div className="grid grid-cols-4 text-sm font-semibold text-gray-500">
@@ -25,7 +26,7 @@ export default function ({ recurring }) {
       </div>
       <hr className="my-2"/>
       <ul role="list">
-        {recurring && recurring.map((r, eventIdx) => (
+        {recurring && recurring.slice(0, 6).map((r, eventIdx) => (
           <div key={eventIdx} className="grid grid-cols-4 text-md text-gray-500 py-2">
             <div className="col-span-2 flex">
               <Emoji unified={r.unified} size={22} />
