@@ -1,4 +1,4 @@
-import { cronTrigger } from "@trigger.dev/sdk";
+import { cronTrigger, eventTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import prisma from '../lib/prisma';
 import { DateTime, Interval } from "luxon"
@@ -7,8 +7,8 @@ client.defineJob({
   id: "check-recurring",
   name: "check-recurring",
   version: "0.0.1",
-  trigger: cronTrigger({
-    cron: "0 9 * * *",
+  trigger: eventTrigger({
+    name: "check.recurring"
   }),
   run: async (payload, io, ctx) => {
     const startDate = DateTime.now().minus({ months: 2 }).startOf('month').toISO()
