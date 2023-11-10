@@ -1,4 +1,4 @@
-import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChartBarIcon, BanknotesIcon } from '@heroicons/react/20/solid'
+import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChartBarIcon, BanknotesIcon, CurrencyDollarIcon } from '@heroicons/react/20/solid'
 import { addComma, diffNum, commaShort } from '../lib/lodash'
 
 const classNames = (...classes) => {
@@ -15,7 +15,7 @@ export default function ({ totalStats }) {
       <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mt-4">
         <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
           <dt>
-            <div className="absolute">
+            <div className="absolute pt-2">
               <ChartBarIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
             </div>
             <p className="ml-16 truncate text-sm font-medium text-gray-500">Net Worth</p>
@@ -38,7 +38,7 @@ export default function ({ totalStats }) {
         </div>
         <div className="savings-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
           <dt>
-            <div className="absolute">
+            <div className="absolute pt-3">
               <BanknotesIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
             </div>
             <p className="ml-16 truncate text-sm font-medium text-gray-500">{thisMonthString} Savings Rate</p>
@@ -70,16 +70,16 @@ export default function ({ totalStats }) {
         </div>
         <div className="savings-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-4 rounded-md border-b border border-gray-200">
           <dt>
-            <div className="absolute">
-              <BanknotesIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
+            <div className="absolute pt-3">
+              <CurrencyDollarIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
             </div>
             {/* <p className="ml-16 truncate text-sm font-medium text-gray-500">Total Credit</p> */}
           </dt>
           <dd className="ml-16 flex items-baseline justify-between">
               <div>
-                <p className="text-sm font-semibold pb-1.5 text-gray-500">Current Balance: <span className="text-red-600 text-md">{accountBalance?.current && commaShort(accountBalance?.current)}</span></p>
-                <p className="text-sm font-semibold pb-1.5 text-gray-500">Available Credit: <span className="text-green-600 text-md">{accountBalance?.available && commaShort(accountBalance?.available)}</span></p>
-                <p className="text-sm font-semibold text-gray-500">Total Credit Limit: <span className="text-red-600 text-md">{accountBalance?.limit && commaShort(accountBalance?.limit)}</span></p>
+                <p className="text-sm pb-1.5 text-gray-500">Current Balance: <span className="text-red-600 font-semibold text-md">{accountBalance?.current && commaShort(accountBalance?.current)}</span></p>
+                <p className="text-sm pb-1.5 text-gray-500">Available Credit: <span className="text-green-600 font-semibold text-md">{accountBalance?.available && commaShort(accountBalance?.available)}</span></p>
+                <p className="text-sm text-gray-500">Credit Limit: <span className="text-red-600 font-semibold text-md">{accountBalance?.limit && commaShort(accountBalance?.limit)}</span></p>
               </div>
           </dd>
         </div>
