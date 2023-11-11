@@ -131,17 +131,45 @@ export default function ({ showError }) {
   const renderImg = (e) => {
     if(e?.primary_category === 'LOAN_PAYMENTS'){
       let image_url = `/assets/banks/${e?.account.institution}.png`
-      return <img
-        src={image_url}
-        alt={e?.account.institution}
-        onError={({ currentTarget }) => {
-          currentTarget.onerror = null;
-          currentTarget.src="/assets/banks/bank.png";
-        }}
-        className="h-5 w-5 flex-none rounded-md object-cover"
-      />
+      return (
+        <>
+          <div className="flex items-center">
+            <div className="pr-2">
+              <img
+                src={image_url}
+                alt={e?.account.institution}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src="/assets/banks/bank.png";
+                }}
+                className="h-5 w-5 flex-none rounded-md object-cover"
+              />
+            </div>
+            <p className={classNames(Math.trunc(e.amount) > 0 ? "text-green-600" : "text-red-600", "hidden font-bold text-base flex-none  xl:block")}>
+              {commaShort(e.account.amount)} 
+            </p>
+          </div>
+          <p className="flex items-center flex-auto text-xs font-bold truncate text-gray-600 mt-1 mb-4">
+            {e?.account?.name}
+          </p>
+        </>
+      )
     }
-    return <Emoji unified={e?.unified} size={20} />
+    return (
+      <>
+        <div className="flex items-center">
+          <div className="pr-2">
+            <Emoji unified={e?.unified} size={20} />
+          </div>
+          <p className={classNames(Math.trunc(e.amount) > 0 ? "text-green-600" : "text-red-600", "hidden font-bold text-base flex-none  xl:block")}>
+            {commaShort(e.amount)} 
+          </p>
+        </div>
+        <p className="text-xs font-bold truncate text-gray-600 mt-1 mb-4">
+          {e.custom_name || e.merchant_name || e.name}
+        </p>
+      </>
+    )
   }
 
   return (
@@ -203,23 +231,7 @@ export default function ({ showError }) {
                       {day.events.map((event) => (
                         <li key={event.id}>
                           <a onClick={() => editItem(event)} className="cursor-pointer group items-center">
-                            <div className="flex items-center">
-                              <div className="pr-2">{renderImg(event)}</div>
-                              {
-                                Math.trunc(event.amount) > 0 ?
-                                <p className="hidden font-bold text-base flex-none text-green-600 xl:block">
-                                  {commaShort(event.amount)}
-                                </p>
-                                :
-                                <p className="hidden font-bold text-base flex-none text-red-600 xl:block">
-                                  {commaShort(event.amount)}
-                                </p>
-                              }
-                            </div>
-                            
-                            <p className="flex items-center flex-auto text-sm truncate font-medium text-gray-600 mb-4">
-                              {event.custom_name || event.merchant_name || event.name}
-                            </p>
+                            {renderImg(event)}
                           </a>
                         </li>
                       ))}
