@@ -1,5 +1,5 @@
 import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChartBarIcon, BanknotesIcon, CurrencyDollarIcon } from '@heroicons/react/20/solid'
-import { addComma, diffNum, commaShort } from '../lib/lodash'
+import { diffNum, commaShort } from '../lib/lodash'
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -49,12 +49,12 @@ export default function ({ totalStats, netWorth, history }) {
               !thisMonthTotal || !thisMonthIncome || thisMonthIncome-(-thisMonthTotal) <= 0 ?
               <div className="items-baseline justify-between">
                 <p className="text-2xl font-semibold text-red-600">0%</p>
-                <p className="text-xs text-gray-400">You spent <span className="font-bold text-red-600">{addComma(this_month_savings)}</span> more than you made 😕</p>
+                <p className="text-xs text-gray-400">You spent <span className="font-bold text-red-600">{commaShort(this_month_savings)}</span> more than you made 😕</p>
               </div>
               :
               <div className="items-baseline justify-between">
                 <p className="text-2xl font-semibold text-green-600">{Math.round(this_month_savings/thisMonthIncome*100)}%</p>
-                <p className="text-xs text-gray-400">You saved <span className="font-bold text-green-600">{addComma(this_month_savings || 0)}</span> so far this month! 🎉</p>
+                <p className="text-xs text-gray-400">You saved <span className="font-bold text-green-600">{commaShort(this_month_savings || 0)}</span> so far this month! 🎉</p>
               </div>
             }
             {/* <div className={loading && "animate-spin"}>
@@ -97,8 +97,8 @@ export default function ({ totalStats, netWorth, history }) {
           </dt>
           <dd className="ml-16 flex items-baseline justify-between">
             <div className="items-baseline justify-between">
-              <p className="text-2xl font-semibold text-red-600">{addComma(thisMonthTotal || 0)}</p>
-              <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthTotal)}</span> in {lastMonthString}</p>
+              <p className="text-2xl font-semibold text-red-600">{commaShort(thisMonthTotal || 0)}</p>
+              <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{commaShort(lastMonthTotal)}</span> in {lastMonthString}</p>
             </div>
             <p className={classNames(Number(lastMonthTotal) <= Number(thisMonthTotal) ? 'text-green-600' : 'text-red-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
               {
@@ -121,8 +121,8 @@ export default function ({ totalStats, netWorth, history }) {
           </dt>
           <dd className="ml-16 flex items-baseline justify-between">
             <div className="items-baseline justify-between">
-              <p className="text-2xl font-semibold text-green-600">{addComma(thisMonthIncome || 0)}</p>
-              <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{addComma(lastMonthIncome || 0)}</span> in {lastMonthString}</p>
+              <p className="text-2xl font-semibold text-green-600">{commaShort(thisMonthIncome || 0)}</p>
+              <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{commaShort(lastMonthIncome || 0)}</span> in {lastMonthString}</p>
             </div>
             <p className={classNames(Number(thisMonthIncome) <= Number(lastMonthIncome) ? 'text-red-600' : 'text-green-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
               {
