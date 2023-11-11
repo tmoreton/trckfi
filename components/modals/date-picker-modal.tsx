@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DateRangePicker } from 'react-date-range'
+import { ArrowsRightLeftIcon } from '@heroicons/react/20/solid'
 
 export default function ({ openDatePicker, setDatePicker, dates, setDates }) {
   const [dateRange, updateDateRange] = useState({
@@ -23,7 +24,7 @@ export default function ({ openDatePicker, setDatePicker, dates, setDates }) {
         <button onClick={() => setDatePicker(true)} className="shadow-sm group inline-flex items-center justify-center rounded-full py-2 px-4 md:text-lg text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
           {new Date(dateRange.startDate).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
         </button>
-        <p className="font-bold text-pink-600 text-3xl">-</p>
+        <ArrowsRightLeftIcon className="h-8 w-8 font-bold text-pink-600"/>
         <button onClick={() => setDatePicker(true)} className="shadow-sm group inline-flex items-center justify-center rounded-full py-2 px-4 md:text-lg text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-pink-600 text-white hover:bg-pink-500 focus-visible:outline-pink-900">
           {new Date(dateRange.endDate).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
         </button>

@@ -7,8 +7,6 @@ import { addComma } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
 import BarChart from '../pages/transactions/bar-chart'
 
 export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker, setShowImport }) {
@@ -147,119 +145,53 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
   return (
     <>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
-      <div className="flex h-12 items-center space-x-3 justify-center pb-6">
-        { !selected.length && datePicker()}
-        <div>
-        { selected.length ?
-          <InverseBtn type="button" onClick={() => setEdit({
-              name: null,
-              primary_category: null,
-              detailed_category: null,
-              amount: null,
-              notes: null,
-              unified: '1f50d',
-            }
-          )}>
-            Bulk Edit
-            <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
-          </InverseBtn>
-          :
-          <div className="flex items-center">
-            <button aria-label="Add Transaction" onClick={() => setEdit({
-              name: null,
-              primary_category: null,
-              detailed_category: null,
-              amount: null,
-              notes: null,
-              unified: '1f50d',
-              new: true
-            })}>
-              <PlusCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
-            </button>
-            <button aria-label="Import Button" onClick={() => setShowImport(true)}>
-              <ArrowUpCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true"/>
-            </button>
-            <button aria-label="Upload Button">
-              <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-                <ArrowDownCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
-              </CSVLink>
-            </button>
-          </div>
-          // <Menu as="div" className="relative ml-3">
-          //   <Menu.Button className="flex items-center">
-          //     <span className="sr-only">Open user menu</span>
-          //     <PlusCircleIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
-          //   </Menu.Button>
-          //   <Transition
-          //     as={Fragment}
-          //     enter="transition ease-out duration-100"
-          //     enterFrom="transform opacity-0 scale-95"
-          //     enterTo="transform opacity-100 scale-100"
-          //     leave="transition ease-in duration-75"
-          //     leaveFrom="transform opacity-100 scale-100"
-          //     leaveTo="transform opacity-0 scale-95"
-          //   >
-          //     <Menu.Items className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          //       <Menu.Item>
-          //         {({ active }) => (
-          //           <button
-          //             onClick={() => setEdit({
-          //               name: null,
-          //               primary_category: null,
-          //               detailed_category: null,
-          //               amount: null,
-          //               notes: null,
-          //               unified: '1f50d',
-          //               new: true
-          //             })}
-          //             className={classNames(
-          //               active ? 'bg-gray-100' : '',
-          //               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-          //             )}
-          //           >
-          //               Add Transaction
-          //           </button>
-          //         )}
-          //       </Menu.Item>
-          //       <Menu.Item>
-          //         {({ active }) => (
-          //           <button
-          //             onClick={() => setShowImport(true)}
-          //             className={classNames(
-          //               active ? 'bg-gray-100' : '',
-          //               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-          //             )}
-          //           >
-          //               Import Data
-          //           </button>
-          //         )}
-          //       </Menu.Item>
-          //       <Menu.Item>
-          //         {({ active }) => (
-          //           <button
-          //             className={classNames(
-          //               active ? 'bg-gray-100' : '',
-          //               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-          //             )}
-          //           >
-          //             <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-          //               Download CSV
-          //             </CSVLink>
-          //           </button>
-          //         )}
-          //       </Menu.Item>
-          //     </Menu.Items>
-          //   </Transition>
-          // </Menu>
-        }
-        </div>
-      </div>
-
       <div className="mx-auto grid max-w-2xl grid-cols-1 lg:grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
         <div className="col-span-3 px-3 shadow-sm rounded-md border border-gray-200">
-          <BarChart rows={rows}/>
+          <div className="flex items-center space-x-3 justify-center pt-5 -mb-5">
+            { !selected.length && datePicker()}
+          </div>
+          <BarChart rows={rows} />
         </div>
         <div className="shadow-sm rounded-md border border-gray-200">
+          <div className="flex items-center justify-center pt-5">
+            { selected.length ?
+              <InverseBtn type="button" onClick={() => setEdit({
+                  name: null,
+                  primary_category: null,
+                  detailed_category: null,
+                  amount: null,
+                  notes: null,
+                  unified: '1f50d',
+                }
+              )}>
+                Bulk Edit
+                <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
+              </InverseBtn>
+              :
+              <>
+                <button aria-label="Add Transaction" onClick={() => setEdit({
+                  name: null,
+                  primary_category: null,
+                  detailed_category: null,
+                  amount: null,
+                  notes: null,
+                  unified: '1f50d',
+                  new: true
+                })}>
+                  <PlusCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
+                </button>
+                <button aria-label="Import Button" onClick={() => setShowImport(true)}>
+                  <ArrowUpCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true"/>
+                </button>
+                <button aria-label="Upload Button">
+                  <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+                    <ArrowDownCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
+                  </CSVLink>
+                </button>
+              </>
+            }
+          </div>
+
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-900">Cash Flow</p>
             { total.sum > 0 ?
@@ -364,3 +296,70 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
     </>
   );
 }
+
+// <Menu as="div" className="relative ml-3">
+//   <Menu.Button className="flex items-center">
+//     <span className="sr-only">Open user menu</span>
+//     <PlusCircleIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
+//   </Menu.Button>
+//   <Transition
+//     as={Fragment}
+//     enter="transition ease-out duration-100"
+//     enterFrom="transform opacity-0 scale-95"
+//     enterTo="transform opacity-100 scale-100"
+//     leave="transition ease-in duration-75"
+//     leaveFrom="transform opacity-100 scale-100"
+//     leaveTo="transform opacity-0 scale-95"
+//   >
+//     <Menu.Items className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+//       <Menu.Item>
+//         {({ active }) => (
+//           <button
+//             onClick={() => setEdit({
+//               name: null,
+//               primary_category: null,
+//               detailed_category: null,
+//               amount: null,
+//               notes: null,
+//               unified: '1f50d',
+//               new: true
+//             })}
+//             className={classNames(
+//               active ? 'bg-gray-100' : '',
+//               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+//             )}
+//           >
+//               Add Transaction
+//           </button>
+//         )}
+//       </Menu.Item>
+//       <Menu.Item>
+//         {({ active }) => (
+//           <button
+//             onClick={() => setShowImport(true)}
+//             className={classNames(
+//               active ? 'bg-gray-100' : '',
+//               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+//             )}
+//           >
+//               Import Data
+//           </button>
+//         )}
+//       </Menu.Item>
+//       <Menu.Item>
+//         {({ active }) => (
+//           <button
+//             className={classNames(
+//               active ? 'bg-gray-100' : '',
+//               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+//             )}
+//           >
+//             <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+//               Download CSV
+//             </CSVLink>
+//           </button>
+//         )}
+//       </Menu.Item>
+//     </Menu.Items>
+//   </Transition>
+// </Menu>
