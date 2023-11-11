@@ -15,7 +15,6 @@ client.defineJob({
 
     const transactions = await prisma.transactions.findMany({
       where: {
-        pending: false,
         date: {
           gte:  startDate
         },

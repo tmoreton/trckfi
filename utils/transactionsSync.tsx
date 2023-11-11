@@ -8,15 +8,17 @@ import slackMessage from '../utils/slackMessage'
 
 const transactionsSync = async (access_token, user_id) => {
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: user_id }
-    })
-
+    const user = await prisma.user.findUnique({ where: { id: user_id }})
     const query = user.linked_user_id ? [{ user_id: user.id }, { user_id: user.linked_user_id }] : [{ user_id: user.id }]
+    const rules = await prisma.rules.findMany({ where: { OR: query }})
 
-    const rules = await prisma.rules.findMany({
+    const transactions = await prisma.transactions.findMany({
       where: {
-        OR: query,
+        user_id,
+        date: {
+          gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+          lte: DateTime.now().minus({ months: 1 }).endOf('month').toISO()
+        },
       }
     })
 
@@ -67,6 +69,8 @@ const transactionsSync = async (access_token, user_id) => {
       let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
       // @ts-ignore
       let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
+      const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount))
+
       await prisma.transactions.upsert({
         where: { 
           transaction_id: added[i].transaction_id 
@@ -77,6 +81,7 @@ const transactionsSync = async (access_token, user_id) => {
           account_id: id,
           transaction_id: added[i].transaction_id,
           authorized_date: new Date(added[i].date),
+          account_name: name,
           date: added[i].date,
           name: added[i].name,
           // @ts-ignore
@@ -100,7 +105,8 @@ const transactionsSync = async (access_token, user_id) => {
           year: added[i].date.substring(0,4),
           active: true,
           // @ts-ignore
-          recurring: false,
+          recurring: found && true,
+          upcoming_date: found && DateTime.fromISO(added[i].date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
         },
       })
     }
@@ -155,7 +161,6 @@ const transactionsSync = async (access_token, user_id) => {
         data: { error_code: e.response?.data?.error_code }
       })
     }
-    
   }
 }
 
