@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useCallback, useRef, } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon, BellAlertIcon, XCircleIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
 import Dropdown from '../dropdown'
 import { useRouter } from 'next/router'
+import { ReactTags } from 'react-tag-autocomplete'
 
 export default function ({ item, setEdit, showError, selected, user }) {
   const defaultTransaction = {
@@ -22,8 +23,9 @@ export default function ({ item, setEdit, showError, selected, user }) {
     date: null,
     alert_date: null,
     account_id: null,
+    tags: []
   }
-  const [transaction, setTransaction] = useState(defaultTransaction)
+  const [transaction, setTransaction] = useState(item)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
   const [startDate, setStartDate] = useState(null)
@@ -32,13 +34,30 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const [primary_categories, setPrimary] = useState([])
   const [detailed_categories, setDetailed] = useState([])
   const router = useRouter()
+  const [tags, setTags] = useState([])
+
+  const isValid = (value) => /^[a-z]{4,12}$/i.test(value)
+  const onValidate = useCallback((value) => isValid(value), [])
+
+  const onAdd = useCallback((newTag) => {
+      setTags([...tags, newTag])
+      // setTransaction({ ...transaction, tags: [...tags, newTag] })
+    }, [tags]
+  )
+
+  const onDelete = useCallback((tagIndex) => {
+      setTags(tags.filter((_, i) => i !== tagIndex))
+    }, [tags]
+  )
 
   useEffect(() => {
+    console.log(item)
     getAccounts()
     getCategories()
     setAlertDate(null)
     setIds(selected.map(s => s.id))
     setTransaction(item)
+    setTags(item.tags)
     if(item?.date){
       setStartDate(new Date(item.date.replace(/-/g, '\/')))
     } else {
@@ -104,7 +123,11 @@ export default function ({ item, setEdit, showError, selected, user }) {
     setEdit({})
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
-        transaction,
+        transaction: {
+          ...transaction,
+          tags
+          // tags: tags.map(t => t.value)
+        },
         ids
       }),
       headers: {
@@ -254,7 +277,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               onChange={e => setTransaction({ ...transaction, primary_category: e })}
                             />
                           </div>
-                          <div className="relative z-0 w-full mb-8 group">
+                          <div className="relative z-0 w-full mb-3 group">
                             <label 
                               htmlFor="primary_category" 
                               className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
@@ -266,6 +289,30 @@ export default function ({ item, setEdit, showError, selected, user }) {
                               setSelected={e => handleDropdown({ detailed_category: e.detailed_category })} 
                               onChange={e => setTransaction({ ...transaction, detailed_category: e })}
                             />
+                          </div>
+                          <div className="relative z-0 w-full mb-10 group inline-flex">
+                            <div className="w-full">
+                              <label 
+                                htmlFor="primary_category" 
+                                className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
+                                Tags
+                              </label>
+                              <ReactTags
+                                allowNew
+                                ariaDescribedBy="custom-tags-description"
+                                collapseOnSelect
+                                id="custom-tags-demo"
+                                labelText="Enter new tags"
+                                onAdd={onAdd}
+                                onDelete={onDelete}
+                                onValidate={onValidate}
+                                selected={tags}
+                                suggestions={[{
+                                  label: 'Business',
+                                  value: 'Business'
+                                }]}
+                              />
+                            </div>
                           </div>
                           <div className="relative z-0 w-full mb-8 group inline-flex">
                             <div className="w-full">

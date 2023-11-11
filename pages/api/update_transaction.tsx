@@ -7,7 +7,8 @@ import slackMessage from '../../utils/slackMessage'
 export default async (req, res) => {
   const { transaction, ids } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name } = transaction
+  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
+
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {
@@ -52,6 +53,7 @@ export default async (req, res) => {
           notes,
           date,
           alert_date,
+          tags,
           authorized_date: new Date(date),
           month_year: date.substring(0,7),
           year: date.substring(0,4),
