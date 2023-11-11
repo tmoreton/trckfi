@@ -145,7 +145,7 @@ export default function ({ showError }) {
                 className="h-5 w-5 flex-none rounded-md object-cover"
               />
             </div>
-            <p className={classNames(Math.trunc(e.amount) > 0 ? "text-green-600" : "text-red-600", "hidden font-bold text-base flex-none  xl:block")}>
+            <p className={classNames(Math.trunc(e.amount) < 0 ? "text-green-600" : "text-red-600", "hidden font-bold text-base flex-none  xl:block")}>
               {commaShort(e.account.amount)} 
             </p>
           </div>
