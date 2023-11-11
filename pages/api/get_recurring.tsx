@@ -22,6 +22,9 @@ export default async (req, res) => {
           gte: startDate,
           lte: endDate
         },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+        ],
       },
       include: {
         account: true
@@ -38,7 +41,30 @@ export default async (req, res) => {
       });
     }
 
-    return res.status(200).json({ status: 'ok', recurring: uniq(recurringTransaction) })
+    let creditPayments = await prisma.transactions.findMany({
+      where: {
+        OR: user_query,
+        pending: false,
+        upcoming_date: {
+          gte: startDate,
+          lte: endDate
+        },
+        primary_category: 'LOAN_PAYMENTS',
+        amount: {
+          gte: 0
+        },
+      },
+      include: {
+        account: true
+      },
+      orderBy: {
+        date: 'asc'
+      },
+    })
+    const recurring = creditPayments.concat(uniq(recurringTransaction));
+
+
+    return res.status(200).json({ status: 'ok', recurring })
   } catch (e) {
     console.error(e)
     slackMessage('Error get_recurring: ' + e.message || e.toString())
