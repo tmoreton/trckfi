@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
-import { PlusCircleIcon, ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
+import { ArrowDownCircleIcon, ArrowUpCircleIcon, PlusCircleIcon, ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { addComma } from '../lib/lodash'
@@ -164,72 +164,93 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
             <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
           </InverseBtn>
           :
-          <Menu as="div" className="relative ml-3">
-            <Menu.Button className="flex items-center">
-              <span className="sr-only">Open user menu</span>
-              <PlusCircleIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
-            </Menu.Button>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={() => setEdit({
-                        name: null,
-                        primary_category: null,
-                        detailed_category: null,
-                        amount: null,
-                        notes: null,
-                        unified: '1f50d',
-                        new: true
-                      })}
-                      className={classNames(
-                        active ? 'bg-gray-100' : '',
-                        'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-                      )}
-                    >
-                        Add Transaction
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={() => setShowImport(true)}
-                      className={classNames(
-                        active ? 'bg-gray-100' : '',
-                        'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-                      )}
-                    >
-                        Import Data
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={classNames(
-                        active ? 'bg-gray-100' : '',
-                        'block px-4 py-2 text-sm text-gray-700 w-full text-left'
-                      )}
-                    >
-                      <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-                        Download CSV
-                      </CSVLink>
-                    </button>
-                  )}
-                </Menu.Item>
-              </Menu.Items>
-            </Transition>
-          </Menu>
+          <div className="flex items-center">
+            <button aria-label="Add Transaction" onClick={() => setEdit({
+              name: null,
+              primary_category: null,
+              detailed_category: null,
+              amount: null,
+              notes: null,
+              unified: '1f50d',
+              new: true
+            })}>
+              <PlusCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
+            </button>
+            <button aria-label="Import Button" onClick={() => setShowImport(true)}>
+              <ArrowUpCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true"/>
+            </button>
+            <button aria-label="Upload Button">
+              <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+                <ArrowDownCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
+              </CSVLink>
+            </button>
+          </div>
+          // <Menu as="div" className="relative ml-3">
+          //   <Menu.Button className="flex items-center">
+          //     <span className="sr-only">Open user menu</span>
+          //     <PlusCircleIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
+          //   </Menu.Button>
+          //   <Transition
+          //     as={Fragment}
+          //     enter="transition ease-out duration-100"
+          //     enterFrom="transform opacity-0 scale-95"
+          //     enterTo="transform opacity-100 scale-100"
+          //     leave="transition ease-in duration-75"
+          //     leaveFrom="transform opacity-100 scale-100"
+          //     leaveTo="transform opacity-0 scale-95"
+          //   >
+          //     <Menu.Items className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          //       <Menu.Item>
+          //         {({ active }) => (
+          //           <button
+          //             onClick={() => setEdit({
+          //               name: null,
+          //               primary_category: null,
+          //               detailed_category: null,
+          //               amount: null,
+          //               notes: null,
+          //               unified: '1f50d',
+          //               new: true
+          //             })}
+          //             className={classNames(
+          //               active ? 'bg-gray-100' : '',
+          //               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+          //             )}
+          //           >
+          //               Add Transaction
+          //           </button>
+          //         )}
+          //       </Menu.Item>
+          //       <Menu.Item>
+          //         {({ active }) => (
+          //           <button
+          //             onClick={() => setShowImport(true)}
+          //             className={classNames(
+          //               active ? 'bg-gray-100' : '',
+          //               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+          //             )}
+          //           >
+          //               Import Data
+          //           </button>
+          //         )}
+          //       </Menu.Item>
+          //       <Menu.Item>
+          //         {({ active }) => (
+          //           <button
+          //             className={classNames(
+          //               active ? 'bg-gray-100' : '',
+          //               'block px-4 py-2 text-sm text-gray-700 w-full text-left'
+          //             )}
+          //           >
+          //             <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+          //               Download CSV
+          //             </CSVLink>
+          //           </button>
+          //         )}
+          //       </Menu.Item>
+          //     </Menu.Items>
+          //   </Transition>
+          // </Menu>
         }
         </div>
       </div>
@@ -240,22 +261,28 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
         <div className="shadow-sm rounded-md border border-gray-200">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
-            <p className="text-md font-medium leading-6 text-gray-500">Cash Flow</p>
-            <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
-              {addComma(total.sum)}
-            </p>
+            <p className="text-md font-medium leading-6 text-gray-900">Cash Flow</p>
+            { total.sum > 0 ?
+              <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-green-600">
+                {addComma(total.sum)}
+              </p>
+              :
+              <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-red-600">
+                {addComma(total.sum)}
+              </p>
+            }
           </div>
           <div className="px-5"><hr /></div>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Income</p>
-            <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-green-600">
+            <p className="w-full flex-none text-3xl font-normal leading-10 tracking-tight text-green-600">
               {addComma(total.income)}
             </p>
           </div>
           <div className="px-5"><hr /></div>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Expenses</p>
-            <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-red-600">
+            <p className="w-full flex-none text-3xl font-normal leading-10 tracking-tight text-red-600">
               {addComma(total.expenses)}
             </p>
           </div>
