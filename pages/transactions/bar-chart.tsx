@@ -32,15 +32,15 @@ export const options = {
   scales: {
     x: {
       stacked: true,
-      grid: {
-        display: false
-      }
+      // grid: {
+      //   display: false
+      // }
     },
     y: {
       stacked: true,
-      grid: {
-        display: false
-      }
+      // grid: {
+      //   display: false
+      // }
     },
   },
 };

@@ -146,8 +146,8 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
     <>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="mx-auto grid max-w-2xl grid-cols-1 lg:grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
-        <div className="col-span-3 px-3 shadow-sm rounded-md border border-gray-200">
-          <div className="flex items-center space-x-3 justify-center pt-5 -mb-5">
+        <div className="col-span-3 p-3 shadow-sm rounded-md border border-gray-200">
+          <div className="flex items-center space-x-3 justify-center pt-2 -mb-5">
             { !selected.length && datePicker()}
           </div>
           <BarChart rows={rows} />
