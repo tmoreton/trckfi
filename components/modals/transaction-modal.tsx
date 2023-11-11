@@ -25,7 +25,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
     account_id: null,
     tags: []
   }
-  const [transaction, setTransaction] = useState(item)
+  const [transaction, setTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
   const [startDate, setStartDate] = useState(null)
@@ -34,14 +34,15 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const [primary_categories, setPrimary] = useState([])
   const [detailed_categories, setDetailed] = useState([])
   const router = useRouter()
-  const [tags, setTags] = useState([])
+  const [tags, setTags] = useState([{ label: '', value: ''}])
 
   const isValid = (value) => /^[a-z]{4,12}$/i.test(value)
   const onValidate = useCallback((value) => isValid(value), [])
 
   const onAdd = useCallback((newTag) => {
-      setTags([...tags, newTag])
-      // setTransaction({ ...transaction, tags: [...tags, newTag] })
+    console.log(newTag)
+    setTags([...tags, newTag])
+    // setTransaction({ ...transaction, tags: [...tags, newTag] })
     }, [tags]
   )
 
