@@ -10,6 +10,7 @@ export default async (req, res) => {
   const { id, linked_user_id } = user
   const user_query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
   const startDate = DateTime.now().startOf('month').toISO()
+  const endDate = DateTime.now().endOf('month').toISO()
 
   try {
     let recurringTransaction = await prisma.transactions.findMany({
@@ -18,18 +19,18 @@ export default async (req, res) => {
         pending: false,
         active: true,
         upcoming_date: {
-          gte: startDate
+          gte: startDate,
+          lte: endDate
         },
-        NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-        ],
+      },
+      include: {
+        account: true
       },
       orderBy: {
         date: 'asc'
       },
     })
     
-
     const uniq = (a) => {
       var seen = {};
       return a.filter(function(item) {

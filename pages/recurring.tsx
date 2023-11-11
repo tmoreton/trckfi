@@ -8,6 +8,7 @@ import { commaShort } from '../lib/lodash'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
 import RecurringModal from '../components/modals/recurring-modal'
+import { Emoji } from 'emoji-picker-react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -127,6 +128,22 @@ export default function ({ showError }) {
     // setItem(i)
 	}
   
+  const renderImg = (e) => {
+    if(e?.primary_category === 'LOAN_PAYMENTS'){
+      let image_url = `/assets/banks/${e?.account.institution}.png`
+      return <img
+        src={image_url}
+        alt={e?.account.institution}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src="/assets/banks/bank.png";
+        }}
+        className="h-4 w-4 flex-none rounded-md object-cover"
+      />
+    }
+    return <Emoji unified={e?.unified} size={18} />
+  }
+
   return (
     <>
       <DashboardMenu showError={showError}/>
@@ -189,8 +206,8 @@ export default function ({ showError }) {
                       {day.events.map((event) => (
                         <li key={event.id}>
                           <a onClick={() => editItem(event)} className="cursor-pointer group items-center">
-                            <p className="flex-auto text-sm truncate font-bold text-gray-600 mt-2">
-                              {event.custom_name || event.merchant_name || event.name}
+                            <p className="flex items-center flex-auto text-sm truncate font-bold text-gray-600 mt-2">
+                            {renderImg(event)}<span className="ml-2">{event.custom_name || event.merchant_name || event.name}</span>
                             </p>
                             {
                               Math.trunc(event.amount) > 0 ?
