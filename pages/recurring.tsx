@@ -138,10 +138,10 @@ export default function ({ showError }) {
           currentTarget.onerror = null;
           currentTarget.src="/assets/banks/bank.png";
         }}
-        className="h-4 w-4 flex-none rounded-md object-cover"
+        className="h-5 w-5 flex-none rounded-md object-cover"
       />
     }
-    return <Emoji unified={e?.unified} size={18} />
+    return <Emoji unified={e?.unified} size={20} />
   }
 
   return (
@@ -206,19 +206,23 @@ export default function ({ showError }) {
                       {day.events.map((event) => (
                         <li key={event.id}>
                           <a onClick={() => editItem(event)} className="cursor-pointer group items-center">
-                            <p className="flex items-center flex-auto text-sm truncate font-bold text-gray-600 mt-2">
-                            {renderImg(event)}<span className="ml-2">{event.custom_name || event.merchant_name || event.name}</span>
+                            <div className="flex items-center">
+                              <div className="pr-2">{renderImg(event)}</div>
+                              {
+                                Math.trunc(event.amount) > 0 ?
+                                <p className="hidden font-bold text-base flex-none text-green-500 xl:block">
+                                  {commaShort(event.amount)}
+                                </p>
+                                :
+                                <p className="hidden font-bold text-base flex-none text-red-500 xl:block">
+                                  {commaShort(event.amount)}
+                                </p>
+                              }
+                            </div>
+                            
+                            <p className="flex items-center flex-auto text-sm truncate font-bold text-gray-600 mb-4">
+                              {event.custom_name || event.merchant_name || event.name}
                             </p>
-                            {
-                              Math.trunc(event.amount) > 0 ?
-                              <p className="hidden font-bold text-md flex-none text-green-500 xl:block">
-                                {commaShort(event.amount)}
-                              </p>
-                              :
-                              <p className="hidden font-bold text-md flex-none text-red-500 xl:block">
-                                {commaShort(event.amount)}
-                              </p>
-                            }
                           </a>
                         </li>
                       ))}
