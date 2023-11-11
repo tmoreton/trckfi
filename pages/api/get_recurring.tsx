@@ -11,7 +11,8 @@ export default async (req, res) => {
   const user_query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
   const startDate = DateTime.now().startOf('month').minus({ days: '5' }).toISO()
   const endDate = DateTime.now().endOf('month').plus({ days: '5' }).toISO()
-
+  console.log(startDate)
+  console.log(endDate)
   try {
     let recurringTransaction = await prisma.transactions.findMany({
       where: {
