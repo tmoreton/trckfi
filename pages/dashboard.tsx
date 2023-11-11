@@ -82,8 +82,8 @@ const Dashboard = ({ showError, showIntro }) => {
     setRefreshing(false)
     showError(error)
     setGraphData(data)
-    setRecurring(recurring)
-    setCreditPayments(creditPayments)
+    setRecurring(recurring.splice(0, 6))
+    setCreditPayments(creditPayments.splice(0, 5))
   }
   
   return (

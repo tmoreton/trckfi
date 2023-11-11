@@ -4,6 +4,8 @@ import DashboardLayout from "../../components/dashboard-layout"
 import LoadingModal from '../../components/modals/loading-modal'
 import Table from '../../components/table'
 import TransactionModal from '../../components/modals/transaction-modal'
+import RemoveTransactionModal from '../../components/modals/remove-transaction-modal'
+
 import DatePicker from '../../components/modals/date-picker-modal'
 import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
@@ -21,10 +23,11 @@ const Dashboard = ({ showError, showIntro }) => {
   const user = session?.user
   const [refreshing, setRefreshing] = useState(false)
   const [item, setEdit] = useState({})
+  const [removeItem, setRemoveItem] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [showImport, setShowImport] = useState(false)
   const [selected, setSelected] = useState([])
-  const [transactions, setTransactions] = useLocalStorage('transactions',null)
+  const [transactions, setTransactions] = useLocalStorage('transactions', null)
   const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
@@ -71,6 +74,22 @@ const Dashboard = ({ showError, showIntro }) => {
       setSelected(found)
     }
   }
+
+  const deleteRow = async (id) => {
+    let new_transactions = transactions.filter((data) => data.id !== id )
+    setTransactions(new_transactions)
+    setRemoveItem(false)
+    await fetch(`/api/remove_transaction`, {
+      body: JSON.stringify({ 
+        ids: [id]
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+  }
+
 
   const renderImg = (account) => {
     if(account){
@@ -163,7 +182,7 @@ const Dashboard = ({ showError, showIntro }) => {
           <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-500">
             <PencilSquareIcon className="m-1 h-4 w-4" />
           </button>
-          <button onClick={() => setEdit(value)} className="text-red-600 hover:text-red-500">
+          <button onClick={() => setRemoveItem(value.id)} className="text-red-600 hover:text-red-500">
             <TrashIcon className="m-1 h-4 w-4" />
           </button>
         </div>
@@ -182,6 +201,7 @@ const Dashboard = ({ showError, showIntro }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
+        <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
         <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} setRefreshing={setRefreshing} />
         <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
