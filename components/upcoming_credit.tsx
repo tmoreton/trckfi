@@ -26,7 +26,7 @@ export default function ({ payments }) {
     <>
       <div className="grid grid-cols-5 text-sm font-semibold text-gray-500 flex">
         <div className="col-span-3">
-          <p className="text-xl font-bold text-pink-600">Upcoming Payments</p>
+          <p className="text-xl font-bold text-pink-600">Bill Payments</p>
         </div>
         <div>Balance</div>
         <div className="col text-left"><span className="text-xs pr-1 font-light italic">est.</span>Due Date</div>
