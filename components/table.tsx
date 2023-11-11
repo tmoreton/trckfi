@@ -153,7 +153,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           <BarChart rows={rows} />
         </div>
         <div className="shadow-sm rounded-md border border-gray-200">
-          <div className="flex items-center justify-center pt-5">
+          <div className="flex items-center justify-center pt-5 pb-2">
             { selected.length ?
               <InverseBtn type="button" onClick={() => setEdit({
                   name: null,
@@ -192,7 +192,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
             }
           </div>
 
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-900">Cash Flow</p>
             { total.sum > 0 ?
               <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-green-600">
@@ -205,14 +205,14 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
             }
           </div>
           <div className="px-5"><hr /></div>
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Income</p>
             <p className="w-full flex-none text-3xl font-normal leading-10 tracking-tight text-green-600">
               {addComma(total.income)}
             </p>
           </div>
           <div className="px-5"><hr /></div>
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-8 sm:px-6 xl:px-8 rounded-md">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Expenses</p>
             <p className="w-full flex-none text-3xl font-normal leading-10 tracking-tight text-red-600">
               {addComma(total.expenses)}
