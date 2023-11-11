@@ -207,17 +207,17 @@ export default function ({ showError }) {
                               <div className="pr-2">{renderImg(event)}</div>
                               {
                                 Math.trunc(event.amount) > 0 ?
-                                <p className="hidden font-bold text-base flex-none text-green-500 xl:block">
+                                <p className="hidden font-bold text-base flex-none text-green-600 xl:block">
                                   {commaShort(event.amount)}
                                 </p>
                                 :
-                                <p className="hidden font-bold text-base flex-none text-red-500 xl:block">
+                                <p className="hidden font-bold text-base flex-none text-red-600 xl:block">
                                   {commaShort(event.amount)}
                                 </p>
                               }
                             </div>
                             
-                            <p className="flex items-center flex-auto text-sm truncate font-bold text-gray-600 mb-4">
+                            <p className="flex items-center flex-auto text-sm truncate font-medium text-gray-600 mb-4">
                               {event.custom_name || event.merchant_name || event.name}
                             </p>
                           </a>
