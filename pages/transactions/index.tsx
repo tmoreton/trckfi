@@ -14,7 +14,7 @@ import Notification from '../../components/notification'
 import ImportModal from '../../components/modals/import-modal'
 import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
-import { PencilSquareIcon } from '@heroicons/react/20/solid'
+import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
 
 const Dashboard = ({ showError, showIntro }) => {
   const { data: session } = useSession()
@@ -158,7 +158,16 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: 'Download',
       id: 'id',
       accessor: data => data,
-      Cell: ({ cell: { value } }) => selected.length <= 0 && <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-900"><PencilSquareIcon className="h-4 w-4" /></button>,
+      Cell: ({ cell: { value } }) => selected.length <= 0 && (
+        <div className="flex">
+          <button onClick={() => setEdit(value)} className="text-pink-600 hover:text-pink-500">
+            <PencilSquareIcon className="m-1 h-4 w-4" />
+          </button>
+          <button onClick={() => setEdit(value)} className="text-red-600 hover:text-red-500">
+            <TrashIcon className="m-1 h-4 w-4" />
+          </button>
+        </div>
+      ),
       style: "text-center w-8",
       Filter: DropdownFilter
     }
