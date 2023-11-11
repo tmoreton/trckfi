@@ -3,7 +3,7 @@ import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowDownCircleIcon, ArrowUpCircleIcon, PlusCircleIcon, ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
-import { addComma } from '../lib/lodash'
+import { commaShort } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react'
 import EmojiModal from './modals/emoji-modal'
 import { InverseBtn } from './pink-btn'
@@ -196,11 +196,11 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
             <p className="text-md font-medium leading-6 text-gray-900">Cash Flow</p>
             { total.sum > 0 ?
               <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-green-600">
-                {addComma(total.sum)}
+                {commaShort(total.sum)}
               </p>
               :
               <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-red-600">
-                {addComma(total.sum)}
+                {commaShort(total.sum)}
               </p>
             }
           </div>
@@ -208,14 +208,14 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Income</p>
             <p className="w-full flex-none text-3xl font-normal leading-10 tracking-tight text-green-600">
-              {addComma(total.income)}
+              {commaShort(total.income)}
             </p>
           </div>
           <div className="px-5"><hr /></div>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
             <p className="text-md font-medium leading-6 text-gray-500">Expenses</p>
             <p className="w-full flex-none text-3xl font-normal leading-10 tracking-tight text-red-600">
-              {addComma(total.expenses)}
+              {commaShort(total.expenses)}
             </p>
           </div>
           <div className="px-5"><hr /></div>
