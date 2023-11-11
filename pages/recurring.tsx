@@ -31,10 +31,6 @@ export default function ({ showError }) {
   const [item, setItem] = useState({})
   const [open, setOpen] = useState(false)
   const today = DateTime.now()
-  const [totals, setTotals] = useLocalStorage('total_recurring_stats', {
-		income: 0,
-		expense: 0
-	})
   let startDate = today.startOf('month')
   let endDate = today.endOf('month')
   
@@ -54,11 +50,7 @@ export default function ({ showError }) {
       },
       method: 'POST',
     })
-    const { error, recurring,  monthly_expense, monthly_income } = await res.json()
-    setTotals({
-			income: monthly_income._sum.last_amount, 
-			expense: monthly_expense._sum.last_amount
-		})
+    const { recurring } = await res.json()
     return recurring
   }
 
@@ -131,8 +123,8 @@ export default function ({ showError }) {
   }
 
   const editItem = (i) => {
-		setOpen(true)
-    setItem(i)
+		// setOpen(true)
+    // setItem(i)
 	}
   
   return (
@@ -141,23 +133,13 @@ export default function ({ showError }) {
       <DashboardLayout>
       <LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
       <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
-      <dl className="grid grid-cols-1 gap-1 overflow-hidden text-center sm:grid-cols-1 lg:grid-cols-3 pb-4">
-        <div className="hidden sm:block">
-          <dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Income<span className="text-xs italic font-normal ml-1">est.</span></dt>
-          <dd className="order-first text-4xl font-semibold text-green-600">${Math.round(totals.income)}</dd>
-        </div>
-        <header className="flex items-end justify-center py-2 lg:flex-none">
-          <h1 className="text-2xl font-semibold leading-6 text-pink-600">
-            {today.toFormat('LLLL yyyy')}
-          </h1>
-        </header>
-        <div className="hidden sm:block">
-          <dt className="text-sm font-semibold leading-6 text-gray-600">Recurring Monthly Expense<span className="text-xs italic font-normal ml-1">est.</span></dt>
-          <dd className="order-first text-4xl font-bold text-red-600">${Math.round(Math.abs(totals.expense))}</dd>
-        </div>
-      </dl>
+      <header className="flex items-end justify-center py-2 lg:flex-none">
+        <h1 className="text-3xl font-semibold leading-6 text-pink-600 absolute mb-3">
+          {today.toFormat('LLLL yyyy')}
+        </h1>
+      </header>
+      
       <div className="lg:flex lg:h-full lg:flex-col">
-
         <div className="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
           <div className="grid grid-cols-7 gap-px border-b border-gray-300 bg-gray-200 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
             <div className="bg-white py-2">
@@ -206,24 +188,18 @@ export default function ({ showError }) {
                     <ol className="mt-2">
                       {day.events.map((event) => (
                         <li key={event.id}>
-                          <a onClick={() => editItem(event)} className="cursor-pointer group flex items-center">
-                            { event.frequency === 'UNKNOWN' ?
-                              <p className="flex-auto truncate font-medium text-[10px] text-gray-600 rounded-full my-1 px-2 py-0.5">
-                                {event.custom_name || event.merchant_name || event.name}
-                              </p>
-                              :
-                              <p className="flex-auto truncate font-medium text-[10px] text-pink-600 rounded-full bg-pink-50 ring-1 ring-inset ring-pink-600/10 my-1 px-2 py-0.5">
-                                {event.custom_name || event.merchant_name || event.name}
-                              </p>
-                            }
+                          <a onClick={() => editItem(event)} className="cursor-pointer group items-center">
+                            <p className="flex-auto text-sm truncate font-bold text-gray-600 mt-2">
+                              {event.custom_name || event.merchant_name || event.name}
+                            </p>
                             {
-                              Math.trunc(event.last_amount) > 0 ?
-                              <p className="ml-3 hidden font-bold flex-none text-green-500 xl:block">
-                                {commaShort(event.last_amount)}
+                              Math.trunc(event.amount) > 0 ?
+                              <p className="hidden font-bold text-md flex-none text-green-500 xl:block">
+                                {commaShort(event.amount)}
                               </p>
                               :
-                              <p className="ml-3 hidden font-bold flex-none text-red-500 xl:block">
-                                {commaShort(event.last_amount)}
+                              <p className="hidden font-bold text-md flex-none text-red-500 xl:block">
+                                {commaShort(event.amount)}
                               </p>
                             }
                           </a>
@@ -354,8 +330,8 @@ export default function ({ showError }) {
 // 		setEarly(early)
 //     setStats(stats)
 // 		setTotals({
-// 			income: monthly_income._sum.last_amount, 
-// 			expense: monthly_expense._sum.last_amount
+// 			income: monthly_income._sum.amount, 
+// 			expense: monthly_expense._sum.amount
 // 		})
 //   }
 
@@ -449,7 +425,7 @@ export default function ({ showError }) {
 //                       <dt className="text-sm font-semibold">{`${i.primary_category.split('_').join(' ')}`}</dt>
 // 											<dt className="text-xs font-normal">{i.frequency}<span className="text-xs italic font-normal ml-1">est.</span></dt>
 //                       <dd className="text-blue-400 w-full flex-none text-2xl font-bold tracking-tight">
-//                         ${Math.abs(Math.round(i._sum.last_amount))}
+//                         ${Math.abs(Math.round(i._sum.amount))}
 //                       </dd>
 //                     </div>
 //                   ))}
@@ -503,10 +479,10 @@ export default function ({ showError }) {
 // 														{/* <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{i.detailed_category}</span> */}
 // 													</td>
 // 													{
-// 														i.last_amount > 0 ?
-// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-green-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
+// 														i.amount > 0 ?
+// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-green-500 font-semibold">{addComma(Math.abs(i.amount))}</td>
 // 														:
-// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-red-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
+// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-red-500 font-semibold">{addComma(Math.abs(i.amount))}</td>
 // 													}
 // 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{i.last_date}</td>
 // 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 italic">
@@ -566,10 +542,10 @@ export default function ({ showError }) {
 // 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500 inline-flex items-center"><span className="mr-2">{renderImg(i.account)}</span> {i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 // 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-500">{i.frequency}</td>
 // 													{
-// 														i.last_amount > 0 ?
-// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-green-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
+// 														i.amount > 0 ?
+// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-green-500 font-semibold">{addComma(Math.abs(i.amount))}</td>
 // 														:
-// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-red-500 font-semibold">{addComma(Math.abs(i.last_amount))}</td>
+// 														<td className="whitespace-nowrap px-3 py-4 text-sm text-red-500 font-semibold">{addComma(Math.abs(i.amount))}</td>
 // 													}
 // 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{i.last_date}</td>
 // 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 italic">
@@ -625,7 +601,7 @@ export default function ({ showError }) {
 // 													</td>
 // 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 inline-flex">{i.account.name.split(' ').slice(0, 3).join(' ')}</td>
 // 													<td className="whitespace-nowrap px-3 py-4 text-xs text-gray-300">{i.frequency}</td>
-// 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 font-semibold">{addComma(i.last_amount)}</td>
+// 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300 font-semibold">{addComma(i.amount)}</td>
 // 													<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{i.last_date}</td>
 // 													<td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
 //                             <button onClick={() => editItem(i)} className="text-pink-600 hover:text-pink-900">Edit</button>
