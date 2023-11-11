@@ -18,7 +18,7 @@ export default function ({ recurring }) {
     <>
       <div className="grid grid-cols-4 text-sm font-semibold text-gray-500">
         <div className="col-span-2">
-          <p className="text-xl font-bold text-pink-600">Recurring</p>
+          <p className="text-xl font-bold text-pink-600">Recurring Transactions</p>
         </div>
         <div><span className="text-xs pr-1 font-light italic">est.</span>Amount</div>
         <div className="col text-left">Upcoming</div>

@@ -14,7 +14,7 @@ export default function ({ totalStats, netWorth, history }) {
   return (
     <>
       <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mt-4">
-        <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
+        <div className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 rounded-md border-b border border-gray-200">
           <dt>
             <div className="absolute pt-2">
               <ChartBarIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
@@ -37,7 +37,7 @@ export default function ({ totalStats, netWorth, history }) {
             </p>
           </dd>
         </div>
-        <div className="savings-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 sm:pt-6 rounded-md border-b border border-gray-200">
+        <div className="savings-step relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow-sm sm:px-6 rounded-md border-b border border-gray-200">
           <dt>
             <div className="absolute pt-3">
               <BanknotesIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
