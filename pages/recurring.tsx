@@ -186,10 +186,7 @@ export default function ({ showError }) {
               {days.map((day) => (
                 <div
                   key={day.date}
-                  className={classNames(
-                    day.isCurrentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500',
-                    'relative px-4 py-3'
-                  )}
+                  className={classNames(day.isCurrentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500', 'relative px-4 py-3')}
                 >
                   <time
                     dateTime={day.date}
