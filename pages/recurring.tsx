@@ -34,6 +34,8 @@ export default function ({ showError }) {
   const today = DateTime.now()
   let startDate = today.startOf('month')
   let endDate = today.endOf('month')
+  const [creditPayments, setCreditPayments] = useLocalStorage('credit_payments', null)
+  const [recurringTransactions, setRecurring] = useLocalStorage('recurring_payments', null)
   
   const [selectedDay, setSelected] = useState({ 
     date: today.toFormat('yyyy-LL-dd'),
@@ -57,6 +59,7 @@ export default function ({ showError }) {
 
   const setCal = async () => {
     const recurring = await getRecurring()
+    // const recurring = creditPayments.concat(recurringTransactions)
     let minus = days_of_week.find(i => i.day === startDate.toFormat('ccc')).start
     let add = days_of_week.find(i => i.day === endDate.toFormat('ccc')).end
     let intervals = Interval.fromDateTimes(startDate.minus({ days: minus }).startOf("day"), endDate.plus({ days: add }).endOf("day")).splitBy({ day: 1 }).map(d => {

@@ -305,23 +305,24 @@ export default async (req, res) => {
       },
       orderBy: {
         date: 'asc'
-      },
-      take: 5,
+      }
     })
 
-    return res.status(200).json({ data: {
-      categories,
-      detailedCategories,
-      groupByMonthIncome,
-      groupByMonth,
-      groupByWeek,
-      groupByYearIncome,
-      groupByYear,
-      yearCategories,
-      yearDetailedCategories,
-      recurring: uniq(recurring).slice(0, 6),
-      creditPayments,
-    }})
+    return res.status(200).json({ 
+      data: {
+        categories,
+        detailedCategories,
+        groupByMonthIncome,
+        groupByMonth,
+        groupByWeek,
+        groupByYearIncome,
+        groupByYear,
+        yearCategories,
+        yearDetailedCategories,
+      },
+      recurring: uniq(recurring),
+      creditPayments
+    })
   } catch (e) {
     console.error(e)
     slackMessage('Error get_dashboard: ' + e.message || e.toString())

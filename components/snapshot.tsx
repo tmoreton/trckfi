@@ -10,7 +10,7 @@ export default function ({ totalStats, netWorth, history }) {
   const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, accountBalance } = totalStats
   let this_month_savings = Number(thisMonthIncome) - Number(-thisMonthTotal)
   const this_month_net_worth = netWorth?.stats?.net_worth
-  const last_month_net_worth = history.reverse()[1]?.stats.net_worth
+  const last_month_net_worth = history?.reverse()[1]?.stats.net_worth
   return (
     <>
       <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mt-4">

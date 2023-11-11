@@ -22,7 +22,9 @@ const Dashboard = ({ showError, showIntro }) => {
   const [totalStats, setStats] = useLocalStorage('dashboard_stats', [])
   const [netWorth, setNetWorth] = useLocalStorage('net_worth_stats', [])
   const [history, setHistory] = useLocalStorage('net_worth_history', null)
-
+  const [creditPayments, setCreditPayments] = useLocalStorage('credit_payments', null)
+  const [recurring, setRecurring] = useLocalStorage('recurring_payments', null)
+  
   useEffect(() => {
     if(intro === 'true'){
       setTimeout(() => {
@@ -76,10 +78,12 @@ const Dashboard = ({ showError, showIntro }) => {
       },
       method: 'POST',
     })
-    const { error, data } = await res.json()
+    const { error, data, recurring, creditPayments } = await res.json()
     setRefreshing(false)
     showError(error)
     setGraphData(data)
+    setRecurring(recurring)
+    setCreditPayments(creditPayments)
   }
   
   return (
@@ -91,10 +95,10 @@ const Dashboard = ({ showError, showIntro }) => {
         <Graphs graphData={graphData} />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
           <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
-            { graphData?.recurring && <UpcomingRecurring recurring={graphData?.recurring}/>}
+            { recurring && <UpcomingRecurring recurring={recurring}/>}
           </div>
           <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
-          { graphData?.creditPayments && <UpcomingCredit payments={graphData?.creditPayments}/>}
+          { creditPayments && <UpcomingCredit payments={creditPayments}/>}
           </div>
         </div>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
