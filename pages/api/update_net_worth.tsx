@@ -3,8 +3,8 @@ import prisma from '../../lib/prisma'
 import netWorthSync from '../../utils/netWorthSync'
 import accountsSync from '../../utils/accountsSync'
 import transactionsSync from '../../utils/transactionsSync'
-// import recurringSync from '../../utils/recurringSync'
 import slackMessage from '../../utils/slackMessage'
+import { client } from "../../trigger";
 
 export default async (req, res) => {
   const { user } = req.body
@@ -20,8 +20,11 @@ export default async (req, res) => {
 
     for (let p in plaid) {
       await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      // await recurringSync(plaid[p].access_token)
-      await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+      // await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+      await client.sendEvent({
+        name: "sync.plaid",
+        payload: { access_token: plaid[p].access_token, item_id: plaid[p].item_id, user_id: plaid[p].user_id, institution: plaid[p].institution },
+      })
     }
     await netWorthSync(user.id)
     

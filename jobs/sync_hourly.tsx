@@ -2,7 +2,6 @@ import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import accountsSync from '../utils/accountsSync';
 import transactionsSync from '../utils/transactionsSync';
-// import recurringSync from '../utils/recurringSync';
 import prisma from '../lib/prisma';
 
 client.defineJob({
@@ -32,14 +31,6 @@ client.defineJob({
           })
           await transactionsSync(access_token, user_id)  
           break;
-        // case 'RECURRING_TRANSACTIONS_UPDATE':
-        //   await prisma.webhooks.delete({
-        //     where: {
-        //       id: webhook.id
-        //     }
-        //   })
-        //   await recurringSync(access_token)
-        //   break;
         default:
           break;
       }
