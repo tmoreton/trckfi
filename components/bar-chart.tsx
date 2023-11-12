@@ -24,7 +24,7 @@ ChartJS.register(
 const tabs = [
   { name: 'Yearly', key: 'yearly' },
   { name: 'Monthly', key: 'monthly' },
-  { name: 'Weekly', key: 'weekly' },
+  // { name: 'Weekly', key: 'weekly' },
 ]
 
 const months = {

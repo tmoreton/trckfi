@@ -191,41 +191,43 @@ client.defineJob({
         }
       })
 
-      const emailHtml = render(
-        <WeeklySummary 
-          groupByWeek={groupByWeek} 
-          transactions={transactions} 
-          primaryCategories={primaryCategories} 
-          detailedCategories={detailedCategories}
-          recurring={recurring}
-        />
-      )
-
-      let transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        secure: false,
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASSWORD,
-        },
-      })
-
-      await transporter.sendMail({
-        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-        to: email,
-        subject: `Trckfi - Weekly Summary`,
-        text: '',
-        html: emailHtml,
-      })
-
-      if(linked_user_email){
+      if(transactions && transactions?.length > 0){
+        const emailHtml = render(
+          <WeeklySummary 
+            groupByWeek={groupByWeek} 
+            transactions={transactions} 
+            primaryCategories={primaryCategories} 
+            detailedCategories={detailedCategories}
+            recurring={recurring}
+          />
+        )
+  
+        let transporter = nodemailer.createTransport({
+          host: process.env.SMTP_HOST,
+          secure: false,
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASSWORD,
+          },
+        })
+  
         await transporter.sendMail({
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-          to: linked_user_email,
+          to: email,
           subject: `Trckfi - Weekly Summary`,
           text: '',
           html: emailHtml,
         })
+  
+        if(linked_user_email){
+          await transporter.sendMail({
+            from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+            to: linked_user_email,
+            subject: `Trckfi - Weekly Summary`,
+            text: '',
+            html: emailHtml,
+          })
+        }
       }
     }
   },

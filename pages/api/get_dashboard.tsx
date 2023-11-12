@@ -25,36 +25,36 @@ export default async (req, res) => {
     // })
     // let ids = activeAccounts.map(i => i.id)
 
-    let groupByWeek = await prisma.transactions.groupBy({
-      by: ['week_year'],
-      where: {
-        OR: query,
-        active: true,
-        pending: false,
-        authorized_date: {
-          lte: startDate,
-          gte: endDate
-        },
-        amount: {
-          lte: 0
-        },
-        // account_id: { in: ids },
-        NOT: [
-          { detailed_category: 'CREDIT_CARD_PAYMENT' },
-        ],
-      },
-      _sum: {
-        amount: true,
-      },
-      _count: {
-        amount: true,
-      },
-      orderBy: {
-        week_year: 'asc'
-      },
-    })
-    // @ts-ignore
-    groupByWeek.sort((a, b) => b.week_year?.split('-')[1] - a.week_year?.split('-')[1])
+    // let groupByWeek = await prisma.transactions.groupBy({
+    //   by: ['week_year'],
+    //   where: {
+    //     OR: query,
+    //     active: true,
+    //     pending: false,
+    //     authorized_date: {
+    //       lte: startDate,
+    //       gte: endDate
+    //     },
+    //     amount: {
+    //       lte: 0
+    //     },
+    //     // account_id: { in: ids },
+    //     NOT: [
+    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
+    //     ],
+    //   },
+    //   _sum: {
+    //     amount: true,
+    //   },
+    //   _count: {
+    //     amount: true,
+    //   },
+    //   orderBy: {
+    //     week_year: 'asc'
+    //   },
+    // })
+    // // @ts-ignore
+    // groupByWeek.sort((a, b) => b.week_year?.split('-')[1] - a.week_year?.split('-')[1])
 
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
@@ -264,64 +264,18 @@ export default async (req, res) => {
       },
     })
 
-    let recurring = await prisma.transactions.findMany({
-      where: {
-        OR: query,
-        pending: false,
-        active: true,
-        upcoming_date: {
-          gte: startDate
-        },
-        NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
-        ],
-      },
-      orderBy: {
-        date: 'asc'
-      },
-    })
-
-    const uniq = (a) => {
-      var seen = {};
-      return a.filter(function(item) {
-        return seen.hasOwnProperty(item.name) ? false : (seen[item.name] = true)
-      });
-    }
-
-    let creditPayments = await prisma.transactions.findMany({
-      where: {
-        OR: query,
-        pending: false,
-        date: {
-          gte: one_month_ago
-        },
-        primary_category: 'LOAN_PAYMENTS',
-        amount: {
-          gte: 0
-        },
-      },
-      include: {
-        account: true
-      },
-      orderBy: {
-        date: 'asc'
-      }
-    })
-
     return res.status(200).json({ 
       data: {
         categories,
         detailedCategories,
         groupByMonthIncome,
         groupByMonth,
-        groupByWeek,
+        groupByWeek: [],
         groupByYearIncome,
         groupByYear,
         yearCategories,
         yearDetailedCategories,
-      },
-      recurring: uniq(recurring),
-      creditPayments
+      }
     })
   } catch (e) {
     console.error(e)

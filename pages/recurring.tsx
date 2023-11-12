@@ -34,14 +34,20 @@ export default function ({ showError }) {
   const today = DateTime.now()
   let startDate = today.startOf('month')
   let endDate = today.endOf('month')
-  const [creditPayments, setCreditPayments] = useLocalStorage('credit_payments', null)
-  const [recurringTransactions, setRecurring] = useLocalStorage('recurring_payments', null)
+  const [allRecurring, setAllRecurring] = useLocalStorage('all_recurring_payments', null)
   
   const [selectedDay, setSelected] = useState({ 
     date: today.toFormat('yyyy-LL-dd'),
     isCurrentMonth: true,
     events: []
   })
+
+  useEffect(() => {
+    getRecurring()
+		if(!days){
+			setLoading(true)
+		}
+  }, [])
 
   const getRecurring = async () => {
     const res = await fetch(`/api/get_recurring`, {
@@ -53,17 +59,16 @@ export default function ({ showError }) {
       },
       method: 'POST',
     })
-    const { recurring } = await res.json()
-    return recurring
+    const { all } = await res.json()
+    setAllRecurring(all)
+    setCal()
   }
 
   const setCal = async () => {
-    const recurring = await getRecurring()
-    // const recurring = creditPayments.concat(recurringTransactions)
     let minus = days_of_week.find(i => i.day === startDate.toFormat('ccc')).start
     let add = days_of_week.find(i => i.day === endDate.toFormat('ccc')).end
     let intervals = Interval.fromDateTimes(startDate.minus({ days: minus }).startOf("day"), endDate.plus({ days: add }).endOf("day")).splitBy({ day: 1 }).map(d => {
-      let events = recurring.filter(i => i.upcoming_date === d.start.toFormat('yyyy-LL-dd'))
+      let events = allRecurring?.filter(i => i.upcoming_date === d.start.toFormat('yyyy-LL-dd'))
       if(today.toFormat('LLLL') !== d.start.toFormat('LLLL')){
         return { 
           date: d.start.toFormat('yyyy-LL-dd'),
@@ -82,13 +87,6 @@ export default function ({ showError }) {
     setDays(intervals)
     setLoading(false)
   }
-
-	useEffect(() => {
-    setCal()
-		if(!days){
-			setLoading(true)
-		}
-  }, [])
 
   const updateRecurring = async () => {
     const res = await fetch(`/api/update_recurring`, {

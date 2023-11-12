@@ -9,65 +9,15 @@ export default async (req, res) => {
   
   const { id, linked_user_id } = user
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-  const startDate = DateTime.now().startOf('month').minus({ days: '5' }).toISO()
-  const endDate = DateTime.now().endOf('month').plus({ days: '5' }).toISO()
-  const one_month_ago = DateTime.now().minus({ months: 1 }).toISO()
 
   try {
-    
-    // let recurringTransaction = await prisma.transactions.findMany({
-    //   where: {
-    //     OR: query,
-    //     pending: false,
-    //     active: true,
-    //     upcoming_date: {
-    //       gte: startDate,
-    //       lte: endDate
-    //     },
-    //     NOT: [
-    //       { primary_category: 'LOAN_PAYMENTS' },
-    //     ],
-    //   },
-    //   orderBy: {
-    //     date: 'asc'
-    //   },
-    // })
-    
-    // const uniq = (a) => {
-    //   var seen = {};
-    //   return a.filter(function(item) {
-    //     return seen.hasOwnProperty(item.name) ? false : (seen[item.name] = true)
-    //   });
-    // }
-
-    // let creditPayments = await prisma.transactions.findMany({
-    //   where: {
-    //     OR: query,
-    //     pending: false,
-    //     upcoming_date: {
-    //       gte: startDate,
-    //       lte: endDate
-    //     },
-    //     primary_category: 'LOAN_PAYMENTS',
-    //     amount: {
-    //       gte: 0
-    //     },
-    //   },
-    //   include: {
-    //     account: true
-    //   },
-    //   orderBy: {
-    //     date: 'asc'
-    //   },
-    // })
-    // const recurring = creditPayments.concat(uniq(recurringTransaction));
     let recurringTransaction = await prisma.transactions.findMany({
       where: {
         OR: query,
         pending: false,
         active: true,
         upcoming_date: {
-          gte: startDate
+          gte: DateTime.now().startOf('month').minus({ days: '5' }).toISO()
         },
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
@@ -90,7 +40,7 @@ export default async (req, res) => {
         OR: query,
         pending: false,
         date: {
-          gte: startDate
+          gte: DateTime.now().minus({ months: 1 }).toISO()
         },
         primary_category: 'LOAN_PAYMENTS',
         amount: {
@@ -105,9 +55,12 @@ export default async (req, res) => {
       }
     })
 
-    const recurring = creditPayments.concat(uniq(recurringTransaction));
-
-    return res.status(200).json({ status: 'ok', recurring })
+    return res.status(200).json({ status: 'ok',
+      recurring: uniq(recurringTransaction),
+      creditPayments,
+      all: creditPayments.concat(uniq(recurringTransaction))
+    })
+    
   } catch (e) {
     console.error(e)
     slackMessage('Error get_recurring: ' + e.message || e.toString())

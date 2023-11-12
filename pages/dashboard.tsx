@@ -24,7 +24,8 @@ const Dashboard = ({ showError, showIntro }) => {
   const [history, setHistory] = useLocalStorage('net_worth_history', null)
   const [creditPayments, setCreditPayments] = useLocalStorage('credit_payments', null)
   const [recurring, setRecurring] = useLocalStorage('recurring_payments', null)
-  
+  const [allRecurring, setAllRecurring] = useLocalStorage('all_recurring_payments', null)
+
   useEffect(() => {
     if(intro === 'true'){
       setTimeout(() => {
@@ -37,6 +38,7 @@ const Dashboard = ({ showError, showIntro }) => {
     getDashboard()
     getStats()
     getNetWorth()
+    getRecurring()
   }, [])
 
   const getStats = async () => {
@@ -49,7 +51,22 @@ const Dashboard = ({ showError, showIntro }) => {
     })
     const { stats } = await res.json()
     setStats(stats)
-    setRefreshing(false)
+  }
+
+  const getRecurring = async () => {
+    const res = await fetch(`/api/get_recurring`, {
+      body: JSON.stringify({
+        user
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { recurring, creditPayments, all } = await res.json()
+    setRecurring(recurring.splice(0, 6))
+    setCreditPayments(creditPayments.splice(0, 5))
+    setAllRecurring(all)
   }
 
   const getNetWorth = async () => {
@@ -64,7 +81,6 @@ const Dashboard = ({ showError, showIntro }) => {
     })
     const { error, stats, history } = await res.json()
     showError(error)
-    setRefreshing(false)
     setNetWorth(stats)
     setHistory(history)
   }
@@ -78,12 +94,9 @@ const Dashboard = ({ showError, showIntro }) => {
       },
       method: 'POST',
     })
-    const { error, data, recurring, creditPayments } = await res.json()
-    setRefreshing(false)
-    showError(error)
+    const { data } = await res.json()
     setGraphData(data)
-    setRecurring(recurring.splice(0, 6))
-    setCreditPayments(creditPayments.splice(0, 5))
+    setRefreshing(false)
   }
   
   return (

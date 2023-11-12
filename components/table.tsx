@@ -272,7 +272,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                             <span className="flex" >{cell.render("Cell")} 
                             { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
-                            { cell.row.original.user_id !== user.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.user_id !== user?.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.alert_date && <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
                             </span>
                           </td>
