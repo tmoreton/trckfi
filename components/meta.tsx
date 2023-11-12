@@ -23,6 +23,7 @@ const Meta = ({ post }) => {
       }
       <meta property="og:description" content={post && post?.description ? post.description : "Trckfi is your all-in-one online personal finance platform."} />
       <meta name="facebook-domain-verification" content="4edjuvyb4b7cwp99i13jbj0ttzammg" />
+      <meta name="ahrefs-site-verification" content="a2ef4d971772d5ef47866ad9d3d1e9fba252fab335831788b3fe0ce67b3ec738" />
     </Head>
   )
 }
