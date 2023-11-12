@@ -8,7 +8,7 @@ export default async (req, res) => {
   const { transaction, ids } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
   const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
-  let new_tags = tags.map(tag => ({ label: tag.label, value: tag.value.toUpperCase()}))
+  let new_tags = tags.map(tag => tag.value.toUpperCase())
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {

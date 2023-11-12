@@ -35,7 +35,6 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const [detailed_categories, setDetailed] = useState([])
   const router = useRouter()
   const [tags, setTags] = useState([])
-  
 
   const isValid = (value) => /^[a-z]{4,12}$/i.test(value)
   const onValidate = useCallback((value) => isValid(value), [])
@@ -55,7 +54,8 @@ export default function ({ item, setEdit, showError, selected, user }) {
     setIds(selected.map(s => s.id))
     setTransaction(item)
     if(item?.tags){
-      setTags(item.tags)
+      let new_tags = item.tags.map(tag => ({ label: tag, value: tag}))
+      setTags(new_tags)
     }
     if(item?.date){
       setStartDate(new Date(item.date.replace(/-/g, '\/')))

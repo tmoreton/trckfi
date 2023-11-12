@@ -106,7 +106,7 @@ const Dashboard = ({ showError, showIntro }) => {
 
   const renderTags = (item) => {
     let tags = item.row.original.tags
-    return tags?.map(tag => <span className="inline-flex items-center rounded-full bg-pink-600 px-2 py-1 text-[10px] font-medium text-white ring-1 ring-inset ring-pink-600/10 m-1">{tag.value}</span>)
+    return tags?.map(tag => <span className="inline-flex items-center rounded-full bg-pink-600 px-2 py-1 text-[10px] font-medium text-white ring-1 ring-inset ring-pink-600/10 m-1">{tag}</span>)
   }
 
   const columns = [
@@ -163,7 +163,7 @@ const Dashboard = ({ showError, showIntro }) => {
     {
       Header: "Tags",
       id: "tags",
-      accessor: (row, index) => row.tags?.map(tag => tag.value),
+      accessor: (row, index) => row.tags?.map(tag => tag),
       Cell: ({ cell: value }) => renderTags(value),
       style: "min-w-[125px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
