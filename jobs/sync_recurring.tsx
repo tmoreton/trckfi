@@ -7,6 +7,7 @@ client.defineJob({
   id: "sync-recurring",
   name: "sync-recurring",
   version: "0.0.1",
+  enabled: false,
   trigger: cronTrigger({
     cron: "0 9 * * *",
   }),

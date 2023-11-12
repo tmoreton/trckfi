@@ -8,6 +8,7 @@ client.defineJob({
   id: "sync-daily",
   name: "Daily Sync Transactions",
   version: "0.0.1",
+  enabled: false,
   trigger: cronTrigger({
     cron: "0 10 * * *",
   }),
