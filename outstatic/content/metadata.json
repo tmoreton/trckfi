@@ -1,6 +1,6 @@
 {
-  "commit": "da05f4d2911af9f5f1d4ce2519d9c66d09a327ef",
-  "generated": "2023-11-12T17:17:58.247Z",
+  "commit": "5ce721fb6b0997a78c1d23f7abad0ea00a2c7db7",
+  "generated": "2023-11-12T17:19:21.754Z",
   "metadata": [
     {
       "__outstatic": {
@@ -473,8 +473,8 @@
     },
     {
       "__outstatic": {
-        "commit": "da05f4d2911af9f5f1d4ce2519d9c66d09a327ef",
-        "hash": "2391706218",
+        "commit": "5ce721fb6b0997a78c1d23f7abad0ea00a2c7db7",
+        "hash": "1327154990",
         "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
@@ -490,7 +490,7 @@
       "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
       "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
       "status": "draft",
-      "title": "Understanding Health Savings: HSAs, HRAs, and FSAs Explained"
+      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
     }
   ]
 }
