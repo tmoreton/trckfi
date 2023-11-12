@@ -17,18 +17,19 @@ client.defineJob({
       let category = i.primary_category?.replaceAll(' ', '_').toUpperCase()
       let dt = DateTime.fromFormat(i.date, 'D')
       let date = dt.toFormat('yyyy-MM-dd')
+      let amount = i.type === 'credit' ? Number(i.amount) : Number(-i.amount)
       let data = {
         name: i.name,
         merchant_name: i.name,
         account_name: i.account_name,
-        primary_category: 'CSV_IMPORT',
+        primary_category: category,
         detailed_category: category,
         category: [i.primary_category],
         date,
         authorized_date: dt.toISO(),
-        amount: i.type === 'credit' ? Number(-i.amount) : Number(i.amount),
+        amount,
         notes: i?.notes,
-        tags: i?.labels ? [i.labels.split(" ")] : null,
+        tags: i?.labels ? i.labels.split(" ").map(tag => tag?.toUpperCase()) : ['IMPORT'],
         user_id: user.id,
         pending: false,
         active: true,
@@ -41,8 +42,8 @@ client.defineJob({
 
       const transaction = await prisma.transactions.findFirst({
         where: { 
-          date: date,
-          amount: Number(i.amount),
+          date,
+          amount,
           user_id: user.id,
         }
       })

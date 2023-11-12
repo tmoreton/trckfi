@@ -17,7 +17,7 @@ import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
 
-const Dashboard = ({ showError, showIntro }) => {
+const Dashboard = ({ showError, showIntro, setSuccess }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [refreshing, setRefreshing] = useState(false)
@@ -33,6 +33,7 @@ const Dashboard = ({ showError, showIntro }) => {
   })
   
   useEffect(() => {
+    setSuccess('testing goeiwrjgioer')
     if(!transactions){
       setRefreshing(true)
     }
@@ -214,7 +215,7 @@ const Dashboard = ({ showError, showIntro }) => {
       <DashboardLayout>
         <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
-        <ImportModal user={user} open={showImport} setOpen={setShowImport} showError={showError} setRefreshing={setRefreshing} />
+        <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
         <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
       </DashboardLayout>

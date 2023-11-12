@@ -7,10 +7,14 @@ export default async (req, res) => {
   if (!rows || !user) return res.status(500)
 
   try {
-    await client.sendEvent({
-      name: "import.csv",
-      payload: { rows, user },
-    })
+    const chunkSize = 200
+    for (let i = 0; i < rows.length; i += chunkSize) {
+      const chunk = rows.slice(i, i + chunkSize)
+      await client.sendEvent({
+        name: "import.csv",
+        payload: { rows: chunk, user },
+      })
+    }
     
     return res.status(200).json({ status: 'OK', complete: true })
   } catch (e) {

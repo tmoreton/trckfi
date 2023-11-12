@@ -37,7 +37,7 @@ export default function Editor({ showError }) {
     showError(error)
     setTimeout(() => {
       setSave(false)
-    }, 1000);
+    }, 1000)
   }
 
   const getPreferences = async () => {

@@ -3,6 +3,8 @@ import { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
 import ErrorModal from '../components/modals/error-modal'
+import SuccessAlert from '../components/success-alert'
+
 import AuthGuard from '../utils/authGuard'
 import Meta from '../components/meta'
 import 'intro.js/introjs.css';
@@ -23,6 +25,7 @@ const hotjarVersion = 6
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
+  const [success, setSuccess] = useState(null)
   const [enabled, setEnabled] = useState(false)
   const [steps, setSteps] = useState([])
   const { post } = pageProps
@@ -146,7 +149,9 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
           gtag('config', 'G-YDKZMNYK8E');
         `}
       </Script>
+      
       <SessionProvider session={session}>
+        <SuccessAlert success={success} setSuccess={setSuccess} /> 
         <ErrorModal error={error} />
           <Steps
             enabled={enabled}
@@ -164,7 +169,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
                 </p>
               </div>
             }
-            <Component {...pageProps} showError={showError} showIntro={showIntro}/>
+            <Component {...pageProps} showError={showError} showIntro={showIntro} setSuccess={setSuccess}/>
           </AuthGuard>
         <Analytics />
       </SessionProvider>

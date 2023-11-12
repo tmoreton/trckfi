@@ -2,13 +2,10 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Importer, ImporterField } from 'react-csv-importer'
 import 'react-csv-importer/dist/index.css'
-import { useRouter } from 'next/router'
 
-export default function ({ showError, open, setOpen, user, setRefreshing }) {
-  const router = useRouter()
+export default function ({ getTransactions, open, setOpen, user, setSuccess }) {
 
   const upload = async (rows) => {
-    setRefreshing(true)
     await fetch(`/api/import_csv`, {
       body: JSON.stringify({
         rows,
@@ -19,9 +16,10 @@ export default function ({ showError, open, setOpen, user, setRefreshing }) {
       },
       method: 'POST',
     })
+    
     setTimeout(() => {
-      router.reload()
-    }, 10000)
+      getTransactions()
+    }, 20000);
   }
 
   return (
@@ -67,7 +65,7 @@ export default function ({ showError, open, setOpen, user, setRefreshing }) {
                             
                             await upload(rows)                            
                           }}
-                          chunkSize={10000} // optional, internal parsing chunk size in bytes
+                          chunkSize={1000} // optional, internal parsing chunk size in bytes
                           defaultNoHeader={false} // optional, keeps "data has headers" checkbox off by default
                           restartable={false} // optional, lets user choose to upload another file when import is complete
                           onStart={({ file, fields }) => {
@@ -76,7 +74,9 @@ export default function ({ showError, open, setOpen, user, setRefreshing }) {
                           }}
                           onComplete={({ file, fields }) => {
                             // optional, invoked right after import is done (but user did not dismiss/reset the widget yet)
-                            console.log("finished import of file", file, "with fields", fields);
+                            console.log("finished import of file", file, "with fields", fields)
+                            setOpen(false)
+                            setSuccess('Success! Please allow a few minutes for transactions to process')
                           }}
                           onClose={() => {
                             // optional, invoked when import is done and user clicked "Finish"
