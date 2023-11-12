@@ -34,31 +34,28 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const [primary_categories, setPrimary] = useState([])
   const [detailed_categories, setDetailed] = useState([])
   const router = useRouter()
-  const [tags, setTags] = useState([{ label: '', value: ''}])
+  const [tags, setTags] = useState([])
 
   const isValid = (value) => /^[a-z]{4,12}$/i.test(value)
   const onValidate = useCallback((value) => isValid(value), [])
 
   const onAdd = useCallback((newTag) => {
-    console.log(newTag)
     setTags([...tags, newTag])
-    // setTransaction({ ...transaction, tags: [...tags, newTag] })
-    }, [tags]
-  )
+  }, [tags])
 
   const onDelete = useCallback((tagIndex) => {
-      setTags(tags.filter((_, i) => i !== tagIndex))
-    }, [tags]
-  )
+    setTags(tags.filter((_, i) => i !== tagIndex))
+  }, [tags])
 
   useEffect(() => {
-    console.log(item)
     getAccounts()
     getCategories()
     setAlertDate(null)
     setIds(selected.map(s => s.id))
     setTransaction(item)
-    setTags(item.tags)
+    if(item?.tags){
+      setTags(item.tags)
+    }
     if(item?.date){
       setStartDate(new Date(item.date.replace(/-/g, '\/')))
     } else {

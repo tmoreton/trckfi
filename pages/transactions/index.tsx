@@ -90,7 +90,6 @@ const Dashboard = ({ showError, showIntro }) => {
     })
   }
 
-
   const renderImg = (account) => {
     if(account){
       let image_url = `/assets/banks/${account.institution}.png`
@@ -104,6 +103,11 @@ const Dashboard = ({ showError, showIntro }) => {
         className="h-5 w-5 flex-none rounded-md object-cover"
       />
     }
+  }
+
+  const renderTags = (item) => {
+    let tags = item.row.original.tags
+    return tags?.map(tag => <span className="inline-flex items-center rounded-full bg-pink-600 px-2 py-1 text-[10px] font-medium text-white ring-1 ring-inset ring-pink-600/10 m-1">{tag.value}</span>)
   }
 
   const columns = [
@@ -153,8 +157,16 @@ const Dashboard = ({ showError, showIntro }) => {
       Header: "Detailed Category",
       id: "detailed_category",
       accessor: data => data.detailed_category,
-      Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
+      Cell: ({ cell: { value } }) => { return <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>},
       style: "min-w-[200px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      Filter: DropdownFilter
+    },
+    {
+      Header: "Tags",
+      id: "tags",
+      accessor: (row, index) => row.tags?.map(tag => tag.value),
+      Cell: ({ cell: value }) => renderTags(value),
+      style: "min-w-[125px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     {

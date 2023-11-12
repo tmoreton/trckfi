@@ -36,7 +36,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
   } = useTable(
     {
       columns,
-      data
+      data,
     },
     useFilters,
     useSortBy,

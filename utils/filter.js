@@ -25,7 +25,14 @@ export function DropdownFilter({
   const options = React.useMemo(() => {
     const options = new Set();
     preFilteredRows.forEach((row) => {
-      options.add(row.values[id]);
+      let value = row.values[id]
+      if((typeof value === 'object')){
+        value.map(i => {
+          options.add(i)
+        })
+      } else {
+        options.add(value)
+      }         
     });
     return [...options.values()];
   }, [id, preFilteredRows]);
@@ -33,7 +40,7 @@ export function DropdownFilter({
   // Render a multi-select box
   return (
     <select
-    className="w-full font-normal rounded p-2 my-3 focus:outline-none pink-border"
+      className="w-full font-normal rounded p-2 my-3 focus:outline-none pink-border"
       value={filterValue}
       onChange={(e) => {
         setFilter(e.target.value || undefined);
