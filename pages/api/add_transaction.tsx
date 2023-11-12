@@ -7,8 +7,9 @@ import slackMessage from '../../utils/slackMessage'
 export default async (req, res) => {
   const { transaction, user } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { name, unified, primary_category, detailed_category, amount, notes, date, account_id, custom_name } = transaction
+  const { name, unified, primary_category, detailed_category, amount, notes, date, account_id, custom_name, tags } = transaction
   try {
+    let new_tags = tags.map(tag => ({ label: tag.label, value: tag.value.toUpperCase()}))
     let data = { 
       amount: Number(amount).toFixed(2),
       primary_category: snakeCase(primary_category).toUpperCase(),
@@ -24,6 +25,7 @@ export default async (req, res) => {
       unified,
       notes,
       account_id,
+      tags: new_tags,
       user_id: user.id,
     }
     await prisma.transactions.create({ data })
@@ -32,6 +34,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error add_transaction: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }

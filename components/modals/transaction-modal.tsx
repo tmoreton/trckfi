@@ -124,7 +124,6 @@ export default function ({ item, setEdit, showError, selected, user }) {
         transaction: {
           ...transaction,
           tags
-          // tags: tags.map(t => t.value)
         },
         ids
       }),

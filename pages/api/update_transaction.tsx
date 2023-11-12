@@ -8,7 +8,7 @@ export default async (req, res) => {
   const { transaction, ids } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
   const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
-
+  let new_tags = tags.map(tag => ({ label: tag.label, value: tag.value.toUpperCase()}))
   try {
     if(ids.length > 0){
       ids.forEach( async (i) => {
@@ -53,7 +53,7 @@ export default async (req, res) => {
           notes,
           date,
           alert_date,
-          tags,
+          tags: new_tags,
           authorized_date: new Date(date),
           month_year: date.substring(0,7),
           year: date.substring(0,4),
@@ -66,6 +66,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error update_transaction: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }
