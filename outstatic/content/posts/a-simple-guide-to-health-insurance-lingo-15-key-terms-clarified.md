@@ -1,6 +1,6 @@
 ---
 title: 'A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified'
-status: 'draft'
+status: 'published'
 author:
   name: 'Trckfi'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
@@ -39,7 +39,7 @@ Now that you've gained a solid understanding of **healthcare terminology**, let'
 
 **2\. Compare Plans:** During open enrollment, you'll likely have multiple plan options to choose from. Don't rush this decision. Take the time to compare the plans, considering factors like premiums, deductibles, and out-of-pocket maximums. Pay attention to the network of providers and facilities to ensure your preferred doctors and hospitals are included.
 
-**3\. Explore Additional Benefits:** Many health plans offer **supplementary benefits **like wellness programs, telehealth services, or prescription drug coverage. Explore these extras to see if they align with your health and lifestyle. For example, if you value convenience and remote access to healthcare, a plan with telehealth options can be a game-changer.
+**3\. Explore Additional Benefits:** Many health plans offer \*\*supplementary benefits \*\*like wellness programs, telehealth services, or prescription drug coverage. Explore these extras to see if they align with your health and lifestyle. For example, if you value convenience and remote access to healthcare, a plan with telehealth options can be a game-changer.
 
 **4\. Plan for the Unexpected:** Life is full of surprises, and your health can change in an instant. When choosing a plan, think about potential unexpected scenarios, like accidents or sudden illnesses. Having a plan that covers emergencies with reasonable out-of-pocket expenses can provide peace of mind.
 
