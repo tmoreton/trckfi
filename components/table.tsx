@@ -225,7 +225,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
       </div>
       
-      <div className="lg:absolute left-0 lg:px-10 pb-10">
+      <div className="lg:absolute left-0 lg:px-20 pb-20">
         <nav className="flex items-center justify-between px-4 sm:px-0">
           <div className="flex w-0 flex-1">
             <button
