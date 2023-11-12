@@ -1,6 +1,6 @@
 {
-  "commit": "2e4b14578f7d0ac1f28f75f7b9689f4651cc45fd",
-  "generated": "2023-11-07T03:04:23.274Z",
+  "commit": "d4795a30f2fd5c8782b44e109a5f2a59245e0110",
+  "generated": "2023-11-12T15:49:29.826Z",
   "metadata": [
     {
       "__outstatic": {
@@ -428,6 +428,27 @@
       "slug": "mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "d4795a30f2fd5c8782b44e109a5f2a59245e0110",
+        "hash": "4080846695",
+        "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Health Insurance, Healthcare, Open Enrollment, Personal Finance",
+      "collection": "posts",
+      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
+      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
+      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
+      "publishedAt": "2023-11-12T14:03:37.659Z",
+      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
+      "slug": "a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified",
+      "status": "draft",
+      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
     }
   ]
 }
