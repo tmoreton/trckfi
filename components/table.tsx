@@ -224,75 +224,78 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           </div>
         </div>
       </div>
+      
+      <div className="absolute left-0 px-10 pb-10">
+        <nav className="flex items-center justify-between px-4 sm:px-0">
+          <div className="flex w-0 flex-1">
+            <button
+              onClick={() => updatePagination('PREVIOUS')}
+              className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              <ArrowLongLeftIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+              Previous
+            </button>
+          </div>
+          <div className="flex w-0 flex-1 justify-end">
+            <button
+              onClick={() => updatePagination('NEXT')}
+              className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              Next
+              <ArrowLongRightIcon className="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+            </button>
+          </div>
+        </nav>
 
-      <div className="w-full overflow-scroll sm:overflow-auto transaction-step">
-        <table className="lg:table-auto sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
-          <thead>
-            {headerGroups.map(headerGroup => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th className={column.render("style")}>
-                    {renderHeader(column)}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody className="divide-y divide-gray-200 bg-white" {...getTableBodyProps()}>
-            {rows.slice(paginate.start, paginate.end).map((row, i) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    if (cell.column.Header === 'Name'){
-                      return (
-                        <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
-                          <span className="flex" >{cell.render("Cell")} 
-                          { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
-                          { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
-                          { cell.row.original.user_id !== user.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
-                          { cell.row.original.alert_date && <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
-                          </span>
-                        </td>
-                      )
-                    } else {
-                      return (
-                        <td className={classNames(
-                          cell.column.Header === 'Date'
-                            ? 'min-w-[125px]'
-                            : '',
-                          'overflow-hidden px-1 py-2 text-xs text-gray-500'
-                          )} {...cell.getCellProps()}>{cell.render("Cell")}
-                        </td>
-                      );
-                    }
-                  })}
+        <div className="w-full overflow-scroll sm:overflow-auto transaction-step">
+          <table className="lg:table-auto sm:table-fixed w-full divide-y divide-gray-300 mt-4" {...getTableProps()}>
+            <thead>
+              {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(column => (
+                    <th className={column.render("style")}>
+                      {renderHeader(column)}
+                    </th>
+                  ))}
                 </tr>
-              )
-            })}
-          </tbody>
-        </table>
+              ))}
+            </thead>
+            <tbody className="divide-y divide-gray-200 bg-white" {...getTableBodyProps()}>
+              {rows.slice(paginate.start, paginate.end).map((row, i) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                      if (cell.column.Header === 'Name'){
+                        return (
+                          <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
+                            <span className="flex" >{cell.render("Cell")} 
+                            { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.user_id !== user.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.alert_date && <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
+                            </span>
+                          </td>
+                        )
+                      } else {
+                        return (
+                          <td className={classNames(
+                            cell.column.Header === 'Date'
+                              ? 'min-w-[125px]'
+                              : '',
+                            'overflow-hidden px-1 py-2 text-xs text-gray-500'
+                            )} {...cell.getCellProps()}>{cell.render("Cell")}
+                          </td>
+                        );
+                      }
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <nav className="flex items-center justify-between px-4 sm:px-0 mt-4">
-        <div className="flex w-0 flex-1">
-          <button
-            onClick={() => updatePagination('PREVIOUS')}
-            className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-          >
-            <ArrowLongLeftIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-            Previous
-          </button>
-        </div>
-        <div className="flex w-0 flex-1 justify-end">
-          <button
-            onClick={() => updatePagination('NEXT')}
-            className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-          >
-            Next
-            <ArrowLongRightIcon className="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-          </button>
-        </div>
-      </nav>
     </>
   );
 }
