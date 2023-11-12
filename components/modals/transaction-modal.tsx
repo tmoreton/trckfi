@@ -35,6 +35,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const [detailed_categories, setDetailed] = useState([])
   const router = useRouter()
   const [tags, setTags] = useState([])
+  
 
   const isValid = (value) => /^[a-z]{4,12}$/i.test(value)
   const onValidate = useCallback((value) => isValid(value), [])
@@ -141,7 +142,6 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const remove = async () => {
     const res = await fetch(`/api/remove_transaction`, {
       body: JSON.stringify({ 
-        transaction,
         ids
       }),
       headers: {
@@ -158,6 +158,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
     const res = await fetch(`/api/add_transaction`, {
       body: JSON.stringify({ 
         transaction,
+        tags,
         user,
       }),
       headers: {
