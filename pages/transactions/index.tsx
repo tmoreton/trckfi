@@ -33,7 +33,6 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
   })
   
   useEffect(() => {
-    setSuccess('testing goeiwrjgioer')
     if(!transactions){
       setRefreshing(true)
     }
