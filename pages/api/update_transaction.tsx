@@ -26,6 +26,7 @@ export default async (req, res) => {
         if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
         if (alert_date) data['alert_date'] = alert_date
         if (account_id) data['account_id'] = account_id
+        if (tags) data['tags'] = new_tags
         if (date) {
           data['date'] = date
           data['authorized_date'] = new Date(date.replace(/-/g, '\/'))

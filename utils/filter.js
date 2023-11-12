@@ -28,7 +28,7 @@ export function DropdownFilter({
       let value = row.values[id]
       if((typeof value === 'object')){
         value.map(i => {
-          options.add(i)
+          if(i) options.add(i)
         })
       } else {
         options.add(value)
@@ -47,11 +47,9 @@ export function DropdownFilter({
       }}
     >
       <option value="">All</option>
-      {options.map((option, i) => (
-        <option key={i} value={option}>
-          {option}
-        </option>
-      ))}
+      {options.map((option, i) => {
+        if(option) return <option key={i} value={option}>{option}</option>
+      })}
     </select>
   );
 }
