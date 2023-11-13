@@ -134,7 +134,7 @@ export default function ({ graphData }) {
   }
 
   return (
-    <div>        
+    <div className="hidden md:block">        
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-6">
         <div className="pie-step col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 lg:mb-0 mb-6">
           <div className="border-b border-gray-200 mb-1">
@@ -210,7 +210,7 @@ export default function ({ graphData }) {
                   )
                 })}
               </div>
-              <div className="col-span-1 hidden md:block">
+              <div className="col-span-1">
                 <Doughnut data={data} options={options}/>
               </div>
             </div>
@@ -221,7 +221,7 @@ export default function ({ graphData }) {
             </div>
           }
         </div>
-        <div className="bar-step col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200 hidden md:block">
+        <div className="bar-step col-span-1 px-4 pb-4 shadow-sm sm:px-6 sm:pt-2 rounded-md border border-gray-200">
           <BarChart graphData={graphData} />
         </div>
       </div>
