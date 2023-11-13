@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import { ArrowPathIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
-import { commaShort, addComma } from '../lib/lodash'
+import { commaShort } from '../lib/lodash'
 import HideAccountModal from '../components/modals/hide-account-modal'
 import EditAccountModal from '../components/modals/edit-account-modal'
 import LoadingModal from '../components/modals/loading-modal'

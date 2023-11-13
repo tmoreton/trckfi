@@ -23,10 +23,10 @@ export default function ({ recurring }) {
         <div><span className="text-xs pr-1 font-light italic">est.</span>Amount</div>
         <div className="col text-left">Upcoming</div>
       </div>
-      <hr className="my-2"/>
+      <hr className="my-4"/>
       <ul role="list">
         {recurring && recurring.map((r, eventIdx) => (
-          <div key={eventIdx} className="grid grid-cols-4 text-md text-gray-500 py-2">
+          <div key={eventIdx} className="grid grid-cols-4 text-md text-gray-500 py-3">
             <div className="col-span-2 flex">
               <Emoji unified={r.unified} size={22} />
               <span className="ml-4">{r.custom_name?.substring(0, 20) || r.merchant_name?.substring(0, 15) || r.name?.substring(0, 15)}</span>
