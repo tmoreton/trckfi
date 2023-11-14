@@ -1,6 +1,6 @@
 {
-  "commit": "885570330014bb85da7493733e7bfa2504d9c0d3",
-  "generated": "2023-11-14T04:19:35.994Z",
+  "commit": "d9252f4d25fb8aeb4e705cce2ed770c9ea4a78bb",
+  "generated": "2023-11-14T04:24:16.693Z",
   "metadata": [
     {
       "__outstatic": {
@@ -495,11 +495,11 @@
     {
       "__outstatic": {
         "commit": "d9252f4d25fb8aeb4e705cce2ed770c9ea4a78bb",
-        "hash": "2871627166",
+        "hash": "3078854367",
         "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
       },
       "author": {
-        "name": "",
+        "name": "Zina Kumok",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
       "category": "Picking Health Insurance",
@@ -512,27 +512,6 @@
       "slug": "how-to-choose-health-insurance-open-enrollment",
       "status": "draft",
       "title": "A Guide to Picking the Best Health Insurance"
-    },
-    {
-      "__outstatic": {
-        "commit": "885570330014bb85da7493733e7bfa2504d9c0d3",
-        "hash": "1737774338",
-        "path": "outstatic/content/posts/understanding-fsa-hra-healthcare-benefits.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Health Insurance",
-      "collection": "posts",
-      "coverImage": "/images/blurry-woman-holding-cons-pros-post-its-gxOT.jpg",
-      "description": "Maximize healthcare benefits with our FSA and HRA for open enrollment. Get the pros and cons to make informed choices.",
-      "keywords": "FSA, HRA, Open Enrollment, Health Benefits, Healthcare Expenses, Tax Savings, Employer Contributions, Financial Relief, Pros and Cons, Flexible Spending Accounts, Health Reimbursement Arrangements",
-      "publishedAt": "2023-11-12T15:32:44.292Z",
-      "seoTitle": "Choosing Between FSAs and HRAs: A Guide for Open Enrollment",
-      "slug": "understanding-fsa-hra-healthcare-benefits",
-      "status": "draft",
-      "title": "Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits"
     }
   ]
 }
