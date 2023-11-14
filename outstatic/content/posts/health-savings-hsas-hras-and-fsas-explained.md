@@ -4,7 +4,7 @@ status: 'draft'
 author:
   name: 'Trckfi'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'understanding-health-savings-hsas-hras-and-fsas-explained'
+slug: 'health-savings-hsas-hras-and-fsas-explained'
 description: 'Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.'
 coverImage: '/images/international-nurses-day-concept-I0Mj.jpg'
 category: 'Healthcare and Insurance'
@@ -103,10 +103,7 @@ Here's a detailed comparison of these healthcare accounts to highlight the key d
 
 **Table: Differences Between HSAs, HRAs, and FSAs**
 
-| Syntax      | Description | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
+\| Syntax \| Description \| Test Text \| \| :--- \| :----: \| ---: \| \| Header \| Title \| Here's this \| \| Paragraph \| Text \| And more \|
 
 As you can see, each account type has its unique features. HSAs offer portability and allow individuals to save for the future while enjoying tax benefits. HRAs are employer-owned and funded, with some potential carryover balance. FSAs, on the other hand, come in various types and may allow limited carryover. Selecting the [right healthcare account](/blog/how-to-choose-health-insurance-open-enrollment) depends on your individual circumstances and preferences.
 
