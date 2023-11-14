@@ -1,26 +1,27 @@
 {
-  "commit": "794fceb3eb2f13a9e0f8cc5823f96b69187f717a",
-  "generated": "2023-11-12T17:21:43.421Z",
+  "commit": "defebce2d256c6ac3f9da9bf6f3d1955ac32be84",
+  "generated": "2023-11-14T02:35:47.042Z",
   "metadata": [
     {
       "__outstatic": {
-        "commit": "86820596dfe822212dccede40fa9ab667eba92d2",
-        "hash": "2589393163",
-        "path": "outstatic/content/posts/budgeting-made-easy.md"
+        "commit": "9fb4dfd5bbec4c9f85a7165d1a55155ccfd3fe76",
+        "hash": "1086500976",
+        "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
       },
       "author": {
-        "name": "Tim Moreton Jr"
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Budgeting",
+      "category": "Health Insurance, Healthcare, Open Enrollment, Personal Finance",
       "collection": "posts",
-      "coverImage": "/assets/blog/budgeting-made-easy.jpg",
-      "date": "07.16.2023",
-      "description": "Striking the perfect balance between cherishing family moments and making wise financial choices can feel like a juggling act. But fear not! Discover how to create a realistic budget that empowers you to enjoy life while managing finances effectively. Say goodbye to stress and embrace a fulfilling, financially stable future for you and your loved ones.",
-      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances",
-      "publishedAt": "2023-10-07T14:25:45.000Z",
-      "slug": "budgeting-made-easy",
+      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
+      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
+      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
+      "publishedAt": "2023-11-12T14:03:37.659Z",
+      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
+      "slug": "a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified",
       "status": "published",
-      "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
+      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
     },
     {
       "__outstatic": {
@@ -132,54 +133,44 @@
     },
     {
       "__outstatic": {
-        "commit": "e7fb16514afa3c9425e3abeafce4afa0c16b3ea4",
-        "hash": "2415492937",
-        "path": "outstatic/content/posts/retirement-planning-understanding-iras-and-401ks.md"
+        "commit": "86820596dfe822212dccede40fa9ab667eba92d2",
+        "hash": "2589393163",
+        "path": "outstatic/content/posts/budgeting-made-easy.md"
       },
-      "category": "Personal Finance, Retirement Planning",
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Budgeting",
       "collection": "posts",
-      "coverImage": "/assets/blog/retirement-plan.png",
-      "date": "08.07.2023",
-      "description": "Planning for retirement is crucial for a financially secure future. Learn about Individual Retirement Accounts (IRAs) and 401(k)s, their tax benefits, and key considerations when choosing the right plan for you.",
-      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "retirement-planning-understanding-iras-and-401ks",
+      "coverImage": "/assets/blog/budgeting-made-easy.jpg",
+      "date": "07.16.2023",
+      "description": "Striking the perfect balance between cherishing family moments and making wise financial choices can feel like a juggling act. But fear not! Discover how to create a realistic budget that empowers you to enjoy life while managing finances effectively. Say goodbye to stress and embrace a fulfilling, financially stable future for you and your loved ones.",
+      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances",
+      "publishedAt": "2023-10-07T14:25:45.000Z",
+      "slug": "budgeting-made-easy",
       "status": "published",
-      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
+      "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
     },
     {
       "__outstatic": {
-        "commit": "ffcd29eafed5508f4e9f712cbd3b40ed1ef43957",
-        "hash": "3024562856",
-        "path": "outstatic/content/posts/prepare-for-the-unexpected-the-value-of-building-an-emergency-fund.md"
+        "commit": "e5bfe742f6c7b36394557e0a58ba5300657dfef1",
+        "hash": "1029389025",
+        "path": "outstatic/content/posts/mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024.md"
       },
-      "category": "Personal Finance, Financial Planning, Emergency Fund",
-      "collection": "posts",
-      "coverImage": "/assets/blog/emergency-fund-cover.png",
-      "date": "7.25.2023",
-      "description": "Life is unpredictable, and unexpected financial challenges can arise at any moment. Whether it's a medical emergency, sudden job loss, or unexpected home repair, having an emergency fund can provide a much-needed safety net during difficult times. An emergency fund is a crucial component of a solid financial plan, offering peace of mind and protection against unexpected events. In this article, we'll explore the importance of an emergency fund and provide practical tips to help you start building one. Learn how to prepare for the unexpected and take control of your financial future with an emergency fund.",
-      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "prepare-for-the-unexpected-the-value-of-building-an-emergency-fund",
-      "status": "published",
-      "title": "Prepare for the Unexpected: The Value of Building an Emergency Fund"
-    },
-    {
-      "__outstatic": {
-        "commit": "183d37bbba79eb8b617b4db1f27bde688b6b2b22",
-        "hash": "561598743",
-        "path": "outstatic/content/posts/monthly-financial-checkin-routine-for-success.md"
+      "author": {
+        "name": "Trckfi",
+        "picture": ""
       },
-      "category": "Financial Awareness, Monthly Financial Routine",
+      "category": "Finance, Fintech, Money Management, Personal Finance",
       "collection": "posts",
-      "coverImage": "/assets/blog/monthly-routine.png",
-      "date": "09.04.2023",
-      "description": "Welcome to the beginning of a new month, a perfect opportunity to take control of your finances and set yourself up for success. Your monthly financial check-in can be the game-changer you need. It's not just about tracking expenses; it's a powerful tool for financial awareness and growth.",
-      "keywords": "Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "monthly-financial-checkin-routine-for-success",
+      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
+      "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
+      "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
+      "publishedAt": "2023-11-06T13:03:51.632Z",
+      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
+      "slug": "mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024",
       "status": "published",
-      "title": "Simple  Monthly Financial Check-In Routine for Success"
+      "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
     },
     {
       "__outstatic": {
@@ -214,6 +205,145 @@
       "slug": "how-to-get-out-of-debt",
       "status": "published",
       "title": "Get Out of Debt: Your Path to Financial Freedom"
+    },
+    {
+      "__outstatic": {
+        "commit": "d0e3b8e1843cb5badb6099789d65a574ebf23f30",
+        "hash": "802693328",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Financial Organization",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Start your journey to financial organization with confidence and ease.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization Made Easy: Your Route to Financial Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "19ff8ef804e48157d25b1bbdecbc027a83096458",
+        "hash": "1071184414",
+        "path": "outstatic/content/posts/savings.md"
+      },
+      "category": "Personal Finance, Financial Management, Saving Money",
+      "collection": "posts",
+      "coverImage": "/assets/blog/savings.png",
+      "date": "09.11.2023",
+      "description": "Saving empowers you to turn aspirations into achievements. Whether it's the dream of homeownership, a long-awaited vacation, or a new laptop, saving allows you to set and conquer financial goals. The journey begins by starting small and cultivating a saving habit that aligns with your dreams.",
+      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "savings",
+      "status": "published",
+      "title": "The Power of Saving: Your Financial Safety Net"
+    },
+    {
+      "__outstatic": {
+        "commit": "89e7d0d2f455572fb6e12d68f575a832fb68c0cf",
+        "hash": "445634179",
+        "path": "outstatic/content/posts/roth-401k-plans.md"
+      },
+      "category": "Retirement Planning, 401(k), Roth IRA, Tax-Advantaged Accounts",
+      "collection": "posts",
+      "coverImage": "/assets/blog/roth-401k-plan.png",
+      "date": "08.22.2023",
+      "description": "Unlock Tax-Free Retirement Growth with a 401(k) Roth. Discover the benefits of contributing after-tax money, tax-free growth, and flexible withdrawal options. Maximize your retirement savings and explore the power of a 401(k) Roth to secure your financial future.",
+      "keywords": "401(k) Roth, retirement savings, tax-free growth, after-tax contributions, retirement planning, flexible withdrawal, tax advantages, financial future",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "roth-401k-plans",
+      "status": "published",
+      "title": "The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement"
+    },
+    {
+      "__outstatic": {
+        "commit": "ffcd29eafed5508f4e9f712cbd3b40ed1ef43957",
+        "hash": "3024562856",
+        "path": "outstatic/content/posts/prepare-for-the-unexpected-the-value-of-building-an-emergency-fund.md"
+      },
+      "category": "Personal Finance, Financial Planning, Emergency Fund",
+      "collection": "posts",
+      "coverImage": "/assets/blog/emergency-fund-cover.png",
+      "date": "7.25.2023",
+      "description": "Life is unpredictable, and unexpected financial challenges can arise at any moment. Whether it's a medical emergency, sudden job loss, or unexpected home repair, having an emergency fund can provide a much-needed safety net during difficult times. An emergency fund is a crucial component of a solid financial plan, offering peace of mind and protection against unexpected events. In this article, we'll explore the importance of an emergency fund and provide practical tips to help you start building one. Learn how to prepare for the unexpected and take control of your financial future with an emergency fund.",
+      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "prepare-for-the-unexpected-the-value-of-building-an-emergency-fund",
+      "status": "published",
+      "title": "Prepare for the Unexpected: The Value of Building an Emergency Fund"
+    },
+    {
+      "__outstatic": {
+        "commit": "e7fb16514afa3c9425e3abeafce4afa0c16b3ea4",
+        "hash": "2415492937",
+        "path": "outstatic/content/posts/retirement-planning-understanding-iras-and-401ks.md"
+      },
+      "category": "Personal Finance, Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan.png",
+      "date": "08.07.2023",
+      "description": "Planning for retirement is crucial for a financially secure future. Learn about Individual Retirement Accounts (IRAs) and 401(k)s, their tax benefits, and key considerations when choosing the right plan for you.",
+      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "retirement-planning-understanding-iras-and-401ks",
+      "status": "published",
+      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
+    },
+    {
+      "__outstatic": {
+        "commit": "183d37bbba79eb8b617b4db1f27bde688b6b2b22",
+        "hash": "561598743",
+        "path": "outstatic/content/posts/monthly-financial-checkin-routine-for-success.md"
+      },
+      "category": "Financial Awareness, Monthly Financial Routine",
+      "collection": "posts",
+      "coverImage": "/assets/blog/monthly-routine.png",
+      "date": "09.04.2023",
+      "description": "Welcome to the beginning of a new month, a perfect opportunity to take control of your finances and set yourself up for success. Your monthly financial check-in can be the game-changer you need. It's not just about tracking expenses; it's a powerful tool for financial awareness and growth.",
+      "keywords": "Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "monthly-financial-checkin-routine-for-success",
+      "status": "published",
+      "title": "Simple  Monthly Financial Check-In Routine for Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "b2c1109a8e445a83b9aff453994e2d6fd4aaecfd",
+        "hash": "4153793723",
+        "path": "outstatic/content/posts/traditional-ira-building-a-tax-advantaged-retirement.md"
+      },
+      "category": "Personal Finance, Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan-roth-ira.png",
+      "date": "08.07.2023",
+      "description": "Discover the benefits of a Traditional IRA for tax-advantaged retirement savings. Learn how this powerful retirement account allows you to contribute pre-tax money and enjoy tax-deferred growth on your investments until retirement. Find out how to open a Traditional IRA and make the most of its potential tax benefits to secure your financial future.",
+      "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "traditional-ira-building-a-tax-advantaged-retirement",
+      "status": "published",
+      "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
+    },
+    {
+      "__outstatic": {
+        "commit": "b793aa8ebeb7a8df13e0666cb9343f1648a68a07",
+        "hash": "1839756278",
+        "path": "outstatic/content/posts/traditional-401k-plan.md"
+      },
+      "category": "Retirement Planning, 401(k), Retirement Accounts, Employee Benefits",
+      "collection": "posts",
+      "coverImage": "/assets/blog/traditional-401k-plan.png",
+      "date": "08.18.2023",
+      "description": "Planning for retirement? Discover the power of a Traditional 401(k) account. Learn how to maximize pre-tax contributions, benefit from employer matches, and explore the tax-deferred growth advantages. Secure your financial future with this comprehensive guide to Traditional 401(k) accounts.",
+      "keywords": "Traditional 401(k), retirement savings, pre-tax contributions, employer match, tax-deferred growth, retirement planning, retirement accounts, financial future",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "traditional-401k-plan",
+      "status": "published",
+      "title": "What is a Traditional 401(k) Plan?"
     },
     {
       "__outstatic": {
@@ -268,40 +398,6 @@
     },
     {
       "__outstatic": {
-        "commit": "19ff8ef804e48157d25b1bbdecbc027a83096458",
-        "hash": "1071184414",
-        "path": "outstatic/content/posts/savings.md"
-      },
-      "category": "Personal Finance, Financial Management, Saving Money",
-      "collection": "posts",
-      "coverImage": "/assets/blog/savings.png",
-      "date": "09.11.2023",
-      "description": "Saving empowers you to turn aspirations into achievements. Whether it's the dream of homeownership, a long-awaited vacation, or a new laptop, saving allows you to set and conquer financial goals. The journey begins by starting small and cultivating a saving habit that aligns with your dreams.",
-      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "savings",
-      "status": "published",
-      "title": "The Power of Saving: Your Financial Safety Net"
-    },
-    {
-      "__outstatic": {
-        "commit": "89e7d0d2f455572fb6e12d68f575a832fb68c0cf",
-        "hash": "445634179",
-        "path": "outstatic/content/posts/roth-401k-plans.md"
-      },
-      "category": "Retirement Planning, 401(k), Roth IRA, Tax-Advantaged Accounts",
-      "collection": "posts",
-      "coverImage": "/assets/blog/roth-401k-plan.png",
-      "date": "08.22.2023",
-      "description": "Unlock Tax-Free Retirement Growth with a 401(k) Roth. Discover the benefits of contributing after-tax money, tax-free growth, and flexible withdrawal options. Maximize your retirement savings and explore the power of a 401(k) Roth to secure your financial future.",
-      "keywords": "401(k) Roth, retirement savings, tax-free growth, after-tax contributions, retirement planning, flexible withdrawal, tax advantages, financial future",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "roth-401k-plans",
-      "status": "published",
-      "title": "The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement"
-    },
-    {
-      "__outstatic": {
         "commit": "b99f8f1562c463b5dc8bfd9152beb25f8611d759",
         "hash": "2698741979",
         "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
@@ -339,120 +435,28 @@
     },
     {
       "__outstatic": {
-        "commit": "eefdbef4d626918a9b8e87ca2129e147e170e197",
-        "hash": "4009638864",
-        "path": "outstatic/content/posts/types-of-ira-investing.md"
-      },
-      "category": "Personal Finance, Retirement Planning, Investment Strategies",
-      "collection": "posts",
-      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
-      "date": "08.07.2023",
-      "description": "Join us on a journey into the world of IRAs, where Traditional and Roth IRAs take center stage as the king and queen of retirement accounts. But don't stop there! Unveil the hidden gems like Spousal, SEP, SIMPLE, and more. We'll walk you through each type's unique features and benefits, ensuring you find the perfect match for your financial goals. Get ready to navigate the exciting realm of IRAs and build your path to a secure retirement.",
-      "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "types-of-ira-investing",
-      "status": "published",
-      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
-    },
-    {
-      "__outstatic": {
-        "commit": "b2c1109a8e445a83b9aff453994e2d6fd4aaecfd",
-        "hash": "4153793723",
-        "path": "outstatic/content/posts/traditional-ira-building-a-tax-advantaged-retirement.md"
-      },
-      "category": "Personal Finance, Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-plan-roth-ira.png",
-      "date": "08.07.2023",
-      "description": "Discover the benefits of a Traditional IRA for tax-advantaged retirement savings. Learn how this powerful retirement account allows you to contribute pre-tax money and enjoy tax-deferred growth on your investments until retirement. Find out how to open a Traditional IRA and make the most of its potential tax benefits to secure your financial future.",
-      "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "traditional-ira-building-a-tax-advantaged-retirement",
-      "status": "published",
-      "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
-    },
-    {
-      "__outstatic": {
-        "commit": "b793aa8ebeb7a8df13e0666cb9343f1648a68a07",
-        "hash": "1839756278",
-        "path": "outstatic/content/posts/traditional-401k-plan.md"
-      },
-      "category": "Retirement Planning, 401(k), Retirement Accounts, Employee Benefits",
-      "collection": "posts",
-      "coverImage": "/assets/blog/traditional-401k-plan.png",
-      "date": "08.18.2023",
-      "description": "Planning for retirement? Discover the power of a Traditional 401(k) account. Learn how to maximize pre-tax contributions, benefit from employer matches, and explore the tax-deferred growth advantages. Secure your financial future with this comprehensive guide to Traditional 401(k) accounts.",
-      "keywords": "Traditional 401(k), retirement savings, pre-tax contributions, employer match, tax-deferred growth, retirement planning, retirement accounts, financial future",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "traditional-401k-plan",
-      "status": "published",
-      "title": "What is a Traditional 401(k) Plan?"
-    },
-    {
-      "__outstatic": {
-        "commit": "99c28e2fe46c964fc3c6412b4dff86700c75a71c",
-        "hash": "802693328",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Financial Organization",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Start your journey to financial organization with confidence and ease.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-13T14:25:45.000Z",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization Made Easy: Your Route to Financial Success"
-    },
-    {
-      "__outstatic": {
-        "commit": "2e4b14578f7d0ac1f28f75f7b9689f4651cc45fd",
-        "hash": "1029389025",
-        "path": "outstatic/content/posts/mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": ""
-      },
-      "category": "Finance, Fintech, Money Management, Personal Finance",
-      "collection": "posts",
-      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
-      "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
-      "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
-      "publishedAt": "2023-11-06T13:03:51.632Z",
-      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
-      "slug": "mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024",
-      "status": "published",
-      "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
-    },
-    {
-      "__outstatic": {
-        "commit": "36f089c474d1ceae4968617edb6b3e5e98730f8b",
-        "hash": "1086500976",
-        "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
+        "commit": "e4b239b02f835645c8038d8f35f993e108eec1c4",
+        "hash": "2554492771",
+        "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
         "name": "Trckfi",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Health Insurance, Healthcare, Open Enrollment, Personal Finance",
+      "category": "Healthcare and Insurance",
       "collection": "posts",
-      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
-      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
-      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
-      "publishedAt": "2023-11-12T14:03:37.659Z",
-      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
-      "slug": "a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified",
-      "status": "published",
-      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
+      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
+      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
+      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
+      "publishedAt": "2023-11-17T16:03:01.000Z",
+      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
+      "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
+      "status": "draft",
+      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
     },
     {
       "__outstatic": {
-        "commit": "3d010cdcbfd0a3118974df57a83287bba250a413",
+        "commit": "efefcfdefe99a2ec99af9e6517e3f7ff1096bfe1",
         "hash": "2433899517",
         "path": "outstatic/content/posts/understanding-fsas-vs-hras-maximizing-your-healthcare-benefits.md"
       },
@@ -473,24 +477,41 @@
     },
     {
       "__outstatic": {
-        "commit": "794fceb3eb2f13a9e0f8cc5823f96b69187f717a",
-        "hash": "2554492771",
-        "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
+        "commit": "eefdbef4d626918a9b8e87ca2129e147e170e197",
+        "hash": "4009638864",
+        "path": "outstatic/content/posts/types-of-ira-investing.md"
+      },
+      "category": "Personal Finance, Retirement Planning, Investment Strategies",
+      "collection": "posts",
+      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
+      "date": "08.07.2023",
+      "description": "Join us on a journey into the world of IRAs, where Traditional and Roth IRAs take center stage as the king and queen of retirement accounts. But don't stop there! Unveil the hidden gems like Spousal, SEP, SIMPLE, and more. We'll walk you through each type's unique features and benefits, ensuring you find the perfect match for your financial goals. Get ready to navigate the exciting realm of IRAs and build your path to a secure retirement.",
+      "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "types-of-ira-investing",
+      "status": "published",
+      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
+    },
+    {
+      "__outstatic": {
+        "commit": "defebce2d256c6ac3f9da9bf6f3d1955ac32be84",
+        "hash": "266211880",
+        "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
       },
       "author": {
-        "name": "Trckfi",
+        "name": "",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Healthcare and Insurance",
+      "category": "Picking Health Insurance",
       "collection": "posts",
-      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
-      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
-      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
-      "publishedAt": "2023-11-17T16:03:01.000Z",
-      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
+      "coverImage": "/images/women-choosing-health-insurance-U3OT.jpg",
+      "description": "Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.",
+      "keywords": "open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA,",
+      "publishedAt": "2023-11-14T01:34:56.572Z",
+      "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
+      "slug": "how-to-choose-health-insurance-open-enrollment",
       "status": "draft",
-      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
+      "title": "A Guide to Picking the Best Health Insurance"
     }
   ]
 }
