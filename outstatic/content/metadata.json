@@ -1,6 +1,6 @@
 {
-  "commit": "3a312f1a2d31713e5b5f12c31873f0286ad9c05d",
-  "generated": "2023-11-14T15:23:23.039Z",
+  "commit": "7283b2c4526a5a80655b7cb5435b229721683b2e",
+  "generated": "2023-11-14T15:50:25.903Z",
   "metadata": [
     {
       "__outstatic": {
@@ -208,6 +208,26 @@
     },
     {
       "__outstatic": {
+        "commit": "d0e3b8e1843cb5badb6099789d65a574ebf23f30",
+        "hash": "802693328",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Financial Organization",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Start your journey to financial organization with confidence and ease.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization Made Easy: Your Route to Financial Success"
+    },
+    {
+      "__outstatic": {
         "commit": "19ff8ef804e48157d25b1bbdecbc027a83096458",
         "hash": "1071184414",
         "path": "outstatic/content/posts/savings.md"
@@ -378,26 +398,6 @@
     },
     {
       "__outstatic": {
-        "commit": "b99f8f1562c463b5dc8bfd9152beb25f8611d759",
-        "hash": "2698741979",
-        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Zero-Based Budgeting",
-      "collection": "posts",
-      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
-      "date": "07.16.2023",
-      "description": "Learn about the practical way to take charge of your money and make every dollar count with zero-based budgeting (ZBB). By assigning a specific purpose to every dollar you earn, you gain control over your money and stay laser-focused on your financial goals. This approach enhances financial awareness, improves decision-making, and allows you to adjust your budget for consistent overages or unexpected expenses. However, zero-based budgeting may not suit everyone due to its time-consuming nature and demand for self-control. Consider automated budgeting tools as alternatives for more streamlined and efficient budget management, ensuring you achieve your financial success while having the flexibility to suit your lifestyle.",
-      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "what-is-zero-based-budgeting",
-      "status": "published",
-      "title": "What is zero-based budgeting, and is it right for you?"
-    },
-    {
-      "__outstatic": {
         "commit": "d34839ca1fc0f2f1aae577e08db575d593cb8a61",
         "hash": "572872306",
         "path": "outstatic/content/posts/what-is-the-roth-IRA-advantage-2023.md"
@@ -436,29 +436,25 @@
     },
     {
       "__outstatic": {
-        "commit": "e9b31bc38de25f5e6b87c502bfb9c8fd211230ef",
-        "hash": "4019332570",
-        "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
+        "commit": "eefdbef4d626918a9b8e87ca2129e147e170e197",
+        "hash": "4009638864",
+        "path": "outstatic/content/posts/types-of-ira-investing.md"
       },
-      "author": {
-        "name": "",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Picking Health Insurance",
+      "category": "Personal Finance, Retirement Planning, Investment Strategies",
       "collection": "posts",
-      "coverImage": "/images/women-choosing-health-insurance-U3OT.jpg",
-      "description": "Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.",
-      "keywords": "open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA",
-      "publishedAt": "2023-11-14T01:34:56.572Z",
-      "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
-      "slug": "how-to-choose-health-insurance-open-enrollment",
-      "status": "draft",
-      "title": "A Guide to Picking the Best Health Insurance"
+      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
+      "date": "08.07.2023",
+      "description": "Join us on a journey into the world of IRAs, where Traditional and Roth IRAs take center stage as the king and queen of retirement accounts. But don't stop there! Unveil the hidden gems like Spousal, SEP, SIMPLE, and more. We'll walk you through each type's unique features and benefits, ensuring you find the perfect match for your financial goals. Get ready to navigate the exciting realm of IRAs and build your path to a secure retirement.",
+      "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "types-of-ira-investing",
+      "status": "published",
+      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
     },
     {
       "__outstatic": {
         "commit": "d6d91d38aa0890274b7c2e210ce3089f842af7fd",
-        "hash": "1818766903",
+        "hash": "3995077939",
         "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
@@ -478,87 +474,66 @@
     },
     {
       "__outstatic": {
-        "commit": "d122c7d44b0aeedb5596e2623725b814814bedc7",
-        "hash": "464070686",
-        "path": "outstatic/content/posts/health-insurance-lingo-key-terms-guide.md"
+        "commit": "4d4b5655de047a837150738f803d7894d0e7d579",
+        "hash": "3232507373",
+        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Zero-Based Budgeting",
+      "collection": "posts",
+      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
+      "date": "07.16.2023",
+      "description": "Learn how zero-based budgeting (ZBB) empowers financial control, making every dollar count. Enhance awareness, improve decisions, and adapt to change.",
+      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "\"Zero-Based Budgeting: Take Control of Your Money",
+      "slug": "what-is-zero-based-budgeting",
+      "status": "published",
+      "title": "What is zero-based budgeting, and is it right for you?"
+    },
+    {
+      "__outstatic": {
+        "commit": "656e056f8f7268a009d26f87b37dcc611797426c",
+        "hash": "2320741795",
+        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
         "name": "Trckfi",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Health Insurance Terms",
+      "category": "Healthcare and Insurance",
       "collection": "posts",
-      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
-      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
-      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
-      "publishedAt": "2023-11-12T14:03:37.659Z",
-      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
-      "slug": "health-insurance-lingo-key-terms-guide",
-      "status": "published",
-      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
+      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
+      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
+      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
+      "publishedAt": "2023-11-17T16:03:01.000Z",
+      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
+      "slug": "health-savings-hsas-hras-and-fsas-explained",
+      "status": "draft",
+      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
     },
     {
       "__outstatic": {
-        "commit": "3d84c963229addf0f0c48231f143845e58f00fb9",
-        "hash": "1484829439",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+        "commit": "7283b2c4526a5a80655b7cb5435b229721683b2e",
+        "hash": "2935554557",
+        "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
       },
       "author": {
-        "name": "Tim Moreton Jr"
+        "name": "Zina Kumok",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Guide: Organize Your Finances",
+      "category": "Open Enrollment: Health Insurance",
       "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-13T14:25:45.000Z",
-      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization: Tips for Managing Cash Flow and Financial Empowerment – No More Stress!"
-    },
-    {
-      "__outstatic": {
-        "commit": "55dbc0277462b31a944eae47244253cea662e3bc",
-        "hash": "1247241020",
-        "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-roth-ira.png",
-      "date": "08.10.2023",
-      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
-      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
-      "slug": "roth-ira-advantage-2023",
-      "status": "published",
-      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
-    },
-    {
-      "__outstatic": {
-        "commit": "3a312f1a2d31713e5b5f12c31873f0286ad9c05d",
-        "hash": "540267069",
-        "path": "outstatic/content/posts/types-of-ira-investing.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Investing Strategies",
-      "collection": "posts",
-      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
-      "date": "08.07.2023",
-      "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
-      "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Discover the Right IRA for You and Build Wealth! Learn About Tax-Free Wins and Business Perks",
-      "slug": "types-of-ira-investing",
-      "status": "published",
-      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
+      "coverImage": "/images/women-choosing-health-insurance-U3OT.jpg",
+      "description": "Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.",
+      "keywords": "open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA",
+      "publishedAt": "2023-11-14T01:34:56.572Z",
+      "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
+      "slug": "how-to-choose-health-insurance-open-enrollment",
+      "status": "draft",
+      "title": "A Guide to Picking the Best Health Insurance"
     }
   ]
 }

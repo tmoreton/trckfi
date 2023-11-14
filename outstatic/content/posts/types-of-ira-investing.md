@@ -8,7 +8,7 @@ keywords: 'IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA
 status: 'published'
 slug: 'types-of-ira-investing'
 author:
-  name: ''
+  name: 'Trckfi'
 seoTitle: 'Discover the Right IRA for You and Build Wealth! Learn About Tax-Free Wins and Business Perks'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
