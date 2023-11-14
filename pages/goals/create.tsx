@@ -59,7 +59,7 @@ export default function () {
                 </div>
               </button>
             }
-            <Link href="/goal/details">
+            <Link href="/goals/details">
               <button className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                 Next
               </button>
