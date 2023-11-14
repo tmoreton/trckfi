@@ -1,6 +1,6 @@
 {
   "commit": "e9b31bc38de25f5e6b87c502bfb9c8fd211230ef",
-  "generated": "2023-11-14T02:38:18.151Z",
+  "generated": "2023-11-14T02:38:42.184Z",
   "metadata": [
     {
       "__outstatic": {
@@ -495,7 +495,7 @@
     {
       "__outstatic": {
         "commit": "e9b31bc38de25f5e6b87c502bfb9c8fd211230ef",
-        "hash": "4210178816",
+        "hash": "4019332570",
         "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
       },
       "author": {
@@ -510,7 +510,7 @@
       "publishedAt": "2023-11-14T01:34:56.572Z",
       "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
       "slug": "how-to-choose-health-insurance-open-enrollment",
-      "status": "published",
+      "status": "draft",
       "title": "A Guide to Picking the Best Health Insurance"
     }
   ]
