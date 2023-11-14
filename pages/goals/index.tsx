@@ -127,7 +127,7 @@ const Goals = ({ showError }) => {
             </li>
           )})}
         </ul>
-        <Link href="/goal">
+        <Link href="/goals/create">
           <PinkBtn type="button" onClick={() => console.log(true)}>
             Add Goal
           </PinkBtn>
