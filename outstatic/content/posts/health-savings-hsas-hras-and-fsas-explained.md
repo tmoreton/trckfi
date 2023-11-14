@@ -43,7 +43,7 @@ When it comes to managing your healthcare expenses, HSAs can be your best friend
 
 ### **Navigating the World of Health Reimbursement Arrangements (HRAs)**
 
-HRAs are another essential tool in the healthcare world. Here's what you need to know:
+[HRAs](understanding-fsa-hra-healthcare-benefits) are another essential tool in the healthcare world. Here's what you need to know:
 
 - **What is an HRA?**: An HRA is like a fund of money that your employer owns and contributes to, designed to cover eligible medical expenses.
 
@@ -67,7 +67,7 @@ HRAs are another essential tool in the healthcare world. Here's what you need to
 
 ### **Maximizing Your Savings with Flexible Spending Accounts (FSAs)**
 
-FSAs come in different types, each designed for specific healthcare needs:
+[FSAs](understanding-fsa-hra-healthcare-benefits) come in different types, each designed for specific healthcare needs:
 
 - **Health Care FSAs**: These cover eligible medical expenses not covered by your health plan.
 
