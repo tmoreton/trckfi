@@ -1,6 +1,6 @@
 {
-  "commit": "536f1ac510da27d539fd0316b434dbfcf31c951b",
-  "generated": "2023-11-14T18:55:08.360Z",
+  "commit": "12533d6799cc5f8f97fcfc24c876566f0a81161d",
+  "generated": "2023-11-14T21:38:39.420Z",
   "metadata": [
     {
       "__outstatic": {
@@ -327,23 +327,6 @@
     },
     {
       "__outstatic": {
-        "commit": "5f766a151c3a939b01dfd0aed8d9d520723764bc",
-        "hash": "1938912",
-        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
-      },
-      "category": "Personal Finance, Expense Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/track-receipt.jpg",
-      "date": "07.10-2023",
-      "description": "Financial success hinges on having the right tools and strategies, and one of the most crucial is expense tracking and analysis. By closely monitoring and analyzing your personal expenses, you gain the insights needed to make informed financial decisions, establish precise budgets, and progress toward your financial objectives. In this article, we'll delve into why tracking and analyzing expenses are essential, offer practical tips for effective expense management, and highlight how it can significantly benefit your financial well-being.",
-      "keywords": "Expense Tracking, Financial Success, Budgeting, Financial Goals, Savings, Investments, Financial Awareness, Financial Discipline, Analysing Expenses",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "tracking-monthly-expenses",
-      "status": "published",
-      "title": "Analyzing and Tracking Your Monthly Expenses: Personal Finance Tips"
-    },
-    {
-      "__outstatic": {
         "commit": "7b0a625b015d8e7bd98441666b54baa0d8a56be3",
         "hash": "206353117",
         "path": "outstatic/content/posts/track-finances-reach-financial-success.md"
@@ -602,6 +585,27 @@
       "slug": "essential-financial-concepts",
       "status": "published",
       "title": "10 Must-Know Personal Finance Basics for Financial Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "12533d6799cc5f8f97fcfc24c876566f0a81161d",
+        "hash": "3774557856",
+        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Expense Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/track-receipt.jpg",
+      "date": "07.10-2023",
+      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
+      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
+      "slug": "tracking-monthly-expenses",
+      "status": "published",
+      "title": "The Super Simple Guide to Tracking Your Money"
     }
   ]
 }
