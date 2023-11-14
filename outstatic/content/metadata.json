@@ -1,6 +1,6 @@
 {
   "commit": "3d84c963229addf0f0c48231f143845e58f00fb9",
-  "generated": "2023-11-14T14:14:27.006Z",
+  "generated": "2023-11-14T14:39:18.361Z",
   "metadata": [
     {
       "__outstatic": {
@@ -517,7 +517,7 @@
     {
       "__outstatic": {
         "commit": "3d84c963229addf0f0c48231f143845e58f00fb9",
-        "hash": "687947687",
+        "hash": "511443132",
         "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
       },
       "author": {
