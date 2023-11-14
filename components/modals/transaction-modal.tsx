@@ -9,6 +9,18 @@ import { DateTime } from "luxon"
 // import Select, { StylesConfig } from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 
+const colourStyles = {
+  multiValue: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: '#db2777',
+    color: '#fff',
+  }),
+  multiValueLabel: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: '#db2777',
+    color: '#fff'
+  }),
+}
 export default function ({ item, setEdit, showError, selected, user, transactions, setTransactions }) {
   const defaultTransaction = {
     name: null,
@@ -250,7 +262,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                 // @ts-ignore
                                 defaultValue={{ label: transaction?.account?.name, value: transaction.account_id }}
                                 options={accounts.map(a => ({ label: a.name, value: a.id}))}
-                                // styles={colourStyles}
+                                styles={colourStyles}
                               />
                             </div>
                           </div>
@@ -261,11 +273,14 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                               Primary Category
                             </label>
                             <CreatableSelect
+                              // isMulti
                               closeMenuOnSelect={true}
-                              onChange={e => setTransaction({ ...transaction, primary_category: e.value.toUpperCase() })}
+                              value={{ label: transaction?.primary_category, value: transaction?.primary_category }}
+                              onChange={e => setTransaction({ ...transaction, primary_category:e.value.toUpperCase()})}
+                              // onChange={e => setTransaction({ ...transaction, primary_category: e?.length > 1 && e?.slice(-1).pop().value.toUpperCase()})}
                               defaultValue={{ label: transaction.primary_category, value: transaction.primary_category }}
                               options={primary_categories.map(category => ({ label: category.primary_category, value: category.primary_category}))}
-                              // styles={colourStyles}
+                              styles={colourStyles}
                             />
                           </div>
                           <div className="relative w-full mb-3 group">
@@ -275,11 +290,14 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                               Detailed Category
                             </label>
                             <CreatableSelect
+                              // isMulti
                               closeMenuOnSelect={true}
-                              onChange={e => setTransaction({ ...transaction, detailed_category: e.value.toUpperCase() })}
+                              value={{ label: transaction.detailed_category, value: transaction.detailed_category }}
+                              onChange={e => setTransaction({ ...transaction, detailed_category: e.value.toUpperCase()})}
+                              // onChange={e => setTransaction({ ...transaction, detailed_category: e?.slice(-1).pop().value.toUpperCase() })}
                               defaultValue={{ label: transaction.detailed_category, value: transaction.detailed_category }}
                               options={detailed_categories.map(category => ({ label: category.detailed_category, value: category.detailed_category}))}
-                              // styles={colourStyles}
+                              styles={colourStyles}
                             />
                           </div>
                           <div className="relative w-full mb-4 group inline-flex">
@@ -290,12 +308,12 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                 Tags
                               </label>
                               <CreatableSelect
+                                isMulti
                                 closeMenuOnSelect={true}
                                 onChange={e => setTransaction({ ...transaction, tags: e.map(t => t.value.toUpperCase()) })}
                                 defaultValue={transaction?.tags?.map(t => ({ label: t.toUpperCase(), value: t.toUpperCase()}))}
-                                isMulti
                                 options={suggestions}
-                                // styles={colourStyles}
+                                styles={colourStyles}
                               />
                             </div>
                           </div>
