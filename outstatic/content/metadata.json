@@ -1,6 +1,6 @@
 {
   "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
-  "generated": "2023-11-14T23:28:47.383Z",
+  "generated": "2023-11-14T23:29:31.648Z",
   "metadata": [
     {
       "__outstatic": {
@@ -609,8 +609,8 @@
     {
       "__outstatic": {
         "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
-        "hash": "1934094069",
-        "path": "outstatic/content/posts/retirement-planning-understanding-iras-and-401ks.md"
+        "hash": "3283024817",
+        "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
       },
       "author": {
         "name": ""
@@ -623,7 +623,7 @@
       "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
       "publishedAt": "2023-10-06T14:25:45.491Z",
       "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
-      "slug": "retirement-planning-understanding-iras-and-401ks",
+      "slug": "iras-vs-401ks-choosing-retirement-plan",
       "status": "published",
       "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
     }
