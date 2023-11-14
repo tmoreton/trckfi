@@ -9,7 +9,7 @@ description: 'Learn how to evaluate and choose the optimal health insurance plan
 coverImage: '/images/women-choosing-health-insurance-U3OT.jpg'
 category: 'Picking Health Insurance'
 seoTitle: 'A Guide to Picking the Best Health Insurance This Open Enrollment'
-keywords: 'open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA, qualifying life event'
+keywords: 'open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA'
 publishedAt: '2023-11-14T01:34:56.572Z'
 ---
 
