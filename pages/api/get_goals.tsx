@@ -16,7 +16,10 @@ export default async (req, res) => {
       include: {
         // @ts-ignore
         account: true
-      }
+      },
+      orderBy: {
+        date: 'asc'
+      },
     })
     return res.status(200).json({ status: 'OK', data: goals })
   } catch (e) {
