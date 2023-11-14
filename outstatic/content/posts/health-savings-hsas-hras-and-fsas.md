@@ -4,7 +4,7 @@ status: 'draft'
 author:
   name: 'Trckfi'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'health-savings-hsas-hras-and-fsas-explained'
+slug: 'health-savings-hsas-hras-and-fsas'
 description: 'Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.'
 coverImage: '/images/international-nurses-day-concept-I0Mj.jpg'
 category: 'Healthcare and Insurance'
