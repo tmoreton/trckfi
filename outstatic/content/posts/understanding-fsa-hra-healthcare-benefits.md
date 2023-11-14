@@ -59,7 +59,7 @@ HRAs are another valuable tool in your health benefits arsenal, but they operate
 
 1. **Employer Contributions:** HRAs are entirely funded by your employer, providing financial support for your healthcare expenses.
 
-2. **Tax-Free: **The portion of your compensation allocated to your HRA is tax-free, reducing your overall tax burden.
+2. **Tax-Free:** The portion of your compensation allocated to your HRA is tax-free, reducing your overall tax burden.
 
 3. **No Forfeiture:** HRAs do not have a use-it-or-lose-it rule, allowing you to accumulate funds for future medical needs.
 
