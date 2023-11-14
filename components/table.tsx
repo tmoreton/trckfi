@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useTable, useFilters, useSortBy } from "react-table"
-import { ArrowDownCircleIcon, ArrowUpCircleIcon, PlusCircleIcon, ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
+import { ArrowUpTrayIcon, ArrowDownTrayIcon, ArrowDownCircleIcon, ArrowUpCircleIcon, PlusIcon, ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
 import { commaShort } from '../lib/lodash'
@@ -147,7 +147,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="mx-auto grid max-w-2xl grid-cols-1 lg:grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
         <div className="col-span-3 p-3 shadow-sm rounded-md border border-gray-200">
-          <div className="flex items-center space-x-3 justify-center pt-2 -mb-5">
+          <div className="flex items-center space-x-3 justify-center pt-2">
             { !selected.length && datePicker()}
           </div>
           <BarChart rows={rows} />
@@ -155,30 +155,45 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         <div className="shadow-sm rounded-md border border-gray-200">
           <div className="flex items-center justify-center pt-5 pb-2">
             <>
-              <button aria-label="Add Transaction" onClick={() => setEdit({
-                name: null,
-                primary_category: null,
-                detailed_category: null,
-                amount: null,
-                notes: null,
-                unified: '1f50d',
-                new: true
-              })}>
-                <PlusCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
-              </button>
-              <button aria-label="Import Button" onClick={() => setShowImport(true)}>
-                <ArrowUpCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true"/>
-              </button>
-              <button aria-label="Upload Button">
-                <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-                  <ArrowDownCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
-                </CSVLink>
-              </button>
+              <div className="block text-center mx-3">
+                <button aria-label="Add Transaction" onClick={() => setEdit({
+                  name: null,
+                  primary_category: null,
+                  detailed_category: null,
+                  amount: null,
+                  notes: null,
+                  unified: '1f50d',
+                  new: true
+                })}>
+                  <div className="bg-pink-600 hover:bg-pink-500 rounded-3xl p-2">
+                    <PlusIcon className="h-6 w-6 text-white" aria-hidden="true"/>
+                  </div>
+                </button>
+                <p className="text-xs text-pink-600">Add</p>
+              </div>
+              <div className="block text-center mx-3">
+                <button aria-label="Import Button" onClick={() => setShowImport(true)}>
+                  <div className="bg-pink-600 hover:bg-pink-500 rounded-3xl p-2">
+                    <ArrowUpTrayIcon className="h-6 w-6 text-white" aria-hidden="true"/>
+                  </div>
+                </button>
+                <p className="text-xs text-pink-600">Upload</p>
+              </div>
+              <div className="block text-center mx-3">
+                <button aria-label="Import Button" onClick={() => setShowImport(true)}>
+                  <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+                    <div className="bg-pink-600 hover:bg-pink-500 rounded-3xl p-2">
+                      <ArrowDownTrayIcon className="h-6 w-6 text-white" aria-hidden="true"/>
+                    </div>
+                  </CSVLink>
+                </button>
+                <p className="text-xs text-pink-600">Download</p>
+              </div>
             </>
           </div>
 
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
-            <p className="text-md font-medium leading-6 text-gray-900">Cash Flow</p>
+            <p className="text-md font-medium leading-6 text-gray-500">Cash Flow</p>
             { total.sum > 0 ?
               <p className="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-green-600">
                 {commaShort(total.sum)}
