@@ -29,7 +29,7 @@ export default async (req, res) => {
         user: true
       },
       orderBy: {
-        date: 'desc'
+        date: 'desc',
       },
     })
     // transactions = transactions.filter(t => t.account?.active)

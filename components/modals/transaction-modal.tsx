@@ -118,6 +118,26 @@ export default function ({ item, setEdit, showError, selected, user, transaction
     setTransactions(new_transactions)
   }
 
+  const updateMany = async () => {
+    setEdit({})
+    // @ts-ignore
+    let new_transactions = transactions.filter((data) => !ids.includes(data.id))
+    const res = await fetch(`/api/update_transactions`, {
+      body: JSON.stringify({ 
+        transaction,
+        ids
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, updated_transactions } = await res.json()
+    showError(error)
+    let new_tranasctions = new_transactions.concat(updated_transactions)
+    setTransactions(new_tranasctions)
+  }
+
   const remove = async () => {
     let new_transactions = transactions.filter((data) => !ids.includes(data.id))
     setTransactions(new_transactions)
@@ -270,7 +290,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                 Tags
                               </label>
                               <CreatableSelect
-                                closeMenuOnSelect={false}
+                                closeMenuOnSelect={true}
                                 onChange={e => setTransaction({ ...transaction, tags: e.map(t => t.value.toUpperCase()) })}
                                 defaultValue={transaction?.tags?.map(t => ({ label: t.toUpperCase(), value: t.toUpperCase()}))}
                                 isMulti
@@ -377,7 +397,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                   Add
                                 </PinkBtn>
                                 :
-                                <PinkBtn type="button" onClick={update}>
+                                <PinkBtn type="button" onClick={ids.length > 1 ? updateMany : update}>
                                   <p>Update</p>
                                 </PinkBtn>
                               }

@@ -6,8 +6,8 @@ import slackMessage from '../../utils/slackMessage'
 
 export default async (req, res) => {
   const { transaction, ids } = req.body
-  if (!transaction) return res.status(500).json({ error: 'No Transaction' })
-  const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
+  if (!transaction || !ids) return res.status(500).json({ error: 'No Transaction' })
+  const { name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
   // let new_tags = tags && tags?.map(tag => tag.value.toUpperCase())
   try {
     let data = {}
@@ -28,7 +28,7 @@ export default async (req, res) => {
       data['year'] = date.substring(0,4)
       data['week_year'] = `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
     }
-    
+
     await prisma.transactions.updateMany({
       where: {
         id: { in: ids }
@@ -36,7 +36,17 @@ export default async (req, res) => {
       data
     })
       
-    return res.status(200).json({ status: 'OK' })
+    let transactions = await prisma.transactions.findMany({
+      where: {
+        id: { in: ids }
+      },
+      include: {
+        account: true,
+        user: true
+      },
+    })
+
+    return res.status(200).json({ status: 'OK', updated_transactions: transactions })
   } catch (e) {
     console.error(e)
     slackMessage('Error update_transaction: ' + e.message || e.toString())
