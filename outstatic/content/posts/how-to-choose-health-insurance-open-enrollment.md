@@ -2,7 +2,7 @@
 title: 'A Guide to Picking the Best Health Insurance'
 status: 'draft'
 author:
-  name: ''
+  name: 'Zina Kumok'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-choose-health-insurance-open-enrollment'
 description: 'Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.'

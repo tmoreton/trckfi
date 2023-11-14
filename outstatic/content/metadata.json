@@ -1,6 +1,6 @@
 {
-  "commit": "75283f627b1385834749bc96e0a0d5b33670ccd6",
-  "generated": "2023-11-14T04:02:05.214Z",
+  "commit": "55dbc0277462b31a944eae47244253cea662e3bc",
+  "generated": "2023-11-14T15:01:25.776Z",
   "metadata": [
     {
       "__outstatic": {
@@ -205,26 +205,6 @@
       "slug": "how-to-get-out-of-debt",
       "status": "published",
       "title": "Get Out of Debt: Your Path to Financial Freedom"
-    },
-    {
-      "__outstatic": {
-        "commit": "d0e3b8e1843cb5badb6099789d65a574ebf23f30",
-        "hash": "802693328",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Financial Organization",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Start your journey to financial organization with confidence and ease.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-13T14:25:45.000Z",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization Made Easy: Your Route to Financial Success"
     },
     {
       "__outstatic": {
@@ -473,29 +453,8 @@
     },
     {
       "__outstatic": {
-        "commit": "d6d91d38aa0890274b7c2e210ce3089f842af7fd",
-        "hash": "3995077939",
-        "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Healthcare and Insurance",
-      "collection": "posts",
-      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
-      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
-      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
-      "publishedAt": "2023-11-17T16:03:01.000Z",
-      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
-      "status": "draft",
-      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
-    },
-    {
-      "__outstatic": {
-        "commit": "d9252f4d25fb8aeb4e705cce2ed770c9ea4a78bb",
-        "hash": "3109324354",
+        "commit": "e9b31bc38de25f5e6b87c502bfb9c8fd211230ef",
+        "hash": "4019332570",
         "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
       },
       "author": {
@@ -515,9 +474,9 @@
     },
     {
       "__outstatic": {
-        "commit": "75283f627b1385834749bc96e0a0d5b33670ccd6",
-        "hash": "1075108615",
-        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas-explained.md"
+        "commit": "d6d91d38aa0890274b7c2e210ce3089f842af7fd",
+        "hash": "1818766903",
+        "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
         "name": "Trckfi",
@@ -530,9 +489,72 @@
       "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
       "publishedAt": "2023-11-17T16:03:01.000Z",
       "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "health-savings-hsas-hras-and-fsas-explained",
+      "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
       "status": "draft",
       "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
+    },
+    {
+      "__outstatic": {
+        "commit": "d122c7d44b0aeedb5596e2623725b814814bedc7",
+        "hash": "464070686",
+        "path": "outstatic/content/posts/health-insurance-lingo-key-terms-guide.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Health Insurance Terms",
+      "collection": "posts",
+      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
+      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
+      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
+      "publishedAt": "2023-11-12T14:03:37.659Z",
+      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
+      "slug": "health-insurance-lingo-key-terms-guide",
+      "status": "published",
+      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
+    },
+    {
+      "__outstatic": {
+        "commit": "3d84c963229addf0f0c48231f143845e58f00fb9",
+        "hash": "1484829439",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Guide: Organize Your Finances",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization: Tips for Managing Cash Flow and Financial Empowerment – No More Stress!"
+    },
+    {
+      "__outstatic": {
+        "commit": "55dbc0277462b31a944eae47244253cea662e3bc",
+        "hash": "1450189573",
+        "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Roth IRA Advantage",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-roth-ira.png",
+      "date": "08.10.2023",
+      "description": "Unlock the power of tax-free growth and secure your financial future with a Roth IRA! Discover how this retirement account can supercharge your savings and provide incredible benefits for your long-term financial success. Learn about tax-free growth, contribution limits, and a smart strategy for high-income earners. Start building your tax-free fortune today!",
+      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
+      "slug": "roth-ira-advantage-2023",
+      "status": "published",
+      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     }
   ]
 }

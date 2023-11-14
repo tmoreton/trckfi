@@ -41,6 +41,8 @@ When it comes to managing your healthcare expenses, HSAs can be your best friend
 
 - **No Premium Payments**: You don't use HSA funds to pay insurance premiums.
 
+![/pricing](/images/home--1--Y5ND.jpg)
+
 ### **Navigating the World of Health Reimbursement Arrangements (HRAs)**
 
 [HRAs](understanding-fsa-hra-healthcare-benefits) are another essential tool in the healthcare world. Here's what you need to know:
@@ -109,7 +111,7 @@ As you can see, each account type has its unique features. HSAs offer portabilit
 
 ## **Conclusion**
 
-Whether you're gearing up for open enrollment or reevaluating your healthcare options, understanding HSAs, HRAs, and FSAs is crucial.
+Whether you're gearing up for open enrollment or reevaluating your [healthcare options](/blog/how-to-choose-health-insurance-open-enrollment), understanding HSAs, HRAs, and FSAs is crucial.
 
 - Each account serves a specific purpose, providing flexibility and financial relief in different ways. By considering your eligibility, ownership, contribution limits, and other factors, you can make an informed decision that aligns with your [unique healthcare needs](/blog/how-to-choose-health-insurance-open-enrollment).
 
