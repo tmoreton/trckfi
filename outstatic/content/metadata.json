@@ -1,6 +1,6 @@
 {
-  "commit": "c86aef23789180eb73ccd95d7e94071320c2480a",
-  "generated": "2023-11-14T21:43:04.034Z",
+  "commit": "7b35a38bbf00a48822500c2dd22819260eaa8804",
+  "generated": "2023-11-14T22:02:12.997Z",
   "metadata": [
     {
       "__outstatic": {
@@ -327,23 +327,6 @@
     },
     {
       "__outstatic": {
-        "commit": "7b0a625b015d8e7bd98441666b54baa0d8a56be3",
-        "hash": "206353117",
-        "path": "outstatic/content/posts/track-finances-reach-financial-success.md"
-      },
-      "category": "Tracking Expenses",
-      "collection": "posts",
-      "coverImage": "/assets/blog/unlock-financial-success.jpg",
-      "date": "08.01.2023",
-      "description": "Are you ready to achieve financial success? Take charge of your financial future by tracking expenses, setting goals, and making informed decisions. Combine expense tracking with budget planning for a holistic view of your financial health. Discover the tips and tools that will empower you to build a brighter financial future. Start your journey today and unlock the path to financial freedom!",
-      "keywords": "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "track-finances-reach-financial-success",
-      "status": "published",
-      "title": "Financial Success with Spend Tracking & Budgeting"
-    },
-    {
-      "__outstatic": {
         "commit": "3923d04930d523bae447fa59c2788178af23232f",
         "hash": "3028646179",
         "path": "outstatic/content/posts/the-backdoor-roth-ira.md"
@@ -606,6 +589,27 @@
       "slug": "essential-financial-concepts",
       "status": "published",
       "title": "10 Must-Know Personal Finance Basics for Financial Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "7b35a38bbf00a48822500c2dd22819260eaa8804",
+        "hash": "614403352",
+        "path": "outstatic/content/posts/optimize-financial-tracking-for-success.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Tracking Expenses",
+      "collection": "posts",
+      "coverImage": "/assets/blog/unlock-financial-success.jpg",
+      "date": "08.01.2023",
+      "description": "Ready to achieve financial success? Track expenses, set goals, and make better decisions. Integrate tracking with budget planning for a holistic financial view.",
+      "keywords": "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Learn How to Track Expenses and Budget Wisely. Stress-Free Living!",
+      "slug": "optimize-financial-tracking-for-success",
+      "status": "published",
+      "title": "Financial Success with Spend Tracking & Budgeting"
     }
   ]
 }
