@@ -14,7 +14,7 @@ export default function ({ showError }) {
   
   const syncPlaid = async (access_token) => {
     showSuccess(true)
-    fetch(`/api/sync_plaid`, {
+    await fetch(`/api/sync_plaid`, {
       body: JSON.stringify({
         user,
         access_token

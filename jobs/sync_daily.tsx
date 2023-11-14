@@ -8,7 +8,7 @@ client.defineJob({
   id: "sync-daily",
   name: "Daily Sync Transactions",
   version: "0.0.1",
-  enabled: false,
+  enabled: true,
   trigger: cronTrigger({
     cron: "0 10 * * *",
   }),
@@ -27,8 +27,17 @@ client.defineJob({
     })
 
     for (let p in plaid) {
-      await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      await transactionsSync(plaid[p].access_token, plaid[p].user_id)
+      await fetch(`/api/sync_plaid`, {
+        body: JSON.stringify({
+          access_token: plaid[p].access_token
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
+      // await transactionsSync(plaid[p].access_token, plaid[p].user_id)
     }
   },
 });
