@@ -8,7 +8,7 @@ keywords: 'Personal finance, financial education, informed decisions, successful
 status: 'published'
 slug: 'essential-financial-concepts'
 author:
-  name: 'Tim Moreton Jr'
+  name: 'Trckfi'
 seoTitle: 'Master Your Money: 10 Essential Financial Concepts for a Strong Future'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
