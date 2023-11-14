@@ -1,6 +1,6 @@
 {
   "commit": "3d84c963229addf0f0c48231f143845e58f00fb9",
-  "generated": "2023-11-14T14:39:18.361Z",
+  "generated": "2023-11-14T14:45:22.830Z",
   "metadata": [
     {
       "__outstatic": {
@@ -517,7 +517,7 @@
     {
       "__outstatic": {
         "commit": "3d84c963229addf0f0c48231f143845e58f00fb9",
-        "hash": "511443132",
+        "hash": "1484829439",
         "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
       },
       "author": {
@@ -533,7 +533,7 @@
       "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
       "slug": "how-to-achieve-financial-organization",
       "status": "published",
-      "title": "Organize Your Finances: Easy Tips for Clarity, Cash Flow Management, and Financial Empowerment – No More Stress!"
+      "title": "Financial Organization: Tips for Managing Cash Flow and Financial Empowerment – No More Stress!"
     }
   ]
 }
