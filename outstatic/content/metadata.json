@@ -1,6 +1,6 @@
 {
   "commit": "55dbc0277462b31a944eae47244253cea662e3bc",
-  "generated": "2023-11-14T15:01:25.776Z",
+  "generated": "2023-11-14T15:14:45.575Z",
   "metadata": [
     {
       "__outstatic": {
@@ -538,17 +538,17 @@
     {
       "__outstatic": {
         "commit": "55dbc0277462b31a944eae47244253cea662e3bc",
-        "hash": "1450189573",
+        "hash": "1247241020",
         "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
       },
       "author": {
         "name": ""
       },
-      "category": "Roth IRA Advantage",
+      "category": "Retirement Planning",
       "collection": "posts",
       "coverImage": "/assets/blog/retirement-roth-ira.png",
       "date": "08.10.2023",
-      "description": "Unlock the power of tax-free growth and secure your financial future with a Roth IRA! Discover how this retirement account can supercharge your savings and provide incredible benefits for your long-term financial success. Learn about tax-free growth, contribution limits, and a smart strategy for high-income earners. Start building your tax-free fortune today!",
+      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
       "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
       "publishedAt": "2023-10-06T14:25:45.491Z",
       "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
