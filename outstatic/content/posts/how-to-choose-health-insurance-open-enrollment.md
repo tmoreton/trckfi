@@ -13,7 +13,7 @@ keywords: 'open enrollment health insurance picking health insurance open enroll
 publishedAt: '2023-11-14T01:34:56.572Z'
 ---
 
-Whether you work full-time for a company or are self-employed, open enrollment for health insurance is here. Open enrollment is that time of year when you can choose your **health insurance** plan for next year.
+Whether you work full-time for a company or are self-employed, open enrollment for health insurance is here. Open enrollment is that time of year when you can [choose your health insurance](/blog/health-insurance-lingo-key-terms-guide) plan for next year.
 
 However, if you’re like most people, you will probably choose the same health insurance you’ve always had - which is usually the least expensive plan. Keep reading to understand what **open enrollment** is, how it works and how to choose the best plan for you this year.
 
@@ -21,7 +21,7 @@ However, if you’re like most people, you will probably choose the same health 
 
 Sorting through health insurance plans is only slightly above “going to the dentist” on the boring scale. But, here’s one way to get motivated: choosing the wrong plan could cost you more money than you could even imagine.
 
-If you choose too little coverage, you could pay thousands of dollars in out-of-pocket costs. If you choose too much coverage, you could be paying hundreds more every month in premiums for a plan you’re not fully utilizing.
+If you choose too little coverage, you could pay thousands of dollars in out-of-pocket costs. If you choose too much coverage, you could be paying hundreds more every month in [premiums](/blog/health-insurance-lingo-key-terms-guide) for a plan you’re not fully utilizing.
 
 ## How to choose a health insurance plan 
 

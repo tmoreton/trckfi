@@ -1,6 +1,6 @@
 {
-  "commit": "d6d91d38aa0890274b7c2e210ce3089f842af7fd",
-  "generated": "2023-11-14T02:56:53.517Z",
+  "commit": "d9252f4d25fb8aeb4e705cce2ed770c9ea4a78bb",
+  "generated": "2023-11-14T03:26:10.404Z",
   "metadata": [
     {
       "__outstatic": {
@@ -473,29 +473,8 @@
     },
     {
       "__outstatic": {
-        "commit": "e9b31bc38de25f5e6b87c502bfb9c8fd211230ef",
-        "hash": "4019332570",
-        "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
-      },
-      "author": {
-        "name": "",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Picking Health Insurance",
-      "collection": "posts",
-      "coverImage": "/images/women-choosing-health-insurance-U3OT.jpg",
-      "description": "Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.",
-      "keywords": "open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA",
-      "publishedAt": "2023-11-14T01:34:56.572Z",
-      "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
-      "slug": "how-to-choose-health-insurance-open-enrollment",
-      "status": "draft",
-      "title": "A Guide to Picking the Best Health Insurance"
-    },
-    {
-      "__outstatic": {
         "commit": "d6d91d38aa0890274b7c2e210ce3089f842af7fd",
-        "hash": "1818766903",
+        "hash": "3995077939",
         "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
@@ -512,6 +491,27 @@
       "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
       "status": "draft",
       "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
+    },
+    {
+      "__outstatic": {
+        "commit": "d9252f4d25fb8aeb4e705cce2ed770c9ea4a78bb",
+        "hash": "3109324354",
+        "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
+      },
+      "author": {
+        "name": "",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Picking Health Insurance",
+      "collection": "posts",
+      "coverImage": "/images/women-choosing-health-insurance-U3OT.jpg",
+      "description": "Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.",
+      "keywords": "open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA",
+      "publishedAt": "2023-11-14T01:34:56.572Z",
+      "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
+      "slug": "how-to-choose-health-insurance-open-enrollment",
+      "status": "draft",
+      "title": "A Guide to Picking the Best Health Insurance"
     }
   ]
 }
