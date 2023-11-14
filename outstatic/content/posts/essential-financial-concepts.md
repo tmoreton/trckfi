@@ -157,7 +157,7 @@ Gaining a strong grasp of these essential financial concepts opens the door to a
 
 [Our blog](/blog), a valuable resource for financial insights, caters to beginners and those seeking deeper financial knowledge.
 
-Stay informed with [Trckfi's](/) new features. Join our community today to discover how Trckfi simplifies monitoring and [managing all your finances ](/pricing)in one place, providing a robust foundation for your financial journey.
+Stay informed about [Trckfi's](/) new features. Join our community today to discover how Trckfi simplifies monitoring and [managing all your finances ](/pricing)in one place, providing a robust foundation for your financial journey.
 
 \*\*Disclaimer: \*\*This blog post is for informational purposes only and does not constitute financial advice. Always consult with a financial advisor to tailor strategies that align with your unique financial goals and situation.
 

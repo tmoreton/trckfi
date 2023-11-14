@@ -1,6 +1,6 @@
 {
-  "commit": "12533d6799cc5f8f97fcfc24c876566f0a81161d",
-  "generated": "2023-11-14T21:38:39.420Z",
+  "commit": "c86aef23789180eb73ccd95d7e94071320c2480a",
+  "generated": "2023-11-14T21:39:58.974Z",
   "metadata": [
     {
       "__outstatic": {
@@ -567,27 +567,6 @@
     },
     {
       "__outstatic": {
-        "commit": "536f1ac510da27d539fd0316b434dbfcf31c951b",
-        "hash": "3826519878",
-        "path": "outstatic/content/posts/essential-financial-concepts.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Financial Concepts",
-      "collection": "posts",
-      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
-      "date": "08.15.2023",
-      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey for success.",
-      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
-      "slug": "essential-financial-concepts",
-      "status": "published",
-      "title": "10 Must-Know Personal Finance Basics for Financial Success"
-    },
-    {
-      "__outstatic": {
         "commit": "12533d6799cc5f8f97fcfc24c876566f0a81161d",
         "hash": "3774557856",
         "path": "outstatic/content/posts/tracking-monthly-expenses.md"
@@ -606,6 +585,27 @@
       "slug": "tracking-monthly-expenses",
       "status": "published",
       "title": "The Super Simple Guide to Tracking Your Money"
+    },
+    {
+      "__outstatic": {
+        "commit": "c86aef23789180eb73ccd95d7e94071320c2480a",
+        "hash": "963626324",
+        "path": "outstatic/content/posts/essential-financial-concepts.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Financial Concepts",
+      "collection": "posts",
+      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
+      "date": "08.15.2023",
+      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey for success.",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
+      "slug": "essential-financial-concepts",
+      "status": "published",
+      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     }
   ]
 }
