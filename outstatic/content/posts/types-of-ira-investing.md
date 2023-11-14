@@ -29,7 +29,7 @@ When it comes to [retirement accounts](/blog/retirement-planing-understanding-ir
 
 - [**Self-Directed IRA: Expanding Investment**](#self-direct)
 
-## \*\*1. Traditional IRA: \*\*The Time-Tested Retirement Savings Staple
+## 1\. Traditional IRA: The Time-Tested Retirement Savings Staple
 
 The Traditional IRA is the seasoned veteran, reigning as the most popular individual tax-advantaged retirement account. Its features include:
 
@@ -41,7 +41,7 @@ The Traditional IRA is the seasoned veteran, reigning as the most popular indivi
 
     **Best for:** Those in higher tax brackets now, expecting lower tax rates in retirement, and without access to a workplace-sponsored retirement plan.
 
-## \*\*2. Roth IRA: \*\*Tax-Free Earnings and Flexible Withdrawals
+## 2\. Roth IRA: Tax-Free Earnings and Flexible Withdrawals
 
 The Roth IRA stands as the ultimate tax-saving counterpart to the [Traditional IRA](/blog/traditional-ira-building-a-tax-advantaged-retirement). Its key features are:
 
@@ -65,7 +65,7 @@ A type of traditional IRA, the SEP IRA offers exceptional benefits for both empl
 
     **Best for:** Small business owners seeking a cost-effective retirement plan and the ability to contribute for their employees.
 
-## \*\*4. \*\*Nondeductible IRA: Make the Most of After-Tax Contributions
+## 4\. Nondeductible IRA: Make the Most of After-Tax Contributions
 
 When traditional IRA contributions aren't deductible due to income limits, the Nondeductible IRA becomes a viable option, offering:
 
@@ -75,7 +75,7 @@ When traditional IRA contributions aren't deductible due to income limits, the N
 
     **Best for:** Individuals who don't qualify for Roth or deductible IRA contributions.
 
-## \*\*5. Spousal IRA: \*\*Retirement Savings for Non-Working Spouses
+## 5\. Spousal IRA: Retirement Savings for Non-Working Spouses
 
 For married couples, the Spousal IRA allows non-working spouses to contribute, provided certain criteria are met:
 
@@ -95,7 +95,7 @@ The SIMPLE IRA shares similarities with employer-sponsored 401(k)s and is design
 
     **Best for:** Smaller companies with fewer than 100 employees and self-employed individuals.
 
-## \*\*7. \*\*Self-Directed IRA: Expanding Your Investment Horizon
+## 7\. Self-Directed IRA: Expanding Your Investment Horizon
 
 Self-Directed IRAs, available in traditional and Roth forms, allow alternative investments beyond stocks and bonds:
 
