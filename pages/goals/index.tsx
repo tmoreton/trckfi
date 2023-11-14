@@ -61,6 +61,21 @@ const Goals = ({ showError }) => {
     router.reload()
   }
 
+  const renderImg = (account) => {
+    if(account){
+      let image_url = `/assets/banks/${account.institution}.png`
+      return <img
+        src={image_url}
+        alt={account.institution}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src="/assets/banks/bank.png";
+        }}
+        className="h-6 w-6 flex-none rounded-md object-cover"
+      />
+    }
+  }
+
   return (
     <>
       <Menu showError={showError}/>
@@ -79,7 +94,7 @@ const Goals = ({ showError }) => {
                 <div className="flex justify-between mt-6">
                   <div className="block">
                     <p className="text-xs">Current Amount:</p>
-                    <p className="text-2xl font-bold leading-7 text-gray-700 mb-4">{commaShort(goal.account.details.current - Number(goal.initial_amount))}</p>
+                    <p className="text-2xl font-bold leading-7 text-green-600 mb-4">{commaShort(goal.account.details.current - Number(goal.initial_amount))}</p>
                   </div>
                   <div className="block">
                     <p className="text-xs">Goal Amount:</p>
@@ -90,9 +105,24 @@ const Goals = ({ showError }) => {
                 <div className="w-full bg-gray-100 h-5 mb-4 rounded-2xl">
                   <div className="bg-pink-600 h-5 rounded-2xl" style={{ width: progress }}></div>
                 </div>
-                <button type="button" onClick={() => remove(goal.id)}>
-                  <TrashIcon className="h-6 w-6 text-red-400 hover:text-red-300" aria-hidden="true" />
-                </button>
+                <div className="grid grid-cols-3 mt-2">
+                  <div className="col-span-1 flex items-center">
+                    {renderImg(goal?.account)}
+                    <div>
+                      <p className="ml-4 text-xs font-bold">{goal?.account?.name}</p>
+                      <p className="ml-4 text-xs">{goal?.account?.official_name}</p>
+                    </div>
+                  </div>
+                  <div className="col-span-1 text-center">
+                    <p className="ml-4 text-xs text-gray-500">Last Updated:</p>
+                    <p className="ml-4 text-xs text-gray-500">{DateTime.fromISO(goal?.account?.updated_at).toLocaleString(DateTime.DATE_FULL)}</p>
+                  </div>
+                  <div className="col-span-1 text-right">
+                    <button type="button" onClick={() => remove(goal.id)}>
+                      <TrashIcon className="h-6 w-6 text-red-400 hover:text-red-300" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
                </div>
             </li>
           )})}
