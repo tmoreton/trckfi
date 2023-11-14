@@ -1,6 +1,6 @@
 {
-  "commit": "f5346d6e5a43c4871ffa666ebfe677a6d96c34a7",
-  "generated": "2023-11-14T22:24:41.328Z",
+  "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
+  "generated": "2023-11-14T23:28:47.383Z",
   "metadata": [
     {
       "__outstatic": {
@@ -222,23 +222,6 @@
       "slug": "prepare-for-the-unexpected-the-value-of-building-an-emergency-fund",
       "status": "published",
       "title": "Prepare for the Unexpected: The Value of Building an Emergency Fund"
-    },
-    {
-      "__outstatic": {
-        "commit": "e7fb16514afa3c9425e3abeafce4afa0c16b3ea4",
-        "hash": "2415492937",
-        "path": "outstatic/content/posts/retirement-planning-understanding-iras-and-401ks.md"
-      },
-      "category": "Personal Finance, Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-plan.png",
-      "date": "08.07.2023",
-      "description": "Planning for retirement is crucial for a financially secure future. Learn about Individual Retirement Accounts (IRAs) and 401(k)s, their tax benefits, and key considerations when choosing the right plan for you.",
-      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "retirement-planning-understanding-iras-and-401ks",
-      "status": "published",
-      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
     },
     {
       "__outstatic": {
@@ -622,6 +605,27 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
+    },
+    {
+      "__outstatic": {
+        "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
+        "hash": "1934094069",
+        "path": "outstatic/content/posts/retirement-planning-understanding-iras-and-401ks.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Personal Finance, Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan.png",
+      "date": "08.07.2023",
+      "description": "Explore the differences between IRAs and 401(k)s to make informed decisions for a secure retirement. Understand tax implications, contribution limits, and employer benefits.",
+      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
+      "slug": "retirement-planning-understanding-iras-and-401ks",
+      "status": "published",
+      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
     }
   ]
 }
