@@ -290,6 +290,7 @@ model Goals {
   account_id     String?
   amount         Decimal?  @db.Decimal(9, 2)
   current_amount Decimal?  @db.Decimal(9, 2)
+  initial_amount Decimal?  @db.Decimal(9, 2)
   image          String?
   date           String?
   updated_at     DateTime? @updatedAt

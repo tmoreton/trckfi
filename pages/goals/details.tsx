@@ -5,11 +5,14 @@ import  { useLocalStorage } from '../../utils/useLocalStorage'
 import CreatableSelect from 'react-select/creatable';
 import { commaShort } from '../../lib/lodash'
 import { useRouter } from 'next/router'
+import { DateTime } from "luxon"
+import ConfettiExplosion from 'react-confetti-explosion'
 
 const defaultGoal = {
   name: null,
   date: null,
-  current_amount: null,
+  initial_amount: 0,
+  current_amount: 0,
   amount: 0,
   image: null,
   user_id: null,
@@ -32,8 +35,8 @@ export default function () {
   const user = session?.user
   const [goal, setGoal] = useLocalStorage('goal', defaultGoal)
   const [step, setStep] = useLocalStorage('steps', 1)
+  const [account, setAccount] = useLocalStorage('goal_account', {})
   const [accounts, setAccounts] = useState([])
-  const [account, setAccount] = useState({})
 
   useEffect(() => {
     getAccounts()
@@ -66,6 +69,7 @@ export default function () {
         method: 'POST',
       })
       setGoal(defaultGoal)
+      setAccount({})
       setStep(1)
       router.push({
         pathname: '/goals',
@@ -79,9 +83,29 @@ export default function () {
     setStep(num)
   }
 
+  const snippet = () => {
+    let { date, amount, current_amount } = goal
+    let goal_amount = amount - current_amount
+    
+    if(date && amount && current_amount){
+      let difference = DateTime.fromISO(goal.date).diff(DateTime.now(), ['months']).toObject()
+      let months = Math.round(difference.months)
+      let amount_diff = goal_amount/difference.months
+      if(amount_diff < 0){
+        return <p>Wow you already have enough saved, great work! 🎉</p>
+      } else {
+        return <>
+        <p>You will need to save <b>{commaShort(goal_amount/difference.months)}</b> over the next <b>{months} months</b> to hit your goal</p>
+        <p className="text-4xl text-gray-900 font-semibold">You got this!</p>
+        </>
+      }
+    }
+	}
+
+
   return (
     <>
-      <ProgressNav width={'50%'} />
+      <ProgressNav width={step*250} />
       <div className="relative isolate">
         <form onSubmit={onSubmit}>
           <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
@@ -159,7 +183,9 @@ export default function () {
                       className="w-[100px] text-left text-3xl font-bold text-pink-600 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                       required
                       value={goal?.current_amount}
-                      onChange={e => setGoal({ ...goal, current_amount: e.target.value })}
+                      onChange={e => {
+                        setGoal({ ...goal, current_amount: e.target.value, initial_amount: Number(account?.details?.current) - Number(e.target.value) })
+                      }}
                     />
                   </div>
                   {
@@ -175,6 +201,7 @@ export default function () {
 
               {
                 step > 4 &&
+                <>
                 <div className="w-1/2 mx-auto py-20">
                   <p className="text-2xl font-semibold text-gray-900 leading-tight mb-6">
                     Awesome, when do you need it by?
@@ -191,7 +218,13 @@ export default function () {
                     />
                   </div>
                 </div>
+                  { goal.date &&  <>
+                    <p className="text-center text-2xl text-gray-900 font-normal pb-2">{snippet()}</p>
+                    {/* <ConfettiExplosion /> */}
+                  </>}
+                </> 
               }
+              
               <div className="pt-10 pb-20">
                 {
                   step > 4 ?
