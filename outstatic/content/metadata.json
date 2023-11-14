@@ -1,6 +1,6 @@
 {
-  "commit": "a8a5e6973d140936bf35738724afd8209b026965",
-  "generated": "2023-11-14T18:08:38.306Z",
+  "commit": "536f1ac510da27d539fd0316b434dbfcf31c951b",
+  "generated": "2023-11-14T18:44:33.546Z",
   "metadata": [
     {
       "__outstatic": {
@@ -42,26 +42,6 @@
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "status": "published",
       "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
-    },
-    {
-      "__outstatic": {
-        "commit": "b5e45f415dc86b791d2409e331afddcbafc60806",
-        "hash": "1154859274",
-        "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Personal Finance, Financial Education",
-      "collection": "posts",
-      "coverImage": "/assets/blog/10-concepts-finance-cover.png",
-      "date": "08.15.2023",
-      "description": "Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!",
-      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "10-must-know-personal-finance-basics-for-financial-success",
-      "status": "published",
-      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     },
     {
       "__outstatic": {
@@ -585,44 +565,23 @@
     {
       "__outstatic": {
         "commit": "536f1ac510da27d539fd0316b434dbfcf31c951b",
-        "hash": "2741333899",
-        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
+        "hash": "360164320",
+        "path": "outstatic/content/posts/essential-financial-concepts.md"
       },
       "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+        "name": "Tim Moreton Jr"
       },
-      "category": "Healthcare and Insurance",
+      "category": "Financial Concepts",
       "collection": "posts",
-      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
-      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
-      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
-      "publishedAt": "2023-11-17T16:03:01.000Z",
-      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "health-savings-hsas-hras-and-fsas",
-      "status": "draft",
-      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
-    },
-    {
-      "__outstatic": {
-        "commit": "a8a5e6973d140936bf35738724afd8209b026965",
-        "hash": "141444553",
-        "path": "outstatic/content/posts/fsa-hra-healthcare-benefits.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Health Insurance",
-      "collection": "posts",
-      "coverImage": "/images/blurry-woman-holding-cons-pros-post-its-gxOT.jpg",
-      "description": "Maximize healthcare benefits with our FSA and HRA for open enrollment. Get the pros and cons to make informed choices.",
-      "keywords": "FSA, HRA, Open Enrollment, Health Benefits, Healthcare Expenses, Tax Savings, Employer Contributions, Financial Relief, Pros and Cons, Flexible Spending Accounts, Health Reimbursement Arrangements",
-      "publishedAt": "2023-11-12T15:32:44.292Z",
-      "seoTitle": "Choosing Between FSAs and HRAs: A Guide for Open Enrollment",
-      "slug": "fsa-hra-healthcare-benefits",
-      "status": "draft",
-      "title": "Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits"
+      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
+      "date": "08.15.2023",
+      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey for success.",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
+      "slug": "essential-financial-concepts",
+      "status": "published",
+      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     }
   ]
 }
