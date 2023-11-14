@@ -8,9 +8,9 @@ export default async (req, res) => {
   const { transaction } = req.body
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
   const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
-  // let new_tags = tags && tags?.map(tag => tag.value.toUpperCase())
+
   try {
-    const updated_transaction = await prisma.transactions.update({
+    await prisma.transactions.update({
       where: { id },
       data: { 
         amount: Number(amount).toFixed(2),
