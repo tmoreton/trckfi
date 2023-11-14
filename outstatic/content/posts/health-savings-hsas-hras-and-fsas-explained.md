@@ -109,7 +109,7 @@ As you can see, each account type has its unique features. HSAs offer portabilit
 
 ## **Conclusion**
 
-Whether you're gearing up for open enrollment or reevaluating your healthcare options, understanding HSAs, HRAs, and FSAs is crucial.
+Whether you're gearing up for open enrollment or reevaluating your [healthcare options](/blog/how-to-choose-health-insurance-open-enrollment), understanding HSAs, HRAs, and FSAs is crucial.
 
 - Each account serves a specific purpose, providing flexibility and financial relief in different ways. By considering your eligibility, ownership, contribution limits, and other factors, you can make an informed decision that aligns with your [unique healthcare needs](/blog/how-to-choose-health-insurance-open-enrollment).
 
