@@ -13,7 +13,7 @@ keywords: 'open enrollment health insurance picking health insurance open enroll
 publishedAt: '2023-11-14T01:34:56.572Z'
 ---
 
-Whether you work full-time for a company or are self-employed, open enrollment for health insurance is here. Open enrollment is that time of year when you can choose your **health insurance** plan for next year.
+Whether you work full-time for a company or are self-employed, open enrollment for health insurance is here. Open enrollment is that time of year when you can [choose your health insurance](/blog/health-insurance-lingo-key-terms-guide) plan for next year.
 
 However, if you’re like most people, you will probably choose the same health insurance you’ve always had - which is usually the least expensive plan. Keep reading to understand what **open enrollment** is, how it works and how to choose the best plan for you this year.
 
@@ -21,7 +21,7 @@ However, if you’re like most people, you will probably choose the same health 
 
 Sorting through health insurance plans is only slightly above “going to the dentist” on the boring scale. But, here’s one way to get motivated: choosing the wrong plan could cost you more money than you could even imagine.
 
-If you choose too little coverage, you could pay thousands of dollars in out-of-pocket costs. If you choose too much coverage, you could be paying hundreds more every month in premiums for a plan you’re not fully utilizing.
+If you choose too little coverage, you could pay thousands of dollars in out-of-pocket costs. If you choose too much coverage, you could be paying hundreds more every month in [premiums](/blog/health-insurance-lingo-key-terms-guide) for a plan you’re not fully utilizing.
 
 ## How to choose a health insurance plan 
 
@@ -41,11 +41,11 @@ First, write down the following amounts:
 
 The premium is the amount you’ll pay every month. The [deductible](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified) is the amount you must pay before insurance kicks in their portion. The [out-of-pocket max](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified) is the maximum amount you can pay in a single year.
 
-If you choose a high-deductible plan, make sure you pick one that is HSA-eligible. A **Health Savings Account (HSA)** is like a triple-powered savings account. You can deduct contributions on your taxes, invest the money in the stock market and spend it tax-free on qualified medical expenses.
+If you choose a high-deductible plan, make sure you pick one that is HSA-eligible. A Health Savings Account (HSA) is like a triple-powered savings account. You can deduct contributions on your taxes, invest the money in the stock market and spend it tax-free on qualified medical expenses.
 
-Also, some employers will offer and contribute to a **Health Reimbursement Account (HRA)** if you choose a **high-deductible health plan (HDHP)**. High-deductible plans usually have the lowest monthly premium, but come with a high deductible. If you’re the type of person who never goes to the doctor, an HDHP may be appropriate. Like HSAs, HRA funds often roll over to the next year.
+Also, some employers will offer and contribute to a [Health Reimbursement Account](/blog/understanding-fsa-hra-healthcare-benefits) (HRA) if you choose a high-deductible health plan (HDHP). High-deductible plans usually have the lowest monthly premium, but come with a high deductible. If you’re the type of person who never goes to the doctor, an HDHP may be appropriate. Like HSAs, HRA funds often roll over to the next year.
 
-Some employers offer **Flexible Spending Accounts (FSA)**, which are not as versatile as HRAs or HSAs. An FSA (we know, the acronyms are too similar) may only roll over a limited amount of unused funds to the next calendar year. Plus, once you set up your FSA contributions, you cannot change them until the next open enrollment window.
+Some employers offer [Flexible Spending Accounts](/blog/understanding-fsa-hra-healthcare-benefits) (FSA), which are not as versatile as [HRAs or HSAs](/blog/health-savings-hsas-hras-and-fsas-explained). An FSA (we know, the acronyms are too similar) may only roll over a limited amount of unused funds to the next calendar year. Plus, once you set up your [FSA](/blog/health-savings-hsas-hras-and-fsas-explained) contributions, you cannot change them until the next open enrollment window.
 
 If you’re married or have a domestic partner, make sure to run the math to see if it makes sense to be on one plan or on separate plans. Sometimes it’s better if each person has their own health insurance plan, especially if one of the individuals has high health needs due to a chronic condition.
 
