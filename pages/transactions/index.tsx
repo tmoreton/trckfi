@@ -122,7 +122,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
       accessor: data => data.unified,
       Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
       style: "",
-      Filter: DropdownFilter
+      Filter: DropdownFilter,
     },
     {
       Header: "Name",
@@ -142,6 +142,13 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
         return value.row.original.account_name
       },
       style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      Filter: DropdownFilter
+    },
+    {
+      Header: "User",
+      accessor: data => data.user && data.user?.email?.split('@')[0],
+      Cell: ({ cell: { value } }) => value,
+      style: "",
       Filter: DropdownFilter
     },
     {

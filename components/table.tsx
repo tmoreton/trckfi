@@ -212,7 +212,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
 
       <div className="lg:absolute left-0 lg:px-20 pb-20">
         { selected.length ?
-          <div className="absolute">
+          <div className="">
             <InverseBtn type="button" onClick={() => setEdit({
                 name: null,
                 primary_category: null,

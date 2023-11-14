@@ -25,7 +25,8 @@ export default async (req, res) => {
         ],
       },
       include: {
-        account: true
+        account: true,
+        user: true
       },
       orderBy: {
         date: 'desc'

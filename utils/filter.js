@@ -27,7 +27,7 @@ export function DropdownFilter({
     preFilteredRows.forEach((row) => {
       let value = row.values[id]
       if((typeof value === 'object')){
-        value.map(i => {
+        value?.map(i => {
           if(i) options.add(i)
         })
       } else {
