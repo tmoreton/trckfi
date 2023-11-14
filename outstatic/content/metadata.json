@@ -1,6 +1,6 @@
 {
   "commit": "65d8d74c90c3a6468d764e74486e43630ecc0660",
-  "generated": "2023-11-14T16:33:26.898Z",
+  "generated": "2023-11-14T16:36:08.820Z",
   "metadata": [
     {
       "__outstatic": {
@@ -293,6 +293,23 @@
     },
     {
       "__outstatic": {
+        "commit": "b2c1109a8e445a83b9aff453994e2d6fd4aaecfd",
+        "hash": "4153793723",
+        "path": "outstatic/content/posts/traditional-ira-building-a-tax-advantaged-retirement.md"
+      },
+      "category": "Personal Finance, Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan-roth-ira.png",
+      "date": "08.07.2023",
+      "description": "Discover the benefits of a Traditional IRA for tax-advantaged retirement savings. Learn how this powerful retirement account allows you to contribute pre-tax money and enjoy tax-deferred growth on your investments until retirement. Find out how to open a Traditional IRA and make the most of its potential tax benefits to secure your financial future.",
+      "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "traditional-ira-building-a-tax-advantaged-retirement",
+      "status": "published",
+      "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
+    },
+    {
+      "__outstatic": {
         "commit": "b793aa8ebeb7a8df13e0666cb9343f1648a68a07",
         "hash": "1839756278",
         "path": "outstatic/content/posts/traditional-401k-plan.md"
@@ -546,7 +563,7 @@
     {
       "__outstatic": {
         "commit": "65d8d74c90c3a6468d764e74486e43630ecc0660",
-        "hash": "151663683",
+        "hash": "4184094165",
         "path": "outstatic/content/posts/traditional-ira-guide-tax-advantaged-retirement.md"
       },
       "author": {
