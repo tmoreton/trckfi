@@ -45,8 +45,18 @@ export default async (req, res) => {
         tags: 'asc'
       },
     })
-    console.log(tags)
-    return res.status(200).json({ status: 'OK', data: { primary_categories, detailed_categories }})
+
+    let uniq_tags = []
+    tags.forEach((t) => {
+      if(t?.tags){
+        const iterator = Object.values(t.tags)
+        for (const tag of iterator) {
+          !uniq_tags.includes(tag) && uniq_tags.push(tag)
+        }
+      }
+    })
+
+    return res.status(200).json({ status: 'OK', data: { primary_categories, detailed_categories, tags: uniq_tags }})
   } catch (e) {
     console.error(e)
     slackMessage('Error get_categories: ' + e.message || e.toString())
