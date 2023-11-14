@@ -1,6 +1,6 @@
 {
   "commit": "536f1ac510da27d539fd0316b434dbfcf31c951b",
-  "generated": "2023-11-14T18:44:33.546Z",
+  "generated": "2023-11-14T18:53:30.136Z",
   "metadata": [
     {
       "__outstatic": {
@@ -42,6 +42,26 @@
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "status": "published",
       "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
+    },
+    {
+      "__outstatic": {
+        "commit": "b5e45f415dc86b791d2409e331afddcbafc60806",
+        "hash": "1154859274",
+        "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Personal Finance, Financial Education",
+      "collection": "posts",
+      "coverImage": "/assets/blog/10-concepts-finance-cover.png",
+      "date": "08.15.2023",
+      "description": "Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "10-must-know-personal-finance-basics-for-financial-success",
+      "status": "published",
+      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     },
     {
       "__outstatic": {
@@ -565,7 +585,7 @@
     {
       "__outstatic": {
         "commit": "536f1ac510da27d539fd0316b434dbfcf31c951b",
-        "hash": "360164320",
+        "hash": "450465950",
         "path": "outstatic/content/posts/essential-financial-concepts.md"
       },
       "author": {
