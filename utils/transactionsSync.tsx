@@ -71,9 +71,7 @@ const transactionsSync = async (access_token, user_id) => {
       let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
       const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount))
       const duplicate = added.find((d) => d.date === added[i].date && Number(d.amount) + Number(amount) === 0 && d.transaction_id !== added[i].transaction_id )
-      if(duplicate){
-        slackMessage(`Duplicates found: ${duplicate.name} ${duplicate.amount} and ${transaction_name} ${amount}`)
-      }
+
       await prisma.transactions.upsert({
         where: { 
           transaction_id: added[i].transaction_id 
