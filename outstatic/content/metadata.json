@@ -1,6 +1,6 @@
 {
-  "commit": "7283b2c4526a5a80655b7cb5435b229721683b2e",
-  "generated": "2023-11-14T15:50:25.903Z",
+  "commit": "7ceff44351dc60b1bfef2ac4bffd55e10f148219",
+  "generated": "2023-11-14T16:09:37.148Z",
   "metadata": [
     {
       "__outstatic": {
@@ -534,6 +534,27 @@
       "slug": "how-to-choose-health-insurance-open-enrollment",
       "status": "draft",
       "title": "A Guide to Picking the Best Health Insurance"
+    },
+    {
+      "__outstatic": {
+        "commit": "7ceff44351dc60b1bfef2ac4bffd55e10f148219",
+        "hash": "254024900",
+        "path": "outstatic/content/posts/what-is-the-roth-ira-advantage-2023.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-roth-ira.png",
+      "date": "08.10.2023",
+      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
+      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
+      "slug": "what-is-the-roth-ira-advantage-2023",
+      "status": "published",
+      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     }
   ]
 }
