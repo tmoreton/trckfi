@@ -14,6 +14,7 @@ const diff = (date) => {
 }
 
 export default function ({ recurring }) {
+  console.log(recurring)
   return (
     <>
       <div className="grid grid-cols-4 text-sm font-semibold text-gray-500">
@@ -37,7 +38,7 @@ export default function ({ recurring }) {
                 : 'text-red-600',
               'font-bold col-span-1'
             )}><span className="text-xs pr-1 font-light italic">≈</span>{commaShort(r.amount)}</div>
-            <div className="col-span-1 text-left"><span className="text-xs pr-1 font-light italic">approx.</span><b>{diff(r.upcoming_date)}</b> days</div>
+            <div className="col-span-1 text-left"><span className="text-xs pr-1 font-light italic">approx.</span><b>{Math.abs(diff(r.upcoming_date))}</b> days</div>
           </div>
         ))}
       </ul>

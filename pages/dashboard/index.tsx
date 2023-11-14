@@ -27,6 +27,7 @@ const Dashboard = ({ showError, showIntro }) => {
   const [recurring, setRecurring] = useLocalStorage('recurring_payments', null)
   const [allRecurring, setAllRecurring] = useLocalStorage('all_recurring_payments', null)
   const [accounts, setAccounts] = useLocalStorage('net_worth_accounts', {})
+  const [upcoming, setUpcoming] = useLocalStorage('upcoming_recurring_payments', null)
 
   useEffect(() => {
     if(intro === 'true'){
@@ -66,10 +67,11 @@ const Dashboard = ({ showError, showIntro }) => {
       },
       method: 'POST',
     })
-    const { recurring, creditPayments, all } = await res.json()
-    setRecurring(recurring.splice(0, 6))
+    const { recurring, creditPayments, all, upcomingRecurring } = await res.json()
+    setRecurring(recurring)
     setCreditPayments(creditPayments.splice(0, 5))
     setAllRecurring(all)
+    setUpcoming(upcomingRecurring)
   }
 
   const getNetWorth = async () => {
@@ -137,7 +139,7 @@ const Dashboard = ({ showError, showIntro }) => {
           </div>
           <div className="col-span-1">
             <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200 mb-6">
-              { recurring && <UpcomingRecurring recurring={recurring}/>}
+              { upcoming && <UpcomingRecurring recurring={upcoming}/>}
             </div>
             <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
               { creditPayments && <UpcomingCredit payments={creditPayments}/>}

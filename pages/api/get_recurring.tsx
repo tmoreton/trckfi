@@ -28,6 +28,23 @@ export default async (req, res) => {
       },
     })
 
+    let upcomingTransactions = await prisma.transactions.findMany({
+      where: {
+        OR: query,
+        pending: false,
+        active: true,
+        upcoming_date: {
+          gte: DateTime.now().toISO()
+        },
+        NOT: [
+          { primary_category: 'LOAN_PAYMENTS' },
+        ],
+      },
+      orderBy: {
+        upcoming_date: 'asc'
+      },
+    })
+
     const uniq = (a) => {
       var seen = {};
       return a.filter(function(item) {
@@ -58,7 +75,8 @@ export default async (req, res) => {
     return res.status(200).json({ status: 'ok',
       recurring: uniq(recurringTransaction),
       creditPayments,
-      all: creditPayments.concat(uniq(recurringTransaction))
+      all: creditPayments.concat(uniq(recurringTransaction)),
+      upcomingRecurring: uniq(upcomingTransactions).splice(0, 6)
     })
     
   } catch (e) {
