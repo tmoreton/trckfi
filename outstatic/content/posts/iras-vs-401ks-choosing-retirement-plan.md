@@ -8,7 +8,7 @@ keywords: 'Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, T
 status: 'published'
 slug: 'iras-vs-401ks-choosing-retirement-plan'
 author:
-  name: ''
+  name: 'Trckfi'
 seoTitle: 'Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
