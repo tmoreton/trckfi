@@ -6,9 +6,9 @@ date: '08.07.2023'
 category: 'Retirement Accounts'
 keywords: 'traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits, traditional ira, ira accounts, retirement accounts, retirement savings, tax deferred growth, required minimum distributions, early withdrawal penalties, ira investments'
 status: 'published'
-slug: 'traditional-ira-building-a-tax-advantaged-retirement'
+slug: 'traditional-ira-guide-tax-advantaged-retirement'
 author:
-  name: ''
+  name: 'Trckfi'
 seoTitle: 'Everything You Need to Know About Traditional IRAs for Retirement'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
