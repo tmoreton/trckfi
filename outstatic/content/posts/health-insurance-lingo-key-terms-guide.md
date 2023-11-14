@@ -31,6 +31,8 @@ Understanding **healthcare terminology** is essential for navigating open enroll
 
 **Dependent:** In the world of health care, a dependent is not just a family member; it's a term that signifies an individual, often a child, for whom healthcare is provided by a parent or relative. Understanding who qualifies as a dependent is crucial when making coverage decisions.
 
+[![](/images/home-I4Nz.jpg)](/pricing)
+
 ## **7 Open enrollment tips and strategies**
 
 Now that you've gained a solid understanding of **healthcare terminology**, let's explore the strategies and tips for making wise health plan decisions during open enrollment season.
