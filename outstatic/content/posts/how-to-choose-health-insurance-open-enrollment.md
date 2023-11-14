@@ -45,7 +45,7 @@ If you choose a high-deductible plan, make sure you pick one that is HSA-eligibl
 
 Also, some employers will offer and contribute to a **Health Reimbursement Account (HRA)** if you choose a **high-deductible health plan (HDHP)**. High-deductible plans usually have the lowest monthly premium, but come with a high deductible. If you’re the type of person who never goes to the doctor, an HDHP may be appropriate. Like HSAs, HRA funds often roll over to the next year.
 
-Some employers offer **Flexible Spending Accounts (FSA)**, which are not as versatile as HRAs or HSAs. An FSA (we know, the acronyms are too similar) may only roll over a limited amount of unused funds to the next calendar year. Plus, once you set up your FSA contributions, you cannot change them until the next open enrollment window.
+Some employers offer **Flexible Spending Accounts (FSA)**, which are not as versatile as [HRAs or HSAs](/blog/health-savings-hsas-hras-and-fsas-explained). An FSA (we know, the acronyms are too similar) may only roll over a limited amount of unused funds to the next calendar year. Plus, once you set up your [FSA](/blog/health-savings-hsas-hras-and-fsas-explained) contributions, you cannot change them until the next open enrollment window.
 
 If you’re married or have a domestic partner, make sure to run the math to see if it makes sense to be on one plan or on separate plans. Sometimes it’s better if each person has their own health insurance plan, especially if one of the individuals has high health needs due to a chronic condition.
 
