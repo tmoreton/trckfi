@@ -49,7 +49,7 @@ Tracking your expenses is the first and most essential step in gaining control o
 
 Imagine earning $4,500 monthly. Using the 50/20/30 rule, allocate $2,250 (50%) for fixed expenses like rent, car, insurance, and bills. Reserve $900 (20%) for flexible expenses such as groceries and leisure. The remaining 30% ($1,350) splits into 20% savings and 10% investing. Tracking expenses empowers you to manage weekly spending on flexible items while ensuring progress toward financial goals.
 
-### <a name="compound-interest">**Unlocking Compound Interest**</a>
+### Unlocking Compound Interest
 
 Compound interest is a financial superpower that can work wonders for both [debt management](/blog/how-to-get-out-of-debt) and savings growth. Whether dealing with credit card debt or saving for the future, understanding compound interest is a game-changer. It allows your money to work for you, growing exponentially over time.
 
