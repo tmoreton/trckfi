@@ -4,7 +4,7 @@ status: 'draft'
 author:
   name: 'Trckfi'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'understanding-fsa-hra-healthcare-benefits'
+slug: 'fsa-hra-healthcare-benefits'
 description: 'Maximize healthcare benefits with our FSA and HRA for open enrollment. Get the pros and cons to make informed choices.'
 coverImage: '/images/blurry-woman-holding-cons-pros-post-its-gxOT.jpg'
 category: 'Health Insurance'
