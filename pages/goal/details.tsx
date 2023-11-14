@@ -123,7 +123,6 @@ export default function () {
                 </div>
               }
 
-
               {
                 step > 2 &&
                 <div className="w-1/2 mx-auto py-20">
@@ -136,7 +135,6 @@ export default function () {
                       onChange={e => {
                         onNext()
                         setAccount(e.account)
-                        console.log(e.account)
                         setGoal({ ...goal, account_id: e.account.account_id, current_amount: Math.trunc(e.account.details?.current) })
                       }}
                       options={accounts.map(a => ({ label: a.name, value: a.account_id, account: a}))}
@@ -146,7 +144,7 @@ export default function () {
                 </div>
               }
 
-            {
+              {
                 step > 3 &&
                 <div className="w-1/2 mx-auto py-20">
                   <p className="text-2xl font-semibold text-gray-900 leading-tight mb-6">
