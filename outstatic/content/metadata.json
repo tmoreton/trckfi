@@ -1,6 +1,6 @@
 {
-  "commit": "85df7affa8d41878378caef601206c90e1380111",
-  "generated": "2023-11-14T16:44:58.131Z",
+  "commit": "7b35a38bbf00a48822500c2dd22819260eaa8804",
+  "generated": "2023-11-14T22:02:12.997Z",
   "metadata": [
     {
       "__outstatic": {
@@ -327,40 +327,6 @@
     },
     {
       "__outstatic": {
-        "commit": "5f766a151c3a939b01dfd0aed8d9d520723764bc",
-        "hash": "1938912",
-        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
-      },
-      "category": "Personal Finance, Expense Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/track-receipt.jpg",
-      "date": "07.10-2023",
-      "description": "Financial success hinges on having the right tools and strategies, and one of the most crucial is expense tracking and analysis. By closely monitoring and analyzing your personal expenses, you gain the insights needed to make informed financial decisions, establish precise budgets, and progress toward your financial objectives. In this article, we'll delve into why tracking and analyzing expenses are essential, offer practical tips for effective expense management, and highlight how it can significantly benefit your financial well-being.",
-      "keywords": "Expense Tracking, Financial Success, Budgeting, Financial Goals, Savings, Investments, Financial Awareness, Financial Discipline, Analysing Expenses",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "tracking-monthly-expenses",
-      "status": "published",
-      "title": "Analyzing and Tracking Your Monthly Expenses: Personal Finance Tips"
-    },
-    {
-      "__outstatic": {
-        "commit": "7b0a625b015d8e7bd98441666b54baa0d8a56be3",
-        "hash": "206353117",
-        "path": "outstatic/content/posts/track-finances-reach-financial-success.md"
-      },
-      "category": "Tracking Expenses",
-      "collection": "posts",
-      "coverImage": "/assets/blog/unlock-financial-success.jpg",
-      "date": "08.01.2023",
-      "description": "Are you ready to achieve financial success? Take charge of your financial future by tracking expenses, setting goals, and making informed decisions. Combine expense tracking with budget planning for a holistic view of your financial health. Discover the tips and tools that will empower you to build a brighter financial future. Start your journey today and unlock the path to financial freedom!",
-      "keywords": "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "track-finances-reach-financial-success",
-      "status": "published",
-      "title": "Financial Success with Spend Tracking & Budgeting"
-    },
-    {
-      "__outstatic": {
         "commit": "3923d04930d523bae447fa59c2788178af23232f",
         "hash": "3028646179",
         "path": "outstatic/content/posts/the-backdoor-roth-ira.md"
@@ -581,6 +547,69 @@
       "slug": "what-is-zero-based-budgeting",
       "status": "published",
       "title": "What is zero-based budgeting, and is it right for you?"
+    },
+    {
+      "__outstatic": {
+        "commit": "12533d6799cc5f8f97fcfc24c876566f0a81161d",
+        "hash": "3774557856",
+        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Expense Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/track-receipt.jpg",
+      "date": "07.10-2023",
+      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
+      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
+      "slug": "tracking-monthly-expenses",
+      "status": "published",
+      "title": "The Super Simple Guide to Tracking Your Money"
+    },
+    {
+      "__outstatic": {
+        "commit": "c86aef23789180eb73ccd95d7e94071320c2480a",
+        "hash": "3308736676",
+        "path": "outstatic/content/posts/essential-financial-concepts.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Financial Concepts",
+      "collection": "posts",
+      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
+      "date": "08.15.2023",
+      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey for success.",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
+      "slug": "essential-financial-concepts",
+      "status": "published",
+      "title": "10 Must-Know Personal Finance Basics for Financial Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "7b35a38bbf00a48822500c2dd22819260eaa8804",
+        "hash": "614403352",
+        "path": "outstatic/content/posts/optimize-financial-tracking-for-success.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Tracking Expenses",
+      "collection": "posts",
+      "coverImage": "/assets/blog/unlock-financial-success.jpg",
+      "date": "08.01.2023",
+      "description": "Ready to achieve financial success? Track expenses, set goals, and make better decisions. Integrate tracking with budget planning for a holistic financial view.",
+      "keywords": "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Learn How to Track Expenses and Budget Wisely. Stress-Free Living!",
+      "slug": "optimize-financial-tracking-for-success",
+      "status": "published",
+      "title": "Financial Success with Spend Tracking & Budgeting"
     }
   ]
 }
