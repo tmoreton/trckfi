@@ -1,6 +1,6 @@
 {
-  "commit": "cebc4d9ef62b58c41e40f5df71dfad6b61a976cf",
-  "generated": "2023-11-14T22:21:20.329Z",
+  "commit": "f5346d6e5a43c4871ffa666ebfe677a6d96c34a7",
+  "generated": "2023-11-14T22:24:41.328Z",
   "metadata": [
     {
       "__outstatic": {
@@ -604,8 +604,8 @@
     },
     {
       "__outstatic": {
-        "commit": "cebc4d9ef62b58c41e40f5df71dfad6b61a976cf",
-        "hash": "2681526844",
+        "commit": "f5346d6e5a43c4871ffa666ebfe677a6d96c34a7",
+        "hash": "2656480952",
         "path": "outstatic/content/posts/roth-401k-plans.md"
       },
       "author": {
@@ -621,7 +621,7 @@
       "seoTitle": "Unlock Tax-Free Growth: The Advantages of 401(k) Roth for Your Retirement",
       "slug": "roth-401k-plans",
       "status": "published",
-      "title": "The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement"
+      "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
     }
   ]
 }
