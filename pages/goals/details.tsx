@@ -6,7 +6,6 @@ import CreatableSelect from 'react-select/creatable';
 import { commaShort } from '../../lib/lodash'
 import { useRouter } from 'next/router'
 import { DateTime } from "luxon"
-import ConfettiExplosion from 'react-confetti-explosion'
 
 const defaultGoal = {
   name: null,
@@ -220,7 +219,6 @@ export default function () {
                 </div>
                   { goal.date &&  <>
                     <p className="text-center text-2xl text-gray-900 font-normal pb-2">{snippet()}</p>
-                    {/* <ConfettiExplosion /> */}
                   </>}
                 </> 
               }

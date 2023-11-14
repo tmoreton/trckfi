@@ -84,7 +84,7 @@ const Goals = ({ showError }) => {
         <LoadingModal refreshing={refreshing} text='Refreshing Goals...'/>
         <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3 mb-10">
           {goals.map((goal) => {
-          let progress = ((Number(goal.account.details.current)-Number(goal.initial_amount))/(Number(goal.amount)))*1000
+          let progress = ((Number(goal?.account?.details?.current)-Number(goal?.initial_amount))/(Number(goal?.amount)))*1000
           return(
             <li key={goal.id} className="flex flex-col gap-10 pt-12 sm:flex-row">
               <img className="w-96 flex-none rounded-2xl object-cover" src={goal.image} alt="" />
@@ -94,7 +94,7 @@ const Goals = ({ showError }) => {
                 <div className="flex justify-between mt-6">
                   <div className="block">
                     <p className="text-xs">Current Amount:</p>
-                    <p className="text-2xl font-bold leading-7 text-green-600 mb-4">{commaShort(goal.account.details.current - Number(goal.initial_amount))}</p>
+                    <p className="text-2xl font-bold leading-7 text-green-600 mb-4">{commaShort(goal?.account?.details?.current - Number(goal.initial_amount))}</p>
                   </div>
                   <div className="block">
                     <p className="text-xs">Goal Amount:</p>
@@ -107,7 +107,7 @@ const Goals = ({ showError }) => {
                 </div>
                 <div className="grid grid-cols-3 mt-2">
                   <div className="col-span-1 flex items-center">
-                    {renderImg(goal?.account)}
+                    {goal?.account && renderImg(goal?.account)}
                     <div>
                       <p className="ml-4 text-xs font-bold">{goal?.account?.name}</p>
                       <p className="ml-4 text-xs">{goal?.account?.official_name}</p>
