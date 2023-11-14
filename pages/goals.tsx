@@ -1,4 +1,3 @@
-"use client"
 import { useState, useEffect } from 'react'
 import { BanknotesIcon } from '@heroicons/react/20/solid'
 import dynamic from 'next/dynamic' 
@@ -10,7 +9,8 @@ import GoalCard from '../components/goal-card'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
 import { useRouter } from 'next/router'
-  
+import Link from 'next/link'
+
 const defaultGoal = {
   name: null,
   date: null,
@@ -73,16 +73,17 @@ const Goals = ({ showError }) => {
           {goals.map(g => <GoalCard user={user} defaultGoal={g} remove={remove} getGoals={getGoals} setRefreshing={setRefreshing}/>)}
           { goal && <GoalCard user={user} defaultGoal={goal} remove={() => setGoal(null)} getGoals={getGoals} setRefreshing={setRefreshing}/>}
           <div className="col-span-1 p-4 shadow-sm sm:p-6 sm:px-8 rounded-md border border-gray-200">
-            <button
-              type="button"
-              onClick={() => setGoal(defaultGoal)}
-              className=" h-full relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              <BanknotesIcon className="mx-auto h-10 w-10 text-gray-500" aria-hidden="true" />
-              <div className="flex justify-center items-center mt-3">
-                <span className="block text-2xl font-semibold text-gray-500">Add New Goal</span>
-              </div>
-            </button>
+            <Link href="/goal">
+              <button
+                type="button"
+                className=" h-full relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                <BanknotesIcon className="mx-auto h-10 w-10 text-gray-500" aria-hidden="true" />
+                <div className="flex justify-center items-center mt-3">
+                  <span className="block text-2xl font-semibold text-gray-500">Add New Goal</span>
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
         {/* <GoalModal user={user} showError={showError} showGoal={showGoal} setShowGoal={setShowGoal}/>

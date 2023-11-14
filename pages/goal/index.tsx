@@ -35,24 +35,6 @@ export default function () {
       console.error(error);
     }
   };
-
-  const onSubmit = async (e) => {
-    e.preventDefault()
-    // fetch(`/api/add_feedback`, {
-    //   body: JSON.stringify({
-    //     question: "How can Trckfi help you along the way?",
-    //     answers: feedback,
-    //     email: user?.email
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
-    // router.push({
-    //   pathname: '/intro/setup-account',
-    // })
-  }
   
   return (
     <>
@@ -77,7 +59,7 @@ export default function () {
                 </div>
               </button>
             }
-            <Link href="/goal/name">
+            <Link href="/goal/details">
               <button className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                 Next
               </button>
