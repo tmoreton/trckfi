@@ -41,6 +41,8 @@ When it comes to managing your healthcare expenses, HSAs can be your best friend
 
 - **No Premium Payments**: You don't use HSA funds to pay insurance premiums.
 
+![/pricing](/images/home--1--Y5ND.jpg)
+
 ### **Navigating the World of Health Reimbursement Arrangements (HRAs)**
 
 [HRAs](understanding-fsa-hra-healthcare-benefits) are another essential tool in the healthcare world. Here's what you need to know:
