@@ -107,6 +107,7 @@ model Accounts {
   user          User?          @relation(fields: [user_id], references: [id], onDelete: Cascade)
   transactions  Transactions[]
   Recurring     Recurring[]
+  Goals         Goals[]
 
   @@map("accounts")
 }
@@ -286,14 +287,17 @@ model Emails {
 model Goals {
   id             String    @id @default(cuid())
   name           String?
+  account_id     String?
   amount         Decimal?  @db.Decimal(9, 2)
   current_amount Decimal?  @db.Decimal(9, 2)
+  initial_amount Decimal?  @db.Decimal(9, 2)
   image          String?
   date           String?
   updated_at     DateTime? @updatedAt
   created_at     DateTime? @default(now())
   user_id        String?   @map("user_id")
   user           User?     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  account        Accounts? @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
 
   @@map("goals")
 }

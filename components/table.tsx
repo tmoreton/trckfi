@@ -180,7 +180,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                 <p className="text-xs text-pink-600">Upload</p>
               </div>
               <div className="block text-center mx-3">
-                <button aria-label="Import Button" onClick={() => setShowImport(true)}>
+                <button aria-label="Download Button" >
                   <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
                     <div className="bg-pink-600 hover:bg-pink-500 rounded-3xl p-2">
                       <ArrowDownTrayIcon className="h-6 w-6 text-white" aria-hidden="true"/>

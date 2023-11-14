@@ -4,6 +4,7 @@ import { PinkBtn } from '../components/pink-btn'
 import { useState } from 'react'
 import { DateTime } from "luxon"
 import { commaShort } from '../lib/lodash'
+import Link from 'next/link'
 
 export default function ({ user, defaultGoal, remove, getGoals, setRefreshing }) {
   const [goal, setGoal] = useState(defaultGoal)
@@ -70,6 +71,7 @@ export default function ({ user, defaultGoal, remove, getGoals, setRefreshing })
                 <img src={goal.image} className="rounded-lg object-cover w-full h-[225px]"/>
               }
               { !goal.image && !goal.id &&
+              
                 <button
                   type="button"
                   className="cursor-pointer hover:text-gray-400 h-25 relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
