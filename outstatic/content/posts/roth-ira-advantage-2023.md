@@ -1,9 +1,9 @@
 ---
 title: 'What''s a Roth IRA? A Tax-Free Path to Financial Growth'
-description: 'Unlock the power of tax-free growth and secure your financial future with a Roth IRA! Discover how this retirement account can supercharge your savings and provide incredible benefits for your long-term financial success. Learn about tax-free growth, contribution limits, and a smart strategy for high-income earners. Start building your tax-free fortune today!'
+description: 'Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.'
 coverImage: '/assets/blog/retirement-roth-ira.png'
 date: '08.10.2023'
-category: 'Roth IRA Advantage'
+category: 'Retirement Planning'
 keywords: 'Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings'
 status: 'published'
 slug: 'roth-ira-advantage-2023'
