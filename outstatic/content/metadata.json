@@ -1,6 +1,6 @@
 {
-  "commit": "55dbc0277462b31a944eae47244253cea662e3bc",
-  "generated": "2023-11-14T15:14:45.575Z",
+  "commit": "3a312f1a2d31713e5b5f12c31873f0286ad9c05d",
+  "generated": "2023-11-14T15:23:23.039Z",
   "metadata": [
     {
       "__outstatic": {
@@ -436,23 +436,6 @@
     },
     {
       "__outstatic": {
-        "commit": "eefdbef4d626918a9b8e87ca2129e147e170e197",
-        "hash": "4009638864",
-        "path": "outstatic/content/posts/types-of-ira-investing.md"
-      },
-      "category": "Personal Finance, Retirement Planning, Investment Strategies",
-      "collection": "posts",
-      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
-      "date": "08.07.2023",
-      "description": "Join us on a journey into the world of IRAs, where Traditional and Roth IRAs take center stage as the king and queen of retirement accounts. But don't stop there! Unveil the hidden gems like Spousal, SEP, SIMPLE, and more. We'll walk you through each type's unique features and benefits, ensuring you find the perfect match for your financial goals. Get ready to navigate the exciting realm of IRAs and build your path to a secure retirement.",
-      "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "types-of-ira-investing",
-      "status": "published",
-      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
-    },
-    {
-      "__outstatic": {
         "commit": "e9b31bc38de25f5e6b87c502bfb9c8fd211230ef",
         "hash": "4019332570",
         "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
@@ -555,6 +538,27 @@
       "slug": "roth-ira-advantage-2023",
       "status": "published",
       "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
+    },
+    {
+      "__outstatic": {
+        "commit": "3a312f1a2d31713e5b5f12c31873f0286ad9c05d",
+        "hash": "540267069",
+        "path": "outstatic/content/posts/types-of-ira-investing.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Investing Strategies",
+      "collection": "posts",
+      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
+      "date": "08.07.2023",
+      "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
+      "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Discover the Right IRA for You and Build Wealth! Learn About Tax-Free Wins and Business Perks",
+      "slug": "types-of-ira-investing",
+      "status": "published",
+      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
     }
   ]
 }
