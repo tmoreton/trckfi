@@ -1,6 +1,6 @@
 {
-  "commit": "65d8d74c90c3a6468d764e74486e43630ecc0660",
-  "generated": "2023-11-14T16:37:57.003Z",
+  "commit": "582e1463ec600d6680a2c48ea1c46109ad6c7da0",
+  "generated": "2023-11-14T16:43:31.588Z",
   "metadata": [
     {
       "__outstatic": {
@@ -559,6 +559,27 @@
       "slug": "types-of-ira-investing",
       "status": "published",
       "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
+    },
+    {
+      "__outstatic": {
+        "commit": "582e1463ec600d6680a2c48ea1c46109ad6c7da0",
+        "hash": "3361512608",
+        "path": "outstatic/content/posts/blog-roth-ira-advantage-2023.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-roth-ira.png",
+      "date": "08.10.2023",
+      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
+      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
+      "slug": "blog-roth-ira-advantage-2023",
+      "status": "published",
+      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     }
   ]
 }
