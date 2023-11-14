@@ -248,3 +248,6 @@ input[type=number] {
 .react-tags__listbox-option-highlight {
   background-color: #ffdd00;
 }
+.react-datepicker__portal {
+  width: 100% !important;
+}

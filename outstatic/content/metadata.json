@@ -1,6 +1,6 @@
 {
-  "commit": "cebc4d9ef62b58c41e40f5df71dfad6b61a976cf",
-  "generated": "2023-11-14T22:21:20.329Z",
+  "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
+  "generated": "2023-11-14T23:30:40.701Z",
   "metadata": [
     {
       "__outstatic": {
@@ -604,8 +604,8 @@
     },
     {
       "__outstatic": {
-        "commit": "cebc4d9ef62b58c41e40f5df71dfad6b61a976cf",
-        "hash": "2681526844",
+        "commit": "f5346d6e5a43c4871ffa666ebfe677a6d96c34a7",
+        "hash": "2656480952",
         "path": "outstatic/content/posts/roth-401k-plans.md"
       },
       "author": {
@@ -621,7 +621,28 @@
       "seoTitle": "Unlock Tax-Free Growth: The Advantages of 401(k) Roth for Your Retirement",
       "slug": "roth-401k-plans",
       "status": "published",
-      "title": "The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement"
+      "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
+    },
+    {
+      "__outstatic": {
+        "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
+        "hash": "3660501043",
+        "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Personal Finance, Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan.png",
+      "date": "08.07.2023",
+      "description": "Explore the differences between IRAs and 401(k)s to make informed decisions for a secure retirement. Understand tax implications, contribution limits, and employer benefits.",
+      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
+      "slug": "iras-vs-401ks-choosing-retirement-plan",
+      "status": "published",
+      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
     }
   ]
 }
