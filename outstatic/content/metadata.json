@@ -1,6 +1,6 @@
 {
   "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
-  "generated": "2023-11-14T23:29:36.619Z",
+  "generated": "2023-11-14T23:29:43.764Z",
   "metadata": [
     {
       "__outstatic": {
@@ -626,7 +626,7 @@
     {
       "__outstatic": {
         "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
-        "hash": "1873274754",
+        "hash": "1186849754",
         "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
       },
       "author": {
@@ -638,7 +638,7 @@
       "date": "08.07.2023",
       "description": "Explore the differences between IRAs and 401(k)s to make informed decisions for a secure retirement. Understand tax implications, contribution limits, and employer benefits.",
       "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
       "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
       "slug": "iras-vs-401ks-choosing-retirement-plan",
       "status": "published",
