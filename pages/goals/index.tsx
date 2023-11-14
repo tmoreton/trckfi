@@ -87,7 +87,7 @@ const Goals = ({ showError }) => {
           let progress = ((Number(goal?.account?.details?.current)-Number(goal?.initial_amount))/(Number(goal?.amount)))*1000
           return(
             <li key={goal.id} className="flex flex-col gap-10 pt-12 sm:flex-row">
-              <img className="w-96 flex-none rounded-2xl object-cover" src={goal.image} alt="" />
+              <img className="aspect-[4/3] w-96 flex-none rounded-2xl object-cover" src={goal.image} alt="" />
               <div className="flex-auto">
                 <h3 className="text-3xl font-bold leading-8 tracking-tight text-gray-900">{goal.name}</h3>
                 <p className="text-lg leading-7 mt-2 text-gray-600">{DateTime.fromISO(goal.date).toLocaleString(DateTime.DATE_FULL)}</p>
