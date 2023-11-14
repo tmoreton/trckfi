@@ -1,6 +1,6 @@
 {
   "commit": "3a312f1a2d31713e5b5f12c31873f0286ad9c05d",
-  "generated": "2023-11-14T16:11:17.385Z",
+  "generated": "2023-11-14T16:13:48.508Z",
   "metadata": [
     {
       "__outstatic": {
@@ -542,7 +542,7 @@
     {
       "__outstatic": {
         "commit": "3a312f1a2d31713e5b5f12c31873f0286ad9c05d",
-        "hash": "4270013567",
+        "hash": "173496842",
         "path": "outstatic/content/posts/types-of-ira-investing.md"
       },
       "author": {
@@ -555,10 +555,10 @@
       "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
       "keywords": "IRAs, Individual Retirement Accounts, 2023, Traditional IRA, Roth IRA, Spousal IRA, SEP IRA, SIMPLE IRA, Nondeductible IRA, Self-directed IRA, retirement planning, tax advantages, savings strategy, financial security, investment options, financial literacy, retirement savings",
       "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional",
+      "seoTitle": "Uncovering the 7 IRA Account Options You Need to Know About for Retirement",
       "slug": "types-of-ira-investing",
       "status": "published",
-      "title": "The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings"
+      "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
     }
   ]
 }

@@ -1,5 +1,5 @@
 ---
-title: 'The Ultimate Guide to IRAs: Exploring the Lesser-Known Gems of Retirement Savings'
+title: 'The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional'
 description: 'Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!'
 coverImage: '/assets/blog/easy-guide-understand-iras-type.png'
 date: '08.07.2023'
@@ -9,7 +9,7 @@ status: 'published'
 slug: 'types-of-ira-investing'
 author:
   name: 'Trckfi'
-seoTitle: 'The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional'
+seoTitle: 'Uncovering the 7 IRA Account Options You Need to Know About for Retirement'
 publishedAt: '2023-10-06T14:25:45.491Z'
 ---
 
