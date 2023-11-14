@@ -106,7 +106,7 @@ const transactionsSync = async (access_token, user_id) => {
           month_year: added[i].date.substring(0,7),
           week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
           year: added[i].date.substring(0,4),
-          active: true,
+          active: duplicate ? false : true,
           // @ts-ignore
           recurring: found && true,
           upcoming_date: found && DateTime.fromISO(added[i].date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
