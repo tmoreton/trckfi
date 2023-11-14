@@ -33,7 +33,19 @@ export default async (req, res) => {
         detailed_category: 'asc'
       },
     })
-  
+
+    const tags = await prisma.transactions.groupBy({
+      by: ['tags'],
+      where: {
+        OR: query,
+        active: true,
+        pending: false,
+      },
+      orderBy: {
+        tags: 'asc'
+      },
+    })
+    console.log(tags)
     return res.status(200).json({ status: 'OK', data: { primary_categories, detailed_categories }})
   } catch (e) {
     console.error(e)

@@ -10,58 +10,57 @@ export default async (req, res) => {
   const { id, name, unified, primary_category, detailed_category, amount, notes, date, alert_date, account_id, custom_name, tags } = transaction
   let new_tags = tags && tags?.map(tag => tag.value.toUpperCase())
   try {
-    if(ids.length > 0){
-      ids.forEach( async (i) => {
-        const item = await prisma.transactions.findUnique({
-          where: { id: i }
-        })
-        
-        let data = {}
-        if (name) data['name'] = name
-        if (custom_name) data['custom_name'] = custom_name
-        if (notes) data['notes'] = notes
-        if (amount) data['amount'] = Number(amount).toFixed(2)
-        if (unified && unified !== '1f50d') data['unified'] = unified
-        if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
-        if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
-        if (alert_date) data['alert_date'] = alert_date
-        if (account_id) data['account_id'] = account_id
-        if (tags) data['tags'] = new_tags
-        if (date) {
-          data['date'] = date
-          data['authorized_date'] = new Date(date.replace(/-/g, '\/'))
-          data['month_year'] = date.substring(0,7)
-          data['week_year'] = `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
-        }
-        
-        await prisma.transactions.updateMany({
-          where: { name: item.name },
-          data
-        })
+    // if(ids.length > 0){
+      let data = {}
+      if (name) data['name'] = name
+      if (custom_name) data['custom_name'] = custom_name
+      if (notes) data['notes'] = notes
+      if (amount) data['amount'] = Number(amount).toFixed(2)
+      if (unified && unified !== '1f50d') data['unified'] = unified
+      if (primary_category) data['primary_category'] = snakeCase(primary_category).toUpperCase()
+      if (detailed_category) data['detailed_category'] = snakeCase(detailed_category).toUpperCase()
+      if (alert_date) data['alert_date'] = alert_date
+      if (account_id) data['account_id'] = account_id
+      if (tags) data['tags'] = new_tags
+      if (date) {
+        data['date'] = date
+        data['authorized_date'] = new Date(date.replace(/-/g, '\/'))
+        data['month_year'] = date.substring(0,7)
+        data['year'] = date.substring(0,4)
+        data['week_year'] = `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
+      }
+      
+      await prisma.transactions.updateMany({
+        where: {
+          id: { in: ids }
+        },
+        data
       })
-    } else {
-      await prisma.transactions.update({
-        where: { id },
-        data: { 
-          amount: Number(amount).toFixed(2),
-          primary_category: snakeCase(primary_category).toUpperCase(),
-          detailed_category: snakeCase(detailed_category).toUpperCase(),
-          // @ts-ignore
-          custom_name,
-          name,
-          unified,
-          account_id,
-          notes,
-          date,
-          alert_date,
-          tags: new_tags,
-          authorized_date: new Date(date),
-          month_year: date.substring(0,7),
-          year: date.substring(0,4),
-          week_year: `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
-        }
-      })
-    }
+      
+    // } else {
+    //   const updated_transaction = await prisma.transactions.update({
+    //     where: { id },
+    //     data: { 
+    //       amount: Number(amount).toFixed(2),
+    //       primary_category: snakeCase(primary_category).toUpperCase(),
+    //       detailed_category: snakeCase(detailed_category).toUpperCase(),
+    //       // @ts-ignore
+    //       custom_name,
+    //       name,
+    //       unified,
+    //       account_id,
+    //       notes,
+    //       date,
+    //       alert_date,
+    //       tags: new_tags,
+    //       authorized_date: new Date(date),
+    //       month_year: date.substring(0,7),
+    //       year: date.substring(0,4),
+    //       week_year: `${date.substring(0,4)}-${DateTime.fromISO(date).weekNumber}`
+    //     }
+    //   })
+    //   console.log(updated_transaction)
+    // }
     return res.status(200).json({ status: 'OK' })
   } catch (e) {
     console.error(e)

@@ -10,7 +10,7 @@ import Dropdown from '../dropdown'
 import { useRouter } from 'next/router'
 import { ReactTags } from 'react-tag-autocomplete'
 
-export default function ({ item, setEdit, showError, selected, user }) {
+export default function ({ item, setEdit, showError, selected, user, transactions, setTransactions }) {
   const defaultTransaction = {
     name: null,
     custom_name: null,
@@ -51,7 +51,8 @@ export default function ({ item, setEdit, showError, selected, user }) {
     getAccounts()
     getCategories()
     setAlertDate(null)
-    setIds(selected.map(s => s.id))
+    let new_ids = selected.length > 0 ? selected.map(s => s.id) : [item?.id]
+    setIds(new_ids)
     setTransaction(item)
     if(item?.tags){
       let new_tags = item.tags.map(tag => ({ label: tag, value: tag}))
@@ -119,28 +120,32 @@ export default function ({ item, setEdit, showError, selected, user }) {
   }
 
   const update = async (rule) => {
-    setEdit({})
-    const res = await fetch(`/api/update_transaction`, {
-      body: JSON.stringify({ 
-        transaction: {
-          ...transaction,
-          tags
-        },
-        ids
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(rule) addRule()
-    if(!error && !rule) router.reload()
+    console.log(transaction)
+    // setEdit({})
+    // const res = await fetch(`/api/update_transaction`, {
+    //   body: JSON.stringify({ 
+    //     transaction: {
+    //       ...transaction,
+    //       tags
+    //     },
+    //     ids
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
+    // const { error } = await res.json()
+    // showError(error)
+    // if(rule) addRule()
+    // if(!error && !rule) router.reload()
   }
 
   const remove = async () => {
-    const res = await fetch(`/api/remove_transaction`, {
+    let new_transactions = transactions.filter((data) => !ids.includes(data.id))
+    setTransactions(new_transactions)
+    setEdit({})
+    await fetch(`/api/remove_transaction`, {
       body: JSON.stringify({ 
         ids
       }),
@@ -149,12 +154,10 @@ export default function ({ item, setEdit, showError, selected, user }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    showError(error)
-    if (!error) router.reload()
   }
 
-  const add = async () => {
+  const add = async (e) => {
+    e.preventDefault()
     const res = await fetch(`/api/add_transaction`, {
       body: JSON.stringify({ 
         transaction,
@@ -166,9 +169,11 @@ export default function ({ item, setEdit, showError, selected, user }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
+    const { error, new_transaction } = await res.json()
     showError(error)
-    if (!error) router.reload()
+    let new_transactions = transactions
+    new_transactions.push(new_transaction)
+    setTransactions(new_transactions)
   }
 
   const addRule = async () => {
@@ -411,9 +416,9 @@ export default function ({ item, setEdit, showError, selected, user }) {
                                 :
                                 <>
                                   <PinkBtn type="button" onClick={() => update(false)}>
-                                  { ids.length > 0 ? <p className="w-[135px]">Update Selected</p> : <p>Update</p>}
+                                    <p>Update</p>
                                   </PinkBtn>
-                                  { ids.length <= 1 &&
+                                  {/* { ids.length <= 1 &&
                                     <button
                                       type="button"
                                       className="mr-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
@@ -421,7 +426,7 @@ export default function ({ item, setEdit, showError, selected, user }) {
                                     >
                                       <p className="w-[135px]">Update + Add Rule</p>
                                     </button>
-                                  }
+                                  } */}
                                 </>
                               }
                               <button

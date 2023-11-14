@@ -28,8 +28,8 @@ export default async (req, res) => {
       tags: new_tags,
       user_id: user.id,
     }
-    await prisma.transactions.create({ data })
-    return res.status(200).json({ status: 'OK' })
+    const new_transaction = await prisma.transactions.create({ data })
+    return res.status(200).json({ status: 'OK', new_transaction })
   } catch (e) {
     console.error(e)
     slackMessage('Error add_transaction: ' + e.message || e.toString())
