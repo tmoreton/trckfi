@@ -1,6 +1,6 @@
 {
   "commit": "85df7affa8d41878378caef601206c90e1380111",
-  "generated": "2023-11-14T16:44:02.970Z",
+  "generated": "2023-11-14T16:44:58.131Z",
   "metadata": [
     {
       "__outstatic": {
@@ -564,8 +564,8 @@
     {
       "__outstatic": {
         "commit": "85df7affa8d41878378caef601206c90e1380111",
-        "hash": "2865232905",
-        "path": "outstatic/content/posts/zero-based-budgeting.md"
+        "hash": "3232507373",
+        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
       },
       "author": {
         "name": "Tim Moreton Jr"
@@ -578,7 +578,7 @@
       "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
       "publishedAt": "2023-10-06T14:25:45.491Z",
       "seoTitle": "\"Zero-Based Budgeting: Take Control of Your Money",
-      "slug": "zero-based-budgeting",
+      "slug": "what-is-zero-based-budgeting",
       "status": "published",
       "title": "What is zero-based budgeting, and is it right for you?"
     }
