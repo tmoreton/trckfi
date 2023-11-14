@@ -97,6 +97,15 @@ FSAs come in different types, each designed for specific healthcare needs:
 
     When it comes to selecting the right account for your healthcare needs, you might be wondering how Health Savings Accounts (HSAs), Health Reimbursement Arrangements (HRAs), and Flexible Spending Accounts (FSAs) compare. Let's break down the differences to help you make an informed decision:
 
+    ```
+    | Syntax      | Description |
+    | ----------- | ----------- |
+    | Header      | Title       |
+    | Paragraph   | Text        |
+    ```
+
+    \| Syntax \| Description \| \| --- \| ----------- \| \| Header \| Title \| \| Paragraph \| Text \|
+
     #### **HSA, HRA, and FSA Comparison Table**
 
     Here's a detailed comparison of these healthcare accounts to highlight the key distinctions:
