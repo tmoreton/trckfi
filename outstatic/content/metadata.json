@@ -1,6 +1,6 @@
 {
-  "commit": "cda8866363615631e1f4aab1ad7efc283c14bbd4",
-  "generated": "2023-11-14T22:18:09.838Z",
+  "commit": "cebc4d9ef62b58c41e40f5df71dfad6b61a976cf",
+  "generated": "2023-11-14T22:21:20.329Z",
   "metadata": [
     {
       "__outstatic": {
@@ -205,23 +205,6 @@
       "slug": "how-to-get-out-of-debt",
       "status": "published",
       "title": "Get Out of Debt: Your Path to Financial Freedom"
-    },
-    {
-      "__outstatic": {
-        "commit": "89e7d0d2f455572fb6e12d68f575a832fb68c0cf",
-        "hash": "445634179",
-        "path": "outstatic/content/posts/roth-401k-plans.md"
-      },
-      "category": "Retirement Planning, 401(k), Roth IRA, Tax-Advantaged Accounts",
-      "collection": "posts",
-      "coverImage": "/assets/blog/roth-401k-plan.png",
-      "date": "08.22.2023",
-      "description": "Unlock Tax-Free Retirement Growth with a 401(k) Roth. Discover the benefits of contributing after-tax money, tax-free growth, and flexible withdrawal options. Maximize your retirement savings and explore the power of a 401(k) Roth to secure your financial future.",
-      "keywords": "401(k) Roth, retirement savings, tax-free growth, after-tax contributions, retirement planning, flexible withdrawal, tax advantages, financial future",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "roth-401k-plans",
-      "status": "published",
-      "title": "The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement"
     },
     {
       "__outstatic": {
@@ -618,6 +601,27 @@
       "slug": "savings",
       "status": "published",
       "title": "The Power of Saving: Your Financial Safety Net"
+    },
+    {
+      "__outstatic": {
+        "commit": "cebc4d9ef62b58c41e40f5df71dfad6b61a976cf",
+        "hash": "2681526844",
+        "path": "outstatic/content/posts/roth-401k-plans.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/roth-401k-plan.png",
+      "date": "08.22.2023",
+      "description": "Explore the benefits of the 401(k) Roth, a tax-efficient retirement savings option. Discover tax-free growth and flexibility. Start planning for a secure retirement now!",
+      "keywords": "401(k) Roth, retirement savings, tax-free growth, after-tax contributions, retirement planning, flexible withdrawal, tax advantages, financial future",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Unlock Tax-Free Growth: The Advantages of 401(k) Roth for Your Retirement",
+      "slug": "roth-401k-plans",
+      "status": "published",
+      "title": "The Power of 401(k) Roth: A Tax-Free Path to a Blissful Retirement"
     }
   ]
 }
