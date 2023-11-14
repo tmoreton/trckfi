@@ -1,6 +1,6 @@
 {
   "commit": "cda8866363615631e1f4aab1ad7efc283c14bbd4",
-  "generated": "2023-11-14T22:15:32.149Z",
+  "generated": "2023-11-14T22:18:09.838Z",
   "metadata": [
     {
       "__outstatic": {
@@ -601,7 +601,7 @@
     {
       "__outstatic": {
         "commit": "cda8866363615631e1f4aab1ad7efc283c14bbd4",
-        "hash": "3961006935",
+        "hash": "1539762220",
         "path": "outstatic/content/posts/savings.md"
       },
       "author": {
