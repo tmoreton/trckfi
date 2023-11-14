@@ -3,7 +3,7 @@ title: 'Organize Your Finances: Easy Tips for Clarity, Cash Flow Management, and
 description: 'Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.'
 coverImage: '/assets/blog/financial-organization.png'
 date: '08.26.2023'
-category: 'Financial Organization'
+category: 'Guide: Organize Your Finances'
 keywords: 'financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment'
 status: 'published'
 slug: 'how-to-achieve-financial-organization'
@@ -57,7 +57,7 @@ Create a dedicated folder, both physical and digital, to store these documents. 
 
 Remember to allocate a portion of your income to savings and investments. **Pay yourself first!**
 
-[![](/images/home--1--c2Nj.png)](/pricing)
+[![](/images/home--1--UyNj.png)](/pricing)
 
 ### 3\. Keep Tabs on Your Spending
 
