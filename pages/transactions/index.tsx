@@ -122,7 +122,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
       accessor: data => data.unified,
       Cell: ({ cell: { value } }) => <Emoji unified={value} size={20} />,
       style: "",
-      Filter: DropdownFilter
+      Filter: DropdownFilter,
     },
     {
       Header: "Name",
@@ -142,6 +142,13 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
         return value.row.original.account_name
       },
       style: "min-w-[200px] w-1/4 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      Filter: DropdownFilter
+    },
+    {
+      Header: "User",
+      accessor: data => data.user && data.user?.email?.split('@')[0],
+      Cell: ({ cell: { value } }) => value,
+      style: "",
       Filter: DropdownFilter
     },
     {
@@ -213,7 +220,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
       <Notification showError={showError} />
       <DashboardLayout>
         <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
-        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} />
+        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
         <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
         <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
         <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>

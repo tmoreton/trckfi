@@ -154,42 +154,27 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         </div>
         <div className="shadow-sm rounded-md border border-gray-200">
           <div className="flex items-center justify-center pt-5 pb-2">
-            { selected.length ?
-              <InverseBtn type="button" onClick={() => setEdit({
-                  name: null,
-                  primary_category: null,
-                  detailed_category: null,
-                  amount: null,
-                  notes: null,
-                  unified: '1f50d',
-                }
-              )}>
-                Bulk Edit
-                <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
-              </InverseBtn>
-              :
-              <>
-                <button aria-label="Add Transaction" onClick={() => setEdit({
-                  name: null,
-                  primary_category: null,
-                  detailed_category: null,
-                  amount: null,
-                  notes: null,
-                  unified: '1f50d',
-                  new: true
-                })}>
-                  <PlusCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
-                </button>
-                <button aria-label="Import Button" onClick={() => setShowImport(true)}>
-                  <ArrowUpCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true"/>
-                </button>
-                <button aria-label="Upload Button">
-                  <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
-                    <ArrowDownCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
-                  </CSVLink>
-                </button>
-              </>
-            }
+            <>
+              <button aria-label="Add Transaction" onClick={() => setEdit({
+                name: null,
+                primary_category: null,
+                detailed_category: null,
+                amount: null,
+                notes: null,
+                unified: '1f50d',
+                new: true
+              })}>
+                <PlusCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
+              </button>
+              <button aria-label="Import Button" onClick={() => setShowImport(true)}>
+                <ArrowUpCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true"/>
+              </button>
+              <button aria-label="Upload Button">
+                <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
+                  <ArrowDownCircleIcon className="h-12 w-12 text-pink-600 hover:text-pink-500" aria-hidden="true" />
+                </CSVLink>
+              </button>
+            </>
           </div>
 
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-6 sm:px-6 xl:px-8 rounded-md">
@@ -224,8 +209,25 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
           </div>
         </div>
       </div>
-      
+
       <div className="lg:absolute left-0 lg:px-20 pb-20">
+        { selected.length ?
+          <div className="absolute">
+            <InverseBtn type="button" onClick={() => setEdit({
+                name: null,
+                primary_category: null,
+                detailed_category: null,
+                amount: null,
+                notes: null,
+                unified: '1f50d',
+              }
+            )}>
+              Bulk Edit
+              <span className="text-xs font-gray-300 font-extralight pl-1">({selected.length} items)</span>
+            </InverseBtn>
+          </div>
+          : null
+        }
         <nav className="flex items-center justify-between px-4 sm:px-0">
           <div className="flex w-0 flex-1">
             <button
@@ -270,6 +272,17 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                         return (
                           <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
                             <span className="flex" >{cell.render("Cell")} 
+                            { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.user_id !== user?.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
+                            { cell.row.original.alert_date && <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
+                            </span>
+                          </td>
+                        )
+                      } else if (cell.column.Header === 'Detailed Category' || cell.column.Header === 'Primary Category' || cell.column.Header === 'Tags'){
+                        return (
+                          <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
+                            <span className="flex justify-center" >{cell.render("Cell")} 
                             { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.user_id !== user?.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }

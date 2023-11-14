@@ -1,16 +1,15 @@
-import { Fragment, useState, useEffect, useCallback, useRef, } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { TrashIcon, BellAlertIcon, XCircleIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { TrashIcon, BellAlertIcon, XCircleIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
 import { PinkBtn } from '../pink-btn'
 import DatePicker from "react-datepicker"
 import { DateTime } from "luxon"
-import Dropdown from '../dropdown'
-import { useRouter } from 'next/router'
-import { ReactTags } from 'react-tag-autocomplete'
+// import Select, { StylesConfig } from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 
-export default function ({ item, setEdit, showError, selected, user }) {
+export default function ({ item, setEdit, showError, selected, user, transactions, setTransactions }) {
   const defaultTransaction = {
     name: null,
     custom_name: null,
@@ -33,30 +32,15 @@ export default function ({ item, setEdit, showError, selected, user }) {
   const [accounts, setAccounts] = useState([])
   const [primary_categories, setPrimary] = useState([])
   const [detailed_categories, setDetailed] = useState([])
-  const router = useRouter()
-  const [tags, setTags] = useState([])
-
-  const isValid = (value) => /^[a-z]{4,12}$/i.test(value)
-  const onValidate = useCallback((value) => isValid(value), [])
-
-  const onAdd = useCallback((newTag) => {
-    setTags([...tags, newTag])
-  }, [tags])
-
-  const onDelete = useCallback((tagIndex) => {
-    setTags(tags.filter((_, i) => i !== tagIndex))
-  }, [tags])
+  const [suggestions, setSuggestions] = useState([])
 
   useEffect(() => {
     getAccounts()
     getCategories()
     setAlertDate(null)
-    setIds(selected.map(s => s.id))
+    let new_ids = selected.length > 0 ? selected.map(s => s.id) : [item?.id]
+    setIds(new_ids)
     setTransaction(item)
-    if(item?.tags){
-      let new_tags = item.tags.map(tag => ({ label: tag, value: tag}))
-      setTags(new_tags)
-    }
     if(item?.date){
       setStartDate(new Date(item.date.replace(/-/g, '\/')))
     } else {
@@ -86,11 +70,6 @@ export default function ({ item, setEdit, showError, selected, user }) {
     setTransaction({ ...transaction, [name]: value })
   }
 
-  const handleDropdown = (e) => {
-    const name = Object.keys(e)[0]
-    setTransaction({ ...transaction, [name]: e[name] })
-  }
-
   const getAccounts = async () => {
     const res = await fetch(`/api/get_accounts`, {
       body: JSON.stringify({ user }),
@@ -116,16 +95,36 @@ export default function ({ item, setEdit, showError, selected, user }) {
     showError(error)
     setPrimary(data.primary_categories)
     setDetailed(data.detailed_categories)
+    let suggested = data.tags.map(tag => ({ label: tag, value: tag}))
+    setSuggestions(suggested)
   }
 
-  const update = async (rule) => {
+  const update = async () => {
     setEdit({})
+    // @ts-ignore
+    let new_transactions = transactions.filter((data) => data.id !== transaction.id)
     const res = await fetch(`/api/update_transaction`, {
       body: JSON.stringify({ 
-        transaction: {
-          ...transaction,
-          tags
-        },
+        transaction,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    const { error, updated_transaction } = await res.json()
+    showError(error)
+    new_transactions.push(updated_transaction)
+    setTransactions(new_transactions)
+  }
+
+  const updateMany = async () => {
+    setEdit({})
+    // @ts-ignore
+    let new_transactions = transactions.filter((data) => !ids.includes(data.id))
+    const res = await fetch(`/api/update_transactions`, {
+      body: JSON.stringify({ 
+        transaction,
         ids
       }),
       headers: {
@@ -133,14 +132,17 @@ export default function ({ item, setEdit, showError, selected, user }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
+    const { error, updated_transactions } = await res.json()
     showError(error)
-    if(rule) addRule()
-    if(!error && !rule) router.reload()
+    let new_tranasctions = new_transactions.concat(updated_transactions)
+    setTransactions(new_tranasctions)
   }
 
   const remove = async () => {
-    const res = await fetch(`/api/remove_transaction`, {
+    let new_transactions = transactions.filter((data) => !ids.includes(data.id))
+    setTransactions(new_transactions)
+    setEdit({})
+    await fetch(`/api/remove_transaction`, {
       body: JSON.stringify({ 
         ids
       }),
@@ -149,16 +151,13 @@ export default function ({ item, setEdit, showError, selected, user }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    showError(error)
-    if (!error) router.reload()
   }
 
-  const add = async () => {
+  const add = async (e) => {
+    e.preventDefault()
     const res = await fetch(`/api/add_transaction`, {
       body: JSON.stringify({ 
         transaction,
-        tags,
         user,
       }),
       headers: {
@@ -166,34 +165,36 @@ export default function ({ item, setEdit, showError, selected, user }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
+    const { error, new_transaction } = await res.json()
     showError(error)
-    if (!error) router.reload()
+    let new_transactions = transactions
+    new_transactions.push(new_transaction)
+    setTransactions(new_transactions)
   }
 
-  const addRule = async () => {
-    const res = await fetch(`/api/add_rule`, {
-      body: JSON.stringify({
-        user,
-        // @ts-ignore
-        identifier: transaction?.merchant_name || transaction?.name,
-        ruleset: {
-          // @ts-ignore
-          name: transaction?.custom_name || transaction?.merchant_name || transaction?.name,
-          primary_category: transaction?.primary_category,
-          detailed_category: transaction?.detailed_category,
-          unified: transaction?.unified
-        }
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    if(!error) router.reload()
-  }
+  // const addRule = async () => {
+  //   const res = await fetch(`/api/add_rule`, {
+  //     body: JSON.stringify({
+  //       user,
+  //       // @ts-ignore
+  //       identifier: transaction?.merchant_name || transaction?.name,
+  //       ruleset: {
+  //         // @ts-ignore
+  //         name: transaction?.custom_name || transaction?.merchant_name || transaction?.name,
+  //         primary_category: transaction?.primary_category,
+  //         detailed_category: transaction?.detailed_category,
+  //         unified: transaction?.unified
+  //       }
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //   })
+  //   const { error } = await res.json()
+  //   showError(error)
+  //   if(!error) router.reload()
+  // }
 
   return (
     <Transition.Root show={Object.keys(item).length !== 0} as={Fragment}>
@@ -235,85 +236,78 @@ export default function ({ item, setEdit, showError, selected, user }) {
                       :
                       <>
                         <form onSubmit={add}>
-                          <div className="relative z-0 w-full mb-4 group inline-flex">
+                          <div className="relative w-full mb-4 group inline-flex">
                             <div className="w-full">
-                            <label 
+                              <label 
                                 htmlFor="account_id" 
                                 className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                               >
                                 Account
                               </label>
-                              <select
-                                id="account_id"
-                                name="account_id"
-                                required
-                                onChange={handleChange}
-                                defaultValue={transaction?.account_id}
-                                value={transaction?.account_id}
-                                className="mt-2 w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 order-0 border-y border-x border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 sm:text-sm sm:leading-6"
-                              >
-                                <option/>
-                                {accounts.map((a) => (
-                                  <option key={a.id} value={a.id} label={`${a.name} - ${a.official_name}`}/>
-                                ))}                                
-                              </select>
-                              <div className="absolute inset-y-0 mt-8 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
-                                <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                              </div>
+                              <CreatableSelect
+                                closeMenuOnSelect={true}
+                                onChange={e => setTransaction({ ...transaction, account_id: e.value })}
+                                // @ts-ignore
+                                defaultValue={{ label: transaction?.account?.name, value: transaction.account_id }}
+                                options={accounts.map(a => ({ label: a.name, value: a.id}))}
+                                // styles={colourStyles}
+                              />
                             </div>
                           </div>
-                          <div className="relative z-0 w-full mb-4 group">
+                          <div className="relative w-full mb-4 group">
                             <label 
                               htmlFor="primary_category" 
                               className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
                               Primary Category
                             </label>
-                            <Dropdown 
-                              values={primary_categories.filter(c => c.primary_category.includes(transaction.primary_category?.toUpperCase()))} 
-                              selected={transaction.primary_category} 
-                              setSelected={e => handleDropdown({ primary_category: e.primary_category })} 
-                              onChange={e => setTransaction({ ...transaction, primary_category: e })}
+                            <CreatableSelect
+                              closeMenuOnSelect={true}
+                              onChange={e => setTransaction({ ...transaction, primary_category: e.value.toUpperCase() })}
+                              defaultValue={{ label: transaction.primary_category, value: transaction.primary_category }}
+                              options={primary_categories.map(category => ({ label: category.primary_category, value: category.primary_category}))}
+                              // styles={colourStyles}
                             />
                           </div>
-                          <div className="relative z-0 w-full mb-3 group">
+                          <div className="relative w-full mb-3 group">
                             <label 
                               htmlFor="primary_category" 
                               className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
                               Detailed Category
                             </label>
-                            <Dropdown 
-                              values={detailed_categories.filter(c => c.detailed_category?.includes(transaction.detailed_category?.toUpperCase()))} 
-                              selected={transaction.detailed_category} 
-                              setSelected={e => handleDropdown({ detailed_category: e.detailed_category })} 
-                              onChange={e => setTransaction({ ...transaction, detailed_category: e })}
+                            <CreatableSelect
+                              closeMenuOnSelect={true}
+                              onChange={e => setTransaction({ ...transaction, detailed_category: e.value.toUpperCase() })}
+                              defaultValue={{ label: transaction.detailed_category, value: transaction.detailed_category }}
+                              options={detailed_categories.map(category => ({ label: category.detailed_category, value: category.detailed_category}))}
+                              // styles={colourStyles}
                             />
                           </div>
-                          <div className="relative z-0 w-full mb-10 group inline-flex">
+                          <div className="relative w-full mb-4 group inline-flex">
                             <div className="w-full">
                               <label 
-                                htmlFor="primary_category" 
+                                htmlFor="tags" 
                                 className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"                          >
                                 Tags
                               </label>
-                              <ReactTags
-                                allowNew
-                                ariaDescribedBy="custom-tags-description"
-                                collapseOnSelect
-                                id="custom-tags-demo"
-                                labelText="Enter new tags"
-                                onAdd={onAdd}
-                                onDelete={onDelete}
-                                onValidate={onValidate}
-                                selected={tags}
-                                suggestions={[{
-                                  label: 'Business',
-                                  value: 'Business'
-                                }]}
+                              <CreatableSelect
+                                closeMenuOnSelect={true}
+                                onChange={e => setTransaction({ ...transaction, tags: e.map(t => t.value.toUpperCase()) })}
+                                defaultValue={transaction?.tags?.map(t => ({ label: t.toUpperCase(), value: t.toUpperCase()}))}
+                                isMulti
+                                options={suggestions}
+                                // styles={colourStyles}
                               />
                             </div>
                           </div>
-                          <div className="relative z-0 w-full mb-8 group inline-flex">
+                         
+                          <div className="relative w-full mb-8 group inline-flex">
                             <div className="w-full">
+                              <label 
+                                htmlFor="transaction_name" 
+                                className="peer-focus:font-medium text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                              >
+                                Name
+                              </label>
                               <input 
                                 type="text" 
                                 name="custom_name"
@@ -323,12 +317,6 @@ export default function ({ item, setEdit, showError, selected, user }) {
                                 value={transaction?.custom_name || transaction?.name}
                                 onChange={handleChange}
                               />
-                              <label 
-                                htmlFor="transaction_name" 
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                              >
-                                Name
-                              </label>
                             </div>
                           </div>
                           <div className="grid md:grid-cols-2 md:gap-6">
@@ -409,20 +397,9 @@ export default function ({ item, setEdit, showError, selected, user }) {
                                   Add
                                 </PinkBtn>
                                 :
-                                <>
-                                  <PinkBtn type="button" onClick={() => update(false)}>
-                                  { ids.length > 0 ? <p className="w-[135px]">Update Selected</p> : <p>Update</p>}
-                                  </PinkBtn>
-                                  { ids.length <= 1 &&
-                                    <button
-                                      type="button"
-                                      className="mr-3 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                                      onClick={() => update(true)}
-                                    >
-                                      <p className="w-[135px]">Update + Add Rule</p>
-                                    </button>
-                                  }
-                                </>
+                                <PinkBtn type="button" onClick={ids.length > 1 ? updateMany : update}>
+                                  <p>Update</p>
+                                </PinkBtn>
                               }
                               <button
                                 type="button"

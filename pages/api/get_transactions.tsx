@@ -25,10 +25,11 @@ export default async (req, res) => {
         ],
       },
       include: {
-        account: true
+        account: true,
+        user: true
       },
       orderBy: {
-        date: 'desc'
+        date: 'desc',
       },
     })
     // transactions = transactions.filter(t => t.account?.active)

@@ -9,7 +9,6 @@ export default async (req, res) => {
   if (!transaction) return res.status(500).json({ error: 'No Transaction' })
   const { name, unified, primary_category, detailed_category, amount, notes, date, account_id, custom_name, tags } = transaction
   try {
-    let new_tags = tags && tags?.map(tag => tag.value.toUpperCase())
     let data = { 
       amount: Number(amount).toFixed(2),
       primary_category: snakeCase(primary_category).toUpperCase(),
@@ -25,11 +24,11 @@ export default async (req, res) => {
       unified,
       notes,
       account_id,
-      tags: new_tags,
+      tags,
       user_id: user.id,
     }
-    await prisma.transactions.create({ data })
-    return res.status(200).json({ status: 'OK' })
+    const new_transaction = await prisma.transactions.create({ data })
+    return res.status(200).json({ status: 'OK', new_transaction })
   } catch (e) {
     console.error(e)
     slackMessage('Error add_transaction: ' + e.message || e.toString())

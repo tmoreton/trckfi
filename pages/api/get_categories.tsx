@@ -33,8 +33,30 @@ export default async (req, res) => {
         detailed_category: 'asc'
       },
     })
-  
-    return res.status(200).json({ status: 'OK', data: { primary_categories, detailed_categories }})
+
+    const tags = await prisma.transactions.groupBy({
+      by: ['tags'],
+      where: {
+        OR: query,
+        active: true,
+        pending: false,
+      },
+      orderBy: {
+        tags: 'asc'
+      },
+    })
+
+    let uniq_tags = []
+    tags.forEach((t) => {
+      if(t?.tags){
+        const iterator = Object.values(t.tags)
+        for (const tag of iterator) {
+          !uniq_tags.includes(tag) && uniq_tags.push(tag)
+        }
+      }
+    })
+
+    return res.status(200).json({ status: 'OK', data: { primary_categories, detailed_categories, tags: uniq_tags }})
   } catch (e) {
     console.error(e)
     slackMessage('Error get_categories: ' + e.message || e.toString())
