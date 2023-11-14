@@ -47,7 +47,7 @@ Tracking your expenses is the first and most essential step in gaining control o
 
 #### Example:
 
-Imagine earning $4,500 monthly. Using the 50/20/30 rule, allocate $2,250 (50%) for fixed expenses like rent, car, insurance, and bills. Reserve $900 (20%) for flexible expenses such as groceries and leisure. The remaining 30% ($1,350) splits into 20% savings and 10% investing. Tracking expenses empowers you to manage weekly spending on flexible items while ensuring progress toward financial goals.
+Imagine earning $4,500 monthly. Using the 50/20/30 rule, allocate $2,250 (50%) for fixed expenses like rent, car, insurance, and bills. Reserve $900 (20%) for flexible expenses such as groceries and leisure. The remaining 30% ($1,350) is split into 20% savings and 10% investing. Tracking expenses empowers you to manage weekly spending on flexible items while ensuring progress toward financial goals.
 
 ### Unlocking Compound Interest
 
@@ -57,7 +57,7 @@ Compound interest is a financial superpower that can work wonders for both [debt
 
 Imagine you have a credit card with a balance of $1,000 and an interest rate of 20%. With compound interest, the interest is added to your balance each month. If you only make the minimum payment, your debt will grow over time due to the compounding effect.
 
-Consider putting $1,000 in a checking account versus investing it in the S&P 500. In a checking account, you might earn minimal interest. However, investing in the S&P 500, with its historical average annual return of around 10%, means your money grows, and compound interest kicks in.
+On the flip side, putting $1,000 in a checking account versus investing it in the S&P 500. In a checking account, you might earn minimal interest. However, investing in the S&P 500, with its historical average annual return of around 10%, means your money grows, and compound interest kicks in.
 
 After investing $1,000 in the S&P 500 with an average annual return of 10%.
 
@@ -85,8 +85,6 @@ Your credit score is a financial report card that affects your ability to access
 
 5. **New Credit (10%):** Opening multiple new credit accounts in a short period can be seen as risky behavior and may temporarily lower your score.
 
-![](/images/reading-glasses-personal-planning-finances-I4Nz.jpg)
-
 ### **Navigating Inflation's Impact**
 
 Inflation, the gradual increase in prices over time, impacts your daily life and finances.
@@ -113,7 +111,7 @@ Life's uncertainties, from medical emergencies to economic downturns, necessitat
 
 Understanding the basics of taxation is crucial for informed financial decisions. Different types of taxes, tax-advantaged accounts, and staying informed about tax law changes can maximize your financial potential.
 
-Additionally, exploring tax-advantaged accounts, such as a \*\*Health Savings Account \*\*[**(HSA)**](/blog/health-savings-hsas-hras-and-fsas) or a \*\*Flexible Spending Account \*\*[**(FSA)**](/blog/fsa-hra-healthcare-benefits), can further maximize your tax savings. These accounts allow you to set aside pre-tax dollars for medical expenses or dependent care, saving you money in the long run.
+Additionally, exploring tax-advantaged accounts, such as a Health Savings Account [(HSA)](/blog/health-savings-hsas-hras-and-fsas) or a Flexible Spending Account [(FSA)](/blog/fsa-hra-healthcare-benefits), can further maximize your tax savings. These accounts allow you to set aside pre-tax dollars for medical expenses or dependent care, saving you money in the long run.
 
 Keep in mind that tax laws can change over time, stay informed to adapt your financial strategies. Understanding taxation basics and leveraging available benefits optimizes your finances, maximizing your hard-earned money for confident progress toward financial goals.
 
