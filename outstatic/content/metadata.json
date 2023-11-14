@@ -1,6 +1,6 @@
 {
-  "commit": "582e1463ec600d6680a2c48ea1c46109ad6c7da0",
-  "generated": "2023-11-14T16:43:31.588Z",
+  "commit": "85df7affa8d41878378caef601206c90e1380111",
+  "generated": "2023-11-14T16:44:02.970Z",
   "metadata": [
     {
       "__outstatic": {
@@ -378,26 +378,6 @@
     },
     {
       "__outstatic": {
-        "commit": "b99f8f1562c463b5dc8bfd9152beb25f8611d759",
-        "hash": "2698741979",
-        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Zero-Based Budgeting",
-      "collection": "posts",
-      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
-      "date": "07.16.2023",
-      "description": "Learn about the practical way to take charge of your money and make every dollar count with zero-based budgeting (ZBB). By assigning a specific purpose to every dollar you earn, you gain control over your money and stay laser-focused on your financial goals. This approach enhances financial awareness, improves decision-making, and allows you to adjust your budget for consistent overages or unexpected expenses. However, zero-based budgeting may not suit everyone due to its time-consuming nature and demand for self-control. Consider automated budgeting tools as alternatives for more streamlined and efficient budget management, ensuring you achieve your financial success while having the flexibility to suit your lifestyle.",
-      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "what-is-zero-based-budgeting",
-      "status": "published",
-      "title": "What is zero-based budgeting, and is it right for you?"
-    },
-    {
-      "__outstatic": {
         "commit": "d34839ca1fc0f2f1aae577e08db575d593cb8a61",
         "hash": "572872306",
         "path": "outstatic/content/posts/what-is-the-roth-IRA-advantage-2023.md"
@@ -580,6 +560,27 @@
       "slug": "blog-roth-ira-advantage-2023",
       "status": "published",
       "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
+    },
+    {
+      "__outstatic": {
+        "commit": "85df7affa8d41878378caef601206c90e1380111",
+        "hash": "2865232905",
+        "path": "outstatic/content/posts/zero-based-budgeting.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Zero-Based Budgeting",
+      "collection": "posts",
+      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
+      "date": "07.16.2023",
+      "description": "Learn how zero-based budgeting (ZBB) empowers financial control, making every dollar count. Enhance awareness, improve decisions, and adapt to change.",
+      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "\"Zero-Based Budgeting: Take Control of Your Money",
+      "slug": "zero-based-budgeting",
+      "status": "published",
+      "title": "What is zero-based budgeting, and is it right for you?"
     }
   ]
 }
