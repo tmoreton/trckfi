@@ -93,45 +93,26 @@ FSAs come in different types, each designed for specific healthcare needs:
 
 - **No Premium Payments**: FSAs don't cover insurance premiums.
 
-    ## **Comparing HSAs, HRAs, and FSAs**
+## **Comparing HSAs, HRAs, and FSAs**
 
-    When it comes to selecting the [right account for your healthcare needs](/blog/how-to-choose-health-insurance-open-enrollment), you might be wondering how Health Savings Accounts (HSAs), Health Reimbursement Arrangements (HRAs), and Flexible Spending Accounts (FSAs) compare. Let's break down the differences to help you make an informed decision:
+When it comes to selecting the [right account for your healthcare needs](/blog/how-to-choose-health-insurance-open-enrollment), you might be wondering how Health Savings Accounts (HSAs), Health Reimbursement Arrangements (HRAs), and Flexible Spending Accounts (FSAs) compare. Let's break down the differences to help you make an informed decision:
 
-    #### **HSA, HRA, and FSA Comparison Table**
+#### **HSA, HRA, and FSA Comparison Table**
 
-    Here's a detailed comparison of these healthcare accounts to highlight the key distinctions:
+Here's a detailed comparison of these healthcare accounts to highlight the key distinctions:
 
-    **Table: Differences Between HSAs, HRAs, and FSAs**
+**Table: Differences Between HSAs, HRAs, and FSAs**
 
-    `| - | HSA | HRA | Health Care FSA | Dependent Care FSA | Limited-Purpose FSA |`
+| Syntax      | Description | Test Text     |
+| :---        |    :----:   |          ---: |
+| Header      | Title       | Here's this   |
+| Paragraph   | Text        | And more      |
 
-    `| --- | --- | --- | --- | --- | --- |`
+As you can see, each account type has its unique features. HSAs offer portability and allow individuals to save for the future while enjoying tax benefits. HRAs are employer-owned and funded, with some potential carryover balance. FSAs, on the other hand, come in various types and may allow limited carryover. Selecting the [right healthcare account](/blog/how-to-choose-health-insurance-open-enrollment) depends on your individual circumstances and preferences.
 
-    `| What is it? | A personal bank account | An employer-funded fund | A spending account for medical expenses | A spending account for dependent care | A spending account for dental and vision expenses |`
+## **Conclusion**
 
-    `| Who's eligible? | Qualified high-deductible health plan (HDHP) enrollees | Employees with employer-provided healthcare | Plan participants | Those with dependents | HDHP enrollees |`
-
-    `| Who owns the account? | You | Your employer | You | You | You |`
-
-    `| Who can contribute? | You, your employer, others | Your employer | You, your employer | You, your employer | You, your employer |`
-
-    `| Limit to contributions? | IRS limits | Varies by employer | IRS limits | IRS limits | IRS limits |`
-
-    `| Balance carryover into the next year? | Yes | Varies by employer | Varies by plan | No | Varies by plan |`
-
-    `| Is it portable? | Yes | No | No | No | No |`
-
-    `| Can the money earn interest? | Yes | No | No | No | No |`
-
-    `| Usage beyond qualified health expenses? | Yes, but subject to taxes | No | No | No | No |`
-
-    `| Use for insurance premiums? | Rarely, depends on employer | No | No | No | No |`
-
-    As you can see, each account type has its unique features. HSAs offer portability and allow individuals to save for the future while enjoying tax benefits. HRAs are employer-owned and funded, with some potential carryover balance. FSAs, on the other hand, come in various types and may allow limited carryover. Selecting the [right healthcare account](/blog/how-to-choose-health-insurance-open-enrollment) depends on your individual circumstances and preferences.
-
-    ## **Conclusion**
-
-    Whether you're gearing up for open enrollment or reevaluating your healthcare options, understanding HSAs, HRAs, and FSAs is crucial.
+Whether you're gearing up for open enrollment or reevaluating your healthcare options, understanding HSAs, HRAs, and FSAs is crucial.
 
 - Each account serves a specific purpose, providing flexibility and financial relief in different ways. By considering your eligibility, ownership, contribution limits, and other factors, you can make an informed decision that aligns with your [unique healthcare needs](/blog/how-to-choose-health-insurance-open-enrollment).
 
