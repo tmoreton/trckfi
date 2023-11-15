@@ -1,6 +1,6 @@
 {
-  "commit": "70f372af43b4388a99e25e52e5af146dc300f51a",
-  "generated": "2023-11-15T15:25:54.272Z",
+  "commit": "96a0a41dee7e808e270a2513ae05bd03b9d50fcb",
+  "generated": "2023-11-15T16:05:14.250Z",
   "metadata": [
     {
       "__outstatic": {
@@ -25,29 +25,9 @@
     },
     {
       "__outstatic": {
-        "commit": "c52fa55b57bc793e76993bb15d34565cc8ed6975",
-        "hash": "1699587889",
-        "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Retirement Planning, 401K",
-      "collection": "posts",
-      "coverImage": "/assets/blog/401k-guide.png",
-      "date": "08.16.2023",
-      "description": "Unlock the secrets to a comfortable retirement with the powerful 401(k) retirement plan. Whether you're just starting your career or nearing retirement age, understanding the ins and outs of a 401(k) can significantly impact your financial future.",
-      "keywords": "401(k) retirement plan, employer matching contributions, traditional 401(k), Roth 401(k), contribution limits, investment options, vesting, portability, withdrawal rules, retirement savings",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "smart-401k-retirement-guide",
-      "status": "published",
-      "title": "401(k) Retirement Plans: A Comprehensive Guide for Smart Saving"
-    },
-    {
-      "__outstatic": {
         "commit": "b5e45f415dc86b791d2409e331afddcbafc60806",
         "hash": "1154859274",
-        "path": "outstatic/content/posts/essential-financial-concepts.md"
+        "path": "outstatic/content/posts/10-must-know-personal-finance-basics-for-financial-success.md"
       },
       "author": {
         "name": "Tim Moreton Jr"
@@ -59,7 +39,7 @@
       "description": "Gaining a strong grasp of personal finance opens the door to a world of opportunities. After all, personal finance is a crucial aspect of our lives, and understanding its key concepts empowers us to make informed decisions and build a successful future. Whether you're just starting or looking to deepen your financial knowledge, our blog provides valuable insights to keep you on track. Stay updated about the new features added to the Trckfi personal finance tracker by clicking here. Let's take control of our money and shape a brighter financial future together!",
       "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
       "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "essential-financial-concepts",
+      "slug": "10-must-know-personal-finance-basics-for-financial-success",
       "status": "published",
       "title": "10 Must-Know Personal Finance Basics for Financial Success"
     },
@@ -67,7 +47,7 @@
       "__outstatic": {
         "commit": "33b0ec2f329fbb4e0f2dd2a00be2a72e3aad8d4c",
         "hash": "222035207",
-        "path": "outstatic/content/posts/achieve-financial-independence-guide-to-freedom.md"
+        "path": "outstatic/content/posts/how-to-achieve-financial-independence-your-guide-to-financial-freedom.md"
       },
       "category": "Financial Independence",
       "collection": "posts",
@@ -76,7 +56,7 @@
       "description": "Achieve financial independence and take control of your life! This comprehensive guide will walk you through the steps to attain financial freedom. Learn how to define your financial goals, create a solid budget, increase your income, conquer debts strategically, and embrace smart saving and investing. Leverage the power of compounding and celebrate financial milestones on your path to success. Stay committed and flexible as you pave the way for a financially secure future. Start your journey to financial freedom now!",
       "keyword": "Financial Independence, Achieve Financial Independence, Financial Freedom, Financial Goals, Budgeting, Increasing Income, Managing Debt, Smart Saving, Investing, Compounding, Financial Milestones, Flexibility, Personal Finance, Financial Guide.",
       "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "achieve-financial-independence-guide-to-freedom",
+      "slug": "how-to-achieve-financial-independence-your-guide-to-financial-freedom",
       "status": "published",
       "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
     },
@@ -118,7 +98,7 @@
       "__outstatic": {
         "commit": "e5bfe742f6c7b36394557e0a58ba5300657dfef1",
         "hash": "1029389025",
-        "path": "outstatic/content/posts/mint-alternative-best-personal-finance-apps-2024.md"
+        "path": "outstatic/content/posts/mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024.md"
       },
       "author": {
         "name": "Trckfi",
@@ -131,7 +111,7 @@
       "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
       "publishedAt": "2023-11-06T13:03:51.632Z",
       "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
-      "slug": "mint-alternative-best-personal-finance-apps-2024",
+      "slug": "mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
     },
@@ -173,7 +153,7 @@
       "__outstatic": {
         "commit": "e7fb16514afa3c9425e3abeafce4afa0c16b3ea4",
         "hash": "2415492937",
-        "path": "outstatic/content/posts/iras-401ks-retirement-planning.md"
+        "path": "outstatic/content/posts/retirement-planning-understanding-iras-and-401ks.md"
       },
       "category": "Personal Finance, Retirement Planning",
       "collection": "posts",
@@ -182,7 +162,7 @@
       "description": "Planning for retirement is crucial for a financially secure future. Learn about Individual Retirement Accounts (IRAs) and 401(k)s, their tax benefits, and key considerations when choosing the right plan for you.",
       "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
       "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "iras-401ks-retirement-planning",
+      "slug": "retirement-planning-understanding-iras-and-401ks",
       "status": "published",
       "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
     },
@@ -207,7 +187,7 @@
       "__outstatic": {
         "commit": "b2c1109a8e445a83b9aff453994e2d6fd4aaecfd",
         "hash": "4153793723",
-        "path": "outstatic/content/posts/traditional-ira-guide-tax-advantaged-retirement.md"
+        "path": "outstatic/content/posts/traditional-ira-building-a-tax-advantaged-retirement.md"
       },
       "category": "Personal Finance, Retirement Planning",
       "collection": "posts",
@@ -216,7 +196,7 @@
       "description": "Discover the benefits of a Traditional IRA for tax-advantaged retirement savings. Learn how this powerful retirement account allows you to contribute pre-tax money and enjoy tax-deferred growth on your investments until retirement. Find out how to open a Traditional IRA and make the most of its potential tax benefits to secure your financial future.",
       "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits",
       "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "traditional-ira-guide-tax-advantaged-retirement",
+      "slug": "traditional-ira-building-a-tax-advantaged-retirement",
       "status": "published",
       "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
     },
@@ -224,7 +204,7 @@
       "__outstatic": {
         "commit": "d34839ca1fc0f2f1aae577e08db575d593cb8a61",
         "hash": "572872306",
-        "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
+        "path": "outstatic/content/posts/what-is-the-roth-IRA-advantage-2023.md"
       },
       "category": "Personal Finance, Retirement Planning, Roth IRA",
       "collection": "posts",
@@ -233,7 +213,7 @@
       "description": "Unlock the power of tax-free growth and secure your financial future with a Roth IRA! Discover how this retirement account can supercharge your savings and provide incredible benefits for your long-term financial success. Learn about tax-free growth, contribution limits, and a smart strategy for high-income earners. Start building your tax-free fortune today!",
       "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
       "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "roth-ira-advantage-2023",
+      "slug": "what-is-the-roth-IRA-advantage-2023",
       "status": "published",
       "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     },
@@ -283,7 +263,7 @@
       "__outstatic": {
         "commit": "d6d91d38aa0890274b7c2e210ce3089f842af7fd",
         "hash": "1818766903",
-        "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas.md"
+        "path": "outstatic/content/posts/understanding-health-savings-hsas-hras-and-fsas-explained.md"
       },
       "author": {
         "name": "Trckfi",
@@ -296,7 +276,7 @@
       "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
       "publishedAt": "2023-11-17T16:03:01.000Z",
       "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "understanding-health-savings-hsas-hras-and-fsas",
+      "slug": "understanding-health-savings-hsas-hras-and-fsas-explained",
       "status": "draft",
       "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
     },
@@ -341,27 +321,6 @@
       "slug": "roth-ira-advantage-2023",
       "status": "published",
       "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
-    },
-    {
-      "__outstatic": {
-        "commit": "65d8d74c90c3a6468d764e74486e43630ecc0660",
-        "hash": "2379183765",
-        "path": "outstatic/content/posts/types-of-ira-investing.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Investing Strategies",
-      "collection": "posts",
-      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
-      "date": "08.07.2023",
-      "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
-      "keywords": "types of ira accounts, ira account options, sep ira, simple ira, self directed ira, nondeductible ira, lesser known ira, can you have multiple ira accounts, difference between sep and simple ira, rules for withdrawing ira money, best retirement accounts for small business owners ",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Uncovering the 7 IRA Account Options You Need to Know About for Retirement",
-      "slug": "types-of-ira-investing",
-      "status": "published",
-      "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
     },
     {
       "__outstatic": {
@@ -681,8 +640,50 @@
     },
     {
       "__outstatic": {
-        "commit": "70f372af43b4388a99e25e52e5af146dc300f51a",
-        "hash": "2660554827",
+        "commit": "15ee430e2f1312bbe3bbfd9504a6470a6d576de3",
+        "hash": "1984368481",
+        "path": "outstatic/content/posts/401k-retirement-plans-guide-for-smart-saving.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/401k-guide.png",
+      "date": "08.16.2023",
+      "description": " Learn about 401(k) retirement plans: how they work, contribution limits, investment options, when to withdraw funds, and tips to maximize benefits for retirement.",
+      "keywords": "401(k), 401(k) plans, 401(k) retirement plans, what is a 401(k), 401(k) contributions, 401(k) limits, 401(k) investments, 401(k) withdrawals, 401(k) rollovers, 401(k) tips, maximizing 401(k), retirement planning",
+      "publishedAt": "2023-09-13T14:25:45.000Z",
+      "seoTitle": "Mastering 401(k) Retirement Plans: A Comprehensive Guide",
+      "slug": "401k-retirement-plans-guide-for-smart-saving",
+      "status": "published",
+      "title": "Everything You Need To Know About 401(k) Retirement Plans"
+    },
+    {
+      "__outstatic": {
+        "commit": "129ed4db13b09bc5e7591bed7f832a21839490d1",
+        "hash": "2061332917",
+        "path": "outstatic/content/posts/types-of-ira-investing.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Investing Strategies",
+      "collection": "posts",
+      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
+      "date": "08.07.2023",
+      "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
+      "keywords": "types of ira accounts, ira account options, sep ira, simple ira, self directed ira, nondeductible ira, lesser known ira, can you have multiple ira accounts, difference between sep and simple ira, rules for withdrawing ira money, best retirement accounts for small business owners ",
+      "publishedAt": "2023-09-19T14:25:45.000Z",
+      "seoTitle": "Uncovering the 7 IRA Account Options You Need to Know About for Retirement",
+      "slug": "types-of-ira-investing",
+      "status": "published",
+      "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
+    },
+    {
+      "__outstatic": {
+        "commit": "96a0a41dee7e808e270a2513ae05bd03b9d50fcb",
+        "hash": "848627421",
         "path": "outstatic/content/posts/traditional-401k-plan.md"
       },
       "author": {
@@ -694,7 +695,7 @@
       "date": "08.18.2023",
       "description": "Learn how 401(k)s work, the tax benefits, contribution limits, investment options, when you can withdraw funds, and how to optimize a 401(k) for retirement.",
       "keywords": "Traditional 401(k), retirement savings, pre-tax contributions, employer match, tax-deferred growth, retirement planning, retirement accounts, financial future",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "publishedAt": "2023-09-26T14:25:45.000Z",
       "seoTitle": "401(k) Retirement Plans: The Complete Guide",
       "slug": "traditional-401k-plan",
       "status": "published",
