@@ -1,7 +1,5 @@
 import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
-import accountsSync from '../utils/accountsSync';
-import transactionsSync from '../utils/transactionsSync';
 import prisma from '../lib/prisma';
 
 client.defineJob({
@@ -26,27 +24,11 @@ client.defineJob({
       },
     })
 
-    for (let p in plaid) {
-      // let { institution, item_id, user_id } = await prisma.plaid.findUnique({ where: { access_token: access_token }})
-      // await accountsSync(access_token, item_id, user_id, institution)
-      // await netWorthSync(user_id)
-    
+    for (let p in plaid) {    
       await client.sendEvent({
         name: "sync.plaid",
         payload: { access_token: plaid[p].access_token, item_id: plaid[p].item_id, user_id: plaid[p].user_id, institution: plaid[p].institution },
       })
-      // await fetch(`/api/sync_plaid`, {
-      //   body: JSON.stringify({
-      //     access_token: plaid[p].access_token,
-      //     user_id: plaid[p].user_id
-      //   }),
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   method: 'POST',
-      // })
-      // await accountsSync(plaid[p].access_token, plaid[p].item_id, plaid[p].user_id, plaid[p].institution)
-      // await transactionsSync(plaid[p].access_token, plaid[p].user_id)
     }
   },
 });
