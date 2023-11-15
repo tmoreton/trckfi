@@ -101,7 +101,7 @@ Life's uncertainties, from medical emergencies to economic downturns, necessitat
 
 - **Mitigate Through Insurance:** Having health, auto, or home insurance can help you cover unexpected expenses and avoid financial setbacks.
 
-    **Diversification in Investing:** Effective risk management extends to investments. Instead of concentrating all funds in one avenue, diversify across assets like index funds, stocks, bonds, and real estate. This way, if one investment performs poorly, others may offset the losses.
+- **Diversification in Investing:** Effective risk management extends to investments. Instead of concentrating all funds in one avenue, diversify across assets like index funds, stocks, bonds, and real estate. This way, if one investment performs poorly, others may offset the losses.
 
 ### **6\. Start Early: A Guide to Retirement Planning**
 
@@ -157,5 +157,5 @@ Gaining a strong grasp of these essential financial concepts opens the door to a
 
 Stay informed about [Trckfi's](/) new features. Join our community today to discover how Trckfi simplifies monitoring and [managing all your finances ](/pricing)in one place, providing a robust foundation for your financial journey.
 
-\*\*Disclaimer: \*\*This blog post is for informational purposes only and does not constitute financial advice. Always consult with a financial advisor to tailor strategies that align with your unique financial goals and situation.
+**Disclaimer:** This blog post is for informational purposes only and does not constitute financial advice. Always consult with a financial advisor to tailor strategies that align with your unique financial goals and situation.
 

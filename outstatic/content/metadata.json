@@ -1,6 +1,6 @@
 {
   "commit": "f37505c73c40e25093c7ff140bb40fe6ae29e95d",
-  "generated": "2023-11-15T02:26:01.355Z",
+  "generated": "2023-11-15T02:29:28.991Z",
   "metadata": [
     {
       "__outstatic": {
@@ -630,7 +630,7 @@
     {
       "__outstatic": {
         "commit": "f37505c73c40e25093c7ff140bb40fe6ae29e95d",
-        "hash": "544034831",
+        "hash": "3159162398",
         "path": "outstatic/content/posts/essential-financial-concepts.md"
       },
       "author": {
