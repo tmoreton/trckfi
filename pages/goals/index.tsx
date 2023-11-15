@@ -40,11 +40,6 @@ const Goals = ({ showError }) => {
     showError(error)
     if(!error) setGoals(data)
     setRefreshing(false)
-    if(data.length < 1){
-      router.push({
-        pathname: '/goals/create',
-      })
-    }
   }
 
   const remove = async (id) => {
