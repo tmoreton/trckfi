@@ -9,6 +9,15 @@ export default function () {
 export async function getServerSideProps(context) {
   const session = await getSession(context)
   const user = session?.user
+  let user_accounts = await prisma.user.findUnique({
+    where: { 
+      // @ts-ignore
+      id: user?.id
+    },
+    include: {
+      accounts: true
+    },
+  })
 
   // @ts-ignore
   if(user && user?.active){
@@ -28,7 +37,7 @@ export async function getServerSideProps(context) {
       }
     })
     // @ts-ignore
-    if(user?.login_count < 1){
+    if(user?.login_count < 1 || user_accounts?.accounts?.length < 1){
       return {
         redirect: {
           destination: '/intro/question-1',
