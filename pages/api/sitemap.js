@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-
+  console.log("in sitemap file")
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/xml')
     

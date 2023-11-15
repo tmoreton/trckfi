@@ -14,6 +14,8 @@ const NEXT_SSG_FILES = [
 // add your private routes here
 const exclude = [
   '/dashboard*',
+  '/transactions*',
+  '/intro*',
   '/settings*',
   '/accounts*',
   '/signin*',
