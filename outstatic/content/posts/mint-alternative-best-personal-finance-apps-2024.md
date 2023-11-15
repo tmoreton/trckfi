@@ -57,7 +57,7 @@ If you've relied on Mint, their shutdown is a disappointment but also a fresh st
 
 [![manage-your-personal-finances-in-one-app](/images/home--2--k0NT.png)](/pricing)
 
-### 1\. [Trckfi](www.trckfi.com/pricing)
+### 1\. Trckfi
 
 Best For: Hands-off spending and networth & investment monitoring, money mindset & education.
 
