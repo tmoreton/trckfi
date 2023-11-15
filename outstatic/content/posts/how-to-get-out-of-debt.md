@@ -49,7 +49,7 @@ To conquer your debt, you need a solid budget:
 
 - **Establish a Budget**: [Create a budget](/blog/budgeting-made-easy) that allocates a portion of your income to debt repayment while covering essential expenses.
 
-[![tracking-expenses-income-cashflow-demo](/images/home--11--M3Nz.png)](/pricing)
+[![tracking-expenses-income-cashflow-demo](/images/home--11--IyOD.png)](/pricing)
 
 ## Build an Emergency Fund
 
