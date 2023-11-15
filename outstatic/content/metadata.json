@@ -1,6 +1,6 @@
 {
-  "commit": "77325e489992c687cc36651cffc42c675809bd5a",
-  "generated": "2023-11-15T22:51:34.910Z",
+  "commit": "97294fcef3b360a976fba288a4408f924fc61a65",
+  "generated": "2023-11-15T23:04:05.112Z",
   "metadata": [
     {
       "__outstatic": {
@@ -698,27 +698,6 @@
     },
     {
       "__outstatic": {
-        "commit": "801ebcdd1f5dc5141a41fea217036752a810c708",
-        "hash": "255207241",
-        "path": "outstatic/content/posts/five-truths-about-personal-finance.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Personal Finance",
-      "collection": "posts",
-      "coverImage": "/assets/blog/five-truths-1.jpg",
-      "date": "07.14.2023",
-      "description": "Are you ready to uncover the key truths about budgeting, debt management, investing, and more that will transform your finances? This post shares 5 game-changing personal finance lessons.",
-      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances, realistic budget, tracking expenses, investing, wealth-building, good debt, bad debt, side hustles, financial check-ins, automated tools, budgeting, debt management, investing, personal finance tips",
-      "publishedAt": "2023-10-17T14:25:45.000Z",
-      "seoTitle": "5 Eye-Opening Truths About Personal Finances You Need to Know",
-      "slug": "five-truths-about-personal-finance",
-      "status": "published",
-      "title": "5 Truths About Personal Finances That Everyone Should Know About"
-    },
-    {
-      "__outstatic": {
         "commit": "77325e489992c687cc36651cffc42c675809bd5a",
         "hash": "1477318163",
         "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
@@ -737,6 +716,27 @@
       "slug": "smart-401k-retirement-guide",
       "status": "published",
       "title": "Maximize Your 401(k): The Comprehensive Guide to Smart Saving"
+    },
+    {
+      "__outstatic": {
+        "commit": "97294fcef3b360a976fba288a4408f924fc61a65",
+        "hash": "3352890442",
+        "path": "outstatic/content/posts/five-truths-about-personal-finance.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Personal Finance",
+      "collection": "posts",
+      "coverImage": "/assets/blog/five-truths-1.jpg",
+      "date": "07.14.2023",
+      "description": "Are you ready to uncover the key truths about budgeting, debt management, investing, and more that will transform your finances? This post shares 5 game-changing personal finance lessons.",
+      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances, realistic budget, tracking expenses, investing, wealth-building, good debt, bad debt, side hustles, financial check-ins, automated tools, budgeting, debt management, investing, personal finance tips",
+      "publishedAt": "2023-10-17T14:25:45.000Z",
+      "seoTitle": "5 Eye-Opening Truths About Personal Finances You Need to Know",
+      "slug": "five-truths-about-personal-finance",
+      "status": "published",
+      "title": "5 Truths About Personal Finances That Everyone Should Know About"
     }
   ]
 }

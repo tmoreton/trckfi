@@ -41,7 +41,7 @@ By having a comprehensive view of your cash flow, you not only avoid the pitfall
 
 Do you know exactly where your money goes each month? Tracking [expenses](/blog/tracking-monthly-expenses) consistently gives visibility into spending patterns. Use apps to automatically categorize transactions and spot unnecessary costs. Identify areas to cut back and reallocate towards higher priorities like paying off debt or investing.
 
-Leverage tools like [Trckfi](/) to effortlessly monitor your finances. With its **automatic categorization **feature, you gain insights needed to identify areas that require adjustment, paving the path to financial success.
+Leverage tools like [Trckfi](/) to effortlessly monitor your finances. With its \*\*automatic categorization \*\*feature, you gain insights needed to identify areas that require adjustment, paving the path to financial success.
 
 ## **3\. Building Wealth is Possible for Anyone Through Smart Investing**
 
@@ -89,7 +89,7 @@ Conversely, bad debt hinders financial growth and causes stress. Watch out for:
 
 Understanding bad debt helps safeguard finances and avoid unnecessary stress.
 
-[![cash-flow-expense-income-image](blob:https://www.trckfi.com/9d3f1eec-9539-49ff-b207-0e1841f5107c)](/pricing)
+[![cash-flow-expense-income-image](/images/home--11--cyMz.png)](/pricing)
 
 ### **Tips for Managing Debt**
 
