@@ -1,18 +1,44 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
-import { commaShort } from '../../lib/lodash'
 import { classNames } from '../../lib/lodash'
+import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChartBarIcon, BanknotesIcon, CurrencyDollarIcon } from '@heroicons/react/20/solid'
+import { diffNum, commaShort } from '../../lib/lodash'
 
 const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export default function ({ accounts }) {
+export default function ({ accounts, netWorth, history, totalStats }) {
+  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, accountBalance } = totalStats
+
+  const this_month_net_worth = netWorth?.stats?.net_worth
+  const last_month_net_worth = history?.reverse()[1]?.stats.net_worth
   return (
     <div className="mx-auto max-w-7xl py-6 px-10 rounded-md">
+      <div className="border-b pb-6">
+        <div className="absolute pt-2">
+          <ChartBarIcon className="h-12 w-12 text-pink-600" aria-hidden="true" />
+        </div>
+        <p className="ml-16 truncate text-sm font-medium text-gray-500">Net Worth</p>
+        <dd className="ml-16 flex items-baseline justify-between">
+          <div className="items-baseline justify-between">
+            <p className="text-2xl font-semibold text-green-600">{commaShort(this_month_net_worth || 0)}</p>
+            <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{commaShort(last_month_net_worth)}</span> in {lastMonthString}</p>
+          </div>
+          <p className={classNames(Number(last_month_net_worth) <= Number(this_month_net_worth) ? 'text-green-600' : 'text-red-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
+            {
+              Number(last_month_net_worth) <= Number(this_month_net_worth) ?
+              <ArrowUpIcon className='text-green-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
+              :
+              <ArrowDownIcon className='text-red-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
+            }
+            {diffNum(this_month_net_worth, last_month_net_worth)}%
+          </p>
+          <p className="text-xl font-bold text-pink-600 text-right">Accounts</p>
+        </dd>
+      </div>
       <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-        <p className="text-xl font-bold text-pink-600">Accounts</p>
-        <dl className="mt-4 space-y-6 divide-y divide-gray-900/10">
+        <dl className="space-y-6 divide-y divide-gray-900/10">
         { accounts && Object.keys(accounts).map(key => {
           if(Object.keys(accounts)?.length > 0){
             const total = accounts[key].reduce((total, obj) => Number(obj.amount) + total, 0)

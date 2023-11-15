@@ -3,11 +3,11 @@ import { useTable, useFilters, useSortBy } from "react-table"
 import { ArrowUpTrayIcon, ArrowDownTrayIcon, ArrowDownCircleIcon, ArrowUpCircleIcon, PlusIcon, ArrowLongLeftIcon, ArrowLongRightIcon, ChevronDownIcon, ChatBubbleOvalLeftIcon, BellAlertIcon, ArrowPathIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 import { CSVLink } from "react-csv";
 import { DateTime } from "luxon";
-import { commaShort } from '../lib/lodash'
+import { commaShort } from '../../lib/lodash'
 import { Emoji } from 'emoji-picker-react'
-import EmojiModal from './modals/emoji-modal'
-import { InverseBtn } from './pink-btn'
-import BarChart from '../pages/transactions/bar-chart'
+import EmojiModal from '../../components/modals/emoji-modal'
+import { InverseBtn } from '../../components/pink-btn'
+import BarChart from './bar-chart'
 
 export default function ({ user, columns, data, selected, setSelected, setEdit, datePicker, setShowImport }) {
   if (!data || !columns) return null

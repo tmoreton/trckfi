@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from "../../components/dashboard-layout"
 import LoadingModal from '../../components/modals/loading-modal'
-import Table from '../../components/table'
+import Table from './table'
 import TransactionModal from '../../components/modals/transaction-modal'
 import RemoveTransactionModal from '../../components/modals/remove-transaction-modal'
 import DatePicker from '../../components/modals/date-picker-modal'

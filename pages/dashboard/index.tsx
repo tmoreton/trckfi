@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from "../../components/dashboard-layout"
-import Snapshot from "../../components/snapshot"
+import Snapshot from "./snapshot"
 import LoadingModal from '../../components/modals/loading-modal'
 import Graphs from '../../components/graphs'
 import { useSession } from "next-auth/react"
@@ -135,7 +135,7 @@ const Dashboard = ({ showError, showIntro }) => {
         <Graphs graphData={graphData} />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
           <div className="col-span-1 shadow-sm rounded-md border border-gray-200">
-            <Accounts accounts={accounts} />
+            <Accounts totalStats={totalStats} accounts={accounts} netWorth={netWorth} history={history} />
           </div>
           <div className="col-span-1">
             <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200 mb-6">
