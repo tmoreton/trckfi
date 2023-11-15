@@ -1,6 +1,6 @@
 {
-  "commit": "44db3d57a0592a3b1908db532270beec95d2d18b",
-  "generated": "2023-11-15T02:49:59.228Z",
+  "commit": "194ff318fcf7aa93d0eb70e98022d221a50c0c52",
+  "generated": "2023-11-15T02:57:20.021Z",
   "metadata": [
     {
       "__outstatic": {
@@ -113,23 +113,6 @@
       "slug": "expense-management-guide",
       "status": "published",
       "title": "Struggling to Manage Your Finances? Discover the Solution!"
-    },
-    {
-      "__outstatic": {
-        "commit": "2702a0d00851be34b87d4e0c7c1eef3256b8b40b",
-        "hash": "475516538",
-        "path": "outstatic/content/posts/financial-success-in-your-20s-guide.md"
-      },
-      "category": "Personal Finance, Financial Management, Financial Goals, Debt Management, Financial Education",
-      "collection": "posts",
-      "coverImage": "/assets/blog/genz-financial-success-20s.png",
-      "date": "9.19.2023",
-      "description": "Are you in your 20s and wondering how to navigate the complex world of personal finance? Look no further! This comprehensive guide is tailored to help you build a strong financial foundation, from setting clear goals to understanding the power of compound interest. Don't miss out on the key steps to financial success in your 20s.",
-      "keywords": "goals, managing debt, credit history, investing for beginners, compound interest, Health Savings Accounts (HSAs), Renter's insurance, Financial education for young adults",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "financial-success-in-your-20s-guide",
-      "status": "published",
-      "title": "Financial Success in Your 20s: Building a Strong Foundation"
     },
     {
       "__outstatic": {
@@ -647,6 +630,27 @@
       "slug": "what-is-zero-based-budgeting",
       "status": "published",
       "title": "What is zero-based budgeting, and is it right for you?"
+    },
+    {
+      "__outstatic": {
+        "commit": "194ff318fcf7aa93d0eb70e98022d221a50c0c52",
+        "hash": "2094521414",
+        "path": "outstatic/content/posts/financial-success-in-your-20s-guide.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Financial Education",
+      "collection": "posts",
+      "coverImage": "/assets/blog/genz-financial-success-20s.png",
+      "date": "9.19.2023",
+      "description": "Are you in your 20s and wondering how to optimize your personal finances? This guide is tailored to help you build a strong financial foundation and success.",
+      "keywords": "goals, managing debt, credit history, investing for beginners, compound interest, Health Savings Accounts (HSAs), Renter's insurance, Financial education for young adults",
+      "publishedAt": "2023-08-22T14:25:45.000Z",
+      "seoTitle": "Financial Success in Your 20s: A Guide to Mastering Personal Finance",
+      "slug": "financial-success-in-your-20s-guide",
+      "status": "published",
+      "title": "Financial Success in Your 20s: Building a Strong Foundation"
     }
   ]
 }
