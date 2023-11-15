@@ -1,6 +1,6 @@
 {
   "commit": "706a086f60a664c64426b0e8e71a6c456ce834d2",
-  "generated": "2023-11-15T19:11:06.773Z",
+  "generated": "2023-11-15T19:13:01.080Z",
   "metadata": [
     {
       "__outstatic": {
@@ -691,8 +691,8 @@
     {
       "__outstatic": {
         "commit": "706a086f60a664c64426b0e8e71a6c456ce834d2",
-        "hash": "2014751998",
-        "path": "outstatic/content/posts/monthly-financial-checkin-routine-for-success.md"
+        "hash": "3338977389",
+        "path": "outstatic/content/posts/quick-monthly-financial-checkin-routine.md"
       },
       "author": {
         "name": "Trckfi"
@@ -705,7 +705,7 @@
       "keywords": "Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions",
       "publishedAt": "2023-10-06T14:25:45.491Z",
       "seoTitle": "Revitalize Your Finances: A Monthly Check-In for Growth and Awareness",
-      "slug": "monthly-financial-checkin-routine-for-success",
+      "slug": "quick-monthly-financial-checkin-routine",
       "status": "published",
       "title": "Simple  Monthly Financial Check-In Routine for Success"
     }
