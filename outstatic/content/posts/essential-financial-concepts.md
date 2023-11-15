@@ -69,7 +69,7 @@ After investing $1,000 in the S&P 500 with an average annual return of 10%.
 
 Whether you aim to tackle credit card debt or invest on your future, understanding **compound interest** can be a game-changer in achieving your financial goals.
 
-![compound-interest-formula](/images/interest-rate-formula-UzMT.png)
+![compound-interest-formula-ilustration](/images/home--7--g1Mj.png)
 
 ## **3\. Decoding Your Credit Score**
 
