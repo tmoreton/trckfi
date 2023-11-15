@@ -59,7 +59,7 @@ When you leave a job, one of the biggest financial decisions is what to do with 
 
 Here's why you should roll over your 401(k) to an IRA or new employer's plan:
 
-- \*\*Vesting schedules \*\*- You may forfeit matching contributions if you haven't fully vested. Always check your vesting status before leaving.
+- **Vesting schedules**\- You may forfeit matching contributions if you haven't fully vested. Always check your vesting status before leaving.
 
 - **Loss of oversight** \- Once you leave, you can't actively manage the investments or take loans/withdrawals. Out of sight, out of mind.
 
@@ -67,9 +67,9 @@ Here's why you should roll over your 401(k) to an IRA or new employer's plan:
 
 - **Limited investment options** \- 401(k)s typically have a narrower selection of funds compared to IRAs.
 
-- \*\*Account consolidation \*\*- Rolling over to a single IRA simplifies managing your retirement savings.
+- **Account consolidation**\- Rolling over to a single IRA simplifies managing your retirement savings.
 
-- \*\*Increased control \*\*- [IRAs](/blog/types-of-iras) offer more flexibility in investment selections, beneficiary choices, RMD management, and more.
+- **Increased control**\- [IRAs](/blog/types-of-iras) offer more flexibility in investment selections, beneficiary choices, RMD management, and more.
 
 I learned this lesson the hard way. I left a job years ago and lost track of a 401(k) with thousands in it. The lost 401(k) balance would be worth so much more today if I had taken control and rolled it over to an IRA. Don't make the same mistake!
 

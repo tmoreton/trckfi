@@ -1,6 +1,6 @@
 {
   "commit": "96a0a41dee7e808e270a2513ae05bd03b9d50fcb",
-  "generated": "2023-11-15T16:04:38.418Z",
+  "generated": "2023-11-15T16:05:14.250Z",
   "metadata": [
     {
       "__outstatic": {
@@ -683,7 +683,7 @@
     {
       "__outstatic": {
         "commit": "96a0a41dee7e808e270a2513ae05bd03b9d50fcb",
-        "hash": "3485657423",
+        "hash": "848627421",
         "path": "outstatic/content/posts/traditional-401k-plan.md"
       },
       "author": {
