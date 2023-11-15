@@ -29,23 +29,23 @@ Are you planning for a financially secure retirement? The traditional 401(k) ret
 
 A traditional 401(k) is an employer-sponsored retirement savings plan that you to save for retirement through automatic payroll deductions (pre-tax income). Your contributions grow tax-deferred. Many employers also match contributions up to a certain percentage. The contributions and any investment gains grow tax-deferred until withdrawal during retirement.
 
-To participate in a traditional 401(k), an employee must meet certain eligibility requirements, such as reaching a specific age or completing a set number of service years with the employer. Once eligible, employees can enroll during designated enrollment periods. To learn more about 401(K)retirement plans, read [this blog post](/blog/401k-retirement-plans-guide-for-smart-saving) I wrote.
+To participate in a** traditional 401(k)**, an employee must meet certain eligibility requirements, such as reaching a specific age or completing a set number of service years with the employer. Once eligible, employees can enroll during designated enrollment periods. To learn more about **401(K)retirement plans**, read [this blog post](/blog/401k-retirement-plans-guide-for-smart-saving) I wrote.
 
 ### **Tax Benefits of 401(k) Plans**
 
-One of the primary advantages of a traditional 401(k) is the tax benefits it offers. 401(k) contributions come out of your paycheck pre-tax, which means they are deducted from the employee's income, reducing your taxable income now. However, the contributions and earnings are taxed when withdrawn during retirement.
+One of the primary advantages of a traditional 401(k) is the tax benefits it offers. 401(k)** contributions** come out of your paycheck pre-tax, which means they are deducted from the employee's income, reducing your taxable income now. However, the contributions and earnings are taxed when withdrawn during retirement.
 
 ### **401(k) Contribution Limits**
 
-Employer match is another attractive feature of traditional 401(k)s. Many employers offer a matching contribution, where they match a percentage of the employee's contributions up to a certain limit. This "free money" boosts the employee's retirement savings significantly.
+Employer match is another attractive feature of traditional 401(k)s. Many employers offer a matching contribution, where they match a percentage of the employee's contributions up to a certain limit. This **"free money" **boosts the employee's retirement savings significantly.
 
-Employees can contribute up to the annual contribution limit set by the IRS, which is $22,500 (for 2023), and individuals aged 50 or older can make catch-up contributions of an additional $7,500. The IRS recently announced the [2024 limits are increasing](https://finance.yahoo.com/personal-finance/401k-contribution-limits-175430718.html) to $23,000, with the catch-up remaining $7,500. Take advantage of these generous limits.
+Employees can contribute up to the annual contribution limit set by the IRS, which is $22,500 (for 2023), and individuals aged 50 or older can make catch-up contributions of an additional $7,500. The IRS recently announced the [2024 limits are increasing](https://finance.yahoo.com/personal-finance/401k-contribution-limits-175430718.html) to $23,000, with the catch-up remaining $7,500. The new amounts also apply to 403(b) plans, most 457 plans and Thrift Savings Plans. Take advantage of these generous limits.
 
 ### **Maximize Your 401(k)**
 
 Contribute enough to get any employer match, take advantage of tax benefits, invest appropriately for your timeline, and use catch-up contributions if 50+. Maxing out a 401(k) sets you up for a comfortable retirement.
 
-[![trckfi-demo-net-worth-tracker](/images/home--1--gxNz.jpg)](/pricing)
+[![trckfi-demo-net-worth-tracker](/images/home--1--A3Mz.jpg)](/pricing)
 
 ## **Investment Choices and Asset Allocation**
 
