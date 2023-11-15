@@ -1,6 +1,6 @@
 {
   "commit": "360138b08dc1e866a23fdeb36637a22e1173d0b0",
-  "generated": "2023-11-15T04:11:26.729Z",
+  "generated": "2023-11-15T04:11:33.980Z",
   "metadata": [
     {
       "__outstatic": {
@@ -656,7 +656,7 @@
     {
       "__outstatic": {
         "commit": "360138b08dc1e866a23fdeb36637a22e1173d0b0",
-        "hash": "1275716118",
+        "hash": "2152322734",
         "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
       },
       "author": {
@@ -668,7 +668,7 @@
       "date": "08.26.2023",
       "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
       "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
       "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
       "slug": "how-to-achieve-financial-organization",
       "status": "published",
