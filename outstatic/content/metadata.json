@@ -1,6 +1,6 @@
 {
-  "commit": "b989f7c5d4e76ffba42448934f2951c6b9602f66",
-  "generated": "2023-11-15T03:35:23.553Z",
+  "commit": "058b231a402def01d61e4537d487d48dbd8f4399",
+  "generated": "2023-11-15T04:03:21.783Z",
   "metadata": [
     {
       "__outstatic": {
@@ -62,23 +62,6 @@
       "slug": "10-must-know-personal-finance-basics-for-financial-success",
       "status": "published",
       "title": "10 Must-Know Personal Finance Basics for Financial Success"
-    },
-    {
-      "__outstatic": {
-        "commit": "33b0ec2f329fbb4e0f2dd2a00be2a72e3aad8d4c",
-        "hash": "222035207",
-        "path": "outstatic/content/posts/how-to-achieve-financial-independence-your-guide-to-financial-freedom.md"
-      },
-      "category": "Financial Independence",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-freedom.png",
-      "date": "08.09.2023",
-      "description": "Achieve financial independence and take control of your life! This comprehensive guide will walk you through the steps to attain financial freedom. Learn how to define your financial goals, create a solid budget, increase your income, conquer debts strategically, and embrace smart saving and investing. Leverage the power of compounding and celebrate financial milestones on your path to success. Stay committed and flexible as you pave the way for a financially secure future. Start your journey to financial freedom now!",
-      "keyword": "Financial Independence, Achieve Financial Independence, Financial Freedom, Financial Goals, Budgeting, Increasing Income, Managing Debt, Smart Saving, Investing, Compounding, Financial Milestones, Flexibility, Personal Finance, Financial Guide.",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "how-to-achieve-financial-independence-your-guide-to-financial-freedom",
-      "status": "published",
-      "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
     },
     {
       "__outstatic": {
@@ -651,6 +634,28 @@
       "slug": "financial-success-in-your-20s-guide",
       "status": "published",
       "title": "Financial Success in Your 20s: Building a Strong Foundation"
+    },
+    {
+      "__outstatic": {
+        "commit": "058b231a402def01d61e4537d487d48dbd8f4399",
+        "hash": "621646268",
+        "path": "outstatic/content/posts/achieve-financial-independence-guide-to-freedom.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Financial Independence",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-freedom.png",
+      "date": "08.09.2023",
+      "description": "Start your journey to financial freedom! Define goals, build a budget, boost income, eliminate debt, and secure a sound future.",
+      "keyword": "Financial Independence, Achieve Financial Independence, Financial Freedom, Financial Goals, Budgeting, Increasing Income, Managing Debt, Smart Saving, Investing, Compounding, Financial Milestones, Flexibility, Personal Finance, Financial Guide.",
+      "keywords": "Financial independence, Budgeting tips, Smart investing, Debt management, Savings strategies, Retirement planning, Compound interest, Income growth, Wealth-building, Financial goals, Money mindset, Emergency fund, Investment options, Tax-efficient savings, Personal finance success",
+      "publishedAt": "2023-08-29T14:25:45.000Z",
+      "seoTitle": "Master Financial Independence: A Practical Guide to Freedom",
+      "slug": "achieve-financial-independence-guide-to-freedom",
+      "status": "published",
+      "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
     }
   ]
 }
