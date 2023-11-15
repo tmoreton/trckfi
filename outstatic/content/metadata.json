@@ -1,6 +1,6 @@
 {
-  "commit": "96a0a41dee7e808e270a2513ae05bd03b9d50fcb",
-  "generated": "2023-11-15T16:05:14.250Z",
+  "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
+  "generated": "2023-11-15T18:23:21.213Z",
   "metadata": [
     {
       "__outstatic": {
@@ -76,23 +76,6 @@
       "slug": "five-truths-about-personal-finance",
       "status": "published",
       "title": "5 Truths About Personal Finances That Everyone Should Know About"
-    },
-    {
-      "__outstatic": {
-        "commit": "4172560af1d60983504113ab2932db0720eb9faf",
-        "hash": "769591283",
-        "path": "outstatic/content/posts/expense-management-guide.md"
-      },
-      "category": "Personal Finance, Financial Awareness, Spend Tracking, Saving Money",
-      "collection": "posts",
-      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
-      "date": "09.14.2023",
-      "description": "Do you often wonder where your hard-earned money goes?Managing your finances effectively is the key to breaking free from the paycheck-to-paycheck cycle. In this comprehensive guide, we'll help you unravel the secrets of effective expense management. From understanding your spending habits to setting clear financial goals, we've got you covered. Get ready to take control of your financial future!",
-      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Spend Analysis",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "expense-management-guide",
-      "status": "published",
-      "title": "Struggling to Manage Your Finances? Discover the Solution!"
     },
     {
       "__outstatic": {
@@ -700,6 +683,27 @@
       "slug": "traditional-401k-plan",
       "status": "published",
       "title": "How to Maximize a 401(k) for a Secure Retirement"
+    },
+    {
+      "__outstatic": {
+        "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
+        "hash": "56718460",
+        "path": "outstatic/content/posts/expense-management-guide.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Personal Finance, Financial Awareness, Spend Tracking, Saving Money",
+      "collection": "posts",
+      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
+      "date": "09.14.2023",
+      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
+      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
+      "publishedAt": "2023-11-15T15:25:45.000Z",
+      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
+      "slug": "expense-management-guide",
+      "status": "published",
+      "title": "Struggling to Manage Your Finances? Discover the Solution!"
     }
   ]
 }
