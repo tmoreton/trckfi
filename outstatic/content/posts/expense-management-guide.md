@@ -3,7 +3,7 @@ title: 'Struggling to Manage Your Finances? Discover the Solution!'
 description: 'Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!'
 coverImage: '/assets/blog/couple-managing-finances-pay-check-to-pay-check.png'
 date: '09.14.2023'
-category: 'Personal Finance, Financial Awareness, Spend Tracking, Saving Money'
+category: 'Finance Tracking'
 keywords: 'Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis'
 status: 'published'
 slug: 'expense-management-guide'
@@ -23,7 +23,7 @@ I remember the days of shuffling through a pile of bills, hoping I had enough le
 
 Having all your financial accounts in one place is a game changer. Rather than logging into multiple sites, services like [Trckfi](/) consolidate everything for you. With bank account integration you can connect your bank accounts, credit cards, loans, and investments - now you can view your whole financial picture in one spot - no more hunting for passwords!
 
-![trckfi-demo-connect-all-accounts-one-dashboard](/images/home--1--M2Nj.png)
+![trckfi-demo-connect-all-accounts-one-dashboard](/images/home--1--I3Nz.png)
 
 ## The Power of Tracking Your Spending
 
@@ -39,7 +39,7 @@ Here's why it's crucial and how to do it effectively:
 
 4. **Financial Awareness**: Increase financial mindfulness for better money decisions.
 
-[![trckfi-demo-tracking-expenses-net-worth-and-goals](/images/home--8--M1OT.png)](/pricing)
+[![trckfi-demo-tracking-expenses-net-worth-and-goals](/images/home--8--Y0ND.png)](/pricing)
 
 With the [Trckfi dashboard](/pricing), you can easily review cash flow, expenses categories, and recurring charges as well as track your savings and investments to keep you motivated.
 
@@ -69,7 +69,7 @@ Monthly tracking provides valuable insights into your immediate financial health
 
 - **Net Worth:** Regularly check your net worth, which is assets minus liabilities. Even small positive increases keep you motivated.
 
-[![demo-trck-expenses-income-transactions](/images/home--11--cwOT.png)](/pricing)
+[![demo-trck-expenses-income-transactions](/images/home--11--I5MD.png)](/pricing)
 
 ## 6 Practical Steps to Financial Control
 
@@ -87,7 +87,7 @@ In summary, here are practical steps to take control of your finances:
 
 6. **Stay Financially Aware**: Continue monitoring your finances and adapting your budget as needed to achieve your goals.
 
-[![demo-goal-setting-trckfi-feature](/images/home--12--MyND.png)](/pricing)
+[![demo-goal-setting-trckfi-feature](/images/home--12--UyOT.png)](/pricing)
 
 ## Wrap Up
 

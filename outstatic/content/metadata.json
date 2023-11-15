@@ -1,6 +1,6 @@
 {
   "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
-  "generated": "2023-11-15T18:23:21.213Z",
+  "generated": "2023-11-15T18:23:50.977Z",
   "metadata": [
     {
       "__outstatic": {
@@ -687,13 +687,13 @@
     {
       "__outstatic": {
         "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
-        "hash": "56718460",
+        "hash": "1081063135",
         "path": "outstatic/content/posts/expense-management-guide.md"
       },
       "author": {
         "name": "Trckfi"
       },
-      "category": "Personal Finance, Financial Awareness, Spend Tracking, Saving Money",
+      "category": "Finance Tracking",
       "collection": "posts",
       "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
       "date": "09.14.2023",
