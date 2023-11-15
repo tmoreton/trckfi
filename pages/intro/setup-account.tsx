@@ -28,7 +28,7 @@ export default function ({ showError }) {
 
   return (
     <>
-      <ProgressNav width={'45%'} />
+      <ProgressNav width={'50%'} />
       <div className="relative isolate">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">

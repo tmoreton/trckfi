@@ -43,13 +43,13 @@ export default function () {
       method: 'POST',
     })
     router.push({
-      pathname: '/visionboard',
+      pathname: '/intro/link-user',
     })
   }
   
   return (
     <>
-      <ProgressNav width={'90%'} />
+      <ProgressNav width={'80%'} />
       <div className="relative isolate">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
@@ -86,7 +86,7 @@ export default function () {
                 type="submit"
                 className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
               >
-                Finish
+                Next
               </button>
             </form>
           </div>

@@ -4,7 +4,6 @@ import { PinkBtn } from '../components/pink-btn'
 import { useState } from 'react'
 import { DateTime } from "luxon"
 import { commaShort } from '../lib/lodash'
-import Link from 'next/link'
 
 export default function ({ user, defaultGoal, remove, getGoals, setRefreshing }) {
   const [goal, setGoal] = useState(defaultGoal)
