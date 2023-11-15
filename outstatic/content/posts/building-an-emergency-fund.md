@@ -29,7 +29,7 @@ An emergency fund is money set aside to cover unexpected expenses or financial e
 
 - **Maintains Financial Progress:** An emergency fund protects your long-term financial goals, such as saving for retirement, buying a home, or paying off debt, by preventing setbacks caused by unexpected expenses.
 
-[![trckfi-manage-finances-in-one-place](/images/home--2--Y2OD.png)](/pricing)
+[![trckfi-manage-finances-in-one-place](/images/home--2--c0OD.png)](/pricing)
 
 ## Tips to Start an Emergency Fund:
 
@@ -53,7 +53,7 @@ Building an emergency fund requires dedication and consistent effort. Here are s
 
 ## Conclusion:
 
-your emergency fund acts as a financial safeguard, ensuring you're ready for the unexpected. By adhering to these tips and consistently saving, you fortify this lifeline, gaining the peace of mind that financial preparedness brings. Emergencies can strike at any moment, but with a well-established fund, you're equipped to navigate them confidently while staying on course towards your financial objectives.
+Your emergency fund acts as a financial safeguard, ensuring you're ready for the unexpected. By adhering to these tips and consistently saving, you fortify this lifeline, gaining the peace of mind that financial preparedness brings. Emergencies can strike at any moment, but with a well-established fund, you're equipped to navigate them confidently while staying on course toward your financial goals.
 
 Whether you're at the beginning of your financial journey or well into it, [our blog](/blog) is your go-to hub for insightful tips to keep your finances on track.
 

@@ -1,6 +1,6 @@
 {
   "commit": "62157bcbbae1403b3f0af54dcff946ed2102cbc8",
-  "generated": "2023-11-15T02:17:16.792Z",
+  "generated": "2023-11-15T02:18:32.358Z",
   "metadata": [
     {
       "__outstatic": {
@@ -630,7 +630,7 @@
     {
       "__outstatic": {
         "commit": "62157bcbbae1403b3f0af54dcff946ed2102cbc8",
-        "hash": "362079785",
+        "hash": "3365852283",
         "path": "outstatic/content/posts/building-an-emergency-fund.md"
       },
       "author": {
