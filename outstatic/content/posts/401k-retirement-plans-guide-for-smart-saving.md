@@ -13,13 +13,13 @@ seoTitle: 'Mastering 401(k) Retirement Plans: A Comprehensive Guide'
 publishedAt: '2023-09-13T14:25:45.000Z'
 ---
 
-Saving for retirement is crucial if you want to maintain your standard of living in the future. 401(k) plans are one of the best tools out there to help you save and invest for [retirement](/blog/retirement-planning-understanding-iras-and-401ks). But how exactly do they work? Let’s break it down step-by-step so you can make the most of your 401(k).
+Saving for retirement is crucial if you want to maintain your standard of living in the future. 401(k) plans are one of the **best tools** out there to help you save and invest for [retirement](/blog/retirement-planning-understanding-iras-and-401ks). But how exactly do they work? Let’s break it down step-by-step so you can make the most of your 401(k).
 
 ## What is a 401(k) Retirement Plan?
 
 A 401(k) is an employer-sponsored retirement savings account that allows you to contribute a portion of each paycheck toward retirement. The money is taken out of your pay pre-tax, which reduces your current taxable income.
 
-401(k) contributions are invested based on your selections, usually from a menu of mutual funds, ETFs, and other options your employer offers. The investments grow tax-deferred over your career. You pay income taxes on withdrawals in retirement.
+401(k) **contributions are invested** based on your selections, usually from a menu of mutual funds, ETFs, and other options your employer offers. The investments grow tax-deferred over your career. You pay income taxes on withdrawals in retirement.
 
 ### The two main types are traditional and Roth 401(k)s:
 
@@ -45,7 +45,11 @@ One of the best 401(k) perks is employer matching contributions. If offered, mak
 
 ### Contribution Limits
 
-As of 2023, the annual contribution limit for a 401(k) is $20,000 for individuals under 50 years old. If you're 50 or older, you can make an additional catch-up contribution of up to $6,500, bringing the total annual limit to $26,500. It's essential to maximize your contributions to take full advantage of the tax benefits and grow your retirement savings faster.
+As of 2023, the annual contribution limit for a 401(k) is $22,500 for individuals under 50 years old. If you're 50 or older, you can make an additional catch-up contribution of up to $7,500. It's essential to maximize your contributions to take full advantage of the tax benefits and grow your retirement savings faster.
+
+The **IRS announced** that employee contribution limits for 401(k) plans is [increasing to $23,000 in 2024](https://www.cnbc.com/2023/11/01/irs-401k-ira-contribution-limits-for-2024.html), up from $22,500 in 2023, and **catch-up contributions **for savers age 50 and older will remain unchanged at $7,500.
+
+[![trckfi-demo-manage-investments-retirement-in-one-place](/images/home-I0MT.jpg)](/pricing)
 
 ## Investment Options
 
