@@ -14,7 +14,6 @@ const diff = (date) => {
 }
 
 export default function ({ recurring }) {
-  console.log(recurring)
   return (
     <>
       <div className="grid grid-cols-4 text-sm font-semibold text-gray-500">
