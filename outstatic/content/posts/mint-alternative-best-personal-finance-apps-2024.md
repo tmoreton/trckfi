@@ -4,7 +4,7 @@ status: 'published'
 author:
   name: 'Trckfi'
   picture: ''
-slug: 'mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024'
+slug: 'mint-alternative-best-personal-finance-apps-2024'
 description: 'With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.'
 coverImage: '/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg'
 keywords: 'mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint'
