@@ -15,29 +15,29 @@ publishedAt: '2023-08-08T14:25:45.000Z'
 
 Ready to take charge of your financial journey and enhance your money management skills? Whether you're just starting or eager to improve your financial knowledge, you're in the right place. In this blog, we'll explore 10 essential financial concepts, making it easy for you to make informed decisions and shape a strong** financial future**. From understanding **compound interest** to mastering [expense tracking](/), we'll explain each concept with simple examples.
 
-## Table of Contents
+### Table of Contents
 
-- [**The Habit of Expense Tracking**](#tracking-expense)
+- [The Habit of Expense Tracking](#tracking-expense)
 
-- [**Understanding Compound Interest**](#compound-interest)
+- [Understanding Compound Interest](#compound-interest)
 
-- [**What About Credit Score?**](#credit-score)
+- [What About Credit Score?](#credit-score)
 
-- [**Inflation and Making Smart Financial Choices**](#inflation)
+- [Inflation and Making Smart Financial Choices](#inflation)
 
-- [**Protecting Your Finances**](#risk-management)
+- [Protecting Your Finances](#risk-management)
 
-- [**Start Early: Retirement Planning**](#retirement-planning)
+- [Start Early: Retirement Planning](#retirement-planning)
 
-- [**How to Optimize Your Finances with Taxation**](#taxation)
+- [How to Optimize Your Finances with Taxation](#taxation)
 
-- [**Debt Management and Financial Freedom**](#debt-management)
+- [Debt Management and Financial Freedom](#debt-management)
 
-- [**Have an Investment Strategy**](#asset-allocation)
+- [Have an Investment Strategy](#asset-allocation)
 
-- [**Create an Emergency Fund**](#emergency-fund)
+- [Create an Emergency Fund](#emergency-fund)
 
-- [**Conclusion**](#Conclusion)
+- [Conclusion](#Conclusion)
 
 ## 1\. The Power of Tracking Expenses
 
@@ -69,7 +69,7 @@ After investing $1,000 in the S&P 500 with an average annual return of 10%.
 
 Whether you aim to tackle credit card debt or invest on your future, understanding **compound interest** can be a game-changer in achieving your financial goals.
 
-![compound-interest-formula-ilustration](/images/home--7--kwOT.png)
+![compound-interest-formula-ilustration](/images/home--7--AyMj.png)
 
 ## **3\. Decoding Your Credit Score**
 
