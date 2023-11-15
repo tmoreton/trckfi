@@ -37,6 +37,8 @@ Many individuals in their 20s carry various types of debt, such as student loans
 
 - **Avoid Accumulating More Debt**: Be cautious about accumulating new debt. While some debt, like a mortgage, may be necessary, avoid unnecessary credit card spending.
 
+[![trckfi-manage-all-finances-in-one-place](/images/home--2--E4MT.png)](/pricing)
+
 ## Building a Strong Credit History
 
 Your credit history plays a significant role in your financial future. In your 20s, you can start building a strong credit history by:
