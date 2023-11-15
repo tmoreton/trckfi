@@ -10,7 +10,7 @@ slug: 'tracking-monthly-expenses'
 author:
   name: 'Trckfi'
 seoTitle: 'The Beginner''s Guide to Tracking Expenses and Budgeting'
-publishedAt: '2023-10-06T14:25:45.491Z'
+publishedAt: '2023-10-10T14:25:45.000Z'
 ---
 
 Today we’re breaking down the basics on tracking your expenses. Because let’s be real - money management can feel about as fun as a root canal. But sticking to a budget doesn’t have to make you want to pull your hair out.
@@ -25,7 +25,9 @@ Here’s the scoop on how tracking your spending can help you take control of yo
 
 - [**The Bottom Line**](#conclusion)
 
-### Know Where Your Money Goes 
+[![track-expenses-demo](/images/home--8--YyNj.png)](/pricing)
+
+### Know Where Your Money Goes
 
 Ever feel like your money seems to vanish into thin air? By writing down everything you spend, you’ll get an honest picture of where your cash is really going every month. This makes it way easier to spot areas where you might be overdoing it a bit.
 
@@ -35,7 +37,7 @@ If you want to save time and stay on top of your spending in real-time try [Trck
 
 Once you know how much normally goes toward stuff like groceries, bills, and happy hours, you can set budgets that reflect reality. Making realistic [budgets](/blog/budgeting-made-easy) prevents nasty surprises and helps you feel more in control of your finances.
 
-### Find Hidden 
+### Find Hidden Subscriptions
 
 Savings Tracking expenses reveals sneaky ways you could save, like cutting out unused subscriptions or finding cheaper insurance. Finding these hidden gems allows you to redirect those funds toward your financial goals faster, be it paying off debt, building an [emergency fund](/blog/building-an-emergency-fund), or investing for the future.
 
@@ -47,17 +49,19 @@ Find a system that works for you, whether a spending app, spreadsheet, or good o
 
 [![trckfi-demo-image](/assets/blog/trckfi-demo.png)](/)
 
-### 2\. Categorize Your Expenses: 
+### 2\. Categorize Your Expenses:
 
 Categorize expenses to see where your money flows - housing, food, bills, etc. This helps highlight wasteful spending. It's like magnifying your financial life—hidden budget leaks become clear, helping you make smarter spending choices that align with your financial goals. [Trckfi](/pricing) simplifies and automatically categorizes your transactions to help you better analyze your spending habits.
 
-### 3\. Set Specific Goals: 
+[![set-specific-goals](/images/home--14--IyOT.png)](/pricing)
+
+### 3\. Set Specific Goals:
 
 Set specific money goals like paying off debt or saving for a trip. Visualize what you want to motivate yourself as you track spending. Having clear objectives will keep you motivated to track your expenses diligently and stay on track with your finances. Each expense tracked becomes a conscious step towards achieving your financial aspirations.
 
 [Trckfi - Vision Board](/pricing) and Goal Visualization tab helps you do that! We believe in the effectiveness of a vision board, as it signals to our brains what's possible and inspires us to work towards those achievements. That's why we're excited to help you not only track expenses but also create a vision for your financial journey. Interested in learning more? [Click here](/pricing).
 
-### 3\. Track All Expenses: 
+### 3\. Track All Expenses:
 
 Knowing where your money is going is key to optimizing it and growing it! By monitoring your spending, you can identify incorrect charges, and forgotten subscriptions and gain a clearer understanding of how much of your income is spent each month. This practice enhances your ability to save, invest, and manage your financial resources effectively.
 
