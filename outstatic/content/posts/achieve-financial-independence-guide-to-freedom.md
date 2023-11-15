@@ -78,7 +78,7 @@ Boosting your income is a powerful way to accelerate your path to financial inde
 
 Invest in yourself by acquiring new skills or certifications that can lead to higher-paying job opportunities. The additional income you generate will provide greater resources for savings and investments.
 
-### Step 5: Prioritize **paying off high-interest debts**
+### Step 5: Prioritize paying off high-interest debts
 
 Debt can impede financial progress, posing a challenge to achieving independence. Prioritize paying off high-interest debts first while making minimum payments on others. Employ one of two effective methods:
 

@@ -1,6 +1,6 @@
 {
-  "commit": "706a086f60a664c64426b0e8e71a6c456ce834d2",
-  "generated": "2023-11-15T19:13:01.080Z",
+  "commit": "08a709b69c61ac82f8bf0cb0691c308132f37d45",
+  "generated": "2023-11-15T19:15:49.739Z",
   "metadata": [
     {
       "__outstatic": {
@@ -647,28 +647,6 @@
     },
     {
       "__outstatic": {
-        "commit": "3fac845a7b8efe825093e0c5ba3f63337b1f360c",
-        "hash": "2924851875",
-        "path": "outstatic/content/posts/achieve-financial-independence-guide-to-freedom.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Financial Independence",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-freedom.png",
-      "date": "08.09.2023",
-      "description": "Start your journey to financial freedom! Define goals, build a budget, boost income, eliminate debt, and secure a sound future.",
-      "keyword": "Financial Independence, Achieve Financial Independence, Financial Freedom, Financial Goals, Budgeting, Increasing Income, Managing Debt, Smart Saving, Investing, Compounding, Financial Milestones, Flexibility, Personal Finance, Financial Guide.",
-      "keywords": "Financial independence, Budgeting tips, Smart investing, Debt management, Savings strategies, Retirement planning, Compound interest, Income growth, Wealth-building, Financial goals, Money mindset, Emergency fund, Investment options, Tax-efficient savings, Personal finance success",
-      "publishedAt": "2023-08-29T14:25:45.000Z",
-      "seoTitle": "Master Financial Independence: A Practical Guide to Freedom",
-      "slug": "achieve-financial-independence-guide-to-freedom",
-      "status": "published",
-      "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
-    },
-    {
-      "__outstatic": {
         "commit": "2c8350ca07acb64e808364140271c91937803c8c",
         "hash": "1623182299",
         "path": "outstatic/content/posts/traditional-401k-plan.md"
@@ -708,6 +686,28 @@
       "slug": "quick-monthly-financial-checkin-routine",
       "status": "published",
       "title": "Simple  Monthly Financial Check-In Routine for Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "08a709b69c61ac82f8bf0cb0691c308132f37d45",
+        "hash": "319848966",
+        "path": "outstatic/content/posts/achieve-financial-independence-guide-to-freedom.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Financial Independence",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-freedom.png",
+      "date": "08.09.2023",
+      "description": "Start your journey to financial freedom! Define goals, build a budget, boost income, eliminate debt, and secure a sound future.",
+      "keyword": "Financial Independence, Achieve Financial Independence, Financial Freedom, Financial Goals, Budgeting, Increasing Income, Managing Debt, Smart Saving, Investing, Compounding, Financial Milestones, Flexibility, Personal Finance, Financial Guide.",
+      "keywords": "Financial independence, Budgeting tips, Smart investing, Debt management, Savings strategies, Retirement planning, Compound interest, Income growth, Wealth-building, Financial goals, Money mindset, Emergency fund, Investment options, Tax-efficient savings, Personal finance success",
+      "publishedAt": "2023-08-29T14:25:45.000Z",
+      "seoTitle": "Master Financial Independence: A Practical Guide to Freedom",
+      "slug": "achieve-financial-independence-guide-to-freedom",
+      "status": "published",
+      "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
     }
   ]
 }
