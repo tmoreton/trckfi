@@ -1,6 +1,6 @@
 ---
 title: '10 Must-Know Personal Finance Basics for Financial Success'
-description: 'Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey for success.'
+description: 'Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey.'
 coverImage: '/images/10-basic-personal-finance-concepts--Y3Mz.jpg'
 date: '08.15.2023'
 category: 'Financial Concepts'
