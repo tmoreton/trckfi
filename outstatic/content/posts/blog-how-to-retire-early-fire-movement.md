@@ -1,5 +1,5 @@
 ---
-title: 'Financial Independence: How to Retire Early and Embrace the Fire Movement'
+title: 'Achieve Financial Independence and Retire Early Through the FIRE Movement'
 description: 'Learn about the FIRE movement for financial independence and early retirement. Discover tips on aggressive saving, investing, passive income and safe withdrawals.'
 coverImage: '/assets/blog/early-retirement-cover.png'
 date: '08.01.2023'

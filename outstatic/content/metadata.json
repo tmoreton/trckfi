@@ -1,6 +1,6 @@
 {
   "commit": "b52bed6691b2b6adf75d872f37616ed1945ccbf0",
-  "generated": "2023-11-15T23:50:54.096Z",
+  "generated": "2023-11-15T23:52:40.377Z",
   "metadata": [
     {
       "__outstatic": {
@@ -80,6 +80,23 @@
       "slug": "mint-is-shutting-down-best-personal-finance-app-alternatives-for-your-money-in-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "4d66d0d9f440e1df19916c07189fe99952313baa",
+        "hash": "1412167381",
+        "path": "outstatic/content/posts/how-to-retire-early-and-embrace-the-fire-movement.md"
+      },
+      "category": "Retirement Planning, FIRE movement",
+      "collection": "posts",
+      "coverImage": "/assets/blog/early-retirement-cover.png",
+      "date": "08.01.2023",
+      "description": "The FIRE movement, short for Financial Independence, Retire Early, is a revolutionary approach to personal finance that aims to liberate individuals from the traditional notion of working for decades until retirement. By saving and investing aggressively, embracing mindful spending and minimalism, and leveraging tax-advantaged accounts, individuals can achieve financial independence and retire early to pursue their passions and dreams. The 4% rule governs sustainable withdrawals during retirement, ensuring a secure financial future. Pursuing alternative income streams and being part of a supportive community further empowers individuals on their path to financial freedom and a purposeful life.",
+      "keywords": "Financial Independence, Retire Early, FIRE Movement, Aggressive Saving, Compound Interest, Tax-Advantaged Accounts, Mindful Spending, Minimalism, 4% Rule, Safe Withdrawal Rate, Alternative Income Streams, Community Support, Financial Freedom",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "slug": "how-to-retire-early-and-embrace-the-fire-movement",
+      "status": "published",
+      "title": "Financial Independence: How to Retire Early and Embrace the Fire Movement"
     },
     {
       "__outstatic": {
@@ -724,7 +741,7 @@
     {
       "__outstatic": {
         "commit": "b52bed6691b2b6adf75d872f37616ed1945ccbf0",
-        "hash": "3347258716",
+        "hash": "167830531",
         "path": "outstatic/content/posts/blog-how-to-retire-early-fire-movement.md"
       },
       "author": {
@@ -740,7 +757,7 @@
       "seoTitle": "How to Retire Early Through the Financial Independence Movement",
       "slug": "blog-how-to-retire-early-fire-movement",
       "status": "published",
-      "title": "Financial Independence: How to Retire Early and Embrace the Fire Movement"
+      "title": "Achieve Financial Independence and Retire Early Through the FIRE Movement"
     }
   ]
 }
