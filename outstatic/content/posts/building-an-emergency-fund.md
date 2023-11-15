@@ -8,8 +8,8 @@ keywords: 'eywords: emergency fund, financial security, unexpected expenses, fin
 status: 'published'
 slug: 'building-an-emergency-fund'
 author:
-  name: ''
-seoTitle: 'Building Financial Resilience: The Importance of an Emergency Fund'
+  name: 'Trckfi'
+seoTitle: 'How to Build an Emergency Fund: The Complete Guide'
 publishedAt: '2023-08-01T14:25:45.000Z'
 ---
 
@@ -29,7 +29,7 @@ An emergency fund is money set aside to cover unexpected expenses or financial e
 
 - **Maintains Financial Progress:** An emergency fund protects your long-term financial goals, such as saving for retirement, buying a home, or paying off debt, by preventing setbacks caused by unexpected expenses.
 
-[![trckfi-manage-finances-in-one-place](/images/home--2--AzNz.png)](/pricing)
+[![trckfi-manage-finances-in-one-place](/images/home--2--Y2OD.png)](/pricing)
 
 ## Tips to Start an Emergency Fund:
 
