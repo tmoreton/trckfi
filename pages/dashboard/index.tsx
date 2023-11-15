@@ -131,7 +131,7 @@ const Dashboard = ({ showError, showIntro }) => {
       <Menu showError={showError}/>
       <Notification showError={showError} />
       <DashboardLayout>
-        <Snapshot totalStats={totalStats} netWorth={netWorth} history={history}/>
+        <Snapshot totalStats={totalStats} />
         <Graphs graphData={graphData} />
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
           <div className="col-span-1 shadow-sm rounded-md border border-gray-200">
