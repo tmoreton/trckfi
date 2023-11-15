@@ -1,6 +1,6 @@
 {
-  "commit": "3fac845a7b8efe825093e0c5ba3f63337b1f360c",
-  "generated": "2023-11-15T18:28:35.098Z",
+  "commit": "2c8350ca07acb64e808364140271c91937803c8c",
+  "generated": "2023-11-15T18:30:17.669Z",
   "metadata": [
     {
       "__outstatic": {
@@ -643,27 +643,6 @@
     },
     {
       "__outstatic": {
-        "commit": "96a0a41dee7e808e270a2513ae05bd03b9d50fcb",
-        "hash": "848627421",
-        "path": "outstatic/content/posts/traditional-401k-plan.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Retirement Planning, 401(k), Retirement Accounts, Employee Benefits",
-      "collection": "posts",
-      "coverImage": "/assets/blog/traditional-401k-plan.png",
-      "date": "08.18.2023",
-      "description": "Learn how 401(k)s work, the tax benefits, contribution limits, investment options, when you can withdraw funds, and how to optimize a 401(k) for retirement.",
-      "keywords": "Traditional 401(k), retirement savings, pre-tax contributions, employer match, tax-deferred growth, retirement planning, retirement accounts, financial future",
-      "publishedAt": "2023-09-26T14:25:45.000Z",
-      "seoTitle": "401(k) Retirement Plans: The Complete Guide",
-      "slug": "traditional-401k-plan",
-      "status": "published",
-      "title": "How to Maximize a 401(k) for a Secure Retirement"
-    },
-    {
-      "__outstatic": {
         "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
         "hash": "1081063135",
         "path": "outstatic/content/posts/expense-management-guide.md"
@@ -704,6 +683,27 @@
       "slug": "achieve-financial-independence-guide-to-freedom",
       "status": "published",
       "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
+    },
+    {
+      "__outstatic": {
+        "commit": "2c8350ca07acb64e808364140271c91937803c8c",
+        "hash": "1623182299",
+        "path": "outstatic/content/posts/traditional-401k-plan.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/traditional-401k-plan.png",
+      "date": "08.18.2023",
+      "description": "Learn how 401(k)s work, the tax benefits, contribution limits, investment options, when you can withdraw funds, and how to optimize a 401(k) for retirement.",
+      "keywords": "Traditional 401(k), retirement savings, pre-tax contributions, employer match, tax-deferred growth, retirement planning, retirement accounts, financial future",
+      "publishedAt": "2023-09-26T14:25:45.000Z",
+      "seoTitle": "401(k) Retirement Plans: The Complete Guide",
+      "slug": "traditional-401k-plan",
+      "status": "published",
+      "title": "How to Maximize a 401(k) for a Secure Retirement"
     }
   ]
 }
