@@ -1,6 +1,6 @@
 {
   "commit": "27c10e66ea0a79dbcf72d8f9024ab0642b8e84ac",
-  "generated": "2023-11-14T23:45:49.221Z",
+  "generated": "2023-11-15T01:55:05.504Z",
   "metadata": [
     {
       "__outstatic": {
@@ -205,23 +205,6 @@
       "slug": "how-to-get-out-of-debt",
       "status": "published",
       "title": "Get Out of Debt: Your Path to Financial Freedom"
-    },
-    {
-      "__outstatic": {
-        "commit": "ffcd29eafed5508f4e9f712cbd3b40ed1ef43957",
-        "hash": "3024562856",
-        "path": "outstatic/content/posts/prepare-for-the-unexpected-the-value-of-building-an-emergency-fund.md"
-      },
-      "category": "Personal Finance, Financial Planning, Emergency Fund",
-      "collection": "posts",
-      "coverImage": "/assets/blog/emergency-fund-cover.png",
-      "date": "7.25.2023",
-      "description": "Life is unpredictable, and unexpected financial challenges can arise at any moment. Whether it's a medical emergency, sudden job loss, or unexpected home repair, having an emergency fund can provide a much-needed safety net during difficult times. An emergency fund is a crucial component of a solid financial plan, offering peace of mind and protection against unexpected events. In this article, we'll explore the importance of an emergency fund and provide practical tips to help you start building one. Learn how to prepare for the unexpected and take control of your financial future with an emergency fund.",
-      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "slug": "prepare-for-the-unexpected-the-value-of-building-an-emergency-fund",
-      "status": "published",
-      "title": "Prepare for the Unexpected: The Value of Building an Emergency Fund"
     },
     {
       "__outstatic": {
@@ -647,23 +630,23 @@
     {
       "__outstatic": {
         "commit": "27c10e66ea0a79dbcf72d8f9024ab0642b8e84ac",
-        "hash": "3144999968",
-        "path": "outstatic/content/posts/traditional-ira-guide-tax-advantaged-retirement.md"
+        "hash": "645602379",
+        "path": "outstatic/content/posts/building-an-emergency-fund.md"
       },
       "author": {
-        "name": "Trckfi"
+        "name": ""
       },
-      "category": "Retirement Accounts",
+      "category": " Financial Planning",
       "collection": "posts",
-      "coverImage": "/assets/blog/retirement-plan-roth-ira.png",
-      "date": "08.07.2023",
-      "description": "Learn how traditional IRAs work, their tax benefits, contribution limits, withdrawals, and how to maximize them in your retirement savings strategy.",
-      "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits, traditional ira, ira accounts, retirement accounts, retirement savings, tax deferred growth, required minimum distributions, early withdrawal penalties, ira investments",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "Everything You Need to Know About Traditional IRAs for Retirement",
-      "slug": "traditional-ira-guide-tax-advantaged-retirement",
+      "coverImage": "/assets/blog/emergency-fund-cover.png",
+      "date": "7.25.2023",
+      "description": "Explore the vital role of an emergency fund in financial security. Learn practical tips to start building one, face challenges confidently, and protect your long-term goals.",
+      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
+      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "seoTitle": "Building Financial Resilience: The Importance of an Emergency Fund",
+      "slug": "building-an-emergency-fund",
       "status": "published",
-      "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
+      "title": "Prepare for the Unexpected: The Value of Building an Emergency Fund"
     }
   ]
 }
