@@ -75,7 +75,7 @@ Investing is a powerful tool for wealth building. While you may not have substan
 
 In your 20s, it's essential to protect your financial future with the right insurance:
 
-- **Health Insurance and HSAs**: Ensure you have health insurance coverage. Additionally, look into Health Savings Accounts (HSAs) for potential tax advantages and savings on medical expenses.
+- **Health Insurance and HSAs**: Ensure you have health insurance coverage. Additionally, look into Health Savings Accounts[ (HSAs)](/blog/health-insurance-lingo-key-terms-guide) for potential tax advantages and savings on medical expenses.
 
 - **Renter's Insurance**: If you're renting a home or apartment, consider renter's insurance to protect your belongings in case of theft, fire, or other disasters.
 
