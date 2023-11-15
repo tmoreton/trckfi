@@ -10,7 +10,7 @@ slug: 'how-to-get-out-of-debt'
 author:
   name: 'Trckfi'
 seoTitle: 'Unlock Financial Freedom: Your Comprehensive Guide to Break Free from Debt'
-publishedAt: '2023-10-06T14:25:45.491Z'
+publishedAt: '2023-10-03T14:25:45.000Z'
 ---
 
 Debt can be a heavy burden that hampers your [financial freedom](/blog/achieve-financial-independence-guide-to-freedom) and peace of mind. But remember, you're not alone. Many people have successfully climbed out of the debt abyss, and so can you. This guide will provide you with practical strategies and valuable tips to help you pave your way to a debt-free future.
@@ -49,7 +49,7 @@ To conquer your debt, you need a solid budget:
 
 - **Establish a Budget**: [Create a budget](/blog/budgeting-made-easy) that allocates a portion of your income to debt repayment while covering essential expenses.
 
-[![tracking-expenses-income-cashflow-demo](/images/home--11--IyOD.png)](/pricing)
+[![tracking-expenses-income-cashflow-demo](/images/home--11--MyMT.png)](/pricing)
 
 ## Build an Emergency Fund
 
