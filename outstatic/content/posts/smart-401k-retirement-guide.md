@@ -33,6 +33,8 @@ There are two main types:
 
     Choose based on current vs. future tax rates and income needs in retirement.
 
+[![net-worth-investing-demo](/images/home--13--M5OT.png)](/pricing)
+
 ## Contribution Limits:
 
 As of 2023, the annual contribution limit for a 401(k) is $22,500 for individuals under 50 years old. If you're 50 or older, you can make an additional catch-up contribution of up to $6,500, bringing the total annual limit to $28,500. It's essential to maximize your contributions to take full advantage of the tax benefits and grow your retirement savings faster.
