@@ -29,7 +29,8 @@ client.defineJob({
     for (let p in plaid) {
       await fetch(`/api/sync_plaid`, {
         body: JSON.stringify({
-          access_token: plaid[p].access_token
+          access_token: plaid[p].access_token,
+          user_id: plaid[p].user_id
         }),
         headers: {
           'Content-Type': 'application/json',
