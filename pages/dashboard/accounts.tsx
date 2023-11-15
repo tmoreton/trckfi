@@ -25,7 +25,7 @@ export default function ({ accounts, netWorth, history, totalStats }) {
             <p className="text-2xl font-semibold text-green-600">{commaShort(this_month_net_worth || 0)}</p>
             <p className="ml-2 text-xs text-gray-400">from <span className="font-bold">{commaShort(last_month_net_worth)}</span> in {lastMonthString}</p>
           </div>
-          <p className={classNames(Number(last_month_net_worth) <= Number(this_month_net_worth) ? 'text-green-600' : 'text-red-600', 'absolute top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
+          <p className={classNames(Number(last_month_net_worth) <= Number(this_month_net_worth) ? 'text-green-600' : 'text-red-600', 'top-2.5 right-2.5 ml-2 flex items-baseline text-sm font-semibold')}>
             {
               Number(last_month_net_worth) <= Number(this_month_net_worth) ?
               <ArrowUpIcon className='text-green-600 h-5 w-5 flex-shrink-0 self-center' aria-hidden="true" />
