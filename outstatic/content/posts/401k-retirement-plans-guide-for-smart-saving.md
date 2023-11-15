@@ -47,7 +47,7 @@ One of the best 401(k) perks is employer matching contributions. If offered, mak
 
 As of 2023, the annual contribution limit for a 401(k) is $22,500 for individuals under 50 years old. If you're 50 or older, you can make an additional catch-up contribution of up to $7,500. It's essential to maximize your contributions to take full advantage of the tax benefits and grow your retirement savings faster.
 
-The **IRS announced** that employee contribution limits for 401(k) plans is [increasing to $23,000 in 2024](https://www.cnbc.com/2023/11/01/irs-401k-ira-contribution-limits-for-2024.html), up from $22,500 in 2023, and **catch-up contributions **for savers age 50 and older will remain unchanged at $7,500.
+The **IRS announced** that employee contribution limits for 401(k) plans is [increasing to $23,000 in 2024](https://www.cnbc.com/2023/11/01/irs-401k-ira-contribution-limits-for-2024.html), up from $22,500 in 2023, and **catch-up contributions** for savers age 50 and older will remain unchanged at $7,500.
 
 [![trckfi-demo-manage-investments-retirement-in-one-place](/images/home-I0MT.jpg)](/pricing)
 
@@ -75,5 +75,5 @@ Whether you're just starting or looking to deepen your **financial knowledge**, 
 
 For a seamless financial management experience, explore our innovative personal finance platform, [Trckfi](/pricing). Simplify your financial journey and stay on track with your financial goals — including investing in your retirement!
 
-**Disclaimer: **This blog post is for informational purposes only and does not constitute financial advice. Always consult with a financial advisor to tailor strategies that align with your unique financial goals and situation.
+\*\*Disclaimer: \*\*This blog post is for informational purposes only and does not constitute financial advice. Always consult with a financial advisor to tailor strategies that align with your unique financial goals and situation.
 
