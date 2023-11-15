@@ -1,6 +1,6 @@
 {
-  "commit": "194ff318fcf7aa93d0eb70e98022d221a50c0c52",
-  "generated": "2023-11-15T03:00:22.463Z",
+  "commit": "b989f7c5d4e76ffba42448934f2951c6b9602f66",
+  "generated": "2023-11-15T03:04:05.062Z",
   "metadata": [
     {
       "__outstatic": {
@@ -633,8 +633,8 @@
     },
     {
       "__outstatic": {
-        "commit": "194ff318fcf7aa93d0eb70e98022d221a50c0c52",
-        "hash": "975321609",
+        "commit": "b989f7c5d4e76ffba42448934f2951c6b9602f66",
+        "hash": "1616462974",
         "path": "outstatic/content/posts/financial-success-in-your-20s-guide.md"
       },
       "author": {

@@ -19,13 +19,13 @@ Your 20s are an exciting time filled with new experiences, personal growth, and 
 
 The journey to financial success begins with setting clear and achievable goals. In your 20s, your goals might include:
 
-- **Emergency Fund**: Building an emergency fund is a crucial first step. Aim to save at least three to six months' worth of living expenses in case of unexpected events.
+- **Emergency Fund**: Building an [emergency fund](/blog/building-an-emergency-fund) is a crucial first step. Aim to save at least three to six months' worth of living expenses in case of unexpected events.
 
 - **Student Loan Repayment**: If you have student loans, create a repayment plan. Explore options like income-driven repayment or refinancing to make your debt more manageable.
 
-- **Budgeting**: Develop a budget that outlines your monthly income and expenses. Tracking your spending helps you identify areas where you can save.
+- **Budgeting**: Develop a budget that outlines your monthly income and expenses. [Tracking your spending](/blog/tracking-monthly-expenses) helps you identify areas where you can save.
 
-- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a 401(k) and open an Individual Retirement Account (IRA).
+- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401(k)](/blog/roth-401k-plans) and open an Individual Retirement Account[ (IRA)](/blog/types-of-ira-investing).
 
 ## Managing Debt Wisely
 
