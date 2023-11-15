@@ -1,6 +1,6 @@
 {
   "commit": "77325e489992c687cc36651cffc42c675809bd5a",
-  "generated": "2023-11-15T22:47:38.227Z",
+  "generated": "2023-11-15T22:51:34.910Z",
   "metadata": [
     {
       "__outstatic": {
@@ -720,7 +720,7 @@
     {
       "__outstatic": {
         "commit": "77325e489992c687cc36651cffc42c675809bd5a",
-        "hash": "1687486141",
+        "hash": "1477318163",
         "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
       },
       "author": {
