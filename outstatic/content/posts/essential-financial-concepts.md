@@ -4,7 +4,7 @@ description: 'Explore key financial concepts to boost your money management skil
 coverImage: '/images/10-basic-personal-finance-concepts--Y3Mz.jpg'
 date: '08.15.2023'
 category: 'Financial Concepts'
-keywords: 'Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights'
+keywords: 'Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights, compound interest, credit score, inflation, risk management, retirement planning, understanding taxes, investing 101, emergency fund'
 status: 'published'
 slug: 'essential-financial-concepts'
 author:
@@ -69,7 +69,7 @@ After investing $1,000 in the S&P 500 with an average annual return of 10%.
 
 Whether you aim to tackle credit card debt or invest on your future, understanding **compound interest** can be a game-changer in achieving your financial goals.
 
-![compound-interest-formula-ilustration](/images/home--7--g1Mj.png)
+![compound-interest-formula-ilustration](/images/home--7--kwOT.png)
 
 ## **3\. Decoding Your Credit Score**
 

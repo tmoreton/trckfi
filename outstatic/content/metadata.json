@@ -1,6 +1,6 @@
 {
   "commit": "f37505c73c40e25093c7ff140bb40fe6ae29e95d",
-  "generated": "2023-11-15T02:39:47.361Z",
+  "generated": "2023-11-15T02:41:13.155Z",
   "metadata": [
     {
       "__outstatic": {
@@ -630,7 +630,7 @@
     {
       "__outstatic": {
         "commit": "f37505c73c40e25093c7ff140bb40fe6ae29e95d",
-        "hash": "2770088371",
+        "hash": "3946673602",
         "path": "outstatic/content/posts/essential-financial-concepts.md"
       },
       "author": {
@@ -641,7 +641,7 @@
       "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
       "date": "08.15.2023",
       "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey.",
-      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights, compound interest, credit score, inflation, risk management, retirement planning, understanding taxes, investing 101, emergency fund",
       "publishedAt": "2023-08-08T14:25:45.000Z",
       "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
       "slug": "essential-financial-concepts",
