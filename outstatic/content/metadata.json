@@ -1,6 +1,6 @@
 {
   "commit": "62157bcbbae1403b3f0af54dcff946ed2102cbc8",
-  "generated": "2023-11-15T01:56:34.359Z",
+  "generated": "2023-11-15T02:16:37.940Z",
   "metadata": [
     {
       "__outstatic": {
@@ -630,7 +630,7 @@
     {
       "__outstatic": {
         "commit": "62157bcbbae1403b3f0af54dcff946ed2102cbc8",
-        "hash": "1916443760",
+        "hash": "4127818679",
         "path": "outstatic/content/posts/building-an-emergency-fund.md"
       },
       "author": {
@@ -640,13 +640,13 @@
       "collection": "posts",
       "coverImage": "/assets/blog/emergency-fund-cover.png",
       "date": "7.25.2023",
-      "description": "Explore the vital role of an emergency fund in financial security. Learn practical tips to start building one, face challenges confidently, and protect your long-term goals.",
+      "description": "Learn how to start and build an emergency fund with practical tips on setting savings goals, budgeting, where to keep the money, and resisting temptation to tap it.",
       "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
       "publishedAt": "2023-08-01T14:25:45.000Z",
       "seoTitle": "Building Financial Resilience: The Importance of an Emergency Fund",
       "slug": "building-an-emergency-fund",
       "status": "published",
-      "title": "Prepare for the Unexpected: The Value of Building an Emergency Fund"
+      "title": "The Beginner’s Guide to Starting an Emergency Fund"
     }
   ]
 }
