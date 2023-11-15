@@ -21,7 +21,7 @@ FSAs and HRAs are potent tools for managing healthcare expenses. Let's explore t
 
 ### Maximizing Your FSA Savings on Healthcare Expenses
 
-[Flexible Spending Accounts](/blog/health-savings-hsas-hras-and-fsas-explained), often referred to as FSAs, are a valuable resource for managing healthcare costs while reducing your taxable income. Here's how they work:
+[Flexible Spending Accounts](/blog/health-savings-hsas-hras-and-fsas), often referred to as FSAs, are a valuable resource for managing healthcare costs while reducing your taxable income. Here's how they work:
 
 **Your Contribution:** You decide how much money to contribute to your FSA during open enrollment. This amount is deducted from your paycheck before taxes are withheld, lowering your overall taxable income. It's a tax-efficient way to set aside funds for medical expenses.
 
@@ -47,7 +47,7 @@ FSAs and HRAs are potent tools for managing healthcare expenses. Let's explore t
 
 HRAs are another valuable tool in your health benefits arsenal, but they operate differently from FSAs. Here's what you need to know:
 
-**Employer-Funded:** [HRAs](/blog/health-savings-hsas-hras-and-fsas-explained) are funded solely by your employer. You do not contribute to this account. Your employer allocates a specific amount to cover eligible medical expenses.
+**Employer-Funded:** [HRAs](/blog/health-savings-hsas-hras-and-fsas) are funded solely by your employer. You do not contribute to this account. Your employer allocates a specific amount to cover eligible medical expenses.
 
 **Qualified Expenses:** HRAs cover a broad range of medical expenses, similar to FSAs. This includes doctor's visits, prescription medications, and other approved healthcare costs.
 

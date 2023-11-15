@@ -19,9 +19,9 @@ Planning for retirement is a crucial aspect of financial success. As you embark 
 
 An IRA is an Individual Retirement Account that comes in two "flavors": Traditional and Roth. Both IRAs have a contribution limit of $6,000 in 2023. The difference lies in the tax status of the contributions:
 
-- **Traditional IRA**: Contributions are made with pre-tax money, reducing your taxable income in the current year. However, when you withdraw the money in retirement, you will pay taxes on the entire amount as if it were income. Learn more about Traditional IRA [here](/blog/traditional-ira-building-a-tax-advantaged-retirement).
+- **Traditional IRA**: Contributions are made with pre-tax money, reducing your taxable income in the current year. However, when you withdraw the money in retirement, you will pay taxes on the entire amount as if it were income. Learn more about Traditional IRA [here](/blog/traditional-ira-guide-tax-advantaged-retirement).
 
-- **Roth IRA:** Contributions are made with after-tax money, so you don't get an immediate tax break. However, the money grows tax-free, and withdrawals in retirement are not taxed. Read our blog post to learning more about [Roth IRA's advantages](/blog/what-is-the-roth-ira-advantage-2023) for 2023.
+- **Roth IRA:** Contributions are made with after-tax money, so you don't get an immediate tax break. However, the money grows tax-free, and withdrawals in retirement are not taxed. Read our blog post to learning more about [Roth IRA's advantages](/blog/roth-ira-advantage-2023) for 2023.
 
 ## 401(k) Retirement Accounts
 

@@ -11,7 +11,7 @@ publishedAt: '2023-10-06T14:25:45.491Z'
 
 # Get Out of Debt: Your Path to Financial Freedom
 
-Debt can be a heavy burden that hampers your [financial freedom](/blog/how-to-achieve-financial-independence-your-guide-to-financial-freedom) and peace of mind. But remember, you're not alone. Many people have successfully climbed out of the debt abyss, and so can you. This guide will provide you with practical strategies and valuable tips to help you pave your way to a debt-free future.
+Debt can be a heavy burden that hampers your [financial freedom](/blog/achieve-financial-independence-guide-to-freedom) and peace of mind. But remember, you're not alone. Many people have successfully climbed out of the debt abyss, and so can you. This guide will provide you with practical strategies and valuable tips to help you pave your way to a debt-free future.
 
 - [**Assess Your Debt**](#debt)
 - [**Create a Budget**](#create-budget)

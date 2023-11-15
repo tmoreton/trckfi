@@ -29,7 +29,7 @@ Planning for a financially secure retirement is a priority for everyone. If you 
 
 ## Understanding the 401(k) Roth
 
-The 401(k) Roth, also known as a Roth 401(k), is a [retirement savings plan](/blog/401k-retirement-plans-guide-for-smart-saving) offered by employers. It combines features of both a traditional 401(k) and a Roth IRA. Unlike a [traditional 401(k)](/blog/traditional-401k-plan), contributions to a 401(k) Roth are made with **after-tax dollars**, meaning you pay taxes on the income before contributing. However, the magic happens when the contributions and earnings grow tax-free over time, and qualified **withdrawals in retirement** are **entirely tax-free**.
+The 401(k) Roth, also known as a Roth 401(k), is a [retirement savings plan](/blog/smart-401k-retirement-guide) offered by employers. It combines features of both a traditional 401(k) and a Roth IRA. Unlike a [traditional 401(k)](/blog/traditional-401k-plan), contributions to a 401(k) Roth are made with **after-tax dollars**, meaning you pay taxes on the income before contributing. However, the magic happens when the contributions and earnings grow tax-free over time, and qualified **withdrawals in retirement** are **entirely tax-free**.
 
 To participate in a 401(k) Roth, employees need to be eligible under their employer's plan and have the option to enroll during specific enrollment periods.
 

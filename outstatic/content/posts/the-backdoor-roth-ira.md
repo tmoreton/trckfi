@@ -17,7 +17,7 @@ Are you a high earner who dreams of contributing to a Roth IRA but finds yoursel
 
 ## The Challenge of High Income and Roth IRA Contributions
 
-A Roth IRA is an enticing [retirement account](/blog/retirement-planning-understanding-iras-and-401ks) due to its unique advantage of tax-free growth. However, contributing directly to a Roth IRA is subject to income limits, which can be frustrating for high earners. In 2023, for example, single taxpayers with a modified adjusted gross income (MAGI) above $140,000 and married couples filing jointly with a MAGI above $208,000 are ineligible to make direct Roth IRA contributions.
+A Roth IRA is an enticing [retirement account](/blog/iras-401ks-retirement-planning) due to its unique advantage of tax-free growth. However, contributing directly to a Roth IRA is subject to income limits, which can be frustrating for high earners. In 2023, for example, single taxpayers with a modified adjusted gross income (MAGI) above $140,000 and married couples filing jointly with a MAGI above $208,000 are ineligible to make direct Roth IRA contributions.
 
 ## The Backdoor Roth IRA: An Alternative Path to Tax-Free Growth
 
@@ -25,7 +25,7 @@ The Backdoor Roth IRA is a legal and IRS-approved workaround that enables high-i
 
 - **Step 1: Contribute to a Traditional IRA**: Since there are no income limits for contributing to a Traditional IRA, high earners can make nondeductible contributions to this account.
 
-- **Step 2: Convert to a Roth IRA**: After contributing to the [Traditional IRA](/blog/traditional-ira-building-a-tax-advantaged-retirement), you can convert the funds to a Roth IRA. This conversion is crucial because it allows you to take advantage of the tax-free growth benefits of a Roth IRA.
+- **Step 2: Convert to a Roth IRA**: After contributing to the [Traditional IRA](/blog/traditional-ira-guide-tax-advantaged-retirement), you can convert the funds to a Roth IRA. This conversion is crucial because it allows you to take advantage of the tax-free growth benefits of a Roth IRA.
 
 ## The Magic of Tax-Free Growth
 
