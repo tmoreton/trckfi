@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../../lib/lodash'
-import { ArrowDownIcon, ArrowUpIcon, CalendarDaysIcon, CreditCardIcon, CalendarIcon, ChartBarIcon, BanknotesIcon, CurrencyDollarIcon } from '@heroicons/react/20/solid'
+import { ArrowDownIcon, ArrowUpIcon, ChartBarIcon } from '@heroicons/react/20/solid'
 import { diffNum, commaShort } from '../../lib/lodash'
 
 const capitalize = (string) => {
@@ -9,7 +9,7 @@ const capitalize = (string) => {
 }
 
 export default function ({ accounts, netWorth, history, totalStats }) {
-  const { thisMonthTotal, lastMonthTotal, thisMonthIncome, lastMonthIncome, thisMonthString, lastMonthString, accountBalance } = totalStats
+  const { lastMonthString } = totalStats
 
   const this_month_net_worth = netWorth?.stats?.net_worth
   const last_month_net_worth = history?.reverse()[1]?.stats.net_worth
