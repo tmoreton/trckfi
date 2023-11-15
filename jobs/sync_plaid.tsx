@@ -1,8 +1,6 @@
 import { eventTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import transactionsSync from '../utils/transactionsSync'
-import netWorthSync from '../utils/netWorthSync'
-import accountsSync from '../utils/accountsSync'
 
 client.defineJob({
   id: "sync-plaid",
@@ -12,9 +10,6 @@ client.defineJob({
     name: "sync.plaid"
   }),
   run: async (payload, io, ctx) => {
-    // const { access_token, item_id, user_id, institution } = payload
-    // await accountsSync(access_token, item_id, user_id, institution)
-    // await netWorthSync(user_id)
     const { access_token, user_id } = payload
     await transactionsSync(access_token, user_id)
     await io.logger.info("Syncing Transactions");
