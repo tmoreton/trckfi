@@ -1,6 +1,6 @@
 {
   "commit": "15ee430e2f1312bbe3bbfd9504a6470a6d576de3",
-  "generated": "2023-11-15T15:55:22.827Z",
+  "generated": "2023-11-15T15:55:31.185Z",
   "metadata": [
     {
       "__outstatic": {
@@ -683,7 +683,7 @@
     {
       "__outstatic": {
         "commit": "15ee430e2f1312bbe3bbfd9504a6470a6d576de3",
-        "hash": "4263763029",
+        "hash": "4184192211",
         "path": "outstatic/content/posts/401k-retirement-plans-guide-for-smart-saving.md"
       },
       "author": {
@@ -695,7 +695,7 @@
       "date": "08.16.2023",
       "description": " Learn about 401(k) retirement plans: how they work, contribution limits, investment options, when to withdraw funds, and tips to maximize benefits for retirement.",
       "keywords": "401(k), 401(k) plans, 401(k) retirement plans, what is a 401(k), 401(k) contributions, 401(k) limits, 401(k) investments, 401(k) withdrawals, 401(k) rollovers, 401(k) tips, maximizing 401(k), retirement planning",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
+      "publishedAt": "2023-09-13T14:25:45.000Z",
       "seoTitle": "Mastering 401(k) Retirement Plans: A Comprehensive Guide",
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "status": "published",
