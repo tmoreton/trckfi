@@ -19,6 +19,8 @@ Are you looking for a powerful tool to secure your retirement and enjoy potentia
 
 A Traditional IRA is a tax-advantaged retirement savings account that allows people to save for retirement while deferring taxes on their contributions until withdrawal. It offers a wide range of investment options, making it an attractive choice for those seeking to grow their retirement savings.
 
+
+
 ### How Does a Traditional IRA Work?
 
 The process of using a Traditional IRA is straightforward. Here's how it works:
@@ -31,7 +33,7 @@ The process of using a Traditional IRA is straightforward. Here's how it works:
 
 4. **Required Minimum Distributions (RMDs):** After reaching the age of 72, you must begin taking required minimum distributions from your Traditional IRA. These distributions are a certain percentage of your account balance and serve to ensure you gradually draw down the funds during your retirement years.
 
-[![track-expenses-visualize-goals](/images/home--8--MyND.png)](/pricing)
+[![track-expenses-visualize-goals](/images/home--8--I2OT.png)](/pricing)
 
 ## Traditional IRA Contribution Limits and Eligibility
 
@@ -53,7 +55,7 @@ However, there are some income restrictions for those who contribute to both a T
 
 4. **Flexible Investment Options:** Traditional IRAs offer a wide range of investment options, allowing you to tailor your portfolio to suit your risk tolerance and financial goals.
 
-[![limitations-traditional-ira](/images/home--2--IyNT.png)](/pricing)
+[![limitations-traditional-ira](/images/home--2--AxNz.png)](/pricing)
 
 ## Considerations and Limitations to Be Aware Of
 
