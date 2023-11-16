@@ -123,7 +123,7 @@ Paid subscription apps **incentivize your success over profits**. And provide pe
 
 ## **Trckfi is super simple to use and free to try**
 
-If you’re interested in trying [Trckfi](www.trckfi.com), we offer a [60-day free trial](www.trckfi.com/pricing). We'd love to receive your feedback to build an app that truly meets your needs and values.
+If you’re interested in trying [Trckfi](/pricing), we offer a [60-day free trial](/pricing). We'd love to receive your feedback to build an app that truly meets your needs and values.
 
-After the trial, the **subscription price is $5.99 per month** for **early** **supporters**! You can learn more about Trckfi’s features and sign up for a free trial [here](https://www.trckfi.com/beta).
+After the trial, the **subscription price is $5.99 per month** for **early** **supporters**! You can learn more about Trckfi’s features and sign up for a free trial [here](/pricing).
 
