@@ -48,7 +48,7 @@ export default function () {
             <p className="mb-10 mt-5 text-xl lg:text-2xl text-gray-600">
               First let's visualize our goal with a photo for inspiration
             </p>
-            { goal.image ?
+            { goal?.image ?
               <img src={goal.image} className="w-1/2 rounded-lg object-cover mx-auto"/>
               :
               <button type="button" className="mx-auto w-1/2 cursor-pointer hover:text-gray-400 h-25 relative block rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">

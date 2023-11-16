@@ -78,7 +78,7 @@ const Goals = ({ showError }) => {
       <DashboardLayout>
         <LoadingModal refreshing={refreshing} text='Refreshing Goals...'/>
         <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3 mb-10">
-          {goals.map((goal) => {
+          {goals?.length > 0 && goals.map((goal) => {
           let progress = ((Number(goal?.account?.details?.current)-Number(goal?.initial_amount))/(Number(goal?.amount)))*1000
           return(
             <li key={goal.id} className="flex flex-col gap-10 pt-12 sm:flex-row">
