@@ -235,7 +235,6 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
             </div>
           </>
         }
-
         <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
       </DashboardLayout>
     </div>
