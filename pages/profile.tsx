@@ -6,8 +6,8 @@ import { signOut, useSession } from "next-auth/react"
 import Menu from '../components/menu'
 import Rules from '../components/rules'
 import { useRouter } from 'next/router'
-import  { clearLocalStorage } from '../utils/useLocalStorage'
 import ConfettiExplosion from 'react-confetti-explosion'
+import LoadingModal from '../components/modals/loading-modal'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -23,6 +23,7 @@ const Profile = ({ showError }) => {
     correct: 0,
     total: 0
   })
+  const [refreshing, setRefreshing] = useState(false)
   const [referrals, setReferrals] = useState([])
   const [showSuccess, setShowSuccess] = useState(false)
   const [sendBtn, setSendBtn] = useState('Send Invite')
@@ -108,6 +109,7 @@ const Profile = ({ showError }) => {
   }
 
   const redirect = async () => {
+    setRefreshing(true)
     // @ts-ignore
     if(!user?.customer_id){
       showError('Subscription can only be updated by the primary user')
@@ -126,6 +128,7 @@ const Profile = ({ showError }) => {
       showError(error)
       if(!error) router.replace(data)
     }
+    setRefreshing(false)
   }
 
   const redeem = async () => {
@@ -158,6 +161,7 @@ const Profile = ({ showError }) => {
     <>
       <Menu showError={showError}/>
       <DashboardLayout>
+        <LoadingModal refreshing={refreshing} text='Gathering Details...'/>
         <div className="bg-pink-100 rounded-2xl">
           <div className="mx-auto max-w-7xl px-6 py-5 sm:py-10 lg:flex lg:items-center lg:justify-between lg:px-8 mb-6">
             <div>
