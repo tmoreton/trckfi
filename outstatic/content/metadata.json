@@ -1,6 +1,6 @@
 {
   "commit": "afb6b7c6c545c08edb7730956fd7439a861e5a64",
-  "generated": "2023-11-16T16:29:11.877Z",
+  "generated": "2023-11-16T16:29:32.268Z",
   "metadata": [
     {
       "__outstatic": {
@@ -762,11 +762,11 @@
     {
       "__outstatic": {
         "commit": "afb6b7c6c545c08edb7730956fd7439a861e5a64",
-        "hash": "2251737481",
+        "hash": "2904191596",
         "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
       },
       "author": {
-        "name": "Tim Moreton Jr"
+        "name": "Trckfi"
       },
       "category": "Guide: Organize Your Finances",
       "collection": "posts",
