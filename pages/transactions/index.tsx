@@ -16,7 +16,7 @@ import ImportModal from '../../components/modals/import-modal'
 import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
-import RecentTransactions from './recent-transactions'
+import RecentTransactions from './mobile'
 import utilServerSideDeviceDetection from '../../utils/utilServerSideDeviceDetection'
 
 const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
@@ -234,7 +234,6 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
     </div>
   )
 }
-
 
 export async function getServerSideProps(context) {
   const { isMobile } = utilServerSideDeviceDetection(context)

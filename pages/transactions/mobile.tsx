@@ -19,7 +19,7 @@ export default function ({ data }) {
               {commaShort(t.amount)} 
             </p>
             <p className="mt-1 text-xs leading-5 text-gray-500 text-right">
-              <time dateTime={t.date}>{DateTime.fromISO(t.date).plus({ months: 1 }).toFormat('MMM dd')}</time>
+              <time dateTime={t.date}>{DateTime.fromISO(t.date).toFormat('MMM dd')}</time>
             </p>
           </div>
         </li>

@@ -1,31 +1,34 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import { ArrowPathIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
-import DashboardLayout from "../components/dashboard-layout"
-import { commaShort } from '../lib/lodash'
-import HideAccountModal from '../components/modals/hide-account-modal'
-import EditAccountModal from '../components/modals/edit-account-modal'
-import LoadingModal from '../components/modals/loading-modal'
-import RemoveAccount from "../components/modals/remove-account-modal"
+import DashboardLayout from "../../components/dashboard-layout"
+import { commaShort } from '../../lib/lodash'
+import HideAccountModal from '../../components/modals/hide-account-modal'
+import EditAccountModal from '../../components/modals/edit-account-modal'
+import LoadingModal from '../../components/modals/loading-modal'
+import RemoveAccount from "../../components/modals/remove-account-modal"
 import { Emoji } from 'emoji-picker-react'
-import PlaidLink from '../components/plaid-link';
+import PlaidLink from '../../components/plaid-link';
 import { useSession } from "next-auth/react"
-import  { useLocalStorage } from '../utils/useLocalStorage'
-import Menu from '../components/menu'
+import  { useLocalStorage } from '../../utils/useLocalStorage'
+import Menu from '../../components/menu'
 import ConfettiExplosion from 'react-confetti-explosion'
-import SetupModal from '../components/modals/setup-modal'
-import { classNames } from '../lib/lodash'
-import PieChart from "../components/pie-chart"
-import LineChart from "../components/line-chart"
-import StackedBarChart from "../components/stacked-bar-chart"
-import Empty from '../components/empty'
-import AddAccounts from '../components/add-accounts'
+import SetupModal from '../../components/modals/setup-modal'
+import { classNames } from '../../lib/lodash'
+import PieChart from "../../components/pie-chart"
+import LineChart from "../../components/line-chart"
+import StackedBarChart from "../../components/stacked-bar-chart"
+import Empty from '../../components/empty'
+import AddAccounts from '../../components/add-accounts'
+import { TrashIcon } from '@heroicons/react/20/solid'
+import { DateTime } from "luxon"
+import utilServerSideDeviceDetection from '../../utils/utilServerSideDeviceDetection'
 
 const renderImg = (account) => {
-  if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5"><Emoji unified='1f3e0' size={35} /></div>)
-  if(account?.subtype === 'equity') return (<div className="my-1.5"><Emoji unified='1f4c8' size={35} /></div>)
-  if(account?.subtype === 'crypto') return (<img src={account?.details?.image} alt={account?.institution} className="h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
-  if(!account?.institution) return (<div className="my-1.5"><Emoji unified='1f3e6' size={35} /></div>)
+  if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5 mr-3"><Emoji unified='1f3e0' size={35} /></div>)
+  if(account?.subtype === 'equity') return (<div className="my-1.5 mr-3"><Emoji unified='1f4c8' size={35} /></div>)
+  if(account?.subtype === 'crypto') return (<img src={account?.details?.image} alt={account?.institution} className="mr-3 h-12 w-12 flex-none rounded-lg bg-white object-cover"/>)
+  if(!account?.institution) return (<div className="my-1.5 mr-3"><Emoji unified='1f3e6' size={35} /></div>)
   let image_url = `/assets/banks/${account?.institution}.png`
   return <img 
     src={image_url} 
@@ -33,11 +36,11 @@ const renderImg = (account) => {
       currentTarget.onerror = null;
       currentTarget.src="/assets/banks/bank.png";
     }}
-    className="h-12 w-12 rounded-md object-cover lg:block hidden"
+    className="h-12 w-12 rounded-md object-cover lg:block hidden mr-4"
   />
 }
 
-const Accounts = ({ showError }) => {
+const Accounts = ({ showError, isMobile }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [loading, setLoading] = useState(false)
@@ -225,7 +228,7 @@ const Accounts = ({ showError }) => {
             <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
               <dl className="mx-auto grid max-w-7xl grid-cols-3 lg:px-2 xl:px-0">
                 <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
-                  <dt className="text-sm lg:text-md font-medium leading-6 text-gray-600">Net Worth</dt>
+                  <dt className="text-md lg:text-md font-medium leading-6 text-gray-600">Net Worth</dt>
                   <dd className={classNames(
                       stats?.stats?.net_worth < 0 ? 'text-rose-600' : 'text-green-600',
                       'w-full flex-none text-md lg:text-3xl font-bold tracking-tight text-gray-900'
@@ -267,7 +270,7 @@ const Accounts = ({ showError }) => {
         <main>
           <div>
             <div className="overflow-hidden border-t border-gray-100">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-0">
+              <div className="mx-auto max-w-7xl">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                   <table className="w-full text-left">
                     <thead className="sr-only">
@@ -285,7 +288,7 @@ const Accounts = ({ showError }) => {
                               let error_code = accounts[key][0]?.plaid?.error_code
                               if(accounts[key][0]){
                                 return (
-                                  <div key={key} className="flex justify-between md:gap-x-6 md:py-6 py-4 items-center">
+                                  <div key={key} className="flex justify-between gap-x-2 lg:gap-x-6 md:py-6 py-6 items-center">
                                     <div className="hidden md:block">
                                       {renderImg(accounts[key][0])}
                                     </div>
@@ -294,32 +297,36 @@ const Accounts = ({ showError }) => {
                                         <div key={accounts[key][i].id}>
                                           { i <= 0 && 
                                             <td className="flex items-center mb-2">
-                                              <div>
-                                                <p className="text-lg font-bold text-gray-900 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>
-                                                {/* <div className="flex items-center">
-                                                  <p className="text-xs leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
-                                                  <p className="text-xs text-gray-400">{DateTime.fromISO(a?.plaid?.updated_at || a.updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
-                                                </div> */}
+                                              <div className="flex items-center">
+                                                <div className="block md:hidden">
+                                                  {renderImg(accounts[key][0])}
+                                                </div>
+                                                <p className="text-xl font-bold text-gray-900 flex">{a.institution} {error_code && <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-1 ml-2" aria-hidden="true" />}</p>
                                               </div>
                                             </td>
                                           }
-                                          <tr className="lg:text-sm text-xs text-gray-900 pt-1 flex justify-between">
-                                            <td className="w-1/2 font-semibold text-left">
-                                              {a.name} 
-                                              - 
-                                              <span className="font-light hidden lg:inline-flex">{a.official_name}</span>
-                                              <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button>
-                                            </td>
-                                            <td className="w-1/6 font-light text-left text-xs hidden lg:block">{a.type}</td> 
-                                            <td className="w-1/4 font-semibold text-left">{commaShort(a.amount)}</td> 
-                                            <div className="hidden md:flex">
-                                              <button onClick={() => hideAccount(a)} className="text-xs text-gray-400 text-right hidden lg:block">Hide</button> 
-                                              <button onClick={() => editAccount(a)} className="w-20 text-red-600 text-right">Edit</button> 
+                                          <button onClick={() => editAccount(a)} className="w-full">
+                                            <div className="text-sm lg:text-base text-gray-900 pt-1 grid grid-cols-3">
+                                              <div className="col-span-2 font-semibold text-left block lg:flex items-baseline justify-between">
+                                                <p className="text-normal">{a.name}</p>
+                                                {a.official_name !== a.name && <p className="text-left text-xs font-normal">{a.official_name}</p>}
+                                                {/* <button onClick={() => unhideAccount(a)} className="ml-2 text-red-600">{!a.active && 'Show Account'}</button> */}
+                                              </div>
+                                              {/* <td className="col-span-1 font-light text-left text-xs hidden lg:block">{a.type}</td>  */}
+                                              <div className="col-span-1 text-right">
+                                                <p className={classNames(Math.trunc(a.amount) > 0 ? "text-green-600" : "text-red-600", "text-md font-semibold leading-6 text-gray-900 text-right")}>
+                                                {commaShort(a.amount)}
+                                                </p>
+                                              </div> 
                                             </div>
-                                          </tr>
+                                          </button>
                                         </div>
                                       ))}
-                                      <>
+                                      <div className="flex items-center pt-10 justify-between text-[10px]">
+                                        <div className="flex items-center justify-center">
+                                          <p className="leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
+                                          <p className="text-gray-400 pr-10">{DateTime.fromISO(accounts[key][0]?.plaid?.updated_at || accounts[key][0].updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
+                                        </div>
                                         { error_code === 'ITEM_LOGIN_REQUIRED' && 
                                           <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid}/>
                                         }
@@ -332,14 +339,14 @@ const Accounts = ({ showError }) => {
                                           </button>
                                         }
                                         { accounts[key][0]?.account_id && error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
-                                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="pt-4 text-xs flex items-center text-red-600 hover:text-red-500">
+                                          <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-center text-xs flex items-center justify-center text-red-500 hover:text-red-400 text-center">
                                             <div className={loading && 'animate-spin'}>
                                               { loading && <ArrowPathIcon className="h-5 w-5" aria-hidden="true" /> }
                                             </div>
-                                            <span className={classNames(loading && 'ml-2')}>Remove Bank Connection</span>
+                                            <TrashIcon className="h-4 w-4" aria-hidden="true" />
                                           </button>
                                         }
-                                      </>
+                                      </div>
                                     </div>
                                   </div>
                                 )
@@ -368,6 +375,11 @@ const Accounts = ({ showError }) => {
       </DashboardLayout>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  const { isMobile } = utilServerSideDeviceDetection(context)
+  return { props: { isMobile }}
 }
 
 export default dynamic(() => Promise.resolve(Accounts), { ssr: false })

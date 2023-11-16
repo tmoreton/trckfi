@@ -1,7 +1,6 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../../lib/lodash'
-import { ArrowDownIcon, ArrowUpIcon, ChartBarIcon } from '@heroicons/react/20/solid'
 import { diffNum, commaShort } from '../../lib/lodash'
 
 const capitalize = (string) => {
