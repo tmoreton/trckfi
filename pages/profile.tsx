@@ -8,6 +8,7 @@ import Rules from '../components/rules'
 import { useRouter } from 'next/router'
 import ConfettiExplosion from 'react-confetti-explosion'
 import LoadingModal from '../components/modals/loading-modal'
+import  { clearLocalStorage } from '../utils/useLocalStorage'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -34,7 +35,12 @@ const Profile = ({ showError }) => {
 
   useEffect(() => {
     // @ts-ignore
-    getSettings()
+    if(!user.active) {
+      clearLocalStorage()
+      signOut()
+    } else {
+      getSettings()
+    }
   }, [])
 
   const getSettings = async () => {
