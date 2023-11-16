@@ -1,6 +1,6 @@
 {
-  "commit": "bcbd401b14ecf9b2a36e12e0afa3adc90504c392",
-  "generated": "2023-11-16T00:02:52.865Z",
+  "commit": "d32c287d9ec082d28bf043e10e73329c20ed7275",
+  "generated": "2023-11-16T00:03:19.318Z",
   "metadata": [
     {
       "__outstatic": {
@@ -274,27 +274,6 @@
       "slug": "optimize-financial-tracking-for-success",
       "status": "published",
       "title": "Financial Success with Spend Tracking & Budgeting"
-    },
-    {
-      "__outstatic": {
-        "commit": "9a5bebf9070ec1c2fe4183a71bd806b37787643e",
-        "hash": "1383848716",
-        "path": "outstatic/content/posts/the-backdoor-roth-ira.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-money.png",
-      "date": "08.12.2023",
-      "description": "Unlock tax-free growth! Explore the Backdoor Roth IRA for high earners. Maximize retirement savings beyond income limits with this strategic guide.",
-      "keywords": "Backdoor Roth IRA, High-Income Earners, Retirement Savings, Tax-Free Growth, Roth IRA Conversion, Retirement Planning, Investment Strategy, Financial Future, Tax-Efficient Strategy, Backdoor Contribution, Retirement Account, Financial Independence",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Unlock Tax-Free Growth: Mastering the Backdoor Roth IRA Strategy",
-      "slug": "the-backdoor-roth-ira",
-      "status": "published",
-      "title": "Paths to a Roth IRA for High-Income Earners"
     },
     {
       "__outstatic": {
@@ -758,6 +737,27 @@
       "slug": "mint-alternative-best-personal-finance-apps-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "d32c287d9ec082d28bf043e10e73329c20ed7275",
+        "hash": "1760845662",
+        "path": "outstatic/content/posts/the-backdoor-roth-ira.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-money.png",
+      "date": "08.12.2023",
+      "description": "Unlock tax-free growth! Explore the Backdoor Roth IRA for high earners. Maximize retirement savings beyond income limits with this strategic guide.",
+      "keywords": "Backdoor Roth IRA, High-Income Earners, Retirement Savings, Tax-Free Growth, Roth IRA Conversion, Retirement Planning, Investment Strategy, Financial Future, Tax-Efficient Strategy, Backdoor Contribution, Retirement Account, Financial Independence",
+      "publishedAt": "2023-09-21T14:25:45.000Z",
+      "seoTitle": "Unlock Tax-Free Growth: Mastering the Backdoor Roth IRA Strategy",
+      "slug": "the-backdoor-roth-ira",
+      "status": "published",
+      "title": "Paths to a Roth IRA for High-Income Earners"
     }
   ]
 }
