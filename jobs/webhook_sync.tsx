@@ -6,6 +6,7 @@ client.defineJob({
   id: "webhook-sync",
   name: "webhook-sync",
   version: "0.0.1",
+  enabled: false,
   trigger: cronTrigger({
     cron: "*/5 * * * *",
   }),
