@@ -34,6 +34,7 @@ const Profile = ({ showError }) => {
   const router = useRouter()
 
   useEffect(() => {
+    setRefreshing(false)
     // @ts-ignore
     if(!user.active) {
       clearLocalStorage()
@@ -134,7 +135,6 @@ const Profile = ({ showError }) => {
       showError(error)
       if(!error) router.replace(data)
     }
-    setRefreshing(false)
   }
 
   const redeem = async () => {

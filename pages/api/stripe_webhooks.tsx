@@ -34,7 +34,6 @@ export default async (req, res) => {
             canceled_at,
             ended_at,
             trial_end,
-            // @ts-ignore
             product_id: plan.product
           }
         })
@@ -49,7 +48,6 @@ export default async (req, res) => {
               data: {
                 active: false,
                 status : 'unlinked',
-                // @ts-ignore
                 product_id: null,
                 linked_user_id: null
               }
@@ -71,7 +69,6 @@ export default async (req, res) => {
           data: { 
             active: true,
             status,
-            // @ts-ignore
             product_id: plan.product
           }
         })
@@ -85,7 +82,6 @@ export default async (req, res) => {
             canceled_at,
             ended_at,
             trial_end,
-            // @ts-ignore
             product_id: null,
             subscription_id: null,
           }
