@@ -1,6 +1,6 @@
 {
-  "commit": "7d58881c1354250eda0c492c3f1acda16e3b37c7",
-  "generated": "2023-11-16T01:38:26.493Z",
+  "commit": "7e2e751d447fd3b72618225dfbe119f020e2f7df",
+  "generated": "2023-11-16T15:19:54.067Z",
   "metadata": [
     {
       "__outstatic": {
@@ -551,27 +551,6 @@
     },
     {
       "__outstatic": {
-        "commit": "cd9c1214b7503c8e2a656ea4db45c074fd6cc852",
-        "hash": "3103417731",
-        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Expense Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/track-receipt.jpg",
-      "date": "07.10-2023",
-      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
-      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
-      "slug": "tracking-monthly-expenses",
-      "status": "published",
-      "title": "The Super Simple Guide to Tracking Your Money"
-    },
-    {
-      "__outstatic": {
         "commit": "77325e489992c687cc36651cffc42c675809bd5a",
         "hash": "1477318163",
         "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
@@ -779,6 +758,27 @@
       "slug": "fsa-hra-healthcare-benefits",
       "status": "published",
       "title": "Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits"
+    },
+    {
+      "__outstatic": {
+        "commit": "7e2e751d447fd3b72618225dfbe119f020e2f7df",
+        "hash": "3872566630",
+        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Expense Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/track-receipt.jpg",
+      "date": "07.10-2023",
+      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
+      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
+      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
+      "slug": "tracking-monthly-expenses",
+      "status": "published",
+      "title": "The Super Simple Guide to Tracking Your Money"
     }
   ]
 }
