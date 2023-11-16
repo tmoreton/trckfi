@@ -9,7 +9,7 @@ client.defineJob({
   name: "Hourly Sync",
   version: "0.0.1",
   trigger: cronTrigger({
-    cron: "*/10 * * * *",
+    cron: "*/5 * * * *",
   }),
   run: async (payload, io, ctx) => {
     const webhook = await prisma.webhooks.findFirst({
