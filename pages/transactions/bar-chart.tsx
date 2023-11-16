@@ -68,26 +68,30 @@ export default function ({ rows }) {
     return new Date(b.original.date) - new Date(a.original.date);
   });
 
-  // @ts-ignore
-  const grouped_by_date = Object?.groupBy(sorted, (t) => {
-    let arr = t?.original?.month_year.split('-')
-    return `${months[arr[1]]} ${arr[0]}`
-  })
-  const labels = Object.keys(grouped_by_date)
-
-  Object?.keys(grouped_by_date).forEach(row => {
-    let income = 0
-    let expense = 0
-    grouped_by_date[row].forEach(i => {
-      if(i.original.amount > 0){
-        income += Number(i.original.amount)
-      } else {
-        expense += Number(i.original.amount)
-      }
+  let grouped_by_date = []
+  let labels = []
+  if(sorted){
+    // @ts-ignore
+    grouped_by_date = Object?.groupBy(sorted, (t) => {
+      let arr = t?.original?.month_year?.split('-')
+      return `${months[arr[1]]} ${arr[0]}`
     })
-    income_array.push(income)
-    expense_array.push(expense)
-  })
+    labels = Object.keys(grouped_by_date)
+
+    Object?.keys(grouped_by_date).forEach(row => {
+      let income = 0
+      let expense = 0
+      grouped_by_date[row].forEach(i => {
+        if(i.original.amount > 0){
+          income += Number(i.original.amount)
+        } else {
+          expense += Number(i.original.amount)
+        }
+      })
+      income_array.push(income)
+      expense_array.push(expense)
+    })
+  }
 
   return <Bar options={options} data={{
     labels: labels.reverse(),
