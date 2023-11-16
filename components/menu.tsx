@@ -40,7 +40,7 @@ export default function ({ showError }) {
   const currentRoute = router.pathname
 
   return (
-    <Disclosure as="nav" className="container mx-auto px-5 bg-white">
+    <Disclosure as="nav" className="container mx-auto px-5 bg-white hidden lg:block">
       {({ open }) => (
         <>
           <div>

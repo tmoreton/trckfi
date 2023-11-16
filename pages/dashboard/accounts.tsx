@@ -14,10 +14,10 @@ export default function ({ accounts, netWorth, history, totalStats }) {
   const this_month_net_worth = netWorth?.stats?.net_worth
   const last_month_net_worth = history?.reverse()[1]?.stats.net_worth
   return (
-    <div className="mx-auto max-w-7xl py-6 px-10 rounded-md">
+    <div className="mx-auto max-w-7xl p-6 rounded-md">
       <div className="border-b pb-6">
         <div className="flex justify-between items-center">
-          <p className="text-xl font-bold text-pink-600 pt-4">Accounts</p>
+          <p className="hidden lg:block text-xl font-bold text-pink-600 pt-4">Accounts</p>
           <div className="block">
             <p className="truncate text-sm font-medium text-gray-500">Net Worth</p>
             <dd className="flex">
