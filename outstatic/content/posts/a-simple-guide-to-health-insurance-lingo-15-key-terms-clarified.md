@@ -59,9 +59,11 @@ Having a plan that covers emergencies with reasonable out-of-pocket expenses can
 
 **7\. Set Reminders:** Once you've made your decision, set reminders for important dates, like payment due dates and upcoming medical appointments. Staying organized ensures you get the most out of your [health plan](/blog/how-to-choose-health-insurance-open-enrollment).
 
+[![track-expenses-sign-up](/images/home--8--MxMz.png)](/pricing)
+
 ## Evaluate Tax Savings Opportunities
 
-Depending on your personal situation, certain health plans may offer [tax advantages](/blog/how-to-choose-health-insurance-open-enrollment) lowering your overall health costs and helping you save money. For example, if enrolled in a High Deductible Health Plan [(HDHP)](/blog/health-savings-hsas-hras-and-fsas), you may be eligible to open a Health Savings Account [(HSA)](/blog/health-savings-hsas-hras-and-fsas)\*\* \*\*which allows tax-deductible contributions and tax-free withdrawals for medical expenses.
+Depending on your personal situation, certain health plans may offer [tax advantages](/blog/how-to-choose-health-insurance-open-enrollment) lowering your overall health costs and helping you save money. For example, if enrolled in a High Deductible Health Plan [(HDHP)](/blog/health-savings-hsas-hras-and-fsas), you may be eligible to open a Health Savings Account [(HSA)](/blog/health-savings-hsas-hras-and-fsas) which allows tax-deductible contributions and tax-free withdrawals for medical expenses.
 
 Additionally, some insurance premiums may qualify for pre-tax treatment through an employer.
 

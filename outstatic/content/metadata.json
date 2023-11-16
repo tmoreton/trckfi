@@ -1,28 +1,7 @@
 {
-  "commit": "7e2e751d447fd3b72618225dfbe119f020e2f7df",
-  "generated": "2023-11-16T15:19:54.067Z",
+  "commit": "3ba6725d9b91e976415d331c883cf2e6fb5cd813",
+  "generated": "2023-11-16T15:21:58.265Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "9fb4dfd5bbec4c9f85a7165d1a55155ccfd3fe76",
-        "hash": "1086500976",
-        "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Health Insurance, Healthcare, Open Enrollment, Personal Finance",
-      "collection": "posts",
-      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
-      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
-      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
-      "publishedAt": "2023-11-12T14:03:37.659Z",
-      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
-      "slug": "a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified",
-      "status": "published",
-      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
-    },
     {
       "__outstatic": {
         "commit": "b5e45f415dc86b791d2409e331afddcbafc60806",
@@ -779,6 +758,27 @@
       "slug": "tracking-monthly-expenses",
       "status": "published",
       "title": "The Super Simple Guide to Tracking Your Money"
+    },
+    {
+      "__outstatic": {
+        "commit": "3ba6725d9b91e976415d331c883cf2e6fb5cd813",
+        "hash": "2889610858",
+        "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Health Insurance Terms",
+      "collection": "posts",
+      "coverImage": "/images/health-wellbeing-life-I3Nz.jpg",
+      "description": "Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.",
+      "keywords": "health insurance terms, health insurance definitions, understanding health insurance, health insurance lingo, open enrollment terminology,health coverage vocabulary, healthcare dictionary, medical insurance language, health plan glossary, decoding health terms",
+      "publishedAt": "2023-11-12T14:03:37.659Z",
+      "seoTitle": "Understanding Health Insurance Terms: A Guide to Open Enrollment",
+      "slug": "a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified",
+      "status": "published",
+      "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
     }
   ]
 }
