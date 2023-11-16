@@ -77,7 +77,7 @@ export default function ({ rows }) {
       return `${months[arr[1]]} ${arr[0]}`
     })
     labels = Object.keys(grouped_by_date)
-
+    
     Object?.keys(grouped_by_date).forEach(row => {
       let income = 0
       let expense = 0

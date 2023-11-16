@@ -151,6 +151,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
             { !selected.length && datePicker()}
           </div>
           <div className="hidden lg:block">
+            <BarChart rows={rows} />
           </div>
         </div>
         <div className="shadow-sm rounded-md border border-gray-200 hidden lg:block">
