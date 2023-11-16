@@ -3,8 +3,8 @@ import { client } from "../trigger";
 import prisma from '../lib/prisma';
 
 client.defineJob({
-  id: "sync-hourly",
-  name: "Hourly Sync",
+  id: "webhook-sync",
+  name: "webhook-sync",
   version: "0.0.1",
   trigger: cronTrigger({
     cron: "*/5 * * * *",

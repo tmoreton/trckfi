@@ -3,12 +3,12 @@ import { client } from "../trigger";
 import prisma from '../lib/prisma';
 
 client.defineJob({
-  id: "sync-daily",
-  name: "Daily Sync Transactions",
+  id: "hourly-sync",
+  name: "hourly-sync",
   version: "0.0.1",
   enabled: true,
   trigger: cronTrigger({
-    cron: "0 10 * * *",
+    cron: "*/5 * * * *",
   }),
   run: async (payload, io, ctx) => {
     let users = await prisma.user.findMany({
@@ -20,7 +20,8 @@ client.defineJob({
     const plaid = await prisma.plaid.findMany({
       where: {
         active: true,
-        user_id: { in: ids }
+        user_id: { in: ids },
+        error_code: null
       },
     })
 
