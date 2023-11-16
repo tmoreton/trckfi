@@ -17,9 +17,9 @@ import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
 import RecentTransactions from './recent-transactions'
+import utilServerSideDeviceDetection from '../../utils/utilServerSideDeviceDetection'
 
-
-const Dashboard = ({ showError, showIntro, setSuccess }) => {
+const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [refreshing, setRefreshing] = useState(false)
@@ -224,21 +224,21 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
         <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
         <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
-        {
-          transactions && transactions?.length > 0 &&
-          <>
-            <div className="hidden lg:block">
-              <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
-            </div>
-            <div className="block lg:hidden">
-              <RecentTransactions data={transactions}/>
-            </div>
-          </>
+        {isMobile ?
+          <RecentTransactions data={transactions}/>
+          :
+          <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
         }
         <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
       </DashboardLayout>
     </div>
   )
+}
+
+
+export async function getServerSideProps(context) {
+  const { isMobile } = utilServerSideDeviceDetection(context)
+  return { props: { isMobile }}
 }
 
 export default dynamic(() => Promise.resolve(Dashboard), { ssr: false })
