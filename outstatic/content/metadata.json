@@ -1,6 +1,6 @@
 {
   "commit": "7d58881c1354250eda0c492c3f1acda16e3b37c7",
-  "generated": "2023-11-16T01:38:24.223Z",
+  "generated": "2023-11-16T01:38:26.493Z",
   "metadata": [
     {
       "__outstatic": {
@@ -762,7 +762,7 @@
     {
       "__outstatic": {
         "commit": "7d58881c1354250eda0c492c3f1acda16e3b37c7",
-        "hash": "3452122542",
+        "hash": "1367238023",
         "path": "outstatic/content/posts/fsa-hra-healthcare-benefits.md"
       },
       "author": {
@@ -777,7 +777,7 @@
       "publishedAt": "2023-11-12T15:32:44.292Z",
       "seoTitle": "Choosing Between FSAs and HRAs: A Guide for Open Enrollment",
       "slug": "fsa-hra-healthcare-benefits",
-      "status": "draft",
+      "status": "published",
       "title": "Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits"
     }
   ]

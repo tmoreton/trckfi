@@ -1,6 +1,6 @@
 ---
 title: 'Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits'
-status: 'draft'
+status: 'published'
 author:
   name: 'Trckfi'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
@@ -43,7 +43,7 @@ FSAs and HRAs are potent tools for managing healthcare expenses. Let's explore t
 
 2. **Limited Rollover:** While some plans offer a small rollover or grace period, it's not guaranteed, so careful planning is essential.Health Reimbursement Arrangements (HRAs): Your Employer's Contribution
 
-[![fsas-hra](/images/home--8--QxMD.png)](/pricing)
+[![fsas-hra](/images/home--8--YwMT.png)](/pricing)
 
 ### Employer Contributions to HRAs: What You Need to Know
 
