@@ -18,7 +18,7 @@ const navigation = [
 ]
 
 const dashboardNavigation = [
-  { name: 'VisionBoard', href: '/visionboard' },
+  // { name: 'VisionBoard', href: '/visionboard' },
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Transactions', href: '/transactions' },
   { name: 'Net Worth & Accounts', href: '/accounts' },
@@ -45,15 +45,26 @@ export default function ({ showError }) {
         <>
           <div>
             <div className="flex h-18 items-center justify-between py-4">
+              <div className="w-10 lg:hidden block"></div>
               <div className="flex items-center">
+                
                 <div className="flex-shrink-0">
+                  
                   <Link href='/'>
-                    <div className="f-m-1.5 p-1.5 flex justify-center items-center">
+                    <div className="f-m-1.5 p-1.5 flex justify-center items-center hidden lg:block">
                       <Image
                         src='/trckfi-logo-beta.png'
                         alt='Trckfi'
                         width={200}
                         height={100}
+                      />
+                    </div>
+                    <div className="f-m-1.5 p-1.5 flex justify-center items-center block lg:hidden">
+                      <Image
+                        src='/trckfi.png'
+                        alt='Trckfi'
+                        width={40}
+                        height={40}
                       />
                     </div>
                   </Link>

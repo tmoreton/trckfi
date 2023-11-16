@@ -210,7 +210,7 @@ const Accounts = ({ showError }) => {
           <button
             onClick={updateNetWorth}
             type="button"
-            className="inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 pb-4"
+            className="hidden lg:inline-flex items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 pb-4"
           >
             <div className={loading && "animate-spin"}>
               <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
@@ -223,12 +223,12 @@ const Accounts = ({ showError }) => {
           <div className="relative isolate overflow-hidden">
             {/* Stats */}
             <div className="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
-              <dl className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-2 xl:px-0">
+              <dl className="mx-auto grid max-w-7xl grid-cols-3 lg:px-2 xl:px-0">
                 <div className="flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
-                  <dt className="text-md font-medium leading-6 text-gray-600">Net Worth</dt>
+                  <dt className="text-sm lg:text-md font-medium leading-6 text-gray-600">Net Worth</dt>
                   <dd className={classNames(
                       stats?.stats?.net_worth < 0 ? 'text-rose-600' : 'text-green-600',
-                      'w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900'
+                      'w-full flex-none text-md lg:text-3xl font-bold tracking-tight text-gray-900'
                     )}
                   >
                     {commaShort(stats?.stats?.net_worth)}
@@ -236,13 +236,13 @@ const Accounts = ({ showError }) => {
                 </div>
                 <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Assets</dt>
-                  <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
+                  <dd className="text-green-600 w-full flex-none text-md lg:text-3xl font-bold tracking-tight text-gray-900">
                     {commaShort(stats?.stats?.assets)}
                   </dd>
                 </div>
                 <div className="sm:border-l lg:border-l flex items-baseline flex-wrap justify-between gap-y-1 gap-x-4 border-t border-gray-900/5 px-4 py-6 sm:px-6 lg:border-t-0 xl:px-8">
                   <dt className="text-md font-medium leading-6 text-gray-600">Liabilities</dt>
-                  <dd className="text-green-600 w-full flex-none text-3xl font-bold leading-10 tracking-tight text-rose-600">
+                  <dd className="text-green-600 w-full flex-none text-md lg:text-3xl font-bold tracking-tight text-rose-600">
                     {commaShort(stats?.stats?.liabilities)}
                   </dd>
                 </div>
@@ -354,6 +354,16 @@ const Accounts = ({ showError }) => {
               </div>
             </div>
           </div>
+          <button
+            onClick={updateNetWorth}
+            type="button"
+            className="inline-flex lg:hidden items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 pb-4"
+          >
+            <div className={loading && "animate-spin"}>
+              <ArrowPathIcon className="h-7 w-7" aria-hidden="true" />
+            </div>
+            <p className="font-bold ml-2">Refresh</p>
+          </button>
         </main>
       </DashboardLayout>
     </>

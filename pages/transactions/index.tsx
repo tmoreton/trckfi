@@ -16,6 +16,8 @@ import ImportModal from '../../components/modals/import-modal'
 import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
+import RecentTransactions from './recent-transactions'
+
 
 const Dashboard = ({ showError, showIntro, setSuccess }) => {
   const { data: session } = useSession()
@@ -222,7 +224,12 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
         <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
         <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
-        <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+        <div className="hidden lg:block">
+          <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
+        </div>
+        <div className="block lg:hidden">
+          <RecentTransactions data={transactions}/>
+        </div>
         <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
       </DashboardLayout>
     </div>

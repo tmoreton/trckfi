@@ -146,14 +146,16 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
     <>
       <EmojiModal open={showEmoji} setOpen={setShowEmoji} searchEmoji={searchEmoji}/>
       <div className="mx-auto grid max-w-2xl grid-cols-1 lg:grid-cols-4 gap-x-8 lg:mx-0 lg:max-w-none py-2">
-        <div className="col-span-3 p-3 shadow-sm rounded-md border border-gray-200">
+        <div className="col-span-3 p-3 lg:shadow-sm rounded-md lg:border lg:border-gray-200">
           <div className="flex items-center space-x-3 justify-center pt-2">
             { !selected.length && datePicker()}
           </div>
-          <BarChart rows={rows} />
+          <div className="hidden lg:block">
+            <BarChart rows={rows} />
+          </div>
         </div>
-        <div className="shadow-sm rounded-md border border-gray-200">
-          <div className="flex items-center justify-center pt-5 pb-2">
+        <div className="shadow-sm rounded-md border border-gray-200 hidden lg:block">
+          <div className="items-center justify-center pt-5 pb-2 flex">
             <>
               <div className="block text-center mx-3">
                 <button aria-label="Add Transaction" onClick={() => setEdit({

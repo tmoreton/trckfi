@@ -133,12 +133,12 @@ const Dashboard = ({ showError, showIntro }) => {
       <DashboardLayout>
         <Snapshot totalStats={totalStats} />
         <Graphs graphData={graphData} />
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-2">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 py-5 lg:py-2">
           <div className="col-span-1 shadow-sm rounded-md border border-gray-200">
             <Accounts totalStats={totalStats} accounts={accounts} netWorth={netWorth} history={history} />
           </div>
           <div className="col-span-1">
-            <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200 mb-6">
+            <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200 my-6">
               { upcoming && <UpcomingRecurring recurring={upcoming}/>}
             </div>
             <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
