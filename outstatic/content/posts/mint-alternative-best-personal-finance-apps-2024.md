@@ -35,7 +35,7 @@ To make up the costs, **Mint dabbled in promoting financial products** for refer
 
 This creates tension between revenue and serving user needs. Free apps inevitably become **ad platforms first, and finance tools second**. In the case of Mint - ad revenue wasn't enough and now they are [shutting down](https://www.nytimes.com/2023/11/03/business/mint-app-closing-intuit.html).
 
-[![personal-finance-app-demo](/images/home--8--g5ND.png)](/pricing)
+[![personal-finance-app-demo](/images/home--8--gyNz.png)](/pricing)
 
 ### Top 7 Mint Alternatives to Consider
 
@@ -103,7 +103,7 @@ Goodbudget uses the envelope budgeting methodology. Ideal if you like detailed c
 
 And there are many other excellent paid platforms to explore as alternatives to Mint. The key is finding the best fit for your needs and values.
 
-[![cash-flow-expense-tracker](/images/home--11--cxMj.png)](/pricing)
+[![cash-flow-expense-tracker](/images/home--11--g5Nz.png)](/pricing)
 
 ## Take Control of Your Finances
 
@@ -121,7 +121,7 @@ Paid subscription apps **incentivize your success over profits**. And provide pe
 
 [![net-worth-visualize-goals-trckfi-features](/images/home--1--I3NT.jpg)](/pricing)
 
-### **Trckfi is super simple to use and free to try**
+## **Trckfi is super simple to use and free to try**
 
 If you’re interested in trying [Trckfi](www.trckfi.com), we offer a [60-day free trial](www.trckfi.com/pricing). We'd love to receive your feedback to build an app that truly meets your needs and values.
 
