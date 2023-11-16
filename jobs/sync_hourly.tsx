@@ -1,7 +1,5 @@
 import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
-import accountsSync from '../utils/accountsSync';
-import transactionsSync from '../utils/transactionsSync';
 import prisma from '../lib/prisma';
 
 client.defineJob({
@@ -21,7 +19,7 @@ client.defineJob({
       }
     })
     if(webhook?.item_id){
-      const { access_token, user_id } = await prisma.plaid.findUnique({ where: { item_id: webhook.item_id }})
+      const { access_token, user_id, institution, item_id } = await prisma.plaid.findUnique({ where: { item_id: webhook.item_id }})
       switch (webhook.webhook_code) {
         case 'SYNC_UPDATES_AVAILABLE':
           await prisma.webhooks.delete({
@@ -29,7 +27,10 @@ client.defineJob({
               id: webhook.id
             }
           })
-          await transactionsSync(access_token, user_id)  
+          await client.sendEvent({
+            name: "sync.plaid",
+            payload: { access_token, item_id, user_id, institution },
+          })
           break;
         default:
           break;
