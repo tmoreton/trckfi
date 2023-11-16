@@ -33,12 +33,7 @@ const Profile = ({ showError }) => {
 
   useEffect(() => {
     // @ts-ignore
-    if(!user.active) {
-      clearLocalStorage()
-      signOut()
-    } else {
-      getSettings()
-    }
+    getSettings()
   }, [])
 
   const getSettings = async () => {

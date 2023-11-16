@@ -80,7 +80,7 @@ export default async (req, res) => {
         const deletedUser = await prisma.user.update({
           where: { customer_id: customer },
           data: { 
-            // active: false,
+            active: false,
             status,
             canceled_at,
             ended_at,
