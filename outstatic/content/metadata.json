@@ -1,6 +1,6 @@
 {
-  "commit": "574e20e544fc3902ba65c4af10ececf2311d67be",
-  "generated": "2023-11-16T16:36:53.357Z",
+  "commit": "2e99436047170e078dd359c8ce59972d93335b0f",
+  "generated": "2023-11-16T16:47:03.087Z",
   "metadata": [
     {
       "__outstatic": {
@@ -572,27 +572,6 @@
     },
     {
       "__outstatic": {
-        "commit": "95c42b5845cfcc50d7f22861f9451f2a804d57b2",
-        "hash": "2869033003",
-        "path": "outstatic/content/posts/blog-roth-ira-advantage-2023.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-roth-ira.png",
-      "date": "08.10.2023",
-      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
-      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
-      "publishedAt": "2023-10-24T14:25:45.000Z",
-      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
-      "slug": "blog-roth-ira-advantage-2023",
-      "status": "published",
-      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
-    },
-    {
-      "__outstatic": {
         "commit": "b52bed6691b2b6adf75d872f37616ed1945ccbf0",
         "hash": "167830531",
         "path": "outstatic/content/posts/blog-how-to-retire-early-fire-movement.md"
@@ -800,6 +779,27 @@
       "slug": "traditional-ira-guide-tax-advantaged-retirement",
       "status": "published",
       "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
+    },
+    {
+      "__outstatic": {
+        "commit": "2e99436047170e078dd359c8ce59972d93335b0f",
+        "hash": "2435174166",
+        "path": "outstatic/content/posts/blog-roth-ira-advantage-2023.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-roth-ira.png",
+      "date": "08.10.2023",
+      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
+      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
+      "publishedAt": "2023-10-24T14:25:45.000Z",
+      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
+      "slug": "blog-roth-ira-advantage-2023",
+      "status": "published",
+      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     }
   ]
 }
