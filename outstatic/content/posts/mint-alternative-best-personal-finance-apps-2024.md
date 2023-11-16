@@ -35,7 +35,7 @@ To make up the costs, **Mint dabbled in promoting financial products** for refer
 
 This creates tension between revenue and serving user needs. Free apps inevitably become **ad platforms first, and finance tools second**. In the case of Mint - ad revenue wasn't enough and now they are [shutting down](https://www.nytimes.com/2023/11/03/business/mint-app-closing-intuit.html).
 
-[![personal-finance-app-demo](/images/home--8--I5ND.png)](/pricing)
+[![personal-finance-app-demo](/images/home--8--g5ND.png)](/pricing)
 
 ### Top 7 Mint Alternatives to Consider
 
@@ -61,7 +61,7 @@ If you've relied on Mint, their shutdown is a disappointment but also a fresh st
 
 ### 1\. Trckfi
 
-Best For: Hands-off spending and networth & investment monitoring, money mindset & education.
+Best For: Hands-off spending and net worth & investment monitoring, money mindset & education.
 
 [Trckfi](www.trckfi.com) combines automated personal finance tracking (income, expense, current transactions and net worth) with money mindset and education. Their educational approach is ideal for building long-term money skills.
 
@@ -103,7 +103,7 @@ Goodbudget uses the envelope budgeting methodology. Ideal if you like detailed c
 
 And there are many other excellent paid platforms to explore as alternatives to Mint. The key is finding the best fit for your needs and values.
 
-[![cash-flow-expense-tracker](/images/home--11--UyNT.png)](/pricing)
+[![cash-flow-expense-tracker](/images/home--11--cxMj.png)](/pricing)
 
 ## Take Control of Your Finances
 
