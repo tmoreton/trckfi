@@ -1,6 +1,6 @@
 {
-  "commit": "afb6b7c6c545c08edb7730956fd7439a861e5a64",
-  "generated": "2023-11-16T16:29:32.268Z",
+  "commit": "574e20e544fc3902ba65c4af10ececf2311d67be",
+  "generated": "2023-11-16T16:36:03.530Z",
   "metadata": [
     {
       "__outstatic": {
@@ -779,6 +779,27 @@
       "slug": "how-to-achieve-financial-organization",
       "status": "published",
       "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
+    },
+    {
+      "__outstatic": {
+        "commit": "574e20e544fc3902ba65c4af10ececf2311d67be",
+        "hash": "1240574928",
+        "path": "outstatic/content/posts/traditional-ira-guide-tax-advantaged-retirement.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Accounts",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan-roth-ira.png",
+      "date": "08.07.2023",
+      "description": "Learn how traditional IRAs work, their tax benefits, contribution limits, withdrawals, and how to maximize them in your retirement savings strategy.",
+      "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits, traditional ira, ira accounts, retirement accounts, retirement savings, tax deferred growth, required minimum distributions, early withdrawal penalties, ira investments",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
+      "seoTitle": "Everything You Need to Know About Traditional IRAs for Retirement",
+      "slug": "traditional-ira-guide-tax-advantaged-retirement",
+      "status": "published",
+      "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
     }
   ]
 }
