@@ -16,22 +16,29 @@ export default async (req, res) => {
         },
         invoice_history: {enabled: true},
         payment_method_update: {enabled: true},
-        subscription_cancel: {enabled: true},
         subscription_pause: {enabled: false},
-        subscription_update: {
-          default_allowed_updates: ["price", "promotion_code"],
+        subscription_cancel: {
+          cancellation_reason: {
+            enabled: true,
+            options: []
+          },
           enabled: false,
-          products: [{
-            product: 'prod_OTQn41lBjC2ZJD', 
-            prices: ['price_1NgTvdBJfatAKl0YD0UfX0aF', 'price_1NgTvcBJfatAKl0YAb4DRv9E']
-          },{
-            product: 'prod_OUAgEdZI2gYrgv', 
-            prices: ['price_1NhCLaBJfatAKl0YmKWh1dR3', 'price_1NhCLaBJfatAKl0YT7Ur6IXu']
-          }, {
-            product: 'prod_Ol1euWJq7XXYBd', 
-            prices: ['price_1NxVatBJfatAKl0YOYT8WPLy']
-          }]
+          mode: "immediately",
         },
+        // subscription_update: {
+        //   default_allowed_updates: [price, promotion_code],
+        //   enabled: true,
+        //   products: [{
+        //     product: 'prod_OTQn41lBjC2ZJD', 
+        //     prices: ['price_1NgTvdBJfatAKl0YD0UfX0aF', 'price_1NgTvcBJfatAKl0YAb4DRv9E']
+        //   },{
+        //     product: 'prod_OUAgEdZI2gYrgv', 
+        //     prices: ['price_1NhCLaBJfatAKl0YmKWh1dR3', 'price_1NhCLaBJfatAKl0YT7Ur6IXu']
+        //   }, {
+        //     product: 'prod_Ol1euWJq7XXYBd', 
+        //     prices: ['price_1NxVatBJfatAKl0YOYT8WPLy']
+        //   }]
+        // },
       },
       business_profile: {
         privacy_policy_url: `${process.env.NEXT_PUBLIC_BASE_URL}/privacy`,
