@@ -8,9 +8,9 @@ slug: 'mint-alternative-best-personal-finance-apps-2024'
 description: 'With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.'
 coverImage: '/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg'
 keywords: 'mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint'
-category: 'Finance, Fintech, Money Management, Personal Finance'
+category: 'Money Management'
 seoTitle: 'Replace Mint: 7 Best Paid Personal Finance Apps for 2023'
-publishedAt: '2023-11-06T13:03:51.632Z'
+publishedAt: '2023-10-25T12:03:51.000Z'
 ---
 
 Mint has been the go-to finance app for over 15 years. But with their recent shutdown [announcement](https://www.theverge.com/2023/11/2/23943254/mint-intuit-shutting-down-credit-karma) by Intuit, millions of loyal users need a new solution. Some have decades of financial data in Mint, and key features like budgeting and net worth tracking won't be available in the replacement app Credit Karma.
@@ -34,6 +34,8 @@ To make up the costs, **Mint dabbled in promoting financial products** for refer
 > Bottom line - when you're not paying, you're the product. Your data, attention, whatever is getting sold.
 
 This creates tension between revenue and serving user needs. Free apps inevitably become **ad platforms first, and finance tools second**. In the case of Mint - ad revenue wasn't enough and now they are [shutting down](https://www.nytimes.com/2023/11/03/business/mint-app-closing-intuit.html).
+
+[![personal-finance-app-demo](/images/home--8--I5OT.png)](/pricing)
 
 ### Top 7 Mint Alternatives to Consider
 
@@ -101,6 +103,8 @@ Goodbudget uses the envelope budgeting methodology. Ideal if you like detailed c
 
 And there are many other excellent paid platforms to explore as alternatives to Mint. The key is finding the best fit for your needs and values.
 
+[![cash-flow-expense-tracker](/images/home--11--Y0Mz.png)](/pricing)
+
 ## Take Control of Your Finances
 
 Mint, a long-standing favorite for managing personal finances will shut down in January 2024. The challenge users face is that mint was “free” and most financial apps aren’t.
@@ -119,7 +123,7 @@ Paid subscription apps **incentivize your success over profits**. And provide pe
 
 ### **Trckfi is super simple to use and free to try**
 
-If you’re interested in trying [**Trckfi**](www.trckfi.com), we offer a [**60-day free trial**](www.trckfi.com/pricing). We'd love to receive your feedback to build an app that truly meets your needs and values.
+If you’re interested in trying [Trckfi](www.trckfi.com), we offer a [60-day free trial](www.trckfi.com/pricing). We'd love to receive your feedback to build an app that truly meets your needs and values.
 
 After the trial, the **subscription price is $5.99 per month** for **early** **supporters**! You can learn more about Trckfi’s features and sign up for a free trial [here](https://www.trckfi.com/beta).
 
