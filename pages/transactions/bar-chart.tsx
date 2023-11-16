@@ -69,13 +69,13 @@ export default function ({ rows }) {
   });
 
   // @ts-ignore
-  const grouped_by_date = Object.groupBy(sorted, (t) => {
+  const grouped_by_date = Object?.groupBy(sorted, (t) => {
     let arr = t?.original?.month_year.split('-')
     return `${months[arr[1]]} ${arr[0]}`
   })
   const labels = Object.keys(grouped_by_date)
 
-  Object.keys(grouped_by_date).forEach(row => {
+  Object?.keys(grouped_by_date).forEach(row => {
     let income = 0
     let expense = 0
     grouped_by_date[row].forEach(i => {
