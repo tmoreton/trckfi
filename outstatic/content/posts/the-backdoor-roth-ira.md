@@ -19,6 +19,8 @@ Are you a high earner who dreams of contributing to a Roth IRA but finds yoursel
 
 A Roth IRA is an enticing [retirement account](/blog/iras-401ks-retirement-planning) due to its unique advantage of tax-free growth. However, contributing directly to a Roth IRA is subject to income limits, which can be frustrating for high earners. In 2023, for example, single taxpayers with a modified adjusted gross income (MAGI) above $140,000 and married couples filing jointly with a MAGI above $208,000 are ineligible to make direct Roth IRA contributions.
 
+[![manage-your-finances-in-one-place](/images/home--1--A5MD.png)](/pricing)
+
 ## The Backdoor Roth IRA: An Alternative Path to Tax-Free Growth
 
 The Backdoor Roth IRA is a legal and IRS-approved workaround that enables high-income earners to take advantage of the Roth IRA's benefits. Here's how it works:
@@ -41,6 +43,8 @@ While the Backdoor Roth IRA is a powerful strategy, there are a few things to co
 
 3. **Tax Implications**: While the Backdoor Roth IRA doesn't have income limits for contributions, it's essential to consult a tax professional to understand the tax implications of the conversion in your specific financial situation.
 
+[![goal-setting-demo](/images/home--12--UyMj.png)](/pricing)
+
 ## Next Steps: Unlocking Your Financial Potential
 
 The Backdoor Roth IRA offers an excellent opportunity for high earners to access the benefits of tax-free growth and build a robust retirement fund. If you find yourself exceeding the income limits for direct Roth IRA contributions, the Backdoor Roth IRA may be the key to unlocking your financial potential.
@@ -49,5 +53,5 @@ Before proceeding with this strategy, it's essential to consult with a financial
 
 Whether you're just starting or looking to deepen your **financial knowledge**, our [blog](/blog) provides valuable insights to keep you on track. If you are looking for a solution to simplify the way you track your finances, check out [Trckfi](/).
 
-\*\*Disclaimer: \*\*This blog post is for informational purposes only and does not constitute financial advice. The Backdoor Roth IRA strategy has specific rules and considerations that may vary based on individual circumstances. Always consult with a financial advisor to determine the best course of action for your unique financial situation.
+**Disclaimer:** This blog post is for informational purposes only and does not constitute financial advice. The Backdoor Roth IRA strategy has specific rules and considerations that may vary based on individual circumstances. Always consult with a financial advisor to determine the best course of action for your unique financial situation.
 
