@@ -1,6 +1,6 @@
 {
-  "commit": "f744d807d974924d40b2863faf6e4e5f10ee2e07",
-  "generated": "2023-11-16T16:19:48.585Z",
+  "commit": "afb6b7c6c545c08edb7730956fd7439a861e5a64",
+  "generated": "2023-11-16T16:29:11.877Z",
   "metadata": [
     {
       "__outstatic": {
@@ -358,27 +358,6 @@
       "slug": "financial-success-in-your-20s-guide",
       "status": "published",
       "title": "Financial Success in Your 20s: Building a Strong Foundation"
-    },
-    {
-      "__outstatic": {
-        "commit": "360138b08dc1e866a23fdeb36637a22e1173d0b0",
-        "hash": "2152322734",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Guide: Organize Your Finances",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
     },
     {
       "__outstatic": {
@@ -779,6 +758,27 @@
       "slug": "iras-vs-401ks-choosing-retirement-plan",
       "status": "published",
       "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
+    },
+    {
+      "__outstatic": {
+        "commit": "afb6b7c6c545c08edb7730956fd7439a861e5a64",
+        "hash": "2251737481",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Guide: Organize Your Finances",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
+      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
     }
   ]
 }
