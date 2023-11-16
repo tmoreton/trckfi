@@ -1,7 +1,7 @@
 import Stripe from 'stripe'
 import getRawBody from 'raw-body'
-import prisma from '../../lib/prisma';
 import slackMessage from '../../utils/slackMessage'
+import prisma from '../../lib/prisma'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -20,6 +20,10 @@ export default async (req, res) => {
     const event = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET)
     // @ts-ignore
     const { customer, status, canceled_at, ended_at, trial_end, plan } = event.data.object
+    await prisma.webhooks.create({ data: {
+      webhook_code: event.type,
+      item_id: customer
+    }})
     switch (event.type) {
       case 'customer.subscription.updated':
         const updatedUser = await prisma.user.update({

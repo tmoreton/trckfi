@@ -31,7 +31,7 @@ export default async (req, res) => {
               'other'
             ]
           },
-          enabled: false,
+          enabled: true,
           mode: "immediately",
         },
         // subscription_update: {
