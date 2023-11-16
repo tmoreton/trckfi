@@ -1,6 +1,6 @@
 {
-  "commit": "cf9255245a7514fc8c5ecbaeab25300a89e3a597",
-  "generated": "2023-11-16T15:23:35.425Z",
+  "commit": "29bd4f8681abf2e68c5f27b0c0b37dcf83f72a1b",
+  "generated": "2023-11-16T17:07:55.931Z",
   "metadata": [
     {
       "__outstatic": {
@@ -277,27 +277,6 @@
     },
     {
       "__outstatic": {
-        "commit": "e02b0339580bc8b5cf432707d9572574e5d408cb",
-        "hash": "3660501043",
-        "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Personal Finance, Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-plan.png",
-      "date": "08.07.2023",
-      "description": "Explore the differences between IRAs and 401(k)s to make informed decisions for a secure retirement. Understand tax implications, contribution limits, and employer benefits.",
-      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
-      "publishedAt": "2023-10-13T14:25:45.000Z",
-      "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
-      "slug": "iras-vs-401ks-choosing-retirement-plan",
-      "status": "published",
-      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
-    },
-    {
-      "__outstatic": {
         "commit": "62157bcbbae1403b3f0af54dcff946ed2102cbc8",
         "hash": "3365852283",
         "path": "outstatic/content/posts/building-an-emergency-fund.md"
@@ -379,27 +358,6 @@
       "slug": "financial-success-in-your-20s-guide",
       "status": "published",
       "title": "Financial Success in Your 20s: Building a Strong Foundation"
-    },
-    {
-      "__outstatic": {
-        "commit": "360138b08dc1e866a23fdeb36637a22e1173d0b0",
-        "hash": "2152322734",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Guide: Organize Your Finances",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
     },
     {
       "__outstatic": {
@@ -509,27 +467,6 @@
     },
     {
       "__outstatic": {
-        "commit": "82a86544ce5824fbb92fc3bce210dee4c87bdf0a",
-        "hash": "3285465504",
-        "path": "outstatic/content/posts/how-to-get-out-of-debt.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Debt Management",
-      "collection": "posts",
-      "coverImage": "/assets/blog/get-out-of-debt.png",
-      "date": "08.16.2023",
-      "description": "Discover actionable strategies to break free from debt and achieve financial freedom. Assess, budget, and implement effective payoff strategies for a brighter financial future.",
-      "keywords": "Get Out of Debt, Debt Management, Debt Repayment, Financial Freedom, Budgeting, Emergency Fund, Debt Payoff Strategies, Credit Counseling, Debt Consolidation, Financial Discipline",
-      "publishedAt": "2023-10-03T14:25:45.000Z",
-      "seoTitle": "Unlock Financial Freedom: Your Comprehensive Guide to Break Free from Debt",
-      "slug": "how-to-get-out-of-debt",
-      "status": "published",
-      "title": "Get Out of Debt: Your Path to Financial Freedom"
-    },
-    {
-      "__outstatic": {
         "commit": "77325e489992c687cc36651cffc42c675809bd5a",
         "hash": "1477318163",
         "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
@@ -548,27 +485,6 @@
       "slug": "smart-401k-retirement-guide",
       "status": "published",
       "title": "Maximize Your 401(k): The Comprehensive Guide to Smart Saving"
-    },
-    {
-      "__outstatic": {
-        "commit": "97294fcef3b360a976fba288a4408f924fc61a65",
-        "hash": "3352890442",
-        "path": "outstatic/content/posts/five-truths-about-personal-finance.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Personal Finance",
-      "collection": "posts",
-      "coverImage": "/assets/blog/five-truths-1.jpg",
-      "date": "07.14.2023",
-      "description": "Are you ready to uncover the key truths about budgeting, debt management, investing, and more that will transform your finances? This post shares 5 game-changing personal finance lessons.",
-      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances, realistic budget, tracking expenses, investing, wealth-building, good debt, bad debt, side hustles, financial check-ins, automated tools, budgeting, debt management, investing, personal finance tips",
-      "publishedAt": "2023-10-17T14:25:45.000Z",
-      "seoTitle": "5 Eye-Opening Truths About Personal Finances You Need to Know",
-      "slug": "five-truths-about-personal-finance",
-      "status": "published",
-      "title": "5 Truths About Personal Finances That Everyone Should Know About"
     },
     {
       "__outstatic": {
@@ -611,27 +527,6 @@
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "status": "published",
       "title": "Everything You Need To Know About 401(k) Retirement Plans"
-    },
-    {
-      "__outstatic": {
-        "commit": "95c42b5845cfcc50d7f22861f9451f2a804d57b2",
-        "hash": "2869033003",
-        "path": "outstatic/content/posts/blog-roth-ira-advantage-2023.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-roth-ira.png",
-      "date": "08.10.2023",
-      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
-      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
-      "publishedAt": "2023-10-24T14:25:45.000Z",
-      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
-      "slug": "blog-roth-ira-advantage-2023",
-      "status": "published",
-      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     },
     {
       "__outstatic": {
@@ -779,6 +674,132 @@
       "slug": "mint-alternative-best-personal-finance-apps-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "f744d807d974924d40b2863faf6e4e5f10ee2e07",
+        "hash": "378643894",
+        "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": " Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan.png",
+      "date": "08.07.2023",
+      "description": "Learn the differences between IRAs and 401(k)s to make good choices for retirement. Understand tax implications, contribution limits, and employer benefits.",
+      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
+      "slug": "iras-vs-401ks-choosing-retirement-plan",
+      "status": "published",
+      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
+    },
+    {
+      "__outstatic": {
+        "commit": "afb6b7c6c545c08edb7730956fd7439a861e5a64",
+        "hash": "2904191596",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Guide: Organize Your Finances",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
+      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
+    },
+    {
+      "__outstatic": {
+        "commit": "574e20e544fc3902ba65c4af10ececf2311d67be",
+        "hash": "3805952904",
+        "path": "outstatic/content/posts/traditional-ira-guide-tax-advantaged-retirement.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Accounts",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan-roth-ira.png",
+      "date": "08.07.2023",
+      "description": "Learn how traditional IRAs work, their tax benefits, contribution limits, withdrawals, and how to maximize them in your retirement savings strategy.",
+      "keywords": "traditional IRA, tax-advantaged retirement, tax-deferred growth, pre-tax contributions, retirement savings, financial future, open Traditional IRA, retirement account, tax benefits, traditional ira, ira accounts, retirement accounts, retirement savings, tax deferred growth, required minimum distributions, early withdrawal penalties, ira investments",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
+      "seoTitle": "Everything You Need to Know About Traditional IRAs for Retirement",
+      "slug": "traditional-ira-guide-tax-advantaged-retirement",
+      "status": "published",
+      "title": "Traditional IRA: Building a Tax-Advantaged Retirement"
+    },
+    {
+      "__outstatic": {
+        "commit": "2e99436047170e078dd359c8ce59972d93335b0f",
+        "hash": "2435174166",
+        "path": "outstatic/content/posts/blog-roth-ira-advantage-2023.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-roth-ira.png",
+      "date": "08.10.2023",
+      "description": "Transform your financial future with a Roth IRA! Discover tax-free growth, contribution limits, and a smart strategy for high-income earners.",
+      "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
+      "publishedAt": "2023-10-24T14:25:45.000Z",
+      "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
+      "slug": "blog-roth-ira-advantage-2023",
+      "status": "published",
+      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
+    },
+    {
+      "__outstatic": {
+        "commit": "eaaf6e3f35bf99e31dc755cc4d86089ca57877e5",
+        "hash": "531583576",
+        "path": "outstatic/content/posts/five-truths-about-personal-finance.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Personal Finance",
+      "collection": "posts",
+      "coverImage": "/assets/blog/five-truths-1.jpg",
+      "date": "07.14.2023",
+      "description": "Are you ready to uncover the key truths about budgeting, debt management, investing, and more that will transform your finances? This post shares 5 game-changing personal finance lessons.",
+      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances, realistic budget, tracking expenses, investing, wealth-building, good debt, bad debt, side hustles, financial check-ins, automated tools, budgeting, debt management, investing, personal finance tips",
+      "publishedAt": "2023-10-17T14:25:45.000Z",
+      "seoTitle": "5 Eye-Opening Truths About Personal Finances You Need to Know",
+      "slug": "five-truths-about-personal-finance",
+      "status": "published",
+      "title": "5 Truths About Personal Finances That Everyone Should Know About"
+    },
+    {
+      "__outstatic": {
+        "commit": "29bd4f8681abf2e68c5f27b0c0b37dcf83f72a1b",
+        "hash": "3023612933",
+        "path": "outstatic/content/posts/how-to-get-out-of-debt.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Debt Management",
+      "collection": "posts",
+      "coverImage": "/assets/blog/get-out-of-debt.png",
+      "date": "08.16.2023",
+      "description": "Discover actionable strategies to break free from debt and achieve financial freedom. Assess, budget, and implement effective payoff strategies for a brighter financial future.",
+      "keywords": "Get Out of Debt, Debt Management, Debt Repayment, Financial Freedom, Budgeting, Emergency Fund, Debt Payoff Strategies, Credit Counseling, Debt Consolidation, Financial Discipline",
+      "publishedAt": "2023-10-03T14:25:45.000Z",
+      "seoTitle": "Unlock Financial Freedom: Your Comprehensive Guide to Break Free from Debt",
+      "slug": "how-to-get-out-of-debt",
+      "status": "published",
+      "title": "Get Out of Debt: Your Path to Financial Freedom"
     }
   ]
 }
