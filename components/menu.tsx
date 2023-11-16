@@ -18,7 +18,7 @@ const navigation = [
 ]
 
 const dashboardNavigation = [
-  { name: 'VisionBoard', href: '/visionboard' },
+  // { name: 'VisionBoard', href: '/visionboard' },
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Transactions', href: '/transactions' },
   { name: 'Net Worth & Accounts', href: '/accounts' },
@@ -63,8 +63,8 @@ export default function ({ showError }) {
                       <Image
                         src='/trckfi.png'
                         alt='Trckfi'
-                        width={50}
-                        height={50}
+                        width={40}
+                        height={40}
                       />
                     </div>
                   </Link>

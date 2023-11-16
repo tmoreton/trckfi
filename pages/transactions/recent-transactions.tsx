@@ -7,7 +7,7 @@ export default function ({ data }) {
     <div>
       <p className="text-2xl font-bold text-pink-600 border-b pb-4 mb-4 text-center">Recent Transactions</p>
       <ul role="list" className="divide-y divide-gray-100">
-        {data.map((t) => (
+        {data && data?.map((t) => (
           <li key={t.id} className="flex justify-between gap-x-6 py-5">
             <div className="flex min-w-0 gap-x-4 items-center">
               <Emoji unified={t?.unified} size={20} />
