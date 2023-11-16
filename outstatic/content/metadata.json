@@ -1,6 +1,6 @@
 {
-  "commit": "eaaf6e3f35bf99e31dc755cc4d86089ca57877e5",
-  "generated": "2023-11-16T17:00:52.709Z",
+  "commit": "29bd4f8681abf2e68c5f27b0c0b37dcf83f72a1b",
+  "generated": "2023-11-16T17:07:55.931Z",
   "metadata": [
     {
       "__outstatic": {
@@ -467,27 +467,6 @@
     },
     {
       "__outstatic": {
-        "commit": "82a86544ce5824fbb92fc3bce210dee4c87bdf0a",
-        "hash": "3285465504",
-        "path": "outstatic/content/posts/how-to-get-out-of-debt.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Debt Management",
-      "collection": "posts",
-      "coverImage": "/assets/blog/get-out-of-debt.png",
-      "date": "08.16.2023",
-      "description": "Discover actionable strategies to break free from debt and achieve financial freedom. Assess, budget, and implement effective payoff strategies for a brighter financial future.",
-      "keywords": "Get Out of Debt, Debt Management, Debt Repayment, Financial Freedom, Budgeting, Emergency Fund, Debt Payoff Strategies, Credit Counseling, Debt Consolidation, Financial Discipline",
-      "publishedAt": "2023-10-03T14:25:45.000Z",
-      "seoTitle": "Unlock Financial Freedom: Your Comprehensive Guide to Break Free from Debt",
-      "slug": "how-to-get-out-of-debt",
-      "status": "published",
-      "title": "Get Out of Debt: Your Path to Financial Freedom"
-    },
-    {
-      "__outstatic": {
         "commit": "77325e489992c687cc36651cffc42c675809bd5a",
         "hash": "1477318163",
         "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
@@ -800,6 +779,27 @@
       "slug": "five-truths-about-personal-finance",
       "status": "published",
       "title": "5 Truths About Personal Finances That Everyone Should Know About"
+    },
+    {
+      "__outstatic": {
+        "commit": "29bd4f8681abf2e68c5f27b0c0b37dcf83f72a1b",
+        "hash": "3023612933",
+        "path": "outstatic/content/posts/how-to-get-out-of-debt.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Debt Management",
+      "collection": "posts",
+      "coverImage": "/assets/blog/get-out-of-debt.png",
+      "date": "08.16.2023",
+      "description": "Discover actionable strategies to break free from debt and achieve financial freedom. Assess, budget, and implement effective payoff strategies for a brighter financial future.",
+      "keywords": "Get Out of Debt, Debt Management, Debt Repayment, Financial Freedom, Budgeting, Emergency Fund, Debt Payoff Strategies, Credit Counseling, Debt Consolidation, Financial Discipline",
+      "publishedAt": "2023-10-03T14:25:45.000Z",
+      "seoTitle": "Unlock Financial Freedom: Your Comprehensive Guide to Break Free from Debt",
+      "slug": "how-to-get-out-of-debt",
+      "status": "published",
+      "title": "Get Out of Debt: Your Path to Financial Freedom"
     }
   ]
 }
