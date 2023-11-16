@@ -21,7 +21,7 @@ const dashboardNavigation = [
 
 export default function ({ currentRoute }) {
   return (
-    <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 block lg:hidden">
+    <div className="fixed bottom-0 left-0 z-50 w-full h-20 bg-white border-t border-gray-200 block lg:hidden">
       <div className="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
         {
           dashboardNavigation.map((item) => (
@@ -30,7 +30,7 @@ export default function ({ currentRoute }) {
                 <item.icon
                   className={classNames(
                     currentRoute === item.href ? 'text-pink-600' : 'text-gray-400 group-hover:text-pink-600',
-                    'h-6 w-6 shrink-0 my-1'
+                    'h-7 w-7 shrink-0 my-1'
                   )}
                   aria-hidden="true"
                 />
