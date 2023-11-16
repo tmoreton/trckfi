@@ -14,13 +14,22 @@ export default async (req, res) => {
           allowed_updates: [],
           enabled: false,
         },
-        invoice_history: {enabled: true},
-        payment_method_update: {enabled: true},
-        subscription_pause: {enabled: false},
+        invoice_history: { enabled: true },
+        payment_method_update: { enabled: true },
+        subscription_pause: { enabled: false },
         subscription_cancel: {
           cancellation_reason: {
             enabled: true,
-            options: []
+            options: [
+              'too_expensive',
+              'missing_features',
+              'switched_service',
+              'unused',
+              'customer_service',
+              'too_complex',
+              'low_quality',
+              'other'
+            ]
           },
           enabled: false,
           mode: "immediately",
