@@ -1,6 +1,6 @@
 {
   "commit": "7e2e751d447fd3b72618225dfbe119f020e2f7df",
-  "generated": "2023-11-16T15:19:03.422Z",
+  "generated": "2023-11-16T15:19:54.067Z",
   "metadata": [
     {
       "__outstatic": {
@@ -762,7 +762,7 @@
     {
       "__outstatic": {
         "commit": "7e2e751d447fd3b72618225dfbe119f020e2f7df",
-        "hash": "4153001495",
+        "hash": "3872566630",
         "path": "outstatic/content/posts/tracking-monthly-expenses.md"
       },
       "author": {

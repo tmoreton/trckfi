@@ -69,7 +69,7 @@ If you're looking to streamline this process and eliminate the hassle of manuall
 
 [![trckfi-manage-finances-tool](/images/home--1--c3OD.png)](/pricing)
 
-### 5\.The Payoff on Your Finances
+### 5\. The Payoff on Your Finances
 
 - More awareness of your spending habits so you can make intentional money decisions.
 
@@ -79,7 +79,7 @@ If you're looking to streamline this process and eliminate the hassle of manuall
 
 - Easier saving when you identify areas to cut back on. This accelerates your journey towards attaining [financial independence](/blog/achieve-financial-independence-guide-to-freedom) and freedom.
 
-[![review-expenses-track-cashflow](/images/home--11--c1Mj.png)](/pricing)
+[![review-expenses-track-cashflow](/images/home--11--g3OD.png)](/pricing)
 
 ## The Bottom Line:
 
