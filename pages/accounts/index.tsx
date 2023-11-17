@@ -22,7 +22,6 @@ import Empty from '../../components/empty'
 import AddAccounts from '../../components/add-accounts'
 import { TrashIcon } from '@heroicons/react/20/solid'
 import { DateTime } from "luxon"
-import utilServerSideDeviceDetection from '../../utils/utilServerSideDeviceDetection'
 
 const renderImg = (account) => {
   if(account?.subtype === 'real estate' || account?.subtype === 'real_estate') return (<div className="my-1.5 mr-3"><Emoji unified='1f3e0' size={35} /></div>)
@@ -40,7 +39,7 @@ const renderImg = (account) => {
   />
 }
 
-const Accounts = ({ showError, isMobile }) => {
+const Accounts = ({ showError }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [loading, setLoading] = useState(false)
@@ -375,11 +374,6 @@ const Accounts = ({ showError, isMobile }) => {
       </DashboardLayout>
     </>
   )
-}
-
-export async function getServerSideProps(context) {
-  const { isMobile } = utilServerSideDeviceDetection(context)
-  return { props: { isMobile }}
 }
 
 export default dynamic(() => Promise.resolve(Accounts), { ssr: false })
