@@ -16,9 +16,6 @@ export default function ({ email, text, active }) {
                 <p className="text-md text-gray-600">
                   A magic sign-in link has been sent to your email: <span className="text-lg font-semibold text-gray-900">{email}</span>
                 </p>
-                <p className="text-xs text-red-500">
-                  PS. Check your spam folder since it's your first email from us.
-                </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>
                 <div className="mt-1 flex items-center justify-center gap-x-6">
                   <a href="mailto:support@trckfi.com" className="text-sm font-semibold text-gray-900">

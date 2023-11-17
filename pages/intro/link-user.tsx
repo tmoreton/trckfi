@@ -35,7 +35,7 @@ export default function ({ showError }) {
   return (
     <>
       <ProgressNav width={'90%'} />
-      <div className="relative isolate">
+      <div className="relative isolate flex min-h-full flex-1 flex-col justify-center py-20">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
             { success ?
@@ -62,7 +62,7 @@ export default function ({ showError }) {
                     name="email" 
                     id="email"
                     placeholder="Email"
-                    className="w-1/2 mt-20 text-2xl mx-auto text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
+                    className="w-full lg:w-1/2 mt-20 text-2xl mx-auto text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-600 peer" 
                     required
                     value={email}
                     onChange={e => setEmail(e.target.value)}

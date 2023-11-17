@@ -56,7 +56,7 @@ export default function CreateAccount({ showError }) {
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
         <div className="sm:mx-auto sm:w-full mb-4">
           <div className="mx-auto pt-4 max-w-2xl text-center space-y-3">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-tight md:leading-none mb-4">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
               Let's Create Your Account!
             </h1>
             <p className="text-md text-gray-600">
@@ -67,7 +67,7 @@ export default function CreateAccount({ showError }) {
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="email" className="block text-sm font-small leading-6 text-pink-600 text-center">
+              <label htmlFor="email" className="block text-lg font-small leading-6 text-pink-600 text-center">
                 Email address
               </label>
               <div className="mt-2">
@@ -84,7 +84,7 @@ export default function CreateAccount({ showError }) {
             </div>
             <button
               type="submit"
-              className="flex text-center justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 mx-auto"
+              className="items-center rounded-3xl inline-flex w-full justify-center bg-pink-600 px-4 py-2 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 sm:w-auto"
             >
               Create Account
             </button>

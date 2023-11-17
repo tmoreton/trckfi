@@ -64,17 +64,17 @@ export default function () {
               <ul role="list" className="grid grid-cols-1 gap-6 my-4 lg:grid-cols-3">
                 {items.map((i, id) => (
                   <li key={id} className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
-                      <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
-                        <input onClick={() => handleChange(i)} name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
-                        <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
-                      </label>
+                    <label className="select-none container block relative cursor-pointer text-sm lg:text-xl pl-10">{i.text}
+                      <input onClick={() => handleChange(i)} name={JSON.stringify(id)} className="absolute opacity-0 left-0 top-0 cursor-pointer rounded-2xl" type="checkbox" />
+                      <span className="h-7 w-7 rounded-2xl checkmark absolute top-0 left-0 bg-gray-400"></span>
+                    </label>
                   </li>
                 ))}
               </ul>
               <button
                 type="submit"
-                className="mt-0 mb-10 lg:mt-7 w-full lg:w-fit rounded-md bg-pink-600 px-10 py-3 text-lg font-normal text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
-              >
+                className="items-center rounded-3xl inline-flex w-full justify-center bg-pink-600 px-4 py-2 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 sm:w-auto"
+                >
                 Next
               </button>
             </form>
