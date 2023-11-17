@@ -19,7 +19,7 @@ const dashboardNavigation = [
 
 export default function ({ currentRoute }) {
   return (
-    <div className="fixed bottom-0 left-0 z-50 w-full h-20 bg-white border-t border-gray-200 block lg:hidden">
+    <div className="fixed bottom-0 left-0 z-9 w-full h-20 bg-white border-t border-gray-200 block lg:hidden">
       <div className="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
         {
           dashboardNavigation.map((item) => (

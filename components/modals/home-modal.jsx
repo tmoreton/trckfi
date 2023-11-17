@@ -49,7 +49,7 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="block lg:flex min-h-full items-center justify-center p-5">
+          <div className="block lg:flex min-h-full items-center justify-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
