@@ -118,6 +118,9 @@ export default function ({ showError, title }) {
                               onClick={() => {
                                 signOut()
                                 clearLocalStorage()
+                                router.push({
+                                  pathname: '/',
+                                })
                               }}
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
@@ -167,7 +170,13 @@ export default function ({ showError, title }) {
                 <div className="my-2 space-y-1">
                   <Disclosure.Button
                     as="button"
-                    onClick={() => signOut()}
+                    onClick={() => {
+                      signOut()
+                      clearLocalStorage()
+                      router.push({
+                        pathname: '/',
+                      })
+                    }}
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                   >
                     Sign out
