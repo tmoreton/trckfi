@@ -20,7 +20,7 @@ export default function ({ showError, access_code, csrfToken, error, email }) {
   return (
     <Layout>
       <Container>
-        <Menu showError={showError}/>
+        <Menu showError={showError} title="Link User"/>
         <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Welcome to Trckfi!</h2>

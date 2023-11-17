@@ -128,7 +128,7 @@ const Dashboard = ({ showError, showIntro }) => {
   
   return (
     <div>
-      <Menu showError={showError}/>
+      <Menu showError={showError} title='Dashboard'/>
       <Notification showError={showError} />
       <DashboardLayout>
         <Snapshot totalStats={totalStats} />

@@ -175,7 +175,7 @@ export default function ({ showError }) {
 
   return (
     <>
-      <DashboardMenu showError={showError}/>
+      <DashboardMenu showError={showError} title='Recurring'/>
       <DashboardLayout>
       <LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
       <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>

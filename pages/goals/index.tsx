@@ -73,7 +73,7 @@ const Goals = ({ showError }) => {
 
   return (
     <>
-      <Menu showError={showError}/>
+      <Menu showError={showError} title="Goals"/>
       <Notification showError={showError} />
       <DashboardLayout>
         <LoadingModal refreshing={refreshing} text='Refreshing Goals...'/>
