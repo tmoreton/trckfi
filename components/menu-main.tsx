@@ -48,6 +48,16 @@ export default function ({ showError }) {
                   </Link>
                 </div>
               </div>
+              {
+                // @ts-ignore
+                user?.active &&
+                <div className="flex items-center gap-x-6 block lg:hidden justify-center fixed bottom-0 left-0 z-50 w-full bg-white mx-auto pb-5">
+                  <Link href="/dashboard" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Go To Dashboard
+                  </Link>
+                </div>
+              }
+
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   { navigation.map((item) => (
