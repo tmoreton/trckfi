@@ -233,7 +233,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg mb-[75px] mb-[75px]">
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="w-full">
                     <div className="mt-3 sm:mt-0">
@@ -409,7 +409,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                 <BellAlertIcon className="h-5 w-5 text-red-400 mr-4" aria-hidden="true"/> 
                               </button> }
                             </div>
-                            <div className="sm:flex sm:flex-row-reverse items-center">
+                            <div className="sm:flex sm:flex-row-reverse items-center py-2">
                               {
                                 transaction.new ?
                                 <PinkBtn type="submit" onClick={() => {}}>
@@ -427,12 +427,14 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                               >
                                 Cancel
                               </button>
+                              { !transaction.new &&
                               <button
                                 type="button"
                                 onClick={remove}
                               >
                                 <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
                               </button>
+                              }
                             </div>
                           </div>
                         </form>
