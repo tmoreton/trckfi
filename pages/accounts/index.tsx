@@ -36,7 +36,7 @@ const renderImg = (account) => {
       currentTarget.onerror = null;
       currentTarget.src="/assets/banks/bank.png";
     }}
-    className="h-12 w-12 rounded-md object-cover lg:block hidden mr-4"
+    className="h-8 w-8 lg:h-12 lg:w-12 rounded-md object-cover mr-4"
   />
 }
 
@@ -322,7 +322,7 @@ const Accounts = ({ showError, isMobile }) => {
                                           </button>
                                         </div>
                                       ))}
-                                      <div className="flex items-center pt-10 justify-between text-[10px]">
+                                      <div className="flex items-center pt-5 justify-between text-[10px]">
                                         <div className="flex items-center justify-center">
                                           <p className="leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
                                           <p className="text-gray-400 pr-10">{DateTime.fromISO(accounts[key][0]?.plaid?.updated_at || accounts[key][0].updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
