@@ -178,7 +178,7 @@ export default function ({ showError }) {
     <>
       <DashboardMenu showError={showError} title='Recurring'/>
       <DashboardLayout>
-      <LoadingModal refreshing={loading} text='Looking for Recurring Transactions...'/>
+      <LoadingModal refreshing={loading} />
       <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
       <header className="flex items-end justify-center pt-10 lg:py-2 lg:flex-none">
         <h1 className="text-3xl font-semibold leading-6 text-pink-600 absolute mb-3">

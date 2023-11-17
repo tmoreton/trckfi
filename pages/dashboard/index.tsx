@@ -146,7 +146,7 @@ const Dashboard = ({ showError, showIntro }) => {
             </div>
           </div>
         </div>
-        <LoadingModal refreshing={refreshing} text='Updating Your Dashboard...'/>
+        <LoadingModal refreshing={refreshing} />
       </DashboardLayout>
     </div>
   )

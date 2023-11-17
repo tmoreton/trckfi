@@ -228,7 +228,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
           <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
           <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
           <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
-          <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
+          <LoadingModal refreshing={refreshing} />
         </DashboardLayout>      
       </div>
     </>

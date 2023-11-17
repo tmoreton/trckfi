@@ -96,7 +96,7 @@ const MobileDashboard = ({ showError }) => {
                 <Emoji unified={t?.unified} size={20} />
                 <div className="min-w-0 flex-auto">
                   <p className="text-md font-semibold leading-6 text-gray-900 truncate">{t?.custom_name || t?.merchant_name || t?.name}</p>
-                  <p className="mt-1 truncate text-xs leading-5 text-gray-500">{t?.account?.name}</p>
+                  <p className="mt-1 truncate text-xs leading-5 text-gray-500">{t?.account?.name || t?.account_name}</p>
                 </div>
               </div>
               <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
@@ -110,7 +110,7 @@ const MobileDashboard = ({ showError }) => {
             </li>
           ))}
         </ul>
-        <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
+        <LoadingModal refreshing={refreshing} />
       </DashboardLayout>
     </div>
   )

@@ -35,7 +35,7 @@ export default function ({ email, csrfToken }) {
     showError(error)
   }
 
-  return loading ? <LoadingModal refreshing={loading} text='Creating your Account...'/> : <CheckEmail email={email} active={true} text="Let's tackle our finances! 💸"/>
+  return loading ? <LoadingModal refreshing={loading} /> : <CheckEmail email={email} active={true} text="Let's tackle our finances! 💸"/>
 }
 
 export async function getServerSideProps(context) {

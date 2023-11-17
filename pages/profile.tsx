@@ -167,7 +167,7 @@ const Profile = ({ showError }) => {
     <>
       <Menu showError={showError} title='Profile'/>
       <DashboardLayout>
-        <LoadingModal refreshing={refreshing} text='Gathering Details...'/>
+        <LoadingModal refreshing={refreshing} />
         <div className="bg-pink-100 rounded-2xl">
           <div className="mx-auto max-w-7xl px-6 py-5 sm:py-10 lg:flex lg:items-center lg:justify-between lg:px-8 mb-6">
             <div>

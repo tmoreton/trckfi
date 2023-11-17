@@ -52,7 +52,7 @@ export default function CreateAccount({ showError }) {
   return (
     <>
       <ProgressNav width={'30%'} />
-      <LoadingModal refreshing={refreshing} text='Creating Your Account...'/>
+      <LoadingModal refreshing={refreshing}/>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
         <div className="sm:mx-auto sm:w-full mb-4">
           <div className="mx-auto pt-4 max-w-2xl text-center space-y-3">

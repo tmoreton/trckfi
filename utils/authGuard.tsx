@@ -45,8 +45,7 @@ export default function ({ children }) {
 
   // if the user refreshed the page or somehow navigated to the protected page
   if (loading) {
-    return null
-    return <LoadingModal refreshing={loading} text='Loading...'/>
+    return <LoadingModal refreshing={loading}/>
   }
 
   // if the user is authorized, render the page
