@@ -5,14 +5,23 @@ import Icon from '../../components/icon';
 import Link from 'next/link'
 import  { clearLocalStorage } from '../../utils/useLocalStorage'
 import CheckEmail from '../../components/check-email'
+import { useSession } from "next-auth/react"
 
 export default function SignIn({ csrfToken, showError }) {
+  const { data: session } = useSession()
+  const user = session?.user
   const [email, setEmail] = useState('')
   const [text, setText] = useState(null)
   const [active, setActive] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
+    // @ts-ignore
+    if(user && user?.active){
+      router.push({
+        pathname: '/dashboard',
+      })
+    }
     clearLocalStorage()
   }, [])
 
