@@ -61,7 +61,8 @@ export const authOptions = {
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
   session: {
-    maxAge: 24 * 60 * 60, // 24 hours
+    // maxAge: 24 * 60 * 60, // 24 hours
+    maxAge: 60 * 60 * 24 * 7, // 7 days
   },
   callbacks: {
     async session(session, user) {
