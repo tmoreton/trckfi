@@ -27,7 +27,7 @@ export default function ({ showError }) {
 
   return (
     <>
-      <Menu showError={showError}/>
+      <Menu showError={showError} title='Feedback'/>
       <DashboardLayout>
         <Container>
           <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">

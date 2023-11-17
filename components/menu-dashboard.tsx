@@ -8,6 +8,7 @@ import LoginBtn from './login-btn'
 import { useSession, signOut } from "next-auth/react"
 import Image from 'next/image'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
+import TopNav from './top-nav'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -17,29 +18,19 @@ const navigation = [
   { name: 'FAQ', href: '/faq' },
 ]
 
-const dashboardNavigation = [
-  // { name: 'VisionBoard', href: '/visionboard' },
-  { name: 'Dashboard', href: '/dashboard' },
-  { name: 'Transactions', href: '/transactions' },
-  { name: 'Net Worth & Accounts', href: '/accounts' },
-  { name: 'Recurring Charges', href: '/recurring' },
-  { name: 'Goals', href: '/goals'},
-  { name: 'Profile', href: '/profile' },
-]
-
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/profile', '/recurring', '/goals', '/calendar', '/transactions']
-
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ({ showError }) {
+export default function ({ showError, title }) {
   const { data: session } = useSession()
   const user = session?.user
   const router = useRouter()
   const currentRoute = router.pathname
 
   return (
+    <>
+    <TopNav currentRoute={currentRoute} title={title}/>
     <Disclosure as="nav" className="container mx-auto px-5 bg-white hidden lg:block">
       {({ open }) => (
         <>
@@ -190,5 +181,6 @@ export default function ({ showError }) {
         </>
       )}
     </Disclosure>
+    </>
   )
 }

@@ -200,7 +200,7 @@ const Accounts = ({ showError, isMobile }) => {
 
   return (
     <>
-      <Menu showError={showError}/>
+      <Menu showError={showError} title='Accounts' />
       <DashboardLayout>
         <LoadingModal refreshing={refreshing} text='Updating Your Accounts...'/>
         <EditAccountModal showError={showError} open={openEdit} setOpen={setOpenEdit} user={user} account={account} setAccount={setAccount} getNetWorth={refresh}/>

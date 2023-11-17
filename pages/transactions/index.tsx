@@ -16,7 +16,7 @@ import ImportModal from '../../components/modals/import-modal'
 import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
-import RecentTransactions from './mobile'
+import MobileTransactions from './mobile'
 import utilServerSideDeviceDetection from '../../utils/utilServerSideDeviceDetection'
 
 const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
@@ -217,21 +217,23 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
   }
   
   return (
-    <div>
-      <Menu showError={showError}/>
-      <Notification showError={showError} />
-      <DashboardLayout>
-        <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
-        <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
-        <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
-        {isMobile ?
-          <RecentTransactions data={transactions} setEdit={setEdit}/>
-          :
+    <>
+    { isMobile ?
+      <MobileTransactions showError={showError}/>
+      :
+      <div>
+        <Menu showError={showError} title='Transactions'/>
+        <Notification showError={showError} />
+        <DashboardLayout>
+          <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
+          <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
+          <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
           <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
-        }
-        <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
-      </DashboardLayout>
-    </div>
+          <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
+        </DashboardLayout>      
+      </div>
+    }
+    </>
   )
 }
 

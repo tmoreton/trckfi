@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import {
   ChartBarIcon,
-  UserCircleIcon,
   HomeIcon,
   SparklesIcon,
   ArrowPathIcon,
@@ -11,11 +10,10 @@ import { classNames } from '../lib/lodash'
 
 const dashboardNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
-  { name: 'Transactions', href: '/transactions', icon: CreditCardIcon },
+  { name: 'Transactions', href: '/transactions/mobile', icon: CreditCardIcon },
   { name: 'Accounts', href: '/accounts', icon: ChartBarIcon },
   { name: 'Recurring', href: '/recurring', icon: ArrowPathIcon },
   { name: 'Goals', href: '/goals', icon: SparklesIcon },
-  // { name: 'Profile', href: '/profile', icon: UserCircleIcon },
   // { name: 'Feedback', href: '/feedback', icon: ChatBubbleLeftEllipsisIcon },
 ]
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Switch } from '@headlessui/react'
 import Layout from "../components/layout"
-import Menu from '../components/menu-dashboard'
+import Menu from '../components/menu-main'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

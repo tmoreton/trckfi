@@ -165,7 +165,7 @@ const Profile = ({ showError }) => {
 
   return (
     <>
-      <Menu showError={showError}/>
+      <Menu showError={showError} title='Profile'/>
       <DashboardLayout>
         <LoadingModal refreshing={refreshing} text='Gathering Details...'/>
         <div className="bg-pink-100 rounded-2xl">

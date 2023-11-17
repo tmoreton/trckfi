@@ -12,7 +12,6 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import BottomNav from './bottom-nav'
-import TopNav from './top-nav'
 
 const secondaryNavigation = [
   { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
@@ -34,7 +33,6 @@ export default function ({ children }) {
   const currentRoute = router.pathname
   return (
       <Container>
-        <TopNav currentRoute={currentRoute}/>
         <div className="mx-auto lg:flex lg:gap-x-0">
           <aside className="hidden lg:flex overflow-x-auto border-b border-gray-900/5 lg:block lg:flex-none lg:border-0">
             <nav className="flex-none px-4 sm:px-6 lg:px-0 lg:pr-8">

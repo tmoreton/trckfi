@@ -20,7 +20,7 @@ export default function ({ showError, showIntro }) {
 
   return (
     <>
-      <Menu showError={showError}/>
+      <Menu showError={showError} title='Visionboard'/>
       <DashboardLayout>
         <div className="visionboard-step">
           <div className="hidden md:block">
