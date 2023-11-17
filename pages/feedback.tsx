@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react"
 import { useState } from 'react'
 import Container from '../components/container'
-import Menu from '../components/menu'
+import Menu from '../components/menu-dashboard'
 import DashboardLayout from "../components/dashboard-layout"
 
 export default function ({ showError }) {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ClockIcon } from '@heroicons/react/20/solid'
 import DashboardLayout from "../components/dashboard-layout"
-import DashboardMenu from '../components/menu'
+import DashboardMenu from '../components/menu-dashboard'
 import { DateTime, Interval } from "luxon"
 import { useSession } from "next-auth/react"
 import { commaShort } from '../lib/lodash'

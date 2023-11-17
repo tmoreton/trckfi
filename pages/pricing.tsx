@@ -3,7 +3,7 @@ import { RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Container from '../components/container'
 import Layout from '../components/layout'
-import Menu from '../components/menu'
+import MainMenu from '../components/menu-main'
 import getStripe from '../utils/get-stripejs'
 import { useRouter } from 'next/router'
 import EmailModal from '../components/modals/email-modal'
@@ -112,7 +112,7 @@ export default function Pricing ({ showError }) {
 
   return (
     <Layout>
-      <Menu showError={showError}/>
+      <MainMenu showError={showError}/>
       <EmailModal open={open} setOpen={setOpen} showError={showError}/>
       <Container>
         <div className="bg-white">

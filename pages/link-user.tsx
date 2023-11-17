@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Container from '../components/container'
 import Layout from '../components/layout'
-import Menu from '../components/menu'
+import Menu from '../components/menu-dashboard'
 import { getSession } from 'next-auth/react'
 import { getCsrfToken } from "next-auth/react"
 import prisma from '../lib/prisma'

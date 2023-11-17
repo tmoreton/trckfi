@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from '../components/dashboard-layout'
-import Menu from '../components/menu'
+import Menu from '../components/menu-dashboard'
 import { useRouter } from 'next/router'
 
 const Editor = dynamic(() => import('../components/editor'), { ssr: false })

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic' 
 import DashboardLayout from "../../components/dashboard-layout"
 import { useSession } from "next-auth/react"
-import Menu from '../../components/menu'
+import Menu from '../../components/menu-dashboard'
 import Notification from '../../components/notification'
 import { useLocalStorage } from '../../utils/useLocalStorage'
 import LoadingModal from '../../components/modals/loading-modal'

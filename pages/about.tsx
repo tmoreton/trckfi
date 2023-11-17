@@ -1,6 +1,6 @@
 import Container from '../components/container'
 import Layout from '../components/layout'
-import Menu from '../components/menu'
+import MainMenu from '../components/menu-main'
 import Image from 'next/image'
 
 const team = [
@@ -19,7 +19,7 @@ const team = [
 export default function About({ showError }) {
   return (
     <Layout>
-      <Menu showError={showError}/>
+      <MainMenu showError={showError}/>
       <Container>
         <div className="bg-white">
           <main className="isolate">

@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import Layout from '../components/layout'
-import Menu from '../components/menu'
+import MainMenu from '../components/menu-main'
 import Hero from "../components/homepage/hero"
 import AccountNetworth from "../components/homepage/account-networth"
 import Visonboard from '../components/homepage/visionboard'
 import EarlyAccess from '../components/early_access'
-import EmailModal from '../components/modals/email-modal'
 import BundleModal from '../components/modals/bundle-modal'
 
 import  { useLocalStorage } from '../utils/useLocalStorage'
@@ -36,8 +35,7 @@ export default function Index({ showError }) {
 
   return (
     <Layout>
-      <Menu showError={showError}/>
-      {/* <EmailModal open={open} setOpen={setOpen} showError={showError}/> */}
+      <MainMenu showError={showError}/>
       <BundleModal open={open} setOpen={setOpen} />
       <Hero />
       <AccountNetworth />

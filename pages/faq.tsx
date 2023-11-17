@@ -1,4 +1,4 @@
-import Menu from '../components/menu'
+import MainMenu from '../components/menu-main'
 import Container from "../components/container"
 import Layout from "../components/layout"
 import { Disclosure } from '@headlessui/react'
@@ -120,7 +120,7 @@ const faqs = [
 export default function ({ showError }) {
   return (
     <Layout>
-      <Menu showError={showError} />
+      <MainMenu showError={showError} />
       <Container>
         <div className="bg-white">
           <div className="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8">

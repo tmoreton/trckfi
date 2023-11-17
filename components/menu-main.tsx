@@ -13,21 +13,9 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
   { name: 'Pricing', href: '/pricing' },
-  // { name: 'About', href: '/about' },
+  { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
 ]
-
-const dashboardNavigation = [
-  // { name: 'VisionBoard', href: '/visionboard' },
-  { name: 'Dashboard', href: '/dashboard' },
-  { name: 'Transactions', href: '/transactions' },
-  { name: 'Net Worth & Accounts', href: '/accounts' },
-  { name: 'Recurring Charges', href: '/recurring' },
-  { name: 'Goals', href: '/goals'},
-  { name: 'Profile', href: '/profile' },
-]
-
-const secondaryNavigation = [ '/visionboard', '/dashboard', '/accounts', '/profile', '/recurring', '/goals', '/calendar', '/transactions']
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -40,7 +28,7 @@ export default function ({ showError }) {
   const currentRoute = router.pathname
 
   return (
-    <Disclosure as="nav" className="container mx-auto px-5 bg-white hidden lg:block">
+    <Disclosure as="nav" className="container mx-auto px-5 bg-white">
       {({ open }) => (
         <>
           <div>
@@ -49,7 +37,7 @@ export default function ({ showError }) {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <Link href='/'>
-                    <div className="f-m-1.5 p-1.5 flex justify-center items-center hidden lg:block">
+                    <div className="f-m-1.5 p-1.5 flex justify-center items-center">
                       <Image
                         src='/trckfi-logo-beta.png'
                         alt='Trckfi'
@@ -62,7 +50,7 @@ export default function ({ showError }) {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {!secondaryNavigation.includes(currentRoute) && navigation.map((item) => (
+                  { navigation.map((item) => (
                     <Link href={item.href} key={item.name} className={currentRoute === item.href ? "text-lg font-bold text-pink-600 px-3 py-2" : "text-lg text-gray-900 px-3 py-2 font-semibold"}>
                       {item.name}
                     </Link>
@@ -168,19 +156,7 @@ export default function ({ showError }) {
           <Disclosure.Panel>
             <div className="space-y-1 px-2 py-2 border-b border-gray-300 my-4">
               {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-              {!secondaryNavigation.includes(currentRoute) ? 
-                navigation.map((item) => (
-                  <Disclosure.Button
-                    as="a"
-                    href={item.href}
-                    key={item.name}
-                    className={currentRoute === item.href ? "block font-bold text-pink-600 px-3 py-2" : "block text-gray-900 px-3 py-2"}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                ))
-                :
-                dashboardNavigation.map((item) => (
+              { navigation.map((item) => (
                   <Disclosure.Button
                     as="a"
                     href={item.href}

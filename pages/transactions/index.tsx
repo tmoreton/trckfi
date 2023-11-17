@@ -10,7 +10,7 @@ import { DateTime } from "luxon"
 import { Emoji } from 'emoji-picker-react';
 import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../../utils/useLocalStorage'
-import Menu from '../../components/menu'
+import Menu from '../../components/menu-dashboard'
 import Notification from '../../components/notification'
 import ImportModal from '../../components/modals/import-modal'
 import { DropdownFilter, TextSearchFilter } from "../../utils/filter";

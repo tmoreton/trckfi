@@ -6,7 +6,7 @@ import LoadingModal from '../../components/modals/loading-modal'
 import Graphs from '../../components/graphs'
 import { useSession } from "next-auth/react"
 import { useLocalStorage } from '../../utils/useLocalStorage'
-import Menu from '../../components/menu'
+import Menu from '../../components/menu-dashboard'
 import Notification from '../../components/notification'
 import { useRouter } from 'next/router'
 import UpcomingRecurring from '../../components/upcoming_recurring'

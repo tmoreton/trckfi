@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import DashboardLayout from '../components/dashboard-layout'
 import { Switch } from '@headlessui/react'
 import { signOut, useSession } from "next-auth/react"
-import Menu from '../components/menu'
+import Menu from '../components/menu-dashboard'
 import Rules from '../components/rules'
 import { useRouter } from 'next/router'
 import ConfettiExplosion from 'react-confetti-explosion'

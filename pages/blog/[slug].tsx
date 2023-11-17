@@ -7,7 +7,7 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import markdownToHtml from '../../lib/markdownToHtml'
-import Menu from '../../components/menu'
+import Menu from '../../components/menu-dashboard'
 import Newsletter from '../../components/early_access'
 
 export default function Post({ post, preview, showError }) {
