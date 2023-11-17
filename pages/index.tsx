@@ -6,7 +6,6 @@ import AccountNetworth from "../components/homepage/account-networth"
 import Visonboard from '../components/homepage/visionboard'
 import EarlyAccess from '../components/early_access'
 import BundleModal from '../components/modals/bundle-modal'
-
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import { useRouter } from 'next/router'
 

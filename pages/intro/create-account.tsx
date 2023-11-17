@@ -64,7 +64,7 @@ export default function CreateAccount({ showError }) {
             </p>
           </div>
         </div>
-        <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm text-center">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-lg font-small leading-6 text-pink-600 text-center">
