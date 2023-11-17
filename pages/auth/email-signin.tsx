@@ -29,9 +29,8 @@ export default function SignIn({ csrfToken, showError }) {
     })
     const { text, active } = await res.json()
     setActive(active)
-
-    
     setText(text)
+    
     await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
       body: JSON.stringify({ 
         email,
