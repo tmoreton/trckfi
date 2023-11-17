@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { TrashIcon, BellAlertIcon, XCircleIcon } from '@heroicons/react/20/solid'
+import { TrashIcon, BellAlertIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import EmojiPicker from 'emoji-picker-react'
 import { Emoji } from 'emoji-picker-react'
 import { PinkBtn } from '../pink-btn'
@@ -243,6 +243,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                           <Emoji unified={transaction.unified} size={25} />
                         </span>
                       </Dialog.Title>
+                      <XMarkIcon onClick={() => setEdit({})} className="h-10 w-10 absolute top-2 right-2"/>
                       { showEmoji ? 
                       <EmojiPicker onEmojiClick={updateEmoji}/> 
                       :

@@ -225,7 +225,7 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
         <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
         <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
         {isMobile ?
-          <RecentTransactions data={transactions}/>
+          <RecentTransactions data={transactions} setEdit={setEdit}/>
           :
           <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
         }
