@@ -35,7 +35,6 @@ export default function ({ showError }) {
   let startDate = today.startOf('month')
   let endDate = today.endOf('month')
   const [allRecurring, setAllRecurring] = useLocalStorage('all_recurring_payments', null)
-  
   const [selectedDay, setSelected] = useState({ 
     date: today.toFormat('yyyy-LL-dd'),
     isCurrentMonth: true,
@@ -60,6 +59,7 @@ export default function ({ showError }) {
       method: 'POST',
     })
     const { all } = await res.json()
+    console.log(all)
     setAllRecurring(all)
     setCal()
   }
@@ -70,11 +70,13 @@ export default function ({ showError }) {
     let intervals = Interval.fromDateTimes(startDate.minus({ days: minus }).startOf("day"), endDate.plus({ days: add }).endOf("day")).splitBy({ day: 1 }).map(d => {
       let events = allRecurring?.filter(i => i.upcoming_date === d.start.toFormat('yyyy-LL-dd'))
       if(today.toFormat('LLLL') !== d.start.toFormat('LLLL')){
-        return { 
+        const todayItem = { 
           date: d.start.toFormat('yyyy-LL-dd'),
           isCurrentMonth: false,
           events: events || [],
         }
+        setSelected(todayItem)
+        return todayItem
       } else {
         return { 
           date: d.start.toFormat('yyyy-LL-dd'),
@@ -247,6 +249,7 @@ export default function ({ showError }) {
                 <button
                   key={day.date}
                   type="button"
+                  onClick={() => setSelected(day)}
                   className={classNames(
                     day.isCurrentMonth ? 'bg-white' : 'bg-gray-50',
                     (day.isSelected || day.isToday) && 'font-semibold',
@@ -284,21 +287,32 @@ export default function ({ showError }) {
         {selectedDay?.events.length > 0 && (
           <div className="px-4 py-10 sm:px-6 lg:hidden">
             <ol className="divide-y divide-gray-100 overflow-hidden rounded-lg bg-white text-sm shadow ring-1 ring-black ring-opacity-5">
-              {selectedDay.events.map((event) => (
-                <li key={event.id} className="group flex p-4 pr-6 focus-within:bg-gray-50 hover:bg-gray-50">
+              {selectedDay.events.map((e) => (
+                <li key={e.id} className="group flex p-4 pr-6 focus-within:bg-gray-50 hover:bg-gray-50">
                   <div className="flex-auto">
-                    <p className="font-semibold text-gray-900">{event.name}</p>
-                    <time dateTime={event.datetime} className="mt-2 flex items-center text-gray-700">
+                    <div className="flex items-center pb-3 justify-between">
+                      <div className="flex items-center justify-between">
+                        <Emoji unified={e?.unified} size={30} />
+                        <div className="ml-3">
+                          <p className="text-base font-semibold text-gray-900">{e.custom_name || e.merchant_name || e.name}</p>
+                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">{e?.account?.name}</p>
+                        </div>
+                      </div>
+                      <p className={classNames(Math.trunc(e.amount) < 0 ? "text-green-600" : "text-red-600", "font-bold text-base")}>
+                          {commaShort(e?.amount)} 
+                      </p>
+                    </div>
+                    <time dateTime={e.date} className="mt-2 flex items-center text-gray-700">
                       <ClockIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                      {event.time}
+                      <span>{DateTime.fromISO(e.date).toFormat('MMM dd')}</span>
                     </time>
                   </div>
-                  <a
-                    href={event.href}
+                  {/* <button
+                    // href={event.href}
                     className="ml-6 flex-none self-center rounded-md bg-white px-3 py-2 font-semibold text-gray-900 opacity-0 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400 focus:opacity-100 group-hover:opacity-100"
                   >
-                    Edit<span className="sr-only">, {event.name}</span>
-                  </a>
+                    Edit
+                  </button> */}
                 </li>
               ))}
             </ol>

@@ -23,6 +23,9 @@ export default async (req, res) => {
           { primary_category: 'LOAN_PAYMENTS' },
         ],
       },
+      include: {
+        account: true
+      },
       orderBy: {
         date: 'asc'
       },
@@ -39,6 +42,9 @@ export default async (req, res) => {
         NOT: [
           { primary_category: 'LOAN_PAYMENTS' },
         ],
+      },
+      include: {
+        account: true
       },
       orderBy: {
         upcoming_date: 'asc'
