@@ -30,23 +30,25 @@ export default function SignIn({ csrfToken, showError }) {
     const { text, active } = await res.json()
     setActive(active)
 
-    if(active){
-      setText(text)
-      await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
-        body: JSON.stringify({ 
-          email,
-          csrfToken
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      })
-    } else {
-      router.push({
-        pathname: '/intro/setup-account',
-      })
-    }
+    
+    setText(text)
+    await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
+      body: JSON.stringify({ 
+        email,
+        csrfToken
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+    
+    // if(active){
+    // } else {
+    //   router.push({
+    //     pathname: '/intro/setup-account',
+    //   })
+    // }
   }
 
   return (

@@ -129,7 +129,7 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
     {
       Header: "Name",
       id: "name",
-      accessor: data => data.custom_name || data.merchant_name || data.name,
+      accessor: data => data?.custom_name || data?.merchant_name || data?.name,
       style: "min-w-[200px] w-1/4 mr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: TextSearchFilter
     },
@@ -139,7 +139,7 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
       accessor: data => data?.account?.name,
       Cell: ({ cell: value }) => {
         if(value.row.original.account){
-          return <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account.name.split(' ').slice(0, 3).join(' ')}</div>
+          return <div className="inline-flex"><span className="mr-2">{renderImg(value.row.original.account)}</span> {value.row.original.account?.name?.split(' ').slice(0, 3).join(' ')}</div>
         }
         return value.row.original.account_name
       },

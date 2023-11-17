@@ -262,7 +262,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                 onChange={e => setTransaction({ ...transaction, account_id: e.value })}
                                 // @ts-ignore
                                 defaultValue={{ label: transaction?.account?.name, value: transaction.account_id }}
-                                options={accounts.map(a => ({ label: a.name, value: a.id}))}
+                                options={accounts.map(a => ({ label: a?.name, value: a?.id}))}
                                 styles={colourStyles}
                               />
                             </div>
