@@ -284,7 +284,7 @@ export default function ({ showError }) {
           </div>
         </div>
         {selectedDay?.events.length > 0 && (
-          <div className="px-4 py-10 sm:px-6 lg:hidden">
+          <div className="py-10 lg:hidden">
             <ol className="divide-y divide-gray-100 overflow-hidden rounded-lg bg-white text-sm shadow ring-1 ring-black ring-opacity-5">
               {selectedDay.events.map((e) => (
                 <li key={e.id} className="group flex p-4 pr-6 focus-within:bg-gray-50 hover:bg-gray-50">
