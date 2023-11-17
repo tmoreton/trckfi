@@ -4,6 +4,7 @@ import { XMarkIcon, CheckBadgeIcon, FaceFrownIcon } from '@heroicons/react/20/so
 import ConfettiExplosion from 'react-confetti-explosion'
 import { useSession } from "next-auth/react"
 import Image from 'next/image'
+import { classNames } from '../lib/lodash'
 
 export default function ({ showError }) {
   const [show, setShow] = useState(false)
@@ -66,7 +67,12 @@ export default function ({ showError }) {
     <>
       <div
         aria-live="assertive"
-        className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6 z-20"
+        className={classNames(
+          show
+            ? 'bg-white bg-opacity-75 transition-opacity'
+            : ' lg:bg-transparent',
+          'pointer-events-none fixed inset-0 flex px-4 py-6 sm:items-start sm:p-6 z-20'
+        )}
       >
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
           <Transition
@@ -79,7 +85,7 @@ export default function ({ showError }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div style={{backgroundColor: '#db2777'}} className=" pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div style={{backgroundColor: '#db2777'}} className="pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 pt-0.5">
