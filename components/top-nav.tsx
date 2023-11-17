@@ -19,7 +19,7 @@ export default function ({ currentRoute, title }) {
             height={35}
           />
         </div>
-        <p className="text-xl font-bold text-pink-600 pt-5 text-center mb-2 pb-2 col-span-4">{capitalizeFirstLetter(title)}</p>
+        <p className="text-xl font-bold text-pink-600 pt-5 text-center mb-2 pb-2 col-span-4">{title && capitalizeFirstLetter(title)}</p>
         <Link href='/profile' className={currentRoute === '/profile' ? "block font-bold text-pink-600 text-center" : "block text-gray-900 text-center"}>
           <button type="button">
             <UserCircleIcon

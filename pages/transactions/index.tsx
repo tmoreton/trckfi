@@ -218,21 +218,20 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
   
   return (
     <>
-    { isMobile ?
-      <MobileTransactions showError={showError}/>
-      :
-      <div>
+      <div className="block lg:hidden">
+        <MobileTransactions showError={showError}/>
+      </div>
+      <div className="hidden lg:block">
         <Menu showError={showError} title='Transactions'/>
         <Notification showError={showError} />
         <DashboardLayout>
-          <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
           <TransactionModal user={user} selected={selected} showError={showError} item={item} setEdit={setEdit} transactions={transactions} setTransactions={setTransactions}/>
+          <RemoveTransactionModal open={removeItem} setOpen={setRemoveItem} deleteRow={deleteRow}/>
           <ImportModal user={user} open={showImport} setOpen={setShowImport} getTransactions={getTransactions} setSuccess={setSuccess} />
           <Table setShowImport={setShowImport} user={user} setEdit={setEdit} selected={selected} setSelected={setSelected} columns={columns} data={transactions} datePicker={datePicker}/>
           <LoadingModal refreshing={refreshing} text='Updating Your Transactions...'/>
         </DashboardLayout>      
       </div>
-    }
     </>
   )
 }

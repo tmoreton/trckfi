@@ -39,7 +39,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
   const [transaction, setTransaction] = useState(defaultTransaction)
   const [ids, setIds] = useState([])
   const [showEmoji, updateShowEmoji] = useState(false)
-  const [startDate, setStartDate] = useState(null)
+  const [startDate, setStartDate] = useState(DateTime.now().toISO())
   const [alertDate, setAlertDate] = useState(null)
   const [accounts, setAccounts] = useState([])
   const [primary_categories, setPrimary] = useState([])
