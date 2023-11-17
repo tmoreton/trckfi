@@ -59,7 +59,6 @@ export default function ({ showError }) {
       method: 'POST',
     })
     const { all } = await res.json()
-    console.log(all)
     setAllRecurring(all)
     setCal()
   }
@@ -294,8 +293,8 @@ export default function ({ showError }) {
                       <div className="flex items-center justify-between">
                         <Emoji unified={e?.unified} size={30} />
                         <div className="ml-3">
-                          <p className="text-base font-semibold text-gray-900">{e.custom_name || e.merchant_name || e.name}</p>
-                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">{e?.account?.name}</p>
+                          <p className="text-base font-semibold text-gray-900 trunc">{e.custom_name || e.merchant_name || e.name}</p>
+                          <p className="mt-1 truncate text-xs leading-5 text-gray-500 trunc">{e?.account?.name}</p>
                         </div>
                       </div>
                       <p className={classNames(Math.trunc(e.amount) < 0 ? "text-green-600" : "text-red-600", "font-bold text-base")}>
