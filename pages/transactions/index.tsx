@@ -17,9 +17,8 @@ import { DropdownFilter, TextSearchFilter } from "../../utils/filter";
 import { addComma } from '../../lib/lodash'
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid'
 import MobileTransactions from './mobile'
-import utilServerSideDeviceDetection from '../../utils/utilServerSideDeviceDetection'
 
-const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
+const Dashboard = ({ showError, showIntro, setSuccess }) => {
   const { data: session } = useSession()
   const user = session?.user
   const [refreshing, setRefreshing] = useState(false)
@@ -234,11 +233,6 @@ const Dashboard = ({ showError, showIntro, setSuccess, isMobile }) => {
       </div>
     </>
   )
-}
-
-export async function getServerSideProps(context) {
-  const { isMobile } = utilServerSideDeviceDetection(context)
-  return { props: { isMobile }}
 }
 
 export default dynamic(() => Promise.resolve(Dashboard), { ssr: false })
