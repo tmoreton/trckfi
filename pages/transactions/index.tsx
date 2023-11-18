@@ -28,10 +28,14 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
   const [showImport, setShowImport] = useState(false)
   const [selected, setSelected] = useState([])
   const [transactions, setTransactions] = useLocalStorage('transactions', null)
-  const [dates, setDates] = useLocalStorage('transaction_dates', {
+  const [dates, setDates] = useState({
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
+  // const [dates, setDates] = useLocalStorage('transaction_dates', {
+  //   startDate: DateTime.now().toISO(),
+  //   endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
+  // })
   
   useEffect(() => {
     if(!transactions){
