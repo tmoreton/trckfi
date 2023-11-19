@@ -2,7 +2,6 @@
 import prisma from '../../lib/prisma'
 import slackMessage from '../../utils/slackMessage'
 import { client } from "../../trigger";
-import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
   const { user } = req.body
@@ -20,10 +19,6 @@ export default async (req, res) => {
     })
     
     for (let p in plaid) {
-      const item = await plaidClient.itemGet({
-        access_token: plaid[p].access_token
-      })
-      console.log(item)
       await client.sendEvent({
         name: "sync.plaid",
         payload: { access_token: plaid[p].access_token, item_id: plaid[p].item_id, user_id: plaid[p].user_id, institution: plaid[p].institution },
