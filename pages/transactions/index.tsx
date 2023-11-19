@@ -32,10 +32,6 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
   })
-  // const [dates, setDates] = useLocalStorage('transaction_dates', {
-  //   startDate: DateTime.now().toISO(),
-  //   endDate: DateTime.now().minus({ months: 6 }).startOf('month').toISO()
-  // })
   
   useEffect(() => {
     if(!transactions){
