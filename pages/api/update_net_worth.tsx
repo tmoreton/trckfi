@@ -2,20 +2,28 @@
 import prisma from '../../lib/prisma'
 import slackMessage from '../../utils/slackMessage'
 import { client } from "../../trigger";
+import plaidClient from '../../utils/plaid';
 
 export default async (req, res) => {
   const { user } = req.body
   if (!user) return res.status(500).json({ error: 'No User or Account Info' })
-  
+
+  const { id, linked_user_id } = user
+  const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
+
   try {
     const plaid = await prisma.plaid.findMany({
       where: {
-        active: true,
-        user_id: user.id
+        OR: query,
+        active: true
       },
     })
-
+    
     for (let p in plaid) {
+      const item = await plaidClient.itemGet({
+        access_token: plaid[p].access_token
+      })
+      console.log(item)
       await client.sendEvent({
         name: "sync.plaid",
         payload: { access_token: plaid[p].access_token, item_id: plaid[p].item_id, user_id: plaid[p].user_id, institution: plaid[p].institution },
