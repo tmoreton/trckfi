@@ -58,7 +58,7 @@ export default function ({ showError }) {
                   Trckfi works best when your accounts are connected to be able to best track your finances in one place.
                 </p>
                 <ChevronDoubleDownIcon className="animate-bounce h-12 w-12 text-pink-600 text-center mx-auto my-5" aria-hidden="true" />
-                <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
+                <PlaidLink error_code={null} user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
               </div>
             }
           </div>

@@ -326,8 +326,8 @@ const Accounts = ({ showError }) => {
                                           <p className="leading-5 text-gray-500 font-semibold pr-2">Last Updated:</p>
                                           <p className="text-gray-400 pr-10">{DateTime.fromISO(accounts[key][0]?.plaid?.updated_at || accounts[key][0].updated_at).toLocaleString(DateTime.DATETIME_SHORT)}</p>
                                         </div>
-                                        { error_code === 'ITEM_LOGIN_REQUIRED' && 
-                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid}/>
+                                        { error_code === 'ITEM_LOGIN_REQUIRED' || error_code === 'NEW_ACCOUNTS_AVAILABLE' && 
+                                          <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid} error_code={error_code}/>
                                         }
                                         { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
                                           <button onClick={() => syncPlaid(accounts[key][0]?.plaid?.access_token)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">

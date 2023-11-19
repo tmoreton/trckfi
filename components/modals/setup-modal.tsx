@@ -45,7 +45,7 @@ export default ({ user, open, openSetupModal, showError, syncPlaid }) => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <PlaidLink user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
+                  <PlaidLink error_code={null} user={user} showError={showError} refresh_access_token={null} syncPlaid={syncPlaid}/>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { usePlaidLink } from 'react-plaid-link'
-import { PlusIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
+import { PlusIcon, ArrowPathIcon, PlusSmallIcon } from '@heroicons/react/20/solid'
 
-export default function ({ showError, user, refresh_access_token, syncPlaid }) {
+export default function ({ showError, user, refresh_access_token, syncPlaid, error_code }) {
   const [linkToken, setLinkToken] = useState(null)
 
   useEffect(() => {
@@ -48,11 +48,19 @@ export default function ({ showError, user, refresh_access_token, syncPlaid }) {
   })
   
   if(!linkToken) return null
-  if(refresh_access_token){
+  if(error_code === 'ITEM_LOGIN_REQUIRED'){
     return (
       <button onClick={() => open()} disabled={!ready} className="flex items-center font-semibold text-red-600 hover:text-red-500">
         <ArrowPathIcon className="h-6 w-6 font-semibold" aria-hidden="true" />
         <span className="ml-2">Reconnect</span>
+      </button>
+    )
+  }
+  if(error_code === 'NEW_ACCOUNTS_AVAILABLE'){
+    return (
+      <button onClick={() => open()} disabled={!ready} className="flex items-center font-semibold text-red-600 hover:text-red-500">
+        <PlusSmallIcon className="h-6 w-6 font-semibold" aria-hidden="true" />
+        <span className="ml-2">Add New Account</span>
       </button>
     )
   }
