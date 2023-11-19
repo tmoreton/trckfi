@@ -10,6 +10,12 @@ export default async (req, res) => {
     products: ['transactions'],
     language: 'en',
     country_codes: ['US'],
+    create: {
+      account_selection_enabled: true
+    },
+    update: {
+      account_selection_enabled: true
+    },
     webhook: `${process.env.NEXT_PUBLIC_BASE_URL}/api/plaid_webhook`
   }
 
