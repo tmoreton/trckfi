@@ -6,7 +6,7 @@ date: '08.10.2023'
 category: 'Retirement Planning'
 keywords: 'Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings'
 status: 'published'
-slug: 'blog-roth-ira-advantage-2023'
+slug: 'roth-ira-advantage-2023'
 author:
   name: ''
 seoTitle: 'Grow Your Money Tax-Free with a Roth IRA'

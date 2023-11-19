@@ -75,7 +75,7 @@ High-interest debt can be a financial drain. Focus on [paying off debts ](/blog/
 
 ### 6\. Save and Invest
 
-Once your [emergency fund](/blog/building-an-emergency-fund) is established and high-interest debt is under control, focus on saving and investing for your future. Explore options like a 401(k), [Roth IRA,](/blog/blog-roth-ira-advantage-2023) or a regular investment account.
+Once your [emergency fund](/blog/building-an-emergency-fund) is established and high-interest debt is under control, focus on saving and investing for your future. Explore options like a 401(k), [Roth IRA,](/roth-ira-advantage-2023) or a regular investment account.
 
 [![cashflow-transactions-review-credit-card-bills](/images/home--11--k3ND.png)](/pricing)
 

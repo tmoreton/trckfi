@@ -58,7 +58,7 @@ Unlock profound insights by tracking your finances. Identify potential overspend
 
 ### Step 2: Define Your Financial Goals
 
-To set yourself on the path to financial independence, start by envisioning your ideal financial future. What does financial independence mean to you? Is it [early retirement](/blog/blog/how-to-retire-early-and-embrace-the-fire-movement), having the flexibility to travel whenever you desire, or starting a business to pursue your passion?
+To set yourself on the path to financial independence, start by envisioning your ideal financial future. What does financial independence mean to you? Is it [early retirement](/blog/how-to-retire-early-and-embrace-the-fire-movement), having the flexibility to travel whenever you desire, or starting a business to pursue your passion?
 
 Take the time to identify specific and achievable financial goals. Write them down and keep them visible as a reminder of what you're working towards.
 

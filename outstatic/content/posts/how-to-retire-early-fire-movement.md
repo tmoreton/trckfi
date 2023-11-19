@@ -6,7 +6,7 @@ date: '08.01.2023'
 category: 'Retirement Planning'
 keywords: 'Financial Independence, Retire Early, FIRE Movement, Aggressive Saving, Compound Interest, Tax-Advantaged Accounts, Mindful Spending, Minimalism, 4% Rule, Safe Withdrawal Rate, Alternative Income Streams, Community Support, Financial Freedom'
 status: 'published'
-slug: 'blog-how-to-retire-early-fire-movement'
+slug: 'how-to-retire-early-fire-movement'
 author:
   name: 'Trckfi'
 seoTitle: 'How to Retire Early Through the Financial Independence Movement'

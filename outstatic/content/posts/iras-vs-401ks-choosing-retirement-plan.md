@@ -21,7 +21,7 @@ An IRA is an Individual Retirement Account that comes in two "flavors": Traditio
 
 - **Traditional IRA**: Contributions are made with pre-tax money, reducing your taxable income in the current year. However, when you withdraw the money in retirement, you will pay taxes on the entire amount as if it were income. Learn more about Traditional IRA [here](/blog/traditional-ira-guide-tax-advantaged-retirement).
 
-- **Roth IRA:** Contributions are made with after-tax money, so you don't get an immediate tax break. However, the money grows tax-free, and withdrawals in retirement are not taxed. Read our blog post to learning more about [Roth IRA's advantages](/blog/blog/roth-ira-advantage-2023) for 2023.
+- **Roth IRA:** Contributions are made with after-tax money, so you don't get an immediate tax break. However, the money grows tax-free, and withdrawals in retirement are not taxed. Read our blog post to learning more about [Roth IRA's advantages](/blog/roth-ira-advantage-2023) for 2023.
 
 ## 401(k) Retirement Accounts
 

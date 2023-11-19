@@ -21,9 +21,7 @@ export default async (req, res) => {
       case 'NEW_ACCOUNTS_AVAILABLE':
         await prisma.plaid.update({
           where: { item_id, active: true },
-          data: {
-            error_code: 'NEW_ACCOUNTS_AVAILABLE'
-          }
+          data: { error_code: 'NEW_ACCOUNTS_AVAILABLE' }
         })
         break;
       default:
