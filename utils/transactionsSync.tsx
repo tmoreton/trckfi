@@ -5,6 +5,7 @@ import { formatAmount } from '../lib/lodash'
 import { icons } from '../lib/categories'
 import { DateTime } from "luxon"
 import slackMessage from '../utils/slackMessage'
+import { client } from "../trigger";
 
 const transactionsSync = async (access_token, user_id) => {
   try {
@@ -142,11 +143,6 @@ const transactionsSync = async (access_token, user_id) => {
         },
       })
     }
-
-    if(has_more){
-      const data = { webhook_code: 'SYNC_UPDATES_AVAILABLE', item_id: plaid.item_id }
-      await prisma.webhooks.create({ data })
-    }
     
     await prisma.plaid.update({
       where: { item_id: plaid.item_id },
@@ -167,6 +163,16 @@ const transactionsSync = async (access_token, user_id) => {
         },
         create: {}
       })
+    }
+
+    if(has_more){
+      // const data = { webhook_code: 'SYNC_UPDATES_AVAILABLE', item_id: plaid.item_id }
+      // await prisma.webhooks.create({ data })
+      await client.sendEvent({
+        name: "sync.plaid",
+        payload: { access_token, item_id: plaid.item_id, user_id, institution: plaid.institution }
+      })
+      console.log('Syncing: ', plaid.institution)
     }
 
   } catch (e) {

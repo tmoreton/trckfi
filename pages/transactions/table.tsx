@@ -287,7 +287,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                     {row.cells.map(cell => {
                       if (cell.column.Header === 'Name'){
                         return (
-                          <td className="overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
+                          <td className="max-w-[125px] truncate overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
                             <span className="flex" >{cell.render("Cell")} 
                             { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
