@@ -1,6 +1,6 @@
 {
-  "commit": "8b8bd8b294697c9da8890769935158aed50ffe8b",
-  "generated": "2023-11-20T14:53:04.496Z",
+  "commit": "cefd23bb07e83e46789c1633ca67eee7a02ed7c0",
+  "generated": "2023-11-20T14:55:55.511Z",
   "metadata": [
     {
       "__outstatic": {
@@ -274,27 +274,6 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
-    },
-    {
-      "__outstatic": {
-        "commit": "f37505c73c40e25093c7ff140bb40fe6ae29e95d",
-        "hash": "1126268312",
-        "path": "outstatic/content/posts/essential-financial-concepts.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Financial Concepts",
-      "collection": "posts",
-      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
-      "date": "08.15.2023",
-      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey.",
-      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights, compound interest, credit score, inflation, risk management, retirement planning, understanding taxes, investing 101, emergency fund",
-      "publishedAt": "2023-08-08T14:25:45.000Z",
-      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
-      "slug": "essential-financial-concepts",
-      "status": "published",
-      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     },
     {
       "__outstatic": {
@@ -821,6 +800,27 @@
       "slug": "building-an-emergency-fund",
       "status": "published",
       "title": "The Beginner’s Guide to Starting an Emergency Fund"
+    },
+    {
+      "__outstatic": {
+        "commit": "cefd23bb07e83e46789c1633ca67eee7a02ed7c0",
+        "hash": "1113720260",
+        "path": "outstatic/content/posts/essential-financial-concepts.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Financial Concepts",
+      "collection": "posts",
+      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
+      "date": "08.15.2023",
+      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey.",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights, compound interest, credit score, inflation, risk management, retirement planning, understanding taxes, investing 101, emergency fund",
+      "publishedAt": "2023-08-08T14:25:45.000Z",
+      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
+      "slug": "essential-financial-concepts",
+      "status": "published",
+      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     }
   ]
 }
