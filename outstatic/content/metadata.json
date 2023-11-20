@@ -1,6 +1,6 @@
 {
-  "commit": "6188db2a74d2afbfcced1a607af5cf346e529447",
-  "generated": "2023-11-20T16:24:07.657Z",
+  "commit": "2e9a073a89b0ba04f5e9d78688aa7f066b5e32bf",
+  "generated": "2023-11-20T16:29:02.972Z",
   "metadata": [
     {
       "__outstatic": {
@@ -488,27 +488,6 @@
     },
     {
       "__outstatic": {
-        "commit": "846d94948e07b440b45bc9d4d6c3ba03ef69806f",
-        "hash": "941723486",
-        "path": "outstatic/content/posts/quick-monthly-financial-checkin-routine.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Monthly Financial Routine",
-      "collection": "posts",
-      "coverImage": "/assets/blog/monthly-routine.png",
-      "date": "09.04.2023",
-      "description": "Transform your finances this month with a game-changing check-in. It's more than tracking expenses; it's your key to financial awareness and growth.",
-      "keywords": "Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions",
-      "publishedAt": "2023-11-01T14:25:45.000Z",
-      "seoTitle": "Revitalize Your Finances: A Monthly Check-In for Growth and Awareness",
-      "slug": "quick-monthly-financial-checkin-routine",
-      "status": "published",
-      "title": "Simple  Monthly Financial Check-In Routine for Success"
-    },
-    {
-      "__outstatic": {
         "commit": "d85139fdc568c7406018315f48414f1ba753ceca",
         "hash": "3236192531",
         "path": "outstatic/content/posts/how-to-retire-early-fire-movement.md"
@@ -821,6 +800,27 @@
       "slug": "mint-alternative-best-personal-finance-apps-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "2e9a073a89b0ba04f5e9d78688aa7f066b5e32bf",
+        "hash": "1670289789",
+        "path": "outstatic/content/posts/quick-monthly-financial-checkin-routine.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Monthly Financial Routine",
+      "collection": "posts",
+      "coverImage": "/assets/blog/monthly-routine.png",
+      "date": "09.04.2023",
+      "description": "Transform your finances this month with a game-changing check-in. It's more than tracking expenses; it's your key to financial awareness and growth.",
+      "keywords": "Monthly financial check-in, Success, Tracking expenses, Financial goals, Calculating income, Fixed expenses, Variable expenses, Monthly Financial Routine, Savings and investments, Category spending,Setting financial intentions",
+      "publishedAt": "2023-11-01T14:25:45.000Z",
+      "seoTitle": "Revitalize Your Finances: A Monthly Check-In for Growth and Awareness",
+      "slug": "quick-monthly-financial-checkin-routine",
+      "status": "published",
+      "title": "Simple  Monthly Financial Check-In Routine for Success"
     }
   ]
 }
