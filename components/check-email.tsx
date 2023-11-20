@@ -1,7 +1,7 @@
 import Icon from './icon';
 import ConfettiExplosion from 'react-confetti-explosion'
 
-export default function ({ email, text, active }) {
+export default function ({ email, text, active, handleSubmit }) {
   return (
     <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
@@ -17,6 +17,12 @@ export default function ({ email, text, active }) {
                   A magic sign-in link has been sent to your email: <span className="text-lg font-semibold text-gray-900">{email}</span>
                 </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>
+                <button
+                  onClick={handleSubmit}
+                  className="flex text-center justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 mx-auto"
+                >
+                  Resend Email
+                </button>
                 <div className="mt-1 flex items-center justify-center gap-x-6">
                   <a href="mailto:support@trckfi.com" className="text-sm font-semibold text-gray-900">
                     Contact support <span aria-hidden="true">&rarr;</span>

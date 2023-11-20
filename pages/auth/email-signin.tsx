@@ -63,7 +63,7 @@ export default function SignIn({ csrfToken, showError }) {
     <>
       {
         text ?
-        <CheckEmail email={email} text={text} active={active}/>
+        <CheckEmail email={email} text={text} active={active} handleSubmit={handleSubmit}/>
         :
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
           <div className="sm:mx-auto sm:w-full mb-4">
