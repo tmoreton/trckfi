@@ -23,7 +23,7 @@ When it comes to managing your healthcare expenses, HSAs can be your best friend
 
 - **What is an HSA?**: An HSA is like a personal bank account that you can use to pay for eligible healthcare expenses or save for the future.
 
-- **Who's Eligible?**: To have an HSA, you usually need to be enrolled in a qualified **high-deductible health plan** (HDHP). These plans typically have [lower premiums](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified) but higher deductibles than traditional health plans.
+- **Who's Eligible?**: To have an HSA, you usually need to be enrolled in a qualified **high-deductible health plan** (HDHP). These plans typically have [lower premiums](/blog/health-insurance-lingo-key-terms-guide) but higher deductibles than traditional health plans.
 
 - **Who Owns the Account?**: It's your account to manage.
 

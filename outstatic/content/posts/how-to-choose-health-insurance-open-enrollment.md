@@ -33,13 +33,13 @@ Some insurance sites, including the [Healthcare Marketplace](https://www.healthc
 
 First, write down the following amounts:
 
-- [Premium](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified)
+- [Premium](/blog/health-insurance-lingo-key-terms-guide)
 
 - Deductible
 
 - Out-of-pocket max
 
-The premium is the amount you’ll pay every month. The [deductible](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified) is the amount you must pay before insurance kicks in their portion. The [out-of-pocket max](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified) is the maximum amount you can pay in a single year.
+The premium is the amount you’ll pay every month. The [deductible](/blog/health-insurance-lingo-key-terms-guide) is the amount you must pay before insurance kicks in their portion. The [out-of-pocket max](/blog/health-insurance-lingo-key-terms-guide) is the maximum amount you can pay in a single year.
 
 If you choose a high-deductible plan, make sure you pick one that is HSA-eligible. A Health Savings Account (HSA) is like a triple-powered savings account. You can deduct contributions on your taxes, invest the money in the stock market and spend it tax-free on qualified medical expenses.
 

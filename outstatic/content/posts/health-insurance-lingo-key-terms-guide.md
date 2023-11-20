@@ -4,7 +4,7 @@ status: 'published'
 author:
   name: 'Trckfi'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified'
+slug: 'health-insurance-lingo-key-terms-guide'
 description: 'Navigating health insurance terminology during open enrollment is tricky. This guide clearly defines 15 must-know health coverage terms to inform your choices.'
 coverImage: '/images/health-wellbeing-life-I3Nz.jpg'
 category: 'Health Insurance Terms'
