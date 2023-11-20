@@ -8,7 +8,7 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
   try {
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
     let plaidAccounts = accountResponse.data.accounts
-    console.log(plaidAccounts)
+
     for (let i in plaidAccounts) {
       await prisma.accounts.upsert({
         where: { 
