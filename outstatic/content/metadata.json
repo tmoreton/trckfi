@@ -1,6 +1,6 @@
 {
-  "commit": "66c4e34c0e0924f515adbe573bd3103a5f85be60",
-  "generated": "2023-11-20T15:22:10.326Z",
+  "commit": "9730bc619d702a9ce0ceedf3cc3dd002c90bbbe8",
+  "generated": "2023-11-20T15:25:13.398Z",
   "metadata": [
     {
       "__outstatic": {
@@ -380,27 +380,6 @@
       "slug": "smart-401k-retirement-guide",
       "status": "published",
       "title": "Maximize Your 401(k): The Comprehensive Guide to Smart Saving"
-    },
-    {
-      "__outstatic": {
-        "commit": "7e487432db48406f78b32bf1627910fcd6dc5cd7",
-        "hash": "2542083257",
-        "path": "outstatic/content/posts/401k-retirement-plans-guide-for-smart-saving.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/401k-guide.png",
-      "date": "08.16.2023",
-      "description": " Learn about 401(k) retirement plans: how they work, contribution limits, investment options, when to withdraw funds, and tips to maximize benefits for retirement.",
-      "keywords": "401(k), 401(k) plans, 401(k) retirement plans, what is a 401(k), 401(k) contributions, 401(k) limits, 401(k) investments, 401(k) withdrawals, 401(k) rollovers, 401(k) tips, maximizing 401(k), retirement planning",
-      "publishedAt": "2023-09-13T14:25:45.000Z",
-      "seoTitle": "Mastering 401(k) Retirement Plans: A Comprehensive Guide",
-      "slug": "401k-retirement-plans-guide-for-smart-saving",
-      "status": "published",
-      "title": "Everything You Need To Know About 401(k) Retirement Plans"
     },
     {
       "__outstatic": {
@@ -821,6 +800,27 @@
       "slug": "budgeting-made-easy",
       "status": "published",
       "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
+    },
+    {
+      "__outstatic": {
+        "commit": "9730bc619d702a9ce0ceedf3cc3dd002c90bbbe8",
+        "hash": "2794276375",
+        "path": "outstatic/content/posts/401k-retirement-plans-guide-for-smart-saving.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/401k-guide.png",
+      "date": "08.16.2023",
+      "description": " Learn about 401(k) retirement plans: how they work, contribution limits, investment options, when to withdraw funds, and tips to maximize benefits for retirement.",
+      "keywords": "401(k), 401(k) plans, 401(k) retirement plans, what is a 401(k), 401(k) contributions, 401(k) limits, 401(k) investments, 401(k) withdrawals, 401(k) rollovers, 401(k) tips, maximizing 401(k), retirement planning",
+      "publishedAt": "2023-09-13T14:25:45.000Z",
+      "seoTitle": "Mastering 401(k) Retirement Plans: A Comprehensive Guide",
+      "slug": "401k-retirement-plans-guide-for-smart-saving",
+      "status": "published",
+      "title": "Everything You Need To Know About 401(k) Retirement Plans"
     }
   ]
 }
