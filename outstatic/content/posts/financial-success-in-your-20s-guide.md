@@ -25,7 +25,7 @@ The journey to financial success begins with setting clear and achievable goals.
 
 - **Budgeting**: Develop a [budget](/blog/budgeting-made-easy) that outlines your monthly income and expenses. [Tracking your spending](/blog/tracking-monthly-expenses) helps you identify areas where you can save.
 
-- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401(k)](/blog/roth-401k-plans) and open an Individual Retirement Account [(IRA)](/blog/types-of-ira-investing).
+- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401](/blog/401k-retirement-plans-guide-for-smart-saving)[(k)](/blog/roth-401k-plans) and open an Individual Retirement Account [(IRA)](/blog/types-of-ira-investing).
 
 ## Managing Debt Wisely
 
@@ -61,7 +61,7 @@ Practicing frugality in your 20s can set you up for financial success down the r
 
 - **Emergency Fund**: Prioritize building an emergency fund. Having savings for unexpected expenses can provide peace of mind.
 
-[![track-expenses](/images/home--8--gwMj.png)](/pricing)
+[![track-expenses](/images/home--8--Y4Nz.png)](/pricing)
 
 ## Investing for the Future
 
