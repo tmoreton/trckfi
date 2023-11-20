@@ -1,6 +1,6 @@
 {
   "commit": "0b98c76f286d06d288bb6ceed7d07595708bdb39",
-  "generated": "2023-11-20T15:03:58.497Z",
+  "generated": "2023-11-20T15:04:40.921Z",
   "metadata": [
     {
       "__outstatic": {
@@ -804,7 +804,7 @@
     {
       "__outstatic": {
         "commit": "0b98c76f286d06d288bb6ceed7d07595708bdb39",
-        "hash": "3623491710",
+        "hash": "3713689539",
         "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
       },
       "author": {

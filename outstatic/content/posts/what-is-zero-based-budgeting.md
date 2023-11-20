@@ -67,7 +67,7 @@ To make the most of zero-based budgeting, consider these strategies:
 
 - **Utilize a Slush Fund Category:** To simplify accounting for overages and shortages, create a slush fund category. Excess money can be added to this category throughout the month and used to cover unexpected expenses before dipping into other budget categories.
 
-[![track-cashflow-see-income](/images/home--9--AzMD.png)](/pricing)
+[![track-cashflow-see-income](/images/home--9--c0OD.png)](/pricing)
 
 ## The Downside About Zero-Based Budgeting
 
@@ -87,9 +87,9 @@ Automated budgeting tools can help you stick to your budget plans more easily. T
 
 [![alternative-tracker-demo](/images/home--8--M3NT.png)](/pricing)
 
-[Trckfi](/) automatically **categorizes expenses**, generates weekly and monthly **spending reports** sent to your email, and provides real-time updates on your financial journey. This tool empowers you to understand your spending patterns, identify areas for adjustment, and **save money**. It's especially useful for people or couples with multiple accounts, investments, retirements plans, or real estate properties, offering easy access to consolidated financial data in one place. While Trckfi doesn't offer a budgeting feature in it's app, it helps you focus on achieving your financial goals without having to micromanage your money.
+[Trckfi](/) automatically **categorizes expenses**, generates weekly and monthly **spending reports** sent to your email, and provides real-time updates on your financial journey. This tool empowers you to understand your spending patterns, identify areas for adjustment, and **save money**. It's especially useful for people or couples with multiple accounts, investments, retirement plans, or real estate properties, offering easy access to consolidated financial data in one place. While Trckfi doesn't offer a budgeting feature in the app, it helps you focus on achieving your financial goals without having to micromanage your money.
 
-[![alternative-tracker](/images/home--1--M0MT.png)](/pricing)
+[![alternative-tracker](/images/home--1--ExOT.png)](/pricing)
 
 ## Choose the Budgeting Method That Works for You
 
