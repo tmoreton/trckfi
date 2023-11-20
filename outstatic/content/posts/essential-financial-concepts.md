@@ -41,9 +41,9 @@ Ready to take charge of your financial journey and enhance your money management
 
 ## 1\. The Power of Tracking Expenses
 
-Tracking your expenses is the first and most essential step in gaining control over your finances. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed [Trckfi](/) to automate and simplify the process, giving you a real-time, comprehensive view of your financial health.
+Tracking your expenses is the first and most essential step in gaining control over your finances. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed **Trckfi** to [automate and simplify the process](/pricing), giving you a real-time, comprehensive view of your financial health.
 
-[![trckfi-demo-image](/assets/blog/trckfi-demo.png)](/)
+[![trckfi-finance-management-tool](/images/home--2--c2MT.png)](/pricing)
 
 #### Example:
 
@@ -104,6 +104,8 @@ Life's uncertainties, from medical emergencies to economic downturns, necessitat
 - **Mitigate Through Insurance:** Having health, auto, or home insurance can help you cover unexpected expenses and avoid financial setbacks.
 
 - **Diversification in Investing:** Effective risk management extends to investments. Instead of concentrating all funds in one avenue, diversify across assets like index funds, stocks, bonds, and real estate. This way, if one investment performs poorly, others may offset the losses.
+
+[![retirement-planing](/images/home--8--g4Mj.png)](/pricing)
 
 ## **6\. Start Early Your Retirement Planning**
 
