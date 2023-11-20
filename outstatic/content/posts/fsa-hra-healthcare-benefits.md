@@ -13,7 +13,7 @@ keywords: 'FSA, HRA, Open Enrollment, Health Benefits, Healthcare Expenses, Tax 
 publishedAt: '2023-11-12T15:32:44.292Z'
 ---
 
-Health care and [open enrollment season](/blog/health-insurance-lingo-key-terms-guide) can feel overwhelming, and understanding your options is vital. Health care and open enrollment can be overwhelming. In this comprehensive guide, we'll cover: Flexible Spending Accounts (FSAs) and Health Reimbursement Arrangements (HRAs), to help you make the most of your health benefits.
+Health care and [open enrollment season](/blog/health-insurance-lingo-key-terms-guide) can feel overwhelming, and understanding your options is vital. Health care and open enrollment can be overwhelming. In this comprehensive guide, we'll cover Flexible Spending Accounts (FSAs) and Health Reimbursement Arrangements (HRAs), to help you make the most of your health benefits.
 
 ## What Are FSAs and HRAs?
 
@@ -71,7 +71,7 @@ HRAs are another valuable tool in your health benefits arsenal, but they operate
 
 2. **Employer Dependency:** HRAs depend on your employer's willingness to offer this benefit.
 
-[![manage-money](/images/home--1--A3MD.png)](/pricing)
+[![manage-money](/images/home--1--MzMz.png)](/pricing)
 
 ## How to Choose Between FSAs and HRAs
 
