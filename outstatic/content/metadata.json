@@ -1,6 +1,6 @@
 {
-  "commit": "9730bc619d702a9ce0ceedf3cc3dd002c90bbbe8",
-  "generated": "2023-11-20T15:25:13.398Z",
+  "commit": "1ba2ac99cff60f27bc7fdcbbae1a80d5c244017a",
+  "generated": "2023-11-20T15:28:56.030Z",
   "metadata": [
     {
       "__outstatic": {
@@ -274,27 +274,6 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
-    },
-    {
-      "__outstatic": {
-        "commit": "129ed4db13b09bc5e7591bed7f832a21839490d1",
-        "hash": "2061332917",
-        "path": "outstatic/content/posts/types-of-ira-investing.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Investing Strategies",
-      "collection": "posts",
-      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
-      "date": "08.07.2023",
-      "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
-      "keywords": "types of ira accounts, ira account options, sep ira, simple ira, self directed ira, nondeductible ira, lesser known ira, can you have multiple ira accounts, difference between sep and simple ira, rules for withdrawing ira money, best retirement accounts for small business owners ",
-      "publishedAt": "2023-09-19T14:25:45.000Z",
-      "seoTitle": "Uncovering the 7 IRA Account Options You Need to Know About for Retirement",
-      "slug": "types-of-ira-investing",
-      "status": "published",
-      "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
     },
     {
       "__outstatic": {
@@ -821,6 +800,27 @@
       "slug": "401k-retirement-plans-guide-for-smart-saving",
       "status": "published",
       "title": "Everything You Need To Know About 401(k) Retirement Plans"
+    },
+    {
+      "__outstatic": {
+        "commit": "1ba2ac99cff60f27bc7fdcbbae1a80d5c244017a",
+        "hash": "2834302936",
+        "path": "outstatic/content/posts/types-of-ira-investing.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Investing Strategies",
+      "collection": "posts",
+      "coverImage": "/assets/blog/easy-guide-understand-iras-type.png",
+      "date": "08.07.2023",
+      "description": "Explore essential IRA types & investments – from Traditional and Roth to hidden gems like Spousal, SEP, SIMPLE. Build your path to a secure retirement!",
+      "keywords": "types of ira accounts, ira account options, sep ira, simple ira, self directed ira, nondeductible ira, lesser known ira, can you have multiple ira accounts, difference between sep and simple ira, rules for withdrawing ira money, best retirement accounts for small business owners ",
+      "publishedAt": "2023-09-19T14:25:45.000Z",
+      "seoTitle": "Uncovering the 7 IRA Account Options You Need to Know About for Retirement",
+      "slug": "types-of-ira-investing",
+      "status": "published",
+      "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
     }
   ]
 }
