@@ -1,6 +1,6 @@
 {
-  "commit": "846d94948e07b440b45bc9d4d6c3ba03ef69806f",
-  "generated": "2023-11-16T17:20:00.934Z",
+  "commit": "cefd23bb07e83e46789c1633ca67eee7a02ed7c0",
+  "generated": "2023-11-20T14:59:08.952Z",
   "metadata": [
     {
       "__outstatic": {
@@ -274,48 +274,6 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
-    },
-    {
-      "__outstatic": {
-        "commit": "62157bcbbae1403b3f0af54dcff946ed2102cbc8",
-        "hash": "3365852283",
-        "path": "outstatic/content/posts/building-an-emergency-fund.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": " Financial Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/emergency-fund-cover.png",
-      "date": "7.25.2023",
-      "description": "Learn how to start and build an emergency fund with practical tips on setting savings goals, budgeting, where to keep the money, and resisting temptation to tap it.",
-      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
-      "publishedAt": "2023-08-01T14:25:45.000Z",
-      "seoTitle": "How to Build an Emergency Fund: The Complete Guide",
-      "slug": "building-an-emergency-fund",
-      "status": "published",
-      "title": "The Beginner’s Guide to Starting an Emergency Fund"
-    },
-    {
-      "__outstatic": {
-        "commit": "f37505c73c40e25093c7ff140bb40fe6ae29e95d",
-        "hash": "1126268312",
-        "path": "outstatic/content/posts/essential-financial-concepts.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Financial Concepts",
-      "collection": "posts",
-      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
-      "date": "08.15.2023",
-      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey.",
-      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights, compound interest, credit score, inflation, risk management, retirement planning, understanding taxes, investing 101, emergency fund",
-      "publishedAt": "2023-08-08T14:25:45.000Z",
-      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
-      "slug": "essential-financial-concepts",
-      "status": "published",
-      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     },
     {
       "__outstatic": {
@@ -800,6 +758,69 @@
       "slug": "quick-monthly-financial-checkin-routine",
       "status": "published",
       "title": "Simple  Monthly Financial Check-In Routine for Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "d85139fdc568c7406018315f48414f1ba753ceca",
+        "hash": "3236192531",
+        "path": "outstatic/content/posts/how-to-retire-early-fire-movement.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/early-retirement-cover.png",
+      "date": "08.01.2023",
+      "description": "Read about the FIRE movement for financial independence and early retirement. Tips on aggressive saving, investing, passive income and safe withdrawals.",
+      "keywords": "Financial Independence, Retire Early, FIRE Movement, Aggressive Saving, Compound Interest, Tax-Advantaged Accounts, Mindful Spending, Minimalism, 4% Rule, Safe Withdrawal Rate, Alternative Income Streams, Community Support, Financial Freedom",
+      "publishedAt": "2023-10-31T14:25:45.000Z",
+      "seoTitle": "How to Retire Early Through the Financial Independence Movement",
+      "slug": "how-to-retire-early-fire-movement",
+      "status": "published",
+      "title": "Achieve Financial Independence and Retire Early Through the FIRE Movement"
+    },
+    {
+      "__outstatic": {
+        "commit": "8b8bd8b294697c9da8890769935158aed50ffe8b",
+        "hash": "1962278280",
+        "path": "outstatic/content/posts/building-an-emergency-fund.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": " Financial Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/emergency-fund-cover.png",
+      "date": "7.25.2023",
+      "description": "Learn how to start and build an emergency fund with practical tips on setting savings goals, budgeting, where to keep the money, and resisting temptation to tap it.",
+      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
+      "publishedAt": "2023-08-01T14:25:45.000Z",
+      "seoTitle": "How to Build an Emergency Fund: The Complete Guide",
+      "slug": "building-an-emergency-fund",
+      "status": "published",
+      "title": "The Beginner’s Guide to Starting an Emergency Fund"
+    },
+    {
+      "__outstatic": {
+        "commit": "cefd23bb07e83e46789c1633ca67eee7a02ed7c0",
+        "hash": "2201057234",
+        "path": "outstatic/content/posts/essential-financial-concepts.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Financial Concepts",
+      "collection": "posts",
+      "coverImage": "/images/10-basic-personal-finance-concepts--Y3Mz.jpg",
+      "date": "08.15.2023",
+      "description": "Explore key financial concepts to boost your money management skills. From compound interest to debt management, empower your financial journey.",
+      "keywords": "Personal finance, financial education, informed decisions, successful future, financial knowledge, personal finance tracker, financial future, Trckfi, money management, financial insights, compound interest, credit score, inflation, risk management, retirement planning, understanding taxes, investing 101, emergency fund",
+      "publishedAt": "2023-08-08T14:25:45.000Z",
+      "seoTitle": "Master Your Money: 10 Essential Financial Concepts for a Strong Future",
+      "slug": "essential-financial-concepts",
+      "status": "published",
+      "title": "10 Must-Know Personal Finance Basics for Financial Success"
     }
   ]
 }

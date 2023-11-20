@@ -13,7 +13,7 @@ seoTitle: 'Master Your Money: 10 Essential Financial Concepts for a Strong Futur
 publishedAt: '2023-08-08T14:25:45.000Z'
 ---
 
-Ready to take charge of your financial journey and enhance your money management skills? Whether you're just starting or eager to improve your financial knowledge, you're in the right place. In this blog, we'll explore 10 essential financial concepts, making it easy for you to make informed decisions and shape a strong** financial future**. From understanding **compound interest** to mastering [expense tracking](/), we'll explain each concept with simple examples.
+Ready to take charge of your financial journey and enhance your money management skills? Whether you're just starting or eager to improve your financial knowledge, you're in the right place. In this blog, we'll explore 10 essential financial concepts, making it easy for you to make informed decisions and shape a strong **financial future**. From understanding *compound interest* to mastering [expense tracking](/), we'll explain each concept with simple examples.
 
 ### Table of Contents
 
@@ -41,9 +41,9 @@ Ready to take charge of your financial journey and enhance your money management
 
 ## 1\. The Power of Tracking Expenses
 
-Tracking your expenses is the first and most essential step in gaining control over your finances. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed [Trckfi](/) to automate and simplify the process, giving you a real-time, comprehensive view of your financial health.
+Tracking your expenses is the first and most essential step in gaining control over your finances. By keeping a record of every purchase, big or small, you'll have a comprehensive view of your financial flow. We've designed **Trckfi** to [automate and simplify the process](/pricing), giving you a real-time, comprehensive view of your financial health.
 
-[![trckfi-demo-image](/assets/blog/trckfi-demo.png)](/)
+[![trckfi-finance-management-tool](/images/home--2--c2MT.png)](/pricing)
 
 #### Example:
 
@@ -105,9 +105,11 @@ Life's uncertainties, from medical emergencies to economic downturns, necessitat
 
 - **Diversification in Investing:** Effective risk management extends to investments. Instead of concentrating all funds in one avenue, diversify across assets like index funds, stocks, bonds, and real estate. This way, if one investment performs poorly, others may offset the losses.
 
+[![retirement-planing](/images/home--8--g4Mj.png)](/pricing)
+
 ## **6\. Start Early Your Retirement Planning**
 
-[Retirement planning](/blog/iras-401ks-retirement-planning) is essential for a worry-free future. Familiarize yourself with retirement plans like [401(k)s](/blog/smart-401k-retirement-guide) and [IRAs](/blog/types-of-ira-investing) or Traditional. The power of compound interest is on your side when you start saving early, ensuring substantial growth over time.
+[Retirement planning](/blog/iras-vs-401ks-choosing-retirement-plan) is essential for a worry-free future. Familiarize yourself with retirement plans like [401(k)s](/blog/smart-401k-retirement-guide) and [IRAs](/blog/types-of-ira-investing) or Traditional. The power of compound interest is on your side when you start saving early, ensuring substantial growth over time.
 
 ## **7\. Optimizing Finances Through Taxation**
 
