@@ -137,13 +137,17 @@ const Dashboard = ({ showError, showIntro }) => {
           <div className="col-span-1 shadow-sm rounded-md border border-gray-200">
             <Accounts totalStats={totalStats} accounts={accounts} netWorth={netWorth} history={history} />
           </div>
-          <div className="col-span-1">
-            <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200 my-6">
-              { upcoming && <UpcomingRecurring recurring={upcoming}/>}
-            </div>
-            <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
-              { creditPayments && <UpcomingCredit payments={creditPayments}/>}
-            </div>
+          <div className="col-span-1 space-y-6">
+            { upcoming && upcoming.length > 0 &&
+              <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
+                <UpcomingRecurring recurring={upcoming}/>
+              </div>
+            }
+            { creditPayments && creditPayments.length > 0 &&
+              <div className="col-span-1 p-6 shadow-sm rounded-md border border-gray-200">
+                <UpcomingCredit payments={creditPayments}/>
+              </div>
+            }
           </div>
         </div>
         <LoadingModal refreshing={refreshing} />
