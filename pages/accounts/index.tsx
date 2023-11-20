@@ -116,12 +116,10 @@ const Accounts = ({ showError }) => {
     })
     const { error } = await res.json()
     showError(error)
-    if(!error) {
-      openSetupModal(false)
-      setRefreshing(false)
-      setConfetti(true)
-      getNetWorth()
-    }
+    openSetupModal(false)
+    setRefreshing(false)
+    setConfetti(true)
+    getNetWorth()
   }
 
   const getAccounts = async () => {

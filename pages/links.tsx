@@ -31,7 +31,7 @@ export default function Links() {
               Check Our Blog & Boost Your Financial Literacy
             </button>
           </Link>
-          <Link href="/blog/monthly-financial-checkin-routine-for-success">
+          <Link href="/blog/quick-monthly-financial-checkin-routine">
             <button
               type="button"
               className="rounded-full bg-white px-4 py-2 sm:py-4 text-xl sm:text-3xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full my-2 sm:my-3"

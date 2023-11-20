@@ -93,7 +93,7 @@ This not only builds your savings consistently but also prevents you from spendi
 
 ### 8\. Review Regularly
 
-Financial organization is an ongoing journey, not a one-time destination. Dedicate [time each month](/blog/monthly-financial-checkin-routine-for-success) to review your income sources, [track expenses](/), and evaluate your progress toward your goals. Personally, I find it beneficial to **check my finances weekly**, spending just 5-10 minutes to ensure I'm optimizing my money effectively. This regular check-in helps me stay on top of my financial game.
+Financial organization is an ongoing journey, not a one-time destination. Dedicate [time each month](/blog/quick-monthly-financial-checkin-routine) to review your income sources, [track expenses](/), and evaluate your progress toward your goals. Personally, I find it beneficial to **check my finances weekly**, spending just 5-10 minutes to ensure I'm optimizing my money effectively. This regular check-in helps me stay on top of my financial game.
 
 ### 9\. Celebrate Your Achievements
 

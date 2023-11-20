@@ -5,18 +5,6 @@ Disallow: /*_buildManifest.js$
 Disallow: /*_middlewareManifest.js$
 Disallow: /*_ssgManifest.js$
 Disallow: /*.js$
-Disallow: /dashboard
-Disallow: /accounts
-Disallow: /transactions
-Disallow: /intro
-Disallow: /feedback
-Disallow: /profile
-Disallow: /recurring
-Disallow: /goals
-
-# Allow all crawlers
-User-agent: *
-Allow: /
 
 # Host
 Host: https://trckfi.com
