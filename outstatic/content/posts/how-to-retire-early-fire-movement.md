@@ -1,6 +1,6 @@
 ---
 title: 'Achieve Financial Independence and Retire Early Through the FIRE Movement'
-description: 'Learn about the FIRE movement for financial independence and early retirement. Find tips on aggressive saving, investing, passive income and safe withdrawals.'
+description: 'Read about the FIRE movement for financial independence and early retirement. Tips on aggressive saving, investing, passive income and safe withdrawals.'
 coverImage: '/assets/blog/early-retirement-cover.png'
 date: '08.01.2023'
 category: 'Retirement Planning'
@@ -61,7 +61,7 @@ In addition to aggressive saving and investing, FIRE followers often explore alt
 
 The final pillar supporting the FIRE movement is the sense of community and support that enthusiasts find within the FIRE community. Engaging with like-minded individuals who share similar goals and values fosters a sense of encouragement, motivation, and accountability. There are many online forums, social media groups, and local meetups where members share insights, exchange knowledge, and celebrate milestones together.
 
-[![mindset-financial-freedom](/images/home--14--EwND.png)](/pricing)
+[![mindset-financial-freedom](/images/home--14--k2Nj.png)](/pricing)
 
 ## A Mindset of Financial Freedom
 

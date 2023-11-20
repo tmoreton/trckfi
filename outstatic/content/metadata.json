@@ -1,6 +1,6 @@
 {
   "commit": "d85139fdc568c7406018315f48414f1ba753ceca",
-  "generated": "2023-11-20T14:47:24.735Z",
+  "generated": "2023-11-20T14:48:36.783Z",
   "metadata": [
     {
       "__outstatic": {
@@ -804,7 +804,7 @@
     {
       "__outstatic": {
         "commit": "d85139fdc568c7406018315f48414f1ba753ceca",
-        "hash": "3010717074",
+        "hash": "3236192531",
         "path": "outstatic/content/posts/how-to-retire-early-fire-movement.md"
       },
       "author": {
@@ -814,7 +814,7 @@
       "collection": "posts",
       "coverImage": "/assets/blog/early-retirement-cover.png",
       "date": "08.01.2023",
-      "description": "Learn about the FIRE movement for financial independence and early retirement. Find tips on aggressive saving, investing, passive income and safe withdrawals.",
+      "description": "Read about the FIRE movement for financial independence and early retirement. Tips on aggressive saving, investing, passive income and safe withdrawals.",
       "keywords": "Financial Independence, Retire Early, FIRE Movement, Aggressive Saving, Compound Interest, Tax-Advantaged Accounts, Mindful Spending, Minimalism, 4% Rule, Safe Withdrawal Rate, Alternative Income Streams, Community Support, Financial Freedom",
       "publishedAt": "2023-10-31T14:25:45.000Z",
       "seoTitle": "How to Retire Early Through the Financial Independence Movement",
