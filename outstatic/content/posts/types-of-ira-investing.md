@@ -41,7 +41,7 @@ The Traditional IRA is the seasoned veteran, reigning as the most popular indivi
 
     **Best for:** Those in higher tax brackets now, expecting lower tax rates in retirement, and without access to a workplace-sponsored retirement plan.
 
-[![tracking-expenses](/images/home--8--E2Nj.png)](/pricing)
+[![tracking-expenses](/images/home--8--I2MT.png)](/pricing)
 
 ## 2\. Roth IRA: Tax-Free Earnings and Flexible Withdrawals
 
@@ -66,6 +66,8 @@ A type of traditional IRA, the SEP IRA offers exceptional benefits for both empl
 - Employers who are also sole proprietors can open a SEP IRA for themselves.
 
     **Best for:** Small business owners seeking a cost-effective retirement plan and the ability to contribute for their employees.
+
+[![trckfi-demo](/images/home--12--EzNT.png)](/pricing)
 
 ## 4\. Nondeductible IRA: Make the Most of After-Tax Contributions
 
@@ -96,6 +98,8 @@ The SIMPLE IRA shares similarities with employer-sponsored 401(k)s and is design
 - Employer-matching or fixed contributions required for eligible employees.
 
     **Best for:** Smaller companies with fewer than 100 employees and self-employed individuals.
+
+[![vision-board-trckfi-demo](/images/home--14--Q3Mj.png)](/pricing)
 
 ## 7\. Self-Directed IRA: Expanding Your Investment Horizon
 
