@@ -102,9 +102,9 @@ export default function () {
                 src="/assets/net-worth-accounts.png"
                 alt="Trckfi Finance Dashboard"
                 className="lg:w-[75rem] max-w-5xl rounded-xl shadow-xl ring-1 ring-gray-400/10 w-full"
-                width={1500}
+                width={1000}
                 height={500}
-                unoptimized={true}
+                // unoptimized={true}
               />
               </div>
             </div>

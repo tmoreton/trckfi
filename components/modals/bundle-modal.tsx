@@ -145,7 +145,7 @@ export default ({ open, setOpen }) => {
                           src="/assets/csv-tracker.png"
                           alt="Trckfi Finance Dashboard"
                           className="max-w-5xl rounded-xl shadow-xl w-full"
-                          width={1000}
+                          width={500}
                           height={300}
                           // unoptimized={true}
                         />
