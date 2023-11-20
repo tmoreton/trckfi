@@ -76,7 +76,38 @@ const transactionsSync = async (access_token, user_id) => {
         where: { 
           transaction_id: added[i].transaction_id 
         },
-        update: {},
+        update: {
+          amount,
+          account_id: id,
+          transaction_id: added[i].transaction_id,
+          authorized_date: new Date(added[i].date),
+          account_name: name,
+          date: added[i].date,
+          name: added[i].name,
+          // @ts-ignore
+          custom_name: rule?.ruleset?.custom_name || rule?.ruleset?.name || added[i].merchant_name,
+          merchant_name: added[i].merchant_name,
+          category: added[i].category,
+          // @ts-ignore
+          detailed_category: custom_detailed_category,
+          // @ts-ignore
+          unified: rule?.ruleset?.unified || icons[custom_detailed_category],
+          // @ts-ignore
+          primary_category: rule?.ruleset?.primary_category || added[i].personal_finance_category.primary,
+          // @ts-ignore
+          counterparties: added[i]?.counterparties[0],
+          pending: added[i].pending,
+          user_id: user.id,
+          currency: added[i].iso_currency_code,
+          item_id: plaid.item_id,
+          month_year: added[i].date.substring(0,7),
+          week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
+          year: added[i].date.substring(0,4),
+          active: duplicate ? false : true,
+          // @ts-ignore
+          recurring: found && true,
+          upcoming_date: found && DateTime.fromISO(added[i].date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+        },
         create: {
           amount,
           account_id: id,
