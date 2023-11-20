@@ -27,9 +27,11 @@ The journey to financial success begins with setting clear and achievable goals.
 
 - **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401](/blog/401k-retirement-plans-guide-for-smart-saving)[(k)](/blog/roth-401k-plans) and open an Individual Retirement Account [(IRA)](/blog/types-of-ira-investing).
 
+[![tracking-expenses](/images/home--9--YwNj.png)](/pricing)
+
 ## Managing Debt Wisely
 
-Many individuals in their 20s carry various types of debt, such as student loans, credit card debt, or car loans. Managing debt wisely is crucial to your financial well-being:
+Many individuals in their 20s carry various [types of debt](/blog/how-to-get-out-of-debt), such as student loans, credit card debt, or car loans. Managing debt wisely is crucial to your financial well-being:
 
 - **Prioritize High-Interest Debt**: If you have high-interest debt like credit card balances, focus on paying them off as quickly as possible. The interest can add up significantly over time.
 
@@ -61,7 +63,7 @@ Practicing frugality in your 20s can set you up for financial success down the r
 
 - **Emergency Fund**: Prioritize building an emergency fund. Having savings for unexpected expenses can provide peace of mind.
 
-[![track-expenses](/images/home--8--Y4Nz.png)](/pricing)
+[![track-expenses](/images/home--8--cyMj.png)](/pricing)
 
 ## Investing for the Future
 
