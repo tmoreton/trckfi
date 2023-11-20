@@ -51,7 +51,7 @@ export default function () {
   return (
     <>
       <ProgressNav width={'70%'} />
-      <div className="relative isolate">
+      <div className="relative isolate pb-10">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
             <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">

@@ -50,7 +50,7 @@ export default function () {
   return (
     <>
       <ProgressNav width={'80%'} />
-      <div className="relative isolate">
+      <div className="relative isolate pb-10">
         <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
           <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto">
             <h1 className="text-3xl font-bold text-gray-900 sm:text-6xl leading-tight">
@@ -59,7 +59,7 @@ export default function () {
             <form onSubmit={onSubmit}>
               <div className="flex">
                 <div className="flex-3">
-                  <ul role="list" className="my-10 space-y-8 text-xl leading-6 text-gray-600">
+                  <ul role="list" className="my-10 space-y-2 lg:space-y-8 text-xl leading-6 text-gray-600">
                     {items.map((i, id) => (
                       <li key={id} className="gap-x-3">
                         <div className="rounded-lg bg-gray-100 ring-1 ring-gray-900/10 flex items-center p-4">
@@ -72,7 +72,7 @@ export default function () {
                     ))}
                   </ul>
                 </div>
-                <div className="flex flex-1 items-center justify-center">
+                <div className="hidden lg:flex flex-1 items-center justify-center">
                   <Image
                     src="/assets/got-cheers.gif"
                     alt="Cheers"

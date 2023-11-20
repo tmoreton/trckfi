@@ -73,7 +73,7 @@ export default function ({ showError }) {
                     </PinkBtn>
                   </div>         
                 </form>
-                <Link href="/visionboard" className="text-center mx-auto text-pink-600 hover:text-pink-500">
+                <Link href="/dashboard" className="text-center mx-auto text-pink-600 hover:text-pink-500">
                   No thanks, maybe later
                 </Link>
               </div>
