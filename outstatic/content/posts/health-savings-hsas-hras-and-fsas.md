@@ -45,7 +45,7 @@ When it comes to managing your healthcare expenses, HSAs can be your best friend
 
 ### **Navigating the World of Health Reimbursement Arrangements (HRAs)**
 
-[HRAs](fsa-hra-healthcare-benefits) are another essential tool in the healthcare world. Here's what you need to know:
+[HRAs](/blog/fsa-hra-healthcare-benefits) are another essential tool in the healthcare world. Here's what you need to know:
 
 - **What is an HRA?**: An HRA is like a fund of money that your employer owns and contributes to, designed to cover eligible medical expenses.
 
@@ -69,7 +69,7 @@ When it comes to managing your healthcare expenses, HSAs can be your best friend
 
 ### **Maximizing Your Savings with Flexible Spending Accounts (FSAs)**
 
-[FSAs](fsa-hra-healthcare-benefits) come in different types, each designed for specific healthcare needs:
+[FSAs](/blog/fsa-hra-healthcare-benefits) come in different types, each designed for specific healthcare needs:
 
 - **Health Care FSAs**: These cover eligible medical expenses not covered by your health plan.
 
@@ -113,7 +113,7 @@ As you can see, each account type has its unique features. HSAs offer portabilit
 
 Whether you're gearing up for open enrollment or reevaluating your [healthcare options](/blog/how-to-choose-health-insurance-open-enrollment), understanding HSAs, HRAs, and FSAs is crucial.
 
-- Each account serves a specific purpose, providing flexibility and financial relief in different ways. By considering your eligibility, ownership, contribution limits, and other factors, you can make an informed decision that aligns with your [unique healthcare needs](/blog/how-to-choose-health-insurance-open-enrollment).
+- Each account serves a specific purpose, providing flexibility and financial relief in different ways. By considering your eligibility, ownership, contribution limits, and other factors, you can make an informed decision that aligns with your unique healthcare needs.
 
 - Remember that making the right choice can significantly impact your healthcare journey, putting more money back in your pocket and helping you navigate the complex world of healthcare expenses.
 

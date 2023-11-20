@@ -41,7 +41,7 @@ Here's why it's crucial and how to do it effectively:
 
 [![trckfi-demo-tracking-expenses-net-worth-and-goals](/images/home--8--Y0ND.png)](/pricing)
 
-With the [Trckfi dashboard](/pricing), you can easily review cash flow, expenses categories, and recurring charges as well as track your savings and investments to keep you motivated.
+With the [Trckfi dashboard](/pricing), you can easily review cash flow, expense categories, and recurring charges as well as track your savings and investments to keep you motivated.
 
 ## Distinguishing Fixed and Variable Expenses
 
@@ -91,5 +91,5 @@ In summary, here are practical steps to take control of your finances:
 
 ## Wrap Up
 
-By following these steps, you'll be well on your way to mastering your finances and achieving [financial control](/blog/optimize-financial-tracking-for-success), whether you're using a platform like [Trckfi](/) or not. So, what are you waiting for? It's time to take charge of your financial future!
+By following these steps, you'll be well on your way to mastering your finances and achieving [financial control](/blog/optimize-financial-tracking-for-success), whether you're using an [automated platform](/pricing) or not. So, what are you waiting for? It's time to take charge of your financial future!
 

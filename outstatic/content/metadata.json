@@ -1,6 +1,6 @@
 {
-  "commit": "0add4c420420f06b82a024495b9f435d29f55f0c",
-  "generated": "2023-11-20T16:35:49.571Z",
+  "commit": "3bbee09c02e66bec01a2abda95245e9b30992cc0",
+  "generated": "2023-11-20T16:44:36.295Z",
   "metadata": [
     {
       "__outstatic": {
@@ -232,27 +232,6 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
-    },
-    {
-      "__outstatic": {
-        "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
-        "hash": "1081063135",
-        "path": "outstatic/content/posts/expense-management-guide.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Finance Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
-      "date": "09.14.2023",
-      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
-      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
-      "publishedAt": "2023-11-15T15:25:45.000Z",
-      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
-      "slug": "expense-management-guide",
-      "status": "published",
-      "title": "Struggling to Manage Your Finances? Discover the Solution!"
     },
     {
       "__outstatic": {
@@ -804,7 +783,7 @@
     {
       "__outstatic": {
         "commit": "0add4c420420f06b82a024495b9f435d29f55f0c",
-        "hash": "1512558340",
+        "hash": "1307711479",
         "path": "outstatic/content/posts/how-to-choose-health-insurance-open-enrollment.md"
       },
       "author": {
@@ -815,12 +794,54 @@
       "collection": "posts",
       "coverImage": "/images/women-choosing-health-insurance-U3OT.jpg",
       "description": "Learn how to evaluate and choose the optimal health insurance plan during open enrollment to maximize your coverage and manage costs.",
-      "keywords": "open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA",
+      "keywords": "open enrollment, health insurance, picking health insurance, open enrollment, how to choose health insurance, health insurance open enrollment guide, health insurance, open enrollment, picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA,open enrollment insurance, how long is open enrollment for health insurance, open enrollment process ",
       "publishedAt": "2023-11-21T01:34:56.000Z",
       "seoTitle": "A Guide to Picking the Best Health Insurance This Open Enrollment",
       "slug": "how-to-choose-health-insurance-open-enrollment",
       "status": "published",
       "title": "A Guide to Picking the Best Health Insurance"
+    },
+    {
+      "__outstatic": {
+        "commit": "1ad438e25c8535508d32a6247f0837ad62a2e4aa",
+        "hash": "1096834948",
+        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Healthcare and Insurance",
+      "collection": "posts",
+      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
+      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
+      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
+      "publishedAt": "2023-11-17T16:03:01.000Z",
+      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
+      "slug": "health-savings-hsas-hras-and-fsas",
+      "status": "draft",
+      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
+    },
+    {
+      "__outstatic": {
+        "commit": "3bbee09c02e66bec01a2abda95245e9b30992cc0",
+        "hash": "508612722",
+        "path": "outstatic/content/posts/expense-management-guide.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Finance Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
+      "date": "09.14.2023",
+      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
+      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
+      "publishedAt": "2023-11-15T15:25:45.000Z",
+      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
+      "slug": "expense-management-guide",
+      "status": "published",
+      "title": "Struggling to Manage Your Finances? Discover the Solution!"
     }
   ]
 }
