@@ -61,7 +61,7 @@ In addition to aggressive saving and investing, FIRE followers often explore alt
 
 The final pillar supporting the FIRE movement is the sense of community and support that enthusiasts find within the FIRE community. Engaging with like-minded individuals who share similar goals and values fosters a sense of encouragement, motivation, and accountability. There are many online forums, social media groups, and local meetups where members share insights, exchange knowledge, and celebrate milestones together.
 
-[![financial-freedom-mindset](blob:https://www.trckfi.com/0ae1c5f2-3596-453a-8dbb-2ba422dff048)](/pricing)
+[![mindset-financial-freedom](/images/home--14--EwND.png)](/pricing)
 
 ## A Mindset of Financial Freedom
 
