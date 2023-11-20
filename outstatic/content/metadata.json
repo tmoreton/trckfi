@@ -1,6 +1,6 @@
 {
-  "commit": "1ba2ac99cff60f27bc7fdcbbae1a80d5c244017a",
-  "generated": "2023-11-20T15:28:56.030Z",
+  "commit": "aac142b5686227798f3d55f3f0c76ddb7822c70d",
+  "generated": "2023-11-20T16:05:10.937Z",
   "metadata": [
     {
       "__outstatic": {
@@ -425,27 +425,6 @@
     },
     {
       "__outstatic": {
-        "commit": "7e2e751d447fd3b72618225dfbe119f020e2f7df",
-        "hash": "3872566630",
-        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Expense Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/track-receipt.jpg",
-      "date": "07.10-2023",
-      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
-      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
-      "slug": "tracking-monthly-expenses",
-      "status": "published",
-      "title": "The Super Simple Guide to Tracking Your Money"
-    },
-    {
-      "__outstatic": {
         "commit": "3ba6725d9b91e976415d331c883cf2e6fb5cd813",
         "hash": "2889610858",
         "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
@@ -821,6 +800,27 @@
       "slug": "types-of-ira-investing",
       "status": "published",
       "title": "The Ultimate Guide to IRA Accounts: 7 Options Beyond Roth and Traditional"
+    },
+    {
+      "__outstatic": {
+        "commit": "aac142b5686227798f3d55f3f0c76ddb7822c70d",
+        "hash": "3766621004",
+        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Expense Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/track-receipt.jpg",
+      "date": "07.10-2023",
+      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
+      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
+      "publishedAt": "2023-10-10T14:25:45.000Z",
+      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
+      "slug": "tracking-monthly-expenses",
+      "status": "published",
+      "title": "The Super Simple Guide to Tracking Your Money"
     }
   ]
 }
