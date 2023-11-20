@@ -1,6 +1,6 @@
 ---
 title: 'A Guide to Picking the Best Health Insurance'
-status: 'draft'
+status: 'published'
 author:
   name: 'Zina Kumok'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
@@ -10,7 +10,7 @@ coverImage: '/images/women-choosing-health-insurance-U3OT.jpg'
 category: 'Open Enrollment: Health Insurance'
 seoTitle: 'A Guide to Picking the Best Health Insurance This Open Enrollment'
 keywords: 'open enrollment health insurance picking health insurance open enrollment how to choose health insurance health insurance open enrollment guide, health insurance, open enrollment, choose/picking health insurance, compare plans, high deductible plan, HSA, FSA, HRA'
-publishedAt: '2023-11-14T01:34:56.572Z'
+publishedAt: '2023-11-21T01:34:56.000Z'
 ---
 
 Whether you work full-time for a company or are self-employed, open enrollment for health insurance is here. Open enrollment is that time of year when you can [choose your health insurance](/blog/health-insurance-lingo-key-terms-guide) plan for next year.
@@ -43,7 +43,7 @@ The premium is the amount you’ll pay every month. The [deductible](/blog/healt
 
 If you choose a high-deductible plan, make sure you pick one that is HSA-eligible. A Health Savings Account (HSA) is like a triple-powered savings account. You can deduct contributions on your taxes, invest the money in the stock market and spend it tax-free on qualified medical expenses.
 
-Also, some employers will offer and contribute to a [Health Reimbursement Account](/blog/fsa-hra-healthcare-benefits) (HRA) if you choose a high-deductible health plan (HDHP). High-deductible plans usually have the lowest monthly premium, but come with a high deductible. If you’re the type of person who never goes to the doctor, an HDHP may be appropriate. Like HSAs, HRA funds often roll over to the next year.
+Also, some employers will offer and contribute to a Health Reimbursement [Account (HRA)](/blog/fsa-hra-healthcare-benefits) if you choose a high-deductible health plan (HDHP). High-deductible plans usually have the lowest monthly premium, but come with a high deductible. If you’re the type of person who never goes to the doctor, an HDHP may be appropriate. Like HSAs, HRA funds often roll over to the next year.
 
 Some employers offer [Flexible Spending Accounts](/blog/fsa-hra-healthcare-benefits) (FSA), which are not as versatile as [HRAs or HSAs](/blog/health-savings-hsas-hras-and-fsas). An FSA (we know, the acronyms are too similar) may only roll over a limited amount of unused funds to the next calendar year. Plus, once you set up your [FSA](/blog/health-savings-hsas-hras-and-fsas) contributions, you cannot change them until the next open enrollment window.
 
