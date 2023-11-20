@@ -63,7 +63,7 @@ If you've relied on Mint, their shutdown is a disappointment but also a fresh st
 
 Best For: Hands-off spending and net worth & investment monitoring, money mindset & education.
 
-[Trckfi](www.trckfi.com) combines automated personal finance tracking (income, expense, current transactions and net worth) with money mindset and education. Their educational approach is ideal for building long-term money skills.
+[Trckfi](/pricing) combines automated personal finance tracking (income, expense, current transactions and net worth) with money mindset and education. Their educational approach is ideal for building long-term money skills.
 
 ### 2\. YNAB
 
