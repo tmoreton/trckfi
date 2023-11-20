@@ -70,7 +70,7 @@ const transactionsSync = async (access_token, user_id) => {
       let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
       // @ts-ignore
       let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
-      const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount))
+      const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount) && !e.pending)
       const duplicate = added.find((d) => d.date === added[i].date && Number(d.amount) + Number(amount) === 0 && d.transaction_id !== added[i].transaction_id )
 
       await prisma.transactions.upsert({
