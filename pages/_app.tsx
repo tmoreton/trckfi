@@ -12,7 +12,7 @@ import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
-import Hotjar from '@hotjar/browser'
+// import Hotjar from '@hotjar/browser'
 import Script from 'next/script'
 import dynamic from 'next/dynamic' 
 
@@ -121,11 +121,11 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
     }
   }
 
-  useEffect(() => {
-    if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost') && !process.env['NEXT_PUBLIC_BASE_URL'].includes('demo')){
-      Hotjar.init(siteId, hotjarVersion);
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost') && !process.env['NEXT_PUBLIC_BASE_URL'].includes('demo')){
+  //     Hotjar.init(siteId, hotjarVersion);
+  //   }
+  // }, [])
   
   // const onBeforeChange = nextStepIndex => {
   //   if (nextStepIndex === 1) {

@@ -147,7 +147,7 @@ export default ({ open, setOpen }) => {
                           className="max-w-5xl rounded-xl shadow-xl w-full"
                           width={1000}
                           height={300}
-                          unoptimized={true}
+                          // unoptimized={true}
                         />
                       </div>
                     </div>

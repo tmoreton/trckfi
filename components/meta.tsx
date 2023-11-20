@@ -11,6 +11,7 @@ const Meta = ({ post }) => {
       <meta name="msapplication-TileColor" content="#db2777" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#db2777" />
+      <meta name="robots" content="index, follow" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <title>{post && post?.title ? post.title : 'Trckfi - Your online all-in-one, user-friendly personal finance platform.'}</title>
       <meta name="description" content={post && post?.description ? post.description : "Trckfi is your all-in-one online personal finance platform. We provide you with the tools and insights you need to take control of your finances. Our platform seamlessly connects to your bank accounts, credit cards, investments, and more, giving you a comprehensive view of your financial landscape. We categorize your transactions, visualize your spending, and offer smart suggestions to help you make informed financial decisions. Plus, we're all about making finances fun and engaging with features like our Vision Board Magic."} />
