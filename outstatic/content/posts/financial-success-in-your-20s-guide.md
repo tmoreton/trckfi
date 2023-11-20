@@ -25,7 +25,7 @@ The journey to financial success begins with setting clear and achievable goals.
 
 - **Budgeting**: Develop a [budget](/blog/budgeting-made-easy) that outlines your monthly income and expenses. [Tracking your spending](/blog/tracking-monthly-expenses) helps you identify areas where you can save.
 
-- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401(k)](/blog/roth-401k-plans) and open an Individual Retirement Account[ (IRA)](/blog/types-of-ira-investing).
+- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401(k)](/blog/roth-401k-plans) and open an Individual Retirement Account [(IRA)](/blog/types-of-ira-investing).
 
 ## Managing Debt Wisely
 
@@ -61,6 +61,8 @@ Practicing frugality in your 20s can set you up for financial success down the r
 
 - **Emergency Fund**: Prioritize building an emergency fund. Having savings for unexpected expenses can provide peace of mind.
 
+[![track-expenses](/images/home--8--gwMj.png)](/pricing)
+
 ## Investing for the Future
 
 Investing is a powerful tool for wealth building. While you may not have substantial funds to invest in your 20s, you can start small:
@@ -75,7 +77,7 @@ Investing is a powerful tool for wealth building. While you may not have substan
 
 In your 20s, it's essential to protect your [financial future](/blog/achieve-financial-independence-guide-to-freedom) with the right insurance:
 
-- **Health Insurance and HSAs**: Ensure you have health insurance coverage. Additionally, look into Health Savings Accounts[ (HSAs)](/blog/health-insurance-lingo-key-terms-guide) for potential tax advantages and savings on medical expenses.
+- **Health Insurance and HSAs**: Ensure you have health insurance coverage. Additionally, look into Health Savings Accounts [(HSAs)](/blog/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified) for potential tax advantages and savings on medical expenses.
 
 - **Renter's Insurance**: If you're renting a home or apartment, consider renter's insurance to protect your belongings in case of theft, fire, or other disasters.
 
