@@ -41,9 +41,11 @@ Keep it real! Don't exaggerate your income or underestimate your expenses. Stick
 
 Budgeting is a family affair. Gather everyone around the kitchen table and have a budgeting pow-wow. Talk about your goals and how you can work together to achieve them. This way, your family will have a shared sense of purpose and be more inclined to stick to the budget.
 
+[![automation-personal-finance-tracker](/images/home--8--g4ND.png)](/pricing)
+
 ## 7\. Leverage Automation:
 
-Let tech do the heavy lifting! Take advantage of awesome personal finance dashboards like [Trckfi](/pricing). It's like having a virtual financial assistant right in your pocket. [Trckfi](/) **automatically tracks your spending**, sorts it into **categories**, and gives you a visual snapshot of where your money is going. Gaining control of your finances has never been this easy and convenient!
+Let tech do the heavy lifting! Take advantage of awesome personal finance dashboards like **Trckfi**. It's like having a virtual financial assistant right in your pocket. Trckfi [automatically tracks](/pricing)** your spending**, sorts it into **categories**, and gives you a visual snapshot of where your money is going. Gaining control of your finances has never been this easy and convenient!
 
 ## Key Takeaway:
 
