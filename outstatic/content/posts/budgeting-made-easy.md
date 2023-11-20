@@ -41,7 +41,7 @@ Keep it real! Don't exaggerate your income or underestimate your expenses. Stick
 
 Budgeting is a family affair. Gather everyone around the kitchen table and have a budgeting pow-wow. Talk about your goals and how you can work together to achieve them. This way, your family will have a shared sense of purpose and be more inclined to stick to the budget.
 
-[![automation-personal-finance-tracker](/images/home--8--g4ND.png)](/pricing)
+[![automation-personal-finance-tracker](/images/home--8--YzNT.png)](/pricing)
 
 ## 7\. Leverage Automation:
 
@@ -51,5 +51,5 @@ Let tech do the heavy lifting! Take advantage of awesome personal finance dashbo
 
 Crafting a realistic budget is the cornerstone of financial balance for busy professionals and multitasking parents. Follow these steps and cultivate a proactive financial mindset to take command of your financial well-being. Budgeting can be straightforward; keep it simple, involve your family, and stay flexible. Intentional spending allows you to enjoy quality time with loved ones while making savvy financial decisions. Let your budget guide you to a more balanced and fulfilling life!
 
-For a seamless financial management experience, explore our innovative personal finance platform, [Trckfi](/pricing). Simplify your financial journey and stay on track with your goals. Don't miss out on insightful blog posts; join our notification list for exclusive updates. Empower your financial success with Trckfi—your path to a more secure and fulfilling life!
+For a seamless financial management experience, explore our innovative [personal finance platform](/pricing), Trckfi. Simplify your financial journey and stay on track with your goals. Don't miss out on insightful blog posts; join our notification list for exclusive updates. Empower your financial success with Trckfi—your path to a more secure and fulfilling life!
 

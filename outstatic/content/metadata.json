@@ -1,6 +1,6 @@
 {
   "commit": "66c4e34c0e0924f515adbe573bd3103a5f85be60",
-  "generated": "2023-11-20T15:21:28.782Z",
+  "generated": "2023-11-20T15:22:10.326Z",
   "metadata": [
     {
       "__outstatic": {
@@ -804,7 +804,7 @@
     {
       "__outstatic": {
         "commit": "66c4e34c0e0924f515adbe573bd3103a5f85be60",
-        "hash": "2500215766",
+        "hash": "3708361200",
         "path": "outstatic/content/posts/budgeting-made-easy.md"
       },
       "author": {
