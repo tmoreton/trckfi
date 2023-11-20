@@ -1,6 +1,6 @@
 {
-  "commit": "7882cb7b94c57b4462ab63afd35eab2de86300a4",
-  "generated": "2023-11-20T16:15:22.656Z",
+  "commit": "faab648eed24996c9549912a671f89839eafccb7",
+  "generated": "2023-11-20T16:18:21.120Z",
   "metadata": [
     {
       "__outstatic": {
@@ -338,27 +338,6 @@
       "slug": "achieve-financial-independence-guide-to-freedom",
       "status": "published",
       "title": "How to Achieve Financial Independence - Your Guide to Financial Freedom"
-    },
-    {
-      "__outstatic": {
-        "commit": "77325e489992c687cc36651cffc42c675809bd5a",
-        "hash": "1477318163",
-        "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/401k-guide.png",
-      "date": "08.16.2023",
-      "description": " Learn about 401(k) retirement plans including employer matching, contribution limits, vesting rules, investment options, withdrawals, and more.",
-      "keywords": "401(k) plans, 401(k) contribution limits, 401(k) investments, 401(k) withdrawals, 401(k) vesting, 401(k) portability",
-      "publishedAt": "2023-10-24T14:25:45.000Z",
-      "seoTitle": "401(k) Retirement Plans: The Comprehensive Guide You Need",
-      "slug": "smart-401k-retirement-guide",
-      "status": "published",
-      "title": "Maximize Your 401(k): The Comprehensive Guide to Smart Saving"
     },
     {
       "__outstatic": {
@@ -821,6 +800,27 @@
       "slug": "five-truths-about-personal-finance",
       "status": "published",
       "title": "5 Truths About Personal Finances That Everyone Should Know About"
+    },
+    {
+      "__outstatic": {
+        "commit": "faab648eed24996c9549912a671f89839eafccb7",
+        "hash": "3321184144",
+        "path": "outstatic/content/posts/smart-401k-retirement-guide.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/401k-guide.png",
+      "date": "08.16.2023",
+      "description": " Learn about 401(k) retirement plans including employer matching, contribution limits, vesting rules, investment options, withdrawals, and more.",
+      "keywords": "401(k) plans, 401(k) contribution limits, 401(k) investments, 401(k) withdrawals, 401(k) vesting, 401(k) portability",
+      "publishedAt": "2023-10-24T14:25:45.000Z",
+      "seoTitle": "401(k) Retirement Plans: The Comprehensive Guide You Need",
+      "slug": "smart-401k-retirement-guide",
+      "status": "published",
+      "title": "Maximize Your 401(k): The Comprehensive Guide to Smart Saving"
     }
   ]
 }
