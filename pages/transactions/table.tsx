@@ -283,7 +283,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
               {rows.slice(paginate.start, paginate.end).map((row, i) => {
                 prepareRow(row);
                 return (
-                  <tr {...row.getRowProps()}>
+                  <tr className={classNames(row.cells[0].row.original.pending && 'bg-gray-100')} {...row.getRowProps()}>
                     {row.cells.map(cell => {
                       if (cell.column.Header === 'Name'){
                         return (
@@ -293,6 +293,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                             { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.user_id !== user?.id && <UserCircleIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.alert_date && <BellAlertIcon className="h-4 w-4 ml-3 text-red-400" /> }
+                            { cell.row.original.pending && <span className="ml-3 italic font-semibold text-[10px]">Pending</span> }
                             </span>
                           </td>
                         )

@@ -40,12 +40,12 @@ export default function ({ accounts, netWorth, history, totalStats }) {
         
       </div>
       <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-        <dl className="space-y-6 divide-y divide-gray-900/10">
+        <dl className="space-y-5 divide-y divide-gray-900/10">
         { accounts && Object.keys(accounts).map(key => {
           if(Object.keys(accounts)?.length > 0){
             const total = accounts[key].reduce((total, obj) => Number(obj.amount) + total, 0)
             return (
-              <Disclosure as="div" key={key} className="pt-6">
+              <Disclosure as="div" key={key} className="pt-5">
                 {({ open }) => (
                   <>
                     <dt>

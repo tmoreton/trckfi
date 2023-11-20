@@ -15,7 +15,6 @@ export default async (req, res) => {
       where: {
         OR: query,
         active: true,
-        pending: false,
         authorized_date: {
           lte: range.startDate,
           gte: range.endDate
