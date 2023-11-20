@@ -85,7 +85,7 @@ Remember that building wealth and achieving financial goals is a marathon, not a
 
 - **Review Your Savings:** Regularly contributing to your emergency fund or short-term savings goals is crucial. Ensure that your savings are growing at a pace that aligns with your objectives.
 
-- **Check Your Investments:** If you have [investment](/blog/iras-vs-401ks-choosing-retirement-plan)[ accounts](/blog/iras-401ks-retirement-planning), such as a [401(k)](/blog/smart-401k-retirement-guide), [IRA](/blog/types-of-ira-investing), or brokerage account, it's time to evaluate their performance. Look at the overall returns and assess whether your investments are meeting your long-term financial goals. Keep in mind that investments can fluctuate, so focus on the bigger picture.
+- **Check Your Investments:** If you have [investment](/blog/iras-vs-401ks-choosing-retirement-plan)[ accounts](/blog/iras-401ks-retirement-planning), such as a [401](/blog/401k-retirement-plans-guide-for-smart-saving)[(k)](/blog/smart-401k-retirement-guide), [IRA](/blog/types-of-ira-investing), or brokerage account, it's time to evaluate their performance. Look at the overall returns and assess whether your investments are meeting your long-term financial goals. Keep in mind that investments can fluctuate, so focus on the bigger picture.
 
 - **Adjust Contributions:** Modify contributions based on your evolving financial situation and goals. Perhaps you want to increase your monthly savings amount or rebalance your investment portfolio.
 
@@ -123,7 +123,7 @@ Setting financial intentions proactively turns your financial dreams into realit
 
 ## Conclusion
 
-Your monthly financial check-in isn't just a task; it's your gateway to financial empowerment. Start this routine today and witness your financial goals turning into reality. This simple monthly check-in is a potent tool. By [tracking your finances](/) and savings at the beginning of each month, you're laying the foundation for financial success.
+Your monthly financial check-in isn't just a task; it's your gateway to financial empowerment. Start this routine today and witness your financial goals turning into reality. This simple [monthly check-in](/blog/quick-monthly-financial-checkin-routine) is a potent tool. By [tracking your finances](/pricing) and savings at the beginning of each month, you're laying the foundation for financial success.
 
 Remember, even small changes can lead to significant savings over time. So, kickstart your monthly routine today and take charge of your financial future.
 

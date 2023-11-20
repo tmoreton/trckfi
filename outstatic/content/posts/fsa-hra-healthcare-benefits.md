@@ -13,7 +13,7 @@ keywords: 'FSA, HRA, Open Enrollment, Health Benefits, Healthcare Expenses, Tax 
 publishedAt: '2023-11-12T15:32:44.292Z'
 ---
 
-Health care and [open enrollment season](/blog/health-insurance-lingo-key-terms-guide) can feel overwhelming, and understanding your options is vital. Health care and open enrollment can be overwhelming. In this comprehensive guide, we'll cover: Flexible Spending Accounts (FSAs) and Health Reimbursement Arrangements (HRAs), helping you make the most of your health benefits.
+Health care and [open enrollment season](/blog/health-insurance-lingo-key-terms-guide) can feel overwhelming, and understanding your options is vital. Health care and open enrollment can be overwhelming. In this comprehensive guide, we'll cover Flexible Spending Accounts (FSAs) and Health Reimbursement Arrangements (HRAs), to help you make the most of your health benefits.
 
 ## What Are FSAs and HRAs?
 
@@ -71,6 +71,8 @@ HRAs are another valuable tool in your health benefits arsenal, but they operate
 
 2. **Employer Dependency:** HRAs depend on your employer's willingness to offer this benefit.
 
+[![manage-money](/images/home--1--MzMz.png)](/pricing)
+
 ## How to Choose Between FSAs and HRAs
 
 Choosing between an FSA and an HRA depends on your individual circumstances. Here are some key factors to consider when deciding:
@@ -89,7 +91,7 @@ Choosing between an FSA and an HRA depends on your individual circumstances. Her
 
 **Employer Support:** Seek advice from your employer's benefits team to understand their contributions and receive guidance tailored to your unique situation.
 
-By considering these factors, you can make an informed [choice between an FSA and an HRA](https://www.cigna.com/knowledge-center/hsa-hra-fsa#:~:text=HRAs%20are%20only%20available%20to,different%20kinds%20of%20eligible%20expenses.) during open enrollment. Whether you opt for one or both, these valuable tools can alleviate the financial burden of medical expenses and put more money back in your pocket.
+By considering these factors, you can make an informed choice between an FSA and an HRA during open enrollment. Whether you opt for one or both, these valuable tools can alleviate the financial burden of medical expenses and put more money back in your pocket.
 
 ## Conclusion: Making Informed Choices
 

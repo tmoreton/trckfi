@@ -31,7 +31,7 @@ Here’s the scoop on how tracking your spending can help you take control of yo
 
 Ever feel like your money seems to vanish into thin air? By writing down everything you spend, you’ll get an honest picture of where your cash is really going every month. This makes it way easier to spot areas where you might be overdoing it a bit.
 
-If you want to save time and stay on top of your spending in real-time try Trckfi our [easy-to-use personal finance app](/) that helps you automatically track your transactions, cash flow, net worth, and more.
+If you want to save time and stay on top of your spending in real-time try **Trckfi** our [easy-to-use personal finance app](/) that helps you automatically track your transactions, cash flow, net worth, and more.
 
 ### Set Real Budgets
 
@@ -39,7 +39,7 @@ Once you know how much normally goes toward stuff like groceries, bills, and hap
 
 ### Find Hidden Subscriptions
 
-Savings Tracking expenses reveals sneaky ways you could save, like cutting out unused subscriptions or finding cheaper insurance. Finding these hidden gems allows you to redirect those funds toward your financial goals faster, be it paying off debt, building an [emergency fund](/blog/building-an-emergency-fund), or investing for the future.
+Savings Tracking expenses reveal sneaky ways you could save, like cutting out unused subscriptions or finding cheaper insurance. Finding these hidden gems allows you to redirect those funds toward your financial goals faster, be it paying off debt, building an [emergency fund](/blog/building-an-emergency-fund), or investing for the future.
 
 ## 5 Tips for Painless Tracking
 
@@ -85,5 +85,5 @@ If you're looking to streamline this process and eliminate the hassle of manuall
 
 Expense tracking gives you the insider scoop on your spending so you can take control of your money. Set up a system that works for you and stick with it. You’ll be shocked at how empowered you feel to reach your financial goals.
 
-Hopefully, this gives you the basics to start tracking your expenses pain-free. For more educational content about personal finance [check our blog](/blog). Now go get that money honey!"
+Hopefully, this gives you the basics to start tracking your expenses pain-free. For more educational content about personal finance [check our blog](/blog). Now go get that money honey!
 

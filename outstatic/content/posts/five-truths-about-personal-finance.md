@@ -41,7 +41,7 @@ By having a comprehensive view of your cash flow, you not only avoid the pitfall
 
 Do you know exactly where your money goes each month? Tracking [expenses](/blog/tracking-monthly-expenses) consistently gives visibility into spending patterns. Use apps to automatically categorize transactions and spot unnecessary costs. Identify areas to cut back and reallocate towards higher priorities like paying off debt or investing.
 
-You can't fix the problem if you don't know what the problem is. Tracking expenses is key in understanding and identifying what areas you might be spending more than you wish and changing your habits to better align with your goals. With Trckfi **automatic categorization** feature, you can quickly identify expense categories and gain insights needed to make adjustment on your spending. [Sign up ](/pricing)for free today!
+You can't fix the problem if you don't know what the problem is. Tracking expenses is key in understanding and identifying what areas you might be spending more than you wish and changing your habits to better align with your goals. With Trckfi's **automatic categorization** feature, you can quickly identify expense categories and gain insights needed to make adjustments to your spending. [Sign up ](/pricing)for free today!
 
 ## **3\. Building Wealth is Possible for Anyone Through Smart Investing**
 
@@ -101,7 +101,7 @@ Understanding bad debt helps safeguard finances and avoid unnecessary stress.
 
 4. Prioritize high-interest debt repayment.
 
-5. Use tools like Trckfi to[ automate](/pricing) and optimize repayment.
+5. Use tools like Trckfi to [automate](/pricing) and optimize repayment.
 
 ## **5\. Use Technology to Track Finances Efficiently**
 
