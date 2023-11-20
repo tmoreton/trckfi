@@ -14,11 +14,11 @@ import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
 // import Hotjar from '@hotjar/browser'
 import Script from 'next/script'
-import dynamic from 'next/dynamic' 
+// import dynamic from 'next/dynamic' 
 
-const Steps = dynamic(() => import('intro.js-react').then(mod => mod.Steps), {
-  ssr: false
-});
+// const Steps = dynamic(() => import('intro.js-react').then(mod => mod.Steps), {
+//   ssr: false
+// });
 
 const siteId = 3619138
 const hotjarVersion = 6
@@ -153,13 +153,13 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
       <SessionProvider session={session}>
         <SuccessAlert success={success} setSuccess={setSuccess} /> 
         <ErrorModal error={error} />
-          <Steps
+          {/* <Steps
             enabled={enabled}
             steps={steps}
             initialStep={0}
             // onBeforeChange={onBeforeChange}
             onExit={() => console.log('done')}
-          />
+          /> */}
           <AuthGuard>
             {
               process.env['NEXT_PUBLIC_BASE_URL'].includes('demo') &&
