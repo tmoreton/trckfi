@@ -1,6 +1,6 @@
 {
-  "commit": "cefd23bb07e83e46789c1633ca67eee7a02ed7c0",
-  "generated": "2023-11-20T14:59:08.952Z",
+  "commit": "0b98c76f286d06d288bb6ceed7d07595708bdb39",
+  "generated": "2023-11-20T15:03:52.268Z",
   "metadata": [
     {
       "__outstatic": {
@@ -274,27 +274,6 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
-    },
-    {
-      "__outstatic": {
-        "commit": "44db3d57a0592a3b1908db532270beec95d2d18b",
-        "hash": "3529809425",
-        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Zero-Based Budgeting",
-      "collection": "posts",
-      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
-      "date": "07.16.2023",
-      "description": "Learn how zero-based budgeting (ZBB) empowers financial control, making every dollar count. Enhance awareness, improve decisions, and adapt to change.",
-      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
-      "publishedAt": "2023-08-15T14:25:45.000Z",
-      "seoTitle": "\"Zero-Based Budgeting: Take Control of Your Money",
-      "slug": "what-is-zero-based-budgeting",
-      "status": "published",
-      "title": "What is zero-based budgeting, and is it right for you?"
     },
     {
       "__outstatic": {
@@ -821,6 +800,27 @@
       "slug": "essential-financial-concepts",
       "status": "published",
       "title": "10 Must-Know Personal Finance Basics for Financial Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "0b98c76f286d06d288bb6ceed7d07595708bdb39",
+        "hash": "4013073655",
+        "path": "outstatic/content/posts/what-is-zero-based-budgeting.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Zero-Based Budgeting",
+      "collection": "posts",
+      "coverImage": "/assets/blog/zero-based-budget-1.jpg",
+      "date": "07.16.2023",
+      "description": "Learn how zero-based budgeting (ZBB) empowers financial control, making every dollar count. Enhance awareness, improve decisions, and adapt to change.",
+      "keywords": "Zero-Based Budgeting, Budgeting Method, Financial Goals, Budgeting Strategies, Financial Awareness, Financial Focus, Decision-Making, Financial Progress, Expense Tracking, Categorization, Financial Planning, Automated Budgeting Tools, Budget Adjustments, Slush Fund, Alternatives to Zero-Based Budgeting, Self-Control, Realistic Expectations, Long-Term Financial Goals, Time-Consuming Budgeting, Streamlined Budgeting Process, Flexible Budgeting Approach, Personal Finances, Financial Freedom, Emergency Fund, Debt Payoff, Savings Contributions.",
+      "publishedAt": "2023-08-15T14:25:45.000Z",
+      "seoTitle": "\"Zero-Based Budgeting: Take Control of Your Money",
+      "slug": "what-is-zero-based-budgeting",
+      "status": "published",
+      "title": "What is zero-based budgeting, and is it right for you?"
     }
   ]
 }
