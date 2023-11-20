@@ -1,6 +1,6 @@
 {
-  "commit": "f03fd73a71e2adbb03b1da0fd04bb6320a76d1e7",
-  "generated": "2023-11-20T16:10:37.633Z",
+  "commit": "a3c6b023c00eed0b4bf52bc9cdb39f7dd65905d7",
+  "generated": "2023-11-20T16:13:09.122Z",
   "metadata": [
     {
       "__outstatic": {
@@ -467,27 +467,6 @@
     },
     {
       "__outstatic": {
-        "commit": "f744d807d974924d40b2863faf6e4e5f10ee2e07",
-        "hash": "378643894",
-        "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": " Retirement Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/retirement-plan.png",
-      "date": "08.07.2023",
-      "description": "Learn the differences between IRAs and 401(k)s to make good choices for retirement. Understand tax implications, contribution limits, and employer benefits.",
-      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
-      "publishedAt": "2023-10-13T14:25:45.000Z",
-      "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
-      "slug": "iras-vs-401ks-choosing-retirement-plan",
-      "status": "published",
-      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
-    },
-    {
-      "__outstatic": {
         "commit": "574e20e544fc3902ba65c4af10ececf2311d67be",
         "hash": "3805952904",
         "path": "outstatic/content/posts/traditional-ira-guide-tax-advantaged-retirement.md"
@@ -821,6 +800,27 @@
       "slug": "how-to-achieve-financial-organization",
       "status": "published",
       "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
+    },
+    {
+      "__outstatic": {
+        "commit": "a3c6b023c00eed0b4bf52bc9cdb39f7dd65905d7",
+        "hash": "1897480843",
+        "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": " Retirement Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/retirement-plan.png",
+      "date": "08.07.2023",
+      "description": "Learn the differences between IRAs and 401(k)s to make good choices for retirement. Understand tax implications, contribution limits, and employer benefits.",
+      "keywords": "Retirement planning, IRAs, 401(k)s, Individual Retirement Accounts, Traditional IRA, Roth IRA, Traditional 401(k), Roth 401(k), Tax benefits, Retirement accounts, Financial security, Retirement strategy, Financial goals, Investment options, Contribution limits, Employer matching, Tax implications, Withdrawal rules, RMDs, Financial advisor",
+      "publishedAt": "2023-10-13T14:25:45.000Z",
+      "seoTitle": "Choosing Between IRAs and 401(k)s: Key Considerations for Your Retirement Plan",
+      "slug": "iras-vs-401ks-choosing-retirement-plan",
+      "status": "published",
+      "title": "Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future"
     }
   ]
 }
