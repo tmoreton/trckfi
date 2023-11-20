@@ -1,6 +1,6 @@
 {
   "commit": "d2f18d43973b0e7da1ab424274d0bef49cfd4005",
-  "generated": "2023-11-20T16:20:17.447Z",
+  "generated": "2023-11-20T16:20:21.338Z",
   "metadata": [
     {
       "__outstatic": {
@@ -804,11 +804,11 @@
     {
       "__outstatic": {
         "commit": "d2f18d43973b0e7da1ab424274d0bef49cfd4005",
-        "hash": "135710081",
+        "hash": "2404524421",
         "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
       },
       "author": {
-        "name": ""
+        "name": "Trckfi"
       },
       "category": "Retirement Planning",
       "collection": "posts",
