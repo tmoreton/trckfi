@@ -1,6 +1,6 @@
 {
-  "commit": "1ad438e25c8535508d32a6247f0837ad62a2e4aa",
-  "generated": "2023-11-20T16:42:57.419Z",
+  "commit": "3bbee09c02e66bec01a2abda95245e9b30992cc0",
+  "generated": "2023-11-20T16:44:36.295Z",
   "metadata": [
     {
       "__outstatic": {
@@ -232,27 +232,6 @@
       "slug": "roth-401k-plans",
       "status": "published",
       "title": "Unlock Your Dream Retirement with the Magic of a Tax-Free 401(k) Roth"
-    },
-    {
-      "__outstatic": {
-        "commit": "be59eb08027baf0e37bd52dfe699c0eb2192f2cf",
-        "hash": "1081063135",
-        "path": "outstatic/content/posts/expense-management-guide.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Finance Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
-      "date": "09.14.2023",
-      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
-      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
-      "publishedAt": "2023-11-15T15:25:45.000Z",
-      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
-      "slug": "expense-management-guide",
-      "status": "published",
-      "title": "Struggling to Manage Your Finances? Discover the Solution!"
     },
     {
       "__outstatic": {
@@ -842,6 +821,27 @@
       "slug": "health-savings-hsas-hras-and-fsas",
       "status": "draft",
       "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
+    },
+    {
+      "__outstatic": {
+        "commit": "3bbee09c02e66bec01a2abda95245e9b30992cc0",
+        "hash": "508612722",
+        "path": "outstatic/content/posts/expense-management-guide.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Finance Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
+      "date": "09.14.2023",
+      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
+      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
+      "publishedAt": "2023-11-15T15:25:45.000Z",
+      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
+      "slug": "expense-management-guide",
+      "status": "published",
+      "title": "Struggling to Manage Your Finances? Discover the Solution!"
     }
   ]
 }
