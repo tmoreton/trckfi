@@ -25,11 +25,13 @@ The journey to financial success begins with setting clear and achievable goals.
 
 - **Budgeting**: Develop a [budget](/blog/budgeting-made-easy) that outlines your monthly income and expenses. [Tracking your spending](/blog/tracking-monthly-expenses) helps you identify areas where you can save.
 
-- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401(k)](/blog/roth-401k-plans) and open an Individual Retirement Account [(IRA)](/blog/types-of-ira-investing).
+- **Saving for the Future**: Consider saving for retirement early. Starting in your 20s allows your investments more time to grow. Take advantage of employer-sponsored retirement plans like a [401](/blog/401k-retirement-plans-guide-for-smart-saving)[(k)](/blog/roth-401k-plans) and open an Individual Retirement Account [(IRA)](/blog/types-of-ira-investing).
+
+[![tracking-expenses](/images/home--9--YzNz.png)](/pricing)
 
 ## Managing Debt Wisely
 
-Many individuals in their 20s carry various types of debt, such as student loans, credit card debt, or car loans. Managing debt wisely is crucial to your financial well-being:
+Many individuals in their 20s carry various [types of debt](/blog/how-to-get-out-of-debt), such as student loans, credit card debt, or car loans. Managing debt wisely is crucial to your financial well-being:
 
 - **Prioritize High-Interest Debt**: If you have high-interest debt like credit card balances, focus on paying them off as quickly as possible. The interest can add up significantly over time.
 
@@ -61,7 +63,7 @@ Practicing frugality in your 20s can set you up for financial success down the r
 
 - **Emergency Fund**: Prioritize building an emergency fund. Having savings for unexpected expenses can provide peace of mind.
 
-[![track-expenses](/images/home--8--gwMj.png)](/pricing)
+[![track-expenses](/images/home--8--g4Mz.png)](/pricing)
 
 ## Investing for the Future
 
@@ -89,5 +91,5 @@ Lastly, embrace the mindset of continuous learning and adaptation. The financial
 
 Your 20s are a time of growth and discovery, and by adopting smart financial habits early on, you can build a strong foundation for a secure and prosperous future. Start today, and you'll be well on your way to achieving your financial goals.
 
-Short on time but eager to level up your **personal finance** knowledge? Our [blog](/blog) is your shortcut to practical insights.
+Short on time but eager to level up your **personal finance** knowledge? Sign up for a [2-month trial](/pricing) of our platform. Save time with automation.
 

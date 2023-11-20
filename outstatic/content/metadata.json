@@ -1,6 +1,6 @@
 {
-  "commit": "fa7e3d9f2c25ef3fd105baeeb9bb25cc5ba1b3f8",
-  "generated": "2023-11-20T15:09:51.571Z",
+  "commit": "66c4e34c0e0924f515adbe573bd3103a5f85be60",
+  "generated": "2023-11-20T15:22:10.326Z",
   "metadata": [
     {
       "__outstatic": {
@@ -277,27 +277,6 @@
     },
     {
       "__outstatic": {
-        "commit": "87256e2583eea804c7ef265d164c3e5e07d2a513",
-        "hash": "334982296",
-        "path": "outstatic/content/posts/budgeting-made-easy.md"
-      },
-      "author": {
-        "name": "Tim Moreton Jr"
-      },
-      "category": "Budgeting",
-      "collection": "posts",
-      "coverImage": "/assets/blog/budgeting-made-easy.jpg",
-      "date": "07.16.2023",
-      "description": "Budgeting made easy! Balance family moments and wise finances stress-free for a fulfilling, stable future with your loved ones.",
-      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances",
-      "publishedAt": "2023-09-05T14:25:45.000Z",
-      "seoTitle": "Easy Budgeting for Family Bliss: Achieving Financial Stability with Joyful Moments",
-      "slug": "budgeting-made-easy",
-      "status": "published",
-      "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
-    },
-    {
-      "__outstatic": {
         "commit": "129ed4db13b09bc5e7591bed7f832a21839490d1",
         "hash": "2061332917",
         "path": "outstatic/content/posts/types-of-ira-investing.md"
@@ -511,7 +490,7 @@
       "__outstatic": {
         "commit": "3ba6725d9b91e976415d331c883cf2e6fb5cd813",
         "hash": "2889610858",
-        "path": "outstatic/content/posts/health-insurance-lingo-key-terms-guide.md"
+        "path": "outstatic/content/posts/a-simple-guide-to-health-insurance-lingo-15-key-terms-clarified.md"
       },
       "author": {
         "name": "Trckfi",
@@ -804,7 +783,7 @@
     {
       "__outstatic": {
         "commit": "fa7e3d9f2c25ef3fd105baeeb9bb25cc5ba1b3f8",
-        "hash": "3238073610",
+        "hash": "1851218084",
         "path": "outstatic/content/posts/financial-success-in-your-20s-guide.md"
       },
       "author": {
@@ -821,6 +800,27 @@
       "slug": "financial-success-in-your-20s-guide",
       "status": "published",
       "title": "Financial Success in Your 20s: Building a Strong Foundation"
+    },
+    {
+      "__outstatic": {
+        "commit": "66c4e34c0e0924f515adbe573bd3103a5f85be60",
+        "hash": "3708361200",
+        "path": "outstatic/content/posts/budgeting-made-easy.md"
+      },
+      "author": {
+        "name": "Tim Moreton Jr"
+      },
+      "category": "Budgeting",
+      "collection": "posts",
+      "coverImage": "/assets/blog/budgeting-made-easy.jpg",
+      "date": "07.16.2023",
+      "description": "Budgeting made easy! Balance family moments and wise finances stress-free for a fulfilling, stable future with your loved ones.",
+      "keywords": "financial budgeting, spend tracking, budgeting, expense tracking, budget planning, financial health, guide, tools, tips, personal finance, financial management, financial goals, financial control, budgeting made easy, family finances",
+      "publishedAt": "2023-09-05T14:25:45.000Z",
+      "seoTitle": "Easy Budgeting for Family Bliss: Achieving Financial Stability with Joyful Moments",
+      "slug": "budgeting-made-easy",
+      "status": "published",
+      "title": "Budgeting Made Easy: Balancing Family Fun and Smart Money Moves"
     }
   ]
 }
