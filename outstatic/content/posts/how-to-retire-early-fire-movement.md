@@ -27,7 +27,7 @@ The FIRE movement is all about - breaking free from conventional [retirement](/b
 
 ## Aggressive Saving and Investing
 
-FIRE devotees strive to save over 50% of their income by living frugally and making conscious choices to avoid unnecessary [monthly expenses](/blog/tracking-your-monthly-expenses). This capital enables investing and compound growth, accumulating significant wealth over time.
+FIRE devotees strive to save over 50% of their income by living frugally and making conscious choices to avoid unnecessary [monthly](/blog/tracking-monthly-expenses)[ expenses](/blog/tracking-your-monthly-expenses). This capital enables investing and compound growth, accumulating significant wealth over time.
 
 The focus is not limited to traditional savings accounts; strategic investments in assets that generate passive income, such as stocks, real estate, and businesses, play a crucial role. The power of [compound](/blog/essential-financial-concepts)[ interest](/blog/essential-financial-concepts/#compound-interest) comes into play, multiplying their savings and accelerating their journey toward [financial independence](/blog/achieve-financial-independence-guide-to-freedom).
 
