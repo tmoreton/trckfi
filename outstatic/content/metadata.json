@@ -1,6 +1,6 @@
 {
-  "commit": "2e9a073a89b0ba04f5e9d78688aa7f066b5e32bf",
-  "generated": "2023-11-20T16:29:02.972Z",
+  "commit": "d126dfc8266975c7d2f707413427746194de7bc2",
+  "generated": "2023-11-20T16:33:58.561Z",
   "metadata": [
     {
       "__outstatic": {
@@ -359,27 +359,6 @@
       "slug": "optimize-financial-tracking-for-success",
       "status": "published",
       "title": "Financial Success with Spend Tracking & Budgeting"
-    },
-    {
-      "__outstatic": {
-        "commit": "7d58881c1354250eda0c492c3f1acda16e3b37c7",
-        "hash": "1367238023",
-        "path": "outstatic/content/posts/fsa-hra-healthcare-benefits.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Health Insurance",
-      "collection": "posts",
-      "coverImage": "/images/blurry-woman-holding-cons-pros-post-its-gxOT.jpg",
-      "description": "Maximize healthcare benefits with our FSA and HRA for open enrollment. Get the pros and cons to make informed choices.",
-      "keywords": "FSA, HRA, Open Enrollment, Health Benefits, Healthcare Expenses, Tax Savings, Employer Contributions, Financial Relief, Pros and Cons, Flexible Spending Accounts, Health Reimbursement Arrangements",
-      "publishedAt": "2023-11-12T15:32:44.292Z",
-      "seoTitle": "Choosing Between FSAs and HRAs: A Guide for Open Enrollment",
-      "slug": "fsa-hra-healthcare-benefits",
-      "status": "published",
-      "title": "Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits"
     },
     {
       "__outstatic": {
@@ -821,6 +800,27 @@
       "slug": "quick-monthly-financial-checkin-routine",
       "status": "published",
       "title": "Simple  Monthly Financial Check-In Routine for Success"
+    },
+    {
+      "__outstatic": {
+        "commit": "d126dfc8266975c7d2f707413427746194de7bc2",
+        "hash": "1502839124",
+        "path": "outstatic/content/posts/fsa-hra-healthcare-benefits.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Health Insurance",
+      "collection": "posts",
+      "coverImage": "/images/blurry-woman-holding-cons-pros-post-its-gxOT.jpg",
+      "description": "Maximize healthcare benefits with our FSA and HRA for open enrollment. Get the pros and cons to make informed choices.",
+      "keywords": "FSA, HRA, Open Enrollment, Health Benefits, Healthcare Expenses, Tax Savings, Employer Contributions, Financial Relief, Pros and Cons, Flexible Spending Accounts, Health Reimbursement Arrangements",
+      "publishedAt": "2023-11-12T15:32:44.292Z",
+      "seoTitle": "Choosing Between FSAs and HRAs: A Guide for Open Enrollment",
+      "slug": "fsa-hra-healthcare-benefits",
+      "status": "published",
+      "title": "Understanding FSAs vs. HRAs: Maximizing Your Healthcare Benefits"
     }
   ]
 }
