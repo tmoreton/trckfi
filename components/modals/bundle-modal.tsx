@@ -66,9 +66,9 @@ export default ({ open, setOpen }) => {
                     <div className="flex justify-end" onClick={onClose}>
                       <XMarkIcon className="h-10 w-10" />
                     </div>
-                    <div className="mx-auto max-w-7xl px-6 py-6 lg:flex lg:items-center lg:gap-x-10 lg:px-10">
-                      <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto w-80 lg:min-w-[350px]">
-                        <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-4xl leading-tight">
+                    <div className="mx-auto max-w-7xl px-0 lg:px-6 py-6 lg:flex lg:items-center lg:gap-x-10 lg:px-10">
+                      <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto lg:w-80 lg:min-w-[350px]">
+                        <h1 className="text-2xl font-bold text-gray-900 sm:text-4xl leading-tight">
                           Start Tracking Your Expenses Today!
                         </h1>
                         <p className="mt-6 text-md leading-8 text-gray-600">
@@ -89,7 +89,7 @@ export default ({ open, setOpen }) => {
                           </li>
                         </ul>
                         <form onSubmit={subscribe}>
-                          <div className="mx-auto flex max-w-md gap-x-4 pt-5">
+                          <div className="mx-auto block lg:flex max-w-md gap-x-4 pt-5">
                           {
                             !subscribed &&
                             <>
@@ -103,7 +103,7 @@ export default ({ open, setOpen }) => {
                                 required
                                 type="name"
                                 disabled={subscribed}
-                                className="min-w-0 flex-auto rounded-3xl border bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
+                                className="w-full min-w-0 flex-auto rounded-3xl border bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
                               />
                               <input
                                 autoComplete="email"
@@ -115,7 +115,7 @@ export default ({ open, setOpen }) => {
                                 required
                                 type="email"
                                 disabled={subscribed}
-                                className="min-w-0 flex-auto rounded-3xl border bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
+                                className="mt-2 lg:m-0 w-full min-w-0 flex-auto rounded-3xl border bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
                               />
                             </>
                           }
