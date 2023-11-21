@@ -215,7 +215,7 @@ client.defineJob({
       })
       const transactions = t.slice(0, 10)
 
-      const recurring = await prisma.transactions.findMany({
+      let upcomingTransactions = await prisma.transactions.findMany({
         where: {
           OR: user_query,
           pending: false,
@@ -224,14 +224,20 @@ client.defineJob({
             gte: DateTime.now().toISO()
           },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
         },
         include: {
           account: true
         },
         orderBy: {
-          date: 'asc'
+          upcoming_date: 'asc'
         },
       })
 
@@ -242,7 +248,7 @@ client.defineJob({
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 
-          recurring={recurring}
+          recurring={upcomingTransactions}
           // @ts-ignore
           email={email}
           this_month={this_month}
