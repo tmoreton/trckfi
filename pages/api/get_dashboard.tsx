@@ -14,48 +14,6 @@ export default async (req, res) => {
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
 
   try {
-    // let activeAccounts = await prisma.accounts.findMany({
-    //   where: {
-    //     OR: query,
-    //     active: true,
-    //   },
-    //   select: {
-    //     id: true,
-    //   },
-    // })
-    // let ids = activeAccounts.map(i => i.id)
-
-    // let groupByWeek = await prisma.transactions.groupBy({
-    //   by: ['week_year'],
-    //   where: {
-    //     OR: query,
-    //     active: true,
-    //     pending: false,
-    //     authorized_date: {
-    //       lte: startDate,
-    //       gte: endDate
-    //     },
-    //     amount: {
-    //       lte: 0
-    //     },
-    //     // account_id: { in: ids },
-    //     NOT: [
-    //       { detailed_category: 'CREDIT_CARD_PAYMENT' },
-    //     ],
-    //   },
-    //   _sum: {
-    //     amount: true,
-    //   },
-    //   _count: {
-    //     amount: true,
-    //   },
-    //   orderBy: {
-    //     week_year: 'asc'
-    //   },
-    // })
-    // // @ts-ignore
-    // groupByWeek.sort((a, b) => b.week_year?.split('-')[1] - a.week_year?.split('-')[1])
-
     let groupByMonthIncome = await prisma.transactions.groupBy({
       by: ['month_year'],
       where: {
@@ -68,6 +26,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
         authorized_date: {
           lte: startDate,
@@ -101,6 +65,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {
@@ -126,6 +96,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
         authorized_date: {
           lte: DateTime.now().toISO(),
@@ -159,6 +135,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {
@@ -188,6 +170,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {
@@ -211,6 +199,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {
@@ -234,6 +228,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {
@@ -257,6 +257,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {

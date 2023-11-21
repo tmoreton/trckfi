@@ -38,6 +38,12 @@ export default async (req, res) => {
         // account_id: { in: ids },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {
@@ -67,6 +73,12 @@ export default async (req, res) => {
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       _sum: {

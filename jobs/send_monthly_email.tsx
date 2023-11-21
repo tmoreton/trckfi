@@ -60,9 +60,13 @@ client.defineJob({
             lte: 0,
           },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
         },
         _sum: {
@@ -89,10 +93,14 @@ client.defineJob({
             gte: 0,
           },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-          ],        
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
+          ],       
         },
         _sum: {
           amount: true,
@@ -118,9 +126,13 @@ client.defineJob({
             lte: 0,
           },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
         },
         _sum: {
@@ -154,9 +166,13 @@ client.defineJob({
             lte: 0,
           },
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
         },
         _sum: {
@@ -184,9 +200,13 @@ client.defineJob({
           pending: false,
           month_year: this_month,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
         },
         orderBy: {
@@ -195,32 +215,6 @@ client.defineJob({
       })
       const transactions = t.slice(0, 10)
 
-      const recurring = await prisma.recurring.findMany({
-        where: {
-          OR: user_query,
-          // @ts-ignore
-          active: true,
-          is_active: true,
-          NOT: [
-            { primary_category: 'INCOME' },
-            { primary_category: 'ACCOUNT_TRANSFER' },
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-          ],
-          upcoming_date: {
-            lte: DateTime.now().plus({ months: 1 }).toISO(),
-            gte: DateTime.now().toISO()
-          },
-          last_amount: {
-            lte: 0,
-          },
-        },
-        orderBy: {
-          upcoming_date: 'asc'
-        }
-      })
-
       const emailHtml = render(
         <MonthlySummary 
           groupByMonth={groupByMonth} 
@@ -228,7 +222,7 @@ client.defineJob({
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 
-          recurring={recurring}
+          recurring={[]}
           // @ts-ignore
           email={email}
           this_month={this_month}

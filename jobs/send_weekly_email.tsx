@@ -55,10 +55,14 @@ client.defineJob({
           active: true,
           pending: false,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
           amount: {
             lte: 0,
@@ -85,10 +89,14 @@ client.defineJob({
           active: true,
           pending: false,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
           amount: {
             lte: 0,
@@ -121,10 +129,14 @@ client.defineJob({
           active: true,
           pending: false,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
           amount: {
             lte: 0,
@@ -154,10 +166,14 @@ client.defineJob({
           pending: false,
           week_year: this_week,
           NOT: [
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
             { primary_category: 'INCOME' },
+            { detailed_category: 'CREDIT_CARD_PAYMENT' },
+            { 
+              name: {
+                contains: 'transfer',
+                mode: 'insensitive'
+              }
+            },
           ],
         },
         orderBy: {
@@ -166,31 +182,6 @@ client.defineJob({
       })
       const transactions = t.slice(0, 10)
 
-      const recurring = await prisma.recurring.findMany({
-        where: {
-          OR: user_query,
-          active: true,
-          is_active: true,
-          NOT: [
-            { primary_category: 'INCOME' },
-            { primary_category: 'ACCOUNT_TRANSFER' },
-            { primary_category: 'LOAN_PAYMENTS' },
-            { primary_category: 'TRANSFER_IN' },
-            { primary_category: 'TRANSFER_OUT' },
-          ],
-          upcoming_date: {
-            lte: DateTime.now().plus({ weeks: 1 }).toISO(),
-            gte: DateTime.now().toISO()
-          },
-          last_amount: {
-            lte: 0,
-          },
-        },
-        orderBy: {
-          upcoming_date: 'asc'
-        }
-      })
-
       if(transactions && transactions?.length > 0){
         const emailHtml = render(
           <WeeklySummary 
@@ -198,7 +189,7 @@ client.defineJob({
             transactions={transactions} 
             primaryCategories={primaryCategories} 
             detailedCategories={detailedCategories}
-            recurring={recurring}
+            recurring={[]}
           />
         )
   

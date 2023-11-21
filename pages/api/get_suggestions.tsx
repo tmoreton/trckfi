@@ -22,6 +22,12 @@ export default async (req, res) => {
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
         authorized_date: {
           lte: startDate,
@@ -46,6 +52,12 @@ export default async (req, res) => {
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
         authorized_date: {
           lte: startDate,
