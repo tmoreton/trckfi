@@ -98,7 +98,7 @@ const Goals = ({ showError }) => {
                 </div>
                 
                 <div className="w-full bg-gray-100 h-5 mb-4 rounded-2xl">
-                  <div className="bg-pink-600 h-5 rounded-2xl" style={{ width: `${progress}%` }}></div>
+                  <div className="bg-pink-600 h-5 rounded-2xl" style={{ width: progress <= 100 ? `${progress}%` : '100%' }}></div>
                 </div>
                 <div className="grid grid-cols-7 lg:grid-cols-3 mt-2">
                   <div className="col-span-3 lg:col-span-1 flex items-center">
