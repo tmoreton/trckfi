@@ -238,7 +238,7 @@ client.defineJob({
       const emailHtml = render(
         <MonthlySummary 
           groupByMonth={groupByMonth} 
-          groupByMonthIncome={groupByMonthIncome} 
+          groupByMonthIncome={groupByMonthIncome}
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 

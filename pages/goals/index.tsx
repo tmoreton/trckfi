@@ -79,7 +79,7 @@ const Goals = ({ showError }) => {
         <LoadingModal refreshing={refreshing} />
         <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3 mb-10">
           {goals?.length > 0 && goals.map((goal) => {
-          let progress = ((Number(goal?.account?.details?.current)-Number(goal?.initial_amount))/(Number(goal?.amount)))*1000
+          let progress = ((Number(goal?.account?.details?.current)-Number(goal?.initial_amount))/(Number(goal?.amount)))*100
           return(
             <li key={goal.id} className="flex flex-col gap-5 lg:gap-10 pt-12 sm:flex-row">
               <img className="aspect-[4/3] w-96 flex-none rounded-2xl object-cover" src={goal.image} alt="" />
@@ -98,7 +98,7 @@ const Goals = ({ showError }) => {
                 </div>
                 
                 <div className="w-full bg-gray-100 h-5 mb-4 rounded-2xl">
-                  <div className="bg-pink-600 h-5 rounded-2xl" style={{ width: progress }}></div>
+                  <div className="bg-pink-600 h-5 rounded-2xl" style={{ width: `${progress}%` }}></div>
                 </div>
                 <div className="grid grid-cols-7 lg:grid-cols-3 mt-2">
                   <div className="col-span-3 lg:col-span-1 flex items-center">
