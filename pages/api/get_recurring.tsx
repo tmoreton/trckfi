@@ -20,7 +20,13 @@ export default async (req, res) => {
           gte: DateTime.now().startOf('month').minus({ days: '5' }).toISO()
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       include: {
@@ -40,7 +46,13 @@ export default async (req, res) => {
           gte: DateTime.now().toISO()
         },
         NOT: [
-          { primary_category: 'LOAN_PAYMENTS' },
+          { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { 
+            name: {
+              contains: 'transfer',
+              mode: 'insensitive'
+            }
+          },
         ],
       },
       include: {
