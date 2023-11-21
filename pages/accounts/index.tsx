@@ -302,7 +302,8 @@ const Accounts = ({ showError }) => {
                                               </div>
                                             </td>
                                           }
-                                          <button onClick={() => editAccount(a)} className="w-full">
+                                          
+                                          <button onClick={() => editAccount(a)} className="w-full hover:bg-gray-50 hover:p-1 rounded-lg">
                                             <div className="text-sm lg:text-base text-gray-900 pt-1 grid grid-cols-3">
                                               <div className="col-span-2 font-semibold text-left block lg:flex items-baseline justify-between">
                                                 <p className="text-normal">{a.name}</p>
