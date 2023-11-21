@@ -25,6 +25,7 @@ export default async (req, res) => {
           { 
             name: {
               contains: 'transfer',
+              mode: 'insensitive'
             }
           },
         ],
