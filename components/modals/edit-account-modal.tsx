@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { TrashIcon } from '@heroicons/react/20/solid'
 import { PinkBtn } from '../pink-btn'
 
-export default function ({ showError, open, setOpen, user, account, setAccount, getNetWorth }) {
+export default function ({ getAccounts, showError, open, setOpen, user, account, setAccount, getNetWorth }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +24,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
     const { error } = await res.json()
     showError(error)
     setOpen(false)
-    if(!error) getNetWorth()
+    getNetWorth()
   }
 
   const remove = async () => {
@@ -40,6 +40,7 @@ export default function ({ showError, open, setOpen, user, account, setAccount, 
     })
     setOpen(false)
     getNetWorth()
+    getAccounts()
   }
 
   return (
