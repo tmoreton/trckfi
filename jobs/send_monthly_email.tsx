@@ -215,6 +215,26 @@ client.defineJob({
       })
       const transactions = t.slice(0, 10)
 
+      const recurring = await prisma.transactions.findMany({
+        where: {
+          OR: user_query,
+          pending: false,
+          active: true,
+          upcoming_date: {
+            gte: DateTime.now().toISO()
+          },
+          NOT: [
+            { primary_category: 'LOAN_PAYMENTS' },
+          ],
+        },
+        include: {
+          account: true
+        },
+        orderBy: {
+          date: 'asc'
+        },
+      })
+
       const emailHtml = render(
         <MonthlySummary 
           groupByMonth={groupByMonth} 
@@ -222,7 +242,7 @@ client.defineJob({
           primaryCategories={primaryCategories} 
           detailedCategories={detailedCategories} 
           transactions={transactions} 
-          recurring={[]}
+          recurring={recurring}
           // @ts-ignore
           email={email}
           this_month={this_month}
