@@ -22,6 +22,7 @@ export default async (req, res) => {
         },
         NOT: [
           { detailed_category: 'CREDIT_CARD_PAYMENT' },
+          { detailed_category: 'ACCOUNT_TRANSFER' },
         ],
       },
       include: {
