@@ -371,7 +371,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                               </label>
                             </div>
                           </div>
-                          <div className="relative z-0 w-full mb-6 group inline-flex">
+                          <div className="relative z-0 w-full mb-6 group hidden lg:inline-flex">
                             <textarea
                               rows={4}
                               name="notes"
@@ -428,11 +428,9 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                                 Cancel
                               </button>
                               { !transaction.new &&
-                              <button
-                                type="button"
-                                onClick={remove}
-                              >
-                                <TrashIcon onClick={remove} className="h-5 w-5 text-red-400" aria-hidden="true" />
+                              <button className="flex mx-auto" type="button" onClick={remove}>
+                                <TrashIcon className="h-5 w-5 text-red-400 hidden lg:block" aria-hidden="true" />
+                                <span className="flex lg:hidden text-sm text-red-400 font-semibold">Remove</span>
                               </button>
                               }
                             </div>

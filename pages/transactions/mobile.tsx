@@ -49,6 +49,7 @@ const MobileDashboard = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
+    console.log(data)
     setTransactions(data)
     setRefreshing(false)
   }
