@@ -242,6 +242,7 @@ client.defineJob({
         orderBy: {
           upcoming_date: 'asc'
         },
+        take: 10
       })
 
       const emailHtml = render(

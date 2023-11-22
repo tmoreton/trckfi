@@ -159,7 +159,7 @@ client.defineJob({
       })
       detailedCategories.sort((a, b) => a.this_week_amount-b.this_week_amount)
 
-      const t = await prisma.transactions.findMany({
+      const transactions = await prisma.transactions.findMany({
         where: {
           OR: user_query,
           active: true,
@@ -178,9 +178,9 @@ client.defineJob({
         },
         orderBy: {
           amount: 'asc'
-        }
+        },
+        take: 10
       })
-      const transactions = t.slice(0, 10)
 
       let upcomingTransactions = await prisma.transactions.findMany({
         where: {
@@ -206,6 +206,7 @@ client.defineJob({
         orderBy: {
           upcoming_date: 'asc'
         },
+        take: 5
       })
 
       if(transactions && transactions?.length > 0){
