@@ -141,7 +141,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                     </Column>
                     <Column align="right">
                       <Text className="text-red-500 text-[16px] my-0 mr-6 font-semibold">
-                        {commaShort(item.amount)}
+                        {commaShort(item.this_week_amount)}
                       </Text>
                     </Column>
                   </Row>
@@ -206,7 +206,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                           item.amount > 0 ? 'text-green-500' : 'text-red-500',
                             'text-[14px] my-0 mr-6 font-semibold'
                           )}>
-                          ${Math.abs(Math.round(item.amount))}
+                          {commaShort(item.amount)}
                         </Text>
                       </Column>
                     </Row>
