@@ -76,7 +76,7 @@ export default function ({ accounts, netWorth, history, totalStats }) {
                               {a.name} 
                               {/* <span className="font-light hidden lg:inline-flex">{a.official_name}</span> */}
                             </td>
-                            <td className="w-1/4 font-semibold text-left">{commaShort(a.amount)}</td> 
+                            <td className="w-1/4 font-semibold text-right">{commaShort(a.amount)}</td> 
                           </tr>
                         </div>
                       ))}

@@ -185,8 +185,9 @@ export default function ({ getAccounts, showError, open, setOpen, user, account,
                     Cancel
                   </button>
                   { !account.account_id &&
-                    <button type="button" onClick={remove}>
-                      <TrashIcon onClick={remove} className="h-5 w-5 text-red-400 mr-4" aria-hidden="true" />
+                    <button className="flex mx-auto" type="button" onClick={remove}>
+                      <TrashIcon className="h-5 w-5 text-red-400 hidden lg:block" aria-hidden="true" />
+                      <span className="flex lg:hidden text-sm text-red-400 font-semibold mt-4">Remove</span>
                     </button>
                   }
                 </div>

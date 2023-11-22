@@ -157,7 +157,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
         <div className="shadow-sm rounded-md border border-gray-200 hidden lg:block">
           <div className="items-center justify-center pt-5 pb-2 flex">
             <>
-              <div className="block text-center mx-3">
+              <div className="block text-center mx-3 w-[75px]">
                 <button aria-label="Add Transaction" onClick={() => setEdit({
                   name: null,
                   primary_category: null,
@@ -173,15 +173,15 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                 </button>
                 <p className="text-xs text-pink-600">Add</p>
               </div>
-              <div className="block text-center mx-3">
+              <div className="block text-center mx-3 w-[75px]">
                 <button aria-label="Import Button" onClick={() => setShowImport(true)}>
                   <div className="bg-pink-600 hover:bg-pink-500 rounded-3xl p-2">
                     <ArrowUpTrayIcon className="h-6 w-6 text-white" aria-hidden="true"/>
                   </div>
                 </button>
-                <p className="text-xs text-pink-600">Upload</p>
+                <p className="text-xs text-pink-600">Import CSV</p>
               </div>
-              <div className="block text-center mx-3">
+              <div className="block text-center mx-3 w-[75px]">
                 <button aria-label="Download Button" >
                   <CSVLink onClick={downloadCSV} filename={`trckfi-data-${today}.csv`} data={csv}>
                     <div className="bg-pink-600 hover:bg-pink-500 rounded-3xl p-2">
@@ -287,7 +287,7 @@ export default function ({ user, columns, data, selected, setSelected, setEdit, 
                     {row.cells.map(cell => {
                       if (cell.column.Header === 'Name'){
                         return (
-                          <td className="max-w-[125px] truncate overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
+                          <td className="max-w-[150px] truncate overflow-hidden px-1 py-2 text-xs text-gray-500" {...cell.getCellProps()}>
                             <span className="flex" >{cell.render("Cell")} 
                             { cell.row.original.notes && <ChatBubbleOvalLeftIcon className="h-4 w-4 ml-3" /> }
                             { cell.row.original.recurring && <ArrowPathIcon className="h-4 w-4 ml-3" /> }

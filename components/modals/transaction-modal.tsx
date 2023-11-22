@@ -430,7 +430,7 @@ export default function ({ item, setEdit, showError, selected, user, transaction
                               { !transaction.new &&
                               <button className="flex mx-auto" type="button" onClick={remove}>
                                 <TrashIcon className="h-5 w-5 text-red-400 hidden lg:block" aria-hidden="true" />
-                                <span className="flex lg:hidden text-sm text-red-400 font-semibold">Remove</span>
+                                <span className="flex lg:hidden text-sm text-red-400 font-semibold mt-4">Remove</span>
                               </button>
                               }
                             </div>

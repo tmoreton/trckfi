@@ -20,8 +20,7 @@ export function TextSearchFilter({
 export function DropdownFilter({
   column: { filterValue, setFilter, preFilteredRows, id }
 }) {
-  // Calculate the options for filtering
-  // using the preFilteredRows
+  // Calculate the options for filtering using the preFilteredRows
   const options = React.useMemo(() => {
     const options = new Set();
     preFilteredRows.forEach((row) => {
