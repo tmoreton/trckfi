@@ -9,7 +9,8 @@ import  { useLocalStorage } from '../utils/useLocalStorage'
 import LoadingModal from '../components/modals/loading-modal'
 import RecurringModal from '../components/modals/recurring-modal'
 import { Emoji } from 'emoji-picker-react';
-
+import { useRouter } from 'next/router'
+  
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -26,6 +27,7 @@ const days_of_week = [
 
 export default function ({ showError }) {
   const { data: session } = useSession()
+  const router = useRouter()
   const user = session?.user
   const [days, setDays] = useLocalStorage('days', [])
 	const [loading, setLoading] = useState(false)
@@ -89,26 +91,9 @@ export default function ({ showError }) {
     setLoading(false)
   }
 
-  const updateRecurring = async () => {
-    const res = await fetch(`/api/update_recurring`, {
-      body: JSON.stringify({
-        user,
-        item
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-    const { error } = await res.json()
-    showError(error)
-    setOpen(false)
-    setItem({})
-    if(!error) setCal()
-  }
-
   const removeRecurring = async () => {
-    const res = await fetch(`/api/remove_recurring`, {
+    setLoading(true)
+    await fetch(`/api/remove_recurring`, {
       body: JSON.stringify({
         user,
         item
@@ -118,16 +103,12 @@ export default function ({ showError }) {
       },
       method: 'POST',
     })
-    const { error } = await res.json()
-    showError(error)
-    setOpen(false)
-    setItem({})
-    if(!error) setCal()
+    router.reload()
   }
 
   const editItem = (i) => {
-		// setOpen(true)
-    // setItem(i)
+		setOpen(true)
+    setItem(i)
 	}
   
   const renderImg = (e) => {
@@ -179,7 +160,7 @@ export default function ({ showError }) {
       <DashboardMenu showError={showError} title='Recurring'/>
       <DashboardLayout>
       <LoadingModal refreshing={loading} />
-      <RecurringModal item={item} setItem={setItem} open={open} setOpen={setOpen} updateRecurring={updateRecurring} removeRecurring={removeRecurring}/>
+      <RecurringModal open={open} setOpen={setOpen} removeRecurring={removeRecurring}/>
       <header className="flex items-end justify-center pt-10 lg:py-2 lg:flex-none">
         <h1 className="text-3xl font-semibold leading-6 text-pink-600 absolute mb-3">
           {today.toFormat('LLLL yyyy')}
@@ -306,12 +287,12 @@ export default function ({ showError }) {
                       <span>{DateTime.fromISO(e.date).toFormat('MMM dd')}</span>
                     </time>
                   </div>
-                  {/* <button
-                    // href={event.href}
+                  <button
+                    onClick={() => editItem(e)}
                     className="ml-6 flex-none self-center rounded-md bg-white px-3 py-2 font-semibold text-gray-900 opacity-0 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400 focus:opacity-100 group-hover:opacity-100"
                   >
                     Edit
-                  </button> */}
+                  </button>
                 </li>
               ))}
             </ol>

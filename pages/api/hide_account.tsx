@@ -27,16 +27,6 @@ export default async (req, res) => {
       },
     })
 
-    // @ts-ignore
-    // await prisma.recurring.updateMany({
-    //   where: { 
-    //     user_id, 
-    //     account_id: id 
-    //   },
-    //   data: { 
-    //     is_active: false
-    //   },
-    // })
     await netWorthSync(user_id)
     return res.status(200).json({ status: 'OK' })
   } catch (e) {

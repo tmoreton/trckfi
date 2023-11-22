@@ -77,63 +77,6 @@ const recurringSync = async (access_token) => {
     //     let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
     //     // @ts-ignore
     //     let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
-
-    //     await prisma.recurring.upsert({
-    //       where: { 
-    //         stream_id: item.stream_id 
-    //       },
-    //       update: {
-    //         average_amount: -(item.average_amount.amount),
-    //         last_amount: -(item.last_amount.amount),
-    //         account_id: item.account_id,
-    //         // @ts-ignore
-    //         custom_name: rule?.ruleset?.custom_name || item.merchant_name,
-    //         // @ts-ignore
-    //         name: item.description,
-    //         merchant_name: item.merchant_name,
-    //         // @ts-ignore
-    //         primary_category: rule?.ruleset?.primary_category || item.personal_finance_category.primary,
-    //         detailed_category: custom_detailed_category,
-    //         first_date: item.first_date,
-    //         last_date: item.last_date,
-    //         frequency: item.frequency,
-    //         transaction_ids: item.transaction_ids,
-    //         is_active: item.is_active,
-    //         active: true,
-    //         status: item.status,
-    //         type,
-    //         user_id,
-    //         upcoming_date: upcoming(item),
-    //         // @ts-ignore
-    //         unified: rule?.ruleset?.unified || icons[custom_detailed_category]
-    //       },
-    //       create: {
-    //         stream_id: item.stream_id,
-    //         average_amount: -(item.average_amount.amount),
-    //         last_amount: -(item.last_amount.amount),
-    //         account_id: item.account_id,
-    //         // @ts-ignore
-    //         custom_name: rule?.ruleset?.custom_name || item.merchant_name,
-    //         // @ts-ignore
-    //         name: item.description,
-    //         merchant_name: item.merchant_name,
-    //         // @ts-ignore
-    //         primary_category: rule?.ruleset?.primary_category || item.personal_finance_category.primary,
-    //         detailed_category: custom_detailed_category,
-    //         first_date: item.first_date,
-    //         last_date: item.last_date,
-    //         frequency: item.frequency,
-    //         transaction_ids: item.transaction_ids,
-    //         is_active: item.is_active,
-    //         active: true,
-    //         status: item.status,
-    //         type,
-    //         user_id,
-    //         upcoming_date: upcoming(item),
-    //         // @ts-ignore
-    //         unified: rule?.ruleset?.unified || icons[custom_detailed_category]
-    //       },
-    //     })
     //   }
       
     //   for (let i in inflow) {

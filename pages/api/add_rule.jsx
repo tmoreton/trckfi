@@ -8,13 +8,13 @@ export default async (req, res) => {
   if (!ruleset) return res.status(500).json({ error: 'No Rule' })
   const user_id = user.id
   try {
+    console.log(ruleset)
     let rules = {}
     if (ruleset?.custom_name || ruleset?.name) rules.custom_name = ruleset.custom_name || ruleset.name
     if (ruleset?.primary_category) rules.primary_category = snakeCase(ruleset.primary_category).toUpperCase()
     if (ruleset?.detailed_category) rules.detailed_category = snakeCase(ruleset.detailed_category).toUpperCase()
     if (ruleset?.unified) rules.unified = ruleset.unified
-    // if (ruleset?.recurring) rules.recurring = (ruleset.recurring === 'true')
-    if (ruleset?.active) rules.active = (ruleset.active === 'true')
+
     let data = { 
       user_id,
       identifier,
@@ -52,16 +52,6 @@ export default async (req, res) => {
 
     await prisma.transactions.updateMany({
       where: {
-        AND: [ 
-          { OR: user_query }, 
-          { OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}] } 
-        ],
-      },
-      data: rules,
-    })
-
-    await prisma.recurring.updateMany({
-      where: { 
         AND: [ 
           { OR: user_query }, 
           { OR: [{ name: { contains: identifier }}, { merchant_name: { contains: identifier }}] } 
