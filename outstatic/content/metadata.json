@@ -1,6 +1,6 @@
 {
-  "commit": "3bbee09c02e66bec01a2abda95245e9b30992cc0",
-  "generated": "2023-11-20T17:05:37.966Z",
+  "commit": "4bf59ac512a752dac13f69449adc31d7d1ff67ad",
+  "generated": "2023-11-22T15:15:16.090Z",
   "metadata": [
     {
       "__outstatic": {
@@ -842,6 +842,27 @@
       "slug": "expense-management-guide",
       "status": "published",
       "title": "Struggling to Manage Your Finances? Discover the Solution!"
+    },
+    {
+      "__outstatic": {
+        "commit": "4bf59ac512a752dac13f69449adc31d7d1ff67ad",
+        "hash": "4035228002",
+        "path": "outstatic/content/posts/reduce-holiday-money-stress.md"
+      },
+      "author": {
+        "name": "Zina Kumok",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Holiday Spending",
+      "collection": "posts",
+      "coverImage": "/images/reduce-holiday-financial-stress-M1NT.jpg",
+      "description": "Struggling financially this season? We share pro tips for communicating with family and friends to reduce holiday spending stress - from gift alternatives to potlucks. ",
+      "keywords": "Holiday financial stress, holiday budgeting, christmas spending communication",
+      "publishedAt": "2023-11-22T14:12:08.268Z",
+      "seoTitle": "Relieve Holiday Financial Stress: Tips to Talk Costs",
+      "slug": "reduce-holiday-money-stress",
+      "status": "draft",
+      "title": "4 Tactics to Reduce Holiday Financial Stress and Anxiety"
     }
   ]
 }
