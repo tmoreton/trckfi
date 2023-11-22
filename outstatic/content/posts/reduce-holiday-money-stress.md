@@ -5,8 +5,7 @@ author:
   name: 'Zina Kumok'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'reduce-holiday-money-stress'
-description: 'Struggling financially this season? We share pro tips for communicating with family and friends to reduce holiday spending stress - from gift alternatives to potlucks.
-'
+description: 'Struggling financially this season? We share pro tips for communicating with family and friends to reduce holiday spending stress - from gift alternatives to potlucks. '
 coverImage: '/images/reduce-holiday-financial-stress-M1NT.jpg'
 category: 'Holiday Spending'
 seoTitle: 'Relieve Holiday Financial Stress: Tips to Talk Costs'
@@ -50,6 +49,8 @@ If you still can afford some kind of present, suggest a white elephant party - w
 
 Also, make sure to set a price limit that everyone can comfortably afford. If you know that things are really tight for people, you can even have a thrift party where everyone brings something they already have and want to get rid of. A friend of mine told me that she and her family do a homemade Christmas gift exchange where they draw names and make a gift instead of buying one.
 
+![](/images/potlock-save-money-k0OD.jpg)
+
 ## 4\. Reduce financial stress by spending time together with a potluck
 
 My favorite part of the holiday season is just spending time with people I love. If you still want the wholesome aspect of the holidays without the financial guilt, try organizing a potluck.
@@ -60,7 +61,7 @@ A few years ago I was invited to a Christmas cookie party, which is another fun 
 
 ## Conclusion
 
-This holiday season, focus less on sales hype, more on connecting with loved ones. Discuss money concerns openly - **avoiding stressful obligations **lifts everyone's spirits.
+This holiday season, focus less on sales hype, more on connecting with loved ones. Discuss money concerns openly - \*\*avoiding stressful obligations \*\*lifts everyone's spirits.
 
 With higher inflation and widespread job uncertainty, many are facing tougher choices. But through creativity, compassion, and candid conversations, we can recreate celebrations centered on what matters most - meaningful bonds.
 

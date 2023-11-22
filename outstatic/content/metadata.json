@@ -1,6 +1,6 @@
 {
-  "commit": "4bf59ac512a752dac13f69449adc31d7d1ff67ad",
-  "generated": "2023-11-22T15:15:16.090Z",
+  "commit": "243bf103512b5cd25525e3573385bf98aadb3371",
+  "generated": "2023-11-22T15:18:50.817Z",
   "metadata": [
     {
       "__outstatic": {
@@ -845,8 +845,8 @@
     },
     {
       "__outstatic": {
-        "commit": "4bf59ac512a752dac13f69449adc31d7d1ff67ad",
-        "hash": "4035228002",
+        "commit": "243bf103512b5cd25525e3573385bf98aadb3371",
+        "hash": "1383399072",
         "path": "outstatic/content/posts/reduce-holiday-money-stress.md"
       },
       "author": {
