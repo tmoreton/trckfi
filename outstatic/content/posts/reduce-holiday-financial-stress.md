@@ -15,7 +15,7 @@ publishedAt: '2023-11-22T14:12:08.268Z'
 
 The holidays are supposed to be fun and festive, but this year maybe they should also be frugal? With so many Americans struggling financially, we’ll show you how to talk to your family about finances and make this holiday season less stressful.
 
-Normally, the holidays are a mix of fun and stress. But as the impact of [inflation](/blog/expense-management-guide) continues to ravage people’s wallets, more people are finding that the holidays are only making their finances worse than normal, leading to an increase in** financial stress during the holidays**.
+Normally, the holidays are a mix of fun and stress. But as the impact of [inflation](/blog/expense-management-guide) continues to ravage people’s wallets, more people are finding that the holidays are only making their finances worse than normal, leading to an increase in **financial stress during the holidays**.
 
 It's not just gifts, travel or invitations to holiday parties. The collective pressure to spend money can suck the joy right out of what’s supposed to be “the most wonderful time of the year.”
 
@@ -51,7 +51,7 @@ Also, make sure to set a price limit that everyone can comfortably afford. If yo
 
 ![](/images/potlock-save-money-k0OD.jpg)
 
-## 4\.** **Reduce holiday **financial stress **by spending time together with a potluck
+## 4\. Reduce holiday financial stress by spending time together with a potluck
 
 My favorite part of the holiday season is just spending time with people I love. If you still want the wholesome aspect of the holidays without the financial guilt, try organizing a potluck.
 
