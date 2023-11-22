@@ -1,6 +1,6 @@
 ---
 title: '4 Tactics to Reduce Holiday Financial Stress and Anxiety'
-status: 'draft'
+status: 'published'
 author:
   name: 'Zina Kumok'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
@@ -9,7 +9,7 @@ description: 'Learn 4 proven tactics to tackle holiday financial stress and brin
 coverImage: '/images/reduce-holiday-financial-stress-M1NT.jpg'
 category: 'Holiday Spending'
 seoTitle: 'Relieve Holiday Financial Stress: Tips to Talk Costs'
-keywords: 'Holiday financial stress, holiday budgeting, christmas spending communication'
+keywords: 'Holiday financial stress, holiday budgeting, christmas spending communication, financial stress during the holidays, holiday deals, holiday spending debt, money talk, holiday spending, reduce holiday financial stress'
 publishedAt: '2023-11-22T14:12:08.268Z'
 ---
 
@@ -65,7 +65,7 @@ This holiday season, focus less on sales hype, more on connecting with loved one
 
 With higher inflation and widespread job uncertainty, many are facing tougher choices. But through creativity, compassion, and candid conversations, we can recreate celebrations centered on what matters most - meaningful bonds.
 
-Enjoy potlucks, homemade creations, and most importantly, one another. Relieve wallets while filling hearts with laughter and joy. You’ve got this! And tools like **Trckfi** can support your financial wellness journey with easy [expense tracking](/pricing) and money motivation.
+Enjoy potlucks, homemade creations, and most importantly, one another. Relieve wallets while filling hearts with laughter and joy. You’ve got this! And tools like **Trckfi** can support your financial wellness journey with easy [expense tracking](/pricing) and money motivation. You can learn more [here](/)
 
 <br>
 
