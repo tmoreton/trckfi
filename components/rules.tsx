@@ -12,7 +12,6 @@ const keys = {
   detailed_category: 'Detailed Category',
   unified: 'Emoji',
   recurring: 'Recurring',
-  active: 'Active'
 }
 
 const Rules = ({ showError }) => {
@@ -148,7 +147,7 @@ const Rules = ({ showError }) => {
                   <div>
                     {Object.keys(rule?.ruleset)?.map(i => (
                       <div className="text-xs font-medium text-gray-900 pb-1">{i} - 
-                        <span className="pl-1 font-light">{rule?.ruleset[i]}</span> 
+                        <span className="pl-1 font-light">{JSON.stringify(rule?.ruleset[i])}</span> 
                       </div>
                     ))}
                   </div>
@@ -200,7 +199,7 @@ const Rules = ({ showError }) => {
                     <option value="custom_name" label="Name" />
                     <option value="primary_category" label="Primary Category" />
                     <option value="detailed_category" label="Detailed Category" />
-                    <option value="active" label="Active" />
+                    <option value="recurring" label="Recurring" />
                   </select>
                   {Object.keys(ruleset).map((i, key) => (
                     <div key={i} className="mt-1 flex justify-start gap-x-6 sm:mt-0 sm:flex-auto items-center">
