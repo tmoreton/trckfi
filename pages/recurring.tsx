@@ -104,8 +104,8 @@ export default function ({ showError }) {
       method: 'POST',
     })
     setTimeout(() => {
-      getRecurring()
-    }, 3000)
+      router.reload()
+    }, 5000)
   }
 
   const editItem = (i) => {
