@@ -65,7 +65,9 @@ This holiday season, focus less on sales hype, more on connecting with loved one
 
 With higher inflation and widespread job uncertainty, many are facing tougher choices. But through creativity, compassion, and candid conversations, we can recreate celebrations centered on what matters most - meaningful bonds.
 
-Enjoy potlucks, homemade creations, and most importantly, one another. Relieve wallets while filling hearts with laughter and joy. You’ve got this! And tools like **Trckfi** can support your financial wellness journey with easy [expense tracking](/pricing) and money motivation. You can learn more [here](/)
+Enjoy potlucks, homemade creations, and most importantly, one another. Relieve wallets while filling hearts with laughter and joy. You’ve got this!
+
+And tools like **Trckfi** can support your financial wellness journey with easy [expense tracking](/pricing) and money motivation. You can learn more [here](/)
 
 <br>
 
