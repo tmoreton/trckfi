@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../../lib/lodash'
-import { diffNum, commaShort } from '../../lib/lodash'
+import { commaShort } from '../../lib/lodash'
 
 const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);

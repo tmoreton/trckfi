@@ -24,7 +24,7 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
       <Preview>Your Weekly Finance Summary</Preview>
       <Tailwind>
         <Body className="bg-[#f3f3f5] my-auto mx-auto font-sans">
-          <Container className="mx-auto max-w-2xl">
+          <Container className="mx-auto max-w-xl">
             <Img
               src='https://www.trckfi.com/trckfi.png'
               width="40"

@@ -153,7 +153,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                     </Column>
                     <Column align="right">
                       <Text className="text-red-500 text-[16px] my-0 font-semibold pr-4">
-                        ${Math.abs(Math.round(item.this_month_amount))}
+                        {commaShort(item.this_month_amount)}
                       </Text>
                     </Column>
                   </Row>

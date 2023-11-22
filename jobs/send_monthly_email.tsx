@@ -193,12 +193,15 @@ client.defineJob({
       detailedCategories.sort((a, b) => a.this_month_amount-b.this_month_amount)
       detailedCategories = detailedCategories.slice(0, 10)
      
-      const t = await prisma.transactions.findMany({
+      const transactions = await prisma.transactions.findMany({
         where: {
           OR: user_query,
           active: true,
           pending: false,
           month_year: this_month,
+          amount: {
+            lte: 0,
+          },
           NOT: [
             { detailed_category: 'CREDIT_CARD_PAYMENT' },
             { 
@@ -211,9 +214,9 @@ client.defineJob({
         },
         orderBy: {
           amount: 'asc'
-        }
+        },
+        take: 10
       })
-      const transactions = t.slice(0, 10)
 
       let upcomingTransactions = await prisma.transactions.findMany({
         where: {
