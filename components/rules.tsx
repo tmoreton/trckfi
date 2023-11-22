@@ -11,7 +11,6 @@ const keys = {
   primary_category: 'Primary Category',
   detailed_category: 'Detailed Category',
   unified: 'Emoji',
-  recurring: 'Recurring',
 }
 
 const Rules = ({ showError }) => {
@@ -199,7 +198,6 @@ const Rules = ({ showError }) => {
                     <option value="custom_name" label="Name" />
                     <option value="primary_category" label="Primary Category" />
                     <option value="detailed_category" label="Detailed Category" />
-                    <option value="recurring" label="Recurring" />
                   </select>
                   {Object.keys(ruleset).map((i, key) => (
                     <div key={i} className="mt-1 flex justify-start gap-x-6 sm:mt-0 sm:flex-auto items-center">
