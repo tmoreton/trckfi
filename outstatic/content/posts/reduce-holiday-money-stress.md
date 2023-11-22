@@ -15,7 +15,7 @@ publishedAt: '2023-11-22T14:12:08.268Z'
 
 The holidays are supposed to be fun and festive, but this year maybe they should also be frugal? With so many Americans struggling financially, we’ll show you how to talk to your family about finances and make this holiday season less stressful.
 
-Normally, the holidays are a mix of fun and stress. But as the impact of inflation continues to ravage people’s wallets, more people are finding that the holidays are only making their finances worse than normal.
+Normally, the holidays are a mix of fun and stress. But as the impact of [inflation](/blog/expense-management-guide) continues to ravage people’s wallets, more people are finding that the holidays are only making their finances worse than normal.
 
 It's not just gifts, travel or invitations to holiday parties. The collective pressure to spend money can suck the joy right out of what’s supposed to be “the most wonderful time of the year.”
 
@@ -27,7 +27,7 @@ Here are my favorite strategies to make the holidays more of a joyous event and 
 
 ## 1\. Turn gift anxiety into quality time
 
-Every year, I write an article about how many Americans go into credit card debt to pay for holiday gifts. Not only that, spending hours in a mall or shopping online isn’t the most pleasant way to spend your time.
+Every year, I write an article about how many Americans go into credit card [debt](/blog/how-to-get-out-of-debt) to pay for holiday gifts. Not only that, spending hours in a mall or shopping online isn’t the most pleasant way to spend your time.
 
 Last year, I decided to take a different approach. My husband and I approached my brother-in-law and sister-in-law and proposed doing a group dinner together instead of buying gifts.
 
@@ -61,7 +61,7 @@ A few years ago I was invited to a Christmas cookie party, which is another fun 
 
 ## Conclusion
 
-This holiday season, focus less on sales hype, more on connecting with loved ones. Discuss money concerns openly - \*\*avoiding stressful obligations \*\*lifts everyone's spirits.
+This holiday season, focus less on sales hype, more on connecting with loved ones. Discuss money concerns openly - **avoiding stressful obligations** lifts everyone's spirits.
 
 With higher inflation and widespread job uncertainty, many are facing tougher choices. But through creativity, compassion, and candid conversations, we can recreate celebrations centered on what matters most - meaningful bonds.
 
