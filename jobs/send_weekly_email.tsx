@@ -21,8 +21,8 @@ client.defineJob({
     const activeUsers = await prisma.user.findMany({
       where: { 
         active: true,
-        // @ts-ignore
         email_weekly: true,
+        email: 'tmoreton89@gmail.com',
         subscription_id: {
           not: null
         }
