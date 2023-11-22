@@ -8,7 +8,6 @@ export default async (req, res) => {
   if (!ruleset) return res.status(500).json({ error: 'No Rule' })
   const user_id = user.id
   try {
-    console.log(ruleset)
     let rules = {}
     if (ruleset?.custom_name || ruleset?.name) rules.custom_name = ruleset.custom_name || ruleset.name
     if (ruleset?.primary_category) rules.primary_category = snakeCase(ruleset.primary_category).toUpperCase()
