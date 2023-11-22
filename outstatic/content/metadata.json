@@ -1,6 +1,6 @@
 {
-  "commit": "ee2339dd7b741f2b1ce6ab6291512d8dc45a9d41",
-  "generated": "2023-11-22T21:47:04.547Z",
+  "commit": "6a18c056049b6d5245b15d592273e3f973802ecb",
+  "generated": "2023-11-22T21:50:32.813Z",
   "metadata": [
     {
       "__outstatic": {
@@ -845,7 +845,7 @@
     },
     {
       "__outstatic": {
-        "commit": "ee2339dd7b741f2b1ce6ab6291512d8dc45a9d41",
+        "commit": "6a18c056049b6d5245b15d592273e3f973802ecb",
         "hash": "289485262",
         "path": "outstatic/content/posts/reduce-holiday-financial-stress.md"
       },
