@@ -9,7 +9,7 @@ description: 'Learn 4 proven tactics to tackle holiday financial stress and brin
 coverImage: '/images/reduce-holiday-financial-stress-M1NT.jpg'
 category: 'Holiday Spending'
 seoTitle: 'Relieve Holiday Financial Stress: Tips to Talk Costs'
-keywords: 'Holiday financial stress, holiday budgeting, christmas spending communication, financial stress during the holidays, holiday deals, holiday spending debt, money talk, holiday spending, reduce holiday financial stress'
+keywords: 'Holiday financial stress, holiday budgeting, christmas spending communication, financial stress during the holidays, holiday deals, holiday spending debt, money talk, holiday spending, reduce holiday financial stress '
 publishedAt: '2023-11-22T14:12:08.268Z'
 ---
 

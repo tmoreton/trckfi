@@ -1,6 +1,6 @@
 {
-  "commit": "6a18c056049b6d5245b15d592273e3f973802ecb",
-  "generated": "2023-11-22T21:50:32.813Z",
+  "commit": "8a2ba0910cb90869c4dc7986269355ad5b50a8c7",
+  "generated": "2023-11-22T22:02:14.744Z",
   "metadata": [
     {
       "__outstatic": {
@@ -845,8 +845,8 @@
     },
     {
       "__outstatic": {
-        "commit": "6a18c056049b6d5245b15d592273e3f973802ecb",
-        "hash": "289485262",
+        "commit": "8a2ba0910cb90869c4dc7986269355ad5b50a8c7",
+        "hash": "440447477",
         "path": "outstatic/content/posts/reduce-holiday-financial-stress.md"
       },
       "author": {
@@ -857,7 +857,7 @@
       "collection": "posts",
       "coverImage": "/images/reduce-holiday-financial-stress-M1NT.jpg",
       "description": "Learn 4 proven tactics to tackle holiday financial stress and bring back your holiday cheer. Say goodbye to money worries this season!",
-      "keywords": "Holiday financial stress, holiday budgeting, christmas spending communication, financial stress during the holidays, holiday deals, holiday spending debt, money talk, holiday spending, reduce holiday financial stress",
+      "keywords": "Holiday financial stress, holiday budgeting, christmas spending communication, financial stress during the holidays, holiday deals, holiday spending debt, money talk, holiday spending, reduce holiday financial stress ",
       "publishedAt": "2023-11-22T14:12:08.268Z",
       "seoTitle": "Relieve Holiday Financial Stress: Tips to Talk Costs",
       "slug": "reduce-holiday-financial-stress",
