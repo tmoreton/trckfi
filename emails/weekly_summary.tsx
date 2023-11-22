@@ -124,14 +124,6 @@ export default function ({ groupByWeek, primaryCategories, detailedCategories, t
                   Detailed Category Spend
                 </Text>
                 <Hr className="w-1/3 border-t border-gray-300 mx-auto mb-4" />
-                <Row>
-                  <Column className="w-64" align="left"></Column>
-                  <Column align="right">
-                    <Text className="text-[#666666] text-[12px] font-bold mr-5 my-0 mb-1">
-                      This Week
-                    </Text>
-                  </Column>
-                </Row>
                 {detailedCategories.map((item) => (
                   <Row key={item.id}>
                     <Column className="w-64" align="left">
