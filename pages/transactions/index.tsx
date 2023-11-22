@@ -157,7 +157,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
       id: "primary_category",
       accessor: data => data.primary_category,
       Cell: ({ cell: { value } }) => <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>,
-      style: "min-w-[150px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      style: "min-w-[175px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     {
@@ -165,7 +165,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
       id: "detailed_category",
       accessor: data => data.detailed_category,
       Cell: ({ cell: { value } }) => { return <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[10px] font-medium text-pink-600 ring-1 ring-inset ring-pink-600/10 m-1">{value}</span>},
-      style: "min-w-[150px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
+      style: "min-w-[175px] w-1/3 pr-4 py-3.5 text-left text-sm font-light text-gray-900 px-2",
       Filter: DropdownFilter
     },
     {
