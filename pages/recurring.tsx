@@ -65,7 +65,7 @@ export default function ({ showError }) {
     setCal()
   }
 
-  const setCal = async () => {
+  const setCal = () => {
     let minus = days_of_week.find(i => i.day === startDate.toFormat('ccc')).start
     let add = days_of_week.find(i => i.day === endDate.toFormat('ccc')).end
     let intervals = Interval.fromDateTimes(startDate.minus({ days: minus }).startOf("day"), endDate.plus({ days: add }).endOf("day")).splitBy({ day: 1 }).map(d => {
