@@ -14,7 +14,7 @@ import {
   Column
 } from '@react-email/components';
 import * as React from 'react';
-import { addComma } from '../lib/lodash'
+import { addComma, commaShort, classNames } from '../lib/lodash'
 import { Emoji } from 'emoji-picker-react';
 
 export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, detailedCategories, transactions, recurring }) {
@@ -183,7 +183,7 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                       </Column>
                       <Column align="right">
                         <Text className="text-red-500 text-[14px] my-0 font-semibold pr-4">
-                          ${Math.abs(Math.round(item.amount))}
+                          {commaShort(item.amount)}
                         </Text>
                       </Column>
                     </Row>
@@ -214,8 +214,11 @@ export default function ({ groupByMonth, groupByMonthIncome, primaryCategories, 
                         </Text>
                       </Column>
                       <Column align="right">
-                        <Text className="text-red-500 text-[14px] my-0 mr-6 font-semibold">
-                          ${Math.abs(Math.round(item.last_amount))}
+                        <Text className={classNames(
+                          item.amount > 0 ? 'text-green-500' : 'text-red-500',
+                            'text-[14px] my-0 mr-6 font-semibold'
+                          )}>
+                          {commaShort(item.amount)}
                         </Text>
                       </Column>
                     </Row>
