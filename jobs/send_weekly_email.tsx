@@ -22,7 +22,6 @@ client.defineJob({
       where: { 
         active: true,
         email_weekly: true,
-        email: 'tmoreton89@gmail.com',
         subscription_id: {
           not: null
         }
@@ -78,6 +77,7 @@ client.defineJob({
           week_year: 'desc'
         },
       })
+      console.log(groupByWeek)
 
       const primary = await prisma.transactions.groupBy({
         by: ['primary_category', 'week_year'],

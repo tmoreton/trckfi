@@ -18,7 +18,6 @@ client.defineJob({
       where: { 
         active: true,
         email_monthly: true,
-        email: 'tmoreton89@gmail.com',
         subscription_id: {
           not: null
         }
