@@ -9,7 +9,6 @@ export default async (req, res) => {
   try {
     const { id, linked_user_id } = user
     const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-    // @ts-ignore
     const rules = await prisma.rules.findMany({
       where: {
         OR: query,

@@ -57,8 +57,7 @@ const Dashboard = ({ showError, showIntro, setSuccess }) => {
       },
       method: 'POST',
     })
-    const { error, data } = await res.json()
-    // showError(error)
+    const { data } = await res.json()
     setTransactions(data)
     setRefreshing(false)
   }
