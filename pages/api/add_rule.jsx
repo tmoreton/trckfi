@@ -13,7 +13,6 @@ export default async (req, res) => {
     if (ruleset?.primary_category) rules.primary_category = snakeCase(ruleset.primary_category).toUpperCase()
     if (ruleset?.detailed_category) rules.detailed_category = snakeCase(ruleset.detailed_category).toUpperCase()
     if (ruleset?.unified) rules.unified = ruleset.unified
-    if (ruleset?.recurring) rules.recurring = ruleset.recurring
 
     let data = { 
       user_id,

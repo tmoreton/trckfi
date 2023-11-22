@@ -21,6 +21,5 @@ export default async (req, res) => {
     console.error(e)
     slackMessage('Error get_rules: ' + e.message || e.toString())
     return res.status(500).json({ error: e.message || e.toString() })
-    throw new Error(e)
   }
 }
