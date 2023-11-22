@@ -280,7 +280,7 @@ export default function ({ showError }) {
                           <p className="mt-1 truncate text-xs leading-5 text-gray-500 trunc">{e?.account?.name}</p>
                         </div>
                       </div>
-                      <p className={classNames(Math.trunc(e.amount) < 0 ? "text-green-600" : "text-red-600", "font-bold text-base")}>
+                      <p className={classNames(Math.trunc(e.amount) > 0 ? "text-green-600" : "text-red-600", "font-bold text-base")}>
                           {commaShort(e?.amount)} 
                       </p>
                     </div>
