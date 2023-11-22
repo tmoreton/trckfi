@@ -56,6 +56,12 @@ const transactionsSync = async (access_token, user_id) => {
     //   return true
     // }
 
+    const getUpcomingDate = (found, date, detailed_category) => {
+      if(found) return DateTime.fromISO(date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+      if(detailed_category === 'CREDIT_CARD_PAYMENT') return DateTime.fromISO(date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+      return null
+    }
+
     const response = await plaidClient.transactionsSync(request)
     let added = response.data.added
     let removed = response.data.removed
@@ -71,7 +77,7 @@ const transactionsSync = async (access_token, user_id) => {
       // @ts-ignore
       let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
       const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount) && !e.pending)
-      const duplicate = added.find((d) => d.date === added[i].date && Number(d.amount) + Number(amount) === 0 && d.transaction_id !== added[i].transaction_id )
+      // const duplicate = added.find((d) => d.date === added[i].date && Number(d.amount) + Number(amount) === 0 && d.transaction_id !== added[i].transaction_id )
 
       await prisma.transactions.upsert({
         where: { 
@@ -104,10 +110,10 @@ const transactionsSync = async (access_token, user_id) => {
           month_year: added[i].date.substring(0,7),
           week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
           year: added[i].date.substring(0,4),
-          active: duplicate ? false : true,
+          active: true,
           // @ts-ignore
           recurring: found && true,
-          upcoming_date: found && DateTime.fromISO(added[i].date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+          upcoming_date: getUpcomingDate(found, added[i].date, detailed_category)
         },
         create: {
           amount,
@@ -136,10 +142,10 @@ const transactionsSync = async (access_token, user_id) => {
           month_year: added[i].date.substring(0,7),
           week_year: `${added[i].date.substring(0,4)}-${DateTime.fromISO(added[i].date).weekNumber}`,
           year: added[i].date.substring(0,4),
-          active: duplicate ? false : true,
+          active: true,
           // @ts-ignore
           recurring: found && true,
-          upcoming_date: found && DateTime.fromISO(added[i].date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+          upcoming_date: getUpcomingDate(found, added[i].date, detailed_category)
         },
       })
     }
