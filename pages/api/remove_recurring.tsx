@@ -44,7 +44,18 @@ export default async (req, res) => {
       where: {
         AND: [ 
           { OR: user_query }, 
-          { OR: [{ name: { contains: data.identifier }}, { merchant_name: { contains: data.identifier }}] } 
+          { OR: [{ 
+              name: { 
+                contains: data.identifier,
+                mode: 'insensitive'
+              }
+            }, { 
+              merchant_name: { 
+                contains: data.identifier,
+                mode: 'insensitive'
+              }
+            }] 
+          } 
         ],
       },
       data: {
