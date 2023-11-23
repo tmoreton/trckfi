@@ -9,7 +9,7 @@ export default async (req, res) => {
     client_name: 'Trckfi',
     products: ['transactions'],
     language: 'en',
-    country_codes: ['US'],
+    country_codes: ['US', 'CA'],
     create: {
       account_selection_enabled: true
     },
