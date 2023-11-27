@@ -29,7 +29,7 @@ const Newsletter = () => {
   }
 
   return (
-    <div className="relative isolate overflow-hidden bg-pink-600 p-10 shadow-2xl rounded-3xl sm:px-12 max-w-4xl mx-auto">
+    <div className="relative isolate overflow-hidden bg-pink-600 p-10 shadow-2xl lg:rounded-3xl sm:px-12 max-w-4xl mx-auto">
       { subscribed ? 
         <a id="get-notified">
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
