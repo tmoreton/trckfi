@@ -58,6 +58,8 @@ export default function () {
               src="/assets/hero-mockup-new.png"
               alt="Transactions Dashboard"
               className="w-full"
+              width="1152"
+              height="677"
             />
           </div>
         </div>
