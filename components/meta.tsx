@@ -11,9 +11,9 @@ const Meta = ({ post }) => {
             "@type": "WebPage",
             "@id": "https://www.trckfi.com/blog/${post?.slug}"
           },
-          "headline": ${post?.title},
-          "description": ${post?.description},
-          "image": ${post?.coverImage},  
+          "headline": "${post?.title}",
+          "description": "${post?.description}",
+          "image": "${post?.coverImage}",  
           "author": {
             "@type": "Organization",
             "name": "Trckfi",
@@ -27,7 +27,7 @@ const Meta = ({ post }) => {
               "url": "https://www.trckfi.com/_next/image?url=%2Ftrckfi-logo-beta.png&w=640&q=75"
             }
           },
-          "datePublished": ${post?.publishedAt}
+          "datePublished": "${post?.publishedAt}"
         }
       `}
     }
