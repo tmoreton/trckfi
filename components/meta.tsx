@@ -60,7 +60,7 @@ const Meta = ({ post }) => {
       <meta name="theme-color" content="#db2777" />
       <meta name="robots" content="index, follow" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <title>{post && post?.title ? post.title : 'Best Personal Finance App - Trckfi: Expense & Investment Tracking'}</title>
+      <title>{post && post?.title ? post.title : 'Trckfi Expense & Investment Tracking - Best Personal Finance App'}</title>
       <meta name="description" content={post && post?.description ? post.description : "Take control of your finances with Trckfi, best app for tracking expenses, managing budgets, and monitoring investments. Simplify your financial management and reach your goals."} />
       <meta name="keywords" content={post && post?.keywords ? post.keywords : "Trckfi, Personal finance app, Personal finance tracker, Personal expense tracker app, Personal finance expense tracker, Personal finance management, Personal finance solutions, Best app to keep track of spending, Best expenses app, Best spending tracker, Best expense tracking app, Best monthly expense tracker app, Best personal expense tracker, Best spending tracker app, Best personal expense tracker app, Best online expense tracker, Best app for keeping track of expenses, Finance tracker online, Finance tracker app, Online personal expense tracker, Online finance tracker, Online expense tracker, Online budget tracker, Money tracking app, Online spending tracker , Cash flow tracker, best way to track cash flow, personal cash flow tracker, Net worth analysis, investment tracking app, best investment tracking app" }/>
       <meta property="og:image" content={post && post?.coverImage ? post.coverImage : "/trckfi-og-image.png"} />

@@ -17,6 +17,9 @@ export default async (req, res) => {
         },
       ],
       mode: 'subscription',
+      subscription_data: {
+        trial_period_days: 30
+      },
       allow_promotion_codes: true,
       consent_collection: {
         terms_of_service: 'required'
