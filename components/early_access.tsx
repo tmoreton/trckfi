@@ -35,13 +35,12 @@ const Newsletter = () => {
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Success! 🎉
           </h2>
-          <p className="text-white mt-4 text-center">Check your email, we are ready for you to test the platform!</p>
           <ConfettiExplosion />
         </a>
         :
         <>
           <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6 text-center">
-            Get Early Access <br/> <span className="font-normal">+ 2 Months Free</span>
+            Join Trckfi Community
           </h2>
           {/* <p className="text-white my-4">Sign up today, and gain early access when we launch Trckfi along with <b>3 months free</b>!</p> */}
           <form onSubmit={subscribe}>
@@ -76,7 +75,7 @@ const Newsletter = () => {
               type="submit"
               className="flex-none w-full rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Get Early Access
+              Join
             </button>
             </div>
           </form>
