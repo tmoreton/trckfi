@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react'
-import { RadioGroup } from '@headlessui/react'
+import { useState } from 'react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Container from '../components/container'
 import Layout from '../components/layout'
 import MainMenu from '../components/menu-main'
-import getStripe from '../utils/get-stripejs'
 import { useRouter } from 'next/router'
 import EmailModal from '../components/modals/email-modal'
 import Link from 'next/link'
@@ -13,22 +11,17 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const frequencies = [
-  { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
-  { value: 'annually', label: 'Annually', priceSuffix: '/year' },
-]
-
 const tiers = [
   {
     name: 'Monthly',
     id: 'monthly',
-    save: '$33',
     price: {
       id: process.env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID, 
       price: '$8.99'
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
+      '<b>30 Day Free Trial - Cancel Anytime</b>',
       '<b>Unlimited connections</b> (financial relationship with a specific bank: credit cards, savings/checking, retirement, loans, mortgage, etc.)',
       'Add crypto and individual stocks and get automated daily price updates',
       'Earn rewards by answering daily financial literacy questions and cut your subscription costs',
@@ -45,13 +38,13 @@ const tiers = [
   {
     name: 'Yearly',
     id: 'yearly',
-    save: '$49',
     price: {
       id: process.env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PRICE_ID, 
       price: '$6.25'
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
+      '<b>30 Day Free Trial - Cancel Anytime</b>',
       '<b>Unlimited connections</b> (financial relationship with a specific bank: credit cards, savings/checking, retirement, loans, mortgage, etc.)',
       'Add crypto and individual stocks and get automated daily price updates',
       'Earn rewards by answering daily financial literacy questions and cut your subscription costs',
@@ -69,13 +62,8 @@ const tiers = [
 
 export default function Pricing ({ showError }) {
   const router = useRouter()
-  const { referral_id, beta_user } = router.query
-  const [frequency, setFrequency] = useState(frequencies[0])
+  const { referral_id } = router.query
   const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    setFrequency(frequencies[0])
-  }, [])
 
   return (
     <Layout>
@@ -121,12 +109,14 @@ export default function Pricing ({ showError }) {
                               tier.price.price &&
                               <>
                                 <div className="mt-4 flex items-baseline gap-x-2">
-                                  <span className="text-5xl font-bold tracking-tight text-gray-900">{tier.price.price}</span>                              
-                                  <span className="text-base font-normal leading-7 text-gray-600">{frequency.priceSuffix}</span>
+                                  { tier.id === 'yearly' ?
+                                  <span className="text-5xl font-bold tracking-tight text-gray-900">{tier.price.price}</span>
+                                  :                              
+                                  <span className="text-5xl font-bold tracking-tight text-gray-900 lg:pb-6">{tier.price.price}</span>
+                                  }
+                                  <span className="text-base font-normal leading-7 text-gray-600">/month</span>
                                 </div>
-                                
-                                { tier.id === 'monthly' && <span className="text-sm italic font-normal text-black">30 Day Free Trial - Cancel Anytime</span>}
-                                { tier.id === 'yearly' && <><span className="text-sm italic font-normal text-black">Billed annually at $74.99/year</span><span className="text-base italic font-semibold text-green-600 ml-2">Save {tier.save}!</span></>}
+                                { tier.id === 'yearly' && <><span className="text-sm italic font-normal text-black">Billed annually at $74.99/year</span><span className="text-base italic font-semibold text-green-600 ml-2">Save $33!</span></>}
                               </>
                             }
                             <Link href={`/intro/create-account?price_id=${tier.price.id}&referral_id=${referral_id}`}>
