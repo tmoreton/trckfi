@@ -108,7 +108,7 @@ export default function Pricing ({ showError }) {
                             {
                               tier.price.price &&
                               <>
-                                <div className="mt-4 flex items-baseline gap-x-2">
+                                <div className="flex items-baseline gap-x-2">
                                   { tier.id === 'yearly' ?
                                   <span className="text-5xl font-bold tracking-tight text-gray-900">{tier.price.price}</span>
                                   :                              
