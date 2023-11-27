@@ -143,7 +143,7 @@ export default ({ open, setOpen }) => {
                       <div className="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
                         <Image
                           src="/assets/csv-tracker.png"
-                          alt="Trckfi Finance Dashboard"
+                          alt="Trckfi Finance Dashboard Bundle"
                           className="max-w-5xl rounded-xl shadow-xl w-full"
                           width={500}
                           height={300}

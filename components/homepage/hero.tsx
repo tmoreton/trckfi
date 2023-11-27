@@ -10,7 +10,7 @@ export default function () {
     <div className="overflow-hidden bg-white py-12 sm:py-22">
       <VideoModal setOpen={setOpen} open={open} />      
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4">
             <div className="lg:max-w-lg">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
@@ -50,17 +50,16 @@ export default function () {
             </div>
             </div>
           </div>
-          <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4 sm:w-[75rem] w-full">
-            <video className="lg:block hidden" autoPlay muted loop style={{ width: '75%%' }}>
+          <div className="sm:w-[72rem] w-full">
+            {/* <video className="lg:block hidden" autoPlay muted loop style={{ width: '75%%' }}>
               <source src="/assets/dashboard-intro.mp4" type="video/mp4" />
-            </video>
+            </video> */}
             <Image
-              src="/assets/dashboard-intro.gif"
+              src="/assets/hero-mockup-new.png"
               alt="Finance Dashboard"
-              className="lg:hidden block w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[70rem] lg:-ml-0 w-full"
-              width={2432}
-              height={1442}
-              unoptimized={true}
+              className="w-full"
+              width={1500}
+              height={500}
             />
           </div>
         </div>

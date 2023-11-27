@@ -20,22 +20,20 @@ export default function Index({ showError }) {
     if(!subscribed && !show){
       if(asPath === "/#get-notified"){
         setOpen(true)
-      } else {
-        showBundle()
       }
     }
   }, [])
 
-  const showBundle = () => {
-    setTimeout(() => {
-      setOpen(true)
-    }, 5000)
-  }
+  // const showBundle = () => {
+  //   setTimeout(() => {
+  //     setOpen(true)
+  //   }, 5000)
+  // }
 
   return (
     <Layout>
       <MainMenu showError={showError}/>
-      <BundleModal open={open} setOpen={setOpen} />
+      {/* <BundleModal open={open} setOpen={setOpen} /> */}
       <Hero />
       <AccountNetworth />
       <Visonboard />
