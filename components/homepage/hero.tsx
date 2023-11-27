@@ -2,14 +2,13 @@ import { useState } from 'react'
 import Link from 'next/link'
 import VideoModal from '../modals/video-modal'
 import Image from 'next/image'
-import Newsletter from '../early_access'
 
 export default function () {
   const [open, setOpen] = useState(false)
 
   return (
     <div className="overflow-hidden bg-white py-12 sm:py-22">
-      <VideoModal setOpen={setOpen} open={open} />
+      <VideoModal setOpen={setOpen} open={open} />      
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4">
@@ -36,9 +35,12 @@ export default function () {
                 <p className="mt-8 mb-2 text-3xl font-bold text-gray-900 tracking-wide">
                   But it's still important to track where your money is going!
                 </p>
-                <button onClick={() => setOpen(true)} className="py-2.5 text-lg font-semibold text-pink-600">
+                <button onClick={() => setOpen(true)} className="py-2.5 text-lg font-semibold text-pink-600 hidden lg:block">
                   Watch how Trckfi works
                 </button>
+                <a target="_blank" href="https://www.youtube.com/watch?v=BChUkULTuCs" className="py-2.5 text-lg font-semibold text-pink-600 block lg:hidden">
+                  Watch how Trckfi works
+                </a>
                 <div className="mb-8 flex items-center gap-x-6">
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Get Started Today <span aria-hidden="true">→</span>
