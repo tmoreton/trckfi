@@ -28,25 +28,26 @@ const Meta = ({ post }) => {
             }
           },
           "datePublished": ""
-      }
-    `}
+        }
+      `}
     }
     return {
       __html: `{
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Trckfi",
-      "url": "https://www.trckfi.com/",
-      "logo": "https://www.trckfi.com/_next/image?url=%2Ftrckfi-logo-beta.png&w=640&q=75",
-      "sameAs": [
-        "https://www.facebook.com/trckfi",
-        "https://twitter.com/trckfi",
-        "https://www.instagram.com/trckfi/",
-        "https://www.youtube.com/channel/UC9dzSltq_QHoFLYBoP2_cXg"
-      ]
-    }
-  `}
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Trckfi",
+        "url": "https://www.trckfi.com/",
+        "logo": "https://www.trckfi.com/_next/image?url=%2Ftrckfi-logo-beta.png&w=640&q=75",
+        "sameAs": [
+          "https://www.facebook.com/trckfi",
+          "https://twitter.com/trckfi",
+          "https://www.instagram.com/trckfi/",
+          "https://www.youtube.com/channel/UC9dzSltq_QHoFLYBoP2_cXg"
+        ]
+      }
+    `}
   }
+  
   return (
     <Head>
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.jpg" />
