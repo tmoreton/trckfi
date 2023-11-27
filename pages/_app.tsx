@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
 import ErrorModal from '../components/modals/error-modal'
 import SuccessAlert from '../components/success-alert'
-
+import Script from 'next/script'
 import AuthGuard from '../utils/authGuard'
 import Meta from '../components/meta'
 import 'intro.js/introjs.css';
@@ -13,7 +13,6 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
 // import Hotjar from '@hotjar/browser'
-import Script from 'next/script'
 // import dynamic from 'next/dynamic' 
 
 // const Steps = dynamic(() => import('intro.js-react').then(mod => mod.Steps), {

@@ -13,16 +13,16 @@ const Meta = ({ post }) => {
       <meta name="theme-color" content="#db2777" />
       <meta name="robots" content="index, follow" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <title>{post && post?.title ? post.title : 'Trckfi - Your online all-in-one, user-friendly personal finance platform.'}</title>
-      <meta name="description" content={post && post?.description ? post.description : "Trckfi is your all-in-one online personal finance platform. We provide you with the tools and insights you need to take control of your finances. Our platform seamlessly connects to your bank accounts, credit cards, investments, and more, giving you a comprehensive view of your financial landscape. We categorize your transactions, visualize your spending, and offer smart suggestions to help you make informed financial decisions. Plus, we're all about making finances fun and engaging with features like our Vision Board Magic."} />
-      <meta name="keywords" content={post && post?.keywords ? post.keywords : "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success" }/>
+      <title>{post && post?.title ? post.title : 'Best Personal Finance App - Trckfi: Expense & Investment Tracking'}</title>
+      <meta name="description" content={post && post?.description ? post.description : "Take control of your finances with Trckfi, best app for tracking expenses, managing budgets, and monitoring investments. Simplify your financial management and reach your goals."} />
+      <meta name="keywords" content={post && post?.keywords ? post.keywords : "Trckfi, Personal finance app, Personal finance tracker, Personal expense tracker app, Personal finance expense tracker, Personal finance management, Personal finance solutions, Best app to keep track of spending, Best expenses app, Best spending tracker, Best expense tracking app, Best monthly expense tracker app, Best personal expense tracker, Best spending tracker app, Best personal expense tracker app, Best online expense tracker, Best app for keeping track of expenses, Finance tracker online, Finance tracker app, Online personal expense tracker, Online finance tracker, Online expense tracker, Online budget tracker, Money tracking app, Online spending tracker , Cash flow tracker, best way to track cash flow, personal cash flow tracker, Net worth analysis, investment tracking app, best investment tracking app" }/>
       <meta property="og:image" content={post && post?.coverImage ? post.coverImage : "/trckfi-og-image.png"} />
       { !post ?
-        <meta property="og:title" content='Take control of your wealth journey while keeping your data private & secure with Trckfi' />
+        <meta property="og:title" content='Best Personal Finance App - Trckfi: Expense & Investment Tracking' />
         :
         <meta property="og:title" content={post?.seoTitle || post?.title} />
       }
-      <meta property="og:description" content={post && post?.description ? post.description : "Trckfi is your all-in-one online personal finance platform."} />
+      <meta property="og:description" content={post && post?.description ? post.description : "Take control of your finances with Trckfi, best app for tracking expenses, managing budgets, and monitoring investments. Simplify your financial management and reach your goals."} />
       <meta name="facebook-domain-verification" content="4edjuvyb4b7cwp99i13jbj0ttzammg" />
       <meta name="ahrefs-site-verification" content="a2ef4d971772d5ef47866ad9d3d1e9fba252fab335831788b3fe0ce67b3ec738" />
     </Head>
