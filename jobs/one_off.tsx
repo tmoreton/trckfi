@@ -4,6 +4,7 @@ import { render } from '@react-email/render'
 import BetaInvite from "../emails/beta_invite"
 import Welcome from "../emails/welcome_email"
 import BetaNoSignup from "../emails/beta_no_signup"
+import NoAccounts from "../emails/signup_no_accounts"
 
 const nodemailer = require('nodemailer')
 
@@ -43,6 +44,16 @@ client.defineJob({
         subject: `Does this sound familiar?`,
         text: '',
         html: render(<BetaNoSignup />),
+      }
+    }
+
+    if(type === 'no_accounts') {
+      message = {
+        from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+        to: email,
+        subject: `Howdy friend! 👋`,
+        text: '',
+        html: render(<NoAccounts />),
       }
     }
 
