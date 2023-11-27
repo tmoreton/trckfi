@@ -27,7 +27,7 @@ const Meta = ({ post }) => {
               "url": "https://www.trckfi.com/_next/image?url=%2Ftrckfi-logo-beta.png&w=640&q=75"
             }
           },
-          "datePublished": ""
+          "datePublished": ${post?.publishedAt}
         }
       `}
     }
