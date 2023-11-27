@@ -9,7 +9,7 @@ const Meta = ({ post }) => {
           "@type": "BlogPosting",
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": ${post?.url}
+            "@id": "https://www.trckfi.com/blog/${post?.slug}"
           },
           "headline": ${post?.title},
           "description": ${post?.description},
@@ -47,7 +47,7 @@ const Meta = ({ post }) => {
       }
     `}
   }
-  
+
   return (
     <Head>
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.jpg" />
