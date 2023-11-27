@@ -54,12 +54,10 @@ export default function () {
             {/* <video className="lg:block hidden" autoPlay muted loop style={{ width: '75%%' }}>
               <source src="/assets/dashboard-intro.mp4" type="video/mp4" />
             </video> */}
-            <Image
+            <img
               src="/assets/hero-mockup-new.png"
-              alt="Finance Dashboard"
+              alt="Transactions Dashboard"
               className="w-full"
-              width={1500}
-              height={500}
             />
           </div>
         </div>
