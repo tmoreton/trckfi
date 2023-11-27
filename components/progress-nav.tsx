@@ -5,7 +5,7 @@ export default function ({ width }) {
     <div className="bg-white w-full z-10 mb-10 lg:mb-20">
       <div className="mx-auto max-w-6xl lg:flex lg:items-center lg:gap-x-10 px-6">
         <Image
-          src='/trckfi-logo-beta.png'
+          src='/trckfi-black-sm.png'
           alt='Trckfi'
           width={150}
           height={100}

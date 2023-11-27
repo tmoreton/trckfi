@@ -24,7 +24,7 @@ const Meta = ({ post }) => {
             "name": "Trckfi",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://www.trckfi.com/_next/image?url=%2Ftrckfi-logo-beta.png&w=640&q=75"
+              "url": "https://www.trckfi.com/trckfi-black-sm.png"
             }
           },
           "datePublished": "${post?.publishedAt}"
@@ -37,7 +37,7 @@ const Meta = ({ post }) => {
         "@type": "Organization",
         "name": "Trckfi",
         "url": "https://www.trckfi.com/",
-        "logo": "https://www.trckfi.com/_next/image?url=%2Ftrckfi-logo-beta.png&w=640&q=75",
+        "logo": "https://www.trckfi.com/trckfi-black-sm.png",
         "sameAs": [
           "https://www.facebook.com/trckfi",
           "https://twitter.com/trckfi",

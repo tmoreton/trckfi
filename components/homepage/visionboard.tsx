@@ -20,7 +20,6 @@ export default function () {
             className="w-full"
             width={2432}
             height={1442}
-            unoptimized={true}
           />
         </div>
       </div>

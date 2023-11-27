@@ -42,7 +42,7 @@ export default function ({ showError, title }) {
                   <Link href='/'>
                     <div className="f-m-1.5 p-1.5 flex justify-center items-center hidden lg:block">
                       <Image
-                        src='/trckfi-logo-beta.png'
+                        src='/trckfi-black-sm.png'
                         alt='Trckfi'
                         width={200}
                         height={100}

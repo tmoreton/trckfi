@@ -136,7 +136,7 @@ export default function () {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:flex lg:items-center lg:gap-x-10 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
             <Image
-              src='/trckfi-logo-beta.png'
+              src='/trckfi-black-sm.png'
               alt='Trckfi'
               width={150}
               height={100}
