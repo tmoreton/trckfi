@@ -75,7 +75,7 @@ export default function () {
             </div>
           </div>
           <div className="sm:w-[60rem] w-full">
-            <div className="block lg:absolute z-[50] mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl mt-">
+            <div className="block lg:absolute relative z-[50] mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl mt-">
               <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
               <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
               <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
@@ -127,7 +127,7 @@ export default function () {
         </div>
       </div> 
 
-      <div className="my-16">
+      <div className="lg:my-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto text-center">
             <h2 className="text-3xl font-bold leading-7 text-pink-600 my-6">Transform Your Relationship with Money</h2>
@@ -139,7 +139,17 @@ export default function () {
           </div>
         </div>
         <div className="relative overflow-hidden pt-8">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="block lg:hidden relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl mt-">
+            <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+            <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+            <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+            <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+            <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
+              <img src="/assets/dashboard-mobile.png" className="w-[272px] h-[572px]" alt="" />
+            </div>
+          </div>
+
+          <div className="hidden lg:block mx-auto max-w-7xl px-6 lg:px-8">
             <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[250px] lg:h-[550px] max-w-[900px]">
               <div className="rounded-lg overflow-hidden h-[200px] lg:h-[500px] bg-white">
                 <img src="/assets/dashboard.png" className="h-[250px] lg:h-[650px] w-full rounded-xl" alt="dashboard" />
