@@ -19,7 +19,8 @@ const MobileDashboard = ({ showError }) => {
   const [item, setEdit] = useState({})
   const [removeItem, setRemoveItem] = useState(false)
   const [selected, setSelected] = useState([])
-  const [transactions, setTransactions] = useLocalStorage('transactions', null)
+  const [transactions, setTransactions] = useState([])
+  // const [transactions, setTransactions] = useLocalStorage('transactions', null)
   const [dates, setDates] = useLocalStorage('transaction_dates', {
     startDate: DateTime.now().toISO(),
     endDate: DateTime.now().minus({ days: 30 }).toISO()
@@ -49,7 +50,6 @@ const MobileDashboard = ({ showError }) => {
       method: 'POST',
     })
     const { error, data } = await res.json()
-    console.log(data)
     setTransactions(data)
     setRefreshing(false)
   }
