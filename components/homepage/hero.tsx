@@ -181,9 +181,9 @@ export default function () {
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Signup <span aria-hidden="true">→</span>
                   </Link>
-                  <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  {/* <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Learn More
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -218,9 +218,9 @@ export default function () {
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Signup <span aria-hidden="true">→</span>
                   </Link>
-                  <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  {/* <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Learn More
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -253,9 +253,9 @@ export default function () {
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Signup <span aria-hidden="true">→</span>
                   </Link>
-                  <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  {/* <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Learn More
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -288,9 +288,9 @@ export default function () {
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Signup <span aria-hidden="true">→</span>
                   </Link>
-                  <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  {/* <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Learn More
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
