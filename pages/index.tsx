@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import Layout from '../components/layout'
 import MainMenu from '../components/menu-main'
 import Hero from "../components/homepage/hero"
-import AccountNetworth from "../components/homepage/account-networth"
 import Visonboard from '../components/homepage/visionboard'
 import EarlyAccess from '../components/early_access'
 import BundleModal from '../components/modals/bundle-modal'
@@ -35,7 +34,6 @@ export default function Index({ showError }) {
       <MainMenu showError={showError}/>
       {/* <BundleModal open={open} setOpen={setOpen} /> */}
       <Hero />
-      <AccountNetworth />
       <Visonboard />
       <EarlyAccess />
     </Layout>

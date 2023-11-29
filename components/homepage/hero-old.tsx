@@ -33,12 +33,12 @@ export default function () {
   return (
     <div className="overflow-hidden bg-white py-12 sm:py-22">
       <VideoModal setOpen={setOpen} open={open} />      
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4">
             <div className="lg:max-w-lg">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
-              <div>
+              <div className="sm:mt-32 lg:mt-24">
                 <h1 className="mx-auto max-w-5xl font-display text-7xl sm:text-8xl font-bold tracking-tighter text-slate-900 leading-tight">
                   Budgets {' '}
                   <span className="hidden sm:block relative whitespace-nowrap text-pink-600">
@@ -74,29 +74,17 @@ export default function () {
             </div>
             </div>
           </div>
-          <div className="sm:w-[60rem] w-full">
-            <div className="block lg:absolute z-[50] mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl mt-">
-              <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
-              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-              <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-              <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                <img src="/assets/transactions-mobile.png" className="w-[272px] h-[572px]" alt="" />
-              </div>
-            </div>
-
-            <div className="hidden lg:block relative overflow-hidden -mt-32">
-              <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[650px] max-w-[900px]">
-                  <div className="rounded-lg overflow-hidden h-[600px] bg-white">
-                    <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="dashboard" />
-                  </div>
-                </div>
-                <div className="hidden lg:block relative mx-auto bg-gray-900 rounded-b-xl rounded-t-sm h-[40px] max-w-[1100px]">
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[200px] h-[15px] bg-gray-800"></div>
-                </div>
-              </div>
-            </div>
+          <div className="sm:w-[72rem] w-full">
+            {/* <video className="lg:block hidden" autoPlay muted loop style={{ width: '75%%' }}>
+              <source src="/assets/dashboard-intro.mp4" type="video/mp4" />
+            </video> */}
+            <img
+              src="/assets/hero-mockup-new.png"
+              alt="Transactions Dashboard"
+              className="w-full"
+              width="1152"
+              height="677"
+            />
           </div>
         </div>
       </div>
@@ -140,7 +128,7 @@ export default function () {
         </div>
         <div className="relative overflow-hidden pt-8">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[250px] lg:h-[550px] max-w-[900px]">
+            <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-xl lg:rounded-t-xl h-[250px] lg:h-[550px] max-w-[900px]">
               <div className="rounded-lg overflow-hidden h-[200px] lg:h-[500px] bg-white">
                 <img src="/assets/dashboard.png" className="h-[250px] lg:h-[650px] w-full rounded-xl" alt="dashboard" />
               </div>
