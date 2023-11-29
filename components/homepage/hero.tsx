@@ -87,14 +87,14 @@ export default function () {
 
             <div className="hidden lg:block relative overflow-hidden -mt-32">
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[20px] rounded-t-xl h-[650px] max-w-[900px]">
+                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[20px] rounded-xl h-[650px] max-w-[900px]">
                   <div className="rounded-lg overflow-hidden h-[600px] bg-white">
                     <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="dashboard" />
                   </div>
                 </div>
-                <div className="hidden lg:block relative mx-auto bg-gray-900 rounded-b-xl rounded-t-sm h-[40px] max-w-[1100px]">
+                {/* <div className="hidden lg:block relative mx-auto bg-gray-900 rounded-b-xl rounded-t-sm h-[40px] max-w-[1100px]">
                   <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[200px] h-[15px] bg-gray-800"></div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function () {
             </div>
             <div className="lg:pr-8 lg:pt-4 flex items-center">
               <div className="lg:max-w-lg">
-                <h2 className="text-base font-semibold leading-7 text-gray-900">Goals</h2>
+                <h4 className="text-base font-semibold leading-7 text-gray-900">Goals</h4>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Effortlessly monitor your financial goals</p>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Connect your accounts for seamless tracking, helping you progress toward what matters most and enabling strategic planning for success.
@@ -279,7 +279,7 @@ export default function () {
             </div>
             <div className="lg:pr-8 lg:pt-4 flex items-center">
               <div className="lg:max-w-lg">
-                <h2 className="text-base font-semibold leading-7 text-gray-900">Net Worth</h2>
+                <h4 className="text-base font-semibold leading-7 text-gray-900">Net Worth</h4>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Your portfolio and finances together</p>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                 Investments are a huge part of your financial life, and Trckfi’s investment tracker can help you stay on top of yours. Instantly see your asset allocation across all your investment accounts like 401(k), mutual funds, brokerage accounts, and even IRAs. 
@@ -308,7 +308,6 @@ export default function () {
         </div>
       </div>
 
-
       <div className="bg-white pt-10 pb-16">
         <div className="mx-auto px-6 lg:px-8">
           <div className="mx-auto mt-6 sm:mt-20 lg:mt-12 lg:mx-12 mx-0">
@@ -336,21 +335,22 @@ export default function () {
         </div>
       </div>
 
-        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">
-              Sign up for Trckfi today!
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 ">
-              Start reaching your financial goals with powerful tools, personalized insights, and much more.
-            </p>
-            <div className="mb-8 flex items-center justify-center gap-x-6">
-              <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                Get Started <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+      {/* Sign Up Today */}
+      <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <h4 className="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">
+            Sign up for Trckfi today!
+          </h4>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 ">
+            Start reaching your financial goals with powerful tools, personalized insights, and much more.
+          </p>
+          <div className="mb-8 flex items-center justify-center gap-x-6">
+            <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+              Get Started <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
+      </div>
     </div>
   )
 }
