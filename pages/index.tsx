@@ -34,7 +34,6 @@ export default function Index({ showError }) {
       <MainMenu showError={showError}/>
       {/* <BundleModal open={open} setOpen={setOpen} /> */}
       <Hero />
-      <Visonboard />
       <EarlyAccess />
     </Layout>
   )
