@@ -87,7 +87,7 @@ export default function () {
 
             <div className="hidden lg:block relative overflow-hidden -mt-32">
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[650px] max-w-[900px]">
+                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[20px] rounded-t-xl h-[650px] max-w-[900px]">
                   <div className="rounded-lg overflow-hidden h-[600px] bg-white">
                     <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="dashboard" />
                   </div>
@@ -140,6 +140,10 @@ export default function () {
           </div>
 
           <div className="hidden lg:block mx-auto max-w-7xl px-6 lg:px-8">
+            <img src="/assets/dashboard-no-menu.png" className="w-full rounded-xl" alt="dashboard" />
+          </div>
+
+          {/* <div className="hidden lg:block mx-auto max-w-7xl px-6 lg:px-8">
             <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[250px] lg:h-[550px] max-w-[900px]">
               <div className="rounded-lg overflow-hidden h-[200px] lg:h-[500px] bg-white">
                 <img src="/assets/dashboard.png" className="h-[250px] lg:h-[650px] w-full rounded-xl" alt="dashboard" />
@@ -148,7 +152,7 @@ export default function () {
             <div className="hidden lg:block relative mx-auto bg-gray-900 rounded-b-xl rounded-t-sm h-[40px] max-w-[1100px]">
               <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[250px] h-[12px] bg-gray-800"></div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto text-center">
@@ -163,7 +167,7 @@ export default function () {
       </div>
 
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32 hidden lg:block">
+      <div className="overflow-hidden bg-white py-24 hidden lg:block">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div className="lg:pr-8 lg:pt-4 flex items-center">
@@ -184,14 +188,9 @@ export default function () {
               </div>
             </div>
             <div className="col-span-2">
-              <div className="hidden lg:block mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[400px] max-w-[650px]">
-                  <div className="rounded-lg overflow-hidden h-[350px] bg-white">
-                    <img src="/assets/visionboard-desktop.png" className="h-[400px] w-full rounded-xl" alt="visionboard" />
-                  </div>
-                </div>
-                <div className="hidden lg:block relative mx-auto bg-gray-900 rounded-b-xl rounded-t-sm h-[25px] max-w-[1100px]">
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[200px] h-[8px] bg-gray-800"></div>
+              <div className="hidden lg:block mx-auto max-w-7xl">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                  <img src="/assets/visionboard.png" className=" w-full rounded-2xl" alt="visionboard" />
                 </div>
               </div>
             </div>
@@ -199,20 +198,13 @@ export default function () {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32">
+
+      <div className="overflow-hidden bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div className="col-span-2 hidden lg:block">
-
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="relative mx-auto border-gray-800 bg-gray-800 border-[8px] lg:border-[20px] rounded-t-xl h-[400px] max-w-[650px]">
-                  <div className="rounded-lg overflow-hidden h-[350px] bg-white">
-                    <img src="/assets/goals.png" className="h-[350px] w-full rounded-xl" alt="goals" />
-                  </div>
-                </div>
-                <div className="relative mx-auto bg-gray-900 rounded-b-xl rounded-t-sm h-[25px] max-w-[1100px]">
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[200px] h-[8px] bg-gray-800"></div>
-                </div>
+                <img src="/assets/goals.png" className=" w-full rounded-2xl" alt="goals" />
               </div>
             </div>
             <div className="lg:pr-8 lg:pt-4 flex items-center">
@@ -246,6 +238,119 @@ export default function () {
         </div>
       </div>
 
+
+      <div className="overflow-hidden bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="lg:pr-8 lg:pt-4 flex items-center col-span-2">
+              <div className="lg:max-w-2xl">
+                <h4 className="text-base font-semibold leading-7 text-gray-900">Sync Banks</h4>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Sync all of your bank accounts and assets in one place</p>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                Effortlessly all your bank accounts, credit cards, retirement accounts, loans, and investments to Trckfi for seamless balance and net worth tracking. Your data is secured with bank-level protection, ensuring constant privacy.
+                </p>
+                <div className="mb-8 flex items-center gap-x-6">
+                  <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Signup <span aria-hidden="true">→</span>
+                  </Link>
+                  <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Learn More
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-1">
+              <div className="mx-auto max-w-7xl">
+                <img src="/assets/banks.png" className=" w-full rounded-2xl" alt="visionboard" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="overflow-hidden bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="col-span-2 hidden lg:block">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <img src="/assets/networth.png" className=" w-full rounded-2xl" alt="goals" />
+              </div>
+            </div>
+            <div className="lg:pr-8 lg:pt-4 flex items-center">
+              <div className="lg:max-w-lg">
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Net Worth</h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Your portfolio and finances together</p>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                Investments are a huge part of your financial life, and Trckfi’s investment tracker can help you stay on top of yours. Instantly see your asset allocation across all your investment accounts like 401(k), mutual funds, brokerage accounts, and even IRAs. 
+                </p>
+                <div className="mb-8 flex items-center gap-x-6">
+                  <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Signup <span aria-hidden="true">→</span>
+                  </Link>
+                  <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    Learn More
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="block lg:hidden relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl mt-">
+              <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+              <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+              <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
+                <img src="/assets/networth-mobile.png" className="w-[272px] h-[572px]" alt="goals mobile" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="bg-white pt-10 pb-16">
+        <div className="mx-auto px-6 lg:px-8">
+          <div className="mx-auto mt-6 sm:mt-20 lg:mt-12 lg:mx-12 mx-0">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+              <div className="relative  text-center">
+                <dt className="text-xl font-semibold leading-7 text-pink-600">
+                  <div className="font-bold">Security you can trust</div>
+                </dt>
+                <dd className="mt-2 text-lg leading-7 text-gray-600">Trckfi ensures the safety and privacy of your data with bank-level security. We never store your login details, and account access is limited to read-only – your funds are secure. We can’t touch them!</dd>
+              </div>
+              <div className="relative text-center">
+                <dt className="text-xl font-semibold leading-7 text-pink-600">
+                  <div className="font-bold">Prioritize Your Finances, Not Ads</div>
+                </dt>
+                <dd className="mt-2 text-lg leading-7 text-gray-600">At Trckfi, our commitment is to enhance your financial well-being with a streamlined experience. Enjoy an ad-free interface, and rest assured, we never sell or share your financial data to third parties. </dd>
+              </div>
+              <div className="relative text-center">
+                <dt className="text-xl font-semibold leading-7 text-pink-600">
+                  <div className="font-bold">Collaborate with your partner securely</div>
+                </dt>
+                <dd className="mt-2 text-lg leading-7 text-gray-600">Invite a partner or financial advisor to collaborate at no extra cost. They'll get their own login, and you'll both get a shared view of what's happening with your money.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">
+              Sign up for Trckfi today!
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 ">
+              Start reaching your financial goals with powerful tools, personalized insights, and much more.
+            </p>
+            <div className="mb-8 flex items-center justify-center gap-x-6">
+              <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                Get Started <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
     </div>
   )
 }
