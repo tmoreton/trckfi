@@ -55,7 +55,7 @@ const netWorthSync = async (user_id) => {
 
         //Account for all investments
         if (a.type === 'investment'){
-          if(a.subtype === 'brokerage' || a.subtype === 'etf' || a.subtype === 'equity'){
+          if(a.subtype === 'brokerage' || a.subtype === 'etf' || a.subtype === 'equity' || a.subtype === 'fund'){
             data.snapshot.stocks += Math.round(Number(a.amount))
           } else if (retirement_types.includes(a.subtype)){
             data.snapshot.retirement += Math.round(Number(a.amount))
