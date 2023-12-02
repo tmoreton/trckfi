@@ -385,7 +385,7 @@ export default function () {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-12 lg:py-24">
+      <div className="overflow-hidden bg-white">
         <div className="mx-auto px-6 lg:px-8">
           <div className="mx-auto mt-6 sm:mt-20 lg:mt-12 lg:mx-12 mx-0">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-5 lg:gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
@@ -417,7 +417,7 @@ export default function () {
 
 
       {/* Sign Up Today */}
-      <div className="overflow-hidden bg-white p-6 lg:py-24">
+      <div className="overflow-hidden bg-white px-4 pt-24">
         <div className="mx-auto max-w-2xl text-center">
           <h4 className="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">
             Sign up for Trckfi today!
