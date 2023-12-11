@@ -8,7 +8,7 @@ client.defineJob({
   version: "0.0.1",
   enabled: true,
   trigger: cronTrigger({
-    cron: "*/5 * * * *",
+    cron: "0 * * * *",
   }),
   run: async (payload, io, ctx) => {
     let users = await prisma.user.findMany({
