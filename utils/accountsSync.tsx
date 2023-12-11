@@ -7,8 +7,6 @@ import slackMessage from '../utils/slackMessage'
 const accountsSync = async (access_token, item_id, user_id, institution) => {
   try {
     const accountResponse = await plaidClient.accountsGet({ access_token: access_token })
-    const accountsBalance = await plaidClient.accountsBalanceGet({ access_token: access_token })
-    console.log(accountsBalance.data)
     let plaidAccounts = accountResponse.data.accounts
 
     for (let i in plaidAccounts) {
