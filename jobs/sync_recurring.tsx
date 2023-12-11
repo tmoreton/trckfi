@@ -81,7 +81,7 @@ client.defineJob({
 
             // Check for RECURRING TRANSACTIONS
             if(t1.month_year !== t2.month_year){
-              console.log(`Found recurring: ${t1.name}: ${Number(t1.amount)} and ${t2.name}: ${Number(t2.amount)}`)
+              await io.logger.info(`Found recurring: ${t1.name}: ${Number(t1.amount)} and ${t2.name}: ${Number(t2.amount)}`);
               if(Number(t1.amount) === Number(t2.amount) && t1.name === t2.name){
                 await updateItems(t1, t2)
               } else if(t1?.custom_name){
