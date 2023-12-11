@@ -15,8 +15,7 @@ const Newsletter = () => {
       await fetch(`/api/add_email`, {
         body: JSON.stringify({
           email,
-          name,
-          type: 'beta'
+          name
         }),
         headers: {
           'Content-Type': 'application/json',

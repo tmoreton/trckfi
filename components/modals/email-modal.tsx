@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import Newsletter from '../early_access'
+import Newsletter from '../newsletter-form'
 
 export default ({ open, setOpen, showError }) => {
   return (

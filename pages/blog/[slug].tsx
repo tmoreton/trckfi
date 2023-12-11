@@ -8,7 +8,7 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Menu from '../../components/menu-main'
-import Newsletter from '../../components/early_access'
+import Newsletter from '../../components/newsletter-form'
 
 export default function Post({ post, preview, showError }) {
   const router = useRouter()

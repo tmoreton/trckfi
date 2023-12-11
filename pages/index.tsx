@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import Layout from '../components/layout'
 import MainMenu from '../components/menu-main'
 import Hero from "../components/homepage/hero"
-import Visonboard from '../components/homepage/visionboard'
-import EarlyAccess from '../components/early_access'
+import NewsletterForm from '../components/newsletter-form'
 import BundleModal from '../components/modals/bundle-modal'
 import  { useLocalStorage } from '../utils/useLocalStorage'
 import { useRouter } from 'next/router'
@@ -34,7 +33,7 @@ export default function Index({ showError }) {
       <MainMenu showError={showError}/>
       {/* <BundleModal open={open} setOpen={setOpen} /> */}
       <Hero />
-      <EarlyAccess />
+      <NewsletterForm />
     </Layout>
   )
 }
