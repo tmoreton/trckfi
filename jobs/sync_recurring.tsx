@@ -1,7 +1,7 @@
 import { cronTrigger } from "@trigger.dev/sdk";
 import { client } from "../trigger";
 import prisma from '../lib/prisma';
-import { DateTime, Interval } from "luxon"
+import { DateTime } from "luxon"
 
 client.defineJob({
   id: "sync-recurring",
@@ -13,11 +13,25 @@ client.defineJob({
   }),
   run: async (payload, io, ctx) => {
     const startDate = DateTime.now().minus({ months: 2 }).startOf('month').toISO()
+    const endDate = DateTime.now().minus({ months: 2 }).endOf('month').toISO()
 
-    const transactions = await prisma.transactions.findMany({
+    const startDateLast = DateTime.now().minus({ months: 1 }).startOf('month').toISO()
+    const endDateLast = DateTime.now().minus({ months: 1 }).endOf('month').toISO()
+
+    const transactions1 = await prisma.transactions.findMany({
       where: {
         date: {
-          gte:  startDate
+          gte:  startDate,
+          lte:  endDate
+        },
+      }
+    })
+
+    const transactions2 = await prisma.transactions.findMany({
+      where: {
+        date: {
+          gte:  startDateLast,
+          lte:  endDateLast
         },
       }
     })
@@ -39,8 +53,8 @@ client.defineJob({
       })
     }
 
-    transactions.forEach((t1) => {
-      transactions.forEach(async (t2) => {
+    transactions1.forEach((t1) => {
+      transactions2.forEach(async (t2) => {
         if(t1.user_id === t2.user_id){
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
             
@@ -61,6 +75,17 @@ client.defineJob({
             //   }
             // }
             
+            // Check for next credit card payment
+            if(t2.detailed_category === 'CREDIT_CARD_PAYMENT'){
+              await prisma.transactions.update({
+                where: { id: t2.id },
+                data: {
+                  recurring: true,
+                  upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+                },
+              })
+            }
+
             // Check for RECURRING TRANSACTIONS
             if(t1.month_year !== t2.month_year){
               console.log(`Found duplicate: ${t1.name}: ${Number(t1.amount)} and ${t2.name}: ${Number(t2.amount)}`)
