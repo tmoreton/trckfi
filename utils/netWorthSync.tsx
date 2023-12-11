@@ -17,7 +17,7 @@ const netWorthSync = async (user_id) => {
     })
     let this_month = DateTime.now().toFormat('LLL yy')
     let data = {
-      user_id: user.id,
+      user_id,
       accounts: user.accounts,
       date: this_month,
       stats: {
@@ -75,10 +75,11 @@ const netWorthSync = async (user_id) => {
         }
       })
 
-      if(recent_net_worth.length > 0){
+      if(recent_net_worth && recent_net_worth.length > 0){
+        console.log(recent_net_worth)
         await prisma.netWorth.update({
           where: {
-            id: recent_net_worth[0].id
+            id: recent_net_worth[0]?.id
           },
           data
         })
