@@ -13,6 +13,12 @@ const testimonials = [
           name: 'Christina',
         },
       },
+      {
+        body: "After looking at different financial planning apps, and trying my own excel sheets, I've found Trckfi to be the most efficient application for tracking money and monitoring my finances. It's affordable and super easy to use.",
+        author: {
+          name: 'Maria',
+        },
+      },
     ],
     [
       {
@@ -21,22 +27,18 @@ const testimonials = [
           name: 'Sophia',
         },
       },
-    ],
-  ],
-  [
-    [
       {
-        body: "Trckfi has simplified my finances. I hate budgeting, but tracking expenses and cash flow is important to me! This platform makes so easy. I love the Q&A feature, I'm learning a lot about managing money and I get rewards. Highly recommended!",
+        body: "Finally, an easy-to-use finance app! I love everything about Trckfi and regret not setting up this money tracking app sooner. Financial planning is so easy, checking my accounts is a snap, and I get email alerts. I highly recommend this personal finance app",
         author: {
-          name: 'Sam',
+          name: 'Jake',
         },
       },
     ],
     [
       {
-        body: "Finally, an easy-to-use finance app! I love everything about Trckfi and regret not setting up this money tracking app sooner. Financial planning is so easy, checking my accounts is a snap, and I get email alerts. I highly recommend this personal finance app",
+        body: "Trckfi has simplified my finances. I hate budgeting, but tracking expenses and cash flow is important to me! This platform makes so easy. I love the Q&A feature, I'm learning a lot about managing money and I get rewards. Highly recommended!",
         author: {
-          name: 'Jake',
+          name: 'Sam',
         },
       },
     ],
@@ -463,7 +465,7 @@ export default function () {
               Helping people reach their financial goals!
             </p>
           </div>
-          <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-3">
             {testimonials.map((columnGroup, columnGroupIdx) => (
               <div key={columnGroupIdx} className="space-y-8 xl:contents xl:space-y-0">
                 {columnGroup.map((column, columnIdx) => (
@@ -478,12 +480,9 @@ export default function () {
                     )}
                   >
                     {column.map((testimonial) => (
-                      <figure
-                        key={testimonial.author.handle}
-                        className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
-                      >
+                      <figure className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
                         <blockquote className="text-gray-900">
-                          <p>{`“${testimonial.body}”`}</p>
+                          <p className="text-md">{`“${testimonial.body}”`}</p>
                         </blockquote>
                         <div className="mt-2 flex items-center gap-x-2">
                           <StarIcon className='text-yellow-400 h-5 w-5 flex-shrink-0' aria-hidden="true" />
