@@ -29,7 +29,7 @@ export default async (req, res) => {
             }
           },
         ],
-        authorized_date: {
+        date: {
           lte: startDate,
           gte: endDate
         },
@@ -59,7 +59,7 @@ export default async (req, res) => {
             }
           },
         ],
-        authorized_date: {
+        date: {
           lte: startDate,
           gte: endDate
         },

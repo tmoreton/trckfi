@@ -16,7 +16,7 @@ export default async (req, res) => {
         OR: query,
         active: true,
         pending: false,
-        authorized_date: {
+        date: {
           lte: range.startDate,
           gte: range.endDate
         },

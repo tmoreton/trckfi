@@ -28,7 +28,7 @@ export default async (req, res) => {
         OR: query,
         active: true,
         pending: false,
-        authorized_date: {
+        date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
@@ -63,7 +63,7 @@ export default async (req, res) => {
         OR: query,
         active: true,
         pending: false,
-        authorized_date: {
+        date: {
           lte: DateTime.now().toISO(),
           gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO()
         },
