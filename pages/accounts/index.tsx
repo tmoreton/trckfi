@@ -331,14 +331,14 @@ const Accounts = ({ showError }) => {
                                         { error_code === 'NEW_ACCOUNTS_AVAILABLE' && 
                                           <PlaidLink user={user} showError={showError} refresh_access_token={accounts[key][0]?.plaid?.access_token} syncPlaid={syncPlaid} error_code={error_code}/>
                                         }
-                                        {/* { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&  */}
+                                        { error_code === 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' && 
                                           <button onClick={() => syncPlaid(accounts[key][0]?.plaid?.access_token)} type="button" className="text-xs flex items-center text-red-600 hover:text-red-500">
                                             <div className={loading && 'animate-spin'}>
                                               <ArrowPathIcon className="h-5 w-5" aria-hidden="true" />
                                             </div>
                                             <span className="ml-2">Resync Account</span>
                                           </button>
-                                        {/* } */}
+                                        }
                                         { accounts[key][0]?.account_id && error_code !== 'ITEM_LOGIN_REQUIRED' && error_code !== 'TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION' &&
                                           <button onClick={() => setRemovedAccounts(accounts[key])} type="button" className="text-center text-xs flex items-center justify-center text-red-500 hover:text-red-400 text-center">
                                             <div className={loading && 'animate-spin'}>
