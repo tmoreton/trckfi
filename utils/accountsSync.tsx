@@ -10,6 +10,9 @@ const accountsSync = async (access_token, item_id, user_id, institution) => {
     let plaidAccounts = accountResponse.data.accounts
 
     for (let i in plaidAccounts) {
+      if(plaidAccounts[i].account_id === 'gJ73gqpoeQUA4NAj0b3qSgj06yYa04hMMZ73j'){
+        console.log(JSON.stringify(plaidAccounts[i]))
+      }
       await prisma.accounts.upsert({
         where: { 
           account_id: plaidAccounts[i].account_id
