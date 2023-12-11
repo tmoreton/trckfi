@@ -9,7 +9,7 @@ client.defineJob({
   version: "0.0.1",
   enabled: true,
   trigger: cronTrigger({
-    cron: "0 8 1 * *",
+    cron: "0 6 1 * *",
   }),
   run: async (payload, io, ctx) => {
     const startDate = DateTime.now().minus({ months: 2 }).startOf('month').toISO()
