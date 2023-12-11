@@ -7,17 +7,17 @@ import { LockClosedIcon, NoSymbolIcon, UserGroupIcon } from '@heroicons/react/24
 const features = [
   {
     name: 'Save Time',
-    description: 'Streamline personal finances - know net worth, cash flow, investments, recurring charges, transactions, and more in one secure hub.',
+    description: 'Streamline personal finances - know net worth, cash flow, investments, recurring charges, transactions, monthly income, and more in one financial secure hub.',
     icon: '⏰',
   },
   {
     name: 'Manifest Your Financial Goals',
-    description: 'Visualize your money goals with our vision board to stay motivated to take control of your finances, embracing positive money habits',
+    description: 'Visualize your money goals with our vision board to stay motivated to take control of your financial health, embracing positive money habits and financial planning.',
     icon: '🚀',
   },
   {
     name: 'Spend Less + Earn Rewards',
-    description: 'See recurring charges & upcoming payments and save money! Earn rewards by referring a friend or with our daily bite-sized financial Q&A',
+    description: 'Track your expenses and upcoming bills. Save money! Boost your financial literacy with our daily bite-sized financial Q&A. Refer a friend for extra rewards!',
     icon: '🔒',
   },
   {
@@ -58,7 +58,7 @@ export default function () {
                   <span className="block sm:hidden text-pink-600">f**king suck</span>
                 </h1>
                 <p className="mt-8 mb-2 text-3xl font-bold text-gray-900 tracking-wide">
-                  But it's still important to track where your money is going!
+                  But it's still important to track where you're spending your money!
                 </p>
                 <button onClick={() => setOpen(true)} className="py-2.5 text-lg font-semibold text-pink-600 hidden lg:block">
                   Watch how Trckfi works
@@ -336,7 +336,7 @@ export default function () {
               <div className="lg:max-w-2xl">
                 <h4 className="text-base font-semibold leading-7 text-gray-900">Transactions</h4>
 
-                <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl"><span className="hidden lg:block">Streamline Your Cash flow:</span> All Your Transactions in One Hub</p>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Simplify Your Cash flow: All Your Transactions in One Hub</p>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Effortlessly manage your finances with our transaction-centric platform. Consolidate every income and expense in one easy-to-navigate feed. 
                 </p>
