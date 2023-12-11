@@ -75,8 +75,7 @@ const netWorthSync = async (user_id) => {
         }
       })
 
-      if(recent_net_worth && recent_net_worth.length > 0){
-        console.log(recent_net_worth)
+      if(recent_net_worth?.length > 0 && recent_net_worth[0]?.id){
         await prisma.netWorth.update({
           where: {
             id: recent_net_worth[0]?.id
