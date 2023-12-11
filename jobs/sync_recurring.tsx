@@ -52,7 +52,17 @@ client.defineJob({
       })
     }
 
-    transactions1.forEach((t1) => {
+    transactions1.forEach(async (t1) => {
+      // Check for next credit card payment
+      if(t1.detailed_category === 'CREDIT_CARD_PAYMENT'){
+        await prisma.transactions.update({
+          where: { id: t1.id },
+          data: {
+            recurring: true,
+            upcoming_date: DateTime.fromISO(t1.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
+          },
+        })
+      }
       transactions1.forEach(async (t2) => {
         if(t1.user_id === t2.user_id){
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
@@ -73,17 +83,6 @@ client.defineJob({
             //     })
             //   }
             // }
-            
-            // Check for next credit card payment
-            if(t2.detailed_category === 'CREDIT_CARD_PAYMENT'){
-              await prisma.transactions.update({
-                where: { id: t2.id },
-                data: {
-                  recurring: true,
-                  upcoming_date: DateTime.fromISO(t2.date).plus({ months: 1 }).toFormat('yyyy-MM-dd')
-                },
-              })
-            }
 
             // Check for RECURRING TRANSACTIONS
             if(t1.month_year !== t2.month_year){
