@@ -41,6 +41,12 @@ const testimonials = [
           name: 'Sam',
         },
       },
+      {
+        body: "Trckfi is a great paltform to keep track of my finances (take it from someone who is super bad about it). It gives a breakdown of everything spent, what you have in debt or to pay off, as well as a bunch more stuff. Definitely would recommend for someone wanting to pay off debt or get their finances organized.",
+        author: {
+          name: 'Lauren',
+        },
+      }, 
     ],
   ],
 ]
