@@ -22,19 +22,18 @@ client.defineJob({
       where: {
         date: {
           gte:  startDate,
-          lte:  endDate
         },
       }
     })
 
-    const transactions2 = await prisma.transactions.findMany({
-      where: {
-        date: {
-          gte:  startDateLast,
-          lte:  endDateLast
-        },
-      }
-    })
+    // const transactions2 = await prisma.transactions.findMany({
+    //   where: {
+    //     date: {
+    //       gte:  startDateLast,
+    //       lte:  endDateLast
+    //     },
+    //   }
+    // })
 
     const updateItems = async (a, b) => {
       await prisma.transactions.update({
@@ -54,7 +53,7 @@ client.defineJob({
     }
 
     transactions1.forEach((t1) => {
-      transactions2.forEach(async (t2) => {
+      transactions1.forEach(async (t2) => {
         if(t1.user_id === t2.user_id){
           if(t1.transaction_id !== t2.transaction_id && Math.abs(Number(t1.amount)) === Math.abs(Number(t2.amount))){
             
