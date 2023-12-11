@@ -13,15 +13,15 @@ const transactionsSync = async (access_token, user_id) => {
     const query = user.linked_user_id ? [{ user_id: user.id }, { user_id: user.linked_user_id }] : [{ user_id: user.id }]
     const rules = await prisma.rules.findMany({ where: { OR: query }})
 
-    const transactions = await prisma.transactions.findMany({
-      where: {
-        user_id,
-        date: {
-          gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
-          lte: DateTime.now().minus({ months: 1 }).endOf('month').toISO()
-        },
-      }
-    })
+    // const transactions = await prisma.transactions.findMany({
+    //   where: {
+    //     user_id,
+    //     date: {
+    //       gte: DateTime.now().minus({ months: 1 }).startOf('month').toISO(),
+    //       lte: DateTime.now().minus({ months: 1 }).endOf('month').toISO()
+    //     },
+    //   }
+    // })
 
     const plaid = await prisma.plaid.findUnique({
       where: { 
@@ -76,7 +76,7 @@ const transactionsSync = async (access_token, user_id) => {
       let rule = rules.find(r => transaction_name.toUpperCase().includes(r.identifier.toUpperCase()))
       // @ts-ignore
       let custom_detailed_category = rule?.ruleset?.detailed_category || detailed_category
-      const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount) && !e.pending)
+      // const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount))
       // const duplicate = added.find((d) => d.date === added[i].date && Number(d.amount) + Number(amount) === 0 && d.transaction_id !== added[i].transaction_id )
 
       await prisma.transactions.upsert({
@@ -112,8 +112,8 @@ const transactionsSync = async (access_token, user_id) => {
           year: added[i].date.substring(0,4),
           active: true,
           // @ts-ignore
-          recurring: found && true,
-          upcoming_date: getUpcomingDate(found, added[i].date, detailed_category)
+          recurring: false,
+          // upcoming_date: getUpcomingDate(found, added[i].date, detailed_category)
         },
         create: {
           amount,
@@ -144,8 +144,8 @@ const transactionsSync = async (access_token, user_id) => {
           year: added[i].date.substring(0,4),
           active: true,
           // @ts-ignore
-          recurring: found && true,
-          upcoming_date: getUpcomingDate(found, added[i].date, detailed_category)
+          recurring: false,
+          // upcoming_date: getUpcomingDate(found, added[i].date, detailed_category)
         },
       })
     }
