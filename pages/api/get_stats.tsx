@@ -104,15 +104,19 @@ export default async (req, res) => {
       current: 0,
       available: 0
     }
-    accounts.map(item => {
-      // @ts-ignore
-      let { limit, current, available} = item?.details
-      if(limit > 0){
-        accountBalance.limit += Number(limit)
-        accountBalance.current += Number(current)
-        accountBalance.available += Number(available)
-      }
-    })
+    
+    if(accounts){
+      accounts.map(item => {
+        // @ts-ignore
+        if(item?.details?.limit && item?.details?.limit > 0){
+          // @ts-ignore
+          let { limit, current, available} = item?.details
+          accountBalance.limit += Number(limit)
+          accountBalance.current += Number(current)
+          accountBalance.available += Number(available)
+        }
+      })
+    }
 
     let this_month = DateTime.now().startOf('month')
     let last_month = DateTime.now().minus({ months: 1 }).startOf('month')
