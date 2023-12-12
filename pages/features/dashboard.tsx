@@ -85,7 +85,8 @@ export async function getStaticProps() {
       meta: {
         title: "Dashboard - All of your financial data in one place",
         description: "Gain financial clarity with our all-in-one money dashboard. Easily capture monthly snapshots of income, expenses, and savings.",
-        keywords: "account balances, net worth, monthly spending by categories."
+        keywords: "account balances, net worth, monthly spending by categories.",
+        coverImage: "/assets/dashboard-no-menu.png"
       },
     },
   }
