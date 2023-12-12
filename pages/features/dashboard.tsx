@@ -8,14 +8,14 @@ export default function ({ showError }) {
     <Layout>
       <MainMenu showError={showError}/>
       <Container>
-        <div className="py-24 sm:py-32 lg:pb-40">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="py-16 sm:py-32 lg:pb-40">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="mx-auto text-center">
               <h4 className="text-base font-semibold leading-7 text-pink-600">Dashboard</h4>
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                New money dashboard gives a clear view of your earnings
+                All of your financial data in one place
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
+              <p className="mt-6 text-md lg:text-lg lg:leading-8 text-gray-600">
                 Achieve financial clarity through our all-in-one money dashboard. Capture monthly snapshots of income, expenses, and savings effortlessly.
                 Monitor account balances, net worth, and monthly spending by categories. Simplify money management, maintain a clear cash flow, and discover easy opportunities to save.
               </p>
