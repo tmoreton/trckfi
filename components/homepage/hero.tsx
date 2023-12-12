@@ -3,7 +3,7 @@ import Link from 'next/link'
 import VideoModal from '../modals/video-modal'
 import { LockClosedIcon, NoSymbolIcon, UserGroupIcon, StarIcon } from '@heroicons/react/24/solid'
 import { classNames } from '../../lib/lodash'
-import SignupToday from '../../components/signup-today'
+import Image from 'next/image'
 
 const testimonials = [
   [
@@ -189,7 +189,14 @@ export default function () {
 
         <div className="max-w-7xl mx-auto relative overflow-hidden pt-8 lg:grid lg:grid-cols-3">
           <div className="hidden lg:block mx-auto max-w-7xl lg:col-span-2">
-            <img src="/assets/dashboard-no-menu.png" className="w-full rounded-xl" alt="Feel confident with your money management" />
+            <Image
+              src='/assets/dashboard-no-menu.png'
+              alt="Feel confident with your money management"
+              width={1000}
+              height={500}
+              className="w-full rounded-xl"
+            />
+            {/* <img src="/assets/dashboard-no-menu.png" className="w-full rounded-xl" alt="Feel confident with your money management" /> */}
           </div>
 
           <div className="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl mt-">
@@ -198,7 +205,13 @@ export default function () {
             <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
             <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
             <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-              <img src="/assets/dashboard-mobile.png" className="w-[272px] h-[572px]" alt="Feel confident with your money management" />
+              <Image
+                src='/assets/dashboard-mobile.png'
+                alt="Feel confident with your money management"
+                width={272}
+                height={572}
+              />
+              {/* <img src="/assets/dashboard-mobile.png" className="w-[272px] h-[572px]" alt="Feel confident with your money management" /> */}
             </div>
           </div>
         </div>
@@ -235,7 +248,14 @@ export default function () {
             <div className="col-span-2">
               <div className="hidden lg:block mx-auto max-w-7xl">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                  <img src="/assets/visionboard.png" className=" w-full rounded-2xl" alt="Reach your financial goals faster with our money management app" />
+                  <Image
+                    src='/assets/visionboard.png'
+                    alt="Reach your financial goals faster with our money management app"
+                    width={1000}
+                    height={500}
+                    className="w-full rounded-xl"
+                  />
+                  {/* <img src="/assets/visionboard.png" className=" w-full rounded-2xl" alt="Reach your financial goals faster with our money management app" /> */}
                 </div>
               </div>
             </div>
@@ -306,15 +326,19 @@ export default function () {
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                     Signup <span aria-hidden="true">→</span>
                   </Link>
-                  {/* <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                    Learn More
-                  </Link> */}
                 </div>
               </div>
             </div>
             <div className="col-span-1">
               <div className="mx-auto max-w-7xl">
-                <img src="/assets/banks.png" className=" w-full rounded-2xl" alt="Sync all of your bank accounts and assets in one place and track transactions" />
+                <Image
+                  src='/assets/banks.png'
+                  alt="Sync all of your bank accounts and assets in one place and track transactions"
+                  width={1000}
+                  height={500}
+                  className="w-full rounded-xl"
+                />
+                {/* <img src="/assets/banks.png" className=" w-full rounded-2xl" alt="Sync all of your bank accounts and assets in one place and track transactions" /> */}
               </div>
             </div>
           </div>
@@ -322,20 +346,23 @@ export default function () {
             <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
               Signup <span aria-hidden="true">→</span>
             </Link>
-            {/* <Link href="#" className="mt-5 rounded-3xl bg-white px-5 py-2.5 text-lg border-2 border-pink-600 font-semibold text-pink-600 shadow-sm hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-              Learn More
-            </Link> */}
           </div>
         </div>
       </div>
-
 
       <div className="overflow-hidden bg-white py-12 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div className="col-span-2 hidden lg:block">
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <img src="/assets/networth.png" className=" w-full rounded-2xl" alt="Watch your wealth grow over time" />
+                <Image
+                  src='/assets/networth.png'
+                  alt="Watch your wealth grow over time"
+                  width={1000}
+                  height={500}
+                  className="w-full rounded-xl"
+                />
+                {/* <img src="/assets/networth.png" className=" w-full rounded-2xl" alt="Watch your wealth grow over time" /> */}
               </div>
             </div>
             <div className="lg:pr-8 lg:pt-4 flex items-center">
@@ -343,7 +370,7 @@ export default function () {
                 <h4 className="text-base font-semibold leading-7 text-gray-900">Net Worth</h4>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Your portfolio and finances together</p>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                Investments are a huge part of your financial life, and Trckfi’s investment tracker can help you stay on top of yours. Instantly see your asset allocation across all your investment accounts like 401(k), mutual funds, brokerage accounts, and even IRAs. 
+                  Investments are a huge part of your financial life, and Trckfi’s investment tracker can help you stay on top of yours. Instantly see your asset allocation across all your investment accounts like 401(k), mutual funds, brokerage accounts, and even IRAs. 
                 </p>
                 <div className="hidden lg:flex mb-8 items-center gap-x-6">
                   <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
@@ -362,7 +389,13 @@ export default function () {
               <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
               <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
               <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                <img src="/assets/networth-mobile.png" className="w-[272px] h-[572px]" alt="Watch your wealth grow over time" />
+                <Image
+                  src='/assets/networth.png'
+                  alt="Watch your wealth grow over time"
+                  width={272}
+                  height={572}
+                />
+                {/* <img src="/assets/networth-mobile.png" className="w-[272px] h-[572px]" alt="Watch your wealth grow over time" /> */}
               </div>
             </div>
           </div>
@@ -405,7 +438,13 @@ export default function () {
                   <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                   <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
                   <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                    <img src="/assets/transactions-mobile.png" className="w-[272px] h-[572px]" alt="Trckfi - Your Personal Finance App and Expense Tracker" />
+                    <Image
+                      src='/assets/transactions-mobile.png'
+                      alt="Your Personal Finance App and Expense Tracker"
+                      width={272}
+                      height={572}
+                    />
+                    {/* <img src="/assets/transactions-mobile.png" className="w-[272px] h-[572px]" alt="Your Personal Finance App and Expense Tracker" /> */}
                   </div>
                 </div>
 
@@ -413,7 +452,14 @@ export default function () {
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="relative mx-auto border-gray-800 bg-gray-800 border-[20px] rounded-xl h-[650px] max-w-[900px]">
                       <div className="rounded-lg overflow-hidden h-[600px] bg-white">
-                        <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="Your Personal Finances - Effective Spending Tracker" />
+                        <Image
+                          src='/assets/transactions.png'
+                          alt="Effective Spending Tracker"
+                          width={1000}
+                          height={572}
+                          className="w-full rounded-xl" 
+                        />
+                        {/* <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="Your Personal Finances - Effective Spending Tracker" /> */}
                       </div>
                     </div>
                   </div>
