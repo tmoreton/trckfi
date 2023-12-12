@@ -88,7 +88,7 @@ export async function getStaticProps() {
         title: "Transactions - Streamline Your Cashflow: All Your Transactions in One Hub",
         description: "Filter and bulk edit transactions seamlessly on the web. Import and export transaction histories from other finance apps like Mint.",
         keywords: "name, amount, user, category, tags, date",
-        coverImage: "/assets/transactions-mobile.png"
+        coverImage: "/assets/transactions.png"
       },
     },
   }
