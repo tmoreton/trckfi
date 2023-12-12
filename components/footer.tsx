@@ -4,7 +4,7 @@ import { social_icons } from '../components/social-icons'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
-  // { name: 'About Us', href: '/about' },
+  { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Privacy', href: '/privacy-policy' },
   { name: 'Terms', href: '/terms-of-use' },
