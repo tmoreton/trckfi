@@ -32,7 +32,7 @@ export default function ({ showError }) {
               <h1 className="text-4xl font-bold text-gray-900 sm:text-6xl">
                 All Your Transactions in One Hub
               </h1>
-              <p className="mt-6 text-md lg:text-lg lg:leading-8 text-gray-600">
+              <p className="mt-6 text-md lg:text-xl lg:leading-8 text-gray-600">
                 Effortlessly manage your finances with our transaction-centric platform. Consolidate every income and expense in one easy-to-navigate feed. 
                 Filter and bulk edit transactions seamlessly on the web. Import and export transaction histories from other finance apps like Mint. 
                 Utilize advanced filters for precision searching: name, amount, user, category, tags, and date, among others.
@@ -64,7 +64,7 @@ export default function ({ showError }) {
               </div>
             </div>
           </div>
-          <dl className="pt-24 mx-auto grid max-w-6xl grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
+          <dl className="pt-24 mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
             {features.map((feature) => (
               <div key={feature.name} className="text-center">
                 <dt className="text-xl font-semibold leading-7 text-pink-600">

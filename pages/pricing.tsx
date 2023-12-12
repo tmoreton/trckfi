@@ -21,7 +21,6 @@ const tiers = [
     },
     description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
     features: [
-      '<b>30 Day Free Trial - Cancel Anytime</b>',
       '<b>Unlimited connections</b> (financial relationship with a specific bank: credit cards, savings/checking, retirement, loans, mortgage, etc.)',
       'Add crypto and individual stocks and get automated daily price updates',
       'Earn rewards by answering daily financial literacy questions and cut your subscription costs',
@@ -44,7 +43,6 @@ const tiers = [
     },
     description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
     features: [
-      '<b>30 Day Free Trial - Cancel Anytime</b>',
       '<b>Unlimited connections</b> (financial relationship with a specific bank: credit cards, savings/checking, retirement, loans, mortgage, etc.)',
       'Add crypto and individual stocks and get automated daily price updates',
       'Earn rewards by answering daily financial literacy questions and cut your subscription costs',
@@ -117,6 +115,7 @@ export default function Pricing ({ showError }) {
                                   <span className="text-base font-normal leading-7 text-gray-600">/month</span>
                                 </div>
                                 { tier.id === 'yearly' && <><span className="text-sm italic font-normal text-black">Billed annually at $74.99/year</span><span className="text-base italic font-semibold text-green-600 ml-2">Save $33!</span></>}
+                                <p className="text-sm italic font-bold text-pink-600">30 Day Free Trial - Cancel Anytime</p>
                               </>
                             }
                             <Link href={`/intro/create-account?price_id=${tier.price.id}&referral_id=${referral_id}`}>

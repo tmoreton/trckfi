@@ -165,6 +165,7 @@ export default function ({ showError, title }) {
                   </Disclosure.Button>
                 ))
               }
+              
               { // @ts-ignore
                 session && session.user?.active ?
                 <div className="my-2 space-y-1">

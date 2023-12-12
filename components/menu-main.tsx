@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import { UserCircleIcon  } from '@heroicons/react/24/solid'
 import { Bars3Icon, XMarkIcon  } from '@heroicons/react/24/outline'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
@@ -8,6 +7,15 @@ import LoginBtn from './login-btn'
 import { useSession, signOut } from "next-auth/react"
 import Image from 'next/image'
 import  { clearLocalStorage } from '../utils/useLocalStorage'
+import {
+  ChartBarIcon,
+  UserCircleIcon,
+  HomeIcon,
+  SparklesIcon,
+  CloudIcon,
+  ArrowPathIcon,
+  CreditCardIcon
+} from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -15,6 +23,16 @@ const navigation = [
   { name: 'Pricing', href: '/pricing' },
   // { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
+]
+
+const features = [
+  { name: 'Visionboard', href: '/visionboard', icon: CloudIcon },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
+  { name: 'Transactions', href: '/transactions', icon: CreditCardIcon },
+  { name: 'Net Worth', href: '/net-worth', icon: ChartBarIcon },
+  { name: 'Recurring Charges', href: '/recurring', icon: ArrowPathIcon },
+  { name: 'Goals', href: '/goals', icon: SparklesIcon },
+  // { name: 'Profile', href: '/profile', icon: UserCircleIcon },
 ]
 
 const classNames = (...classes) => {
@@ -65,6 +83,36 @@ export default function ({ showError }) {
                       {item.name}
                     </Link>
                   ))}
+                  <Menu as="div" className="relative ml-3">
+                    <Menu.Button className="flex items-center">
+                      <span className="sr-only">Open user menu</span>
+                      <div className={currentRoute.includes('features') ? "text-lg font-bold text-pink-600 px-3 py-2" : "text-lg text-gray-900 px-3 py-2 font-semibold"}>
+                        Features
+                      </div>
+                    </Menu.Button>
+
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute left-0 z-50 mt-2 w-64 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        { features.map((item) => (
+                          <Menu.Item key={item.name}>
+                            <Link href={`/features${item.href}`} className={classNames(currentRoute.includes(item.href) ? 'text-pink-600 font-bold' : 'text-gray-400 group-hover:text-pink-600', 'flex items-center px-5 py-3 text-md text-gray-700 w-full text-left hover:bg-gray-100')}>
+                              <item.icon className='h-7 w-7 shrink-0 mr-3' aria-hidden="true"/>
+                              {item.name}
+                            </Link>
+                          </Menu.Item>
+                        ))}
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:block">
