@@ -30,7 +30,7 @@ export default function ({ showError }) {
             <div className="mx-auto text-center">
               <h4 className="text-base font-semibold leading-7 text-pink-600">Transactions</h4>
               <h1 className="text-4xl font-bold text-gray-900 sm:text-6xl">
-                Streamline Your Cashflow: <br/>All Your Transactions in One Hub
+                All Your Transactions in One Hub
               </h1>
               <p className="mt-6 text-md lg:text-lg lg:leading-8 text-gray-600">
                 Effortlessly manage your finances with our transaction-centric platform. Consolidate every income and expense in one easy-to-navigate feed. 
