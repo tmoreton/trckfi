@@ -27,8 +27,8 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const [success, setSuccess] = useState(null)
   const [enabled, setEnabled] = useState(false)
   const [steps, setSteps] = useState([])
-  const { post } = pageProps
-
+  const { post, meta } = pageProps
+  console.log(pageProps)
   const showIntro = (page) => {
     switch (page) {
       case 'visionboard':
@@ -137,7 +137,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
 
   return (
     <>
-      <Meta post={post} />
+      <Meta meta={meta} />
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-YDKZMNYK8E" />
       <Script id="google-analytics">
         {`

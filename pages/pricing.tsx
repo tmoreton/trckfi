@@ -146,3 +146,15 @@ export default function Pricing ({ showError }) {
     </Layout>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meta: {
+        title: "Pricing - Your Money's Best Friend, No Exceptions",
+        description: "Trckfi is your online all-in-one, user-friendly personal finance platform. Unlimited Bank Connections, Smart Automation, and Total Control of Your Finances.",
+        keywords: "unlimited accounts, net worth analysis, collaborators, monthly & weekly recaps"
+      },
+    },
+  }
+}

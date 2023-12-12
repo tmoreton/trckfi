@@ -68,6 +68,15 @@ export async function getStaticProps({ params }: Params) {
         ...post,
         content,
       },
+      meta: {
+        title: post.title,
+        description: post.description,
+        coverImage: post.coverImage,
+        slug: post.slug,
+        publishedAt: post.publishedAt,
+        seoTitle: post.seoTitle,
+        keywords: post.keywords
+      },
     },
   }
 }

@@ -70,7 +70,7 @@ export default function ({ showError }) {
                 <dt className="text-xl font-semibold leading-7 text-pink-600">
                   <div className="font-bold">{feature.name}</div>
                 </dt>
-                <dd className="mt-2 text-lg leading-7 text-gray-600">{feature.description}</dd>
+                <dd className="mt-2 text-xl leading-7 text-gray-600">{feature.description}</dd>
               </div>
             ))}
           </dl>
@@ -79,4 +79,16 @@ export default function ({ showError }) {
       <SignupToday />
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meta: {
+        title: "Transactions - Streamline Your Cashflow: All Your Transactions in One Hub",
+        description: "Filter and bulk edit transactions seamlessly on the web. Import and export transaction histories from other finance apps like Mint.",
+        keywords: "name, amount, user, category, tags, date"
+      },
+    },
+  }
 }

@@ -28,6 +28,13 @@ export const getStaticProps = async () => {
   ])
   let posts = allPosts.filter(post => post?.title)
   return {
-    props: { allPosts: posts.filter(post => post.status === 'published') },
+    props: { 
+      allPosts: posts.filter(post => post.status === 'published'),
+      meta: {
+        title: "Blog",
+        description: "Learn about the latest money trends and information from our blog",
+        keywords: "learn, read, financial news, financial data"
+      },
+    },
   }
 }

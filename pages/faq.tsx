@@ -167,4 +167,14 @@ export default function ({ showError }) {
     </Layout>
   )
 }
-  
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meta: {
+        title: "FAQ",
+        description: "Frequently Asked Questions",
+      },
+    },
+  }
+}
