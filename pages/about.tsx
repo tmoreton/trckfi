@@ -117,3 +117,14 @@ export default function About({ showError }) {
     </Layout>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meta: {
+        title: "About - Simplify Your Finances, Stress Less",
+        description: "Discover how the Trckfi Platform empowers you to take control of your money and build confidence in your financial journey",
+      },
+    },
+  }
+}
