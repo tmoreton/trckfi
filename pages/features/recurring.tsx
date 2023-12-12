@@ -44,7 +44,7 @@ export default function ({ showError }) {
               <div className="-m-2 rounded-xl lg:bg-gray-900/5 p-2 lg:ring-1 lg:ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <img
                   src="/assets/recurring.png"
-                  alt="Feel confident with your money management"
+                  alt="Manage subscriptions and bills with one calendar"
                   width={2432}
                   height={1442}
                   className="hidden lg:block rounded-md shadow-2xl ring-1 ring-gray-900/10"
@@ -55,7 +55,7 @@ export default function ({ showError }) {
                   <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                   <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
                   <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                    <img src="/assets/recurring.png" className="rounded-lg" alt="Feel confident with your money management" />
+                    <img src="/assets/recurring.png" className="rounded-lg" alt="Manage subscriptions and bills with one calendar" />
                   </div>
                 </div>
               </div>

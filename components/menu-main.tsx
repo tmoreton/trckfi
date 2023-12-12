@@ -212,19 +212,37 @@ export default function ({ showError }) {
           </div>
 
           <Disclosure.Panel>
-            <div className="space-y-1 px-2 py-2 border-b border-gray-300 my-4">
+            <div className="space-y-1 px-2">
               {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
               { navigation.map((item) => (
                   <Disclosure.Button
                     as="a"
                     href={item.href}
                     key={item.name}
-                    className={currentRoute === item.href ? "block font-bold text-pink-600 px-3 py-2" : "block text-gray-900 px-3 py-2"}
+                    className={currentRoute === item.href ? "block font-bold text-pink-600 px-3 py-1" : "block text-gray-900 px-3 py-1"}
                   >
                     {item.name}
                   </Disclosure.Button>
                 ))
               }
+               <Disclosure.Button
+                as="a"
+                className={currentRoute.includes('features') ? "block font-bold text-pink-600 px-3 py-1" : "block text-gray-900 px-3 py-1"}
+              >
+                Features
+              </Disclosure.Button>
+              { features.map((item) => (
+                <Disclosure.Button
+                  as="a"
+                  href={item.href}
+                  key={item.name}
+                  className={currentRoute.includes(item.href) ? "flex items-center font-bold text-pink-600 pl-10 py-1" : "flex items-center text-gray-900 pl-10 py-1"}
+                >
+                  <item.icon className='h-7 w-7 shrink-0 mr-3' aria-hidden="true"/>
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+              <br/>
               { // @ts-ignore
                 session && session.user?.active ?
                 <div className="my-2 space-y-1">

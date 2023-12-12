@@ -27,8 +27,8 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const [success, setSuccess] = useState(null)
   const [enabled, setEnabled] = useState(false)
   const [steps, setSteps] = useState([])
-  const { post, meta } = pageProps
-  console.log(pageProps)
+  const { meta } = pageProps
+
   const showIntro = (page) => {
     switch (page) {
       case 'visionboard':
