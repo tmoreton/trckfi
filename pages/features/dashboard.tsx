@@ -2,13 +2,14 @@ import Link from 'next/link'
 import Container from '../../components/container'
 import Layout from '../../components/layout'
 import MainMenu from '../../components/menu-main'
+import SignupToday from '../../components/signup-today'
 
 export default function ({ showError }) {
   return (
     <Layout>
       <MainMenu showError={showError}/>
       <Container>
-        <div className="py-16 sm:py-32 lg:pb-40">
+        <div className="py-16 sm:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="mx-auto text-center">
               <h4 className="text-base font-semibold leading-7 text-pink-600">Dashboard</h4>
@@ -48,6 +49,7 @@ export default function ({ showError }) {
           </div>
         </div>
       </Container>
+      <SignupToday />
     </Layout>
   )
 }

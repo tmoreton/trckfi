@@ -3,6 +3,7 @@ import Link from 'next/link'
 import VideoModal from '../modals/video-modal'
 import { LockClosedIcon, NoSymbolIcon, UserGroupIcon, StarIcon } from '@heroicons/react/24/solid'
 import { classNames } from '../../lib/lodash'
+import SignupToday from '../../components/signup-today'
 
 const testimonials = [
   [
@@ -382,7 +383,6 @@ export default function () {
             <div className="lg:pr-8 lg:pt-4 flex items-center col-span-1">
               <div className="lg:max-w-2xl">
                 <h4 className="text-base font-semibold leading-7 text-gray-900">Transactions</h4>
-
                 <p className="mt-2 text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Simplify Your Cash flow: All Your Transactions in One Hub</p>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Effortlessly manage your finances with our transaction-centric platform. Consolidate every income and expense in one easy-to-navigate feed. 
