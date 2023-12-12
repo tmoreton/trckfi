@@ -22,7 +22,7 @@ export default function (){
       <Preview>Welcome to Trckfi!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[10px] mx-auto p-[20px] max-w-2xl">
+          <Container className="my-[10px] mx-auto p-[20px] max-w-5xl">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi.png'
@@ -34,7 +34,7 @@ export default function (){
             </Section>
             
             <Heading className="text-black text-[32px] font-bold text-center p-0 mt-[36px] mx-0 leading-[40px]">
-              Hello, Trckfi early adopter!
+              Welcome to Trckfi!
             </Heading>
 
             <Section className="my-[16px] mx-auto text-center">
@@ -48,7 +48,7 @@ export default function (){
               </Button>
             </Section>
 
-            <Text className="text-[15px] text-black text-center" >Welcome to our Beta community! We're thrilled to have you on board.</Text>
+            <Text className="text-[15px] text-black text-center" >We're thrilled to have you on board.</Text>
             
             <Section>
               <Text className="text-[12px]"><strong>Your Privacy Matters: </strong> We never retain any personal information, login credentials or private transaction details. Trckfi uses a third party <Link href="https://plaid.com/en-eu/security/">Plaid</Link> to securely encrypt and connect accounts to our platform.</Text>
