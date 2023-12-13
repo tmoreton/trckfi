@@ -42,7 +42,7 @@ export default function ({ openDatePicker, setDatePicker, dates, setDates }) {
           >
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
-          <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="fixed inset-0 z-50 overflow-y-auto">
             <div className="block lg:flex min-h-full items-center justify-center">
               <Transition.Child
                 as={Fragment}

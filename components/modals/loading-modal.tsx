@@ -16,7 +16,7 @@ export default ({ refreshing }) => {
         >
           <div className="fixed inset-0 bg-white bg-opacity-90 transition-opacity" />
         </Transition.Child>
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 z-50 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center">
             <Transition.Child
               as={Fragment}
