@@ -130,7 +130,13 @@ export default function () {
               <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
               <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
               <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                <img src="/assets/transactions-mobile.png" className="w-[272px] h-[572px]" alt="Trckfi - Your Personal Finance App and Expense Tracker" />
+                <Image
+                  src='/assets/transactions-mobile.png'
+                  alt="Keep track of your transaction data in one place"
+                  width={272}
+                  height={572}
+                />
+                {/* <img src="/assets/transactions-mobile.png" className="w-[272px] h-[572px]" alt="Trckfi - Your Personal Finance App and Expense Tracker" /> */}
               </div>
             </div>
 
@@ -138,7 +144,14 @@ export default function () {
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="relative mx-auto border-gray-800 bg-gray-800 border-[20px] rounded-xl h-[650px] max-w-[900px]">
                   <div className="rounded-lg overflow-hidden h-[600px] bg-white">
-                    <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="Your Personal Finances - Effective Spending Tracker" />
+                    <Image
+                      src='/assets/transactions.png'
+                      alt="Keep track of your transaction data in one place"
+                      width={1000}
+                      height={600}
+                      className="w-full rounded-xl"
+                    />
+                    {/* <img src="/assets/transactions.png" className="h-[600px] w-full rounded-xl" alt="Your Personal Finances - Effective Spending Tracker" /> */}
                   </div>
                 </div>
               </div>
