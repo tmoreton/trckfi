@@ -28,7 +28,8 @@ const exclude = [
   '/recurring*',
   '/feedback*',
   '/link-user*',
-  '/blog/.DS_Store'
+  '/blog/.DS_Store',
+  '/starter-bundle*',
 ];
 
 module.exports = {

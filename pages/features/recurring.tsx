@@ -6,16 +6,20 @@ import SignupToday from '../../components/signup-today'
 
 const features = [
   {
-    name: "",
-    description: "",
+    name: "Auto-Detection",
+    description: "Securely connect accounts for effortless tracking of recurring payments.",
   },
   {
-    name: "",
-    description: "",
+    name: "Calendar View",
+    description: "See all upcoming charges by date in an easy-to-scan visual calendar.",
   },
   {
-    name: "",
-    description: "",
+    name: "Get Reminders",
+    description: "Notifications before every billing date help you stay in control.",
+  },
+  {
+    name: "Manual Option",
+    description: "Don't link accounts? Easily self-report subscriptions.",
   },
 ]
 
@@ -29,10 +33,11 @@ export default function ({ showError }) {
             <div className="mx-auto text-center">
               <h4 className="text-base font-semibold leading-7 text-pink-600">Recurring Charges & Subscriptions</h4>
               <h1 className="text-4xl font-bold text-gray-900 sm:text-6xl">
-                Manage subscriptions & bills with one calendar
+                Track Everything Draining Your Wallet in One Place
               </h1>
               <p className="mt-6 text-md lg:text-xl lg:leading-8 text-gray-600">
-                Don't let scattered finances hinder your progress. Trckfi simplifies goal tracking by consolidating your money and save money by identifying subscriptions you no longer use
+                Save money by identifying subscriptions you no longer use. Stop wondering "Where did my money go?" every time you check your bank balance. Instead of digging through statements full of random charges, get clarity in one centralized personal finance calendar.
+                Trckfi automatically detects and tracks all your recurring bills and subscriptions in one visual hub. Customize alerts so you're notified before every upcoming payment, never missing a sneaky invoice.
               </p>
               <div className="block mb-8 flex items-center justify-center gap-x-6">
                 <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
@@ -61,7 +66,7 @@ export default function ({ showError }) {
               </div>
             </div>
           </div>
-          <dl className="pt-24 mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
+          <dl className="pt-24 mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 lg:gap-y-16">
             {features.map((feature) => (
               <div key={feature.name} className="text-center">
                 <dt className="text-xl font-semibold leading-7 text-pink-600">
@@ -82,8 +87,8 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Recurring - Save money by identifying subscriptions you no longer use",
-        description: "Manage subscriptions and bills with one calendar displaying all of your recurring charges",
+        title: "Recurring - Track Everything Draining Your Wallet in One Place",
+        description: "Save money by identifying subscriptions you no longer use",
         keywords: "",
         coverImage: "/assets/recurring.png"
       },

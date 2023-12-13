@@ -87,3 +87,13 @@ export default function ({ showError }) {
   )
 }
   
+export async function getStaticProps() {
+  return {
+    props: {
+      meta: {
+        title: "Privacy Policy",
+        description: "Privacy Policy",
+      },
+    },
+  }
+}

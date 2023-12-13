@@ -137,4 +137,14 @@ export default function ({ showError }) {
     </Layout>
   )
 }
-  
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meta: {
+        title: "Terms of Use",
+        description: "Terms of Use",
+      },
+    },
+  }
+}
