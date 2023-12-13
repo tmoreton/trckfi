@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 const Meta = ({ meta }) => {
+  const router = useRouter()
+
   const addProductJsonLd = (meta) => {
     if(meta?.slug){
       return {
@@ -35,8 +38,9 @@ const Meta = ({ meta }) => {
       __html: `{
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Trckfi",
-        "url": "https://www.trckfi.com/",
+        "name": "${meta?.title || 'Trckfi'}",
+        "description": "${meta?.description || 'Trckfi'}",
+        "url": "https://www.trckfi.com${router.pathname}",
         "logo": "https://www.trckfi.com/trckfi-black-sm.png",
         "sameAs": [
           "https://www.facebook.com/trckfi",

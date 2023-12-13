@@ -177,10 +177,9 @@ export default function () {
         <div className="mx-auto max-w-8xl px-6 lg:px-8">
           <div className="mx-auto text-center">
             <h4 className="text-base font-semibold leading-7 text-gray-900">Dashboard</h4>
-
             <p className="text-3xl font-bold leading-7 text-pink-600 mb-6">New money dashboard gives a clear view of your earnings</p>
             <p className="mt-6 text-xl leading-8 text-gray-900">
-            Achieve financial clarity through our all-in-one money dashboard. Capture monthly snapshots of income, expenses, and savings effortlessly. 
+              Achieve financial clarity through our all-in-one money dashboard. Capture monthly snapshots of income, expenses, and savings effortlessly. 
             <br/>
             <span className="hidden lg:block">Monitor account balances, net worth, and monthly spending by categories. Simplify money management, maintain a clear cash flow, and discover easy opportunities to save.</span>
             </p>
@@ -215,7 +214,7 @@ export default function () {
             </div>
           </div>
         </div>
-        <div className="block lg:hidden mb-8 flex items-center justify-center gap-x-6">
+        <div className="block mb-8 flex items-center justify-center gap-x-6">
           <Link href="/pricing" className="mt-5 rounded-3xl bg-pink-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
             Signup <span aria-hidden="true">→</span>
           </Link>
