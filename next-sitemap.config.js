@@ -29,7 +29,7 @@ const exclude = [
   '/feedback*',
   '/link-user*',
   '/blog/.DS_Store',
-  '/starter-bundle*',
+  '/outstatic*',
 ];
 
 module.exports = {
