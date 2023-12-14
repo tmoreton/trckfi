@@ -15,11 +15,12 @@ client.defineJob({
   run: async (payload, io, ctx) => {
     let users = await prisma.user.findMany()
     let emails = await prisma.emails.findMany()
-    let strings = emails.map(e => e.email)
-    const users_no_signup = users.filter(user => !strings.includes(user.email))
-
+    let user_emails = emails.map(e => e.email)
+    let user_strings = users.map(e => e.email)
+    const users_no_signup = user_emails.filter(e => !user_strings.includes(e))
+  
     for (let i in users_no_signup) {
-      console.log(users_no_signup[i].email)
+      console.log(users_no_signup[i])
       // let message = {
       //     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       //     to: users_no_signup[i].email,

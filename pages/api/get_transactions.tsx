@@ -9,7 +9,7 @@ export default async (req, res) => {
 
   const { id, linked_user_id } = user
   const query = linked_user_id ? [{ user_id: id }, { user_id: linked_user_id }] : [{ user_id: id }]
-  
+
   try {
     let transactions = await prisma.transactions.findMany({
       where: {
