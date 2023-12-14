@@ -18,7 +18,7 @@ const netWorthSync = async (user_id) => {
     let this_month = DateTime.now().toFormat('LLL yy')
     let data = {
       user_id,
-      accounts: user.accounts,
+      accounts: user?.accounts,
       date: this_month,
       stats: {
         net_worth: 0,
@@ -87,6 +87,7 @@ const netWorthSync = async (user_id) => {
       }
     }
   } catch (error) {
+    console.error(user_id)
     console.error(error)
     slackMessage(error.message || error.toString())
     throw new Error(error)

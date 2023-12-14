@@ -20,25 +20,24 @@ client.defineJob({
     const users_no_signup = user_emails.filter(e => !user_strings.includes(e))
   
     for (let i in users_no_signup) {
-      console.log(users_no_signup[i])
-      // let message = {
-      //     from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-      //     to: users_no_signup[i].email,
-      //     subject: `Does this sound familiar?`,
-      //     text: '',
-      //     html: render(<BetaNoSignup />),
-      //   }
+      let message = {
+          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+          to: users_no_signup[i],
+          subject: `Does this sound familiar?`,
+          text: '',
+          html: render(<BetaNoSignup />),
+        }
   
-      // let transporter = nodemailer.createTransport({
-      //   host: process.env.SMTP_HOST,
-      //   secure: false,
-      //   auth: {
-      //     user: process.env.SMTP_USER,
-      //     pass: process.env.SMTP_PASSWORD,
-      //   },
-      // })
+      let transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        secure: false,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
+        },
+      })
   
-      // await transporter.sendMail(message)
+      await transporter.sendMail(message)
     }
   },
 });
