@@ -48,14 +48,14 @@ export default function (){
               <Text className="text-[15px] ml-[10px] mt-0">🎉 Reduce financial stress!</Text>
             </Section>
 
-            <Text className="text-[15px]">Ready to take control of your money? Join us now and take advantage of a <b>90-day free trial!</b></Text>
+            <Text className="text-[15px]">Ready to take control of your money? Join us now and take advantage of a <b>30-day free trial!</b></Text>
 
             <Section className="my-[32px] mx-auto text-center">
               <Button
                 pX={20}
                 pY={12}
                 className="bg-pink-600 rounded-2xl text-white text-[32px] font-semibold no-underline mx-auto text-center"
-                href='https://www.trckfi.com/beta'
+                href='https://www.trckfi.com/pricing'
               >
                 Access Now!
               </Button>
