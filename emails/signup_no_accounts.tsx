@@ -55,6 +55,7 @@ export default function (){
                 Complete Set Up
               </Button>
             </Section>
+            <Img src="/assets/cheer.gif" alt="Cheering!" width="300" height="500" />
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
               Can't wait to fuel your financial freedom! Let's do this.
             </Text>
