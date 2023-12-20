@@ -94,7 +94,7 @@ export default function (){
             <Text className="text-[15px]">It's time to finally get clarity on your spending and make the most of the money you work so hard for!</Text>
 
             <Text className="text-black text-[15px] leading-[24px]">
-              Love, <br/> Trckfi Team
+              <b>Love, <br/> Trckfi Team</b>
             </Text>  
           </Container>
         </Body>

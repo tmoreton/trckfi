@@ -54,17 +54,19 @@ export default function (){
               >
                 Complete Set Up
               </Button>
-              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="200" height="350" />
-            </Section>   
+            </Section>
+            <Section className="block mx-auto text-center flex justify-center items-center">
+              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="384" height="480" />
+            </Section>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
               Can't wait to fuel your financial freedom! Let's do this.
             </Text>
-            <Text className="text-black text-[17px] leading-[24px] mb-[6px]">
-              Love, <br/> Trckfi Team
+            <Text className="text-black text-[15px] leading-[24px] mb-[6px]">
+              <b>Love, <br/> Trckfi Team</b>
             </Text>
           </Container>
         </Body>
       </Tailwind>
     </Html>
-  );
+  )
 }
