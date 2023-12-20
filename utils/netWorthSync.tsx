@@ -18,7 +18,7 @@ const netWorthSync = async (user_id) => {
     let this_month = DateTime.now().toFormat('LLL yy')
     let data = {
       user_id,
-      accounts: user?.accounts,
+      accounts: user?.accounts || [],
       date: this_month,
       stats: {
         net_worth: 0,
@@ -36,7 +36,7 @@ const netWorthSync = async (user_id) => {
       }
     }
 
-    if(user.accounts && user.accounts.length > 0){
+    if(user?.accounts && user.accounts.length > 0){
       user.accounts.forEach(a => {
         if (a.type === 'loan' || a.type === 'credit'){
           data.stats.liabilities += Number(a.amount)
