@@ -53,7 +53,7 @@ export default function (){
               Our team made updates to the platform and cleared bugs to enhance your user experience - complete your account setup and take a look yourself!
             </Text>
             <Section className="my-[16px] block mx-auto text-center flex justify-center items-center">
-              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="184" height="280" />
+              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="200" height="250" />
             </Section>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
               Let's transform your money situation together!
