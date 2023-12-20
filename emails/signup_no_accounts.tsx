@@ -17,7 +17,7 @@ export default function (){
   return (
     <Html>
       <Head />
-      <Preview>Howdy money friend! 👋</Preview>
+      <Preview>Hey money friend! 👋</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
           <Container className="my-[40px] mx-auto p-[20px] max-w-3xl">
@@ -49,11 +49,11 @@ export default function (){
                 Complete Set Up
               </Button>
             </Section>
-            <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
+            <Text className="text-black text-[15px] leading-[24px]">
               Our team made updates to the platform and cleared bugs to enhance your user experience - complete your account setup and take a look yourself!
             </Text>
-            <Section className="block mx-auto text-center flex justify-center items-center">
-              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="284" height="380" />
+            <Section className="my-[16px] block mx-auto text-center flex justify-center items-center">
+              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="184" height="280" />
             </Section>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
               Let's transform your money situation together!
