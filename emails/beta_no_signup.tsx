@@ -20,7 +20,7 @@ export default function (){
       <Preview>Does this sound familiar?</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="py-[20px] max-w-2xl mx-auto">
+          <Container className="py-[20px] max-w-3xl mx-auto">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi-black-sm.png'
@@ -40,7 +40,7 @@ export default function (){
               <Text className="text-[15px]"><b>You're not alone.</b> So many of us feel in over our heads with personal finance, even if our careers are on track. It's like trying to crack the code to a secret club no one taught us how to join.</Text>
             </Section>
 
-            <Section className="my-[32px] mx-auto text-center">
+            <Section className="my-[16px] mx-auto text-center">
               <Button
                 pX={18}
                 pY={10}
@@ -58,7 +58,7 @@ export default function (){
               <Text className="text-[15px]">Let's gain control together.</Text>
             </Section>
 
-            <Section className="my-[32px] mx-auto text-center">
+            <Section className="my-[16px] mx-auto text-center">
               <Button
                 pX={18}
                 pY={10}
