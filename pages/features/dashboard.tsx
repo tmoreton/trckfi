@@ -83,9 +83,9 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Dashboard - All of your financial data in one place",
-        description: "Gain financial clarity with our all-in-one money dashboard. Easily capture monthly snapshots of income, expenses, and savings.",
-        keywords: "account balances, net worth, monthly spending by categories.",
+        title: "Simplify Your Finances with Trckfi's Money Dashboard",
+        description: "Take charge of your finances with Trckfi's comprehensive money dashboard. Monitor expenses, income, and net worth & manage money efficiently. Try it now.",
+        keywords: "net worth tracker dashboard, net worth tracker app, income tracker app, expenses tracker apps, money management dashboard",
         coverImage: "/assets/dashboard-no-menu.png"
       },
     },

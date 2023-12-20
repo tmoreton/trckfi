@@ -87,9 +87,9 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Recurring - Track Everything Draining Your Wallet in One Place",
-        description: "Save money by identifying subscriptions you no longer use",
-        keywords: "",
+        title: "Manage Recurring Subscriptions & Bills with Trckfi",
+        description: "Track and save money by easily managing all your recurring subscriptions and bills in one place. Stay on top of payments and reach your financial goals. Sign up for Trckfi today!",
+        keywords: "recurring subscription",
         coverImage: "/assets/recurring.png"
       },
     },

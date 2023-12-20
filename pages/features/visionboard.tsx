@@ -74,9 +74,9 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Visionboard - Visualize your future and Transform Your Finances",
-        description: "Experience your finances stress free by visualizing your money goals Customize every aspect of the screen with stickers, emojis, images, videos and much more to manifest the financial future you see for yourself!",
-        keywords: "visualize goals",
+        title: "Vision Board - Visualize Your Future and Transform Your Finances",
+        description: "Transform your finances and manifest your dreams with Visionboard, the ultimate tool to envision and create the future you desire. Start visualizing now!",
+        keywords: "Visionboard, finances and manifest money",
         coverImage: "/assets/visionboard.png"
       },
     },

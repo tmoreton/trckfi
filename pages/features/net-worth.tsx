@@ -87,9 +87,9 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Net Worth - Track your investments and portfolio, stay on top of all of your accounts",
-        description: "Effortlessly monitor net worth, assets, and liabilities in one user-friendly app. Take control of your financial future—retirement planning made easy.",
-        keywords: "sync, bank accounts, crypto, stocks, index funds",
+        title: "Effortlessly Track your investments and portfolio | Trckfi",
+        description: "Track your net worth and investments with ease. Securely link your accounts and see your asset allocation across 401(k), crypto, and more. Try Trckfi now.",
+        keywords: "net worth,  investments and portfolio",
         coverImage: "/assets/networth.png"
       },
     },

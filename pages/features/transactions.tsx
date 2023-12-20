@@ -85,9 +85,9 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Transactions - Streamline Your Cashflow: All Your Transactions in One Hub",
-        description: "Filter and bulk edit transactions seamlessly on the web. Import and export transaction histories from other finance apps like Mint.",
-        keywords: "name, amount, user, category, tags, date",
+        title: "Track Transactions App | Manage Your Finances with Trckfi",
+        description: "Take control of your finances with Trckfi's transaction tracker app. Easily monitor expenses, stay on budget, and manage cash flow all in one place.",
+        keywords: "track transactions, track transactions app, monitor expenses, Transaction tracker, transaction tracker app, Cash flow tracker",
         coverImage: "/assets/transactions.png"
       },
     },

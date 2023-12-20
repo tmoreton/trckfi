@@ -82,9 +82,9 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: "Goals - Monitor your financial goals",
-        description: "Connect your accounts for seamless tracking, helping you progress toward what matters most and enabling strategic planning for success.",
-        keywords: "",
+        title: "Monitoring & Achieve Your Financial Goals With Trckfi",
+        description: "Trckfi helps you set, track, and achieve your financial goals. Take control of your finances and build a better future with ease and confidence. Visit us Today!",
+        keywords: "Financial Goals, Achieve Financial Goals, Monitoring financial goals",
         coverImage: "/assets/goals.png"
       },
     },
