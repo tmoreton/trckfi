@@ -415,7 +415,7 @@ export default function () {
               <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
               <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
                 <Image
-                  src='/assets/networth.png'
+                  src='/assets/networth-mobile.png'
                   alt="Watch your wealth grow over time"
                   width={272}
                   height={572}
