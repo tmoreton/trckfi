@@ -31,19 +31,13 @@ export default function (){
               />
             </Section>
             <Text className="text-black text-[17px] leading-[24px] mb-[12px]">
-              <b>Howdy money friend! 👋</b>
+              <b>Hey money friend! 👋</b>
             </Text>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
-              We were so excited to see you have joined the Trckfi club! But we saw you haven't linked any accounts yet. No biggie, life gets busy.
+              We are so excited to have you join Trckfi! But we noticed you haven't linked any accounts yet. No biggie, life gets busy.
             </Text>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
-              Here's the tea - connecting accounts takes just 2 little minutes. And it unlocks Trckfi's financial magic to start serving up personalized money motivation.
-            </Text>
-            <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
-              We want to welcome you fully into the community! Linking your accounts helps you create vision boards, crush 2024 goals, and transform your money mindset with our finance platform. It's not too early to start planning for 2024!
-            </Text>
-            <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
-              Whenever you have a sec, click below to complete setup. Then get ready to transform your money situation by focusing on mindset and education no just the numbers.
+              Hooking up accounts now helps you create your vision boards, crush 2024 goals, and get your money mindset shifts into high gear right away. The faster the better with goal setting!
             </Text>
             <Section className="my-[32px] mx-auto text-center">
               <Button
@@ -55,11 +49,14 @@ export default function (){
                 Complete Set Up
               </Button>
             </Section>
+            <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
+              Our team made updates to the platform and cleared bugs to enhance your user experience - complete your account setup and take a look yourself!
+            </Text>
             <Section className="block mx-auto text-center flex justify-center items-center">
               <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="284" height="380" />
             </Section>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
-              Can't wait to fuel your financial freedom! Let's do this.
+              Let's transform your money situation together!
             </Text>
             <Text className="text-black text-[15px] leading-[24px] mb-[6px]">
               <b>Love, <br/> Trckfi Team</b>
