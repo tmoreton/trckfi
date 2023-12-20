@@ -56,7 +56,7 @@ export default function (){
               </Button>
             </Section>
             <Section className="block mx-auto text-center flex justify-center items-center">
-              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="384" height="480" />
+              <Img src="https://www.trckfi.com/assets/email-cheer.gif" alt="Cheering!" width="284" height="380" />
             </Section>
             <Text className="text-black text-[15px] leading-[24px] mb-[12px]">
               Can't wait to fuel your financial freedom! Let's do this.
