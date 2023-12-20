@@ -30,7 +30,7 @@ client.defineJob({
       let message = {
           from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
           to: users_no_accounts[i].email,
-          subject: `Howdy friend! 👋`,
+          subject: `Hey friend! 👋`,
           text: '',
           html: render(<NoAccounts />),
         }
