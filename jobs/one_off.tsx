@@ -51,7 +51,7 @@ client.defineJob({
       message = {
         from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
         to: email,
-        subject: `Howdy friend! 👋`,
+        subject: `Howdy money friend! 👋`,
         text: '',
         html: render(<NoAccounts />),
       }

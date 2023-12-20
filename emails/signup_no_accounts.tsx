@@ -17,10 +17,10 @@ export default function (){
   return (
     <Html>
       <Head />
-      <Preview>Howdy friend! 👋</Preview>
+      <Preview>Howdy money friend! 👋</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[40px] mx-auto p-[20px] max-w-2xl">
+          <Container className="my-[40px] mx-auto p-[20px] max-w-3xl">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi.png'
@@ -31,7 +31,7 @@ export default function (){
               />
             </Section>
             <Text className="text-black text-[17px] leading-[24px] mb-[12px]">
-              Howdy money friend! 👋
+              <b>Howdy money friend! 👋</b>
             </Text>
             <Text className="text-black text-[17px] leading-[24px] mb-[12px]">
               We were so excited to see you have joined the Trckfi club! But we saw you haven't linked any accounts yet. No biggie, life gets busy.
@@ -49,7 +49,7 @@ export default function (){
               <Button
                 pX={18}
                 pY={10}
-                className="bg-pink-600 rounded-2xl text-white text-lg font-semibold no-underline mx-auto text-center"
+                className="bg-pink-600 rounded-2xl text-white text-xl font-semibold no-underline mx-auto text-center"
                 href='https://www.trckfi.com/auth/email-signin'
               >
                 Complete Set Up

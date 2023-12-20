@@ -31,11 +31,12 @@ export default function (){
             </Section>
 
             <Section>
-              <Text className="text-[15px] mt-[50px]"><b>Does this sound familiar?</b></Text>
-              <Text className="text-[15px] ml-[10px] my-0">- You make good money but don't know where it should go</Text>
-              <Text className="text-[15px] ml-[10px] my-0">- You don't feel you're saving or investing enough</Text>
-              <Text className="text-[15px] ml-[10px] my-0">- You're unsure if you can afford big life decisions</Text>
-              <Text className="text-[15px] ml-[10px] mt-0">- You feel overwhelmed and stressed out about finances</Text>
+              <Text className="text-[15px] mt-[50px]">This economy has been rough lately, am I right? Between inflation, recession worries, and everything else - money has felt extra stressful.</Text>
+              <Text className="text-[15px]">You're probably managing things just fine on the surface. <b>But deep down, do any of these sound familiar at all?</b></Text>
+              <Text className="text-[15px] ml-[10px] my-0">- Never knowing exactly where all your money actually goes each month</Text>
+              <Text className="text-[15px] ml-[10px] my-0">- Not saving or investing as much as you'd like</Text>
+              <Text className="text-[15px] ml-[10px] my-0">- Feeling overwhelmed trying to make big financial decisions</Text>
+              <Text className="text-[15px] ml-[10px] mt-0">- Getting money advice that just doesn't stick</Text>
             </Section>
 
             <Section>
