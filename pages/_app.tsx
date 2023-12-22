@@ -148,7 +148,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
           gtag('config', 'G-YDKZMNYK8E');
         `}
       </Script>
-      
+
       {/* Meta Pixel Code */}
       <Script src="https://www.facebook.com/tr?id=873379571171153&ev=PageView&noscript=1" />
       <Script id="fb-tag">
@@ -163,6 +163,18 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '873379571171153');
           fbq('track', 'PageView');
+        `}
+      </Script>
+
+      {/* Google Tag Manager */}
+      <Script src="https://www.googletagmanager.com/ns.html?id=GTM-MV5KVPVS" />
+      <Script id="google-tag-manager">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MV5KVPVS');
         `}
       </Script>
       
