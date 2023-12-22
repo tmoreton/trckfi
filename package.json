@@ -76,6 +76,7 @@
     "react-date-range": "^1.4.0",
     "react-datepicker": "^4.16.0",
     "react-dom": "^18.2.0",
+    "react-facebook-pixel": "^1.0.4",
     "react-plaid-link": "^3.4.0",
     "react-select": "^5.8.0",
     "react-table": "^7.8.0",

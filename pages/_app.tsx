@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from "next-auth/react"
@@ -12,15 +12,8 @@ import '../styles/index.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
-// import Hotjar from '@hotjar/browser'
-// import dynamic from 'next/dynamic' 
-
-// const Steps = dynamic(() => import('intro.js-react').then(mod => mod.Steps), {
-//   ssr: false
-// });
-
-const siteId = 3619138
-const hotjarVersion = 6
+import { useRouter } from 'next/router'
+import ReactPixel from 'react-facebook-pixel';
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
@@ -28,6 +21,20 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const [enabled, setEnabled] = useState(false)
   const [steps, setSteps] = useState([])
   const { meta } = pageProps
+  const router = useRouter()
+
+  useEffect(() => {
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('873379571171153')
+        ReactPixel.pageView()
+
+        router.events.on('routeChangeComplete', () => {
+          ReactPixel.pageView()
+        })
+      })
+  }, [router.events])
 
   const showIntro = (page) => {
     switch (page) {
@@ -119,12 +126,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
         console.log('nope');
     }
   }
-
-  // useEffect(() => {
-  //   if(!process.env['NEXT_PUBLIC_BASE_URL'].includes('localhost') && !process.env['NEXT_PUBLIC_BASE_URL'].includes('demo')){
-  //     Hotjar.init(siteId, hotjarVersion);
-  //   }
-  // }, [])
   
   // const onBeforeChange = nextStepIndex => {
   //   if (nextStepIndex === 1) {
@@ -146,23 +147,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
           gtag('js', new Date());
  
           gtag('config', 'G-YDKZMNYK8E');
-        `}
-      </Script>
-
-      {/* Meta Pixel Code */}
-      <Script src="https://www.facebook.com/tr?id=873379571171153&ev=PageView&noscript=1" />
-      <Script id="fb-tag">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '873379571171153');
-          fbq('track', 'PageView');
         `}
       </Script>
 
