@@ -24,16 +24,12 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const router = useRouter()
 
   useEffect(() => {
-    import('react-facebook-pixel')
-      .then((x) => x.default)
-      .then((ReactPixel) => {
-        ReactPixel.init('873379571171153')
-        ReactPixel.pageView()
+    const ReactPixel = require('react-facebook-pixel');
+    ReactPixel.default.init('873379571171153');
+  }, [])
 
-        router.events.on('routeChangeComplete', () => {
-          ReactPixel.pageView()
-        })
-      })
+  useEffect(() => {
+    ReactPixel.pageView()
   }, [router.events])
 
   const showIntro = (page) => {
