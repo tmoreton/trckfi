@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
 
   useEffect(() => {
     ReactPixel.pageView()
-  }, [router.events])
+  }, [router.route])
 
   const showIntro = (page) => {
     switch (page) {
