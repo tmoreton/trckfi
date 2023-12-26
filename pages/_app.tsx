@@ -22,7 +22,6 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const { meta } = pageProps
   const router = useRouter()
 
-
   useEffect(() => {
     import('react-facebook-pixel')
       .then((x) => x.default)

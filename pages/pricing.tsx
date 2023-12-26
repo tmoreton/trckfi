@@ -65,12 +65,13 @@ export default function Pricing ({ showError }) {
   const [open, setOpen] = useState(false)
 
   const buyNow = (url) => {
-    // if (typeof ReactPixel !== "undefined") {
-    //   ReactPixel.track('track', 'Buy Button')
-    // }
-    router.push({
-      pathname: url,
-    })
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('873379571171153')
+        ReactPixel.track('track', 'Buy Button')
+      })
+    router.push(url)
   }
   
   return (
