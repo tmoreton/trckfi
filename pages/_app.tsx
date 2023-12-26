@@ -30,23 +30,11 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
         ReactPixel.pageView()
 
         router.events.on('routeChangeComplete', () => {
+          console.log(router.route)
           ReactPixel.pageView()
         })
       })
   }, [router.events])
-
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const ReactPixel = require('react-facebook-pixel')
-  //     ReactPixel.default.init('873379571171153')
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     ReactPixel.pageView()
-  //   }
-  // }, [router.events])
 
   const showIntro = (page) => {
     switch (page) {
