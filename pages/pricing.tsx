@@ -6,6 +6,7 @@ import MainMenu from '../components/menu-main'
 import { useRouter } from 'next/router'
 import EmailModal from '../components/modals/email-modal'
 import Link from 'next/link'
+import ReactPixel from 'react-facebook-pixel';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -63,6 +64,13 @@ export default function Pricing ({ showError }) {
   const { referral_id } = router.query
   const [open, setOpen] = useState(false)
 
+  const buyNow = (url) => {
+    ReactPixel.track('track', 'Buy Button')
+    router.push({
+      pathname: url,
+    })
+  }
+  
   return (
     <Layout>
       <MainMenu showError={showError}/>
@@ -118,11 +126,9 @@ export default function Pricing ({ showError }) {
                                 <p className="text-sm italic font-bold text-pink-600">30 Day Free Trial - Cancel Anytime</p>
                               </>
                             }
-                            <Link href={`/intro/create-account?price_id=${tier.price.id}&referral_id=${referral_id}`}>
-                              <button className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                                Get started today
-                              </button>
-                            </Link>
+                            <button onClick={() => buyNow(`/intro/create-account?price_id=${tier.price.id}&referral_id=${referral_id}`)} className="mt-4 w-full block rounded-md bg-pink-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                              Get started today
+                            </button>
                             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                               {tier.features.map((feature) => (
                                 <li key={feature} className="flex gap-x-3">
