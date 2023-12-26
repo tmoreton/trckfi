@@ -13,7 +13,6 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useRouter } from 'next/router'
-import ReactPixel from 'react-facebook-pixel';
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [error, showError] = useState(null)
@@ -23,18 +22,32 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   const { meta } = pageProps
   const router = useRouter()
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const ReactPixel = require('react-facebook-pixel')
-      ReactPixel.default.init('873379571171153')
-    }
-  }, [])
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      ReactPixel.pageView()
-    }
-  }, [router.route])
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('873379571171153')
+        ReactPixel.pageView()
+
+        router.events.on('routeChangeComplete', () => {
+          ReactPixel.pageView()
+        })
+      })
+  }, [router.events])
+
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const ReactPixel = require('react-facebook-pixel')
+  //     ReactPixel.default.init('873379571171153')
+  //   }
+  // }, [])
+
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     ReactPixel.pageView()
+  //   }
+  // }, [router.events])
 
   const showIntro = (page) => {
     switch (page) {

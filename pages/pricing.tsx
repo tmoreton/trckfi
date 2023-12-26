@@ -65,9 +65,9 @@ export default function Pricing ({ showError }) {
   const [open, setOpen] = useState(false)
 
   const buyNow = (url) => {
-    if (typeof window !== "undefined") {
-      ReactPixel.track('track', 'Buy Button')
-    }
+    // if (typeof ReactPixel !== "undefined") {
+    //   ReactPixel.track('track', 'Buy Button')
+    // }
     router.push({
       pathname: url,
     })
