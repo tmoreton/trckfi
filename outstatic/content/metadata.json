@@ -1,6 +1,6 @@
 {
-  "commit": "8a2ba0910cb90869c4dc7986269355ad5b50a8c7",
-  "generated": "2023-11-22T22:02:14.744Z",
+  "commit": "864dad685fcece042641319580881d5f9a622adf",
+  "generated": "2024-01-04T12:42:52.159Z",
   "metadata": [
     {
       "__outstatic": {
@@ -593,27 +593,6 @@
     },
     {
       "__outstatic": {
-        "commit": "aac142b5686227798f3d55f3f0c76ddb7822c70d",
-        "hash": "3766621004",
-        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Expense Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/track-receipt.jpg",
-      "date": "07.10-2023",
-      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
-      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
-      "slug": "tracking-monthly-expenses",
-      "status": "published",
-      "title": "The Super Simple Guide to Tracking Your Money"
-    },
-    {
-      "__outstatic": {
         "commit": "f03fd73a71e2adbb03b1da0fd04bb6320a76d1e7",
         "hash": "550749453",
         "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
@@ -863,6 +842,27 @@
       "slug": "reduce-holiday-financial-stress",
       "status": "published",
       "title": "4 Tactics to Reduce Holiday Financial Stress and Anxiety"
+    },
+    {
+      "__outstatic": {
+        "commit": "864dad685fcece042641319580881d5f9a622adf",
+        "hash": "2332543014",
+        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Expense Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/track-receipt.jpg",
+      "date": "07.10-2023",
+      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
+      "keywords": "expense tracking, budgeting, personal finance, money management, spending habits, financial goals",
+      "publishedAt": "2023-11-29T14:25:45.000Z",
+      "seoTitle": "Tracking Expenses and Budgeting with this Beginner's Guide ",
+      "slug": "tracking-monthly-expenses",
+      "status": "published",
+      "title": "Track Your Money With This Super Simple Guide"
     }
   ]
 }
