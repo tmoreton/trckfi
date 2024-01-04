@@ -1,6 +1,6 @@
 {
-  "commit": "d458af95f5fdee92b54a7cbe670d708882a3ad85",
-  "generated": "2024-01-04T14:53:23.151Z",
+  "commit": "05eb5794de998f3985006804caf9191f22b0d9cf",
+  "generated": "2024-01-04T14:59:46.502Z",
   "metadata": [
     {
       "__outstatic": {
@@ -190,27 +190,6 @@
       "slug": "health-insurance-lingo-key-terms-guide",
       "status": "published",
       "title": "A Simple Guide to Health Insurance Lingo: 15 Key Terms Clarified"
-    },
-    {
-      "__outstatic": {
-        "commit": "cda8866363615631e1f4aab1ad7efc283c14bbd4",
-        "hash": "1539762220",
-        "path": "outstatic/content/posts/savings.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Saving Money",
-      "collection": "posts",
-      "coverImage": "/assets/blog/savings.png",
-      "date": "09.11.2023",
-      "description": "Start small, automate, and build a habit. Whether your goal is homeownership, a trip, or paying off debt saving allows you to achieve your financial goals.",
-      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Unleash the Real Power of Saving for Your Goals",
-      "slug": "savings",
-      "status": "published",
-      "title": "The Power of Saving: Your Financial Safety Net"
     },
     {
       "__outstatic": {
@@ -863,6 +842,27 @@
       "slug": "optimize-financial-tracking-for-success",
       "status": "published",
       "title": "Financial Success: 9 Spend Tracking & Budgeting Tips"
+    },
+    {
+      "__outstatic": {
+        "commit": "05eb5794de998f3985006804caf9191f22b0d9cf",
+        "hash": "1587582197",
+        "path": "outstatic/content/posts/savings.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Saving Money",
+      "collection": "posts",
+      "coverImage": "/assets/blog/savings.png",
+      "date": "09.11.2023",
+      "description": "Start small, automate, and build a habit. Whether your goal is homeownership, a trip, or paying off debt saving allows you to achieve your financial goals.",
+      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
+      "publishedAt": "2024-01-04T14:25:45.000Z",
+      "seoTitle": "Save for Your Goals Faster in 2024! Start small, But Start Today.",
+      "slug": "savings",
+      "status": "published",
+      "title": "Save for Your Goals Faster and Build Your Financial Safety Net"
     }
   ]
 }
