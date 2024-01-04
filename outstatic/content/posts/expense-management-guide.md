@@ -21,7 +21,7 @@ I remember the days of shuffling through a pile of bills, hoping I had enough le
 
 ## Gain Clarity with a Financial Hub
 
-Having all your [financial accounts in one place](/pricing) is a game changer. Rather than logging into multiple sites, services like Trckfi consolidate everything for you. With bank account integration you can connect your bank accounts, credit cards, loans, and investments - now you can view your whole financial picture in one spot - no more hunting for passwords!
+Having all your [financial accounts in one place](/features/transactions) is a game changer. Rather than logging into multiple sites, services like Trckfi consolidate everything for you. With bank account integration you can connect your bank accounts, credit cards, loans, and investments - now you can view your whole financial picture in one spot - no more hunting for passwords!
 
 ![trckfi-demo-connect-all-accounts-one-dashboard](/images/home--1--I3Nz.png)
 
