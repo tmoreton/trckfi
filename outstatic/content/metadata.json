@@ -1,6 +1,6 @@
 {
-  "commit": "d280bdce1f62f4484161b63e6de99ab94b5aa4a0",
-  "generated": "2024-01-04T15:14:55.689Z",
+  "commit": "58f87e239ad848e7538b635807bb768125b63b1b",
+  "generated": "2024-01-04T15:25:18.892Z",
   "metadata": [
     {
       "__outstatic": {
@@ -677,27 +677,6 @@
     },
     {
       "__outstatic": {
-        "commit": "1ad438e25c8535508d32a6247f0837ad62a2e4aa",
-        "hash": "1096834948",
-        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Healthcare and Insurance",
-      "collection": "posts",
-      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
-      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
-      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
-      "publishedAt": "2023-11-17T16:03:01.000Z",
-      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "health-savings-hsas-hras-and-fsas",
-      "status": "draft",
-      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
-    },
-    {
-      "__outstatic": {
         "commit": "2d021282df783463a4dddf82def86f76e4a0960e",
         "hash": "1536919181",
         "path": "outstatic/content/posts/reduce-holiday-money-stress.md"
@@ -863,6 +842,27 @@
       "slug": "mint-alternative-best-personal-finance-apps-2024",
       "status": "published",
       "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "58f87e239ad848e7538b635807bb768125b63b1b",
+        "hash": "17343492",
+        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Healthcare and Insurance",
+      "collection": "posts",
+      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
+      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
+      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
+      "publishedAt": "2023-10-25T16:03:01.000Z",
+      "seoTitle": "Health Savings with a HSAs, HRAs, and FSAs Account Guide",
+      "slug": "health-savings-hsas-hras-and-fsas",
+      "status": "published",
+      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
     }
   ]
 }
