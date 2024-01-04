@@ -1,5 +1,5 @@
 ---
-title: 'Simplifying Health Savings: HSAs, HRAs, and FSAs Explained'
+title: 'Health Savings Simplified: HSAs, HRAs, and FSAs Explained'
 status: 'published'
 author:
   name: 'Trckfi'
@@ -8,7 +8,7 @@ slug: 'health-savings-hsas-hras-and-fsas'
 description: 'Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.'
 coverImage: '/images/international-nurses-day-concept-I0Mj.jpg'
 category: 'Healthcare and Insurance'
-seoTitle: 'Health Savings with a HSAs, HRAs, and FSAs Account Guide'
+seoTitle: 'Simplifying Health Savings: HSAs, HRAs, and FSAs Accounts Guide'
 keywords: 'HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled'
 publishedAt: '2023-12-06T16:03:01.000Z'
 ---
