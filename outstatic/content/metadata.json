@@ -1,6 +1,6 @@
 {
-  "commit": "864dad685fcece042641319580881d5f9a622adf",
-  "generated": "2024-01-04T12:42:52.159Z",
+  "commit": "8953471e951802073b7c6b925da7706ddb2d3cc8",
+  "generated": "2024-01-04T12:50:32.352Z",
   "metadata": [
     {
       "__outstatic": {
@@ -593,27 +593,6 @@
     },
     {
       "__outstatic": {
-        "commit": "f03fd73a71e2adbb03b1da0fd04bb6320a76d1e7",
-        "hash": "550749453",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Guide: Organize Your Finances",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
-    },
-    {
-      "__outstatic": {
         "commit": "a3c6b023c00eed0b4bf52bc9cdb39f7dd65905d7",
         "hash": "1897480843",
         "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
@@ -863,6 +842,27 @@
       "slug": "tracking-monthly-expenses",
       "status": "published",
       "title": "Track Your Money With This Super Simple Guide"
+    },
+    {
+      "__outstatic": {
+        "commit": "8953471e951802073b7c6b925da7706ddb2d3cc8",
+        "hash": "1503636681",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Guide: Organize Your Finances",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-12-20T14:25:45.000Z",
+      "seoTitle": "How to Organize Your Finances in 2024? Tips for Clarity & Empowerment!",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
     }
   ]
 }
