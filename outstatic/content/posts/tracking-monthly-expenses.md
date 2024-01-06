@@ -1,16 +1,16 @@
 ---
-title: 'The Super Simple Guide to Tracking Your Money'
+title: 'Track Your Money With This Super Simple Guide'
 description: 'Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.'
 coverImage: '/assets/blog/track-receipt.jpg'
 date: '07.10-2023'
 category: 'Expense Tracking'
-keywords: 'xpense tracking, budgeting, personal finance, money management, spending habits, financial goals'
+keywords: 'expense tracking, budgeting, personal finance, money management, spending habits, financial goals'
 status: 'published'
 slug: 'tracking-monthly-expenses'
 author:
   name: 'Trckfi'
-seoTitle: 'The Beginner''s Guide to Tracking Expenses and Budgeting'
-publishedAt: '2023-10-10T14:25:45.000Z'
+seoTitle: 'Tracking Expenses and Budgeting with this Beginner''s Guide '
+publishedAt: '2023-11-29T14:25:45.000Z'
 ---
 
 Today we’re breaking down the basics on tracking your expenses. Because let’s be real - money management can feel about as fun as a root canal. But sticking to a budget doesn’t have to make you want to pull your hair out.

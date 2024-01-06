@@ -10,7 +10,7 @@ slug: 'expense-management-guide'
 author:
   name: 'Trckfi'
 seoTitle: 'Feel Overwhelmed Managing Your Money? Here''s a Guide to Take Control'
-publishedAt: '2023-11-15T15:25:45.000Z'
+publishedAt: '2023-12-13T15:25:45.000Z'
 ---
 
 Do you feel anxious checking your bank balance each month, wondering where your money goes? You're not alone! Many people struggle to manage their finances. The good news - you can take back control with some straightforward strategies. Let's go through simple steps to get your finances on track.
@@ -21,13 +21,13 @@ I remember the days of shuffling through a pile of bills, hoping I had enough le
 
 ## Gain Clarity with a Financial Hub
 
-Having all your [financial accounts in one place](/pricing) is a game changer. Rather than logging into multiple sites, services like Trckfi consolidate everything for you. With bank account integration you can connect your bank accounts, credit cards, loans, and investments - now you can view your whole financial picture in one spot - no more hunting for passwords!
+Having all your [financial accounts in one place](/features/transactions) is a game changer. Rather than logging into multiple sites, services like Trckfi consolidate everything for you. With bank account integration you can connect your bank accounts, credit cards, loans, and investments - now you can view your whole financial picture in one spot - no more hunting for passwords!
 
 ![trckfi-demo-connect-all-accounts-one-dashboard](/images/home--1--I3Nz.png)
 
 ## The Power of Tracking Your Spending
 
-You've probably heard "you can't manage what you don't measure." Monitoring every [expense](/blog/tracking-monthly-expenses) illuminates your spending patterns. You'll spot "money leaks" you never noticed before. With this intel, you can make informed saving and budgeting choices. Apps like [Trckfi](/pricing) simplify tracking by automatically importing your transactions.
+You've probably heard "you can't manage what you don't measure." Monitoring every [expense](/blog/tracking-monthly-expenses) illuminates your spending patterns. You'll spot "money leaks" you never noticed before. With this intel, you can make informed saving and budgeting choices. Platforms like [Trckfi](/pricing) simplify tracking by automatically importing your [transactions](/features/transactions).
 
 Here's why it's crucial and how to do it effectively:
 
@@ -41,7 +41,7 @@ Here's why it's crucial and how to do it effectively:
 
 [![trckfi-demo-tracking-expenses-net-worth-and-goals](/images/home--8--Y0ND.png)](/pricing)
 
-With the [Trckfi dashboard](/pricing), you can easily review cash flow, expense categories, and recurring charges as well as track your savings and investments to keep you motivated.
+With the [Trckfi dashboard](/features/dashboard), you can easily review cash flow, expense categories, and recurring charges as well as track your savings and investments to keep you motivated.
 
 ## Distinguishing Fixed and Variable Expenses
 
@@ -57,7 +57,7 @@ Understanding the difference between fixed and variable expenses helps you manag
 
 ## Monthly Tracking: Your Financial Companion
 
-Regularly check your net worth, which is assets minus liabilities. Even small positive increases keep you motivated. Services like Trckfi automatically calculate your net worth over time. Monitoring net worth allows you to gauge your overall financial progress.
+Regularly check your net worth, which is assets minus liabilities. Even small positive increases keep you motivated. Services like Trckfi automatically calculate your net worth over time. [Monitoring net worth ](/features/net-worth)allows you to gauge your overall financial progress.
 
 Monthly tracking provides valuable insights into your immediate financial health:
 
@@ -75,13 +75,13 @@ Monthly tracking provides valuable insights into your immediate financial health
 
 In summary, here are practical steps to take control of your finances:
 
-1. **Set Clear Financial Goals**: Define your financial objectives, whether it's saving for a vacation, paying off debt, or investing for the future.
+1. **Set Clear Financial Goals**: Define your [financial objectives](/features/goals), whether it's saving for a vacation, paying off debt, or investing for the future.
 
 2. **Create a Realistic Plan**: Build a spending plan that aligns with your income and financial goals.
 
 3. **Track Your Expenses**: Regularly monitor your spending to stay on top of your financial situation.
 
-4. **Analyze Your Spending**: Use spend analysis to understand your spending patterns and areas for improvement.
+4. **Analyze Your Spending**: Use [spend analysis](/features/transactions) to understand your spending patterns and areas for improvement.
 
 5. **Distinguish Between Fixed and Variable Expenses**: Categorize your expenses to make informed spending plan adjustments.
 

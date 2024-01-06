@@ -1,6 +1,6 @@
 {
-  "commit": "8a2ba0910cb90869c4dc7986269355ad5b50a8c7",
-  "generated": "2023-11-22T22:02:14.744Z",
+  "commit": "4cf11d148fd8d27aeeef9cea3b56a916783a1538",
+  "generated": "2024-01-04T15:27:55.543Z",
   "metadata": [
     {
       "__outstatic": {
@@ -193,27 +193,6 @@
     },
     {
       "__outstatic": {
-        "commit": "cda8866363615631e1f4aab1ad7efc283c14bbd4",
-        "hash": "1539762220",
-        "path": "outstatic/content/posts/savings.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Saving Money",
-      "collection": "posts",
-      "coverImage": "/assets/blog/savings.png",
-      "date": "09.11.2023",
-      "description": "Start small, automate, and build a habit. Whether your goal is homeownership, a trip, or paying off debt saving allows you to achieve your financial goals.",
-      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Unleash the Real Power of Saving for Your Goals",
-      "slug": "savings",
-      "status": "published",
-      "title": "The Power of Saving: Your Financial Safety Net"
-    },
-    {
-      "__outstatic": {
         "commit": "f5346d6e5a43c4871ffa666ebfe677a6d96c34a7",
         "hash": "2656480952",
         "path": "outstatic/content/posts/roth-401k-plans.md"
@@ -296,27 +275,6 @@
       "slug": "the-backdoor-roth-ira",
       "status": "published",
       "title": "Paths to a Roth IRA for High-Income Earners"
-    },
-    {
-      "__outstatic": {
-        "commit": "f52c6763f0451827fba4ff2779cc86fcd03378a8",
-        "hash": "2070530464",
-        "path": "outstatic/content/posts/optimize-financial-tracking-for-success.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Tracking Expenses",
-      "collection": "posts",
-      "coverImage": "/assets/blog/unlock-financial-success.jpg",
-      "date": "08.01.2023",
-      "description": "Ready to achieve financial success? Track expenses, set goals, and make better decisions. Integrate tracking with budget planning for a holistic financial view.",
-      "keywords": "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success",
-      "publishedAt": "2023-10-06T14:25:45.491Z",
-      "seoTitle": "Learn How to Track Expenses and Budget Wisely. Stress-Free Living!",
-      "slug": "optimize-financial-tracking-for-success",
-      "status": "published",
-      "title": "Financial Success with Spend Tracking & Budgeting"
     },
     {
       "__outstatic": {
@@ -593,48 +551,6 @@
     },
     {
       "__outstatic": {
-        "commit": "aac142b5686227798f3d55f3f0c76ddb7822c70d",
-        "hash": "3766621004",
-        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Expense Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/track-receipt.jpg",
-      "date": "07.10-2023",
-      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
-      "keywords": "xpense tracking, budgeting, personal finance, money management, spending habits, financial goals",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "The Beginner's Guide to Tracking Expenses and Budgeting",
-      "slug": "tracking-monthly-expenses",
-      "status": "published",
-      "title": "The Super Simple Guide to Tracking Your Money"
-    },
-    {
-      "__outstatic": {
-        "commit": "f03fd73a71e2adbb03b1da0fd04bb6320a76d1e7",
-        "hash": "550749453",
-        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Guide: Organize Your Finances",
-      "collection": "posts",
-      "coverImage": "/assets/blog/financial-organization.png",
-      "date": "08.26.2023",
-      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
-      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
-      "publishedAt": "2023-10-10T14:25:45.000Z",
-      "seoTitle": "Revamp Your Finances: Easy Tips for Clarity and Financial Empowerment!",
-      "slug": "how-to-achieve-financial-organization",
-      "status": "published",
-      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
-    },
-    {
-      "__outstatic": {
         "commit": "a3c6b023c00eed0b4bf52bc9cdb39f7dd65905d7",
         "hash": "1897480843",
         "path": "outstatic/content/posts/iras-vs-401ks-choosing-retirement-plan.md"
@@ -695,27 +611,6 @@
       "slug": "roth-ira-advantage-2023",
       "status": "published",
       "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
-    },
-    {
-      "__outstatic": {
-        "commit": "6188db2a74d2afbfcced1a607af5cf346e529447",
-        "hash": "2222384958",
-        "path": "outstatic/content/posts/mint-alternative-best-personal-finance-apps-2024.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": ""
-      },
-      "category": "Money Management",
-      "collection": "posts",
-      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
-      "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
-      "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
-      "publishedAt": "2023-10-25T12:03:51.000Z",
-      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
-      "slug": "mint-alternative-best-personal-finance-apps-2024",
-      "status": "published",
-      "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
     },
     {
       "__outstatic": {
@@ -782,48 +677,6 @@
     },
     {
       "__outstatic": {
-        "commit": "1ad438e25c8535508d32a6247f0837ad62a2e4aa",
-        "hash": "1096834948",
-        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Healthcare and Insurance",
-      "collection": "posts",
-      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
-      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
-      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
-      "publishedAt": "2023-11-17T16:03:01.000Z",
-      "seoTitle": "Simplifying Health Savings with a HSAs, HRAs, and FSAs Guide",
-      "slug": "health-savings-hsas-hras-and-fsas",
-      "status": "draft",
-      "title": "Simplifying Health Savings: HSAs, HRAs, and FSAs Explained"
-    },
-    {
-      "__outstatic": {
-        "commit": "3bbee09c02e66bec01a2abda95245e9b30992cc0",
-        "hash": "3342616151",
-        "path": "outstatic/content/posts/expense-management-guide.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": "Finance Tracking",
-      "collection": "posts",
-      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
-      "date": "09.14.2023",
-      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
-      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
-      "publishedAt": "2023-11-15T15:25:45.000Z",
-      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
-      "slug": "expense-management-guide",
-      "status": "published",
-      "title": "Struggling to Manage Your Finances? Discover the Solution!"
-    },
-    {
-      "__outstatic": {
         "commit": "2d021282df783463a4dddf82def86f76e4a0960e",
         "hash": "1536919181",
         "path": "outstatic/content/posts/reduce-holiday-money-stress.md"
@@ -863,6 +716,153 @@
       "slug": "reduce-holiday-financial-stress",
       "status": "published",
       "title": "4 Tactics to Reduce Holiday Financial Stress and Anxiety"
+    },
+    {
+      "__outstatic": {
+        "commit": "864dad685fcece042641319580881d5f9a622adf",
+        "hash": "2332543014",
+        "path": "outstatic/content/posts/tracking-monthly-expenses.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Expense Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/track-receipt.jpg",
+      "date": "07.10-2023",
+      "description": "Learn the basics of expense tracking with this starter guide. Find easy tips to monitor spending and optimize it to fit your life, and taking control of finances.",
+      "keywords": "expense tracking, budgeting, personal finance, money management, spending habits, financial goals",
+      "publishedAt": "2023-11-29T14:25:45.000Z",
+      "seoTitle": "Tracking Expenses and Budgeting with this Beginner's Guide ",
+      "slug": "tracking-monthly-expenses",
+      "status": "published",
+      "title": "Track Your Money With This Super Simple Guide"
+    },
+    {
+      "__outstatic": {
+        "commit": "8953471e951802073b7c6b925da7706ddb2d3cc8",
+        "hash": "1503636681",
+        "path": "outstatic/content/posts/how-to-achieve-financial-organization.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Guide: Organize Your Finances",
+      "collection": "posts",
+      "coverImage": "/assets/blog/financial-organization.png",
+      "date": "08.26.2023",
+      "description": "Curious about financial freedom? Discover the power of financial organization, achieve goals, and empower your finances with essential tips.",
+      "keywords": "financial organization, financial success, simplify finances, money management, budgeting, expense tracking, financial planning, financial goals, financial tips, financial empowerment",
+      "publishedAt": "2023-12-20T14:25:45.000Z",
+      "seoTitle": "How to Organize Your Finances in 2024? Tips for Clarity & Empowerment!",
+      "slug": "how-to-achieve-financial-organization",
+      "status": "published",
+      "title": "Financial Organization: Stress-Free Cash Flow Management Tips"
+    },
+    {
+      "__outstatic": {
+        "commit": "d458af95f5fdee92b54a7cbe670d708882a3ad85",
+        "hash": "2270345333",
+        "path": "outstatic/content/posts/optimize-financial-tracking-for-success.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Tracking Expenses",
+      "collection": "posts",
+      "coverImage": "/assets/blog/unlock-financial-success.jpg",
+      "date": "08.01.2023",
+      "description": "Ready to achieve financial success? Track expenses, set goals, and make better decisions. Integrate tracking with budget planning for a holistic financial view.",
+      "keywords": "financial success, spend tracking, budgeting, expense tracking, budget planning, financial health, tips, tools, financial freedom, personal finance, financial management, financial goals, financial success",
+      "publishedAt": "2023-12-27T14:25:45.000Z",
+      "seoTitle": "How to Reach Financial Success? Start by Tracking Your Expenses.",
+      "slug": "optimize-financial-tracking-for-success",
+      "status": "published",
+      "title": "Financial Success: 9 Spend Tracking & Budgeting Tips"
+    },
+    {
+      "__outstatic": {
+        "commit": "05eb5794de998f3985006804caf9191f22b0d9cf",
+        "hash": "1587582197",
+        "path": "outstatic/content/posts/savings.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Saving Money",
+      "collection": "posts",
+      "coverImage": "/assets/blog/savings.png",
+      "date": "09.11.2023",
+      "description": "Start small, automate, and build a habit. Whether your goal is homeownership, a trip, or paying off debt saving allows you to achieve your financial goals.",
+      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
+      "publishedAt": "2024-01-04T14:25:45.000Z",
+      "seoTitle": "Save for Your Goals Faster in 2024! Start small, But Start Today.",
+      "slug": "savings",
+      "status": "published",
+      "title": "Save for Your Goals Faster and Build Your Financial Safety Net"
+    },
+    {
+      "__outstatic": {
+        "commit": "c5f791198cd44f2fd2b6018fb4373a6a42293b90",
+        "hash": "501982440",
+        "path": "outstatic/content/posts/expense-management-guide.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": "Finance Tracking",
+      "collection": "posts",
+      "coverImage": "/assets/blog/couple-managing-finances-pay-check-to-pay-check.png",
+      "date": "09.14.2023",
+      "description": "Wondering where your money goes? Break free from paycheck-to-paycheck! Learn expense management secrets, from habits to goals. Take control now!",
+      "keywords": "Expense Management, Paycheck-to-Paycheck, Financial Awareness, Savings, Monthly Tracking, Bank Account, Types of Expenses, Business Owner, Time Period, Variable Expenses, Step by Step, Long Term, Pay Attention, Net worth tracking,Spend Analysis",
+      "publishedAt": "2023-12-13T15:25:45.000Z",
+      "seoTitle": "Feel Overwhelmed Managing Your Money? Here's a Guide to Take Control",
+      "slug": "expense-management-guide",
+      "status": "published",
+      "title": "Struggling to Manage Your Finances? Discover the Solution!"
+    },
+    {
+      "__outstatic": {
+        "commit": "d280bdce1f62f4484161b63e6de99ab94b5aa4a0",
+        "hash": "1707560754",
+        "path": "outstatic/content/posts/mint-alternative-best-personal-finance-apps-2024.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": ""
+      },
+      "category": "Money Management",
+      "collection": "posts",
+      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
+      "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
+      "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
+      "publishedAt": "2024-01-03T12:03:51.000Z",
+      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
+      "slug": "mint-alternative-best-personal-finance-apps-2024",
+      "status": "published",
+      "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "4cf11d148fd8d27aeeef9cea3b56a916783a1538",
+        "hash": "3344850039",
+        "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Healthcare and Insurance",
+      "collection": "posts",
+      "coverImage": "/images/international-nurses-day-concept-I0Mj.jpg",
+      "description": "Curious about HSAs, HRAs, and FSAs? Simplify health savings with our plain language guide. Learn the differences and benefits in easy terms.",
+      "keywords": "HSA vs HRA vs FSA Health Savings Comparison Health Savings Account Guide HRAs, HSAs, FSAs Simplified,Navigating Healthcare Savings Benefits of Health Savings Choosing the Right Health Account Health Savings Made Easy HSAs for Beginners Demystifying Health Savings Health Savings Explained Maximizing Health Savings Understanding Health Reimbursement FSAs Unveiled",
+      "publishedAt": "2023-12-06T16:03:01.000Z",
+      "seoTitle": "Simplifying Health Savings: HSAs, HRAs, and FSAs Accounts Guide",
+      "slug": "health-savings-hsas-hras-and-fsas",
+      "status": "published",
+      "title": "Health Savings Simplified: HSAs, HRAs, and FSAs Explained"
     }
   ]
 }
