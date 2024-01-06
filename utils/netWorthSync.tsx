@@ -67,24 +67,18 @@ const netWorthSync = async (user_id) => {
         }
       })
       data.stats.net_worth = Math.round(Number(data.stats.assets - (-data.stats.liabilities)))
-      const recent_net_worth = await prisma.netWorth.findMany({
+      const recent_net_worth = await prisma.netWorth.findFirst({
         where: {
           user_id,
           // @ts-ignore
           date: this_month
         }
       })
-
-      if(recent_net_worth?.length > 0 && recent_net_worth[0]?.id){
-        await prisma.netWorth.update({
-          where: {
-            id: recent_net_worth[0]?.id
-          },
-          data
-        })
-      } else {
-        await prisma.netWorth.create({data})
-      }
+      await prisma.netWorth.upsert({
+        where: { id: recent_net_worth?.id },
+        update: data,
+        create: data,
+      })
     }
   } catch (error) {
     console.error(user_id)
