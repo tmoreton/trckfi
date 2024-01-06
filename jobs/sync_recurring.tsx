@@ -4,12 +4,12 @@ import prisma from '../lib/prisma';
 import { DateTime } from "luxon"
 
 client.defineJob({
-  id: "sync-recurring",
-  name: "sync-recurring",
+  id: "update-recurring",
+  name: "update-recurring",
   version: "0.0.1",
   enabled: true,
   trigger: eventTrigger({
-    name: "sync.recurring"
+    name: "update.recurring"
   }),
   run: async (payload, io, ctx) => {
     const { user_id } = payload
