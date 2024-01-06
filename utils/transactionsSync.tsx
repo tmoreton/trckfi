@@ -79,6 +79,10 @@ const transactionsSync = async (access_token, user_id) => {
       // const found = transactions.find((e) => e.name === transaction_name && Number(e.amount) === Number(amount))
       // const duplicate = added.find((d) => d.date === added[i].date && Number(d.amount) + Number(amount) === 0 && d.transaction_id !== added[i].transaction_id )
 
+      if(plaid.item_id === "ZVP9nxYeN9TKRvE9VZbJf8YKoak947HRbdonQ"){
+        console.log(response)
+      }
+
       await prisma.transactions.upsert({
         where: { 
           transaction_id: added[i].transaction_id 
