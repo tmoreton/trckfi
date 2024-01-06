@@ -22,10 +22,18 @@ client.defineJob({
     for (let a in activeUsers) {
       const user_id = activeUsers[a].id
       const linked_user_id = activeUsers[a].linked_user_id
-      await client.sendEvent({ name: "sync.recurring", payload: { user_id: user_id }})
+      await client.sendEvent({ name: "sync.plaid", payload: { user_id: user_id }})
       if(linked_user_id){
-        await client.sendEvent({ name: "sync.recurring", payload: { user_id: linked_user_id }})
-      }  
+        const res = await prisma.user.findUnique({
+          where: { 
+            id: linked_user_id,
+            active: true
+          }
+        })
+        if(res){
+          await client.sendEvent({ name: "sync.plaid", payload: { user_id: res.id }})
+        }
+      }
     }
   },
 });
