@@ -1,6 +1,6 @@
 {
-  "commit": "4cf11d148fd8d27aeeef9cea3b56a916783a1538",
-  "generated": "2024-01-04T15:27:55.543Z",
+  "commit": "9ab1e27a1749921666cc6c2a3a407361fe3b0f9b",
+  "generated": "2024-01-08T15:37:22.443Z",
   "metadata": [
     {
       "__outstatic": {
@@ -782,27 +782,6 @@
     },
     {
       "__outstatic": {
-        "commit": "05eb5794de998f3985006804caf9191f22b0d9cf",
-        "hash": "1587582197",
-        "path": "outstatic/content/posts/savings.md"
-      },
-      "author": {
-        "name": ""
-      },
-      "category": "Saving Money",
-      "collection": "posts",
-      "coverImage": "/assets/blog/savings.png",
-      "date": "09.11.2023",
-      "description": "Start small, automate, and build a habit. Whether your goal is homeownership, a trip, or paying off debt saving allows you to achieve your financial goals.",
-      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
-      "publishedAt": "2024-01-04T14:25:45.000Z",
-      "seoTitle": "Save for Your Goals Faster in 2024! Start small, But Start Today.",
-      "slug": "savings",
-      "status": "published",
-      "title": "Save for Your Goals Faster and Build Your Financial Safety Net"
-    },
-    {
-      "__outstatic": {
         "commit": "c5f791198cd44f2fd2b6018fb4373a6a42293b90",
         "hash": "501982440",
         "path": "outstatic/content/posts/expense-management-guide.md"
@@ -863,6 +842,27 @@
       "slug": "health-savings-hsas-hras-and-fsas",
       "status": "published",
       "title": "Health Savings Simplified: HSAs, HRAs, and FSAs Explained"
+    },
+    {
+      "__outstatic": {
+        "commit": "9ab1e27a1749921666cc6c2a3a407361fe3b0f9b",
+        "hash": "3588706030",
+        "path": "outstatic/content/posts/savings.md"
+      },
+      "author": {
+        "name": ""
+      },
+      "category": "Saving Money",
+      "collection": "posts",
+      "coverImage": "/assets/blog/savings.png",
+      "date": "09.11.2023",
+      "description": "Start small, automate, and build a habit. Whether your goal is homeownership, a trip, or paying off debt saving allows you to achieve your financial goals.",
+      "keywords": "Saving, Financial Safety Net, Emergency Fund, Savings Goals, Consistency in Saving, Smart Saving Tips, Financial Freedom, Building Financial Security, Setting Financial Objectives, Living Within Your Means",
+      "publishedAt": "2024-01-04T14:25:45.000Z",
+      "seoTitle": "Save for Your Goals Faster in 2024! Start small, But Start Today.",
+      "slug": "savings",
+      "status": "published",
+      "title": "Save for Your Goals Faster and Build Your Financial Safety Net"
     }
   ]
 }
