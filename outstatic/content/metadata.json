@@ -1,6 +1,6 @@
 {
   "commit": "9ab1e27a1749921666cc6c2a3a407361fe3b0f9b",
-  "generated": "2024-01-08T15:37:22.443Z",
+  "generated": "2024-01-08T15:50:48.479Z",
   "metadata": [
     {
       "__outstatic": {
@@ -846,7 +846,7 @@
     {
       "__outstatic": {
         "commit": "9ab1e27a1749921666cc6c2a3a407361fe3b0f9b",
-        "hash": "3588706030",
+        "hash": "3508106688",
         "path": "outstatic/content/posts/savings.md"
       },
       "author": {
@@ -862,7 +862,7 @@
       "seoTitle": "Save for Your Goals Faster in 2024! Start small, But Start Today.",
       "slug": "savings",
       "status": "published",
-      "title": "Save for Your Goals Faster and Build Your Financial Safety Net"
+      "title": "Save for Your Money Goals Faster and Build Your Financial Safety Net"
     }
   ]
 }
