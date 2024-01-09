@@ -7,18 +7,18 @@ export default async (req, res) => {
   if (!user) return res.status(500).json({ error: 'No User Info' })
   try {
     let preferences = {}
-    if(!user.subscription_id){
+    if(user.subscription_id){
+    //   preferences = await prisma.preferences.findUnique({
+    //     // @ts-ignore
+    //     where: { 
+    //       user_id: user?.linked_user_id
+    //     }
+    //   })
+    // } else {
       preferences = await prisma.preferences.findUnique({
         // @ts-ignore
         where: { 
-          user_id: user.linked_user_id
-        }
-      })
-    } else {
-      preferences = await prisma.preferences.findUnique({
-        // @ts-ignore
-        where: { 
-          user_id: user.id
+          user_id: user?.id
         }
       })
     }
