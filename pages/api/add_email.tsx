@@ -13,6 +13,15 @@ export default async (req, res) => {
   }
 
   try {
+    const user = await prisma.user.findFirst({
+      where: { 
+        email,
+        active: true
+      }
+    })
+    console.log(user)
+    if(user) return res.redirect('/login')
+    
     await prisma.emails.upsert({
       where: { email: email.toLowerCase() },
       update: { 

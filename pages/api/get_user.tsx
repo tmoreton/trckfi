@@ -19,7 +19,7 @@ export default async (req, res) => {
         update: { email: email.toLowerCase() },
         create: { email: email.toLowerCase() },
       })
-      return res.status(200).json({ status: 'OK', text: "You've been added to the waitlist!", active: false})
+      return res.redirect("/pricing");
     }
 
     return res.status(200).json({ status: 'OK' })
