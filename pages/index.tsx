@@ -16,22 +16,23 @@ export default function Index({ showError }) {
 
   useEffect(() => {
     if(!subscribed && !show){
+      showBundle()
       if(asPath === "/#get-notified"){
         setOpen(true)
       }
     }
   }, [])
 
-  // const showBundle = () => {
-  //   setTimeout(() => {
-  //     setOpen(true)
-  //   }, 5000)
-  // }
+  const showBundle = () => {
+    setTimeout(() => {
+      setOpen(true)
+    }, 5000)
+  }
 
   return (
     <Layout>
       <MainMenu showError={showError}/>
-      {/* <BundleModal open={open} setOpen={setOpen} /> */}
+      <BundleModal open={open} setOpen={setOpen} />
       <Hero />
       <NewsletterForm />
     </Layout>
