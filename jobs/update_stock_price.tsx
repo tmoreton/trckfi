@@ -20,7 +20,7 @@ client.defineJob({
     const accounts = await prisma.accounts.findMany({
       where: {
         active: true,
-        subtype: 'equity',
+        institution: 'Stocks',
         user_id: { in: ids }
       },
     })
