@@ -22,7 +22,7 @@ export default function (){
       <Preview>Start Using Trckfi Now: Reach Your Money Goals Faster!</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="my-[10px] mx-auto p-[20px] max-w-5xl">
+          <Container className="my-[10px] mx-auto p-[20px] max-w-3xl">
             <Section>
               <Img
                 src='https://www.trckfi.com/trckfi.png'
