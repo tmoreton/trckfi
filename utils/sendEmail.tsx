@@ -6,7 +6,6 @@ import WelcomeEmail from "../emails/welcome_email"
 
 const sendEmail = async (email) => {
   try {
-    console.log('sendEmail')
     slackMessage(`${email} Recieved Welcome Email`)
 
     const message = {

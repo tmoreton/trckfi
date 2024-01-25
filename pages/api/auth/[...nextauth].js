@@ -29,7 +29,7 @@ export const authOptions = {
         let user = await prisma.user.findUnique({
           where: { email },
         })
-        console.log(user)
+
         if(user){
           if(!user?.emailVerified){
             const emailHtml = render(<SignInFirst url={url}/>)
