@@ -38,15 +38,14 @@ export const authOptions = {
             subject: `Welcome to 30-day Free Trial!`,
             html: emailHtml,
           });
-        } else {
-          const emailHtml = render(<SignInEmail url={url}/>)
-          await transport.sendMail({
-            from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-            to: email,
-            subject: `Sign in to Trckfi`,
-            html: emailHtml,
-          });
         }
+        const emailHtml = render(<SignInEmail url={url}/>)
+        await transport.sendMail({
+          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+          to: email,
+          subject: `Sign in to Trckfi`,
+          html: emailHtml,
+        });
       },
       normalizeIdentifier(identifier) {
         // Get the first two elements only,

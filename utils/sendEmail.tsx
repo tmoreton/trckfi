@@ -4,8 +4,9 @@ import nodemailer from 'nodemailer'
 import { render } from '@react-email/render'
 import WelcomeEmail from "../emails/welcome_email"
 
-const sendEmail = (email) => {
+const sendEmail = async (email) => {
   try {
+    console.log('sendEmail')
     slackMessage(`${email} Recieved Welcome Email`)
 
     const message = {
@@ -25,7 +26,7 @@ const sendEmail = (email) => {
       },
     })
 
-    transporter.sendMail(message)
+    await transporter.sendMail(message)
   } catch (error) {
     console.error(error)
     slackMessage(error.message || error.toString())

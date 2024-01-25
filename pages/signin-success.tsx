@@ -38,7 +38,7 @@ export async function getServerSideProps(context) {
     // @ts-ignore
     // user_accounts?.accounts?.length < 1
     if(user?.login_count < 1){
-      await sendEmail(user.email)
+      await sendEmail(user?.email)
       return {
         redirect: {
           destination: '/intro/question-1',
