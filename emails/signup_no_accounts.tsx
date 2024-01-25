@@ -44,14 +44,20 @@ export default function (){
               <Hr className="mt-8"/>
               <Text className="text-[18px] pt-[15px]"><strong>Step 1: Finish your account setup!</strong></Text>
               <Text className="text-[15px] mt-0">Quick Connect: Link your accounts in under 2 minutes for the full platform experience. <br/> Allow 24 hours for syncing. Check out our brief <strong><Link href="https://youtu.be/2ouLvCuiphg">how-to video!</Link></strong></Text>
+            </Section>
+            
+            <Section className="my-[16px] mx-auto text-center">
               <Button
                 pX={18}
                 pY={10}
-                className="bg-pink-600 rounded-2xl text-white text-xl font-semibold no-underline mx-auto text-center"
+                className="bg-pink-600 rounded-2xl text-white text-lg font-semibold no-underline mx-auto text-center"
                 href='https://www.trckfi.com/auth/email-signin'
               >
                 Complete Setup Today!
               </Button>
+            </Section>
+
+            <Section>
               <Text className="text-[15px] mt-0"><b>P/S:</b> Save time and connect as many accounts as you can. This will help YOU visualize your data better and have a personalized experience</Text>
               <Hr className="mt-8"/>
               <Text className="text-[18px] pt-[15px]"><strong>Step 2: Congrats, You're Committed to Make Money Moves!</strong></Text>
@@ -104,7 +110,7 @@ export default function (){
               <Button
                 pX={18}
                 pY={10}
-                className="bg-pink-600 rounded-2xl text-white text-xl font-semibold no-underline mx-auto text-center"
+                className="bg-pink-600 rounded-2xl text-white text-lg font-semibold no-underline mx-auto text-center"
                 href='https://www.trckfi.com/auth/email-signin'
               >
                 Login
