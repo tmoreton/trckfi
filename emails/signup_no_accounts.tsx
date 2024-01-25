@@ -33,10 +33,6 @@ export default function (){
               />
             </Section>
             
-            <Heading className="text-black text-[32px] font-bold text-center p-0 mt-[36px] mx-0 leading-[40px]">
-              Start Using Trckfi Now: Reach Your Money Goals Faster!
-            </Heading>
-
             <Text className="text-[15px] text-black">Thrilled to have you join Trckfi! But we noticed you haven't used the platform much. No biggie, life gets busy.</Text>
             <Text className="text-[15px] text-black">I want to help YOU make the most of Trckfi together and hit your money goals this year. Feel confident about your finances – you can totally do this!</Text>
         
