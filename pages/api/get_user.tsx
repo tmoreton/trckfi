@@ -11,18 +11,17 @@ export default async (req, res) => {
       where: { email },
     })
 
-    if(user && user.active) return res.status(200).json({ status: 'OK', text: 'Check your email!', active: true})
-    if(user && !user.active) return res.status(200).json({ status: 'OK', text: 'Account is currently inactive', active: false})
+    if(user && user.active) return res.status(200).json({ status: 'OK', text: 'Check your email!', active: true, user })
+    if(user && !user.active) return res.status(200).json({ status: 'OK', text: 'Account is currently inactive', active: false, user })
     if(!user) {
       await prisma.emails.upsert({
         where: { email: email.toLowerCase() },
         update: { email: email.toLowerCase() },
         create: { email: email.toLowerCase() },
       })
-      return res.redirect("/pricing");
     }
 
-    return res.status(200).json({ status: 'OK' })
+    return res.status(200).json({ status: 'OK', user })
   } catch (e) {
     console.error(e)
     slackMessage('Error get_user: ' + e.message || e.toString())

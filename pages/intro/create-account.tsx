@@ -13,7 +13,7 @@ export default function CreateAccount({ showError }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setRefreshing(true)
-    fetch(`/api/add_email`, {
+    const res = await fetch(`/api/add_email`, {
       body: JSON.stringify({
         email,
         type: 'create_account'
@@ -23,7 +23,15 @@ export default function CreateAccount({ showError }) {
       },
       method: 'POST',
     })
-    checkout()
+    const { user } = await res.json()
+    console.log(user)
+    if(user && user?.active){
+      router.push({
+        pathname: '/auth/email-signin',
+      })
+    } else {
+      checkout()
+    }
   }
 
   const checkout = async () => {

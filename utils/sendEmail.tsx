@@ -11,7 +11,7 @@ const sendEmail = (email) => {
     const message = {
       from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
       to: email.toLowerCase(),
-      subject: `Welcome to Trckfi!`,
+      subject: `Start Using Trckfi Now: Reach Your Money Goals Faster!`,
       text: '',
       html: render(<WelcomeEmail />),
     }

@@ -11,22 +11,19 @@ export async function getServerSideProps(context) {
   const session = await getSession(context)
   const { isMobile } = utilServerSideDeviceDetection(context)
   const user = session?.user
-  let user_accounts = await prisma.user.findUnique({
-    where: { 
-      // @ts-ignore
-      id: user?.id
-    },
-    include: {
-      accounts: true
-    },
-  })
+  // let user_accounts = await prisma.user.findUnique({
+  //   where: { 
+  //     // @ts-ignore
+  //     id: user?.id
+  //   },
+  //   include: {
+  //     accounts: true
+  //   },
+  // })
 
   // @ts-ignore
   if(user && user?.active){
     // @ts-ignore
-    if(user?.login_count < 1){
-      sendEmail(user.email)
-    }
     await prisma.user.update({
       where: { 
         // @ts-ignore
@@ -39,7 +36,9 @@ export async function getServerSideProps(context) {
       }
     })
     // @ts-ignore
-    if(user?.login_count < 1 || user_accounts?.accounts?.length < 1){
+    // user_accounts?.accounts?.length < 1
+    if(user?.login_count < 1){
+      await sendEmail(user.email)
       return {
         redirect: {
           destination: '/intro/question-1',

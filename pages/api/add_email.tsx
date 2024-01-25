@@ -19,8 +19,7 @@ export default async (req, res) => {
         active: true
       }
     })
-    console.log(user)
-    if(user) return res.redirect('/login')
+    if(user) return res.json({ user })
     
     await prisma.emails.upsert({
       where: { email: email.toLowerCase() },

@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer')
 const prisma = new PrismaClient()
 import { render } from '@react-email/render';
 import SignInEmail from "../../../emails/signin";
+import SignInFirst from "../../../emails/signin-first";
 
 export const authOptions = {
   providers: [
@@ -25,13 +26,27 @@ export const authOptions = {
         provider: { server, from },
       }) {
         const transport = nodemailer.createTransport(server)
-        const emailHtml = render(<SignInEmail url={url}/>)
-        await transport.sendMail({
-          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-          to: email,
-          subject: `Sign in to Trckfi`,
-          html: emailHtml,
-        });
+        let user = await prisma.user.findUnique({
+          where: { email },
+        })
+        console.log(user)
+        if(!user?.emailVerified){
+          const emailHtml = render(<SignInFirst url={url}/>)
+          return await transport.sendMail({
+            from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+            to: email,
+            subject: `Welcome to 30-day Free Trial!`,
+            html: emailHtml,
+          });
+        } else {
+          const emailHtml = render(<SignInEmail url={url}/>)
+          await transport.sendMail({
+            from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+            to: email,
+            subject: `Sign in to Trckfi`,
+            html: emailHtml,
+          });
+        }
       },
       normalizeIdentifier(identifier) {
         // Get the first two elements only,

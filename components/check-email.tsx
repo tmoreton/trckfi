@@ -1,7 +1,9 @@
 import Icon from './icon';
 import ConfettiExplosion from 'react-confetti-explosion'
+import { useRouter } from 'next/router'
 
 export default function ({ email, text, active, handleSubmit }) {
+  const router = useRouter()
   return (
     <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
@@ -16,9 +18,9 @@ export default function ({ email, text, active, handleSubmit }) {
                 <p className="text-md text-gray-600">
                   A magic sign-in link has been sent to your email: <span className="text-lg font-semibold text-gray-900">{email}</span>
                 </p>
-                <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in?</p>
+                <p className="mt-6 text-base leading-7 text-gray-600">Having trouble logging in? <br/><small><b>Hint:</b> Try checking your spam folder</small></p>
                 <button
-                  onClick={handleSubmit}
+                  onClick={() => window?.location?.reload()}
                   className="flex text-center justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 mx-auto"
                 >
                   Resend Email

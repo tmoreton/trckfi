@@ -36,11 +36,17 @@ export default function SignIn({ csrfToken, showError }) {
       },
       method: 'POST',
     })
-    const { text, active } = await res.json()
+    const { text, active, user  } = await res.json()
     setActive(active)
     setText(text)
+
+    if(!user?.active){
+      router.push({
+        pathname: '/pricing',
+      })
+    }
     
-    await fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
+    return fetch(`/api/auth/signin/email?callbackUrl=${process.env['NEXT_PUBLIC_BASE_URL']}/signin-success`, {
       body: JSON.stringify({ 
         email,
         csrfToken
@@ -50,13 +56,6 @@ export default function SignIn({ csrfToken, showError }) {
       },
       method: 'POST',
     })
-    
-    // if(active){
-    // } else {
-    //   router.push({
-    //     pathname: '/intro/setup-account',
-    //   })
-    // }
   }
 
   return (
