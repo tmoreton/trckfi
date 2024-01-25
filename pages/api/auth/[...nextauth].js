@@ -30,22 +30,24 @@ export const authOptions = {
           where: { email },
         })
         console.log(user)
-        if(!user?.emailVerified){
-          const emailHtml = render(<SignInFirst url={url}/>)
-          return await transport.sendMail({
+        if(user){
+          if(!user?.emailVerified){
+            const emailHtml = render(<SignInFirst url={url}/>)
+            return await transport.sendMail({
+              from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
+              to: email,
+              subject: `Welcome to 30-day Free Trial!`,
+              html: emailHtml,
+            });
+          }
+          const emailHtml = render(<SignInEmail url={url}/>)
+          await transport.sendMail({
             from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
             to: email,
-            subject: `Welcome to 30-day Free Trial!`,
+            subject: `Sign in to Trckfi`,
             html: emailHtml,
           });
         }
-        const emailHtml = render(<SignInEmail url={url}/>)
-        await transport.sendMail({
-          from: `"Trckfi" <${process.env.EMAIL_ADDRESS}>`,
-          to: email,
-          subject: `Sign in to Trckfi`,
-          html: emailHtml,
-        });
       },
       normalizeIdentifier(identifier) {
         // Get the first two elements only,
