@@ -8,13 +8,13 @@ const netWorthSync = async (user_id) => {
   try {
     let user = await prisma.user.findUnique({
       where: {
-        id: user_id,
-        active: true,
+        id: user_id
       },
       include: {
         accounts: true
       }
     })
+    console.log(user)
     let this_month = DateTime.now().toFormat('LLL yy')
     let data = {
       user_id,
@@ -74,11 +74,15 @@ const netWorthSync = async (user_id) => {
           date: this_month
         }
       })
-      await prisma.netWorth.upsert({
-        where: { id: recent_net_worth?.id },
-        update: data,
-        create: data,
-      })
+      if(recent_net_worth?.id){
+        await prisma.netWorth.upsert({
+          where: { id: recent_net_worth?.id },
+          update: data,
+          create: data,
+        })
+      } else {
+        await prisma.netWorth.create({ data })
+      }
     }
   } catch (error) {
     console.error(user_id)

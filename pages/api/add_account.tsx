@@ -9,7 +9,7 @@ export default async (req, res) => {
   try {
     await prisma.accounts.create({ data })
     console.log(`User_id: ${data?.user_id}`)
-    // await netWorthSync(data.user_id)
+    await netWorthSync(data.user_id)
     return res.status(200).json({ status: 'OK' })
   } catch (e) {
     console.error(e)
