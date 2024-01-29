@@ -14,7 +14,7 @@ const netWorthSync = async (user_id) => {
         accounts: true
       }
     })
-    console.log(user)
+
     let this_month = DateTime.now().toFormat('LLL yy')
     let data = {
       user_id,
