@@ -1,6 +1,6 @@
 {
-  "commit": "98caef99583b40a515f4d73dcf2169c42e7d7d3a",
-  "generated": "2024-01-30T17:46:05.203Z",
+  "commit": "d665f7b3c5a3e96fe99cc9cd8ff210a5d8958b90",
+  "generated": "2024-01-30T17:46:25.444Z",
   "metadata": [
     {
       "__outstatic": {
@@ -866,8 +866,8 @@
     },
     {
       "__outstatic": {
-        "commit": "98caef99583b40a515f4d73dcf2169c42e7d7d3a",
-        "hash": "3878782426",
+        "commit": "d665f7b3c5a3e96fe99cc9cd8ff210a5d8958b90",
+        "hash": "685947950",
         "path": "outstatic/content/posts/is-your-mindset-keeping-you-broke.md"
       },
       "author": {
