@@ -46,7 +46,7 @@ const Newsletter = () => {
             <div className="mx-auto flex max-w-md gap-x-4" >
               <input placeholder="Name" name="name" type="text" required className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"/> 
               <input placeholder="Email" name="email" type="email" required className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"/> 
-              <input hidden name="database_id" type="text" value="640b8295e5284cf5a8b87accdff906d1"/> 
+              <input hidden name="id" type="text" value="cls9n0gpo00003yohzura0zyx"/> 
               <input hidden name="success_url" type="text" value="https://www.trckfi.com"/> 
             </div>
             <div className="mx-auto flex max-w-md gap-x-4" >
