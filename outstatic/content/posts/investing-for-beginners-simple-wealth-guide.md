@@ -47,7 +47,7 @@ Automating your finances by directing a portion of your income into [savings](/b
 
 **Inflation-Proofing Your Investments:** For long-term savings, consider investments that typically outpace inflation, such as Series I-bonds in the US, or diversified mutual/index funds and ETFs (in average over the past 100 years they return 10% annually).
 
-![](/images/investment-new-business-launch-plan-concept--1--U1Mz.jpg)
+![](/images/investment-new-business-launch-plan-concept--1--I0ND.jpg)
 
 ## Choosing the Right Investment Platform
 
@@ -63,7 +63,7 @@ Leverage tax-advantaged accounts like [401(k)s](/blog/401k-retirement-plans-guid
 
 For 2024, the contribution limits are notably generous, with up to $23,000 for employer-sponsored plans like 401(k)s and $7,000 for IRAs, with provisions for additional contributions for those over 50.
 
-## 5 Investing Mistakes\*\* You Can Avoid\*\*
+## 5 Investing Mistakes You Can Avoid
 
 ### **Lacking Clarity About Net Worth**
 
@@ -94,6 +94,8 @@ For example, investing $100 in stocks at the beginning of each month throughout 
 **The Social Media Mirage**: It's tempting to follow investment tips from social media "gurus." However, this advice often lacks the depth and personalization necessary for sound investing. What works for a charismatic influencer might not align with your financial goals or risk tolerance.
 
 **Smart Move**: Rather than chasing trends, focus on building a diversified portfolio that matches your long-term objectives. Seek advice from trusted, professional sources and remember, investing is a marathon, not a sprint influenced by viral hits.
+
+[![financial-goals](/images/home--12--c4MD.png)](/features/goals)
 
 ---
 
