@@ -1,6 +1,6 @@
 {
-  "commit": "fba1258ca12da3044d1158f605dd4fe43a5d1514",
-  "generated": "2024-02-06T02:30:20.355Z",
+  "commit": "8f8064b27ba7ef061cf711a7467a422001ee388b",
+  "generated": "2024-02-06T02:43:40.388Z",
   "metadata": [
     {
       "__outstatic": {
@@ -926,6 +926,27 @@
       "slug": "investing-for-beginners-simple-wealth-guide",
       "status": "published",
       "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
+    },
+    {
+      "__outstatic": {
+        "commit": "8f8064b27ba7ef061cf711a7467a422001ee388b",
+        "hash": "472386704",
+        "path": "outstatic/content/posts/career-advice-supporting-loved-ones-job-search.md"
+      },
+      "author": {
+        "name": "Cande",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Career Advice & Support",
+      "collection": "posts",
+      "coverImage": "/images/support-loved-ones-job-seeking-k3NT.jpg",
+      "description": "Discover how to offer both emotional support and practical help to loved ones facing job search challenges. Get tips on refining resumes, networking, and more.",
+      "keywords": "job search support, emotional support, practical job search tips, resume help, networking advice, career change guidance, maintaining mental health, job huntin",
+      "publishedAt": "2024-02-02T02:12:34.000Z",
+      "seoTitle": "Supporting Loved Ones in Their Job Search: Practical & Emotional Tips",
+      "slug": "career-advice-supporting-loved-ones-job-search",
+      "status": "published",
+      "title": "How to Support Loved Ones Through Tough Job Searches"
     }
   ]
 }
