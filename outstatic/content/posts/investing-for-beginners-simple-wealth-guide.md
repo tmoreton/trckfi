@@ -1,11 +1,11 @@
 ---
-title: 'The fear of losing money is a prime reason women don''t invest more'
+title: 'The Fear of Losing Money is a Prime Reason Women Don''t Invest More'
 status: 'published'
 author:
   name: 'Cande'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'investing-for-beginners-simple-wealth-guide'
-description: 'Our simple guide demystifies the process for beginners, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common fears and make smart investment choices.'
+description: 'Our simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common fears and make smart investment choices.'
 coverImage: '/images/investing-begining-guide-Y5Mz.jpg'
 category: 'Investing Beginers'
 seoTitle: 'Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly'
