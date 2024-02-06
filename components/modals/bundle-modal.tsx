@@ -88,7 +88,7 @@ export default ({ open, setOpen }) => {
                             Google Sheets Integration
                           </li>
                         </ul>
-                        <form action="https://rewrite.blog/email/subscribe" method="get">
+                        <form action="https://rewrite.blog/notion/subscribe" method="post">
                           <div className="mx-auto block lg:flex max-w-md gap-x-4 pt-5">
                             <input 
                               placeholder="Name" 
@@ -104,9 +104,8 @@ export default ({ open, setOpen }) => {
                               required 
                               className="mt-2 lg:m-0 w-full min-w-0 flex-auto rounded-3xl border bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
                             /> 
-                            <input hidden name="token" type="text" value="clrdva3js000114by8mf6ube4"/> 
+                            <input hidden name="database_id" type="text" value="640b8295e5284cf5a8b87accdff906d1"/> 
                             <input hidden name="success_url" type="text" value="https://www.trckfi.com/download"/> 
-                            <input hidden name="blog" type="text" value="TRCKFI" /> 
                           </div>
                           <div className="mx-auto flex max-w-md gap-x-4" >
                             <input type="submit" value="Subscribe" className="flex-none w-full rounded-3xl mt-4 bg-pink-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"/> 
