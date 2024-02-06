@@ -1,6 +1,6 @@
 {
   "commit": "c3231cde51605be2c6d9ed4b4bac191eef5db840",
-  "generated": "2024-02-06T02:06:25.477Z",
+  "generated": "2024-02-06T02:06:58.670Z",
   "metadata": [
     {
       "__outstatic": {
@@ -888,8 +888,8 @@
     {
       "__outstatic": {
         "commit": "c3231cde51605be2c6d9ed4b4bac191eef5db840",
-        "hash": "3537249339",
-        "path": "outstatic/content/posts/the-fear-of-losing-money-is-a-prime-reason-women-dont-invest-more.md"
+        "hash": "2824123482",
+        "path": "outstatic/content/posts/investing-for-beginners-simple-wealth-guide.md"
       },
       "author": {
         "name": "Cande",
@@ -897,12 +897,12 @@
       },
       "category": "Investing Beginers",
       "collection": "posts",
-      "coverImage": "/images/investing-begining-guide-YwNj.jpg",
+      "coverImage": "/images/investing-begining-guide-Y5Mz.jpg",
       "description": "Our simple guide demystifies the process for beginners, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common fears and make smart investment choices.",
       "keywords": "Investment Mistakes, Financial Growth, Net Worth Assessment, Overcoming Financial Fears, Analysis Paralysis in Investing, Social Media Investment Advice, Dollar Cost Averaging, High-Yield Savings, Accredited Investor Opportunities, Investment Strategy, Investing Beginers",
       "publishedAt": "2024-02-06T18:11:41.000Z",
       "seoTitle": "Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly",
-      "slug": "the-fear-of-losing-money-is-a-prime-reason-women-dont-invest-more",
+      "slug": "investing-for-beginners-simple-wealth-guide",
       "status": "published",
       "title": "The fear of losing money is a prime reason women don't invest more"
     }
