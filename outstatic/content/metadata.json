@@ -1,6 +1,6 @@
 {
-  "commit": "c44ee3231ffcecfd6255f6fcbc19343b5852fd81",
-  "generated": "2024-02-07T17:06:04.135Z",
+  "commit": "5b8be2a3f01a0d9f177faf170aa98ecb9fc0f36b",
+  "generated": "2024-02-07T17:06:42.349Z",
   "metadata": [
     {
       "__outstatic": {
@@ -908,27 +908,6 @@
     },
     {
       "__outstatic": {
-        "commit": "e9a2b66db0e4ff27f28de352306e10a1435c71e0",
-        "hash": "2363257218",
-        "path": "outstatic/content/posts/career-advice-supporting-loved-ones-job-search.md"
-      },
-      "author": {
-        "name": "Cande",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Career Advice & Support",
-      "collection": "posts",
-      "coverImage": "/images/support-loved-ones-job-seeking-k3NT.jpg",
-      "description": "Discover how to offer both emotional support and practical help to loved ones facing job search challenges. Get tips on refining resumes, networking, and more.",
-      "keywords": "job search support, emotional support, practical job search tips, resume help, networking advice, career change guidance, maintaining mental health, job huntin",
-      "publishedAt": "2024-02-02T02:12:34.000Z",
-      "seoTitle": "Supporting Loved Ones in Their Job Search: Practical & Emotional Tips",
-      "slug": "career-advice-supporting-loved-ones-job-search",
-      "status": "published",
-      "title": "How to Support Loved Ones Through Tough Job Searches"
-    },
-    {
-      "__outstatic": {
         "commit": "c44ee3231ffcecfd6255f6fcbc19343b5852fd81",
         "hash": "2072029986",
         "path": "outstatic/content/posts/financial-mindset-shifts-for-wealth-building.md"
@@ -947,6 +926,27 @@
       "slug": "financial-mindset-shifts-for-wealth-building",
       "status": "published",
       "title": "Is Your Mindset Keeping You Broke?"
+    },
+    {
+      "__outstatic": {
+        "commit": "5b8be2a3f01a0d9f177faf170aa98ecb9fc0f36b",
+        "hash": "870338149",
+        "path": "outstatic/content/posts/career-advice-supporting-loved-ones-job-search.md"
+      },
+      "author": {
+        "name": "Cande",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Career Advice & Support",
+      "collection": "posts",
+      "coverImage": "/images/support-loved-ones-job-seeking-k3NT.jpg",
+      "description": "Discover how to offer both emotional support and practical help to loved ones facing job search challenges. Get tips on refining resumes, networking, and more.",
+      "keywords": "job search support, emotional support, practical job search tips, resume help, networking advice, career change guidance, maintaining mental health, job huntin",
+      "publishedAt": "2024-02-02T02:12:34.000Z",
+      "seoTitle": "Supporting Loved Ones in Their Job Search: Practical & Emotional Tips",
+      "slug": "career-advice-supporting-loved-ones-job-search",
+      "status": "published",
+      "title": "How to Support Loved Ones Through Tough Job Searches"
     }
   ]
 }

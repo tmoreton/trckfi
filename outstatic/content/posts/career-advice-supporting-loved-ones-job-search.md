@@ -19,7 +19,7 @@ This post aims to share strategies and insights into how we can support our love
 
 ## Getting the Full Picture
 
-First off, let’s talk about understanding what they’re going through. For many, the job search is not just about finding any job but finding one that reignites their passion, respects their worth, and offers growth opportunities and mindset plays a big role.
+First off, let’s talk about understanding what they’re going through. For many, the job search is not just about finding any job but finding one that reignites their passion, respects their worth, and offers growth opportunities and [mindset](/blog/financial-mindset-shifts-for-wealth-building) plays a big role.
 
 The challenges of feeling undervalued, overworked, and seeing no future in their current role compound the stress of job searching, leading to burnout and a loss of direction. It's not just about landing any job; it’s about finding that spark again, feeling valued, and actually looking forward to Mondays (well, as much as one can).
 
