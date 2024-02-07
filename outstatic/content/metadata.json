@@ -1,6 +1,6 @@
 {
-  "commit": "8f8064b27ba7ef061cf711a7467a422001ee388b",
-  "generated": "2024-02-06T02:43:40.388Z",
+  "commit": "e9a2b66db0e4ff27f28de352306e10a1435c71e0",
+  "generated": "2024-02-07T17:04:37.488Z",
   "metadata": [
     {
       "__outstatic": {
@@ -929,8 +929,8 @@
     },
     {
       "__outstatic": {
-        "commit": "8f8064b27ba7ef061cf711a7467a422001ee388b",
-        "hash": "472386704",
+        "commit": "e9a2b66db0e4ff27f28de352306e10a1435c71e0",
+        "hash": "2363257218",
         "path": "outstatic/content/posts/career-advice-supporting-loved-ones-job-search.md"
       },
       "author": {
