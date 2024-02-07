@@ -25,7 +25,7 @@ The challenges of feeling undervalued, overworked, and seeing no future in their
 
 ## Offering Emotional Support
 
-Now, onto the heart stuff—emotional support. This isn’t about fixing their resume or spamming them with job listings from Indeed. It’s about being that rock-solid listener. Let them vent, dream out loud, or ponder their career existence. It's crucial to provide a listening ear and validate their feelings without necessarily trying to fix their problems. Encourage open conversations about their feelings towards their current role and what they wish for in their next job. Sometimes, just knowing someone is there to listen without judgment can be incredibly comforting.
+Now, onto the heart stuff—emotional support. This isn’t about fixing their resume or spamming them with job listings from Indeed. It’s about being that rock-solid listener. Let them vent, dream out loud, or ponder their career existence. It's crucial to provide a listening ear and validate their feelings without necessarily trying to fix their problems. Encourage [open conversations](/blog/reduce-holiday-financial-stress) about their feelings towards their current role and what they wish for in their next job. Sometimes, just knowing someone is there to listen without judgment can be incredibly comforting.
 
 ## Tangible Support Strategies
 
@@ -41,5 +41,5 @@ Now, onto the heart stuff—emotional support. This isn’t about fixing their r
 
 ## Conclusion
 
-Supporting a loved one through a job search requires patience, understanding, and a delicate balance between offering help and allowing them the space to navigate their own journey. It's about being there for them, offering support without overwhelming them, and helping them find their path to a fulfilling career. Remember, your support can make a significant difference in their journey, providing them with the strength to persevere and the hope for a brighter future
+Supporting a loved one through a job search requires patience, understanding, and a delicate balance between offering help and allowing them the space to navigate their own journey. It's about being there for them, offering support without overwhelming them, and helping them find their path to a fulfilling career. Remember, your support can make a significant difference in their journey, providing them with the strength to persevere and the hope for a brighter future.
 
