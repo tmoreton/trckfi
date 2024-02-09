@@ -1,5 +1,5 @@
 ---
-title: ''
+title: 'draft'
 status: 'draft'
 author:
   name: ''
