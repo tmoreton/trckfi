@@ -4,7 +4,7 @@ status: 'draft'
 author:
   name: ''
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: ''draft
+slug: 'draft'
 description: 'draft'
 coverImage: 'draft'
 category: 'Cash on Hand'
