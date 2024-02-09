@@ -4,9 +4,9 @@ status: 'draft'
 author:
   name: ''
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: ''
-description: ''
-coverImage: ''
+slug: ''draft
+description: 'draft'
+coverImage: 'draft'
 category: 'Cash on Hand'
 seoTitle: 'How Much Cash Do You Need on Hand?'
 keywords: 'cash, cash on hand, emergency fund'
