@@ -45,7 +45,7 @@ Using [Trckfi](/) weekly has allowed me to categorize biz expenses and use the n
 
 **Personal Insight:** Like many busy entrepreneurs, I overlooked the power of paying quarterly taxes during my first year in business, and when taxes were due, I learned that failure to pay quarterly can result in penalties and interest -- on top of the taxes you owe, of course. Missing my quarterly tax payments ended up being an expensive oversight as I was hit with a large bill I wasn't fully prepared to pay. Now, I view these payments as helpful check-ins rather than hassles, contributing to better financial management and more peace of mind. Read more about quarterly taxes [here](https://turbotax.intuit.com/tax-tips/self-employment-taxes/a-guide-to-paying-quarterly-taxes/L6p8C53xQ).
 
-For 2024, you'll need to make three quarterly tax payments, due on April 15, June 17, and Sept. 16, with the final payment due on Jan. 15, 2025. Setting reminders can help ensure you allocate funds accordingly, crucial for adhering to tax regulations. Consider a **high-yield savings account** to earn interest while your cash sits, I recommend [Ally Bank](ally.com/referral?code=4H3G4S7N9D) which provides a \~4.35% APY. Use our [referral link ](https://www.ally.com/referral?code=4H3G4S7N9D)and **receive up to $125 for joining.**
+For 2024, you'll need to make three quarterly tax payments, due on April 15, June 17, and Sept. 16, with the final payment due on Jan. 15, 2025. Setting reminders can help ensure you allocate funds accordingly, crucial for adhering to tax regulations. Consider a **high-yield savings account** to earn interest while your cash sits, I recommend [Ally Bank](https://www.ally.com/referral?code=4H3G4S7N9D) which provides a \~4.35% APY. Use our [referral link ](https://www.ally.com/referral?code=4H3G4S7N9D)and **receive up to $125 for joining.**
 
 While it may initially feel annoying to allocate a portion of your earnings each quarter, I now see it as a blessing rather than a curse. Spreading out tax payments throughout the year mitigates the risk of facing a substantial bill and potential penalties later on and using a [HYSA](https://www.ally.com/referral?code=4H3G4S7N9D) like the one offered by Ally Bank is a great way to earn interest on the cash you set aside.
 
@@ -73,7 +73,7 @@ Another benefit of paying quarterly taxes? You can take advantage of hiring a ta
 
 [![track-expenses-retirement-goals](/images/home--8--g4Mj.png)](/features/net-worth)
 
-## Conclusion 
+## Conclusion
 
 Embracing these strategies can transform how you view and manage your taxes as a **self-employed entrepreneur**. Remember, effective tax management is not just about compliance; it's about maximizing your hard-earned money's potential. As you grow in your entrepreneurial journey, these insights will not only help you navigate tax season with confidence but also contribute to the sustainable growth of your business.
 

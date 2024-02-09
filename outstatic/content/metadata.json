@@ -1,6 +1,6 @@
 {
-  "commit": "07ae2bf0457f9da1a746dec6531eafa35db71105",
-  "generated": "2024-02-09T15:39:57.361Z",
+  "commit": "f29a2e0b8dc917a147f2fe4915857c038b7755d7",
+  "generated": "2024-02-09T15:42:11.739Z",
   "metadata": [
     {
       "__outstatic": {
@@ -908,27 +908,6 @@
     },
     {
       "__outstatic": {
-        "commit": "88387a36009f7a73af0f760a0181cae13933bc85",
-        "hash": "3671100208",
-        "path": "outstatic/content/posts/self-employed-taxes-7-easy-strategies-for-success.md"
-      },
-      "author": {
-        "name": "",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Self Employed Taxes",
-      "collection": "posts",
-      "coverImage": "/images/self-employed-taxes-cwOT.jpg",
-      "description": "Learn essential strategies for self-employed taxes. Streamline expenses, maximize deductions, and plan for the future. Self-employed, taxes, deductions, expenses.",
-      "keywords": "self-employed, taxes, deductions, expenses, tax management, small business taxes, self-employed deductions, tax planning, tax savings, retirement savings, self employed taxes, self employed taxes for dummies",
-      "publishedAt": "2024-02-13T13:38:36.000Z",
-      "seoTitle": "Self-Employed Taxes: Mastering Essential Strategies",
-      "slug": "self-employed-taxes-7-easy-strategies-for-success",
-      "status": "published",
-      "title": "Self-Employed Taxes: 7 Easy Strategies for Success"
-    },
-    {
-      "__outstatic": {
         "commit": "602f6364a5e487577283b2e155a0ea8005ef120c",
         "hash": "2841233566",
         "path": "outstatic/content/posts/mint-alternative-best-personal-finance-apps-2024.md"
@@ -968,6 +947,27 @@
       "slug": "investing-for-beginners-simple-wealth-guide",
       "status": "published",
       "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
+    },
+    {
+      "__outstatic": {
+        "commit": "f29a2e0b8dc917a147f2fe4915857c038b7755d7",
+        "hash": "2541015760",
+        "path": "outstatic/content/posts/self-employed-taxes-7-easy-strategies-for-success.md"
+      },
+      "author": {
+        "name": "",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Self Employed Taxes",
+      "collection": "posts",
+      "coverImage": "/images/self-employed-taxes-cwOT.jpg",
+      "description": "Learn essential strategies for self-employed taxes. Streamline expenses, maximize deductions, and plan for the future. Self-employed, taxes, deductions, expenses.",
+      "keywords": "self-employed, taxes, deductions, expenses, tax management, small business taxes, self-employed deductions, tax planning, tax savings, retirement savings, self employed taxes, self employed taxes for dummies",
+      "publishedAt": "2024-02-13T13:38:36.000Z",
+      "seoTitle": "Self-Employed Taxes: Mastering Essential Strategies",
+      "slug": "self-employed-taxes-7-easy-strategies-for-success",
+      "status": "published",
+      "title": "Self-Employed Taxes: 7 Easy Strategies for Success"
     }
   ]
 }
