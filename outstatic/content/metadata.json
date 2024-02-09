@@ -1,6 +1,6 @@
 {
-  "commit": "8f8064b27ba7ef061cf711a7467a422001ee388b",
-  "generated": "2024-02-06T02:43:40.388Z",
+  "commit": "f29a2e0b8dc917a147f2fe4915857c038b7755d7",
+  "generated": "2024-02-09T15:42:11.739Z",
   "metadata": [
     {
       "__outstatic": {
@@ -803,27 +803,6 @@
     },
     {
       "__outstatic": {
-        "commit": "d280bdce1f62f4484161b63e6de99ab94b5aa4a0",
-        "hash": "1707560754",
-        "path": "outstatic/content/posts/mint-alternative-best-personal-finance-apps-2024.md"
-      },
-      "author": {
-        "name": "Trckfi",
-        "picture": ""
-      },
-      "category": "Money Management",
-      "collection": "posts",
-      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
-      "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
-      "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
-      "publishedAt": "2024-01-03T12:03:51.000Z",
-      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
-      "slug": "mint-alternative-best-personal-finance-apps-2024",
-      "status": "published",
-      "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
-    },
-    {
-      "__outstatic": {
         "commit": "4cf11d148fd8d27aeeef9cea3b56a916783a1538",
         "hash": "3344850039",
         "path": "outstatic/content/posts/health-savings-hsas-hras-and-fsas.md"
@@ -866,27 +845,6 @@
     },
     {
       "__outstatic": {
-        "commit": "7d0b39342278e5cf0da6720a935ecabe7631b788",
-        "hash": "3664951487",
-        "path": "outstatic/content/posts/is-your-mindset-keeping-you-broke.md"
-      },
-      "author": {
-        "name": "Cande R.",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Financial Motivation",
-      "collection": "posts",
-      "coverImage": "/images/positive-money-mindset-women-UwOD.jpg",
-      "description": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth",
-      "keywords": "money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills",
-      "publishedAt": "2024-01-30T15:30:47.310Z",
-      "seoTitle": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth.",
-      "slug": "is-your-mindset-keeping-you-broke",
-      "status": "published",
-      "title": "Is Your Mindset Keeping You Broke?"
-    },
-    {
-      "__outstatic": {
         "commit": "150bf75cbaa6059ecac6337eb7ae5675aca2bd97",
         "hash": "1151880401",
         "path": "outstatic/content/posts/the-fear-of-losing-money-is-a-prime-reason-women-dont-invest-more.md"
@@ -908,29 +866,29 @@
     },
     {
       "__outstatic": {
-        "commit": "fba1258ca12da3044d1158f605dd4fe43a5d1514",
-        "hash": "1856787821",
-        "path": "outstatic/content/posts/investing-for-beginners-simple-wealth-guide.md"
+        "commit": "c44ee3231ffcecfd6255f6fcbc19343b5852fd81",
+        "hash": "2072029986",
+        "path": "outstatic/content/posts/financial-mindset-shifts-for-wealth-building.md"
       },
       "author": {
-        "name": "Cande",
+        "name": "Cande R.",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Investing Beginers",
+      "category": "Financial Motivation",
       "collection": "posts",
-      "coverImage": "/images/investing-begining-guide-Y5Mz.jpg",
-      "description": "Our simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common fears and make smart investment choices.",
-      "keywords": "Investment Mistakes, Financial Growth, Net Worth Assessment, Overcoming Financial Fears, Analysis Paralysis in Investing, Social Media Investment Advice, Dollar Cost Averaging, High-Yield Savings, Accredited Investor Opportunities, Investment Strategy, Investing Beginers",
-      "publishedAt": "2024-02-06T18:11:41.000Z",
-      "seoTitle": "Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly",
-      "slug": "investing-for-beginners-simple-wealth-guide",
+      "coverImage": "/images/positive-money-mindset-women-UwOD.jpg",
+      "description": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth",
+      "keywords": "money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills",
+      "publishedAt": "2024-01-30T15:30:47.310Z",
+      "seoTitle": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth.",
+      "slug": "financial-mindset-shifts-for-wealth-building",
       "status": "published",
-      "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
+      "title": "Is Your Mindset Keeping You Broke?"
     },
     {
       "__outstatic": {
-        "commit": "8f8064b27ba7ef061cf711a7467a422001ee388b",
-        "hash": "472386704",
+        "commit": "5b8be2a3f01a0d9f177faf170aa98ecb9fc0f36b",
+        "hash": "4061628763",
         "path": "outstatic/content/posts/career-advice-supporting-loved-ones-job-search.md"
       },
       "author": {
@@ -947,6 +905,69 @@
       "slug": "career-advice-supporting-loved-ones-job-search",
       "status": "published",
       "title": "How to Support Loved Ones Through Tough Job Searches"
+    },
+    {
+      "__outstatic": {
+        "commit": "602f6364a5e487577283b2e155a0ea8005ef120c",
+        "hash": "2841233566",
+        "path": "outstatic/content/posts/mint-alternative-best-personal-finance-apps-2024.md"
+      },
+      "author": {
+        "name": "Trckfi",
+        "picture": ""
+      },
+      "category": "Money Management",
+      "collection": "posts",
+      "coverImage": "/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg",
+      "description": "With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.",
+      "keywords": "mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint",
+      "publishedAt": "2024-01-02T12:03:51.000Z",
+      "seoTitle": "Replace Mint: 7 Best Paid Personal Finance Apps for 2023",
+      "slug": "mint-alternative-best-personal-finance-apps-2024",
+      "status": "published",
+      "title": "Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024"
+    },
+    {
+      "__outstatic": {
+        "commit": "07ae2bf0457f9da1a746dec6531eafa35db71105",
+        "hash": "3662668394",
+        "path": "outstatic/content/posts/investing-for-beginners-simple-wealth-guide.md"
+      },
+      "author": {
+        "name": "Cande",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Investing Beginers",
+      "collection": "posts",
+      "coverImage": "/images/investing-begining-guide-Y5Mz.jpg",
+      "description": "Simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common your fears.",
+      "keywords": "Investment Mistakes, Financial Growth, Net Worth Assessment, Overcoming Financial Fears, Analysis Paralysis in Investing, Social Media Investment Advice, Dollar Cost Averaging, High-Yield Savings, Accredited Investor Opportunities, Investment Strategy, Investing Beginers",
+      "publishedAt": "2024-02-06T18:11:41.000Z",
+      "seoTitle": "Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly",
+      "slug": "investing-for-beginners-simple-wealth-guide",
+      "status": "published",
+      "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
+    },
+    {
+      "__outstatic": {
+        "commit": "f29a2e0b8dc917a147f2fe4915857c038b7755d7",
+        "hash": "2541015760",
+        "path": "outstatic/content/posts/self-employed-taxes-7-easy-strategies-for-success.md"
+      },
+      "author": {
+        "name": "",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Self Employed Taxes",
+      "collection": "posts",
+      "coverImage": "/images/self-employed-taxes-cwOT.jpg",
+      "description": "Learn essential strategies for self-employed taxes. Streamline expenses, maximize deductions, and plan for the future. Self-employed, taxes, deductions, expenses.",
+      "keywords": "self-employed, taxes, deductions, expenses, tax management, small business taxes, self-employed deductions, tax planning, tax savings, retirement savings, self employed taxes, self employed taxes for dummies",
+      "publishedAt": "2024-02-13T13:38:36.000Z",
+      "seoTitle": "Self-Employed Taxes: Mastering Essential Strategies",
+      "slug": "self-employed-taxes-7-easy-strategies-for-success",
+      "status": "published",
+      "title": "Self-Employed Taxes: 7 Easy Strategies for Success"
     }
   ]
 }

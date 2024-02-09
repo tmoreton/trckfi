@@ -4,7 +4,7 @@ status: 'published'
 author:
   name: 'Cande R.'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'is-your-mindset-keeping-you-broke'
+slug: 'financial-mindset-shifts-for-wealth-building'
 description: 'Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth'
 coverImage: '/images/positive-money-mindset-women-UwOD.jpg'
 category: 'Financial Motivation'

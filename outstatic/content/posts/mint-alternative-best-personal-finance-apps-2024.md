@@ -10,7 +10,7 @@ coverImage: '/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jp
 keywords: 'mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint'
 category: 'Money Management'
 seoTitle: 'Replace Mint: 7 Best Paid Personal Finance Apps for 2023'
-publishedAt: '2024-01-03T12:03:51.000Z'
+publishedAt: '2024-01-02T12:03:51.000Z'
 ---
 
 Mint has been the go-to finance app for over 15 years. But with their recent shutdown [announcement](https://www.theverge.com/2023/11/2/23943254/mint-intuit-shutting-down-credit-karma) by Intuit, millions of loyal users need a new solution. Some have decades of financial data in Mint, and key features like budgeting and net worth tracking won't be available in the replacement app Credit Karma.
@@ -127,5 +127,5 @@ If you’re interested in trying [Trckfi](/pricing), we offer a [30-day free tri
 
 ### Trckfi's Personal Finance Dashboard
 
-If you want a simpler money life in 2024, check out Trckfi's Personal Finance Dashboard. It's not just an app; it's like having a money friend helping you understand and control your finances. What are you waiting for? Start the year with financial sanity!
+If you want a simpler money life in 2024, check out Trckfi's Personal Finance Dashboard. It's not just an app; it's like having a money friend helping you understand and control your finances. What are you waiting for? [Start the year with financial sanity!](/pricing)
 
