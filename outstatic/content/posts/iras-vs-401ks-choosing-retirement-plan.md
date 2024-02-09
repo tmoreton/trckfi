@@ -1,5 +1,5 @@
 ---
-title: 'Retirement Planning: Understanding IRAs and 401(k)s for a Secure Future'
+title: '401(k)s Investing and IRAs: Retirement Planning for a Secure Future'
 description: 'Learn the differences between IRAs and 401(k)s to make good choices for retirement. Understand tax implications, contribution limits, and employer benefits.'
 coverImage: '/assets/blog/retirement-plan.png'
 date: '08.07.2023'
