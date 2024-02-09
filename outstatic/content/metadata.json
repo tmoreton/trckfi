@@ -1,6 +1,6 @@
 {
-  "commit": "4e17b384bc71d1feb33e54f5af03e162d8b519a3",
-  "generated": "2024-02-09T14:59:54.933Z",
+  "commit": "88387a36009f7a73af0f760a0181cae13933bc85",
+  "generated": "2024-02-09T15:01:16.685Z",
   "metadata": [
     {
       "__outstatic": {
@@ -950,8 +950,8 @@
     },
     {
       "__outstatic": {
-        "commit": "4e17b384bc71d1feb33e54f5af03e162d8b519a3",
-        "hash": "3095515476",
+        "commit": "88387a36009f7a73af0f760a0181cae13933bc85",
+        "hash": "3671100208",
         "path": "outstatic/content/posts/self-employed-taxes-7-easy-strategies-for-success.md"
       },
       "author": {
