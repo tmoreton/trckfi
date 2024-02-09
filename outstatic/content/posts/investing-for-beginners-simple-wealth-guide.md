@@ -5,7 +5,7 @@ author:
   name: 'Cande'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'investing-for-beginners-simple-wealth-guide'
-description: 'Our simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common fears and make smart investment choices.'
+description: 'Simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common your fears.'
 coverImage: '/images/investing-begining-guide-Y5Mz.jpg'
 category: 'Investing Beginers'
 seoTitle: 'Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly'
