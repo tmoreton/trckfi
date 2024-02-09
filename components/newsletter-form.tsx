@@ -53,42 +53,6 @@ const Newsletter = () => {
               <input type="submit" value="Subscribe" className="flex-none w-full rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"/> 
             </div>
           </form> 
-          {/* <form onSubmit={subscribe}>
-            <div className="mx-auto flex max-w-md gap-x-4" >
-              <input
-                autoComplete="name"
-                id="name"
-                name="name"
-                value={name}
-                placeholder="Name"
-                onChange={e => setName(e.target.value)}
-                required
-                type="name"
-                disabled={subscribed}
-                className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
-              />
-              <input
-                autoComplete="email"
-                id="email"
-                name="email"
-                value={email}
-                placeholder="Email"
-                onChange={e => setEmail(e.target.value)}
-                required
-                type="email"
-                disabled={subscribed}
-                className="min-w-0 flex-auto rounded-3xl border-0 bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
-              />
-            </div>
-            <div className="mx-auto flex max-w-md gap-x-4" >
-            <button
-              type="submit"
-              className="flex-none w-full rounded-3xl mt-4 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:none focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Join
-            </button>
-            </div>
-          </form> */}
         </>
       }
     </div>
