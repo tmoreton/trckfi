@@ -127,5 +127,5 @@ If you’re interested in trying [Trckfi](/pricing), we offer a [30-day free tri
 
 ### Trckfi's Personal Finance Dashboard
 
-If you want a simpler money life in 2024, check out Trckfi's Personal Finance Dashboard. It's not just an app; it's like having a money friend helping you understand and control your finances. What are you waiting for? Start the year with financial sanity!
+If you want a simpler money life in 2024, check out Trckfi's Personal Finance Dashboard. It's not just an app; it's like having a money friend helping you understand and control your finances. What are you waiting for? [Start the year with financial sanity!](/pricing)
 
