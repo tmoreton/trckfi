@@ -73,9 +73,9 @@ The events of Covid-19 and the rise of inflation emphasized the importance of be
 
 ## Summary
 
-The question of how much cash is enough is a deeply personal one. While general guidelines provide a helpful starting point, it's crucial to tailor your approach to your individual circumstances. By striking the right balance between liquidity and growth, you can build a solid financial foundation that withstands the test of time. So, take control of your cash management today and pave the way for a brighter financial future tomorrow.
+The question of how much cash is enough is a deeply personal one. While general guidelines provide a helpful starting point, it's crucial to tailor your approach to your unique circumstances. By striking the right balance between liquidity and growth, you can build a solid financial foundation that withstands the test of time. So, take control of your cash management today and pave the way for a brighter financial future tomorrow.
 
-Remember emergency funds shouldn't be invested nor kept in cash on a regular checking account. Make the most of your savings by opening a high-yield savings account with [Ally Bank ](https://www.ally.com/referral?code=4H3G4S7N9D)and make your money work for you. Use referral code and earn up to $125 dollars when you join,
+Remember emergency funds shouldn't be invested nor kept in cash on a regular checking account. Make the most of your savings by opening a high-yield savings account with **Ally Bank** and make your money work for you. Use our [referral code](https://www.ally.com/referral?code=4H3G4S7N9D) and earn up to **$125 dollars when you join**.
 
 Start today, no matter how small the contribution, and gradually work towards building a solid financial cushion for unforeseen circumstances.
 
