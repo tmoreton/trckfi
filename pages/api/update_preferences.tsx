@@ -36,8 +36,10 @@ export default async (req, res) => {
   try {
     if(!user.subscription_id){
       data = updateOrCreate(preferences, user.linked_user_id)
+      console.log(data)
     } else {
       data = updateOrCreate(preferences, user.id)
+      console.log(data)
     }
 
     return res.status(200).json({ status: 'OK', data })
