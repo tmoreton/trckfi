@@ -1,16 +1,16 @@
 ---
 title: 'How Much Cash Do I need on Hand?'
-status: 'draft'
+status: 'published'
 author:
-  name: ''
+  name: 'Cande R'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'draft'
-description: 'draft'
-coverImage: ''
-category: 'Cash on Hand'
+slug: 'how-much-cash-emergency-fund-guide'
+description: 'Discover essential steps to determine the right amount of cash to keep on hand for personal and business emergencies. Explore practical strategies to start building your emergency fund today and secure your financial stability in uncertain times.'
+coverImage: '/images/personal-finance-UwNj.jpg'
+category: 'Savings and Investments'
 seoTitle: 'How Much Cash Do You Need on Hand?'
-keywords: 'cash, cash on hand, emergency fund'
-publishedAt: '2024-02-09T17:12:52.010Z'
+keywords: 'cash, cash on hand, emergency fund, emergency cash reserves, financial preparedness, managing cash in emergencies, building emergency fund, financial stability '
+publishedAt: '2024-02-13T17:12:52.000Z'
 ---
 
 With all this talk about economic ups and downs, we're diving into a topic that's on everyone's minds: **cash** – how much is enough, and how much is too much? I get it – it can feel like everyone's shouting different advice, and it's hard to know what's what.
@@ -25,15 +25,21 @@ However, an **eight-month** [emergency fund](/blog/building-an-emergency-fund) c
 
 Ideally, you want to have enough cash to get you through a tough moment without having to turn into [credit card debt](/blog/how-to-get-out-of-debt) to sustain yourself and your dependents. It's going to give you peace of mind and resources to alleviate the stress that comes along with [losing a job](/blog/career-advice-supporting-loved-ones-job-search) or any emergency.
 
-### Where Should I Keep the Cash?
+[![ally-high-yield-saving-account-bonus](/images/screen-shot-2024-02-09-at-3.37.50-pm-U0Nj.png)](https://www.ally.com/referral?code=4H3G4S7N9D)
 
-Now that we covered the basic idea of how much cash you should aim to have, let's look at where to keep it. There is a lot of bad advice on TikTok and other social media platforms that tell people to keep cash in their checking accounts in case they need a quick withdrawal. Or the opposite to invest it on the stock market… Both pieces of advice suck, here is why:
+## Where Should I Keep the Cash? 
+
+### Is it better to keep in checking or invested? Or both?
+
+Now that we covered the basic idea of how much cash you should aim to have, let's look at where to keep it. There is a lot of **bad advice on TikTok** and other social media platforms that tell people to keep cash in their checking accounts in case they need a quick withdrawal. Or the opposite to invest it on the stock market… **Both pieces of advice suck**, here is why:
 
 By keeping cash in your checking or regular savings your money is sitting and losing value (due to inflation) and investing defeats the purpose of having that money handy in case of an emergency. Short-term investing is risky - it's not insured or recommended for emergency fund.
 
 - Keep **one month of expenses** in your **checking account**, you don't need more than that. You can always set your savings account as a backup to avoid defaulting on a withdrawal.
 
 - Earn interest in your emergency cash. Open a high-yield saving account that earns more than 4% APY and is FDIC insured. Ally Bank provides a great HYSA and you can [earn up to $125 when you join](https://www.ally.com/referral?code=4H3G4S7N9D).
+
+[![business-expenses-cash-flow-tracker](/images/home--9--Q3MD.png)](/features/transactions)
 
 ## What if I'm a Small Business Owner? 
 
@@ -51,6 +57,8 @@ The equation shifts slightly. Having a robust cash reserve can mean the differen
 
 - **Seek Professional Guidance:** If you're unsure about the best approach for your financial situation, don't hesitate to seek advice from a qualified financial advisor. They can offer personalized guidance based on your goals, risk tolerance, and time horizon.
 
+[![emergency-fund](/images/goals-A4MD.png)](/features/goals)
+
 ## How to Get Started?
 
 Starting your emergency fund, whether for personal or business purposes, is a crucial step towards financial stability. Here's how to get started:
@@ -61,11 +69,13 @@ Starting your emergency fund, whether for personal or business purposes, is a cr
 
 The events of Covid-19 and the rise of inflation emphasized the importance of being prepared for unexpected challenges, reinforcing the need for robust financial reserves in business operations. Learn from this lesson and prioritize building your emergency fund steadily over time. Remember, the journey to financial security begins with the first step.
 
+[![dashboard-cash-flow-income-expenses-demo](/images/home--8--IxOD.png)](/features/dashboard)
+
 ## Summary
 
 The question of how much cash is enough is a deeply personal one. While general guidelines provide a helpful starting point, it's crucial to tailor your approach to your individual circumstances. By striking the right balance between liquidity and growth, you can build a solid financial foundation that withstands the test of time. So, take control of your cash management today and pave the way for a brighter financial future tomorrow.
 
-Remember emergency funds shouldn't be invested nor kept in cash on a regular checking account. Make the most of your savings by opening a high yield savings account with [Ally Bank ](https://www.ally.com/referral?code=4H3G4S7N9D)and make your money work for you. Use referral code and earn up to $125 dollars when you join,
+Remember emergency funds shouldn't be invested nor kept in cash on a regular checking account. Make the most of your savings by opening a high-yield savings account with [Ally Bank ](https://www.ally.com/referral?code=4H3G4S7N9D)and make your money work for you. Use referral code and earn up to $125 dollars when you join,
 
 Start today, no matter how small the contribution, and gradually work towards building a solid financial cushion for unforeseen circumstances.
 

@@ -1,6 +1,6 @@
 {
   "commit": "f3fb9224c091da086824e90c70b95d4767c9be90",
-  "generated": "2024-02-13T15:30:31.155Z",
+  "generated": "2024-02-13T17:43:06.983Z",
   "metadata": [
     {
       "__outstatic": {
@@ -993,22 +993,22 @@
     {
       "__outstatic": {
         "commit": "f3fb9224c091da086824e90c70b95d4767c9be90",
-        "hash": "3404773113",
-        "path": "outstatic/content/posts/draft.md"
+        "hash": "4059860579",
+        "path": "outstatic/content/posts/how-much-cash-emergency-fund-guide.md"
       },
       "author": {
-        "name": "",
+        "name": "Cande R",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Cash on Hand",
+      "category": "Savings and Investments",
       "collection": "posts",
-      "coverImage": "",
-      "description": "draft",
-      "keywords": "cash, cash on hand, emergency fund",
-      "publishedAt": "2024-02-09T17:12:52.010Z",
+      "coverImage": "/images/personal-finance-UwNj.jpg",
+      "description": "Discover essential steps to determine the right amount of cash to keep on hand for personal and business emergencies. Explore practical strategies to start building your emergency fund today and secure your financial stability in uncertain times.",
+      "keywords": "cash, cash on hand, emergency fund, emergency cash reserves, financial preparedness, managing cash in emergencies, building emergency fund, financial stability ",
+      "publishedAt": "2024-02-13T17:12:52.000Z",
       "seoTitle": "How Much Cash Do You Need on Hand?",
-      "slug": "draft",
-      "status": "draft",
+      "slug": "how-much-cash-emergency-fund-guide",
+      "status": "published",
       "title": "How Much Cash Do I need on Hand?"
     }
   ]
