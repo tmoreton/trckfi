@@ -37,7 +37,7 @@ By keeping cash in your checking or regular savings your money is sitting and lo
 
 - Keep **one month of expenses** in your **checking account**, you don't need more than that. You can always set your savings account as a backup to avoid defaulting on a withdrawal.
 
-- Earn interest in your emergency cash. Open a high-yield saving account that earns more than 4% APY and is FDIC insured. Ally Bank provides a great HYSA and you can [earn up to $125 when you join](https://www.ally.com/referral?code=4H3G4S7N9D).
+- Earn interest in your emergency cash. Open a high-yield saving account that earns more than 4% APY and is **FDIC insured**. Ally Bank provides a great HYSA and you can [earn up to $125 when you join](https://www.ally.com/referral?code=4H3G4S7N9D).
 
 [![business-expenses-cash-flow-tracker](/images/home--9--Q3MD.png)](/features/transactions)
 
@@ -45,13 +45,13 @@ By keeping cash in your checking or regular savings your money is sitting and lo
 
 The equation shifts slightly. Having a robust cash reserve can mean the difference between weathering a storm and shuttering your business. In times of crisis, having cash on hand allows you to cover operational expenses, retain employees, and pivot your strategy as needed. It's your lifeline when unforeseen challenges arise. So, how do you strike the right balance? Here are some actionable tips to guide you:
 
-- \*\*Assess Your Needs: \*\*Take stock of your financial situation. Consider your monthly expenses, income sources, and any potential risks or obligations. This evaluation will help you determine how much cash you need to keep on hand.
+- **Assess Your Needs:** Take stock of your financial situation. Consider your monthly expenses, income sources, and any potential risks or obligations. This evaluation will help you determine how much cash you need to keep on hand.
 
 - **Emergency Fund Essentials:** Aim to build a robust emergency fund equivalent to 4-6 months' worth of expenses. This fund should cover necessities like rent or mortgage payments, utilities, groceries, and insurance premiums.
 
-- \*\*Diversify Your Holdings: \*\*While cash is king in emergencies, it's essential to diversify your holdings for long-term financial stability. Explore investment options such as stocks, bonds, and real estate to grow your wealth over time.
+- **Diversify Your Holdings:** While cash is king in emergencies, it's essential to diversify your holdings for long-term financial stability. Explore investment options such as stocks, bonds, and real estate to grow your wealth over time.
 
-- \*\*Regularly Reevaluate: \*\*Life is unpredictable, and your financial needs may change over time. Make it a habit to reassess your cash reserves periodically and adjust them as necessary. A windfall, job change, or major life event may warrant a reassessment of your financial priorities.
+- **Regularly Reevaluate:** Life is unpredictable, and your financial needs may change over time. Make it a habit to reassess your cash reserves periodically and adjust them as necessary. A windfall, job change, or major life event may warrant a reassessment of your financial priorities.
 
 - **Plan for the Unexpected:** Anticipate potential setbacks and plan accordingly. Consider factors like [job security](/blog/career-advice-supporting-loved-ones-job-search), health issues, or market downturns when determining your cash needs. A proactive approach can help you navigate challenges with confidence.
 
