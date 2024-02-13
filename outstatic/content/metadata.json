@@ -1,6 +1,6 @@
 {
-  "commit": "ef8fc472f1d4f37dc331e331685cabedba2072af",
-  "generated": "2024-02-09T18:36:59.901Z",
+  "commit": "f3fb9224c091da086824e90c70b95d4767c9be90",
+  "generated": "2024-02-13T15:30:31.155Z",
   "metadata": [
     {
       "__outstatic": {
@@ -989,6 +989,27 @@
       "slug": "",
       "status": "draft",
       "title": ""
+    },
+    {
+      "__outstatic": {
+        "commit": "f3fb9224c091da086824e90c70b95d4767c9be90",
+        "hash": "3404773113",
+        "path": "outstatic/content/posts/draft.md"
+      },
+      "author": {
+        "name": "",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Cash on Hand",
+      "collection": "posts",
+      "coverImage": "",
+      "description": "draft",
+      "keywords": "cash, cash on hand, emergency fund",
+      "publishedAt": "2024-02-09T17:12:52.010Z",
+      "seoTitle": "How Much Cash Do You Need on Hand?",
+      "slug": "draft",
+      "status": "draft",
+      "title": "How Much Cash Do I need on Hand?"
     }
   ]
 }
