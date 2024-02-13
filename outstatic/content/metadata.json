@@ -1,6 +1,6 @@
 {
-  "commit": "f3fb9224c091da086824e90c70b95d4767c9be90",
-  "generated": "2024-02-13T17:43:36.021Z",
+  "commit": "6f80729600af539fa1ae2051a3f857277b10e91d",
+  "generated": "2024-02-13T17:49:53.145Z",
   "metadata": [
     {
       "__outstatic": {
@@ -908,27 +908,6 @@
     },
     {
       "__outstatic": {
-        "commit": "07ae2bf0457f9da1a746dec6531eafa35db71105",
-        "hash": "3662668394",
-        "path": "outstatic/content/posts/investing-for-beginners-simple-wealth-guide.md"
-      },
-      "author": {
-        "name": "Cande",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Investing Beginers",
-      "collection": "posts",
-      "coverImage": "/images/investing-begining-guide-Y5Mz.jpg",
-      "description": "Simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common your fears.",
-      "keywords": "Investment Mistakes, Financial Growth, Net Worth Assessment, Overcoming Financial Fears, Analysis Paralysis in Investing, Social Media Investment Advice, Dollar Cost Averaging, High-Yield Savings, Accredited Investor Opportunities, Investment Strategy, Investing Beginers",
-      "publishedAt": "2024-02-06T18:11:41.000Z",
-      "seoTitle": "Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly",
-      "slug": "investing-for-beginners-simple-wealth-guide",
-      "status": "published",
-      "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
-    },
-    {
-      "__outstatic": {
         "commit": "f29a2e0b8dc917a147f2fe4915857c038b7755d7",
         "hash": "2541015760",
         "path": "outstatic/content/posts/self-employed-taxes-7-easy-strategies-for-success.md"
@@ -1010,6 +989,27 @@
       "slug": "how-much-cash-emergency-fund-guide",
       "status": "published",
       "title": "How Much Cash Do I need on Hand?"
+    },
+    {
+      "__outstatic": {
+        "commit": "6f80729600af539fa1ae2051a3f857277b10e91d",
+        "hash": "865264557",
+        "path": "outstatic/content/posts/investing-for-beginners-simple-wealth-guide.md"
+      },
+      "author": {
+        "name": "Cande",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Investing Beginers",
+      "collection": "posts",
+      "coverImage": "/images/investing-begining-guide-Y5Mz.jpg",
+      "description": "Simple investing guide, offering clear, actionable strategies to start growing your wealth today. Learn how to overcome common your fears.",
+      "keywords": "Investment Mistakes, Financial Growth, Net Worth Assessment, Overcoming Financial Fears, Analysis Paralysis in Investing, Social Media Investment Advice, Dollar Cost Averaging, High-Yield Savings, Accredited Investor Opportunities, Investment Strategy, Investing Beginers",
+      "publishedAt": "2024-02-06T18:11:41.000Z",
+      "seoTitle": "Easy Investing for Beginners: Your Guide to Growing Wealth Effortlessly",
+      "slug": "investing-for-beginners-simple-wealth-guide",
+      "status": "published",
+      "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
     }
   ]
 }
