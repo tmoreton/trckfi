@@ -1,6 +1,6 @@
 {
-  "commit": "ce7b5941b9ccabf4218967f68829efb622395e1b",
-  "generated": "2024-02-09T16:38:16.540Z",
+  "commit": "ef8fc472f1d4f37dc331e331685cabedba2072af",
+  "generated": "2024-02-09T18:36:59.901Z",
   "metadata": [
     {
       "__outstatic": {
@@ -968,6 +968,27 @@
       "slug": "iras-vs-401ks-choosing-retirement-plan",
       "status": "published",
       "title": "401(k)s Investing and IRAs: Retirement Planning for a Secure Future"
+    },
+    {
+      "__outstatic": {
+        "commit": "ef8fc472f1d4f37dc331e331685cabedba2072af",
+        "hash": "3210970759",
+        "path": "outstatic/content/posts/.md"
+      },
+      "author": {
+        "name": "",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Cash on Hand",
+      "collection": "posts",
+      "coverImage": "",
+      "description": "",
+      "keywords": "cash, cash on hand, emergency fund",
+      "publishedAt": "2024-02-09T17:12:52.010Z",
+      "seoTitle": "How Much Cash Do You Need on Hand?",
+      "slug": "",
+      "status": "draft",
+      "title": ""
     }
   ]
 }
