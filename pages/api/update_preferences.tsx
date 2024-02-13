@@ -11,6 +11,8 @@ export const config = {
 }
 
 const updateOrCreate = async (data, user_id) => {
+  console.log(user_id)
+  console.log(data)
   if(data?.id){
     return await prisma.preferences.update({
       where: { 
@@ -21,7 +23,7 @@ const updateOrCreate = async (data, user_id) => {
   } else {
     await prisma.preferences.upsert({
       where: { user_id },
-      update: data,
+      update: {},
       create: data,
     })
   }
