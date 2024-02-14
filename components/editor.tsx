@@ -205,7 +205,7 @@ export default function Editor({ showError }) {
       <button onClick={updatePreferences} className="items-center inline-flex w-full justify-center bg-pink-600 rounded-t-lg px-5 py-1.5 text-sm border-1 border-pink-600 font-semibold text-white shadow-sm hover:bg-pink-600 hover:text-white sm:w-auto">
         { save ? <><CheckBadgeIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />Saved!</> : <><BookmarkIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />Save</>}
       </button>
-			<Tldraw store={store} onMount={handleMount} />
+			<Tldraw store={store} />
 		</div>
 	)
 }
