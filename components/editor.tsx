@@ -1,5 +1,16 @@
-import { Tldraw, defaultShapeUtils, createTLStore, throttle } from '@tldraw/tldraw'
-import { useLayoutEffect, useState, useEffect } from 'react'
+import {
+	AssetRecordType,
+	MediaHelpers,
+	TLAsset,
+	TLAssetId,
+	Tldraw,
+	getHashForString,
+	uniqueId,
+  defaultShapeUtils, 
+  createTLStore, 
+  throttle
+} from '@tldraw/tldraw'
+import { useLayoutEffect, useState, useEffect, useCallback } from 'react'
 import { BookmarkIcon, AdjustmentsHorizontalIcon, CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react"
 import { new_vision } from '../utils/default-vision'
@@ -107,6 +118,56 @@ export default function Editor({ showError }) {
 		)
 	} 
 
+  const handleMount = useCallback((editor) => {
+		editor.registerExternalAssetHandler('file', async ({ file }: { type: 'file'; file }) => {
+			const id = uniqueId()
+
+			const objectName = `${id}-${file.name}`.replaceAll(/[^a-zA-Z0-9.]/g, '-')
+      console.log(file)
+      return file
+			// await fetch(url, {
+			// 	method: 'POST',
+			// 	body: file,
+			// })
+			// //[b]
+			// const assetId: TLAssetId = AssetRecordType.createId(getHashForString(url))
+
+			// let size: {
+			// 	w: number
+			// 	h: number
+			// }
+			// let isAnimated: boolean
+			// let shapeType: 'image' | 'video'
+
+			// //[c]
+			// if (['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'].includes(file.type)) {
+			// 	shapeType = 'image'
+			// 	size = await MediaHelpers.getImageSize(file)
+			// 	isAnimated = file.type === 'image/gif' && (await isGifAnimated(file))
+			// } else {
+			// 	shapeType = 'video'
+			// 	isAnimated = true
+			// 	size = await MediaHelpers.getVideoSize(file)
+			// }
+			// //[d]
+			// const asset: TLAsset = AssetRecordType.create({
+			// 	id: assetId,
+			// 	type: shapeType,
+			// 	typeName: 'asset',
+			// 	props: {
+			// 		name: file.name,
+			// 		src: url,
+			// 		w: size.w,
+			// 		h: size.h,
+			// 		mimeType: file.type,
+			// 		isAnimated,
+			// 	},
+			// })
+
+			// return asset
+		})
+	}, [])
+
   const addControls = () => {
     if(!controls){
       showControls(true)
@@ -144,7 +205,7 @@ export default function Editor({ showError }) {
       <button onClick={updatePreferences} className="items-center inline-flex w-full justify-center bg-pink-600 rounded-t-lg px-5 py-1.5 text-sm border-1 border-pink-600 font-semibold text-white shadow-sm hover:bg-pink-600 hover:text-white sm:w-auto">
         { save ? <><CheckBadgeIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />Saved!</> : <><BookmarkIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />Save</>}
       </button>
-			<Tldraw store={store} />
+			<Tldraw store={store} onMount={handleMount} />
 		</div>
 	)
 }
