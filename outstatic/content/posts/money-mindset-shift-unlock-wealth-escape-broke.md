@@ -8,7 +8,7 @@ slug: 'money-mindset-shift-unlock-wealth-escape-broke'
 description: 'Shift from scarcity to abundance mindset & unlock true wealth. Learn how transforming your financial thinking leads to lasting weatlh.'
 coverImage: '/images/positive-money-mindset-women-UwOD.jpg'
 category: 'Financial Motivation'
-seoTitle: 'Transform Your Money Mindset: Shifting Your Money Mindset Can End Financial Struggles'
+seoTitle: 'The Rich Mindset: How Thinking Differently About Money Can Change Your Life'
 keywords: 'money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills'
 publishedAt: '2024-02-20T15:30:47.000Z'
 ---
