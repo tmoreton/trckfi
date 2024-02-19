@@ -43,7 +43,7 @@ Automating your finances by directing a portion of your income into [savings](/b
 
 **Risk Management in Stocks**: Invest in direct stocks only with money you can afford to lose since it's a gamble. This approach helps manage risk and reduces the emotional stress of market fluctuations.
 
-**Emergency Funds:** Maintain an [emergency fund](/blog/building-an-emergency-fund) in a high-yield savings account. This should cover 3-6 months of expenses, ensuring you have financial support during unexpected events. With the increasing number of layoffs, professionals now recommend [increasing the emergency fund](/blog/how-much-cash-emergency-fund-guide) to cover up to** 8 months of expenses**, as this is the average time it takes to find a new job. Consider a **high-yield savings account** to earn interest while your cash sits, I recommend Ally Bank which provides a \~4.35% annual percentage yield (APY) and you can [receive up to $125 for joining](https://www.ally.com/referral?code=4H3G4S7N9D).
+**Emergency Funds:** Maintain an [emergency fund](/blog/building-an-emergency-fund) in a high-yield savings account. This should cover 3-6 months of expenses, ensuring you have financial support during unexpected events. With the increasing number of layoffs, professionals now recommend [increasing the emergency fund](/blog/how-much-cash-emergency-fund-guide) to cover up to\*\* 8 months of expenses\*\*, as this is the average time it takes to find a new job. Consider a \**high-yield savings account*\* to earn interest while your cash sits, I recommend Ally Bank which provides a \~4.35% annual percentage yield (APY) and you can [receive up to $125 for joining](https://www.ally.com/referral?code=4H3G4S7N9D).
 
 [![ally-bank-referral-link](/images/screen-shot-2024-02-09-at-3.37.50-pm-Y2Nj.png)](https://www.ally.com/referral?code=4H3G4S7N9D)
 
@@ -105,5 +105,5 @@ For example, investing $100 in stocks at the beginning of each month throughout 
 
 ## The Recap
 
-Investing intelligently requires a blend of knowledge, strategy, and discipline. By understanding the different investment vehicles, automating your financial contributions, managing risk wisely, and engaging with like-minded individuals, you can build a robust financial future. Remember, the path to [financial independence](/blog/achieve-financial-independence-guide-to-freedom) is unique for everyone, but with the right tools and [mindset](/blog/is-your-mindset-keeping-you-broke), achieving your financial goals is within reach.
+Investing intelligently requires a blend of knowledge, strategy, and discipline. By understanding the different investment vehicles, automating your financial contributions, managing risk wisely, and engaging with like-minded individuals, you can build a robust financial future. Remember, the path to [financial independence](/blog/achieve-financial-independence-guide-to-freedom) is unique for everyone, but with the right tools and [mindset](/blog/money-mindset-shift-unlock-wealth-escape-broke), achieving your financial goals is within reach.
 
