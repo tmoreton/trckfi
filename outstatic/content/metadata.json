@@ -1,6 +1,6 @@
 {
-  "commit": "17836b9819aa390ce529f1e5acb2227356339672",
-  "generated": "2024-02-13T17:58:04.207Z",
+  "commit": "9a2b6ab766ce85cb20a4d4a8c370b31451aa0a33",
+  "generated": "2024-02-19T13:05:27.041Z",
   "metadata": [
     {
       "__outstatic": {
@@ -845,27 +845,6 @@
     },
     {
       "__outstatic": {
-        "commit": "c44ee3231ffcecfd6255f6fcbc19343b5852fd81",
-        "hash": "2072029986",
-        "path": "outstatic/content/posts/financial-mindset-shifts-for-wealth-building.md"
-      },
-      "author": {
-        "name": "Cande R.",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Financial Motivation",
-      "collection": "posts",
-      "coverImage": "/images/positive-money-mindset-women-UwOD.jpg",
-      "description": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth",
-      "keywords": "money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills",
-      "publishedAt": "2024-01-30T15:30:47.310Z",
-      "seoTitle": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth.",
-      "slug": "financial-mindset-shifts-for-wealth-building",
-      "status": "published",
-      "title": "Is Your Mindset Keeping You Broke?"
-    },
-    {
-      "__outstatic": {
         "commit": "5b8be2a3f01a0d9f177faf170aa98ecb9fc0f36b",
         "hash": "4061628763",
         "path": "outstatic/content/posts/career-advice-supporting-loved-ones-job-search.md"
@@ -1010,6 +989,27 @@
       "slug": "how-much-cash-emergency-fund-guide",
       "status": "published",
       "title": "How Much Cash Do I need on Hand?"
+    },
+    {
+      "__outstatic": {
+        "commit": "9a2b6ab766ce85cb20a4d4a8c370b31451aa0a33",
+        "hash": "3751290728",
+        "path": "outstatic/content/posts/financial-mindset-shifts-for-wealth-building.md"
+      },
+      "author": {
+        "name": "Cande R.",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Financial Motivation",
+      "collection": "posts",
+      "coverImage": "/images/positive-money-mindset-women-UwOD.jpg",
+      "description": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth",
+      "keywords": "money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills",
+      "publishedAt": "2024-02-20T15:30:47.000Z",
+      "seoTitle": "Explore how shifting from a scarcity to abundance mindset can transform your financial journey and unlock true wealth.",
+      "slug": "financial-mindset-shifts-for-wealth-building",
+      "status": "published",
+      "title": "Is Your Mindset Keeping You Broke?"
     }
   ]
 }
