@@ -43,19 +43,19 @@ If you have food, shelter and health, I can confidently say more money will not 
 
 ![](/images/money-doesn-t-fix-all-problems-gxNz.jpg)
 
-## **Discovering the Money Mindset**
+## Discovering the Money Mindset
 
 I learned something really important about money that changed everything for me. It's like turning on a light in a dark room - all of a sudden, I could see how to be better with my money.
 
 I stopped blaming others when I had money problems. Instead, I started looking at how I spend my money and how I think about it. I learned why I make certain choices with my money, and this helped me make better choices. Now, I'm saving more money and spending it on things that are important to me, not to others. This allows me to live "my rich life" today.
 
-## **The Scarcity Mindset – A Common Culprit**:
+## The Scarcity Mindset – A Common Culprit:
 
 Sometimes, without realizing it, we think there's never enough money, which we call a **"Scarcity Mindset"**. This way of thinking makes us believe we don't have enough money, which affects how we use it.
 
 It makes us have a limited view of money, where our first thought is to spend it. Saving and investing come later, only if we have some money left. This is different from how people [who are really good](/blog/essential-financial-concepts) with money handle their wealth.
 
-## **Breaking Free from Scarcity**
+## Breaking Free from Scarcity
 
 To get over this way of thinking, we need to start seeing money as something that can increase and grow when we manage it in a smart and flexible way. Thinking there's never enough [money keeps us worried](/blog/how-to-get-out-of-debt) about it all the time, making us only think about what we need right now instead of how to have more in the future.
 
