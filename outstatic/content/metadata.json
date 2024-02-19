@@ -1,6 +1,6 @@
 {
-  "commit": "4b4ed16887b0f532ff744af32f0062022317a6c6",
-  "generated": "2024-02-19T13:16:41.876Z",
+  "commit": "e7e4074a5344a2cb9f5f083cb308952a1f7e8e2b",
+  "generated": "2024-02-19T13:18:21.019Z",
   "metadata": [
     {
       "__outstatic": {
@@ -971,27 +971,6 @@
     },
     {
       "__outstatic": {
-        "commit": "9a2b6ab766ce85cb20a4d4a8c370b31451aa0a33",
-        "hash": "2060567857",
-        "path": "outstatic/content/posts/money-mindset-shift-unlock-wealth-escape-broke.md"
-      },
-      "author": {
-        "name": "Cande R.",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Financial Motivation",
-      "collection": "posts",
-      "coverImage": "/images/positive-money-mindset-women-UwOD.jpg",
-      "description": "Shift from scarcity to abundance mindset & unlock true wealth. Learn how transforming your financial thinking leads to lasting weatlh.",
-      "keywords": "money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills",
-      "publishedAt": "2024-02-20T15:30:47.000Z",
-      "seoTitle": "Transform Your Money Mindset: Shifting Your Money Mindset Can End Financial Struggles",
-      "slug": "money-mindset-shift-unlock-wealth-escape-broke",
-      "status": "published",
-      "title": "Is Your Mindset Keeping You Broke?"
-    },
-    {
-      "__outstatic": {
         "commit": "4b4ed16887b0f532ff744af32f0062022317a6c6",
         "hash": "2743488876",
         "path": "outstatic/content/posts/investing-for-beginners-simple-wealth-guide.md"
@@ -1010,6 +989,27 @@
       "slug": "investing-for-beginners-simple-wealth-guide",
       "status": "published",
       "title": "The Fear of Losing Money is a Prime Reason Women Don't Invest More"
+    },
+    {
+      "__outstatic": {
+        "commit": "e7e4074a5344a2cb9f5f083cb308952a1f7e8e2b",
+        "hash": "3189983881",
+        "path": "outstatic/content/posts/money-mindset-shift-unlock-wealth-escape-broke.md"
+      },
+      "author": {
+        "name": "Cande R.",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Financial Motivation",
+      "collection": "posts",
+      "coverImage": "/images/positive-money-mindset-women-UwOD.jpg",
+      "description": "Shift from scarcity to abundance mindset & unlock true wealth. Learn how transforming your financial thinking leads to lasting weatlh.",
+      "keywords": "money mindset, Money Mindset, Financial Freedom, Scarcity vs Abundance Mindset, Wealth Building Strategies, Transforming Financial Beliefs, Personal Finance Tips, Mindset and Wealth, Financial Health, Wealth Mindset, Money Management Skills",
+      "publishedAt": "2024-02-20T15:30:47.000Z",
+      "seoTitle": "Transform Your Money Mindset: Shifting Your Money Mindset Can End Financial Struggles",
+      "slug": "money-mindset-shift-unlock-wealth-escape-broke",
+      "status": "published",
+      "title": "Is Your Mindset Keeping You Broke?"
     }
   ]
 }

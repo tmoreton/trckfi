@@ -25,7 +25,7 @@ Mindsets, particularly about money, are interesting. They quietly dictate our li
 
 Our approach to finances and our attitudes toward making, growing, managing money, and achieving financial freedom are fundamentally a reflection of our money mindset. This mindset profoundly influences our financial health, dictating the success or failure of our interactions with money and our journey towards [financial independence](/blog/how-to-retire-early-fire-movement).
 
-> **Our money mindset controls how well or poorly we relate and interact with our finances.**
+> Our money mindset controls how well or poorly we relate and interact with our finances.
 
 ## More Money Doesn't Solve Our All Our Issues
 
@@ -35,7 +35,7 @@ I'm a firm believer that the solution to our money problems is not money but act
 
 Whenever financial problems grab us by the neck, all we pray for is a shower of money to wipe away the so-not-little annoyance, forgetting it's our money mindsets that got us in the shithole to begin with.
 
-So yeah, more money won't solve all of our issues, unless our** basic needs like food, health and shelter are not being met** \- in that case, money plays a huge role!
+So yeah, more money won't solve all of our issues, unless our\*\* basic needs like food, health and shelter are not being met\*\* - in that case, money plays a huge role!
 
 If you have food, shelter and health, I can confidently say more money will not solve your problems.
 
