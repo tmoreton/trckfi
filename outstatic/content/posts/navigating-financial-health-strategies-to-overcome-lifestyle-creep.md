@@ -49,9 +49,11 @@ However, when you pile up a bunch of stuff and go neck-deep into debt to buy it 
 
 > ## 60% of Americans live paycheck to paycheck
 
-A rising number of Americans, including those with higher incomes, find themselves living paycheck to paycheck due to inflation and the increase in lifestyle spending. Even Americans earning $100,000 or more are struggling to cover monthly expenses, leading nearly half to [fall deeper into debt](https://www.trckfi.com/blog/how-to-get-out-of-debt).
+With 60% of Americans living paycheck to paycheck, the grip of lifestyle creep becomes evident across all income brackets. This trend isn't confined to those with modest earnings; people with annual incomes surpassing $100,000 also find themselves caught in the cycle.
 
-This phenomenon, known as **lifestyle creep**, happens when we start spending more whenever our income increases. But we need to ask ourselves - at what cost? We work harder, aiming for 'more'—more money, bigger houses, newer cars, lavish vacations—all to impress others. This race often leads to more stress and less happiness, as we chase goals that aren’t really our own.
+According to a [2024 report by Forbes](https://www.forbes.com/advisor/banking/living-paycheck-to-paycheck-statistics-2024/), inflation and escalating lifestyle expenditures are to blame, pushing nearly half of these higher earners into further financial strain as they struggle to meet their monthly obligations.
+
+This scenario underscores a critical question: As our earnings climb, do our financial burdens need to rise in tandem? The pursuit of a more affluent lifestyle, from upscale homes to luxury vehicles and exotic vacations, may seem like symbols of success but often translates into [increased debt](https://www.trckfi.com/blog/how-to-get-out-of-debt) and financial insecurity. This cycle of spending not only strains our wallets but also shifts our focus from genuine financial freedom to maintaining appearances, challenging us to reconsider what we truly value.
 
 [![track-expenses](/images/home--8--ExMD.png)](/features/transactions)
 
