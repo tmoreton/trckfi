@@ -1,6 +1,6 @@
 {
   "commit": "bebe06e4b9ea80ecbed6eec0eaec6c1430ac8d4f",
-  "generated": "2024-02-20T03:31:51.694Z",
+  "generated": "2024-02-20T04:27:39.562Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1014,23 +1014,23 @@
     {
       "__outstatic": {
         "commit": "bebe06e4b9ea80ecbed6eec0eaec6c1430ac8d4f",
-        "hash": "446929691",
-        "path": "outstatic/content/posts/lifestyle-creep-comparing-yourself-to-others.md"
+        "hash": "76621131",
+        "path": "outstatic/content/posts/navigating-financial-health-strategies-to-overcome-lifestyle-creep.md"
       },
       "author": {
-        "name": "",
+        "name": "Cande R.",
         "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
       },
-      "category": "Spending",
+      "category": "Spending Habits",
       "collection": "posts",
-      "coverImage": "",
-      "description": "",
-      "keywords": "lifestyle creep, financial planning, ",
-      "publishedAt": "2024-02-20T01:58:12.644Z",
-      "seoTitle": "Lifestyle Creep & Comparing Yourself to Others",
-      "slug": "lifestyle-creep-comparing-yourself-to-others",
-      "status": "draft",
-      "title": "Lifestyle Creep & Comparing Yourself to Others"
+      "coverImage": "/images/lifestyle-creep-spending-UyMD.jpg",
+      "description": "Explore how lifestyle creep and comparing yourself to others impacts financial wellbeing, and learn strategies to manage it.",
+      "keywords": "lifestyle creep, avoid lifestyle creep, lifestyle creep meaning, lifestyle creep examples",
+      "publishedAt": "2024-02-21T01:58:12.000Z",
+      "seoTitle": "Lifestyle Creep & The Cost of Comparing Yourself to Others",
+      "slug": "navigating-financial-health-strategies-to-overcome-lifestyle-creep",
+      "status": "published",
+      "title": "Lifestyle Creep: Navigating the Pitfalls of Comparing Yourself to Others"
     }
   ]
 }
