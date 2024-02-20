@@ -83,7 +83,7 @@ Your financial decisions stem from your core values. They influence your career 
 
 After fine-tuning your budget, take the initiative to automate your savings. This could mean directing a portion of your paycheck straight into your savings account or setting up monthly transfers from checking to savings. Similarly, allocate 15% of your income towards retirement investment. Automating finances helps you manage your earnings more efficiently, ensuring that any raises are put to good use rather than being frittered away.
 
-### 3\. Understand Your Money Mindset 
+### 3\. Understand Your Money Mindset
 
 Your approach to finances—comprising your beliefs and attitudes towards money—shapes your saving and spending habits. This [mindset](/blog/money-mindset-shift-unlock-wealth-escape-broke) is influenced by your experiences and personality. Gaining insight into your financial perspective empowers you to make informed decisions and steer your life in the desired direction.
 
@@ -91,7 +91,7 @@ Your approach to finances—comprising your beliefs and attitudes towards money�
 
 Embracing generosity shifts the focus from self-centric desires to the needs of others. This act not only transforms your perspective on money but also enriches your life by helping those around you. It's an effective strategy to realign your financial priorities and combat lifestyle creep.
 
-## **Overcoming Lifestyle Creep**
+## Overcoming Lifestyle Creep
 
 Listen, if lifestyle creep has subtly integrated into your [financial habits](/blog/quick-monthly-financial-checkin-routine), it's time for a change. Breaking free from this cycle is challenging but achievable. It allows you to alleviate [financial stress](/blog/how-to-get-out-of-debt) and truly appreciate the value of your hard-earned money.
 

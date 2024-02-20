@@ -1,6 +1,6 @@
 {
-  "commit": "119270f6efdcaf99fd1ac869648ef1c4819c9655",
-  "generated": "2024-02-20T04:28:41.267Z",
+  "commit": "a4fb3d8e2f59fb70a3b968a17a35c104b0dafaa0",
+  "generated": "2024-02-20T04:38:44.473Z",
   "metadata": [
     {
       "__outstatic": {
@@ -992,27 +992,6 @@
     },
     {
       "__outstatic": {
-        "commit": "bebe06e4b9ea80ecbed6eec0eaec6c1430ac8d4f",
-        "hash": "76621131",
-        "path": "outstatic/content/posts/navigating-financial-health-strategies-to-overcome-lifestyle-creep.md"
-      },
-      "author": {
-        "name": "Cande R.",
-        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
-      },
-      "category": "Spending Habits",
-      "collection": "posts",
-      "coverImage": "/images/lifestyle-creep-spending-UyMD.jpg",
-      "description": "Explore how lifestyle creep and comparing yourself to others impacts financial wellbeing, and learn strategies to manage it.",
-      "keywords": "lifestyle creep, avoid lifestyle creep, lifestyle creep meaning, lifestyle creep examples",
-      "publishedAt": "2024-02-21T01:58:12.000Z",
-      "seoTitle": "Lifestyle Creep & The Cost of Comparing Yourself to Others",
-      "slug": "navigating-financial-health-strategies-to-overcome-lifestyle-creep",
-      "status": "published",
-      "title": "Lifestyle Creep: Navigating the Pitfalls of Comparing Yourself to Others"
-    },
-    {
-      "__outstatic": {
         "commit": "119270f6efdcaf99fd1ac869648ef1c4819c9655",
         "hash": "3418552146",
         "path": "outstatic/content/posts/money-mindset-shift-unlock-wealth-escape-broke.md"
@@ -1031,6 +1010,27 @@
       "slug": "money-mindset-shift-unlock-wealth-escape-broke",
       "status": "published",
       "title": "Is Your Mindset Keeping You Broke?"
+    },
+    {
+      "__outstatic": {
+        "commit": "a4fb3d8e2f59fb70a3b968a17a35c104b0dafaa0",
+        "hash": "2169817976",
+        "path": "outstatic/content/posts/navigating-financial-health-strategies-to-overcome-lifestyle-creep.md"
+      },
+      "author": {
+        "name": "Cande R.",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Spending Habits",
+      "collection": "posts",
+      "coverImage": "/images/lifestyle-creep-spending-UyMD.jpg",
+      "description": "Explore how lifestyle creep and comparing yourself to others impacts financial wellbeing, and learn strategies to manage it.",
+      "keywords": "lifestyle creep, avoid lifestyle creep, lifestyle creep meaning, lifestyle creep examples",
+      "publishedAt": "2024-02-21T01:58:12.000Z",
+      "seoTitle": "Lifestyle Creep & The Cost of Comparing Yourself to Others",
+      "slug": "navigating-financial-health-strategies-to-overcome-lifestyle-creep",
+      "status": "published",
+      "title": "Lifestyle Creep: Navigating the Pitfalls of Comparing Yourself to Others"
     }
   ]
 }
