@@ -1,6 +1,6 @@
 {
-  "commit": "e7e4074a5344a2cb9f5f083cb308952a1f7e8e2b",
-  "generated": "2024-02-19T13:41:15.102Z",
+  "commit": "2d1e2728cf8871e47d995a60ab9932930046003d",
+  "generated": "2024-02-20T03:19:51.024Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1010,6 +1010,27 @@
       "slug": "money-mindset-shift-unlock-wealth-escape-broke",
       "status": "published",
       "title": "Is Your Mindset Keeping You Broke?"
+    },
+    {
+      "__outstatic": {
+        "commit": "2d1e2728cf8871e47d995a60ab9932930046003d",
+        "hash": "4035650097",
+        "path": "outstatic/content/posts/lifestyle-creep-comparing-yourself-to-others.md"
+      },
+      "author": {
+        "name": "",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Spending",
+      "collection": "posts",
+      "coverImage": "",
+      "description": "",
+      "keywords": "lifestyle creep, financial planning, ",
+      "publishedAt": "2024-02-20T01:58:12.644Z",
+      "seoTitle": "Lifestyle Creep & Comparing Yourself to Others",
+      "slug": "lifestyle-creep-comparing-yourself-to-others",
+      "status": "draft",
+      "title": "Lifestyle Creep & Comparing Yourself to Others"
     }
   ]
 }
