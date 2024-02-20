@@ -31,13 +31,13 @@ As we reflect on our progress and set new goals, remember that [mindset](/blog/m
 
 ![](/images/lifestyle-creep-comparison-E5Mz.jpg)
 
-## Comparing Yourself to Others leads to Lifestyle Creep
+## Social Media & Lifestyle Creep: The Cost of Comparison
 
 It’s really hard to be on social media nowadays and not **compare yourself** to others. Your life isn’t fun enough, your wardrobe isn’t trendy enough, your house isn’t chic enough, and your business isn't growing fast enough. It might even make you feel like *you aren’t enough*.
 
 But what you're seeing people's highlight reels on Instagram, just like any other social media platform.
 
-My own posts are totally a highlight reel. And too used to also feel anxious going through my feed and seeing all the things others are doing. Like I was falling behind.
+My own posts are totally a highlight reel. And I too used to also feel anxious going through my feed and seeing all the things others are doing. Like I was falling behind.
 
 ## Real-Life Effects of Comparing Yourself to Others
 
