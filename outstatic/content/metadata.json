@@ -1,6 +1,6 @@
 {
-  "commit": "2d1e2728cf8871e47d995a60ab9932930046003d",
-  "generated": "2024-02-20T03:19:51.024Z",
+  "commit": "bebe06e4b9ea80ecbed6eec0eaec6c1430ac8d4f",
+  "generated": "2024-02-20T03:31:51.694Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1013,8 +1013,8 @@
     },
     {
       "__outstatic": {
-        "commit": "2d1e2728cf8871e47d995a60ab9932930046003d",
-        "hash": "4035650097",
+        "commit": "bebe06e4b9ea80ecbed6eec0eaec6c1430ac8d4f",
+        "hash": "446929691",
         "path": "outstatic/content/posts/lifestyle-creep-comparing-yourself-to-others.md"
       },
       "author": {
