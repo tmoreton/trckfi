@@ -1,6 +1,6 @@
 {
-  "commit": "a4fb3d8e2f59fb70a3b968a17a35c104b0dafaa0",
-  "generated": "2024-02-20T04:55:53.417Z",
+  "commit": "5d60af96717a80f3e0770270ce3db734ba14d625",
+  "generated": "2024-02-27T16:44:26.852Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1031,6 +1031,27 @@
       "slug": "navigating-financial-health-strategies-to-overcome-lifestyle-creep",
       "status": "published",
       "title": "Lifestyle Creep: Navigating the Pitfalls of Comparing Yourself to Others"
+    },
+    {
+      "__outstatic": {
+        "commit": "5d60af96717a80f3e0770270ce3db734ba14d625",
+        "hash": "2324848119",
+        "path": "outstatic/content/posts/how-to-get-rich-off-stocks-outside-your-retirement-accounts.md"
+      },
+      "author": {
+        "name": "Cande R",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Investing 101",
+      "collection": "posts",
+      "coverImage": "",
+      "description": "",
+      "keywords": "investing 101, how to get rich off stocks, become a millionaire with stocks, stock market investing for beginners, best passive income investments, long-term stock investing, index fund investing, stock market basics, consistent investing, buy and hold strategy, tax-loss harvesting, investment diversification, robo-advisor investing, compound interest in stocks, stock market tips, building wealth through stocks",
+      "publishedAt": "2024-02-27T15:27:56.924Z",
+      "seoTitle": "How to Get Rich Off Stocks: A Beginner's Guide",
+      "slug": "how-to-get-rich-off-stocks-outside-your-retirement-accounts",
+      "status": "draft",
+      "title": "How to Get Rich Off Stocks (Outside Your Retirement Accounts)"
     }
   ]
 }
