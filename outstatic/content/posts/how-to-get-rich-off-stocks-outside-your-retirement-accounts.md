@@ -6,7 +6,7 @@ author:
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-get-rich-off-stocks-outside-your-retirement-accounts'
 description: 'Discover how to get rich off stocks with our beginner''s guide. Learn key strategies like consistent investing, diversification, and long-term growth. Start building wealth today!'
-coverImage: '/images/women-getting-rich-off-investing-stock-market-I2OT.jpg'
+coverImage: '/images/women-getting-rich-off-investing-stock-market-cwNT.jpg'
 category: 'Investing 101'
 seoTitle: 'Get Rich Off Stocks: Ultimate Guide to Wealth Building for Beginners'
 keywords: 'investing 101, how to get rich off stocks, become a millionaire with stocks, stock market investing for beginners, best passive income investments, long-term stock investing, index fund investing, stock market basics, consistent investing, buy and hold strategy, tax-loss harvesting, investment diversification, robo-advisor investing, compound interest in stocks, stock market tips, building wealth through stocks'
@@ -169,7 +169,7 @@ I call it gambling.
 
 For example, check out the percentage of actively managed funds that failed to beat the market:
 
-![](/images/_-percentage-of-active-public-trades-that-failed-to-outperformed-the-index--2--AwOT.png)
+![](/images/_-percentage-of-active-public-trades-that-failed-to-outperformed-the-index--1--c4Nj.png)
 
 Actively managed funds have generally failed to outperform the index over time.
 
@@ -259,7 +259,7 @@ Take the S&P 500 index fund as an example. By investing in one, you're essential
 
 And gets better
 
-![](/images/probability-of-an-active-equity-fund-beating-the-market--1--gyOD.png)
+![](/images/probability-of-an-active-equity-fund-beating-the-market--1--Y4Mj.png)
 
 For **long-term investors**, index funds are a solid way to grow wealth.
 
