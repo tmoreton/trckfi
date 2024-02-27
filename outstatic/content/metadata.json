@@ -1,6 +1,6 @@
 {
   "commit": "8437d4f0be83dcf206053eeede5c56355bc2dadb",
-  "generated": "2024-02-27T17:11:42.040Z",
+  "generated": "2024-02-27T17:12:58.363Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1035,7 +1035,7 @@
     {
       "__outstatic": {
         "commit": "8437d4f0be83dcf206053eeede5c56355bc2dadb",
-        "hash": "3333134733",
+        "hash": "695274682",
         "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
       },
       "author": {
@@ -1051,7 +1051,7 @@
       "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
       "slug": "roth-ira-advantage-2023",
       "status": "published",
-      "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
+      "title": "What's a Roth IRA? Grow Your Money Tax Free"
     }
   ]
 }
