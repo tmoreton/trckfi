@@ -1,12 +1,12 @@
 ---
-title: 'How to Get Rich Off Stocks: A Step by Step Beginner''s Guide to Building Wealth (Outside Retirement)'
+title: 'How to Get Rich Off Stocks: A Beginner''s Guide to Building Wealth (Outside Retirement)'
 status: 'published'
 author:
   name: 'Cande R'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-get-rich-off-stocks-outside-your-retirement-accounts'
 description: 'Discover how to get rich off stocks with our beginner''s guide. Learn key strategies like consistent investing, diversification, and long-term growth. Start building wealth today!'
-coverImage: '/images/women-getting-rich-off-investing-stock-market-UyOD.jpg'
+coverImage: '/images/women-getting-rich-off-investing-stock-market-E2ND.jpg'
 category: 'Investing 101'
 seoTitle: 'Get Rich Off Stocks: Ultimate Guide to Wealth Building for Beginners'
 keywords: 'investing 101, how to get rich off stocks, become a millionaire with stocks, stock market investing for beginners, best passive income investments, long-term stock investing, index fund investing, stock market basics, consistent investing, buy and hold strategy, tax-loss harvesting, investment diversification, robo-advisor investing, compound interest in stocks, stock market tips, building wealth through stocks'
@@ -34,6 +34,8 @@ The roadmap to getting rich by investing in stocks is actually quite simple but 
 This guide will provide you with the foundation, you need to start building wealth in the stock market.
 
 #### The key 3 things I want you to remember are: 
+
+
 
 Understand your **risk tolerance**, **diversify your portfolio**, and **don’t try to time the market**, hold onto investments for the long term.
 
@@ -75,7 +77,7 @@ While there are some dips in the chart here are some things you need to know:
 
 - **Low Costs:** Keep more of your money working for you. Enjoy lower fees compared to actively managed funds, which means more of your investment goes towards growth.
 
-- **Simple Choice:** One fund, broad exposure to the entire US market, making it an easy choice for beginners and seasoned investors alike.
+- **Simple Choice:** One fund, with broad exposure to the entire US market, making it an easy choice for beginners and seasoned investors alike.
 
 Once you understand the stock market better, and become comfortable knowing that the market has ups and downs, getting rich from stocks will come easier than you think.
 
@@ -117,7 +119,7 @@ For example, if you're planning to buy a house in the next year, avoid putting y
 
 Before we dive in, let’s define two terms that will continue to show:
 
-- \*\*Stocks: \*\*Ownership shares in a company, giving you a slice of its profits and growth potential.
+- **Stocks:** Ownership shares in a company, giving you a slice of its profits and growth potential.
 
 - **Bonds:** Loans you give to governments or companies, earning you regular interest payments and the return of your principal at maturity.
 
@@ -129,7 +131,7 @@ If losing 30% to 50% of your portfolio's value would keep you up at night, you m
 
 And if you think you'll need a lot of money for a comfortable retirement, you might need to take on more risk focusing on **stocks** vs **bonds** for higher potential rewards.
 
-## **4\. Automated Investments: Save time & Stay Consistent **
+## **4\. Automate Your Investments**
 
 Want to make investing even simpler? Try automating it.
 
@@ -183,7 +185,7 @@ Passive investing is less stressful and less costly, it’s been proven to be a 
 
 **Source:** [Investor.gov](https://www.investor.gov/)
 
-### Are you a technical investor or. a fundamental investor?<br>
+### Are you a technical investor or a fundamental investor?<br>
 
 
 
@@ -195,7 +197,7 @@ Second, you’ll also want to take a closer look into whether you’re a technic
 
 If you’re a day trader or a swing trader looking for short-term gains, technical analysis is for you.
 
-If you’re a long-term investor and want to buy and hold stocks to create wealth no matter the fluctuations in the market than consider yourself a fundamental investor.
+If you’re a long-term investor and want to buy and hold stocks to create wealth no matter the fluctuations in the market then consider yourself a fundamental investor.
 
 ### **DIY Investing vs. Professional Advice**
 
@@ -229,11 +231,11 @@ They don’t manage your money, sell any products, or earn any commissions.
 
 One hour, no strings attached for a flat fee of $150.
 
-## **6\. How Index Funds Differ From Stocks?**
+## **6\. How do Index Funds Differ From Stocks?**
 
 - **Stocks:** When you buy a stock, you own a piece of a single company. If the company does well, the value of your stock can go up, and you might make a profit. You might also get dividends, which are a share of the company's profits.
 
-- **Index Funds:** An index fund is like a basket of many different stocks. It's a way to invest in lots of companies at once. This can spread out your risk, because you're not just relying on one company to do well.
+- **Index Funds:** An index fund is like a basket of many different stocks. It's a way to invest in lots of companies at once. This can spread out your risk because you're not just relying on one company to do well.
 
 In short, stocks are about betting on one company, while index funds are about investing in many companies at once.
 
@@ -281,7 +283,7 @@ After you’ve invested your first $5, you can automate your investing on a week
 
 **Betterment** supports this with options for recurring investments, like $10 a week or more, making it easy to stay on track.
 
-## **7\. The gamble behind Buying and Selling Individual Stocks**
+## **7\. Buying & Selling Individual Stocks is a Gamble**
 
 Buying and selling individual stocks is what I consider** gambling**, you can get lucky and earn much higher returns or lose all your money in the game… and maybe even go broke.
 
@@ -293,7 +295,7 @@ And we all like to believe that we're smarter than the rest.
 
 **The downside?**
 
-It's riskier, time-consuming, and even if you can predict trends, just like gambling, you'll inevitably face some losses too.
+It's riskier and time-consuming. Even if you can predict trends, just like gambling, you'll inevitably face some losses too.
 
 However, let’s cover some *“perceived benefits”* of buying individual stocks:
 
@@ -311,7 +313,7 @@ Now, this rule applies to all investing strategies:
 
 **Remain calm during volatile times. Don’t rush to sell in a panic.**
 
-## **8\. The Benefits of the Buy and Hold Investment Strategy**<br>
+## **8\. Buy & Hold Investment Strategy Benefits**<br>
 
 
 
@@ -321,7 +323,7 @@ Here’s is a beautiful visual created by [Visual Capitals](https://www.visualca
 
 ![null](https://lh7-us.googleusercontent.com/wwbR5vmxz4MhAtSRpn8pB2KNbpsq4XLzgVFI9XDC7FPPlfSc3C0j3TRBxUtlqCEuYgTxS7mq7DTaBZl1B8qTpOXquc4UN0WGc5vUBHz8bUMABk5V-AOjK0-C7ZiDMrERREJrzfhiEyLpNrJYCIzMCzE)
 
-By simply missing out on the 10 best days in the stock market, investors could lose their overall return, significantly hurting your overall wealth.
+By simply missing out on the 10 best days in the stock market, you could lose their overall return, significantly hurting your overall wealth.
 
 Of course, there are other benefits to buying and holding as well, such as:
 
@@ -331,7 +333,7 @@ Of course, there are other benefits to buying and holding as well, such as:
 
 Plus, from a tax standpoint, holding your investments rather than selling them shortly after buying can help lower your tax bill at the end of the year.
 
-## **9\. The Importance of Consistency in Investing**
+## **9\. Consistency in Investing**
 
 Keep investing on a set schedule, no matter what the market is doing.
 
@@ -345,7 +347,7 @@ This strategy helps you buy at different price points, stretching your money fur
 
 **Quick Tip:**
 
-Automation plays a huge role on helping you stay on track with your investments. Remember to make your recurring investments part of your regular *“monthly expenses”* by paying yourself first.
+Automation plays a huge role in helping you stay on track with your investments. Remember to make your recurring investments part of your regular *“monthly expenses”* by paying yourself first.
 
 You can set up a DCA plan directly from your investing app.
 
@@ -355,11 +357,11 @@ One of the best investing apps that helps you DCA is [**Betterment**](betterment
 
 
 
-Investing can make you rich, but don't forget about taxes. They can really affect how much money you make from your investments.
+Investing can make you rich but don't forget about taxes. They can really affect how much money you make from your investments.
 
 Here's what you need to know:
 
-- If you invest in special accounts like IRAs or 401(k)s, you don't pay taxes when you sell stocks. You only pay taxes when you take money out.
+- If you invest in special accounts like [IRAs](/blog/types-of-ira-investing) or [401](/blog/401k-retirement-plans-guide-for-smart-saving)[(k)s,](/blog/traditional-401k-plan) you don't pay taxes when you sell stocks. You only pay taxes when you take money out.
 
 - If you invest in regular accounts, you have to pay taxes in the year you buy or sell stocks.
 
@@ -397,7 +399,7 @@ Begin with opening an account that helps you invest and start with just $1 a wee
 
 That's how beginners can end up with lots of money in the stock market.
 
-## **Final Thoughts on Mastering Stock Market Wealth**<br>
+## **Mastering Stock Market Wealth Wrap Up**<br>
 
 
 
