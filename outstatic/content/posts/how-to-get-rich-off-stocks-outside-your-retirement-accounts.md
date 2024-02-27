@@ -6,7 +6,7 @@ author:
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-get-rich-off-stocks-outside-your-retirement-accounts'
 description: 'Discover how to get rich off stocks with our beginner''s guide. Learn key strategies like consistent investing, diversification, and long-term growth. Start building wealth today!'
-coverImage: '/images/women-getting-rich-off-investing-stock-market-c1Nj.jpg'
+coverImage: '/images/women-getting-rich-off-investing-stock-market-kyND.jpg'
 category: 'Investing 101'
 seoTitle: 'Get Rich Off Stocks: Ultimate Guide to Wealth Building for Beginners'
 keywords: 'investing 101, how to get rich off stocks, become a millionaire with stocks, stock market investing for beginners, best passive income investments, long-term stock investing, index fund investing, stock market basics, consistent investing, buy and hold strategy, tax-loss harvesting, investment diversification, robo-advisor investing, compound interest in stocks, stock market tips, building wealth through stocks'
