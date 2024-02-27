@@ -1,6 +1,6 @@
 {
   "commit": "8437d4f0be83dcf206053eeede5c56355bc2dadb",
-  "generated": "2024-02-27T17:11:26.588Z",
+  "generated": "2024-02-27T17:11:42.040Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1035,8 +1035,8 @@
     {
       "__outstatic": {
         "commit": "8437d4f0be83dcf206053eeede5c56355bc2dadb",
-        "hash": "1131847675",
-        "path": "outstatic/content/posts/roth-ira-advantage-2024.md"
+        "hash": "3333134733",
+        "path": "outstatic/content/posts/roth-ira-advantage-2023.md"
       },
       "author": {
         "name": "Trckfi"
@@ -1049,7 +1049,7 @@
       "keywords": "Roth IRA, tax-free growth, retirement account, financial future, contribution limits, high-income earners, Backdoor Roth IRA, retirement planning, tax-efficient, financial success, savings",
       "publishedAt": "2023-10-24T14:25:45.000Z",
       "seoTitle": "Grow Your Money Tax-Free with a Roth IRA",
-      "slug": "roth-ira-advantage-2024",
+      "slug": "roth-ira-advantage-2023",
       "status": "published",
       "title": "What's a Roth IRA? A Tax-Free Path to Financial Growth"
     }
