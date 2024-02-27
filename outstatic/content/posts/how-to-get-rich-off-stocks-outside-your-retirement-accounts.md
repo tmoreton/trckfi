@@ -1,12 +1,12 @@
 ---
-title: 'How to Get Rich Off Stocks: A Beginner''s Guide to Building Wealth (Outside Retirement)'
+title: 'How to Get Rich Off Stocks: A Step by Step Beginner''s Guide to Building Wealth (Outside Retirement)'
 status: 'published'
 author:
   name: 'Cande R'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-get-rich-off-stocks-outside-your-retirement-accounts'
 description: 'Discover how to get rich off stocks with our beginner''s guide. Learn key strategies like consistent investing, diversification, and long-term growth. Start building wealth today!'
-coverImage: '/images/women-getting-rich-off-investing-stock-market-E2ND.jpg'
+coverImage: '/images/women-getting-rich-off-investing-stock-market-c1Nj.jpg'
 category: 'Investing 101'
 seoTitle: 'Get Rich Off Stocks: Ultimate Guide to Wealth Building for Beginners'
 keywords: 'investing 101, how to get rich off stocks, become a millionaire with stocks, stock market investing for beginners, best passive income investments, long-term stock investing, index fund investing, stock market basics, consistent investing, buy and hold strategy, tax-loss harvesting, investment diversification, robo-advisor investing, compound interest in stocks, stock market tips, building wealth through stocks'
@@ -23,7 +23,7 @@ And today, I’ll show you how to get rich off stocks so you can build wealth ju
 
 Let’s get started.
 
-## **Can I Really Get Rich with Stocks?**
+## Can I Really Get Rich with Stocks?
 
 Yes, you totally can. Stocks have been a solid way to create wealth. But it takes a long time and it’s not easy. You need to follow the right strategy such as buying and holding and being consistent. Now if you do follow that strategy then it becomes easier.
 
@@ -41,7 +41,7 @@ Understand your **risk tolerance**, **diversify your portfolio**, and **don’t 
 
 So if you want to become wealthy by investing in the stock market, follow these steps:
 
-## **1\. Stock Market Basics for Beginners**
+## 1\. Stock Market Basics for Beginners
 
 The very first step is to understand the stock market basics like:
 
@@ -81,7 +81,7 @@ While there are some dips in the chart here are some things you need to know:
 
 Once you understand the stock market better, and become comfortable knowing that the market has ups and downs, getting rich from stocks will come easier than you think.
 
-## **2\. Make Goals for Your Investment Vision**
+## 2\. Make Goals for Your Investment Vision
 
 Here's a little secret that helps people build wealth faster:
 
@@ -109,7 +109,7 @@ Again, if you’re serious about tracking your finances and investments, TRCKFI 
 
 [![trckfi-net-worth-tracker](/images/screen-shot-2024-02-27-at-11.19.21-am-UxMD.png)](/features/net-worth)
 
-## **3\. Understand Your Risk Tolerance**
+## 3\. Understand Your Risk Tolerance
 
 The next step is figuring out how much risk you're comfortable taking with your money in the stock market.
 
@@ -131,7 +131,7 @@ If losing 30% to 50% of your portfolio's value would keep you up at night, you m
 
 And if you think you'll need a lot of money for a comfortable retirement, you might need to take on more risk focusing on **stocks** vs **bonds** for higher potential rewards.
 
-## **4\. Automate Your Investments**
+## 4\. Automate Your Investments
 
 Want to make investing even simpler? Try automating it.
 
@@ -153,7 +153,7 @@ Want to make investing even simpler? Try automating it.
 
 ![](/images/screen-shot-2024-02-27-at-11.50.16-am-k4MD.png)
 
-## **5\. Create Your Investment Plan and Strategy**
+## 5\. Create Your Investment Plan and Strategy
 
 Choosing Between **Passive** and **Active** Investing
 
@@ -215,7 +215,7 @@ Non-fiduciaries may sell you products that aren’t the best for you – but the
 
 [![fiduciaries-investment-advisor-services](/images/screen-shot-2024-02-27-at-11.25.08-am-YzMD.png)](https://hellonectarine.com/)
 
-**Pro Tip: **
+**Pro Tip:**
 
 Look for investment advisors with the CFP(r) marks - aka Certified Financial Planner.
 
@@ -223,7 +223,7 @@ CFP(r)’s are fiduciaries and are the gold standard when it comes to financial 
 
 If you decide to go with a financial advisor, then I highly recommend checking out [Nectarine](https://hellonectarine.com/).
 
-**Why? **
+**Why?**
 
 You pay only for Investing Advice
 
@@ -231,7 +231,7 @@ They don’t manage your money, sell any products, or earn any commissions.
 
 One hour, no strings attached for a flat fee of $150.
 
-## **6\. How do Index Funds Differ From Stocks?**
+## 6\. How do Index Funds Differ From Stocks?
 
 - **Stocks:** When you buy a stock, you own a piece of a single company. If the company does well, the value of your stock can go up, and you might make a profit. You might also get dividends, which are a share of the company's profits.
 
@@ -283,7 +283,7 @@ After you’ve invested your first $5, you can automate your investing on a week
 
 **Betterment** supports this with options for recurring investments, like $10 a week or more, making it easy to stay on track.
 
-## **7\. Buying & Selling Individual Stocks is a Gamble**
+## 7\. Buying & Selling Individual Stocks is a Gamble
 
 Buying and selling individual stocks is what I consider** gambling**, you can get lucky and earn much higher returns or lose all your money in the game… and maybe even go broke.
 
@@ -313,7 +313,7 @@ Now, this rule applies to all investing strategies:
 
 **Remain calm during volatile times. Don’t rush to sell in a panic.**
 
-## **8\. Buy & Hold Investment Strategy Benefits**<br>
+## 8\. Buy & Hold Investment Strategy Benefits<br>
 
 
 
@@ -333,7 +333,7 @@ Of course, there are other benefits to buying and holding as well, such as:
 
 Plus, from a tax standpoint, holding your investments rather than selling them shortly after buying can help lower your tax bill at the end of the year.
 
-## **9\. Consistency in Investing**
+## 9\. Consistency in Investing
 
 Keep investing on a set schedule, no matter what the market is doing.
 
@@ -399,7 +399,7 @@ Begin with opening an account that helps you invest and start with just $1 a wee
 
 That's how beginners can end up with lots of money in the stock market.
 
-## **Mastering Stock Market Wealth Wrap Up**<br>
+## Mastering Stock Market Wealth Wrap-Up<br>
 
 
 
@@ -413,7 +413,7 @@ As you look into investing more, remember these important steps:
 
 - Buy and hold for the long term
 
-I think investing is a lot simpler than the financial industry makes it see. You do need to understand your level of risk tolerance and also make sure you don't fall for the *"get rich quick scam"* aka trying to time the market with day trading.
+I think investing is a lot simpler than the financial industry makes it seem. You do need to understand your level of risk tolerance and also make sure you don't fall for the *"get rich quick scam"* aka trying to time the market with day trading.
 
 As you look into more information you'll need a little common sense.
 
@@ -425,7 +425,7 @@ Make sure you are optimizing your investments by taking advantage of tax advanta
 
 - [**HSA vs FSA Account Pros & Cons**](/blog/fsa-hra-healthcare-benefits)
 
-**Now I’d like to you to take action:**
+**Now I’d like you to take action:**
 
 What strategies from this post are you going to try?
 
