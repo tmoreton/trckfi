@@ -5,7 +5,7 @@ author:
   name: 'Cande R'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-get-rich-off-stocks-outside-your-retirement-accounts'
-description: ''
+description: 'Discover how to get rich off stocks with our beginner''s guide. Learn key strategies like consistent investing, diversification, and long-term growth. Start building wealth today!'
 coverImage: ''
 category: 'Investing 101'
 seoTitle: 'How to Get Rich Off Stocks: A Beginner''s Guide'
@@ -23,7 +23,7 @@ And today, I’ll show you how to get rich off stocks so you can build wealth ju
 
 ### **Beginner Investing Guide:**
 
-#### **\- Can I Really Get Rich with Stocks?**
+#### Can I Really Get Rich with Stocks?
 
 
 
@@ -31,9 +31,7 @@ Let’s get started.
 
 ## **Can I Really Get Rich with Stocks?**
 
-**<br>
-
-**Yes, you totally can. Stocks have been a solid way to create wealth. But it takes a long time and it’s not easy. You need to follow the right strategy such as buying and holding and being consistent. Now if you do follow that strategy then it becomes easier.
+Yes, you totally can. Stocks have been a solid way to create wealth. But it takes a long time and it’s not easy. You need to follow the right strategy such as buying and holding and being consistent. Now if you do follow that strategy then it becomes easier.
 
 ### **How to Get Rich Off Stocks?**
 
@@ -79,7 +77,7 @@ While there are some dips in the chart here are some things you need to know:
 
 - **Diversify Easily:** Spread your risk by investing in a mix of 500 leading companies across various sectors in the U.S. stock market.
 
-- **Strong Track Record: **Historically averages about a 10% annual return.
+- \*\*Strong Track Record: \*\*Historically averages about a 10% annual return.
 
 - **Low Costs:** Keep more of your money working for you. Enjoy lower fees compared to actively managed funds, which means more of your investment goes towards growth.
 
@@ -125,7 +123,7 @@ For example, if you're planning to buy a house in the next year, avoid putting y
 
 Before we dive in, let’s define two terms that will continue to show:
 
-- **Stocks: **Ownership shares in a company, giving you a slice of its profits and growth potential.
+- \*\*Stocks: \*\*Ownership shares in a company, giving you a slice of its profits and growth potential.
 
 - **Bonds:** Loans you give to governments or companies, earning you regular interest payments and the return of your principal at maturity.
 
@@ -153,19 +151,19 @@ Want to make investing even simpler? Try automating it.
 
 1. **Pick Your Platform:** Whether it's a low-cost index fund or a robo-advisor, choose where you want to invest.
 
-2. **Set Up Auto-Transfers: **Decide how much you want to invest regularly and set up automatic transfers from your bank account.
+2. **Set Up Auto-Transfers:** Decide how much you want to invest regularly and set up automatic transfers from your bank account.
 
-3. **Keep an Eye on It**: Use your monthly money dates to check in on your investments now and then. This will help you stay motivated as you'll see your money grow.
+3. **Keep an Eye on It**: Use your [monthly money dates](/blog/quick-monthly-financial-checkin-routine) to check in on your investments now and then. This will help you stay motivated as you'll see your money grow.
+
+![](/images/screen-shot-2024-02-27-at-11.50.16-am-k4MD.png)
 
 ### **5\. Create Your Investment Strategy**
-
-<br>
 
 Choosing Between **Passive** and **Active** Investing
 
 Understanding your investment style is crucial:
 
-- **Active Investor:** Tries to “time the market”, its goal is to outperform the market with day trading. It’s a bad idea and the reason why too many investors go broke.
+- **Active Investor:** Tries to *“time the market”*, its goal is to outperform the market with day trading. It’s a bad idea and the reason why too many investors go broke.
 
 - **Passive Investor:** Focuses on “time in the market” which is the opposite of trying to time the market, matching market performance through a buy-and-hold approach.
 
@@ -191,9 +189,9 @@ Passive investing is less stressful and less costly, it’s been proven to be a 
 
 **Source:** [Investor.gov](https://www.investor.gov/)
 
-### **Technical Investor Vs. Fundamental Investor<br>
+### Technical Investor Vs. Fundamental Investor<br>
 
-**
+
 
 Second, you’ll also want to take a closer look into whether you’re a technical or fundamental investor:
 
@@ -205,9 +203,9 @@ If you’re a day trader or a swing trader looking for short-term gains, technic
 
 If you’re a long-term investor and want to buy and hold stocks to create wealth no matter the fluctuations in the market than consider yourself a fundamental investor.
 
-### **Doing it Yourself Vs. Hiring an Advisor<br>
+### Doing it Yourself Vs. Hiring an Advisor
 
-**
+
 
 Do you need to consider hiring an investment advisor (or not)?
 
@@ -246,8 +244,6 @@ One hour, no strings attached for a flat fee of $150.
 - **Index Funds:** An index fund is like a basket of many different stocks. It's a way to invest in lots of companies at once. This can spread out your risk, because you're not just relying on one company to do well.
 
 In short, stocks are about betting on one company, while index funds are about investing in many companies at once.
-
-
 
 **Investing in Index Funds My Favorite Strategy**
 
@@ -295,9 +291,9 @@ After you’ve invested your first $5, you can automate your investing on a week
 
 ### **6\. Buy and Sell Individual Stocks**
 
-**<br>
 
-**Buying and selling individual stocks is what **I consider gambling**, you can get lucky and earn much higher returns or lose all your money in the game… and maybe even go broke.
+
+Buying and selling individual stocks is what I consider*** gambling***, you can get lucky and earn much higher returns or lose all your money in the game… and maybe even go broke.
 
 **So why do people do it?**
 
@@ -325,15 +321,13 @@ Now, this rule applies to all investing strategies:
 
 **Remain calm during volatile times. Don’t rush to sell in a panic.**
 
-### **7\. Buy and Hold for the Long Term**
+### **7\. Buy and Hold for the Long Term**<br>
 
-**<br>
 
-**Trying to time the market sounds sexy and exciting, but it can hurt your portfolio.
+
+Trying to time the market sounds sexy and exciting, but it can hurt your portfolio.
 
 Here’s is a beautiful visual created by [Visual Capitals](https://www.visualcapitalist.com/chart-timing-the-market/) showing you why:
-
-
 
 ![null](https://lh7-us.googleusercontent.com/wwbR5vmxz4MhAtSRpn8pB2KNbpsq4XLzgVFI9XDC7FPPlfSc3C0j3TRBxUtlqCEuYgTxS7mq7DTaBZl1B8qTpOXquc4UN0WGc5vUBHz8bUMABk5V-AOjK0-C7ZiDMrERREJrzfhiEyLpNrJYCIzMCzE)
 
@@ -361,17 +355,17 @@ This strategy helps you buy at different price points, stretching your money fur
 
 **Quick Tip:**
 
-Automation plays a huge role on helping you stay on track with your investments. Remember to make your recurring investments part of your regular “monthly expenses” by paying yourself first..
+Automation plays a huge role on helping you stay on track with your investments. Remember to make your recurring investments part of your regular *“monthly expenses”* by paying yourself first.
 
 You can set up a DCA plan directly from your investing app.
 
 One of the best investing apps that helps you DCA is [**Betterment**](betterment.com/friend-referral-offer?referral_key=bWFyaWFjYW5kZWxhcmlhY29yZG9iYQ==).
 
-### **How to Use an Effective Tax Strategy?**
+### **How to Use an Effective Tax Strategy?**<br>
 
-**<br>
 
-**Investing can make you rich, but don't forget about taxes. They can really affect how much money you make from your investments.
+
+Investing can make you rich, but don't forget about taxes. They can really affect how much money you make from your investments.
 
 Here's what you need to know:
 
@@ -389,7 +383,7 @@ When you sell something for more than you paid, you have to pay capital gains ta
 
 - Long-term capital gains: If you sell something you've owned for more than a year, you pay less in taxes.
 
-And this is where the strategy of** tax-loss harvesting** comes into the picture
+And this is where the strategy of\*\* tax-loss harvesting\*\* comes into the picture
 
 ### **Tax-Loss Harvesting Explained**
 
@@ -413,11 +407,11 @@ Begin with opening an account that helps you invest and start with just $1 a wee
 
 That's how beginners can end up with lots of money in the stock market.
 
-## **Getting Rich From Stocks: The Bottom Line**
+## **Getting Rich From Stocks: The Bottom Line**<br>
 
-**<br>
 
-**Getting rich from stocks is pretty simple. There are many Americans already taking advantage of the stock market and generating passive income through it.
+
+Getting rich from stocks is pretty simple. Many Americans are already taking advantage of the stock market and generating passive income through it.
 
 As you look into investing more, remember these important steps:
 
@@ -427,7 +421,7 @@ As you look into investing more, remember these important steps:
 
 - Buy and hold for the long term
 
-I think investing is a lot simpler than the financial industry makes it see. You do need to understand your level of risk tolerance and also make sure you don't fall for the "get rich quick scam" aca trying to time the market with day trading.
+I think investing is a lot simpler than the financial industry makes it see. You do need to understand your level of risk tolerance and also make sure you don't fall for the *"get rich quick scam"* aka trying to time the market with day trading.
 
 As you look into more information you'll need a little common sense.
 
@@ -437,7 +431,7 @@ Make sure you are optimising your investments by taking advantage of tax advanta
 
 - **What's a Roth IRA?**
 
-- **HSA vs FSA Account**
+- [**HSA vs FSA Account Pros & Cons**](/blog/fsa-hra-healthcare-benefits)** **
 
 **Now I’d like to hear from you:**
 
