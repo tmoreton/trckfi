@@ -6,7 +6,7 @@ author:
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
 slug: 'how-to-get-rich-off-stocks-outside-your-retirement-accounts'
 description: 'Discover how to get rich off stocks with our beginner''s guide. Learn key strategies like consistent investing, diversification, and long-term growth. Start building wealth today!'
-coverImage: '/images/women-getting-rich-off-investing-stock-market-kyND.jpg'
+coverImage: '/images/women-getting-rich-off-investing-stock-market-Y2OD.jpg'
 category: 'Investing 101'
 seoTitle: 'Get Rich Off Stocks: Ultimate Guide to Wealth Building for Beginners'
 keywords: 'investing 101, how to get rich off stocks, become a millionaire with stocks, stock market investing for beginners, best passive income investments, long-term stock investing, index fund investing, stock market basics, consistent investing, buy and hold strategy, tax-loss harvesting, investment diversification, robo-advisor investing, compound interest in stocks, stock market tips, building wealth through stocks'
@@ -319,7 +319,7 @@ Now, this rule applies to all investing strategies:
 
 Trying to time the market sounds sexy and exciting, but it can hurt your portfolio.
 
-Here’s is a beautiful visual created by [Visual Capitals](https://www.visualcapitalist.com/chart-timing-the-market/) showing you why:
+Here’s a beautiful visual created by [Visual Capitals](https://www.visualcapitalist.com/chart-timing-the-market/) showing you why:
 
 ![null](https://lh7-us.googleusercontent.com/wwbR5vmxz4MhAtSRpn8pB2KNbpsq4XLzgVFI9XDC7FPPlfSc3C0j3TRBxUtlqCEuYgTxS7mq7DTaBZl1B8qTpOXquc4UN0WGc5vUBHz8bUMABk5V-AOjK0-C7ZiDMrERREJrzfhiEyLpNrJYCIzMCzE)
 
@@ -375,7 +375,7 @@ When you sell something for more than you paid, you have to pay capital gains ta
 
 - Long-term capital gains: If you sell something you've owned for more than a year, you pay less in taxes.
 
-And this is where the strategy of\*\* tax-loss harvesting\*\* comes into the picture
+And this is where the strategy of **tax-loss harvesting** comes into the picture.
 
 ### **Tax-Loss Harvesting Explained**
 
