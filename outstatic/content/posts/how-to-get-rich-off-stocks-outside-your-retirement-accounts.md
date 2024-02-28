@@ -351,6 +351,10 @@ You can set up a DCA plan directly from your investing app.
 
 One of the best investing apps that helps you DCA is [**Betterment**](betterment.com/friend-referral-offer?referral_key=bWFyaWFjYW5kZWxhcmlhY29yZG9iYQ==).
 
+
+
+![goals-investing](/images/goals-gzND.png)
+
 ### **How to Use an Effective Tax Strategy?**<br>
 
 
@@ -375,11 +379,11 @@ When you sell something for more than you paid, you have to pay capital gains ta
 
 And this is where the strategy of **tax-loss harvesting** comes into the picture.
 
-### **Tax-Loss Harvesting Explained**
+### Tax-Loss Harvesting Explained
 
 Tax-loss harvesting is a way to lower your taxes. You sell some investments that made money and some that lost money. This balances things out and can reduce your tax bill.
 
-### **The Advantage of Tax-Loss Harvesting**
+### The Advantage of Tax-Loss Harvesting
 
 This can be really helpful if you want to make money from stocks and worry about taxes. Betterment could be a great choice for you.
 
