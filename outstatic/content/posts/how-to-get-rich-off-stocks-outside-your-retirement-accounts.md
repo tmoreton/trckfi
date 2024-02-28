@@ -35,8 +35,6 @@ This guide will provide you with the foundation, you need to start building weal
 
 #### The key 3 things I want you to remember are: 
 
-
-
 Understand your **risk tolerance**, **diversify your portfolio**, and **don’t try to time the market**, hold onto investments for the long term.
 
 So if you want to become wealthy by investing in the stock market, follow these steps:
@@ -285,7 +283,7 @@ After you’ve invested your first $5, you can automate your investing on a week
 
 ## 7\. Buying & Selling Individual Stocks is a Gamble
 
-Buying and selling individual stocks is what I consider** **gambling, you can get lucky and earn much higher returns or lose all your money in the game… and maybe even go broke.
+Buying and selling individual stocks is what I consider gambling, you can get lucky and earn much higher returns or lose all your money in the game… and maybe even go broke.
 
 **So why do people do it?**
 
