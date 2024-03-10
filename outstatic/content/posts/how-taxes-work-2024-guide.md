@@ -13,7 +13,7 @@ keywords: 'how do taxes work, tax brackets, tax returns, paying taxes, tax due d
 publishedAt: '2024-03-05T13:28:02.000Z'
 ---
 
-Taxes may not be the most exciting topic, but they are crucial for everyone living in the United States. It's that time of year again when we need to file our taxes, a task that is as inevitable as it is important.
+Taxes may not be the most sexy topic, but they are crucial for everyone living in the United States. It's that time of year again when we need to file our taxes, a task that is as inevitable as it is important.
 
 ## Can You Go to Jail for Not Filing Taxes?
 
@@ -57,7 +57,7 @@ Your tax return includes all your income, deductions, and tax credits. You must 
 
 Everyone who earns income in the United States is required to pay taxes. This includes employees, self-employed individuals, and business owners. Even if you don't owe any taxes, you may still need to file a return.
 
-![](/images/tax-returns-women-E5ND.jpg)
+![](/images/tax-returns-women-k4ND.jpg)
 
 ## How Do Taxes Work for Entrepreneurs?
 
@@ -137,7 +137,7 @@ If you're self-employed or own a small business, you may be eligible to deduct b
 
 But again, always work with an accountant to make sure what you are deducting is deductible in the eyes of Uncle Sam.
 
-[![trckfi-track-expenses](/images/home--15--AyMj.png)](/pricing)
+[![trckfi-track-expenses](/images/home--15--UyMD.png)](/pricing)
 
 ## Federal Income Tax Due Date
 
