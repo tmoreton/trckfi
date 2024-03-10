@@ -53,11 +53,11 @@ A tax return is a document you submit to the IRS detailing your income, expenses
 
 Your tax return includes all your income, deductions, and tax credits. You must report all forms of income, including wages, dividends, and even illegal activities. Deductions and tax credits can reduce your taxable income and the amount of taxes you owe.
 
-![](/images/tax-returns-women-gxOD.jpg)
-
 ## Who Pays Taxes?
 
 Everyone who earns income in the United States is required to pay taxes. This includes employees, self-employed individuals, and business owners. Even if you don't owe any taxes, you may still need to file a return.
+
+![](/images/tax-returns-women-E5ND.jpg)
 
 ## How Do Taxes Work for Entrepreneurs?
 
@@ -137,6 +137,8 @@ If you're self-employed or own a small business, you may be eligible to deduct b
 
 But again, always work with an accountant to make sure what you are deducting is deductible in the eyes of Uncle Sam.
 
+[![trckfi-track-expenses](/images/home--15--AyMj.png)](/pricing)
+
 ## Federal Income Tax Due Date
 
 The deadline to file your taxes is Monday April 15, 2024 also known as Tax Day. Don't miss this date to avoid penalties and interest.
@@ -146,8 +148,6 @@ The deadline to file your taxes is Monday April 15, 2024 also known as Tax Day. 
 Taxes aren't just a once-a-year deal. Staying on top of them throughout the year can save you a lot of stress (and possibly money) when tax time rolls around. If you're self-employed or have a side hustle, setting aside a portion of your income for taxes can prevent a big surprise bill in April. And if you're expecting to owe a lot, making estimated tax payments quarterly can spread out the burden.
 
 Think of it like a tax savings account – a little bit each month adds up and keeps you from scrambling at the last minute. So, make tax planning a part of your regular financial routine, and you'll thank yourself later!
-
-[![trckfi-track-expenses](/images/home--15--M1MD.png)](/pricing)
 
 ## Wrapping Up
 
