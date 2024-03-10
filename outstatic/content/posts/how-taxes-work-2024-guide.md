@@ -39,7 +39,7 @@ It's a **graduated tax bracket**.
 
 ![](/images/screen-shot-2024-03-10-at-9.16.17-am-M4Nj.png)
 
-Why does this matter? Well, I've come across a lot of folks who turn down pay raises or bonuses because they're worried it'll push them into a higher tax bracket.
+Why does this matter? Well, I've come across a lot of people who turn down pay raises or bonuses because they're worried it'll push them into a higher tax bracket.
 
 But here's the thing: welcoming more money is always a wise choice! No matter what tax bracket you're in, you'll still end up with extra cash in your pocket. So, don't hold back—embrace those raises and bonuses with open arms!
 
@@ -147,9 +147,7 @@ Taxes aren't just a once-a-year deal. Staying on top of them throughout the year
 
 Think of it like a tax savings account – a little bit each month adds up and keeps you from scrambling at the last minute. So, make tax planning a part of your regular financial routine, and you'll thank yourself later!
 
-
-
-[![trckfi-track-expenses](blob:https://www.trckfi.com/a5a05a79-3b7c-4df9-937d-26a8b1d53cc1)](/pricing)
+[![trckfi-track-expenses](/images/home--15--UwOD.png)](/pricing)
 
 ## Wrapping Up
 
