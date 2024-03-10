@@ -57,13 +57,13 @@ Your tax return includes all your income, deductions, and tax credits. You must 
 
 Everyone who earns income in the United States is required to pay taxes. This includes employees, self-employed individuals, and business owners. Even if you don't owe any taxes, you may still need to file a return.
 
-![](/images/tax-returns-women-g4Nj.jpg)
+![](/images/tax-returns-women-AwMD.jpg)
 
 ## How Do Taxes Work for Entrepreneurs?
 
-Entrepreneurs and small business owners face unique tax considerations. They can deduct business-related expenses, such as office supplies, travel, and professional fees, to lower their taxable income.
+Entrepreneurs and small business owners face unique [tax considerations](/blog/self-employed-taxes-7-easy-strategies-for-success). They can deduct business-related expenses, such as office supplies, travel, and professional fees, to lower their taxable income.
 
-However, entrepreneurs must keep detailed records and receipts for all business expenses. Keeping accurate records is essential for taking advantage of deductions and substantiating those deductions in the event of an IRS audit.
+However, entrepreneurs must keep detailed records and receipts for all [business expenses](/blog/self-employed-taxes-7-easy-strategies-for-success). Keeping accurate records is essential for taking advantage of deductions and substantiating those deductions in the event of an IRS audit.
 
 Here are some common expenses that entrepreneurs can potentially deduct:
 
@@ -85,7 +85,7 @@ Here are some common expenses that entrepreneurs can potentially deduct:
 
 💰 **Retirement Contributions:** Contributions to a SEP IRA, SIMPLE IRA, or solo 401(k) can be deductible.
 
-Given the complexity of tax rules and limitations for deductions, it's always wise to consult with a tax professional. They can help ensure you're maximizing your deductions while staying compliant with tax laws.
+Given the complexity of tax rules and limitations for deductions, it's always wise to consult with a tax professional. They can help ensure you're maximizing your deductions while staying compliant with tax laws. Also you can check out [this quick article](/blog/self-employed-taxes-7-easy-strategies-for-success) where I cover self-employed tax strategies.
 
 [![track-expenses-for-tax-deducations](/images/home--18--E2Nz.png)](/features/transactions)
 
@@ -137,7 +137,7 @@ If you're self-employed or own a small business, you may be eligible to deduct b
 
 But again, always work with an accountant to make sure what you are deducting is deductible in the eyes of Uncle Sam.
 
-[![trckfi-track-expenses](/images/home--15--E5ND.png)](/pricing)
+[![trckfi-track-expenses](/images/home--15--k1OT.png)](/pricing)
 
 ## Federal Income Tax Due Date
 
