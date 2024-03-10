@@ -1,10 +1,10 @@
 ---
 title: 'How do Taxes Work? Everything You Need to Know to Navigate Your 2024 Tax Filing'
-status: 'draft'
+status: 'published'
 author:
   name: 'Cande R.'
   picture: 'https://avatars.githubusercontent.com/u/132212677?v=4'
-slug: 'how-do-taxes-work-everything-you-need-to-know-to-navigate-your-2024-tax-filing'
+slug: 'how-taxes-work-2024-guide'
 description: 'Learn how taxes work in 2024 with our laid-back guide. We''re breaking down filing, deductions, and more, so you can handle your taxes without the stress!'
 coverImage: '/images/tax-braket-tips-Q4OT.jpg'
 category: 'Taxes'
@@ -43,7 +43,7 @@ Why does this matter? Well, I've come across a lot of folks who turn down pay ra
 
 But here's the thing: welcoming more money is always a wise choice! No matter what tax bracket you're in, you'll still end up with extra cash in your pocket. So, don't hold back—embrace those raises and bonuses with open arms!
 
-[![trckfi-dashboard](/images/trckfi-dashboard-A3ND.jpg)](features/net-worth)
+[![trckfi-track-expenses](/images/home--15--EwND.png)](/features/dashboard)
 
 ## What Is a Tax Return?
 
@@ -52,6 +52,8 @@ A tax return is a document you submit to the IRS detailing your income, expenses
 ## What's Included in My Tax Return?
 
 Your tax return includes all your income, deductions, and tax credits. You must report all forms of income, including wages, dividends, and even illegal activities. Deductions and tax credits can reduce your taxable income and the amount of taxes you owe.
+
+![](https://giphy.com/gifs/hellogiggles-l4Jz3tidLKiD02o0g> "an-image-title")
 
 ## Who Pays Taxes?
 
@@ -85,7 +87,7 @@ Here are some common expenses that entrepreneurs can potentially deduct:
 
 Given the complexity of tax rules and limitations for deductions, it's always wise to consult with a tax professional. They can help ensure you're maximizing your deductions while staying compliant with tax laws.
 
-
+[![track-expenses-for-tax-deducations](/images/home--18--E2Nz.png)](/features/transactions)
 
 ## Why Do We Pay Taxes?
 
@@ -97,7 +99,7 @@ Tax deductions reduce your taxable income, lowering your tax bill. Think of them
 
 You can choose between taking the standard deduction or itemizing your deductions.
 
-### For the 2023 tax year, the standard deduction is: 
+### For the 2023 tax year, the standard deduction is:
 
 💸 $13,850 for single or married filing separately
 
@@ -145,7 +147,25 @@ Taxes aren't just a once-a-year deal. Staying on top of them throughout the year
 
 Think of it like a tax savings account – a little bit each month adds up and keeps you from scrambling at the last minute. So, make tax planning a part of your regular financial routine, and you'll thank yourself later!
 
+
+
+[![trckfi-track-expenses](blob:https://www.trckfi.com/a5a05a79-3b7c-4df9-937d-26a8b1d53cc1)](/pricing)
+
 ## Wrapping Up
 
 Taxes might seem overwhelming, but knowing the basics is crucial for managing your finances effectively. Remember, no one cares about your money as much as you do, so take an active role in understanding and filing your taxes.
+
+Make sure you are optimizing your investments by taking advantage of tax advantage accounts as much as possible this year:
+
+- [**How to get started on a 401K?**](https://www.trckfi.com/blog/traditional-401k-plan)
+
+- [**What's a Roth IRA?**](https://www.trckfi.com/blog/roth-ira-advantage-2023)
+
+- [**HSA vs FSA Account Pros & Cons**](https://www.trckfi.com/blog/fsa-hra-healthcare-benefits)
+
+Check out our [blog](/blog) for more financial education and learn more about our easy-to-use personal finance tracker [here](/).
+
+**Join Our Community and Get My Weekly Tips via Email**
+
+Every week, you’ll get 1 actionable tip to help you save more money, increase your income, and multiply your wealth 👇
 

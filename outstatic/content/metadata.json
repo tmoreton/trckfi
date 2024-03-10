@@ -1,6 +1,6 @@
 {
-  "commit": "e591da087dbe7bc3629b3802afc0b4536090fd09",
-  "generated": "2024-03-10T13:50:24.931Z",
+  "commit": "915f81a2443c3bac0e2bc0a50eced95ee45a31a3",
+  "generated": "2024-03-10T14:17:06.746Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1055,9 +1055,9 @@
     },
     {
       "__outstatic": {
-        "commit": "e591da087dbe7bc3629b3802afc0b4536090fd09",
-        "hash": "3186929242",
-        "path": "outstatic/content/posts/how-do-taxes-work-everything-you-need-to-know-to-navigate-your-2024-tax-filing.md"
+        "commit": "915f81a2443c3bac0e2bc0a50eced95ee45a31a3",
+        "hash": "2935583496",
+        "path": "outstatic/content/posts/how-taxes-work-2024-guide.md"
       },
       "author": {
         "name": "Cande R.",
@@ -1070,8 +1070,8 @@
       "keywords": "how do taxes work, tax brackets, tax returns, paying taxes, tax due date, how taxes work, 2024 tax filing, tax filing guide, tax deductions, tax filing tips, tax filling for beginners",
       "publishedAt": "2024-03-05T13:28:02.000Z",
       "seoTitle": "How Do Taxes Work? Your 2024 Guide to Filing with Ease",
-      "slug": "how-do-taxes-work-everything-you-need-to-know-to-navigate-your-2024-tax-filing",
-      "status": "draft",
+      "slug": "how-taxes-work-2024-guide",
+      "status": "published",
       "title": "How do Taxes Work? Everything You Need to Know to Navigate Your 2024 Tax Filing"
     }
   ]
