@@ -1,6 +1,6 @@
 {
-  "commit": "c8a76db0f76b07b93e2be419bb3027ba35f60c3e",
-  "generated": "2024-02-28T02:00:20.938Z",
+  "commit": "e591da087dbe7bc3629b3802afc0b4536090fd09",
+  "generated": "2024-03-10T13:50:24.931Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1052,6 +1052,27 @@
       "slug": "how-to-get-rich-off-stocks-outside-your-retirement-accounts",
       "status": "published",
       "title": "How to Get Rich Off Stocks: A Step by Step Beginner's Guide to Building Wealth (Outside Retirement)"
+    },
+    {
+      "__outstatic": {
+        "commit": "e591da087dbe7bc3629b3802afc0b4536090fd09",
+        "hash": "3186929242",
+        "path": "outstatic/content/posts/how-do-taxes-work-everything-you-need-to-know-to-navigate-your-2024-tax-filing.md"
+      },
+      "author": {
+        "name": "Cande R.",
+        "picture": "https://avatars.githubusercontent.com/u/132212677?v=4"
+      },
+      "category": "Taxes",
+      "collection": "posts",
+      "coverImage": "/images/tax-braket-tips-Q4OT.jpg",
+      "description": "Learn how taxes work in 2024 with our laid-back guide. We're breaking down filing, deductions, and more, so you can handle your taxes without the stress!",
+      "keywords": "how do taxes work, tax brackets, tax returns, paying taxes, tax due date, how taxes work, 2024 tax filing, tax filing guide, tax deductions, tax filing tips, tax filling for beginners",
+      "publishedAt": "2024-03-05T13:28:02.000Z",
+      "seoTitle": "How Do Taxes Work? Your 2024 Guide to Filing with Ease",
+      "slug": "how-do-taxes-work-everything-you-need-to-know-to-navigate-your-2024-tax-filing",
+      "status": "draft",
+      "title": "How do Taxes Work? Everything You Need to Know to Navigate Your 2024 Tax Filing"
     }
   ]
 }
