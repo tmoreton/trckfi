@@ -53,7 +53,7 @@ A tax return is a document you submit to the IRS detailing your income, expenses
 
 Your tax return includes all your income, deductions, and tax credits. You must report all forms of income, including wages, dividends, and even illegal activities. Deductions and tax credits can reduce your taxable income and the amount of taxes you owe.
 
-![](https://giphy.com/gifs/hellogiggles-l4Jz3tidLKiD02o0g> "an-image-title")
+![](/images/tax-returns-women-gxOD.jpg)
 
 ## Who Pays Taxes?
 
@@ -147,7 +147,7 @@ Taxes aren't just a once-a-year deal. Staying on top of them throughout the year
 
 Think of it like a tax savings account – a little bit each month adds up and keeps you from scrambling at the last minute. So, make tax planning a part of your regular financial routine, and you'll thank yourself later!
 
-[![trckfi-track-expenses](/images/home--15--UwOD.png)](/pricing)
+[![trckfi-track-expenses](/images/home--15--M1MD.png)](/pricing)
 
 ## Wrapping Up
 
