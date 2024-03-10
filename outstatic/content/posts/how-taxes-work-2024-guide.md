@@ -1,5 +1,5 @@
 ---
-title: 'How do Taxes Work? Everything You Need to Know to Navigate Your 2024 Tax Filing'
+title: 'How do Taxes Work? Everything You Need to Know For Your 2024 Tax Filing'
 status: 'published'
 author:
   name: 'Cande R.'
@@ -57,7 +57,7 @@ Your tax return includes all your income, deductions, and tax credits. You must 
 
 Everyone who earns income in the United States is required to pay taxes. This includes employees, self-employed individuals, and business owners. Even if you don't owe any taxes, you may still need to file a return.
 
-![](/images/tax-returns-women-k4ND.jpg)
+![](/images/tax-returns-women-g4Nj.jpg)
 
 ## How Do Taxes Work for Entrepreneurs?
 
@@ -137,7 +137,7 @@ If you're self-employed or own a small business, you may be eligible to deduct b
 
 But again, always work with an accountant to make sure what you are deducting is deductible in the eyes of Uncle Sam.
 
-[![trckfi-track-expenses](/images/home--15--UyMD.png)](/pricing)
+[![trckfi-track-expenses](/images/home--15--E5ND.png)](/pricing)
 
 ## Federal Income Tax Due Date
 

@@ -1,6 +1,6 @@
 {
   "commit": "915f81a2443c3bac0e2bc0a50eced95ee45a31a3",
-  "generated": "2024-03-10T14:23:40.409Z",
+  "generated": "2024-03-10T14:35:26.055Z",
   "metadata": [
     {
       "__outstatic": {
@@ -1077,7 +1077,7 @@
     {
       "__outstatic": {
         "commit": "915f81a2443c3bac0e2bc0a50eced95ee45a31a3",
-        "hash": "2000984885",
+        "hash": "3995536895",
         "path": "outstatic/content/posts/how-taxes-work-2024-guide.md"
       },
       "author": {
@@ -1093,7 +1093,7 @@
       "seoTitle": "How Do Taxes Work? Your 2024 Guide to Filing with Ease",
       "slug": "how-taxes-work-2024-guide",
       "status": "published",
-      "title": "How do Taxes Work? Everything You Need to Know to Navigate Your 2024 Tax Filing"
+      "title": "How do Taxes Work? Everything You Need to Know For Your 2024 Tax Filing"
     }
   ]
 }
