@@ -57,7 +57,7 @@ With Mint's departure, it's an opportunity to **explore** **alternatives** that 
 
 If you've relied on Mint, their shutdown is a disappointment but also a fresh start. Here are the **top alternatives** to consider based on your financial needs and values:
 
-[![trckfi-demo-dashboard](/images/home--15--UxNj.png)](/features/dashboard)
+[![trckfi-net-worth](/images/networth-UxND.png)](/features/net-worth)
 
 ### 1\. Trckfi
 
@@ -103,7 +103,7 @@ Goodbudget uses the envelope budgeting methodology. Ideal if you like detailed c
 
 And there are many other excellent paid platforms to explore as alternatives to Mint. The key is finding the best fit for your needs and values.
 
-[![trckfi-cash-flow-expense-tracker](/images/home--18--U5Nz.png)](/features/transactions)
+[![trckfi-cash-flow-expense-tracker](/images/home--18--AyMz.png)](/features/transactions)
 
 ## Take Control of Your Finances
 
@@ -119,7 +119,7 @@ This fundamental misalignment explains why many **free finance apps eventually s
 
 Paid subscription apps **incentivize your success over profits**. And provide personalized education for long-term growth.
 
-[![net-worth-visualize-goals-trckfi-features](/images/home--17--I0MD.png)](/features/visionboard)
+[![net-worth-visualize-goals-trckfi-features](/images/home--17--U5OD.png)](/features/visionboard)
 
 ## **Trckfi is super simple to use and free to try**
 
