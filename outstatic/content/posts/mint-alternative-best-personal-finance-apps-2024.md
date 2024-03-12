@@ -2,12 +2,12 @@
 title: 'Mint is Shutting Down: Best Finance App Alternatives for Your Money in 2024'
 status: 'published'
 author:
-  name: 'Trckfi'
+  name: 'Cande R'
   picture: ''
 slug: 'mint-alternative-best-personal-finance-apps-2024'
 description: 'With Mint shutting down in 2024, review the top 7 paid alternatives for budgeting, expense tracking and managing your finances aligned with your needs.'
 coverImage: '/images/girl-looking-mint-alternative-personal-finance-apps-EzOT.jpg'
-keywords: 'mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint'
+keywords: 'mint alternative, personal finance app, budgeting app, expense tracking app, finance management app, mint shutdown, replace mint, replacement for mint app, best min alternative'
 category: 'Money Management'
 seoTitle: 'Replace Mint: 7 Best Paid Personal Finance Apps for 2023'
 publishedAt: '2024-01-02T12:03:51.000Z'
@@ -57,7 +57,7 @@ With Mint's departure, it's an opportunity to **explore** **alternatives** that 
 
 If you've relied on Mint, their shutdown is a disappointment but also a fresh start. Here are the **top alternatives** to consider based on your financial needs and values:
 
-[![manage-your-personal-finances-in-one-app](/images/home--2--k0NT.png)](/pricing)
+[![trckfi-demo-dashboard](/images/home--15--UxNj.png)](/features/dashboard)
 
 ### 1\. Trckfi
 
@@ -103,7 +103,7 @@ Goodbudget uses the envelope budgeting methodology. Ideal if you like detailed c
 
 And there are many other excellent paid platforms to explore as alternatives to Mint. The key is finding the best fit for your needs and values.
 
-[![cash-flow-expense-tracker](/images/home--11--g5Nz.png)](/pricing)
+[![trckfi-cash-flow-expense-tracker](/images/home--18--U5Nz.png)](/features/transactions)
 
 ## Take Control of Your Finances
 
@@ -119,7 +119,7 @@ This fundamental misalignment explains why many **free finance apps eventually s
 
 Paid subscription apps **incentivize your success over profits**. And provide personalized education for long-term growth.
 
-[![net-worth-visualize-goals-trckfi-features](/images/home--1--I3NT.jpg)](/pricing)
+[![net-worth-visualize-goals-trckfi-features](/images/home--17--I0MD.png)](/features/visionboard)
 
 ## **Trckfi is super simple to use and free to try**
 
