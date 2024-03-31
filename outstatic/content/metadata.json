@@ -1,6 +1,6 @@
 {
-  "commit": "be599328219044034de81e6d596bd6d834a7aa58",
-  "generated": "2024-03-17T06:30:40.290Z",
+  "commit": "06379952605d382a127610cc0e2f336e44649988",
+  "generated": "2024-03-31T09:02:47.867Z",
   "metadata": [
     {
       "__outstatic": {
@@ -401,27 +401,6 @@
       "slug": "how-to-retire-early-fire-movement",
       "status": "published",
       "title": "Achieve Financial Independence and Retire Early Through the FIRE Movement"
-    },
-    {
-      "__outstatic": {
-        "commit": "8b8bd8b294697c9da8890769935158aed50ffe8b",
-        "hash": "1962278280",
-        "path": "outstatic/content/posts/building-an-emergency-fund.md"
-      },
-      "author": {
-        "name": "Trckfi"
-      },
-      "category": " Financial Planning",
-      "collection": "posts",
-      "coverImage": "/assets/blog/emergency-fund-cover.png",
-      "date": "7.25.2023",
-      "description": "Learn how to start and build an emergency fund with practical tips on setting savings goals, budgeting, where to keep the money, and resisting temptation to tap it.",
-      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
-      "publishedAt": "2023-08-01T14:25:45.000Z",
-      "seoTitle": "How to Build an Emergency Fund: The Complete Guide",
-      "slug": "building-an-emergency-fund",
-      "status": "published",
-      "title": "The Beginner’s Guide to Starting an Emergency Fund"
     },
     {
       "__outstatic": {
@@ -1094,6 +1073,27 @@
       "slug": "iras-vs-401ks-choosing-retirement-plan",
       "status": "published",
       "title": "401(k)s Investing and IRAs: Retirement Planning for a Secure Future"
+    },
+    {
+      "__outstatic": {
+        "commit": "06379952605d382a127610cc0e2f336e44649988",
+        "hash": "3672097646",
+        "path": "outstatic/content/posts/building-an-emergency-fund.md"
+      },
+      "author": {
+        "name": "Trckfi"
+      },
+      "category": " Financial Planning",
+      "collection": "posts",
+      "coverImage": "/assets/blog/emergency-fund-cover.png",
+      "date": "7.25.2023",
+      "description": "Learn how to start and build an emergency fund with practical tips on setting savings goals, budgeting, where to keep the money, and resisting temptation to tap it.",
+      "keywords": "eywords: emergency fund, financial security, unexpected expenses, financial preparedness, savings, budgeting, financial goals, peace of mind",
+      "publishedAt": "2024-03-24T13:25:45.000Z",
+      "seoTitle": "How to Build an Emergency Fund: The Complete Guide",
+      "slug": "building-an-emergency-fund",
+      "status": "published",
+      "title": "The Beginner’s Guide to Starting an Emergency Fund"
     }
   ]
 }
