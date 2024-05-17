@@ -62,8 +62,8 @@ export default function ({ showError, open, setOpen, user, getNetWorth }) {
     const { error, data } = await res.json()
     showError(error)
     setAccount({
-      name: data.longName,
-      institution: data.fullExchangeName,
+      name: data?.longName,
+      institution: data?.fullExchangeName,
       type: 'investment',
       subtype: data.typeDisp.toLowerCase(),
       amount: null,
