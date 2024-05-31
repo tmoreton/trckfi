@@ -104,8 +104,8 @@ export default ({ open, setOpen }) => {
                               required 
                               className="mt-2 lg:m-0 w-full min-w-0 flex-auto rounded-3xl border bg-white px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6"
                             />
-                            <input hidden name="rewrite" type="text" />
-                            <input hidden name="id" type="text" value="cls9n0gpo00003yohzura0zyx"/> 
+                            <input hidden name="id" type="text" value="8c260412-f011-4887-b91e-024fe1ed25dd"/>
+                            <input hidden name="notionly" type="text" />
                             <input hidden name="success_url" type="text" value="https://www.trckfi.com/download"/> 
                           </div>
                           <div className="mx-auto flex max-w-md gap-x-4" >
