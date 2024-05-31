@@ -88,7 +88,7 @@ export default ({ open, setOpen }) => {
                             Google Sheets Integration
                           </li>
                         </ul>
-                        <form action="https://rewrite.blog/notion/subscribe" method="post">
+                        <form action="https://notion.ly/notion/subscribe" method="post">
                           <div className="mx-auto block lg:flex max-w-md gap-x-4 pt-5">
                             <input 
                               placeholder="Name" 
